@@ -25,33 +25,59 @@ class Client(object):
         self.passwd = passwd
 
     # Properties
-    def setEndpoint(endpoint):
+    def getEndpoint(self):
+        return self.endpoint
+    def setEndpoint(self, endpoint):
         self.endpoint = endpoint
-    def setEmail(email):
+    def getEmail(self):
+        return self.email
+    def setEmail(self, email):
         self.email = email
-    def setPassword(passwd):
+    def getPassword(self):
+        return self.passwd
+    def setPassword(self, passwd):
         self.passwd = passwd
-
 
     # Public API
     def login(self):
-        data = self.call_api('POST', "/v1/sessions", {'email': self.email, 'password': self.passwd})
-        self.token = data['token']
-        return True
+        response = self.post("/v1/sessions", {'email': self.email, 'password': self.passwd})
+        self.token = response['token']
+        return response
+
+    def logout(self):
+        response = self.call_api('DELETE', "/v1/sessions", {'email': self.email, 'password': self.passwd})
+        self.token = None
+        self.email = None
+        self.passwd = None
+        return response
 
     def create_account(self, companyName, email, passwd):
-        params = {'companyName': companyName, 'email': self.email, 'password': self.passwd}
-        data = self.call_api('POST', "/v1/accounts", params)
-        self.token = data['token']
+        payload = {'companyName': companyName, 'email': self.email, 'password': self.passwd}
+        response = self.post("/v1/accounts", payload)
+        self.token = response['token']
+        return response
 
     def create_application(self, name, api_key, integration_type='Own Shop System (API)', tz='UTC', currency='EUR'):
-        data = {'name':     name,
-                'type':     integration_type,
-                'timezone': tz,
-                'currency': currency,
-                'key':      api_key
+        payload = {'name':     name,
+                   'type':     integration_type,
+                   'timezone': tz,
+                   'currency': currency,
+                   'key':      api_key
         }
-        return self.call_api('POST', "/v1/applications", data)
+        return self.post("/v1/applications", payload)
+
+    # Low level API
+    def get(self, path):
+        return self.call_api("GET", path)
+
+    def put(self, path, payload):
+        return self.call_api("PUT", path, payload)
+
+    def post(self, path, payload):
+        return self.call_api("POST", path, payload)
+
+    def delete(self, path):
+        return self.call_api("DELETE", path)
 
     # Helper functions
     def call_api(self, method, path, data, token=None):
