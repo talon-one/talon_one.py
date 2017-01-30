@@ -14,7 +14,7 @@ class TestIntegrationApi(unittest.TestCase):
         data = {
             "advocateId": "",
             "attributes": {
-                "name": "Foobar1"
+                "Name": "Foobar1"
             }
         }
         integration_id = "cust1"

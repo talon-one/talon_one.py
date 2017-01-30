@@ -50,8 +50,6 @@ class Client(object):
             headers['Content-Type'] ='application/json',
             headers['Content-Signature'] = 'signer=%s; signature=%s' % (self.app_id, self.__signature(payload))
 
-            print headers
-
             response = None
             if method == 'POST':
                 response = requests.post(url, data=payload, headers=headers)
@@ -74,4 +72,4 @@ class Client(object):
         return urljoin(self.endpoint, path)
 
     def __signature(self, msg):
-        return hmac.new(self.app_key, msg.encode('utf-8'), hashlib.md5).hexdigest()
+        return hmac.new(self.app_key.decode('hex'), msg.encode('utf-8'), hashlib.md5).hexdigest()
