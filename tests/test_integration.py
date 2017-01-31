@@ -5,7 +5,7 @@ from talon_one import integration
 
 class TestIntegrationApi(unittest.TestCase):
     def setUp(self):
-        self.client = integration.Client("http://localhost:9000", 1, "c0a9cc9bd05d62ed")
+        self.client = integration.Client("http://localhost:9000", 1, "a78cc977fce0fd53")
 
     def tearDown(self):
         self.client = None

@@ -1,4 +1,4 @@
-import sys, os, base64, datetime, hashlib, hmac, json
+import sys, os, hashlib, hmac
 from urlparse import urljoin
 import requests
 
@@ -17,44 +17,49 @@ class Client(object):
         self.endpoint = endpoint
         self.app_id = application_id
         self.app_key = application_key
-        self.token = ''
 
     # Properties
-    def setEndpoint(endpoint):
+    def getEndpoint(self):
+        return self.endpoint
+    def setEndpoint(self, endpoint):
         self.endpoint = endpoint
-    def setAppKey(key):
+    def getAppKey(self):
+        return self.app_key
+    def setAppKey(self, key):
         self.app_key = key
-    def setAppId(id):
+    def getAppId(self):
+        return self.app_id
+    def setAppId(self, id):
         self.app_id = id
 
     # Public API
     def track_event(self, session_id, event_type, value):
-        self.call_api('POST', '/v1/events', { sessionId: session_id, type: event_type, attributes: value })
+        return self.call_api('POST', '/v1/events', { sessionId: session_id, type: event_type, attributes: value })
 
-    def update_customer_session(self, session_id, data):
-        self.call_api('PUT', '/v1/customer_sessions/%s' % session_id, data)
+    def update_customer_session(self, session_id, payload):
+        return self.call_api('PUT', '/v1/customer_sessions/%s' % session_id, payload)
 
-    def update_customer_profile(self, integration_id, data):
-        self.call_api('PUT', '/v1/customer_profiles/%s' % integration_id, data)
+    def update_customer_profile(self, integration_id, payload):
+        return self.call_api('PUT', '/v1/customer_profiles/%s' % integration_id, payload)
 
     def close_customer_session(self, session_id):
-        self.update_customer_session(session_id, { state: 'closed' })
+        return self.update_customer_session(session_id, { state: 'closed' })
 
     # Helper functions
-    def call_api(self, method, path, data, token=None):
+    def call_api(self, method, path, payload, token=None):
         try:
             url = self.__build_url(path)
-            payload = json.dumps(data)
+            json_payload = json.dumps(payload)
 
             headers = {}
             headers['Content-Type'] ='application/json',
-            headers['Content-Signature'] = 'signer=%s; signature=%s' % (self.app_id, self.__signature(payload))
+            headers['Content-Signature'] = 'signer=%s; signature=%s' % (self.app_id, self.__signature(json_payload))
 
             response = None
             if method == 'POST':
-                response = requests.post(url, data=payload, headers=headers)
+                response = requests.post(url, data=json_payload, headers=headers)
             elif method == 'PUT':
-                response = requests.put(url, data=payload, headers=headers)
+                response = requests.put(url, data=json_payload, headers=headers)
             elif method == 'DELETE':
                 response = requests.delete(url, headers=headers)
             else:
@@ -63,10 +68,10 @@ class Client(object):
             if response.status_code < 400:
                 return response.json()
             else:
-                raise Exception("Unable to call API - %s, %s, %s => %s" % (method, url, data, response.status_code))
+                raise Exception("Unable to call API - %s, %s, %s => %s" % (method, url, payload, response.status_code))
         except:
             err = sys.exc_info()[0]
-            raise Exception("Unable to call API - %s, %s, %s" % (method, url, data))
+            raise Exception("Unable to call API - %s, %s, %s" % (method, url, payload))
 
     def __build_url(self, path):
         return urljoin(self.endpoint, path)
