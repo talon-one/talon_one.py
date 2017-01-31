@@ -3,8 +3,8 @@ urlparse
 json
 hmac
 hashlib
-base64
-datetime
 
 mock==1.3.0
 unittest2==0.5.1; python_version == '2.6'
+nose
+coverage
