@@ -8,7 +8,7 @@ provides following API clients:
 
 First, you will need to find your API endpoint, Application ID and Application Key in the Camapaign Manager by going to the "Settings" tab.
 
-With these 3 things we can set up the integration API client:
+With these basic setting options we can set up the integration API client:
 ```python
 from talon_one import integration
 
@@ -57,12 +57,24 @@ client.update_customer_session("my_unique_session_id", data)
 
 # When the customer does something else interesting using already defined EventType viewed_promo_page
 client.track_event("my_unique_session_id", "viewed_promo_page", {"url": "http://example.com/summer-shoes-2016"})
-
-
 ```
 
 ## Handling of responses and errors
-TODO: custom exceptions + example
+
+### Respponse
+Successfull response from API is a Python `dict` represnting decode JSON response from API call.
+
+### Errors
+Invalid calls to API results in raising `TalonOneAPIError` exception that provides details about what went wrong.
+
+Example usage with exception handling:
+```python
+try:
+   client.track_event("foo", {"bar": False})
+except exceptions.TalonOneAPIError as te:
+   print te
+```
+Exception is wrapping HTTP, JSON and errors as well as API validation error messages.
 
 ## Installation
 ```bash
