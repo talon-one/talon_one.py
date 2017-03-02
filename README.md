@@ -34,8 +34,8 @@ data = {"advocateId": "",
 client.update_customer_profile("my_unique_profile_id", data)
 
 # Create a new referral code for a profile that could be used in customer sessions
-data = {"advocateProfileIntegrationId": self.__class__.profile_id,
-        "campaignId": self.campaign["id"],
+data = {"advocateProfileIntegrationId": "my_unique_profile_id",
+        "campaignId": 1,
         "expiryDate": "2017-08-17T16:08:52.018206901+02:00",
         "startDate": "2017-02-28T16:08:52.018206901+01:00"}
 client.create_referral_code(data)
@@ -57,6 +57,10 @@ client.update_customer_session("my_unique_session_id", data)
 
 # When the customer does something else interesting using already defined EventType viewed_promo_page
 client.track_event("my_unique_session_id", "viewed_promo_page", {"url": "http://example.com/summer-shoes-2016"})
+
+
+# Finally you close session to finalize whole transaction
+client.close_customer_session("my_unique_session_id")
 ```
 
 ## Handling of responses and errors
