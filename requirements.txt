@@ -1,6 +1,6 @@
 requests
 urlparse
-json
+cjson
 hmac
 hashlib
 
