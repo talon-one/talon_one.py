@@ -1,8 +1,8 @@
-import sys, os, hashlib, hmac, cjson
-from urlparse import urljoin
-from talon_one import exceptions
+import sys, os, cjson
 import requests
 import simplejson
+from urlparse import urljoin
+from talon_one import exceptions
 
 class Client(object):
     """
@@ -69,12 +69,12 @@ class Client(object):
         return self.call_api("DELETE", path)
 
     # Helper functions
-    def call_api(self, method, path, payload={}, token=None):
+    def call_api(self, method, path, payload={}):
         try:
             url = self.__build_url(path)
 
             headers = {}
-            headers["Content-Type"] ="application/json",
+            headers["Content-Type"] = "application/json",
             headers["Authorization"] = "Bearer %s" % self.token
 
             response = None

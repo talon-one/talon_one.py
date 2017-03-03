@@ -51,19 +51,19 @@ class Client(object):
         return  self.call_api("PUT", "/v1/customer_profiles/%s" % integration_id, payload)
 
     def close_customer_session(self, session_id):
-        return  self.update_customer_session(session_id, { "state": "closed" })
+        return  self.update_customer_session(session_id, {"state": "closed"})
 
     def create_referral_code(self, payload):
         return self.call_api("POST", "/v1/referrals", payload)
 
     # Helper functions
-    def call_api(self, method, path, payload, token=None):
+    def call_api(self, method, path, payload):
         try:
             url = self.__build_url(path)
             json_payload = cjson.encode(payload)
 
             headers = {}
-            headers["Content-Type"] ="application/json",
+            headers["Content-Type"] = "application/json",
             headers["Content-Signature"] = "signer=%s; signature=%s" % (self.app_id, self.__signature(json_payload))
 
             if self.debug:

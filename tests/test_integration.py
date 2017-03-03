@@ -1,6 +1,4 @@
-import os
 import unittest
-
 from talon_one import exceptions
 from talon_one import management
 from talon_one import integration
@@ -80,7 +78,6 @@ class TestIntegrationApi(unittest.TestCase):
 
         except exceptions.TalonOneAPIError as te:
             print te
-            #self.assertTrue(False)
 
     def tearDown(self):
         self.integration_client = None
