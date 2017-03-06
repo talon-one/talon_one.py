@@ -2,7 +2,7 @@
 
 Talon.One enables marketers to create coupon, discount, loyalty, and referral
 marketing campaigns of virtually unlimited power and flexibility. This library
-provides following API clients:
+provides SDK for working with integration API.
 
 ## Getting started with the Integration API
 
