@@ -1,6 +1,6 @@
 # Talon.One Python 2.X SDK
 
-Talon.One enables marketers to create coupon, discount, loyalty, and referral
+[Talon.One][1] enables marketers to create coupon, discount, loyalty, and referral
 marketing campaigns of virtually unlimited power and flexibility. This library
 provides SDK for working with integration API.
 
@@ -92,7 +92,7 @@ try:
 except exceptions.TalonOneAPIError as te:
    print te
 ```
-Exception is wrapping HTTP, JSON and errors as well as API validation error messages.
+Exception is wrapping HTTP, JSON and errors as well as [API validation error][3] messages.
 
 ## Installation
 ```bash
@@ -107,6 +107,8 @@ $ nosetests tests/
 $ nosetests --with-coverage --cover-erase --cover-html --cover-package=talon_one
 ```
 
-To view the full list of data that each of these API calls accepts, please consult our [API documentation][1].
+To view the full list of data that each of these API calls accepts, please consult our [API documentation][2].
 
-[1]: http://developers.talon.one/integration-api/reference/
+[1]: https://talon.one/
+[2]: http://developers.talon.one/integration-api/reference/
+[3]: https://developers.talon.one/integration-api/errors/
