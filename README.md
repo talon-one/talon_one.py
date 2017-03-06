@@ -8,6 +8,7 @@ provides following API clients:
 
 First, you will need to find your API endpoint, Application ID and Application Key in the Camapaign Manager by going to the "Settings" tab.
 
+### Basics
 With these basic setting options we can set up the integration API client:
 ```python
 from talon_one import integration
@@ -23,6 +24,7 @@ talon_client = integration.Client(my_endpoint_url, my_app_id, my_app_key)
 Once the `client` has been created, you can start sending customer profiles,
 sessions and events to Talon.One:
 
+### Create a customer profile
 ```python
 # When the customer registers or updates their account
 data = {"advocateId": "",
@@ -32,14 +34,20 @@ data = {"advocateId": "",
          }
         }
 client.update_customer_profile("my_unique_profile_id", data)
+```
 
+### Create a new referral code
+```python
 # Create a new referral code for a profile that could be used in customer sessions
 data = {"advocateProfileIntegrationId": "my_unique_profile_id",
         "campaignId": 1,
         "expiryDate": "2017-08-17T16:08:52.018206901+02:00",
         "startDate": "2017-02-28T16:08:52.018206901+01:00"}
 client.create_referral_code(data)
+```
 
+### Open a customer session
+```python
 # When the customer adds an item to their cart
 data = {"profileId": "my_unique_profile_id",
         "cartItems": [{"name": "Shiny Red Shoes",
@@ -54,11 +62,17 @@ data = {"profileId": "my_unique_profile_id",
         "total": 53.74
         }
 client.update_customer_session("my_unique_session_id", data)
+```
 
+### Track a custom event related to opened session
+
+```python
 # When the customer does something else interesting using already defined EventType viewed_promo_page
 client.track_event("my_unique_session_id", "viewed_promo_page", {"url": "http://example.com/summer-shoes-2016"})
+```
 
-
+### Close an opened session
+```python
 # Finally you close session to finalize whole transaction
 client.close_customer_session("my_unique_session_id")
 ```
