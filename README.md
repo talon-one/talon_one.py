@@ -86,9 +86,10 @@ Supported configuration ENV variables:
 | TALONONE_APP_KEY  | string  | Your application API key |
 
 ## Handling of responses and errors
+SDK raises an error in case of HTTP, validation and logical errors otherwise return result from API in form of JSON.
 
-### Respponse
-Successfull response from API is a Python `dict` represnting decode JSON response from API call.
+### Response
+Successfull response from API is a Python `dict` representing decoded JSON response from API call.
 
 ### Errors
 Invalid calls to API results in raising `TalonOneAPIError` exception that provides details about what went wrong.
