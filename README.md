@@ -104,6 +104,7 @@ except exceptions.TalonOneAPIError as te:
 Exception is wrapping HTTP, JSON and errors as well as [API validation error][3] messages.
 
 ## Installation
+As of now we recommend pulling directly from GitHub and running local `pip` installation:
 ```bash
 $ pip install -r requirements.txt
 $ pip install -e .
