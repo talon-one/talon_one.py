@@ -78,6 +78,7 @@ client.close_customer_session("my_unique_session_id")
 ```
 
 Supported configuration ENV variables:
+
 | Name              | Type    | Description              |
 | ----------------- | ------- | ------------------------ |
 | TALONONE_ENDPOINT | string  | Your CAMA domain         |
