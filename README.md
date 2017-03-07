@@ -6,7 +6,7 @@ provides SDK for working with integration API.
 
 ## Getting started with the Integration API
 
-First, you will need to find your API endpoint, Application ID and Application Key in the Camapaign Manager by going to the "Settings" tab.
+First, you will need to find your API endpoint, Application ID and Application Key in the Camapaign Manager (CAMA) by going to the "Settings" tab.
 
 ### Basics
 With these basic setting options we can set up the integration API client:
@@ -76,6 +76,13 @@ client.track_event("my_unique_session_id", "viewed_promo_page", {"url": "http://
 # Finally you close session to finalize whole transaction
 client.close_customer_session("my_unique_session_id")
 ```
+
+Supported configuration ENV variables:
+| Name              | Type    | Description              |
+| ----------------- | ------- | ------------------------ |
+| TALONONE_ENDPOINT | string  | Your CAMA domain         |
+| TALONONE_APP_ID   | integer | Your application id      |
+| TALONONE_APP_KEY  | string  | Your application API key |
 
 ## Handling of responses and errors
 
