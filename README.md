@@ -103,6 +103,10 @@ except exceptions.TalonOneAPIError as te:
 ```
 Exception is wrapping HTTP, JSON and errors as well as [API validation error][3] messages.
 
+## Requirements
+* openssl-dev (for `hashlib` package)
+* python 2 or 3
+
 ## Installation
 As of now we recommend pulling directly from GitHub and running local `pip` installation:
 ```bash
@@ -111,6 +115,11 @@ $ pip install -e .
 ```
 
 ## Testing
+
+First make sure you have following dependencies installed:
+* unittest
+* nose
+* coverage
 
 ```bash
 $ nosetests tests/
