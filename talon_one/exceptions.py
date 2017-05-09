@@ -2,7 +2,7 @@ import requests, json
 
 class TalonOneAPIError(Exception):
     """
-    TalonOneAPIError Exception
+    TalonOne API Exceptions
     """
     def __init__(self, message, *args):
         self.message = message
@@ -12,6 +12,5 @@ class TalonOneAPIError(Exception):
             hints = json.loads(args[0].response.text)
             if "errors" in hints:
                 self.message += " - %s" % hints["errors"][0]["title"]
-            super(TalonOneAPIError, self).__init__(self.message, *args)
-        else:
-            super(TalonOneAPIError, self).__init__(self.message, *args)
+
+        super(TalonOneAPIError, self).__init__(self.message, *args)
