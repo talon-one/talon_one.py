@@ -123,8 +123,6 @@ $ pip3 install -r requirements.txt
 $ pip3 install -e .
 ```
 
-
-
 ## Testing
 
 First make sure you have following dependencies installed:

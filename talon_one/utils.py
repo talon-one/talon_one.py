@@ -4,6 +4,9 @@ if sys.version_info[0] == 3:
 else:
     from urlparse import urljoin
 
+"""
+Utilities shared both integration and management API
+"""
 def build_url(endpoint, path):
     return urljoin(endpoint, path)
 
