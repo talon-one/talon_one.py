@@ -108,11 +108,22 @@ Exception is wrapping HTTP, JSON and errors as well as [API validation error][3]
 * python 2 or 3
 
 ## Installation
+
+### Python 2
 As of now we recommend pulling directly from GitHub and running local `pip` installation:
 ```bash
 $ pip install -r requirements.txt
 $ pip install -e .
 ```
+
+### Python 3
+As of now we recommend pulling directly from GitHub and running local `pip3` installation:
+```bash
+$ pip3 install -r requirements.txt
+$ pip3 install -e .
+```
+
+
 
 ## Testing
 

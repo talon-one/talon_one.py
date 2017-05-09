@@ -1,10 +1,6 @@
-import sys, os, hashlib, hmac, json
-import requests
-if sys.version_info[0] == 3:
-    from urllib import parse
-else:
-    from urlparse import urljoin
+import sys, json, requests, simplejson
 from talon_one import exceptions
+from talon_one import utils
 
 class Client(object):
     """
@@ -18,10 +14,15 @@ class Client(object):
     :param application_key: Application secret key.
     """
     def __init__(self, endpoint="", application_id="", application_key=""):
-        self.__setup("endpoint", "TALONONE_ENDPOINT", "")
-        self.__setup("application_id", "TALONONE_APP_ID", "")
-        self.__setup("application_key", "TALONONE_APP_KEY", "")
+        self.endpoint = endpoint
+        self.application_id = application_id
+        self.application_key = application_key
         self.debug = False
+
+        # maybe set value from ENV vars
+        setattr(self, "endpoint",        utils.setup(self.endpoint,        "TALONONE_ENDPOINT"))
+        setattr(self, "application_id",  utils.setup(self.application_id,  "TALONONE_APP_ID"))
+        setattr(self, "application_key", utils.setup(self.application_key, "TALONONE_APP_KEY"))
 
     # Properties
     def get_endpoint(self):
@@ -61,12 +62,13 @@ class Client(object):
     # Helper functions
     def call_api(self, method, path, payload):
         try:
-            url = self.__build_url(path)
+            url = utils.build_url(self.endpoint, path)
             json_payload = json.dumps(payload)
+            signature = utils.signature(self.application_key, json_payload)
 
             headers = {}
             headers["Content-Type"] = "application/json",
-            headers["Content-Signature"] = "signer=%s; signature=%s" % (self.app_id, self.__signature(json_payload))
+            headers["Content-Signature"] = "signer=%s; signature=%s" % (self.application_id, signature)
 
             if self.debug:
                 print("Auth: %s" % headers["Content-Signature"])
@@ -96,16 +98,3 @@ class Client(object):
         except exceptions.TalonOneAPIError:
             err = sys.exc_info()[0]
             raise exceptions.TalonOneAPIError("Integration API", err, url)
-
-    def __build_url(self, path):
-        return urljoin(self.endpoint, path)
-
-    def __signature(self, msg):
-        return hmac.new(self.app_key.decode("hex"), msg.encode("utf-8"), hashlib.md5).hexdigest()
-
-    def __setup(self, propName, envName, defaultValue):
-        if self.getattr(propName, self) == '':
-            if envName in os.environ and os.environ[envName] != '':
-                self.setattr(propName, os.environ[envName])
-            else:
-                self.setattr(propName, defaultValue)

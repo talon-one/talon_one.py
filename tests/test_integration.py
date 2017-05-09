@@ -77,7 +77,7 @@ class TestIntegrationApi(unittest.TestCase):
             self.attr = self.management_client.post("v1/attributes", attr)
 
         except exceptions.TalonOneAPIError as te:
-            print te
+            print(te)
 
     def tearDown(self):
         self.integration_client = None

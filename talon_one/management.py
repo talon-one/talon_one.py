@@ -1,11 +1,6 @@
-import sys, os, json
-import requests
-if sys.version_info[0] == 3:
-    from urllib import parse
-else:
-    from urlparse import urljoin
-
+import sys, json, requests, simplejson
 from talon_one import exceptions
+from talon_one import utils
 
 class Client(object):
     """
@@ -19,10 +14,16 @@ class Client(object):
     :param passwd: The password for your account.
     """
     def __init__(self, endpoint="", email="", passwd=""):
-        self.__setup("endpoint", "TALONONE_ENDPOINT", "")
-        self.__setup("email", "TALONONE_ENDPOINT", "")
-        self.__setup("passwd", "TALONONE_PASSWORD", "")
-        self.__setup("token", "TALONONE_SESSION_TOKEN", None)
+        self.endpoint = endpoint
+        self.email = email
+        self.passwd = passwd
+        self.token = None
+
+        # maybe set value from ENV vars
+        setattr(self, "endpoint", utils.setup(self.endpoint, "TALONONE_ENDPOINT"))
+        setattr(self, "email",    utils.setup(self.email,    "TALONONE_EMAIL"))
+        setattr(self, "passwd",   utils.setup(self.passwd,   "TALONONE_PASSWORD"))
+        setattr(self, "token",    utils.setup(self.token,    "TALONONE_SESSION_TOKEN"))
 
     # Properties
     def get_token(self):
@@ -74,7 +75,7 @@ class Client(object):
     # Helper functions
     def call_api(self, method, path, payload={}):
         try:
-            url = self.__build_url(path)
+            url = utils.build_url(self.endpoint, path)
 
             headers = {}
             headers["Content-Type"] = "application/json",
@@ -104,13 +105,3 @@ class Client(object):
         except:
             err = sys.exc_info()[0]
             raise exceptions.TalonOneAPIError("Management API", url, err)
-
-    def __build_url(self, path):
-        return urljoin(self.endpoint, path)
-
-    def __setup(self, propName, envName, defaultValue):
-        if self.getattr(propName, self) == '':
-            if envName in os.environ and os.environ[envName] != '':
-                self.setattr(propName, os.environ[envName])
-            else:
-                self.setattr(propName, defaultValue)
