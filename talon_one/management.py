@@ -1,7 +1,10 @@
-import sys, os, cjson
+import sys, os, json
 import requests
-import simplejson
-from urlparse import urljoin
+if sys.version_info[0] == 3:
+    from urllib import parse
+else:
+    from urlparse import urljoin
+
 from talon_one import exceptions
 
 class Client(object):
@@ -79,9 +82,9 @@ class Client(object):
 
             response = None
             if method == "POST":
-                response = requests.post(url, data=cjson.encode(payload), headers=headers)
+                response = requests.post(url, data=json.loads(payload), headers=headers)
             elif method == "PUT":
-                response = requests.put(url, data=cjson.encode(payload), headers=headers)
+                response = requests.put(url, data=json.loads(payload), headers=headers)
             elif method == "DELETE":
                 response = requests.delete(url, headers=headers)
             else:

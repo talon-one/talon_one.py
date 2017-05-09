@@ -1,4 +1,4 @@
-import requests, cjson
+import requests, json
 
 class TalonOneAPIError(Exception):
     """

@@ -1,8 +1,10 @@
-import sys, os, hashlib, hmac, cjson
-from urlparse import urljoin
-from talon_one import exceptions
+import sys, os, hashlib, hmac, json
 import requests
-import simplejson
+if sys.version_info[0] == 3:
+    from urllib import parse
+else:
+    from urlparse import urljoin
+from talon_one import exceptions
 
 class Client(object):
     """
@@ -60,15 +62,15 @@ class Client(object):
     def call_api(self, method, path, payload):
         try:
             url = self.__build_url(path)
-            json_payload = cjson.encode(payload)
+            json_payload = json.dumps(payload)
 
             headers = {}
             headers["Content-Type"] = "application/json",
             headers["Content-Signature"] = "signer=%s; signature=%s" % (self.app_id, self.__signature(json_payload))
 
             if self.debug:
-                print "Auth: %s" % headers["Content-Signature"]
-                print "JSON: %s" % json_payload
+                print("Auth: %s" % headers["Content-Signature"])
+                print("JSON: %s" % json_payload)
 
             response = None
             if method == "POST":
