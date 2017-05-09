@@ -83,9 +83,9 @@ class Client(object):
 
             response = None
             if method == "POST":
-                response = requests.post(url, data=json.loads(payload), headers=headers)
+                response = requests.post(url, data=json.dumps(payload), headers=headers)
             elif method == "PUT":
-                response = requests.put(url, data=json.loads(payload), headers=headers)
+                response = requests.put(url, data=json.dumps(payload), headers=headers)
             elif method == "DELETE":
                 response = requests.delete(url, headers=headers)
             else:
@@ -103,5 +103,5 @@ class Client(object):
         except requests.HTTPError as he:
             raise exceptions.TalonOneAPIError("Management API", he)
         except:
-            err = sys.exc_info()[0]
+            err = sys.exc_info()[1]
             raise exceptions.TalonOneAPIError("Management API", url, err)

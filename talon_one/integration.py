@@ -96,5 +96,5 @@ class Client(object):
         except requests.HTTPError as he:
             raise exceptions.TalonOneAPIError("Integration API", he)
         except exceptions.TalonOneAPIError:
-            err = sys.exc_info()[0]
+            err = sys.exc_info()[1]
             raise exceptions.TalonOneAPIError("Integration API", err, url)
