@@ -19,10 +19,10 @@ class Client(object):
     :param passwd: The password for your account.
     """
     def __init__(self, endpoint="", email="", passwd=""):
-        self.endpoint = endpoint if "" else os.environ["TALONONE_ENDPOINT"]
-        self.email = email if "" else os.environ["TALONONE_EMAIL"]
-        self.passwd = passwd if "" else os.environ["TALONONE_PASSWORD"]
-        self.token = os.environ["TALONONE_SESSION_TOKEN"] if "" else None
+        self.__setup("endpoint", "TALONONE_ENDPOINT", "")
+        self.__setup("email", "TALONONE_ENDPOINT", "")
+        self.__setup("passwd", "TALONONE_PASSWORD", "")
+        self.__setup("token", "TALONONE_SESSION_TOKEN", None)
 
     # Properties
     def get_token(self):
@@ -107,3 +107,10 @@ class Client(object):
 
     def __build_url(self, path):
         return urljoin(self.endpoint, path)
+
+    def __setup(self, propName, envName, defaultValue):
+        if self.getattr(propName, self) == '':
+            if envName in os.environ and os.environ[envName] != '':
+                self.setattr(propName, os.environ[envName])
+            else:
+                self.setattr(propName, defaultValue)

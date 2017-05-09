@@ -18,9 +18,9 @@ class Client(object):
     :param application_key: Application secret key.
     """
     def __init__(self, endpoint="", application_id="", application_key=""):
-        self.endpoint = endpoint if "" else os.environ["TALONONE_ENDPOINT"]
-        self.app_id = application_id if "" else os.environ["TALONONE_APP_ID"]
-        self.app_key = application_key if None else os.environ["TALONONE_APP_KEY"]
+        self.__setup("endpoint", "TALONONE_ENDPOINT", "")
+        self.__setup("application_id", "TALONONE_APP_ID", "")
+        self.__setup("application_key", "TALONONE_APP_KEY", "")
         self.debug = False
 
     # Properties
@@ -102,3 +102,10 @@ class Client(object):
 
     def __signature(self, msg):
         return hmac.new(self.app_key.decode("hex"), msg.encode("utf-8"), hashlib.md5).hexdigest()
+
+    def __setup(self, propName, envName, defaultValue):
+        if self.getattr(propName, self) == '':
+            if envName in os.environ and os.environ[envName] != '':
+                self.setattr(propName, os.environ[envName])
+            else:
+                self.setattr(propName, defaultValue)
