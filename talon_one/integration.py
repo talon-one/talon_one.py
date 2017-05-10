@@ -1,4 +1,7 @@
-import sys, json, requests, simplejson
+import sys
+import json
+import requests
+import simplejson
 from talon_one import exceptions
 from talon_one import utils
 
@@ -20,8 +23,8 @@ class Client(object):
         self.debug = False
 
         # maybe set value from ENV vars
-        setattr(self, "endpoint",        utils.setup(self.endpoint,        "TALONONE_ENDPOINT"))
-        setattr(self, "application_id",  utils.setup(self.application_id,  "TALONONE_APP_ID"))
+        setattr(self, "endpoint", utils.setup(self.endpoint, "TALONONE_ENDPOINT"))
+        setattr(self, "application_id", utils.setup(self.application_id, "TALONONE_APP_ID"))
         setattr(self, "application_key", utils.setup(self.application_key, "TALONONE_APP_KEY"))
 
     # Properties
@@ -48,13 +51,13 @@ class Client(object):
                                                     "attributes": value})
 
     def update_customer_session(self, session_id, payload):
-        return  self.call_api("PUT", "/v1/customer_sessions/%s" % session_id, payload)
+        return self.call_api("PUT", "/v1/customer_sessions/%s" % session_id, payload)
 
     def update_customer_profile(self, integration_id, payload):
-        return  self.call_api("PUT", "/v1/customer_profiles/%s" % integration_id, payload)
+        return self.call_api("PUT", "/v1/customer_profiles/%s" % integration_id, payload)
 
     def close_customer_session(self, session_id):
-        return  self.update_customer_session(session_id, {"state": "closed"})
+        return self.update_customer_session(session_id, {"state": "closed"})
 
     def create_referral_code(self, payload):
         return self.call_api("POST", "/v1/referrals", payload)
@@ -96,5 +99,4 @@ class Client(object):
         except requests.HTTPError as he:
             raise exceptions.TalonOneAPIError("Integration API", he)
         except exceptions.TalonOneAPIError:
-            err = sys.exc_info()[1]
-            raise exceptions.TalonOneAPIError("Integration API", err, url)
+            raise exceptions.TalonOneAPIError("Integration API", err, sys.exc_info()[1])

@@ -1,4 +1,5 @@
-import requests, json
+import json
+import requests
 
 class TalonOneAPIError(Exception):
     """

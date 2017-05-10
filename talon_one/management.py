@@ -1,4 +1,7 @@
-import sys, json, requests, simplejson
+import sys
+import json
+import requests
+import simplejson
 from talon_one import exceptions
 from talon_one import utils
 
@@ -21,9 +24,9 @@ class Client(object):
 
         # maybe set value from ENV vars
         setattr(self, "endpoint", utils.setup(self.endpoint, "TALONONE_ENDPOINT"))
-        setattr(self, "email",    utils.setup(self.email,    "TALONONE_EMAIL"))
-        setattr(self, "passwd",   utils.setup(self.passwd,   "TALONONE_PASSWORD"))
-        setattr(self, "token",    utils.setup(self.token,    "TALONONE_SESSION_TOKEN"))
+        setattr(self, "email", utils.setup(self.email, "TALONONE_EMAIL"))
+        setattr(self, "passwd", utils.setup(self.passwd, "TALONONE_PASSWORD"))
+        setattr(self, "token", utils.setup(self.token, "TALONONE_SESSION_TOKEN"))
 
     # Properties
     def get_token(self):
@@ -52,8 +55,7 @@ class Client(object):
                    "type":     integration_type,
                    "timezone": tz,
                    "currency": currency,
-                   "key":      api_key
-        }
+                   "key":      api_key}
         return self.post("/v1/applications", payload)
 
     def delete_application(self, id):
@@ -103,5 +105,4 @@ class Client(object):
         except requests.HTTPError as he:
             raise exceptions.TalonOneAPIError("Management API", he)
         except:
-            err = sys.exc_info()[1]
-            raise exceptions.TalonOneAPIError("Management API", url, err)
+            raise exceptions.TalonOneAPIError("Management API", url, sys.exc_info()[1])

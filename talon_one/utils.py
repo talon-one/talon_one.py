@@ -1,4 +1,5 @@
-import sys, os, hashlib, hmac, json
+import sys, os, hashlib, hmac
+
 if sys.version_info[0] == 3:
     from urllib import parse
 else:
@@ -13,11 +14,11 @@ def build_url(endpoint, path):
 def signature(app_key, msg):
     return hmac.new(app_key.decode("hex"), msg.encode("utf-8"), hashlib.md5).hexdigest()
 
-def setup(propValue, envName):
-    if propValue == '':
-        if envName in os.environ and os.environ[envName] != '':
-            return os.environ[envName]
+def setup(prop_value, env_name):
+    if prop_value == '':
+        if env_name in os.environ and os.environ[env_name] != '':
+            return os.environ[env_name]
         else:
             return ""
     else:
-        return propValue
+        return prop_value
