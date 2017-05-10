@@ -12,7 +12,7 @@ with open('LICENSE') as f:
 setup(
     name='talon_one',
     version='1.0.0',
-    description='Talon.One Python 2.X SDK',
+    description='Talon.One Python SDK',
     long_description=readme,
     author='Martin Wiso',
     author_email='wiso@talon.one',
