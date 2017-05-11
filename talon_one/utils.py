@@ -1,4 +1,7 @@
-import sys, os, hashlib, hmac
+import os
+import sys
+import hmac
+import hashlib
 
 if sys.version_info[0] == 3:
     from urllib import parse

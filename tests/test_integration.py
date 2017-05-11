@@ -136,7 +136,6 @@ class TestIntegrationApi(unittest.TestCase):
         self.assertEqual("rejectCoupon", response["event"]["effects"][1][3][0])
         self.assertEqual("rejectReferral", response["event"]["effects"][2][3][0])
 
-
     def test_close_customer_session(self):
         response = self.integration_client.close_customer_session(self.__class__.session_id)
         self.assertEqual(1, response["profile"]["closedSessions"])
