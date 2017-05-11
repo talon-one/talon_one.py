@@ -8,6 +8,11 @@ provides SDK for working with integration API.
 
 First, you will need to find your API endpoint, Application ID and Application Key in the Camapaign Manager (CAMA) by going to the "Settings" tab.
 
+There are three ways how to configure API client:
+* Client constructor parameters
+* Client setters
+* ENV variables (see table bellow)
+
 ### Basics
 With these basic setting options we can set up the integration API client:
 ```python
