@@ -33,13 +33,13 @@ class Client(object):
     def set_endpoint(self, endpoint):
         self.endpoint = endpoint
     def get_app_key(self):
-        return self.app_key
+        return self.application_key
     def set_app_key(self, key):
-        self.app_key = key
+        self.application_key = key
     def get_app_id(self):
-        return self.app_id
+        return self.application_id
     def set_app_id(self, app_id):
-        self.app_id = app_id
+        self.application_id = app_id
     def set_debug(self, enable):
         self.debug = enable
 
