@@ -80,7 +80,7 @@ class Client(object):
             url = utils.build_url(self.endpoint, path)
 
             headers = {}
-            headers["Content-Type"] = "application/json",
+            headers["Content-Type"] = "application/json"
             headers["Authorization"] = "Bearer %s" % self.token
 
             response = None
