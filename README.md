@@ -1,4 +1,4 @@
-# Talon.One Python 2.X SDK
+# Talon.One Python SDK
 
 [Talon.One][1] enables marketers to create coupon, discount, loyalty, and referral
 marketing campaigns of virtually unlimited power and flexibility. This library
@@ -7,6 +7,11 @@ provides SDK for working with integration API.
 ## Getting started with the Integration API
 
 First, you will need to find your API endpoint, Application ID and Application Key in the Camapaign Manager (CAMA) by going to the "Settings" tab.
+
+There are three ways how to configure API client:
+* Client constructor parameters
+* Client setters
+* ENV variables (see table bellow)
 
 ### Basics
 With these basic setting options we can set up the integration API client:
@@ -103,14 +108,32 @@ except exceptions.TalonOneAPIError as te:
 ```
 Exception is wrapping HTTP, JSON and errors as well as [API validation error][3] messages.
 
+## Requirements
+* openssl-dev (for `hashlib` package)
+* python 2 or 3
+
 ## Installation
+
+### Python 2
 As of now we recommend pulling directly from GitHub and running local `pip` installation:
 ```bash
 $ pip install -r requirements.txt
 $ pip install -e .
 ```
 
+### Python 3
+As of now we recommend pulling directly from GitHub and running local `pip3` installation:
+```bash
+$ pip3 install -r requirements.txt
+$ pip3 install -e .
+```
+
 ## Testing
+
+First make sure you have following dependencies installed:
+* unittest
+* nose
+* coverage
 
 ```bash
 $ nosetests tests/

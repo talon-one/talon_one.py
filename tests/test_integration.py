@@ -77,7 +77,7 @@ class TestIntegrationApi(unittest.TestCase):
             self.attr = self.management_client.post("v1/attributes", attr)
 
         except exceptions.TalonOneAPIError as te:
-            print te
+            print(te)
 
     def tearDown(self):
         self.integration_client = None
@@ -135,7 +135,6 @@ class TestIntegrationApi(unittest.TestCase):
         self.assertEqual("setDiscount", response["event"]["effects"][0][3][0])
         self.assertEqual("rejectCoupon", response["event"]["effects"][1][3][0])
         self.assertEqual("rejectReferral", response["event"]["effects"][2][3][0])
-
 
     def test_close_customer_session(self):
         response = self.integration_client.close_customer_session(self.__class__.session_id)

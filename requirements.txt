@@ -1,9 +1,5 @@
+setuptools
 requests
-urlparse
-cjson
+simplejson
 hmac
 hashlib
-
-unittest
-nose
-coverage

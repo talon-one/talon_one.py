@@ -1,8 +1,9 @@
-import sys, os, hashlib, hmac, cjson
-from urlparse import urljoin
-from talon_one import exceptions
+import sys
+import json
 import requests
 import simplejson
+from talon_one import exceptions
+from talon_one import utils
 
 class Client(object):
     """
@@ -16,10 +17,15 @@ class Client(object):
     :param application_key: Application secret key.
     """
     def __init__(self, endpoint="", application_id="", application_key=""):
-        self.endpoint = endpoint if "" else os.environ["TALONONE_ENDPOINT"]
-        self.app_id = application_id if "" else os.environ["TALONONE_APP_ID"]
-        self.app_key = application_key if None else os.environ["TALONONE_APP_KEY"]
+        self.endpoint = endpoint
+        self.application_id = application_id
+        self.application_key = application_key
         self.debug = False
+
+        # maybe set value from ENV vars
+        setattr(self, "endpoint", utils.setup(self.endpoint, "TALONONE_ENDPOINT"))
+        setattr(self, "application_id", utils.setup(self.application_id, "TALONONE_APP_ID"))
+        setattr(self, "application_key", utils.setup(self.application_key, "TALONONE_APP_KEY"))
 
     # Properties
     def get_endpoint(self):
@@ -27,13 +33,13 @@ class Client(object):
     def set_endpoint(self, endpoint):
         self.endpoint = endpoint
     def get_app_key(self):
-        return self.app_key
+        return self.application_key
     def set_app_key(self, key):
-        self.app_key = key
+        self.application_key = key
     def get_app_id(self):
-        return self.app_id
+        return self.application_id
     def set_app_id(self, app_id):
-        self.app_id = app_id
+        self.application_id = app_id
     def set_debug(self, enable):
         self.debug = enable
 
@@ -45,13 +51,13 @@ class Client(object):
                                                     "attributes": value})
 
     def update_customer_session(self, session_id, payload):
-        return  self.call_api("PUT", "/v1/customer_sessions/%s" % session_id, payload)
+        return self.call_api("PUT", "/v1/customer_sessions/%s" % session_id, payload)
 
     def update_customer_profile(self, integration_id, payload):
-        return  self.call_api("PUT", "/v1/customer_profiles/%s" % integration_id, payload)
+        return self.call_api("PUT", "/v1/customer_profiles/%s" % integration_id, payload)
 
     def close_customer_session(self, session_id):
-        return  self.update_customer_session(session_id, {"state": "closed"})
+        return self.update_customer_session(session_id, {"state": "closed"})
 
     def create_referral_code(self, payload):
         return self.call_api("POST", "/v1/referrals", payload)
@@ -59,16 +65,17 @@ class Client(object):
     # Helper functions
     def call_api(self, method, path, payload):
         try:
-            url = self.__build_url(path)
-            json_payload = cjson.encode(payload)
+            url = utils.build_url(self.endpoint, path)
+            json_payload = json.dumps(payload)
+            signature = utils.signature(self.application_key, json_payload)
 
             headers = {}
             headers["Content-Type"] = "application/json",
-            headers["Content-Signature"] = "signer=%s; signature=%s" % (self.app_id, self.__signature(json_payload))
+            headers["Content-Signature"] = "signer=%s; signature=%s" % (self.application_id, signature)
 
             if self.debug:
-                print "Auth: %s" % headers["Content-Signature"]
-                print "JSON: %s" % json_payload
+                print("Auth: %s" % headers["Content-Signature"])
+                print("JSON: %s" % json_payload)
 
             response = None
             if method == "POST":
@@ -92,11 +99,4 @@ class Client(object):
         except requests.HTTPError as he:
             raise exceptions.TalonOneAPIError("Integration API", he)
         except exceptions.TalonOneAPIError:
-            err = sys.exc_info()[0]
-            raise exceptions.TalonOneAPIError("Integration API", err, url)
-
-    def __build_url(self, path):
-        return urljoin(self.endpoint, path)
-
-    def __signature(self, msg):
-        return hmac.new(self.app_key.decode("hex"), msg.encode("utf-8"), hashlib.md5).hexdigest()
+            raise exceptions.TalonOneAPIError("Integration API", err, sys.exc_info()[1])
