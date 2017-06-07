@@ -4,7 +4,7 @@ import hmac
 import hashlib
 
 if sys.version_info[0] == 3:
-    from urllib import parse
+    from urllib.parse import urljoin
 else:
     from urlparse import urljoin
 
