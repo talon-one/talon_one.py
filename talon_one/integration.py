@@ -20,7 +20,7 @@ class Client(object):
         self.endpoint = endpoint
         self.application_id = application_id
         self.application_key = application_key
-        self.debug = False
+        self.debug = True
 
         # maybe set value from ENV vars
         setattr(self, "endpoint", utils.setup(self.endpoint, "TALONONE_ENDPOINT"))
