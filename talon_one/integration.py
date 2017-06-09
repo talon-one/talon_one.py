@@ -51,10 +51,10 @@ class Client(object):
                                                     "attributes": value})
 
     def update_customer_session(self, session_id, payload):
-        return self.call_api("PUT", "/v1/customer_sessions/%s" % session_id, payload)
+        return self.call_api("PUT", "/v1/customer_sessions/{}".format(session_id), payload)
 
     def update_customer_profile(self, integration_id, payload):
-        return self.call_api("PUT", "/v1/customer_profiles/%s" % integration_id, payload)
+        return self.call_api("PUT", "/v1/customer_profiles/{}".format(integration_id), payload)
 
     def close_customer_session(self, session_id):
         return self.update_customer_session(session_id, {"state": "closed"})
@@ -69,13 +69,14 @@ class Client(object):
             json_payload = json.dumps(payload)
             signature = utils.signature(self.application_key, json_payload)
 
-            headers = {}
-            headers["Content-Type"] = "application/json"
-            headers["Content-Signature"] = "signer=%s; signature=%s" % (self.application_id, signature)
+            headers = {
+                    "Content-Type": "application/json",
+                    "Content-Signature": "signer={}; signature={}".format(self.application_id, signature),
+            }
 
             if self.debug:
-                print("Auth: %s" % headers["Content-Signature"])
-                print("JSON: %s" % json_payload)
+                print("Auth: {}".format(headers["Content-Signature"]))
+                print("JSON: {}".format(json_payload))
 
             response = None
             if method == "POST":

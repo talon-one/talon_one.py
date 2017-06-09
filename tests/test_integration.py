@@ -26,7 +26,7 @@ class TestIntegrationApi(unittest.TestCase):
             self.integration_client.set_app_key(self.app["key"])
 
             self.campaign = self.management_client.post(
-                "/v1/applications/%d/campaigns" % self.app["id"],
+                "/v1/applications/{}/campaigns".format(self.app["id"]),
                 {
                     "name": "Test Campaign",
                     "state": "disabled",
@@ -49,7 +49,7 @@ class TestIntegrationApi(unittest.TestCase):
                 })
 
             self.ruleset = self.management_client.post(
-                "/v1/applications/%d/campaigns/%d/rulesets" % (self.app["id"], self.campaign["id"]),
+                "/v1/applications/{}/campaigns/{}/rulesets".format(self.app["id"], self.campaign["id"]),
                 {"rules": [{
                     "title": "Free money for all!",
                     "condition": ["and", True],
@@ -62,7 +62,7 @@ class TestIntegrationApi(unittest.TestCase):
             self.campaign["state"] = "enabled"
 
             self.campaign = self.management_client.put(
-                "/v1/applications/%d/campaigns/%d" % (self.app["id"], self.campaign["id"]),
+                "/v1/applications/{}/campaigns/{}".format(self.app["id"], self.campaign["id"]),
                 self.campaign)
 
             attr = {"entity": 'Event',
@@ -84,7 +84,7 @@ class TestIntegrationApi(unittest.TestCase):
         if hasattr(self, "app"):
             self.management_client.delete_application(self.app["id"])
         if hasattr(self, "attr"):
-            self.management_client.delete("/v1/attributes/%d" % self.attr["id"])
+            self.management_client.delete("/v1/attributes/{}".format(self.attr["id"]))
 
     def test_update_customer_profile(self):
         data = {"advocateId": "",

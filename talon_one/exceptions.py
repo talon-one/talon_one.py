@@ -13,9 +13,9 @@ class TalonOneAPIError(Exception):
             hints = json.loads(args[0].response.text)
 
             if "errors" in hints:
-                self.message += " - %s" % hints["errors"][0]["title"]
+                self.message += " - {}".format(hints["errors"][0]["title"])
 
             if "message" in hints:
-                self.message += " - %s" % hints["message"]
+                self.message += " - {}".format(hints["message"])
 
         super(TalonOneAPIError, self).__init__(self.message, *args)
