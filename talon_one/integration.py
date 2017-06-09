@@ -20,7 +20,7 @@ class Client(object):
         self.endpoint = endpoint
         self.application_id = application_id
         self.application_key = application_key
-        self.debug = False
+        self.debug = True
 
         # maybe set value from ENV vars
         setattr(self, "endpoint", utils.setup(self.endpoint, "TALONONE_ENDPOINT"))
@@ -69,13 +69,14 @@ class Client(object):
             json_payload = json.dumps(payload)
             signature = utils.signature(self.application_key, json_payload)
 
-            headers = {}
-            headers["Content-Type"] = "application/json"
-            headers["Content-Signature"] = "signer=%s; signature=%s" % (self.application_id, signature)
+            headers = {
+                    "Content-Type": "application/json",
+                    "Content-Signature": "signer={}; signature={}".format(self.application_id, signature),
+            }
 
             if self.debug:
-                print("Auth: %s" % headers["Content-Signature"])
-                print("JSON: %s" % json_payload)
+                print("Auth: {}".format(headers["Content-Signature"]))
+                print("JSON: {}".format(json_payload))
 
             response = None
             if method == "POST":
