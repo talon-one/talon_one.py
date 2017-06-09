@@ -70,7 +70,7 @@ class Client(object):
             signature = utils.signature(self.application_key, json_payload)
 
             headers = {}
-            headers["Content-Type"] = "application/json",
+            headers["Content-Type"] = "application/json"
             headers["Content-Signature"] = "signer=%s; signature=%s" % (self.application_id, signature)
 
             if self.debug:
