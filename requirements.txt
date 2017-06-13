@@ -1,5 +1,3 @@
 setuptools
 requests
 simplejson
-hmac
-hashlib

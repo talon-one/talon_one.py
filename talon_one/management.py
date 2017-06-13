@@ -59,7 +59,7 @@ class Client(object):
         return self.post("/v1/applications", payload)
 
     def delete_application(self, id):
-        return self.delete("/v1/applications/%d" % id)
+        return self.delete("/v1/applications/{}".format(id))
 
     # Low level REST API
     def get(self, path):
@@ -81,7 +81,7 @@ class Client(object):
 
             headers = {}
             headers["Content-Type"] = "application/json"
-            headers["Authorization"] = "Bearer %s" % self.token
+            headers["Authorization"] = "Bearer {}".format(self.token)
 
             response = None
             if method == "POST":
