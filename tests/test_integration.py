@@ -2,6 +2,7 @@ import unittest
 from talon_one import exceptions
 from talon_one import management
 from talon_one import integration
+from sys import version as pyversion
 
 class TestIntegrationApi(unittest.TestCase):
     # global integration ids
@@ -17,7 +18,7 @@ class TestIntegrationApi(unittest.TestCase):
 
             # bootstrap application and campaign with simple rules
             self.app = self.management_client.create_application(
-                name = "Python SDK Test App",
+                name = "Python SDK Test App" + pyversion[0:3],
                 api_key = "fefecafedeadbeef"
             )
 
