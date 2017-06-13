@@ -1,5 +1,3 @@
 setuptools
 requests
 simplejson
-hmac;python_version<"3.0"
-hashlib;python_version<"3.0"
