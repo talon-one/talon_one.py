@@ -144,7 +144,7 @@ class TestIntegrationApi(unittest.TestCase):
         self.assertEqual("closed", response["session"]["state"])
 
     def test_track_event(self):
-        self.integration_client.set_debug(True)
+        self.integration_client.set_debug(False)
 
         response = self.integration_client.track_event(self.__class__.profile_id, self.__class__.session_id,
                                                        "Homepage", {"URL": "http://example.com"})
