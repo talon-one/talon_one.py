@@ -1,4 +1,4 @@
-# Talon.One Python SDK
+# Talon.One Python SDK [![Build Status](https://travis-ci.org/talon-one/talon_one.py.svg?branch=master)](https://travis-ci.org/talon-one/talon_one.py)
 
 [Talon.One][1] enables marketers to create coupon, discount, loyalty, and referral
 marketing campaigns of virtually unlimited power and flexibility. This library
