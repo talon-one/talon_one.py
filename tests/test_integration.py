@@ -46,7 +46,7 @@ class TestIntegrationApi(unittest.TestCase):
                             "0-9"
                         ]
                     },
-                    "tags": ["Spring"]
+                    "tags": ["Spring"],
                     "features": []
                 })
 
