@@ -47,7 +47,7 @@ class TestIntegrationApi(unittest.TestCase):
                         ]
                     },
                     "tags": ["Spring"],
-                    "features": []
+                    "features": ["referrals"]
                 })
 
             self.ruleset = self.management_client.post(
