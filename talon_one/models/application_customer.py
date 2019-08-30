@@ -77,7 +77,8 @@ class ApplicationCustomer(object):
         self.account_id = account_id
         self.closed_sessions = closed_sessions
         self.total_sales = total_sales
-        self.loyalty_memberships = loyalty_memberships
+        if loyalty_memberships is not None:
+            self.loyalty_memberships = loyalty_memberships
         self.last_activity = last_activity
 
     @property
@@ -275,8 +276,6 @@ class ApplicationCustomer(object):
         :param loyalty_memberships: The loyalty_memberships of this ApplicationCustomer.  # noqa: E501
         :type: list[LoyaltyMembership]
         """
-        if loyalty_memberships is None:
-            raise ValueError("Invalid value for `loyalty_memberships`, must not be `None`")  # noqa: E501
 
         self._loyalty_memberships = loyalty_memberships
 
