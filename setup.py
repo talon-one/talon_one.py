@@ -39,7 +39,7 @@ setup(
     url="https://github.com/talon-one/talon_one.py/",
     keywords=["Swagger", "Talon.One API"],
     install_requires=REQUIRES,
-    license="MIT"
+    license="MIT",
     packages=find_packages(),
     include_package_data=True,
     long_description="""\
