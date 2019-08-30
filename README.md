@@ -44,36 +44,66 @@ import talon_one
 
 Please follow the [installation procedure](#installation--usage) and then run the following:
 
+### Integration API
+
 ```python
-from __future__ import print_function
-import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
 
-# Configure API key authorization: api_key_v1
+# Create configuration with your host destination
 configuration = talon_one.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
-# Configure API key authorization: integration_auth
-configuration = talon_one.Configuration()
-configuration.api_key['Content-Signature'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Content-Signature'] = 'Bearer'
+configuration.host = 'https://mycompany.talon.one'
 
-# create an instance of the API class
-api_instance = talon_one.IntegrationApi(talon_one.ApiClient(configuration))
-coupon_value = 'coupon_value_example' # str | The value of a coupon
-body = talon_one.CouponReservations() # CouponReservations | 
+# Configure API key authorization: api_key_v1
+configuration.api_key['Authorization'] = 'e18149e88f42247f0123456789abcdef9302722577ad60cebc86c4333b6fb70'
+configuration.api_key_prefix['Authorization'] = 'ApiKey-v1'
+
+# Integration API example to send a session update
+integration_api = talon_one.IntegrationApi(talon_one.ApiClient(configuration))
+customer_session = talon_one.NewCustomerSession(
+  'DEADDYBEEF', # profile_id
+  '', # coupon
+  '996732pucn', # referral
+  'open', # state
+  None, # cart_items
+  None, # identifiers
+  123.45, # total
+  None # attributes
+)
 
 try:
-    # Create a new coupon reservation
-    api_response = api_instance.create_coupon_reservation(coupon_value, body)
+    # Create/update a customer session using `update_customer_session` function
+    api_response = integration_api.update_customer_session('my_unique_session_id', customer_session)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling IntegrationApi->create_coupon_reservation: %s\n" % e)
+    print("Exception when calling IntegrationApi->update_customer_session: %s\n" % e)
+```
 
+### Management API
+
+```python
+# Create configuration with your host destination
+configuration = talon_one.Configuration()
+configuration.host = 'https://mycompany.talon.one'
+
+# Management API example to load application with id 7
+management_api = talon_one.ManagementApi(talon_one.ApiClient(configuration))
+
+try:
+    # Acquire session token
+    login_params = talon_one.LoginParams('admin@talon.one', 'Password!@@')
+    session = management_api.create_session(login_params)
+
+    # Save token in the configuration for future management API calls
+    configuration.api_key['Authorization'] = session.token
+    configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+    # Calling get_application function with the desired id (7)
+    application = management_api.get_application(7)
+    pprint(application)
+except ApiException as e:
+    print("Exception when calling ManagementApi: %s\n" % e)
 ```
 
 ## Documentation for API Endpoints
