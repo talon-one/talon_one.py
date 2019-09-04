@@ -39,9 +39,6 @@ from talon_one.models.application_entity import ApplicationEntity
 from talon_one.models.application_event import ApplicationEvent
 from talon_one.models.application_session import ApplicationSession
 from talon_one.models.application_session_entity import ApplicationSessionEntity
-from talon_one.models.application_storage import ApplicationStorage
-from talon_one.models.application_storage_data import ApplicationStorageData
-from talon_one.models.application_storage_tuple import ApplicationStorageTuple
 from talon_one.models.attribute import Attribute
 from talon_one.models.attribute_query import AttributeQuery
 from talon_one.models.binding import Binding
@@ -139,9 +136,6 @@ from talon_one.models.new_account import NewAccount
 from talon_one.models.new_account_sign_up import NewAccountSignUp
 from talon_one.models.new_application import NewApplication
 from talon_one.models.new_application_api_key import NewApplicationAPIKey
-from talon_one.models.new_application_storage import NewApplicationStorage
-from talon_one.models.new_application_storage_data import NewApplicationStorageData
-from talon_one.models.new_application_storage_tuple import NewApplicationStorageTuple
 from talon_one.models.new_attribute import NewAttribute
 from talon_one.models.new_campaign import NewCampaign
 from talon_one.models.new_campaign_set import NewCampaignSet
