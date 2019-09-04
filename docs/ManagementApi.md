@@ -2015,7 +2015,7 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = talon_one.ManagementApi(talon_one.ApiClient(configuration))
-application_id = 56 # int | The identifier for the application
+application_id = 56 # int | 
 campaign_id = 56 # int | 
 range_start = '2013-10-20T19:20:30+01:00' # datetime | Only return results from after this timestamp, must be an RFC3339 timestamp string
 range_end = '2013-10-20T19:20:30+01:00' # datetime | Only return results from before this timestamp, must be an RFC3339 timestamp string
@@ -2033,7 +2033,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **application_id** | **int**| The identifier for the application | 
+ **application_id** | **int**|  | 
  **campaign_id** | **int**|  | 
  **range_start** | **datetime**| Only return results from after this timestamp, must be an RFC3339 timestamp string | 
  **range_end** | **datetime**| Only return results from before this timestamp, must be an RFC3339 timestamp string | 
@@ -4595,7 +4595,7 @@ Name | Type | Description  | Notes
 
 Set account limits
 
-sets account limits  
+sets account limits 
 
 ### Example
 ```python

@@ -3693,7 +3693,7 @@ class ManagementApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param int application_id: The identifier for the application (required)
+        :param int application_id: (required)
         :param int campaign_id:  (required)
         :param datetime range_start: Only return results from after this timestamp, must be an RFC3339 timestamp string (required)
         :param datetime range_end: Only return results from before this timestamp, must be an RFC3339 timestamp string (required)
@@ -3719,7 +3719,7 @@ class ManagementApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param int application_id: The identifier for the application (required)
+        :param int application_id: (required)
         :param int campaign_id:  (required)
         :param datetime range_start: Only return results from after this timestamp, must be an RFC3339 timestamp string (required)
         :param datetime range_end: Only return results from before this timestamp, must be an RFC3339 timestamp string (required)
@@ -8620,7 +8620,7 @@ class ManagementApi(object):
     def set_account_limits(self, account_id, body, **kwargs):  # noqa: E501
         """Set account limits  # noqa: E501
 
-        sets account limits    # noqa: E501
+        sets account limits   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.set_account_limits(account_id, body, async_req=True)
@@ -8643,7 +8643,7 @@ class ManagementApi(object):
     def set_account_limits_with_http_info(self, account_id, body, **kwargs):  # noqa: E501
         """Set account limits  # noqa: E501
 
-        sets account limits    # noqa: E501
+        sets account limits   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.set_account_limits_with_http_info(account_id, body, async_req=True)
