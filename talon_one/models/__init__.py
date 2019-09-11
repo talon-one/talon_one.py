@@ -103,6 +103,7 @@ from talon_one.models.inline_response2007 import InlineResponse2007
 from talon_one.models.inline_response2008 import InlineResponse2008
 from talon_one.models.inline_response2009 import InlineResponse2009
 from talon_one.models.integration_entity import IntegrationEntity
+from talon_one.models.integration_event import IntegrationEvent
 from talon_one.models.integration_profile_entity import IntegrationProfileEntity
 from talon_one.models.integration_state import IntegrationState
 from talon_one.models.ledger_entry import LedgerEntry

@@ -38,9 +38,9 @@ class Event(object):
         'created': 'datetime',
         'application_id': 'int',
         'profile_id': 'str',
-        'session_id': 'str',
         'type': 'str',
         'attributes': 'object',
+        'session_id': 'str',
         'effects': 'list[object]',
         'ledger_entries': 'list[LedgerEntry]',
         'meta': 'Meta'
@@ -51,24 +51,24 @@ class Event(object):
         'created': 'created',
         'application_id': 'applicationId',
         'profile_id': 'profileId',
-        'session_id': 'sessionId',
         'type': 'type',
         'attributes': 'attributes',
+        'session_id': 'sessionId',
         'effects': 'effects',
         'ledger_entries': 'ledgerEntries',
         'meta': 'meta'
     }
 
-    def __init__(self, id=None, created=None, application_id=None, profile_id=None, session_id=None, type=None, attributes=None, effects=None, ledger_entries=None, meta=None):  # noqa: E501
+    def __init__(self, id=None, created=None, application_id=None, profile_id=None, type=None, attributes=None, session_id=None, effects=None, ledger_entries=None, meta=None):  # noqa: E501
         """Event - a model defined in Swagger"""  # noqa: E501
 
         self._id = None
         self._created = None
         self._application_id = None
         self._profile_id = None
-        self._session_id = None
         self._type = None
         self._attributes = None
+        self._session_id = None
         self._effects = None
         self._ledger_entries = None
         self._meta = None
@@ -79,9 +79,10 @@ class Event(object):
         self.application_id = application_id
         if profile_id is not None:
             self.profile_id = profile_id
-        self.session_id = session_id
         self.type = type
         self.attributes = attributes
+        if session_id is not None:
+            self.session_id = session_id
         self.effects = effects
         self.ledger_entries = ledger_entries
         if meta is not None:
@@ -186,33 +187,6 @@ class Event(object):
         self._profile_id = profile_id
 
     @property
-    def session_id(self):
-        """Gets the session_id of this Event.  # noqa: E501
-
-        The ID of the session that this event occurred in.  # noqa: E501
-
-        :return: The session_id of this Event.  # noqa: E501
-        :rtype: str
-        """
-        return self._session_id
-
-    @session_id.setter
-    def session_id(self, session_id):
-        """Sets the session_id of this Event.
-
-        The ID of the session that this event occurred in.  # noqa: E501
-
-        :param session_id: The session_id of this Event.  # noqa: E501
-        :type: str
-        """
-        if session_id is None:
-            raise ValueError("Invalid value for `session_id`, must not be `None`")  # noqa: E501
-        if session_id is not None and len(session_id) < 1:
-            raise ValueError("Invalid value for `session_id`, length must be greater than or equal to `1`")  # noqa: E501
-
-        self._session_id = session_id
-
-    @property
     def type(self):
         """Gets the type of this Event.  # noqa: E501
 
@@ -263,6 +237,29 @@ class Event(object):
             raise ValueError("Invalid value for `attributes`, must not be `None`")  # noqa: E501
 
         self._attributes = attributes
+
+    @property
+    def session_id(self):
+        """Gets the session_id of this Event.  # noqa: E501
+
+        The ID of the session that this event occurred in.  # noqa: E501
+
+        :return: The session_id of this Event.  # noqa: E501
+        :rtype: str
+        """
+        return self._session_id
+
+    @session_id.setter
+    def session_id(self, session_id):
+        """Sets the session_id of this Event.
+
+        The ID of the session that this event occurred in.  # noqa: E501
+
+        :param session_id: The session_id of this Event.  # noqa: E501
+        :type: str
+        """
+
+        self._session_id = session_id
 
     @property
     def effects(self):
