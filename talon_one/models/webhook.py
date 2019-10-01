@@ -43,8 +43,7 @@ class Webhook(object):
         'headers': 'list[str]',
         'payload': 'str',
         'params': 'list[TemplateArgDef]',
-        'enabled': 'bool',
-        'used_at': 'list[str]'
+        'enabled': 'bool'
     }
 
     attribute_map = {
@@ -58,11 +57,10 @@ class Webhook(object):
         'headers': 'headers',
         'payload': 'payload',
         'params': 'params',
-        'enabled': 'enabled',
-        'used_at': 'usedAt'
+        'enabled': 'enabled'
     }
 
-    def __init__(self, id=None, created=None, modified=None, application_ids=None, title=None, verb=None, url=None, headers=None, payload=None, params=None, enabled=None, used_at=None):  # noqa: E501
+    def __init__(self, id=None, created=None, modified=None, application_ids=None, title=None, verb=None, url=None, headers=None, payload=None, params=None, enabled=None):  # noqa: E501
         """Webhook - a model defined in Swagger"""  # noqa: E501
 
         self._id = None
@@ -76,7 +74,6 @@ class Webhook(object):
         self._payload = None
         self._params = None
         self._enabled = None
-        self._used_at = None
         self.discriminator = None
 
         self.id = id
@@ -91,7 +88,6 @@ class Webhook(object):
             self.payload = payload
         self.params = params
         self.enabled = enabled
-        self.used_at = used_at
 
     @property
     def id(self):
@@ -371,31 +367,6 @@ class Webhook(object):
             raise ValueError("Invalid value for `enabled`, must not be `None`")  # noqa: E501
 
         self._enabled = enabled
-
-    @property
-    def used_at(self):
-        """Gets the used_at of this Webhook.  # noqa: E501
-
-        array of rulesets where webhook is used  # noqa: E501
-
-        :return: The used_at of this Webhook.  # noqa: E501
-        :rtype: list[str]
-        """
-        return self._used_at
-
-    @used_at.setter
-    def used_at(self, used_at):
-        """Sets the used_at of this Webhook.
-
-        array of rulesets where webhook is used  # noqa: E501
-
-        :param used_at: The used_at of this Webhook.  # noqa: E501
-        :type: list[str]
-        """
-        if used_at is None:
-            raise ValueError("Invalid value for `used_at`, must not be `None`")  # noqa: E501
-
-        self._used_at = used_at
 
     def to_dict(self):
         """Returns the model properties as a dict"""

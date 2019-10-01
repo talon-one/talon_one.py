@@ -158,7 +158,10 @@ from talon_one.models.new_ruleset import NewRuleset
 from talon_one.models.new_template_def import NewTemplateDef
 from talon_one.models.new_user import NewUser
 from talon_one.models.new_webhook import NewWebhook
+from talon_one.models.notification import Notification
+from talon_one.models.notifications import Notifications
 from talon_one.models.referral import Referral
+from talon_one.models.referral_rejection_reason import ReferralRejectionReason
 from talon_one.models.role import Role
 from talon_one.models.role_assign import RoleAssign
 from talon_one.models.role_membership import RoleMembership

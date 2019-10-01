@@ -42,7 +42,8 @@ class User(object):
         'policy': 'str',
         'release_update': 'bool',
         'latest_feature': 'str',
-        'roles': 'list[int]'
+        'roles': 'list[int]',
+        'application_notification_subscriptions': 'object'
     }
 
     attribute_map = {
@@ -57,10 +58,11 @@ class User(object):
         'policy': 'policy',
         'release_update': 'releaseUpdate',
         'latest_feature': 'latestFeature',
-        'roles': 'roles'
+        'roles': 'roles',
+        'application_notification_subscriptions': 'applicationNotificationSubscriptions'
     }
 
-    def __init__(self, id=None, created=None, modified=None, email=None, account_id=None, invite_token=None, state=None, name=None, policy=None, release_update=None, latest_feature=None, roles=None):  # noqa: E501
+    def __init__(self, id=None, created=None, modified=None, email=None, account_id=None, invite_token=None, state=None, name=None, policy=None, release_update=None, latest_feature=None, roles=None, application_notification_subscriptions=None):  # noqa: E501
         """User - a model defined in Swagger"""  # noqa: E501
 
         self._id = None
@@ -75,6 +77,7 @@ class User(object):
         self._release_update = None
         self._latest_feature = None
         self._roles = None
+        self._application_notification_subscriptions = None
         self.discriminator = None
 
         self.id = id
@@ -91,6 +94,8 @@ class User(object):
             self.latest_feature = latest_feature
         if roles is not None:
             self.roles = roles
+        if application_notification_subscriptions is not None:
+            self.application_notification_subscriptions = application_notification_subscriptions
 
     @property
     def id(self):
@@ -393,6 +398,27 @@ class User(object):
         """
 
         self._roles = roles
+
+    @property
+    def application_notification_subscriptions(self):
+        """Gets the application_notification_subscriptions of this User.  # noqa: E501
+
+
+        :return: The application_notification_subscriptions of this User.  # noqa: E501
+        :rtype: object
+        """
+        return self._application_notification_subscriptions
+
+    @application_notification_subscriptions.setter
+    def application_notification_subscriptions(self, application_notification_subscriptions):
+        """Sets the application_notification_subscriptions of this User.
+
+
+        :param application_notification_subscriptions: The application_notification_subscriptions of this User.  # noqa: E501
+        :type: object
+        """
+
+        self._application_notification_subscriptions = application_notification_subscriptions
 
     def to_dict(self):
         """Returns the model properties as a dict"""
