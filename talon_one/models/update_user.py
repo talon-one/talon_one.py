@@ -39,7 +39,8 @@ class UpdateUser(object):
         'state': 'str',
         'release_update': 'bool',
         'latest_feature': 'str',
-        'roles': 'list[int]'
+        'roles': 'list[int]',
+        'application_notification_subscriptions': 'object'
     }
 
     attribute_map = {
@@ -51,10 +52,11 @@ class UpdateUser(object):
         'state': 'state',
         'release_update': 'releaseUpdate',
         'latest_feature': 'latestFeature',
-        'roles': 'roles'
+        'roles': 'roles',
+        'application_notification_subscriptions': 'applicationNotificationSubscriptions'
     }
 
-    def __init__(self, email=None, name=None, password=None, new_password=None, policy=None, state=None, release_update=None, latest_feature=None, roles=None):  # noqa: E501
+    def __init__(self, email=None, name=None, password=None, new_password=None, policy=None, state=None, release_update=None, latest_feature=None, roles=None, application_notification_subscriptions=None):  # noqa: E501
         """UpdateUser - a model defined in Swagger"""  # noqa: E501
 
         self._email = None
@@ -66,6 +68,7 @@ class UpdateUser(object):
         self._release_update = None
         self._latest_feature = None
         self._roles = None
+        self._application_notification_subscriptions = None
         self.discriminator = None
 
         self.email = email
@@ -85,6 +88,8 @@ class UpdateUser(object):
             self.latest_feature = latest_feature
         if roles is not None:
             self.roles = roles
+        if application_notification_subscriptions is not None:
+            self.application_notification_subscriptions = application_notification_subscriptions
 
     @property
     def email(self):
@@ -300,6 +305,27 @@ class UpdateUser(object):
         """
 
         self._roles = roles
+
+    @property
+    def application_notification_subscriptions(self):
+        """Gets the application_notification_subscriptions of this UpdateUser.  # noqa: E501
+
+
+        :return: The application_notification_subscriptions of this UpdateUser.  # noqa: E501
+        :rtype: object
+        """
+        return self._application_notification_subscriptions
+
+    @application_notification_subscriptions.setter
+    def application_notification_subscriptions(self, application_notification_subscriptions):
+        """Sets the application_notification_subscriptions of this UpdateUser.
+
+
+        :param application_notification_subscriptions: The application_notification_subscriptions of this UpdateUser.  # noqa: E501
+        :type: object
+        """
+
+        self._application_notification_subscriptions = application_notification_subscriptions
 
     def to_dict(self):
         """Returns the model properties as a dict"""

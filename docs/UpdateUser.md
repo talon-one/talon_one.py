@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **release_update** | **bool** | Update the user via email | [optional] 
 **latest_feature** | **str** | The latest feature you&#39;ve been notified. | [optional] 
 **roles** | **list[int]** | Update | [optional] 
+**application_notification_subscriptions** | **object** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

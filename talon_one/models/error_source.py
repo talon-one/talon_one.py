@@ -33,21 +33,24 @@ class ErrorSource(object):
     swagger_types = {
         'pointer': 'str',
         'parameter': 'str',
-        'line': 'str'
+        'line': 'str',
+        'resource': 'str'
     }
 
     attribute_map = {
         'pointer': 'pointer',
         'parameter': 'parameter',
-        'line': 'line'
+        'line': 'line',
+        'resource': 'resource'
     }
 
-    def __init__(self, pointer=None, parameter=None, line=None):  # noqa: E501
+    def __init__(self, pointer=None, parameter=None, line=None, resource=None):  # noqa: E501
         """ErrorSource - a model defined in Swagger"""  # noqa: E501
 
         self._pointer = None
         self._parameter = None
         self._line = None
+        self._resource = None
         self.discriminator = None
 
         if pointer is not None:
@@ -56,6 +59,8 @@ class ErrorSource(object):
             self.parameter = parameter
         if line is not None:
             self.line = line
+        if resource is not None:
+            self.resource = resource
 
     @property
     def pointer(self):
@@ -125,6 +130,29 @@ class ErrorSource(object):
         """
 
         self._line = line
+
+    @property
+    def resource(self):
+        """Gets the resource of this ErrorSource.  # noqa: E501
+
+        Pointer to the resource that caused this error  # noqa: E501
+
+        :return: The resource of this ErrorSource.  # noqa: E501
+        :rtype: str
+        """
+        return self._resource
+
+    @resource.setter
+    def resource(self, resource):
+        """Sets the resource of this ErrorSource.
+
+        Pointer to the resource that caused this error  # noqa: E501
+
+        :param resource: The resource of this ErrorSource.  # noqa: E501
+        :type: str
+        """
+
+        self._resource = resource
 
     def to_dict(self):
         """Returns the model properties as a dict"""

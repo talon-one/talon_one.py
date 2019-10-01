@@ -41,9 +41,7 @@ class Attribute(object):
         'type': 'str',
         'description': 'str',
         'suggestions': 'list[str]',
-        'editable': 'bool',
-        'locked': 'bool',
-        'used_at': 'list[str]'
+        'editable': 'bool'
     }
 
     attribute_map = {
@@ -57,12 +55,10 @@ class Attribute(object):
         'type': 'type',
         'description': 'description',
         'suggestions': 'suggestions',
-        'editable': 'editable',
-        'locked': 'locked',
-        'used_at': 'usedAt'
+        'editable': 'editable'
     }
 
-    def __init__(self, id=None, created=None, account_id=None, entity=None, event_type=None, name=None, title=None, type=None, description=None, suggestions=None, editable=None, locked=False, used_at=None):  # noqa: E501
+    def __init__(self, id=None, created=None, account_id=None, entity=None, event_type=None, name=None, title=None, type=None, description=None, suggestions=None, editable=None):  # noqa: E501
         """Attribute - a model defined in Swagger"""  # noqa: E501
 
         self._id = None
@@ -76,8 +72,6 @@ class Attribute(object):
         self._description = None
         self._suggestions = None
         self._editable = None
-        self._locked = None
-        self._used_at = None
         self.discriminator = None
 
         self.id = id
@@ -92,8 +86,6 @@ class Attribute(object):
         self.description = description
         self.suggestions = suggestions
         self.editable = editable
-        self.locked = locked
-        self.used_at = used_at
 
     @property
     def id(self):
@@ -377,56 +369,6 @@ class Attribute(object):
             raise ValueError("Invalid value for `editable`, must not be `None`")  # noqa: E501
 
         self._editable = editable
-
-    @property
-    def locked(self):
-        """Gets the locked of this Attribute.  # noqa: E501
-
-        Indicates whether this attribute is in use. If in use only title can be changed and other operations are prohibited.  # noqa: E501
-
-        :return: The locked of this Attribute.  # noqa: E501
-        :rtype: bool
-        """
-        return self._locked
-
-    @locked.setter
-    def locked(self, locked):
-        """Sets the locked of this Attribute.
-
-        Indicates whether this attribute is in use. If in use only title can be changed and other operations are prohibited.  # noqa: E501
-
-        :param locked: The locked of this Attribute.  # noqa: E501
-        :type: bool
-        """
-        if locked is None:
-            raise ValueError("Invalid value for `locked`, must not be `None`")  # noqa: E501
-
-        self._locked = locked
-
-    @property
-    def used_at(self):
-        """Gets the used_at of this Attribute.  # noqa: E501
-
-        array of rulesets where the attribute is used  # noqa: E501
-
-        :return: The used_at of this Attribute.  # noqa: E501
-        :rtype: list[str]
-        """
-        return self._used_at
-
-    @used_at.setter
-    def used_at(self, used_at):
-        """Sets the used_at of this Attribute.
-
-        array of rulesets where the attribute is used  # noqa: E501
-
-        :param used_at: The used_at of this Attribute.  # noqa: E501
-        :type: list[str]
-        """
-        if used_at is None:
-            raise ValueError("Invalid value for `used_at`, must not be `None`")  # noqa: E501
-
-        self._used_at = used_at
 
     def to_dict(self):
         """Returns the model properties as a dict"""

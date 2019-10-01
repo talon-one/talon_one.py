@@ -43,6 +43,7 @@ class ApplicationSession(object):
         'state': 'str',
         'cart_items': 'list[CartItem]',
         'discounts': 'dict(str, float)',
+        'total': 'float',
         'attributes': 'object'
     }
 
@@ -57,10 +58,11 @@ class ApplicationSession(object):
         'state': 'state',
         'cart_items': 'cartItems',
         'discounts': 'discounts',
+        'total': 'total',
         'attributes': 'attributes'
     }
 
-    def __init__(self, id=None, created=None, application_id=None, profile_id=None, integration_id=None, coupon=None, referral=None, state=None, cart_items=None, discounts=None, attributes=None):  # noqa: E501
+    def __init__(self, id=None, created=None, application_id=None, profile_id=None, integration_id=None, coupon=None, referral=None, state=None, cart_items=None, discounts=None, total=None, attributes=None):  # noqa: E501
         """ApplicationSession - a model defined in Swagger"""  # noqa: E501
 
         self._id = None
@@ -73,6 +75,7 @@ class ApplicationSession(object):
         self._state = None
         self._cart_items = None
         self._discounts = None
+        self._total = None
         self._attributes = None
         self.discriminator = None
 
@@ -87,6 +90,8 @@ class ApplicationSession(object):
         self.state = state
         self.cart_items = cart_items
         self.discounts = discounts
+        if total is not None:
+            self.total = total
         if attributes is not None:
             self.attributes = attributes
 
@@ -242,7 +247,7 @@ class ApplicationSession(object):
     def referral(self):
         """Gets the referral of this ApplicationSession.  # noqa: E501
 
-        Any referal code entered.  # noqa: E501
+        Any referral code entered.  # noqa: E501
 
         :return: The referral of this ApplicationSession.  # noqa: E501
         :rtype: str
@@ -253,7 +258,7 @@ class ApplicationSession(object):
     def referral(self, referral):
         """Sets the referral of this ApplicationSession.
 
-        Any referal code entered.  # noqa: E501
+        Any referral code entered.  # noqa: E501
 
         :param referral: The referral of this ApplicationSession.  # noqa: E501
         :type: str
@@ -343,6 +348,29 @@ class ApplicationSession(object):
             raise ValueError("Invalid value for `discounts`, must not be `None`")  # noqa: E501
 
         self._discounts = discounts
+
+    @property
+    def total(self):
+        """Gets the total of this ApplicationSession.  # noqa: E501
+
+        The total sum of the session before any discounts applied.  # noqa: E501
+
+        :return: The total of this ApplicationSession.  # noqa: E501
+        :rtype: float
+        """
+        return self._total
+
+    @total.setter
+    def total(self, total):
+        """Sets the total of this ApplicationSession.
+
+        The total sum of the session before any discounts applied.  # noqa: E501
+
+        :param total: The total of this ApplicationSession.  # noqa: E501
+        :type: float
+        """
+
+        self._total = total
 
     @property
     def attributes(self):

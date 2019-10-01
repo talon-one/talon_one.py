@@ -14,7 +14,6 @@ Name | Type | Description | Notes
 **payload** | **str** | API payload (supports templating using parameters) for this webhook | [optional] 
 **params** | [**list[TemplateArgDef]**](TemplateArgDef.md) | Array of template argument definitions | 
 **enabled** | **bool** | Enables or disables webhook from showing in rule builder | 
-**used_at** | **list[str]** | array of rulesets where webhook is used | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -17,6 +17,7 @@ import re  # noqa: F401
 import six
 
 from talon_one.models.coupon_rejection_reason import CouponRejectionReason  # noqa: F401,E501
+from talon_one.models.referral_rejection_reason import ReferralRejectionReason  # noqa: F401,E501
 
 
 class Meta(object):
@@ -36,6 +37,7 @@ class Meta(object):
         'campaigns': 'object',
         'coupons': 'object',
         'coupon_rejection_reason': 'CouponRejectionReason',
+        'referral_rejection_reason': 'ReferralRejectionReason',
         'warnings': 'object'
     }
 
@@ -43,15 +45,17 @@ class Meta(object):
         'campaigns': 'campaigns',
         'coupons': 'coupons',
         'coupon_rejection_reason': 'couponRejectionReason',
+        'referral_rejection_reason': 'referralRejectionReason',
         'warnings': 'warnings'
     }
 
-    def __init__(self, campaigns=None, coupons=None, coupon_rejection_reason=None, warnings=None):  # noqa: E501
+    def __init__(self, campaigns=None, coupons=None, coupon_rejection_reason=None, referral_rejection_reason=None, warnings=None):  # noqa: E501
         """Meta - a model defined in Swagger"""  # noqa: E501
 
         self._campaigns = None
         self._coupons = None
         self._coupon_rejection_reason = None
+        self._referral_rejection_reason = None
         self._warnings = None
         self.discriminator = None
 
@@ -61,6 +65,8 @@ class Meta(object):
             self.coupons = coupons
         if coupon_rejection_reason is not None:
             self.coupon_rejection_reason = coupon_rejection_reason
+        if referral_rejection_reason is not None:
+            self.referral_rejection_reason = referral_rejection_reason
         if warnings is not None:
             self.warnings = warnings
 
@@ -130,6 +136,27 @@ class Meta(object):
         """
 
         self._coupon_rejection_reason = coupon_rejection_reason
+
+    @property
+    def referral_rejection_reason(self):
+        """Gets the referral_rejection_reason of this Meta.  # noqa: E501
+
+
+        :return: The referral_rejection_reason of this Meta.  # noqa: E501
+        :rtype: ReferralRejectionReason
+        """
+        return self._referral_rejection_reason
+
+    @referral_rejection_reason.setter
+    def referral_rejection_reason(self, referral_rejection_reason):
+        """Sets the referral_rejection_reason of this Meta.
+
+
+        :param referral_rejection_reason: The referral_rejection_reason of this Meta.  # noqa: E501
+        :type: ReferralRejectionReason
+        """
+
+        self._referral_rejection_reason = referral_rejection_reason
 
     @property
     def warnings(self):
