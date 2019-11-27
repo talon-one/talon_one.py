@@ -40,12 +40,12 @@ class Application(object):
         'account_id': 'int',
         'name': 'str',
         'description': 'str',
-        'key': 'str',
         'timezone': 'str',
         'currency': 'str',
         'case_sensitivity': 'str',
         'attributes': 'object',
         'limits': 'list[LimitConfig]',
+        'key': 'str',
         'loyalty_programs': 'list[LoyaltyProgram]'
     }
 
@@ -56,16 +56,16 @@ class Application(object):
         'account_id': 'accountId',
         'name': 'name',
         'description': 'description',
-        'key': 'key',
         'timezone': 'timezone',
         'currency': 'currency',
         'case_sensitivity': 'caseSensitivity',
         'attributes': 'attributes',
         'limits': 'limits',
+        'key': 'key',
         'loyalty_programs': 'loyaltyPrograms'
     }
 
-    def __init__(self, id=None, created=None, modified=None, account_id=None, name=None, description=None, key=None, timezone=None, currency=None, case_sensitivity=None, attributes=None, limits=None, loyalty_programs=None):  # noqa: E501
+    def __init__(self, id=None, created=None, modified=None, account_id=None, name=None, description=None, timezone=None, currency=None, case_sensitivity=None, attributes=None, limits=None, key=None, loyalty_programs=None):  # noqa: E501
         """Application - a model defined in Swagger"""  # noqa: E501
 
         self._id = None
@@ -74,12 +74,12 @@ class Application(object):
         self._account_id = None
         self._name = None
         self._description = None
-        self._key = None
         self._timezone = None
         self._currency = None
         self._case_sensitivity = None
         self._attributes = None
         self._limits = None
+        self._key = None
         self._loyalty_programs = None
         self.discriminator = None
 
@@ -90,7 +90,6 @@ class Application(object):
         self.name = name
         if description is not None:
             self.description = description
-        self.key = key
         self.timezone = timezone
         self.currency = currency
         if case_sensitivity is not None:
@@ -99,6 +98,7 @@ class Application(object):
             self.attributes = attributes
         if limits is not None:
             self.limits = limits
+        self.key = key
         self.loyalty_programs = loyalty_programs
 
     @property
@@ -252,37 +252,6 @@ class Application(object):
         self._description = description
 
     @property
-    def key(self):
-        """Gets the key of this Application.  # noqa: E501
-
-        Hex key for HMAC-signing API calls as coming from this application (16 hex digits)  # noqa: E501
-
-        :return: The key of this Application.  # noqa: E501
-        :rtype: str
-        """
-        return self._key
-
-    @key.setter
-    def key(self, key):
-        """Sets the key of this Application.
-
-        Hex key for HMAC-signing API calls as coming from this application (16 hex digits)  # noqa: E501
-
-        :param key: The key of this Application.  # noqa: E501
-        :type: str
-        """
-        if key is None:
-            raise ValueError("Invalid value for `key`, must not be `None`")  # noqa: E501
-        if key is not None and len(key) > 16:
-            raise ValueError("Invalid value for `key`, length must be less than or equal to `16`")  # noqa: E501
-        if key is not None and len(key) < 16:
-            raise ValueError("Invalid value for `key`, length must be greater than or equal to `16`")  # noqa: E501
-        if key is not None and not re.search(r'^[a-fA-F0-9]{16}$', key):  # noqa: E501
-            raise ValueError(r"Invalid value for `key`, must be a follow pattern or equal to `/^[a-fA-F0-9]{16}$/`")  # noqa: E501
-
-        self._key = key
-
-    @property
     def timezone(self):
         """Gets the timezone of this Application.  # noqa: E501
 
@@ -410,6 +379,37 @@ class Application(object):
         """
 
         self._limits = limits
+
+    @property
+    def key(self):
+        """Gets the key of this Application.  # noqa: E501
+
+        Hex key for HMAC-signing API calls as coming from this application (16 hex digits)  # noqa: E501
+
+        :return: The key of this Application.  # noqa: E501
+        :rtype: str
+        """
+        return self._key
+
+    @key.setter
+    def key(self, key):
+        """Sets the key of this Application.
+
+        Hex key for HMAC-signing API calls as coming from this application (16 hex digits)  # noqa: E501
+
+        :param key: The key of this Application.  # noqa: E501
+        :type: str
+        """
+        if key is None:
+            raise ValueError("Invalid value for `key`, must not be `None`")  # noqa: E501
+        if key is not None and len(key) > 16:
+            raise ValueError("Invalid value for `key`, length must be less than or equal to `16`")  # noqa: E501
+        if key is not None and len(key) < 16:
+            raise ValueError("Invalid value for `key`, length must be greater than or equal to `16`")  # noqa: E501
+        if key is not None and not re.search(r'^[a-fA-F0-9]{16}$', key):  # noqa: E501
+            raise ValueError(r"Invalid value for `key`, must be a follow pattern or equal to `/^[a-fA-F0-9]{16}$/`")  # noqa: E501
+
+        self._key = key
 
     @property
     def loyalty_programs(self):
