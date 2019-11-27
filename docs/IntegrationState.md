@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **profile** | [**CustomerProfile**](CustomerProfile.md) |  | 
 **event** | [**Event**](Event.md) |  | 
 **loyalty** | [**Loyalty**](Loyalty.md) |  | [optional] 
+**coupon** | [**Coupon**](Coupon.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

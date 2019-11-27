@@ -4176,6 +4176,11 @@ class ManagementApi(object):
         :param int page_size: The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
         :param int skip: Skips the given number of items when paging through large result sets.
         :param str sort: The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
+        :param int application_id:
+        :param datetime created_before: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp.
+        :param datetime created_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp.
+        :param bool with_total_result_size: When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, hasMore will be be true whenever there is a next page. totalResultSize will always be zero. With this flag set to false, hasMore will always be set to false. totalResultSize will contain the total number of results for this query. 
+        :param bool include_old: When this flag is set to false, the state without the change will not be returned. The default value is true.
         :return: InlineResponse20025
                  If the method is called asynchronously,
                  returns the request thread.
@@ -4200,12 +4205,17 @@ class ManagementApi(object):
         :param int page_size: The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
         :param int skip: Skips the given number of items when paging through large result sets.
         :param str sort: The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
+        :param int application_id:
+        :param datetime created_before: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp.
+        :param datetime created_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp.
+        :param bool with_total_result_size: When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, hasMore will be be true whenever there is a next page. totalResultSize will always be zero. With this flag set to false, hasMore will always be set to false. totalResultSize will contain the total number of results for this query. 
+        :param bool include_old: When this flag is set to false, the state without the change will not be returned. The default value is true.
         :return: InlineResponse20025
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['page_size', 'skip', 'sort']  # noqa: E501
+        all_params = ['page_size', 'skip', 'sort', 'application_id', 'created_before', 'created_after', 'with_total_result_size', 'include_old']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -4232,6 +4242,16 @@ class ManagementApi(object):
             query_params.append(('skip', params['skip']))  # noqa: E501
         if 'sort' in params:
             query_params.append(('sort', params['sort']))  # noqa: E501
+        if 'application_id' in params:
+            query_params.append(('applicationId', params['application_id']))  # noqa: E501
+        if 'created_before' in params:
+            query_params.append(('createdBefore', params['created_before']))  # noqa: E501
+        if 'created_after' in params:
+            query_params.append(('createdAfter', params['created_after']))  # noqa: E501
+        if 'with_total_result_size' in params:
+            query_params.append(('withTotalResultSize', params['with_total_result_size']))  # noqa: E501
+        if 'include_old' in params:
+            query_params.append(('includeOld', params['include_old']))  # noqa: E501
 
         header_params = {}
 

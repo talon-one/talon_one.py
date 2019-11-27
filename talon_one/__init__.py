@@ -155,6 +155,7 @@ from talon_one.models.new_password_email import NewPasswordEmail
 from talon_one.models.new_referral import NewReferral
 from talon_one.models.new_role import NewRole
 from talon_one.models.new_ruleset import NewRuleset
+from talon_one.models.new_saml_connection import NewSamlConnection
 from talon_one.models.new_template_def import NewTemplateDef
 from talon_one.models.new_user import NewUser
 from talon_one.models.new_webhook import NewWebhook
@@ -167,11 +168,13 @@ from talon_one.models.role_assign import RoleAssign
 from talon_one.models.role_membership import RoleMembership
 from talon_one.models.rule import Rule
 from talon_one.models.ruleset import Ruleset
+from talon_one.models.saml_connection import SamlConnection
 from talon_one.models.session import Session
 from talon_one.models.slot_def import SlotDef
 from talon_one.models.template_arg_def import TemplateArgDef
 from talon_one.models.template_def import TemplateDef
 from talon_one.models.update_account import UpdateAccount
+from talon_one.models.update_application import UpdateApplication
 from talon_one.models.update_campaign import UpdateCampaign
 from talon_one.models.update_coupon import UpdateCoupon
 from talon_one.models.update_coupon_batch import UpdateCouponBatch

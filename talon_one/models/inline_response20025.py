@@ -34,22 +34,28 @@ class InlineResponse20025(object):
     """
     swagger_types = {
         'total_result_size': 'int',
+        'has_more': 'bool',
         'data': 'list[Change]'
     }
 
     attribute_map = {
         'total_result_size': 'totalResultSize',
+        'has_more': 'hasMore',
         'data': 'data'
     }
 
-    def __init__(self, total_result_size=None, data=None):  # noqa: E501
+    def __init__(self, total_result_size=None, has_more=None, data=None):  # noqa: E501
         """InlineResponse20025 - a model defined in Swagger"""  # noqa: E501
 
         self._total_result_size = None
+        self._has_more = None
         self._data = None
         self.discriminator = None
 
-        self.total_result_size = total_result_size
+        if total_result_size is not None:
+            self.total_result_size = total_result_size
+        if has_more is not None:
+            self.has_more = has_more
         self.data = data
 
     @property
@@ -70,10 +76,29 @@ class InlineResponse20025(object):
         :param total_result_size: The total_result_size of this InlineResponse20025.  # noqa: E501
         :type: int
         """
-        if total_result_size is None:
-            raise ValueError("Invalid value for `total_result_size`, must not be `None`")  # noqa: E501
 
         self._total_result_size = total_result_size
+
+    @property
+    def has_more(self):
+        """Gets the has_more of this InlineResponse20025.  # noqa: E501
+
+
+        :return: The has_more of this InlineResponse20025.  # noqa: E501
+        :rtype: bool
+        """
+        return self._has_more
+
+    @has_more.setter
+    def has_more(self, has_more):
+        """Sets the has_more of this InlineResponse20025.
+
+
+        :param has_more: The has_more of this InlineResponse20025.  # noqa: E501
+        :type: bool
+        """
+
+        self._has_more = has_more
 
     @property
     def data(self):

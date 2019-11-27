@@ -16,6 +16,7 @@ import re  # noqa: F401
 
 import six
 
+from talon_one.models.coupon import Coupon  # noqa: F401,E501
 from talon_one.models.customer_profile import CustomerProfile  # noqa: F401,E501
 from talon_one.models.customer_session import CustomerSession  # noqa: F401,E501
 from talon_one.models.event import Event  # noqa: F401,E501
@@ -39,23 +40,26 @@ class IntegrationState(object):
         'session': 'CustomerSession',
         'profile': 'CustomerProfile',
         'event': 'Event',
-        'loyalty': 'Loyalty'
+        'loyalty': 'Loyalty',
+        'coupon': 'Coupon'
     }
 
     attribute_map = {
         'session': 'session',
         'profile': 'profile',
         'event': 'event',
-        'loyalty': 'loyalty'
+        'loyalty': 'loyalty',
+        'coupon': 'coupon'
     }
 
-    def __init__(self, session=None, profile=None, event=None, loyalty=None):  # noqa: E501
+    def __init__(self, session=None, profile=None, event=None, loyalty=None, coupon=None):  # noqa: E501
         """IntegrationState - a model defined in Swagger"""  # noqa: E501
 
         self._session = None
         self._profile = None
         self._event = None
         self._loyalty = None
+        self._coupon = None
         self.discriminator = None
 
         self.session = session
@@ -63,6 +67,8 @@ class IntegrationState(object):
         self.event = event
         if loyalty is not None:
             self.loyalty = loyalty
+        if coupon is not None:
+            self.coupon = coupon
 
     @property
     def session(self):
@@ -153,6 +159,27 @@ class IntegrationState(object):
         """
 
         self._loyalty = loyalty
+
+    @property
+    def coupon(self):
+        """Gets the coupon of this IntegrationState.  # noqa: E501
+
+
+        :return: The coupon of this IntegrationState.  # noqa: E501
+        :rtype: Coupon
+        """
+        return self._coupon
+
+    @coupon.setter
+    def coupon(self, coupon):
+        """Sets the coupon of this IntegrationState.
+
+
+        :param coupon: The coupon of this IntegrationState.  # noqa: E501
+        :type: Coupon
+        """
+
+        self._coupon = coupon
 
     def to_dict(self):
         """Returns the model properties as a dict"""

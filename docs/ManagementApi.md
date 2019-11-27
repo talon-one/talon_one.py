@@ -2243,7 +2243,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_changes**
-> InlineResponse20025 get_changes(page_size=page_size, skip=skip, sort=sort)
+> InlineResponse20025 get_changes(page_size=page_size, skip=skip, sort=sort, application_id=application_id, created_before=created_before, created_after=created_after, with_total_result_size=with_total_result_size, include_old=include_old)
 
 Get audit log for an account
 
@@ -2268,10 +2268,15 @@ api_instance = talon_one.ManagementApi(talon_one.ApiClient(configuration))
 page_size = 56 # int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
 skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
 sort = 'sort_example' # str | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional)
+application_id = 56 # int |  (optional)
+created_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp. (optional)
+created_after = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp. (optional)
+with_total_result_size = true # bool | When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, hasMore will be be true whenever there is a next page. totalResultSize will always be zero. With this flag set to false, hasMore will always be set to false. totalResultSize will contain the total number of results for this query.  (optional)
+include_old = true # bool | When this flag is set to false, the state without the change will not be returned. The default value is true. (optional)
 
 try:
     # Get audit log for an account
-    api_response = api_instance.get_changes(page_size=page_size, skip=skip, sort=sort)
+    api_response = api_instance.get_changes(page_size=page_size, skip=skip, sort=sort, application_id=application_id, created_before=created_before, created_after=created_after, with_total_result_size=with_total_result_size, include_old=include_old)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling ManagementApi->get_changes: %s\n" % e)
@@ -2284,6 +2289,11 @@ Name | Type | Description  | Notes
  **page_size** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
  **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional] 
  **sort** | **str**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional] 
+ **application_id** | **int**|  | [optional] 
+ **created_before** | **datetime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp. | [optional] 
+ **created_after** | **datetime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp. | [optional] 
+ **with_total_result_size** | **bool**| When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, hasMore will be be true whenever there is a next page. totalResultSize will always be zero. With this flag set to false, hasMore will always be set to false. totalResultSize will contain the total number of results for this query.  | [optional] 
+ **include_old** | **bool**| When this flag is set to false, the state without the change will not be returned. The default value is true. | [optional] 
 
 ### Return type
 

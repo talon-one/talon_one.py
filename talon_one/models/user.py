@@ -43,7 +43,8 @@ class User(object):
         'release_update': 'bool',
         'latest_feature': 'str',
         'roles': 'list[int]',
-        'application_notification_subscriptions': 'object'
+        'application_notification_subscriptions': 'object',
+        'auth_method': 'str'
     }
 
     attribute_map = {
@@ -59,10 +60,11 @@ class User(object):
         'release_update': 'releaseUpdate',
         'latest_feature': 'latestFeature',
         'roles': 'roles',
-        'application_notification_subscriptions': 'applicationNotificationSubscriptions'
+        'application_notification_subscriptions': 'applicationNotificationSubscriptions',
+        'auth_method': 'authMethod'
     }
 
-    def __init__(self, id=None, created=None, modified=None, email=None, account_id=None, invite_token=None, state=None, name=None, policy=None, release_update=None, latest_feature=None, roles=None, application_notification_subscriptions=None):  # noqa: E501
+    def __init__(self, id=None, created=None, modified=None, email=None, account_id=None, invite_token=None, state=None, name=None, policy=None, release_update=None, latest_feature=None, roles=None, application_notification_subscriptions=None, auth_method=None):  # noqa: E501
         """User - a model defined in Swagger"""  # noqa: E501
 
         self._id = None
@@ -78,6 +80,7 @@ class User(object):
         self._latest_feature = None
         self._roles = None
         self._application_notification_subscriptions = None
+        self._auth_method = None
         self.discriminator = None
 
         self.id = id
@@ -96,6 +99,8 @@ class User(object):
             self.roles = roles
         if application_notification_subscriptions is not None:
             self.application_notification_subscriptions = application_notification_subscriptions
+        if auth_method is not None:
+            self.auth_method = auth_method
 
     @property
     def id(self):
@@ -419,6 +424,29 @@ class User(object):
         """
 
         self._application_notification_subscriptions = application_notification_subscriptions
+
+    @property
+    def auth_method(self):
+        """Gets the auth_method of this User.  # noqa: E501
+
+        The Authentication method for this user  # noqa: E501
+
+        :return: The auth_method of this User.  # noqa: E501
+        :rtype: str
+        """
+        return self._auth_method
+
+    @auth_method.setter
+    def auth_method(self, auth_method):
+        """Sets the auth_method of this User.
+
+        The Authentication method for this user  # noqa: E501
+
+        :param auth_method: The auth_method of this User.  # noqa: E501
+        :type: str
+        """
+
+        self._auth_method = auth_method
 
     def to_dict(self):
         """Returns the model properties as a dict"""
