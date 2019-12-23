@@ -41,6 +41,9 @@ from talon_one.models.application_session import ApplicationSession
 from talon_one.models.application_session_entity import ApplicationSessionEntity
 from talon_one.models.attribute import Attribute
 from talon_one.models.attribute_query import AttributeQuery
+from talon_one.models.attributes_mandatory import AttributesMandatory
+from talon_one.models.attributes_settings import AttributesSettings
+from talon_one.models.base_saml_connection import BaseSamlConnection
 from talon_one.models.binding import Binding
 from talon_one.models.campaign import Campaign
 from talon_one.models.campaign_analytics import CampaignAnalytics
@@ -64,6 +67,7 @@ from talon_one.models.coupon_value import CouponValue
 from talon_one.models.create_application_api_key import CreateApplicationAPIKey
 from talon_one.models.customer_activity_report import CustomerActivityReport
 from talon_one.models.customer_analytics import CustomerAnalytics
+from talon_one.models.customer_inventory import CustomerInventory
 from talon_one.models.customer_profile import CustomerProfile
 from talon_one.models.customer_profile_search_query import CustomerProfileSearchQuery
 from talon_one.models.customer_session import CustomerSession
@@ -103,6 +107,7 @@ from talon_one.models.inline_response20025 import InlineResponse20025
 from talon_one.models.inline_response20026 import InlineResponse20026
 from talon_one.models.inline_response20027 import InlineResponse20027
 from talon_one.models.inline_response20028 import InlineResponse20028
+from talon_one.models.inline_response20029 import InlineResponse20029
 from talon_one.models.inline_response2003 import InlineResponse2003
 from talon_one.models.inline_response2004 import InlineResponse2004
 from talon_one.models.inline_response2005 import InlineResponse2005
@@ -169,6 +174,7 @@ from talon_one.models.role_membership import RoleMembership
 from talon_one.models.rule import Rule
 from talon_one.models.ruleset import Ruleset
 from talon_one.models.saml_connection import SamlConnection
+from talon_one.models.saml_connection_metadata import SamlConnectionMetadata
 from talon_one.models.session import Session
 from talon_one.models.slot_def import SlotDef
 from talon_one.models.template_arg_def import TemplateArgDef

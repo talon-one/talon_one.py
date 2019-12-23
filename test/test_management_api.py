@@ -43,6 +43,13 @@ class TestManagementApi(unittest.TestCase):
         """
         pass
 
+    def test_create_attribute(self):
+        """Test case for create_attribute
+
+        Define a new custom attribute  # noqa: E501
+        """
+        pass
+
     def test_create_campaign(self):
         """Test case for create_campaign
 
@@ -141,13 +148,6 @@ class TestManagementApi(unittest.TestCase):
         """
         pass
 
-    def test_get_account_limits(self):
-        """Test case for get_account_limits
-
-        Get Account Limits  # noqa: E501
-        """
-        pass
-
     def test_get_all_access_logs(self):
         """Test case for get_all_access_logs
 
@@ -243,6 +243,13 @@ class TestManagementApi(unittest.TestCase):
         """Test case for get_attribute
 
         Get a custom attribute  # noqa: E501
+        """
+        pass
+
+    def test_get_attributes(self):
+        """Test case for get_attributes
+
+        List custom attributes  # noqa: E501
         """
         pass
 
@@ -533,10 +540,10 @@ class TestManagementApi(unittest.TestCase):
         """
         pass
 
-    def test_set_account_limits(self):
-        """Test case for set_account_limits
+    def test_update_attribute(self):
+        """Test case for update_attribute
 
-        Set account limits  # noqa: E501
+        Update a custom attribute  # noqa: E501
         """
         pass
 

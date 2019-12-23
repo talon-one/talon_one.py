@@ -16,7 +16,7 @@ import re  # noqa: F401
 
 import six
 
-from talon_one.models.event_type import EventType  # noqa: F401,E501
+from talon_one.models.webhook_log_entry import WebhookLogEntry  # noqa: F401,E501
 
 
 class InlineResponse20023(object):
@@ -34,7 +34,7 @@ class InlineResponse20023(object):
     """
     swagger_types = {
         'total_result_size': 'int',
-        'data': 'list[EventType]'
+        'data': 'list[WebhookLogEntry]'
     }
 
     attribute_map = {
@@ -81,7 +81,7 @@ class InlineResponse20023(object):
 
 
         :return: The data of this InlineResponse20023.  # noqa: E501
-        :rtype: list[EventType]
+        :rtype: list[WebhookLogEntry]
         """
         return self._data
 
@@ -91,7 +91,7 @@ class InlineResponse20023(object):
 
 
         :param data: The data of this InlineResponse20023.  # noqa: E501
-        :type: list[EventType]
+        :type: list[WebhookLogEntry]
         """
         if data is None:
             raise ValueError("Invalid value for `data`, must not be `None`")  # noqa: E501

@@ -17,6 +17,7 @@ Name | Type | Description | Notes
 **roles** | **int** | Total Number of roles inside the account | 
 **webhooks** | **int** | Total Number of webhooks inside the account | 
 **loyalty_programs** | **int** | Total Number of loyalty programs inside the account | 
+**active_rules** | **int** | Total Number of active rules in the account | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

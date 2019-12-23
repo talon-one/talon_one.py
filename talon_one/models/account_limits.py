@@ -41,6 +41,7 @@ class AccountLimits(object):
         'webhooks': 'int',
         'users': 'int',
         'api_volume': 'int',
+        'active_rules': 'int',
         'promotion_types': 'list[str]'
     }
 
@@ -55,10 +56,11 @@ class AccountLimits(object):
         'webhooks': 'webhooks',
         'users': 'users',
         'api_volume': 'apiVolume',
+        'active_rules': 'activeRules',
         'promotion_types': 'promotionTypes'
     }
 
-    def __init__(self, live_applications=None, sandbox_applications=None, active_campaigns=None, coupons=None, referral_codes=None, live_loyalty_programs=None, sandbox_loyalty_programs=None, webhooks=None, users=None, api_volume=None, promotion_types=None):  # noqa: E501
+    def __init__(self, live_applications=None, sandbox_applications=None, active_campaigns=None, coupons=None, referral_codes=None, live_loyalty_programs=None, sandbox_loyalty_programs=None, webhooks=None, users=None, api_volume=None, active_rules=None, promotion_types=None):  # noqa: E501
         """AccountLimits - a model defined in Swagger"""  # noqa: E501
 
         self._live_applications = None
@@ -71,6 +73,7 @@ class AccountLimits(object):
         self._webhooks = None
         self._users = None
         self._api_volume = None
+        self._active_rules = None
         self._promotion_types = None
         self.discriminator = None
 
@@ -84,6 +87,8 @@ class AccountLimits(object):
         self.webhooks = webhooks
         self.users = users
         self.api_volume = api_volume
+        if active_rules is not None:
+            self.active_rules = active_rules
         self.promotion_types = promotion_types
 
     @property
@@ -335,6 +340,29 @@ class AccountLimits(object):
             raise ValueError("Invalid value for `api_volume`, must not be `None`")  # noqa: E501
 
         self._api_volume = api_volume
+
+    @property
+    def active_rules(self):
+        """Gets the active_rules of this AccountLimits.  # noqa: E501
+
+        Total allowed active rulesets  # noqa: E501
+
+        :return: The active_rules of this AccountLimits.  # noqa: E501
+        :rtype: int
+        """
+        return self._active_rules
+
+    @active_rules.setter
+    def active_rules(self, active_rules):
+        """Sets the active_rules of this AccountLimits.
+
+        Total allowed active rulesets  # noqa: E501
+
+        :param active_rules: The active_rules of this AccountLimits.  # noqa: E501
+        :type: int
+        """
+
+        self._active_rules = active_rules
 
     @property
     def promotion_types(self):

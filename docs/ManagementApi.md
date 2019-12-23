@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**add_loyalty_points**](ManagementApi.md#add_loyalty_points) | **PUT** /v1/loyalty_programs/{programID}/profile/{integrationID}/add_points | Add points in a certain loyalty program for the specified customer
 [**copy_campaign_to_applications**](ManagementApi.md#copy_campaign_to_applications) | **POST** /v1/applications/{applicationId}/campaigns/{campaignId}/copy | Copy the campaign into every specified application
+[**create_attribute**](ManagementApi.md#create_attribute) | **POST** /v1/attributes | Define a new custom attribute
 [**create_campaign**](ManagementApi.md#create_campaign) | **POST** /v1/applications/{applicationId}/campaigns | Create a Campaign
 [**create_coupons**](ManagementApi.md#create_coupons) | **POST** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons | Create Coupons
 [**create_password_recovery_email**](ManagementApi.md#create_password_recovery_email) | **POST** /v1/password_recovery_emails | Request a password reset
@@ -20,7 +21,6 @@ Method | HTTP request | Description
 [**get_access_logs_without_total_count**](ManagementApi.md#get_access_logs_without_total_count) | **GET** /v1/applications/{applicationId}/access_logs/no_total | Get access logs for application
 [**get_account**](ManagementApi.md#get_account) | **GET** /v1/accounts/{accountId} | Get Account Details
 [**get_account_analytics**](ManagementApi.md#get_account_analytics) | **GET** /v1/accounts/{accountId}/analytics | Get Account Analytics
-[**get_account_limits**](ManagementApi.md#get_account_limits) | **GET** /v1/accounts/{accountId}/limits | Get Account Limits
 [**get_all_access_logs**](ManagementApi.md#get_all_access_logs) | **GET** /v1/access_logs | Get all access logs
 [**get_all_roles**](ManagementApi.md#get_all_roles) | **GET** /v1/roles | Get all roles.
 [**get_application**](ManagementApi.md#get_application) | **GET** /v1/applications/{applicationId} | Get Application
@@ -35,6 +35,7 @@ Method | HTTP request | Description
 [**get_application_sessions**](ManagementApi.md#get_application_sessions) | **GET** /v1/applications/{applicationId}/sessions | List Application Sessions
 [**get_applications**](ManagementApi.md#get_applications) | **GET** /v1/applications | List Applications
 [**get_attribute**](ManagementApi.md#get_attribute) | **GET** /v1/attributes/{attributeId} | Get a custom attribute
+[**get_attributes**](ManagementApi.md#get_attributes) | **GET** /v1/attributes | List custom attributes
 [**get_campaign**](ManagementApi.md#get_campaign) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId} | Get a Campaign
 [**get_campaign_analytics**](ManagementApi.md#get_campaign_analytics) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/analytics | Get analytics of campaigns
 [**get_campaign_by_attributes**](ManagementApi.md#get_campaign_by_attributes) | **POST** /v1/applications/{applicationId}/campaigns_search | Get a list of all campaigns that match the given attributes
@@ -76,7 +77,7 @@ Method | HTTP request | Description
 [**search_coupons_advanced_application_wide**](ManagementApi.md#search_coupons_advanced_application_wide) | **POST** /v1/applications/{applicationId}/coupons_search_advanced | Get a list of the coupons that match the given attributes in all active campaigns of an application
 [**search_coupons_advanced_application_wide_without_total_count**](ManagementApi.md#search_coupons_advanced_application_wide_without_total_count) | **POST** /v1/applications/{applicationId}/coupons_search_advanced/no_total | Get a list of the coupons that match the given attributes in all active campaigns of an application
 [**search_coupons_advanced_without_total_count**](ManagementApi.md#search_coupons_advanced_without_total_count) | **POST** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons_search_advanced/no_total | Get a list of the coupons that match the given attributes
-[**set_account_limits**](ManagementApi.md#set_account_limits) | **PUT** /v1/accounts/{accountId}/limits | Set account limits
+[**update_attribute**](ManagementApi.md#update_attribute) | **PUT** /v1/attributes/{attributeId} | Update a custom attribute
 [**update_campaign**](ManagementApi.md#update_campaign) | **PUT** /v1/applications/{applicationId}/campaigns/{campaignId} | Update a Campaign
 [**update_campaign_set**](ManagementApi.md#update_campaign_set) | **PUT** /v1/applications/{applicationId}/campaign_set | Update a Campaign Set
 [**update_coupon**](ManagementApi.md#update_coupon) | **PUT** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons/{couponId} | Update a Coupon
@@ -199,6 +200,60 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **create_attribute**
+> Attribute create_attribute(body)
+
+Define a new custom attribute
+
+Defines a new _custom attribute_ in this account. Custom attributes allow you to attach new fields to Talon.One domain objects like campaigns, coupons, customers and so on. These attributes can then be given values when creating / updating these objects, and these values can be used in your campaign rules. For example, you could define a `zipCode` field for customer sessions, and add a rule to your campaign that only allows certain ZIP codes.  These attributes are shared across all applications in your account, and are never required. 
+
+### Example
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration()
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = talon_one.ManagementApi(talon_one.ApiClient(configuration))
+body = talon_one.NewAttribute() # NewAttribute | 
+
+try:
+    # Define a new custom attribute
+    api_response = api_instance.create_attribute(body)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ManagementApi->create_attribute: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**NewAttribute**](NewAttribute.md)|  | 
+
+### Return type
+
+[**Attribute**](Attribute.md)
+
+### Authorization
+
+[manager_auth](../README.md#manager_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **create_campaign**
 > Campaign create_campaign(application_id, body)
 
@@ -260,7 +315,7 @@ Name | Type | Description  | Notes
 
 Create Coupons
 
-Create coupons according to some pattern. Up to 20.000 coupons can be created without a unique prefix. When a unique prefix is provided, up to 200.000 coupns can be created.
+Create coupons according to some pattern. Up to 20.000 coupons can be created without a unique prefix. When a unique prefix is provided, up to 200.000 coupons can be created.
 
 ### Example
 ```python
@@ -814,8 +869,8 @@ api_instance = talon_one.ManagementApi(talon_one.ApiClient(configuration))
 application_id = 56 # int | 
 range_start = '2013-10-20T19:20:30+01:00' # datetime | Only return results from after this timestamp, must be an RFC3339 timestamp string
 range_end = '2013-10-20T19:20:30+01:00' # datetime | Only return results from before this timestamp, must be an RFC3339 timestamp string
-path = 'path_example' # str | Only return results where the request path matches the given regular expresssion. (optional)
-method = 'method_example' # str | Only return results where the request method matches the given regular expresssion. (optional)
+path = 'path_example' # str | Only return results where the request path matches the given regular expression. (optional)
+method = 'method_example' # str | Only return results where the request method matches the given regular expression. (optional)
 status = 'status_example' # str | Filter results by HTTP status codes. (optional)
 page_size = 56 # int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
 skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
@@ -836,8 +891,8 @@ Name | Type | Description  | Notes
  **application_id** | **int**|  | 
  **range_start** | **datetime**| Only return results from after this timestamp, must be an RFC3339 timestamp string | 
  **range_end** | **datetime**| Only return results from before this timestamp, must be an RFC3339 timestamp string | 
- **path** | **str**| Only return results where the request path matches the given regular expresssion. | [optional] 
- **method** | **str**| Only return results where the request method matches the given regular expresssion. | [optional] 
+ **path** | **str**| Only return results where the request path matches the given regular expression. | [optional] 
+ **method** | **str**| Only return results where the request method matches the given regular expression. | [optional] 
  **status** | **str**| Filter results by HTTP status codes. | [optional] 
  **page_size** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
  **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional] 
@@ -884,8 +939,8 @@ api_instance = talon_one.ManagementApi(talon_one.ApiClient(configuration))
 application_id = 56 # int | 
 range_start = '2013-10-20T19:20:30+01:00' # datetime | Only return results from after this timestamp, must be an RFC3339 timestamp string
 range_end = '2013-10-20T19:20:30+01:00' # datetime | Only return results from before this timestamp, must be an RFC3339 timestamp string
-path = 'path_example' # str | Only return results where the request path matches the given regular expresssion. (optional)
-method = 'method_example' # str | Only return results where the request method matches the given regular expresssion. (optional)
+path = 'path_example' # str | Only return results where the request path matches the given regular expression. (optional)
+method = 'method_example' # str | Only return results where the request method matches the given regular expression. (optional)
 status = 'status_example' # str | Filter results by HTTP status codes. (optional)
 page_size = 56 # int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
 skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
@@ -906,8 +961,8 @@ Name | Type | Description  | Notes
  **application_id** | **int**|  | 
  **range_start** | **datetime**| Only return results from after this timestamp, must be an RFC3339 timestamp string | 
  **range_end** | **datetime**| Only return results from before this timestamp, must be an RFC3339 timestamp string | 
- **path** | **str**| Only return results where the request path matches the given regular expresssion. | [optional] 
- **method** | **str**| Only return results where the request method matches the given regular expresssion. | [optional] 
+ **path** | **str**| Only return results where the request path matches the given regular expression. | [optional] 
+ **method** | **str**| Only return results where the request method matches the given regular expression. | [optional] 
  **status** | **str**| Filter results by HTTP status codes. | [optional] 
  **page_size** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
  **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional] 
@@ -1036,60 +1091,6 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **get_account_limits**
-> AccountLimits get_account_limits(account_id)
-
-Get Account Limits
-
-Returns a list of all account limits set 
-
-### Example
-```python
-from __future__ import print_function
-import time
-import talon_one
-from talon_one.rest import ApiException
-from pprint import pprint
-
-# Configure API key authorization: manager_auth
-configuration = talon_one.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
-
-# create an instance of the API class
-api_instance = talon_one.ManagementApi(talon_one.ApiClient(configuration))
-account_id = 56 # int | 
-
-try:
-    # Get Account Limits
-    api_response = api_instance.get_account_limits(account_id)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ManagementApi->get_account_limits: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **account_id** | **int**|  | 
-
-### Return type
-
-[**AccountLimits**](AccountLimits.md)
-
-### Authorization
-
-[manager_auth](../README.md#manager_auth)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **get_all_access_logs**
 > InlineResponse2009 get_all_access_logs(range_start, range_end, path=path, method=method, status=status, page_size=page_size, skip=skip, sort=sort)
 
@@ -1115,8 +1116,8 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 api_instance = talon_one.ManagementApi(talon_one.ApiClient(configuration))
 range_start = '2013-10-20T19:20:30+01:00' # datetime | Only return results from after this timestamp, must be an RFC3339 timestamp string
 range_end = '2013-10-20T19:20:30+01:00' # datetime | Only return results from before this timestamp, must be an RFC3339 timestamp string
-path = 'path_example' # str | Only return results where the request path matches the given regular expresssion. (optional)
-method = 'method_example' # str | Only return results where the request method matches the given regular expresssion. (optional)
+path = 'path_example' # str | Only return results where the request path matches the given regular expression. (optional)
+method = 'method_example' # str | Only return results where the request method matches the given regular expression. (optional)
 status = 'status_example' # str | Filter results by HTTP status codes. (optional)
 page_size = 56 # int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
 skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
@@ -1136,8 +1137,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **range_start** | **datetime**| Only return results from after this timestamp, must be an RFC3339 timestamp string | 
  **range_end** | **datetime**| Only return results from before this timestamp, must be an RFC3339 timestamp string | 
- **path** | **str**| Only return results where the request path matches the given regular expresssion. | [optional] 
- **method** | **str**| Only return results where the request method matches the given regular expresssion. | [optional] 
+ **path** | **str**| Only return results where the request path matches the given regular expression. | [optional] 
+ **method** | **str**| Only return results where the request method matches the given regular expression. | [optional] 
  **status** | **str**| Filter results by HTTP status codes. | [optional] 
  **page_size** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
  **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional] 
@@ -1159,7 +1160,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_all_roles**
-> InlineResponse20028 get_all_roles()
+> InlineResponse20029 get_all_roles()
 
 Get all roles.
 
@@ -1193,7 +1194,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**InlineResponse20028**](InlineResponse20028.md)
+[**InlineResponse20029**](InlineResponse20029.md)
 
 ### Authorization
 
@@ -1429,7 +1430,7 @@ Name | Type | Description  | Notes
 
 Get a list of the customer profiles that match the given attributes
 
-Gets a list of all the customer profiles for the account that exactly match a set of attributes.  The match is successful if all the attributes of the request are found in a profile, even if the profile has more attributes that are not present on the request.  [Customer Profile]: http://help.talon.one/customer/en/portal/articles/2525263-data-model?b_id=14115#customer-profile 
+Gets a list of all the customer profiles for the account that exactly match a set of attributes.  The match is successful if all the attributes of the request are found in a profile, even if the profile has more attributes that are not present on the request.  [Customer Profile]: https://help.talon.one/hc/en-us/articles/360005130739-Data-Model#CustomerProfile 
 
 ### Example
 ```python
@@ -1936,6 +1937,64 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **get_attributes**
+> InlineResponse20020 get_attributes(page_size=page_size, skip=skip, sort=sort)
+
+List custom attributes
+
+Returns all the defined custom attributes for the account. 
+
+### Example
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration()
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = talon_one.ManagementApi(talon_one.ApiClient(configuration))
+page_size = 56 # int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
+sort = 'sort_example' # str | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional)
+
+try:
+    # List custom attributes
+    api_response = api_instance.get_attributes(page_size=page_size, skip=skip, sort=sort)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ManagementApi->get_attributes: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **page_size** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
+ **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional] 
+ **sort** | **str**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional] 
+
+### Return type
+
+[**InlineResponse20020**](InlineResponse20020.md)
+
+### Authorization
+
+[manager_auth](../README.md#manager_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **get_campaign**
 > Campaign get_campaign(application_id, campaign_id)
 
@@ -2243,7 +2302,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_changes**
-> InlineResponse20025 get_changes(page_size=page_size, skip=skip, sort=sort, application_id=application_id, created_before=created_before, created_after=created_after, with_total_result_size=with_total_result_size, include_old=include_old)
+> InlineResponse20026 get_changes(page_size=page_size, skip=skip, sort=sort, application_id=application_id, created_before=created_before, created_after=created_after, with_total_result_size=with_total_result_size, include_old=include_old)
 
 Get audit log for an account
 
@@ -2297,7 +2356,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20025**](InlineResponse20025.md)
+[**InlineResponse20026**](InlineResponse20026.md)
 
 ### Authorization
 
@@ -3029,7 +3088,7 @@ Name | Type | Description  | Notes
 
 Get a list of the customer profiles that match the given attributes
 
-Gets a list of all the customer profiles for the account that exactly match a set of attributes.  The match is successful if all the attributes of the request are found in a profile, even if the profile has more attributes that are not present on the request.  [Customer Profile]: http://help.talon.one/customer/en/portal/articles/2525263-data-model?b_id=14115#customer-profile 
+Gets a list of all the customer profiles for the account that exactly match a set of attributes.  The match is successful if all the attributes of the request are found in a profile, even if the profile has more attributes that are not present on the request.  [Customer Profile]: https://help.talon.one/hc/en-us/articles/360005130739-Data-Model#CustomerProfile 
 
 ### Example
 ```python
@@ -3083,7 +3142,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_event_types**
-> InlineResponse20023 get_event_types(application_ids=application_ids, name=name, include_old_versions=include_old_versions, page_size=page_size, skip=skip, sort=sort)
+> InlineResponse20024 get_event_types(application_ids=application_ids, name=name, include_old_versions=include_old_versions, page_size=page_size, skip=skip, sort=sort)
 
 List Event Types
 
@@ -3133,7 +3192,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20023**](InlineResponse20023.md)
+[**InlineResponse20024**](InlineResponse20024.md)
 
 ### Authorization
 
@@ -3147,7 +3206,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_exports**
-> InlineResponse20026 get_exports(page_size=page_size, skip=skip, application_id=application_id, campaign_id=campaign_id, entity=entity)
+> InlineResponse20027 get_exports(page_size=page_size, skip=skip, application_id=application_id, campaign_id=campaign_id, entity=entity)
 
 Get Exports
 
@@ -3195,7 +3254,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20026**](InlineResponse20026.md)
+[**InlineResponse20027**](InlineResponse20027.md)
 
 ### Authorization
 
@@ -3209,7 +3268,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_imports**
-> InlineResponse20027 get_imports(page_size=page_size, skip=skip)
+> InlineResponse20028 get_imports(page_size=page_size, skip=skip)
 
 Get Imports
 
@@ -3251,7 +3310,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20027**](InlineResponse20027.md)
+[**InlineResponse20028**](InlineResponse20028.md)
 
 ### Authorization
 
@@ -3799,7 +3858,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_users**
-> InlineResponse20024 get_users(page_size=page_size, skip=skip, sort=sort)
+> InlineResponse20025 get_users(page_size=page_size, skip=skip, sort=sort)
 
 List Users in your account
 
@@ -3843,7 +3902,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20024**](InlineResponse20024.md)
+[**InlineResponse20025**](InlineResponse20025.md)
 
 ### Authorization
 
@@ -3911,7 +3970,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_webhook_activation_logs**
-> InlineResponse20021 get_webhook_activation_logs(page_size=page_size, skip=skip, sort=sort, integration_request_uuid=integration_request_uuid, webhook_id=webhook_id, application_id=application_id, campaign_id=campaign_id, created_before=created_before, created_after=created_after)
+> InlineResponse20022 get_webhook_activation_logs(page_size=page_size, skip=skip, sort=sort, integration_request_uuid=integration_request_uuid, webhook_id=webhook_id, application_id=application_id, campaign_id=campaign_id, created_before=created_before, created_after=created_after)
 
 List Webhook activation Log Entries
 
@@ -3967,7 +4026,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20021**](InlineResponse20021.md)
+[**InlineResponse20022**](InlineResponse20022.md)
 
 ### Authorization
 
@@ -3981,7 +4040,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_webhook_logs**
-> InlineResponse20022 get_webhook_logs(page_size=page_size, skip=skip, sort=sort, status=status, webhook_id=webhook_id, application_id=application_id, campaign_id=campaign_id, request_uuid=request_uuid, created_before=created_before, created_after=created_after)
+> InlineResponse20023 get_webhook_logs(page_size=page_size, skip=skip, sort=sort, status=status, webhook_id=webhook_id, application_id=application_id, campaign_id=campaign_id, request_uuid=request_uuid, created_before=created_before, created_after=created_after)
 
 List Webhook Log Entries
 
@@ -4039,7 +4098,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20022**](InlineResponse20022.md)
+[**InlineResponse20023**](InlineResponse20023.md)
 
 ### Authorization
 
@@ -4053,7 +4112,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_webhooks**
-> InlineResponse20020 get_webhooks(application_ids=application_ids, sort=sort, page_size=page_size, skip=skip)
+> InlineResponse20021 get_webhooks(application_ids=application_ids, sort=sort, page_size=page_size, skip=skip)
 
 List Webhooks
 
@@ -4099,7 +4158,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20020**](InlineResponse20020.md)
+[**InlineResponse20021**](InlineResponse20021.md)
 
 ### Authorization
 
@@ -4600,12 +4659,12 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **set_account_limits**
-> set_account_limits(account_id, body)
+# **update_attribute**
+> Attribute update_attribute(attribute_id, body)
 
-Set account limits
+Update a custom attribute
 
-sets account limits 
+Updates an existing custom attribute. Once created, the only property of a custom attribute that can be changed is the title (human readable description). This restriction is in place to prevent accidentally breaking live integrations. E.g. if you have a customer profile attribute with the name `region`, and your integration is sending `attributes.region` with customer profile updates, changing the name to `locale` would cause the integration requests to begin failing.  If you **really** need to change the `type` or `name` property of a custom attribute, create a new attribute and update any relevant integrations and rules to use the new attribute. Then delete the old attribute when you are confident you have migrated any needed data from the old attribute to the new one. 
 
 ### Example
 ```python
@@ -4623,26 +4682,27 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = talon_one.ManagementApi(talon_one.ApiClient(configuration))
-account_id = 56 # int | 
-body = talon_one.AccountLimits() # AccountLimits | 
+attribute_id = 56 # int | 
+body = talon_one.NewAttribute() # NewAttribute | 
 
 try:
-    # Set account limits
-    api_instance.set_account_limits(account_id, body)
+    # Update a custom attribute
+    api_response = api_instance.update_attribute(attribute_id, body)
+    pprint(api_response)
 except ApiException as e:
-    print("Exception when calling ManagementApi->set_account_limits: %s\n" % e)
+    print("Exception when calling ManagementApi->update_attribute: %s\n" % e)
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account_id** | **int**|  | 
- **body** | [**AccountLimits**](AccountLimits.md)|  | 
+ **attribute_id** | **int**|  | 
+ **body** | [**NewAttribute**](NewAttribute.md)|  | 
 
 ### Return type
 
-void (empty response body)
+[**Attribute**](Attribute.md)
 
 ### Authorization
 

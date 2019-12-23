@@ -1,10 +1,10 @@
-# InlineResponse20020
+# CustomerInventory
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**total_result_size** | **int** |  | 
-**data** | [**list[Attribute]**](Attribute.md) |  | 
+**profile** | [**CustomerProfile**](CustomerProfile.md) |  | [optional] 
+**referrals** | [**list[Referral]**](Referral.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

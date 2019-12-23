@@ -1,10 +1,12 @@
-# InlineResponse20020
+# SamlConnectionMetadata
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**total_result_size** | **int** |  | 
-**data** | [**list[Attribute]**](Attribute.md) |  | 
+**name** | **str** | ID of the SAML service. | 
+**enabled** | **bool** | Determines if this SAML connection active. | 
+**account_id** | **float** |  | 
+**metadata_document** | **str** | Identity Provider metadata XML document. | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

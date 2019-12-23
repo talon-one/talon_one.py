@@ -16,6 +16,7 @@ import re  # noqa: F401
 
 import six
 
+from talon_one.models.attributes_settings import AttributesSettings  # noqa: F401,E501
 from talon_one.models.limit_config import LimitConfig  # noqa: F401,E501
 
 
@@ -40,6 +41,7 @@ class NewApplication(object):
         'case_sensitivity': 'str',
         'attributes': 'object',
         'limits': 'list[LimitConfig]',
+        'attributes_settings': 'AttributesSettings',
         'key': 'str'
     }
 
@@ -51,10 +53,11 @@ class NewApplication(object):
         'case_sensitivity': 'caseSensitivity',
         'attributes': 'attributes',
         'limits': 'limits',
+        'attributes_settings': 'attributesSettings',
         'key': 'key'
     }
 
-    def __init__(self, name=None, description=None, timezone=None, currency=None, case_sensitivity=None, attributes=None, limits=None, key=None):  # noqa: E501
+    def __init__(self, name=None, description=None, timezone=None, currency=None, case_sensitivity=None, attributes=None, limits=None, attributes_settings=None, key=None):  # noqa: E501
         """NewApplication - a model defined in Swagger"""  # noqa: E501
 
         self._name = None
@@ -64,6 +67,7 @@ class NewApplication(object):
         self._case_sensitivity = None
         self._attributes = None
         self._limits = None
+        self._attributes_settings = None
         self._key = None
         self.discriminator = None
 
@@ -78,6 +82,8 @@ class NewApplication(object):
             self.attributes = attributes
         if limits is not None:
             self.limits = limits
+        if attributes_settings is not None:
+            self.attributes_settings = attributes_settings
         if key is not None:
             self.key = key
 
@@ -259,6 +265,27 @@ class NewApplication(object):
         """
 
         self._limits = limits
+
+    @property
+    def attributes_settings(self):
+        """Gets the attributes_settings of this NewApplication.  # noqa: E501
+
+
+        :return: The attributes_settings of this NewApplication.  # noqa: E501
+        :rtype: AttributesSettings
+        """
+        return self._attributes_settings
+
+    @attributes_settings.setter
+    def attributes_settings(self, attributes_settings):
+        """Sets the attributes_settings of this NewApplication.
+
+
+        :param attributes_settings: The attributes_settings of this NewApplication.  # noqa: E501
+        :type: AttributesSettings
+        """
+
+        self._attributes_settings = attributes_settings
 
     @property
     def key(self):

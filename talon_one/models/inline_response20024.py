@@ -16,7 +16,7 @@ import re  # noqa: F401
 
 import six
 
-from talon_one.models.user import User  # noqa: F401,E501
+from talon_one.models.event_type import EventType  # noqa: F401,E501
 
 
 class InlineResponse20024(object):
@@ -34,7 +34,7 @@ class InlineResponse20024(object):
     """
     swagger_types = {
         'total_result_size': 'int',
-        'data': 'list[User]'
+        'data': 'list[EventType]'
     }
 
     attribute_map = {
@@ -81,7 +81,7 @@ class InlineResponse20024(object):
 
 
         :return: The data of this InlineResponse20024.  # noqa: E501
-        :rtype: list[User]
+        :rtype: list[EventType]
         """
         return self._data
 
@@ -91,7 +91,7 @@ class InlineResponse20024(object):
 
 
         :param data: The data of this InlineResponse20024.  # noqa: E501
-        :type: list[User]
+        :type: list[EventType]
         """
         if data is None:
             raise ValueError("Invalid value for `data`, must not be `None`")  # noqa: E501

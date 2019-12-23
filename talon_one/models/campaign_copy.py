@@ -32,24 +32,44 @@ class CampaignCopy(object):
     """
     swagger_types = {
         'name': 'str',
-        'application_ids': 'list[str]'
+        'application_ids': 'list[str]',
+        'description': 'str',
+        'start_time': 'datetime',
+        'end_time': 'datetime',
+        'tags': 'list[str]'
     }
 
     attribute_map = {
         'name': 'name',
-        'application_ids': 'applicationIds'
+        'application_ids': 'applicationIds',
+        'description': 'description',
+        'start_time': 'startTime',
+        'end_time': 'endTime',
+        'tags': 'tags'
     }
 
-    def __init__(self, name=None, application_ids=None):  # noqa: E501
+    def __init__(self, name=None, application_ids=None, description=None, start_time=None, end_time=None, tags=None):  # noqa: E501
         """CampaignCopy - a model defined in Swagger"""  # noqa: E501
 
         self._name = None
         self._application_ids = None
+        self._description = None
+        self._start_time = None
+        self._end_time = None
+        self._tags = None
         self.discriminator = None
 
         if name is not None:
             self.name = name
         self.application_ids = application_ids
+        if description is not None:
+            self.description = description
+        if start_time is not None:
+            self.start_time = start_time
+        if end_time is not None:
+            self.end_time = end_time
+        if tags is not None:
+            self.tags = tags
 
     @property
     def name(self):
@@ -98,6 +118,98 @@ class CampaignCopy(object):
             raise ValueError("Invalid value for `application_ids`, must not be `None`")  # noqa: E501
 
         self._application_ids = application_ids
+
+    @property
+    def description(self):
+        """Gets the description of this CampaignCopy.  # noqa: E501
+
+        A detailed description of the campaign.  # noqa: E501
+
+        :return: The description of this CampaignCopy.  # noqa: E501
+        :rtype: str
+        """
+        return self._description
+
+    @description.setter
+    def description(self, description):
+        """Sets the description of this CampaignCopy.
+
+        A detailed description of the campaign.  # noqa: E501
+
+        :param description: The description of this CampaignCopy.  # noqa: E501
+        :type: str
+        """
+
+        self._description = description
+
+    @property
+    def start_time(self):
+        """Gets the start_time of this CampaignCopy.  # noqa: E501
+
+        Datetime when the campaign will become active.  # noqa: E501
+
+        :return: The start_time of this CampaignCopy.  # noqa: E501
+        :rtype: datetime
+        """
+        return self._start_time
+
+    @start_time.setter
+    def start_time(self, start_time):
+        """Sets the start_time of this CampaignCopy.
+
+        Datetime when the campaign will become active.  # noqa: E501
+
+        :param start_time: The start_time of this CampaignCopy.  # noqa: E501
+        :type: datetime
+        """
+
+        self._start_time = start_time
+
+    @property
+    def end_time(self):
+        """Gets the end_time of this CampaignCopy.  # noqa: E501
+
+        Datetime when the campaign will become in-active.  # noqa: E501
+
+        :return: The end_time of this CampaignCopy.  # noqa: E501
+        :rtype: datetime
+        """
+        return self._end_time
+
+    @end_time.setter
+    def end_time(self, end_time):
+        """Sets the end_time of this CampaignCopy.
+
+        Datetime when the campaign will become in-active.  # noqa: E501
+
+        :param end_time: The end_time of this CampaignCopy.  # noqa: E501
+        :type: datetime
+        """
+
+        self._end_time = end_time
+
+    @property
+    def tags(self):
+        """Gets the tags of this CampaignCopy.  # noqa: E501
+
+        A list of tags for the campaign.  # noqa: E501
+
+        :return: The tags of this CampaignCopy.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this CampaignCopy.
+
+        A list of tags for the campaign.  # noqa: E501
+
+        :param tags: The tags of this CampaignCopy.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._tags = tags
 
     def to_dict(self):
         """Returns the model properties as a dict"""

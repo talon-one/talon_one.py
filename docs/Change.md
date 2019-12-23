@@ -7,8 +7,8 @@ Name | Type | Description | Notes
 **created** | **datetime** | The exact moment this entity was created. | 
 **user_id** | **int** | The ID of the account that owns this entity. | 
 **entity** | **str** | API endpoint on which the change was initiated. | 
-**old** | **object** | Resource before the change occured. | [optional] 
-**new** | **object** | Resource after the change occured. | [optional] 
+**old** | **object** | Resource before the change occurred. | [optional] 
+**new** | **object** | Resource after the change occurred. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

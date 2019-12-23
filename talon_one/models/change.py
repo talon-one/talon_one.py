@@ -172,7 +172,7 @@ class Change(object):
     def old(self):
         """Gets the old of this Change.  # noqa: E501
 
-        Resource before the change occured.  # noqa: E501
+        Resource before the change occurred.  # noqa: E501
 
         :return: The old of this Change.  # noqa: E501
         :rtype: object
@@ -183,7 +183,7 @@ class Change(object):
     def old(self, old):
         """Sets the old of this Change.
 
-        Resource before the change occured.  # noqa: E501
+        Resource before the change occurred.  # noqa: E501
 
         :param old: The old of this Change.  # noqa: E501
         :type: object
@@ -195,7 +195,7 @@ class Change(object):
     def new(self):
         """Gets the new of this Change.  # noqa: E501
 
-        Resource after the change occured.  # noqa: E501
+        Resource after the change occurred.  # noqa: E501
 
         :return: The new of this Change.  # noqa: E501
         :rtype: object
@@ -206,7 +206,7 @@ class Change(object):
     def new(self, new):
         """Sets the new of this Change.
 
-        Resource after the change occured.  # noqa: E501
+        Resource after the change occurred.  # noqa: E501
 
         :param new: The new of this Change.  # noqa: E501
         :type: object

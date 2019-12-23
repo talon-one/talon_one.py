@@ -44,7 +44,8 @@ class AccountAnalytics(object):
         'users': 'int',
         'roles': 'int',
         'webhooks': 'int',
-        'loyalty_programs': 'int'
+        'loyalty_programs': 'int',
+        'active_rules': 'int'
     }
 
     attribute_map = {
@@ -61,10 +62,11 @@ class AccountAnalytics(object):
         'users': 'users',
         'roles': 'roles',
         'webhooks': 'webhooks',
-        'loyalty_programs': 'loyaltyPrograms'
+        'loyalty_programs': 'loyaltyPrograms',
+        'active_rules': 'activeRules'
     }
 
-    def __init__(self, applications=None, active_campaigns=None, campaigns=None, coupons=None, active_coupons=None, expired_coupons=None, custom_attributes=None, referral_codes=None, active_referral_codes=None, expired_referral_codes=None, users=None, roles=None, webhooks=None, loyalty_programs=None):  # noqa: E501
+    def __init__(self, applications=None, active_campaigns=None, campaigns=None, coupons=None, active_coupons=None, expired_coupons=None, custom_attributes=None, referral_codes=None, active_referral_codes=None, expired_referral_codes=None, users=None, roles=None, webhooks=None, loyalty_programs=None, active_rules=None):  # noqa: E501
         """AccountAnalytics - a model defined in Swagger"""  # noqa: E501
 
         self._applications = None
@@ -81,6 +83,7 @@ class AccountAnalytics(object):
         self._roles = None
         self._webhooks = None
         self._loyalty_programs = None
+        self._active_rules = None
         self.discriminator = None
 
         self.applications = applications
@@ -97,6 +100,7 @@ class AccountAnalytics(object):
         self.roles = roles
         self.webhooks = webhooks
         self.loyalty_programs = loyalty_programs
+        self.active_rules = active_rules
 
     @property
     def applications(self):
@@ -447,6 +451,31 @@ class AccountAnalytics(object):
             raise ValueError("Invalid value for `loyalty_programs`, must not be `None`")  # noqa: E501
 
         self._loyalty_programs = loyalty_programs
+
+    @property
+    def active_rules(self):
+        """Gets the active_rules of this AccountAnalytics.  # noqa: E501
+
+        Total Number of active rules in the account  # noqa: E501
+
+        :return: The active_rules of this AccountAnalytics.  # noqa: E501
+        :rtype: int
+        """
+        return self._active_rules
+
+    @active_rules.setter
+    def active_rules(self, active_rules):
+        """Sets the active_rules of this AccountAnalytics.
+
+        Total Number of active rules in the account  # noqa: E501
+
+        :param active_rules: The active_rules of this AccountAnalytics.  # noqa: E501
+        :type: int
+        """
+        if active_rules is None:
+            raise ValueError("Invalid value for `active_rules`, must not be `None`")  # noqa: E501
+
+        self._active_rules = active_rules
 
     def to_dict(self):
         """Returns the model properties as a dict"""
