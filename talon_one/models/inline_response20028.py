@@ -16,7 +16,7 @@ import re  # noqa: F401
 
 import six
 
-from talon_one.models.role import Role  # noqa: F401,E501
+from talon_one.models.model_import import ModelImport  # noqa: F401,E501
 
 
 class InlineResponse20028(object):
@@ -34,7 +34,7 @@ class InlineResponse20028(object):
     """
     swagger_types = {
         'total_result_size': 'int',
-        'data': 'list[Role]'
+        'data': 'list[ModelImport]'
     }
 
     attribute_map = {
@@ -81,7 +81,7 @@ class InlineResponse20028(object):
 
 
         :return: The data of this InlineResponse20028.  # noqa: E501
-        :rtype: list[Role]
+        :rtype: list[ModelImport]
         """
         return self._data
 
@@ -91,7 +91,7 @@ class InlineResponse20028(object):
 
 
         :param data: The data of this InlineResponse20028.  # noqa: E501
-        :type: list[Role]
+        :type: list[ModelImport]
         """
         if data is None:
             raise ValueError("Invalid value for `data`, must not be `None`")  # noqa: E501

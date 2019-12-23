@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **case_sensitivity** | **str** | A string indicating how should campaigns in this application deal with case sensitivity on coupon codes. | [optional] 
 **attributes** | **object** | Arbitrary properties associated with this campaign | [optional] 
 **limits** | [**list[LimitConfig]**](LimitConfig.md) | Default limits for campaigns created in this application | [optional] 
+**attributes_settings** | [**AttributesSettings**](AttributesSettings.md) |  | [optional] 
 **key** | **str** | Hex key for HMAC-signing API calls as coming from this application (16 hex digits) | 
 **loyalty_programs** | [**list[LoyaltyProgram]**](LoyaltyProgram.md) | An array containing all the loyalty programs to which this application is subscribed | 
 

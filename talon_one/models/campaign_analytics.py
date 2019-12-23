@@ -34,12 +34,18 @@ class CampaignAnalytics(object):
         '_date': 'datetime',
         'campaign_revenue': 'float',
         'total_campaign_revenue': 'float',
+        'campaign_refund': 'float',
+        'total_campaign_refund': 'float',
         'campaign_discount_costs': 'float',
         'total_campaign_discount_costs': 'float',
+        'campaign_refunded_discounts': 'float',
+        'total_campaign_refunded_discounts': 'float',
         'campaign_free_items': 'int',
         'total_campaign_free_items': 'int',
         'coupon_redemptions': 'int',
         'total_coupon_redemptions': 'int',
+        'coupon_rolledback_redemptions': 'int',
+        'total_coupon_rolledback_redemptions': 'int',
         'referral_redemptions': 'int',
         'total_referral_redemptions': 'int',
         'coupons_created': 'int',
@@ -52,12 +58,18 @@ class CampaignAnalytics(object):
         '_date': 'date',
         'campaign_revenue': 'campaignRevenue',
         'total_campaign_revenue': 'totalCampaignRevenue',
+        'campaign_refund': 'campaignRefund',
+        'total_campaign_refund': 'totalCampaignRefund',
         'campaign_discount_costs': 'campaignDiscountCosts',
         'total_campaign_discount_costs': 'totalCampaignDiscountCosts',
+        'campaign_refunded_discounts': 'campaignRefundedDiscounts',
+        'total_campaign_refunded_discounts': 'totalCampaignRefundedDiscounts',
         'campaign_free_items': 'campaignFreeItems',
         'total_campaign_free_items': 'totalCampaignFreeItems',
         'coupon_redemptions': 'couponRedemptions',
         'total_coupon_redemptions': 'totalCouponRedemptions',
+        'coupon_rolledback_redemptions': 'couponRolledbackRedemptions',
+        'total_coupon_rolledback_redemptions': 'totalCouponRolledbackRedemptions',
         'referral_redemptions': 'referralRedemptions',
         'total_referral_redemptions': 'totalReferralRedemptions',
         'coupons_created': 'couponsCreated',
@@ -66,18 +78,24 @@ class CampaignAnalytics(object):
         'total_referrals_created': 'totalReferralsCreated'
     }
 
-    def __init__(self, _date=None, campaign_revenue=None, total_campaign_revenue=None, campaign_discount_costs=None, total_campaign_discount_costs=None, campaign_free_items=None, total_campaign_free_items=None, coupon_redemptions=None, total_coupon_redemptions=None, referral_redemptions=None, total_referral_redemptions=None, coupons_created=None, total_coupons_created=None, referrals_created=None, total_referrals_created=None):  # noqa: E501
+    def __init__(self, _date=None, campaign_revenue=None, total_campaign_revenue=None, campaign_refund=None, total_campaign_refund=None, campaign_discount_costs=None, total_campaign_discount_costs=None, campaign_refunded_discounts=None, total_campaign_refunded_discounts=None, campaign_free_items=None, total_campaign_free_items=None, coupon_redemptions=None, total_coupon_redemptions=None, coupon_rolledback_redemptions=None, total_coupon_rolledback_redemptions=None, referral_redemptions=None, total_referral_redemptions=None, coupons_created=None, total_coupons_created=None, referrals_created=None, total_referrals_created=None):  # noqa: E501
         """CampaignAnalytics - a model defined in Swagger"""  # noqa: E501
 
         self.__date = None
         self._campaign_revenue = None
         self._total_campaign_revenue = None
+        self._campaign_refund = None
+        self._total_campaign_refund = None
         self._campaign_discount_costs = None
         self._total_campaign_discount_costs = None
+        self._campaign_refunded_discounts = None
+        self._total_campaign_refunded_discounts = None
         self._campaign_free_items = None
         self._total_campaign_free_items = None
         self._coupon_redemptions = None
         self._total_coupon_redemptions = None
+        self._coupon_rolledback_redemptions = None
+        self._total_coupon_rolledback_redemptions = None
         self._referral_redemptions = None
         self._total_referral_redemptions = None
         self._coupons_created = None
@@ -89,12 +107,18 @@ class CampaignAnalytics(object):
         self._date = _date
         self.campaign_revenue = campaign_revenue
         self.total_campaign_revenue = total_campaign_revenue
+        self.campaign_refund = campaign_refund
+        self.total_campaign_refund = total_campaign_refund
         self.campaign_discount_costs = campaign_discount_costs
         self.total_campaign_discount_costs = total_campaign_discount_costs
+        self.campaign_refunded_discounts = campaign_refunded_discounts
+        self.total_campaign_refunded_discounts = total_campaign_refunded_discounts
         self.campaign_free_items = campaign_free_items
         self.total_campaign_free_items = total_campaign_free_items
         self.coupon_redemptions = coupon_redemptions
         self.total_coupon_redemptions = total_coupon_redemptions
+        self.coupon_rolledback_redemptions = coupon_rolledback_redemptions
+        self.total_coupon_rolledback_redemptions = total_coupon_rolledback_redemptions
         self.referral_redemptions = referral_redemptions
         self.total_referral_redemptions = total_referral_redemptions
         self.coupons_created = coupons_created
@@ -129,7 +153,7 @@ class CampaignAnalytics(object):
     def campaign_revenue(self):
         """Gets the campaign_revenue of this CampaignAnalytics.  # noqa: E501
 
-        Amount of revenue in this campaign.  # noqa: E501
+        Amount of revenue in this campaign (for coupon or discount sessions).  # noqa: E501
 
         :return: The campaign_revenue of this CampaignAnalytics.  # noqa: E501
         :rtype: float
@@ -140,7 +164,7 @@ class CampaignAnalytics(object):
     def campaign_revenue(self, campaign_revenue):
         """Sets the campaign_revenue of this CampaignAnalytics.
 
-        Amount of revenue in this campaign.  # noqa: E501
+        Amount of revenue in this campaign (for coupon or discount sessions).  # noqa: E501
 
         :param campaign_revenue: The campaign_revenue of this CampaignAnalytics.  # noqa: E501
         :type: float
@@ -154,7 +178,7 @@ class CampaignAnalytics(object):
     def total_campaign_revenue(self):
         """Gets the total_campaign_revenue of this CampaignAnalytics.  # noqa: E501
 
-        Amount of revenue in this campaign since it began.  # noqa: E501
+        Amount of revenue in this campaign since it began (for coupon or discount sessions).  # noqa: E501
 
         :return: The total_campaign_revenue of this CampaignAnalytics.  # noqa: E501
         :rtype: float
@@ -165,7 +189,7 @@ class CampaignAnalytics(object):
     def total_campaign_revenue(self, total_campaign_revenue):
         """Sets the total_campaign_revenue of this CampaignAnalytics.
 
-        Amount of revenue in this campaign since it began.  # noqa: E501
+        Amount of revenue in this campaign since it began (for coupon or discount sessions).  # noqa: E501
 
         :param total_campaign_revenue: The total_campaign_revenue of this CampaignAnalytics.  # noqa: E501
         :type: float
@@ -174,6 +198,56 @@ class CampaignAnalytics(object):
             raise ValueError("Invalid value for `total_campaign_revenue`, must not be `None`")  # noqa: E501
 
         self._total_campaign_revenue = total_campaign_revenue
+
+    @property
+    def campaign_refund(self):
+        """Gets the campaign_refund of this CampaignAnalytics.  # noqa: E501
+
+        Amount of refunds in this campaign (for coupon or discount sessions).  # noqa: E501
+
+        :return: The campaign_refund of this CampaignAnalytics.  # noqa: E501
+        :rtype: float
+        """
+        return self._campaign_refund
+
+    @campaign_refund.setter
+    def campaign_refund(self, campaign_refund):
+        """Sets the campaign_refund of this CampaignAnalytics.
+
+        Amount of refunds in this campaign (for coupon or discount sessions).  # noqa: E501
+
+        :param campaign_refund: The campaign_refund of this CampaignAnalytics.  # noqa: E501
+        :type: float
+        """
+        if campaign_refund is None:
+            raise ValueError("Invalid value for `campaign_refund`, must not be `None`")  # noqa: E501
+
+        self._campaign_refund = campaign_refund
+
+    @property
+    def total_campaign_refund(self):
+        """Gets the total_campaign_refund of this CampaignAnalytics.  # noqa: E501
+
+        Amount of refunds in this campaign since it began (for coupon or discount sessions).  # noqa: E501
+
+        :return: The total_campaign_refund of this CampaignAnalytics.  # noqa: E501
+        :rtype: float
+        """
+        return self._total_campaign_refund
+
+    @total_campaign_refund.setter
+    def total_campaign_refund(self, total_campaign_refund):
+        """Sets the total_campaign_refund of this CampaignAnalytics.
+
+        Amount of refunds in this campaign since it began (for coupon or discount sessions).  # noqa: E501
+
+        :param total_campaign_refund: The total_campaign_refund of this CampaignAnalytics.  # noqa: E501
+        :type: float
+        """
+        if total_campaign_refund is None:
+            raise ValueError("Invalid value for `total_campaign_refund`, must not be `None`")  # noqa: E501
+
+        self._total_campaign_refund = total_campaign_refund
 
     @property
     def campaign_discount_costs(self):
@@ -224,6 +298,56 @@ class CampaignAnalytics(object):
             raise ValueError("Invalid value for `total_campaign_discount_costs`, must not be `None`")  # noqa: E501
 
         self._total_campaign_discount_costs = total_campaign_discount_costs
+
+    @property
+    def campaign_refunded_discounts(self):
+        """Gets the campaign_refunded_discounts of this CampaignAnalytics.  # noqa: E501
+
+        Amount of discounts rolledback due to refund in the campaign.  # noqa: E501
+
+        :return: The campaign_refunded_discounts of this CampaignAnalytics.  # noqa: E501
+        :rtype: float
+        """
+        return self._campaign_refunded_discounts
+
+    @campaign_refunded_discounts.setter
+    def campaign_refunded_discounts(self, campaign_refunded_discounts):
+        """Sets the campaign_refunded_discounts of this CampaignAnalytics.
+
+        Amount of discounts rolledback due to refund in the campaign.  # noqa: E501
+
+        :param campaign_refunded_discounts: The campaign_refunded_discounts of this CampaignAnalytics.  # noqa: E501
+        :type: float
+        """
+        if campaign_refunded_discounts is None:
+            raise ValueError("Invalid value for `campaign_refunded_discounts`, must not be `None`")  # noqa: E501
+
+        self._campaign_refunded_discounts = campaign_refunded_discounts
+
+    @property
+    def total_campaign_refunded_discounts(self):
+        """Gets the total_campaign_refunded_discounts of this CampaignAnalytics.  # noqa: E501
+
+        Amount of discounts rolledback due to refund in the campaign since it began.  # noqa: E501
+
+        :return: The total_campaign_refunded_discounts of this CampaignAnalytics.  # noqa: E501
+        :rtype: float
+        """
+        return self._total_campaign_refunded_discounts
+
+    @total_campaign_refunded_discounts.setter
+    def total_campaign_refunded_discounts(self, total_campaign_refunded_discounts):
+        """Sets the total_campaign_refunded_discounts of this CampaignAnalytics.
+
+        Amount of discounts rolledback due to refund in the campaign since it began.  # noqa: E501
+
+        :param total_campaign_refunded_discounts: The total_campaign_refunded_discounts of this CampaignAnalytics.  # noqa: E501
+        :type: float
+        """
+        if total_campaign_refunded_discounts is None:
+            raise ValueError("Invalid value for `total_campaign_refunded_discounts`, must not be `None`")  # noqa: E501
+
+        self._total_campaign_refunded_discounts = total_campaign_refunded_discounts
 
     @property
     def campaign_free_items(self):
@@ -279,7 +403,7 @@ class CampaignAnalytics(object):
     def coupon_redemptions(self):
         """Gets the coupon_redemptions of this CampaignAnalytics.  # noqa: E501
 
-        Number of coupon redemptions in the campaign (only accepted referrals on sessions that were closed are considered).  # noqa: E501
+        Number of coupon redemptions in the campaign.  # noqa: E501
 
         :return: The coupon_redemptions of this CampaignAnalytics.  # noqa: E501
         :rtype: int
@@ -290,7 +414,7 @@ class CampaignAnalytics(object):
     def coupon_redemptions(self, coupon_redemptions):
         """Sets the coupon_redemptions of this CampaignAnalytics.
 
-        Number of coupon redemptions in the campaign (only accepted referrals on sessions that were closed are considered).  # noqa: E501
+        Number of coupon redemptions in the campaign.  # noqa: E501
 
         :param coupon_redemptions: The coupon_redemptions of this CampaignAnalytics.  # noqa: E501
         :type: int
@@ -324,6 +448,56 @@ class CampaignAnalytics(object):
             raise ValueError("Invalid value for `total_coupon_redemptions`, must not be `None`")  # noqa: E501
 
         self._total_coupon_redemptions = total_coupon_redemptions
+
+    @property
+    def coupon_rolledback_redemptions(self):
+        """Gets the coupon_rolledback_redemptions of this CampaignAnalytics.  # noqa: E501
+
+        Number of coupon redemptions that have been rolled back (due to canceling closed session) in the campaign.  # noqa: E501
+
+        :return: The coupon_rolledback_redemptions of this CampaignAnalytics.  # noqa: E501
+        :rtype: int
+        """
+        return self._coupon_rolledback_redemptions
+
+    @coupon_rolledback_redemptions.setter
+    def coupon_rolledback_redemptions(self, coupon_rolledback_redemptions):
+        """Sets the coupon_rolledback_redemptions of this CampaignAnalytics.
+
+        Number of coupon redemptions that have been rolled back (due to canceling closed session) in the campaign.  # noqa: E501
+
+        :param coupon_rolledback_redemptions: The coupon_rolledback_redemptions of this CampaignAnalytics.  # noqa: E501
+        :type: int
+        """
+        if coupon_rolledback_redemptions is None:
+            raise ValueError("Invalid value for `coupon_rolledback_redemptions`, must not be `None`")  # noqa: E501
+
+        self._coupon_rolledback_redemptions = coupon_rolledback_redemptions
+
+    @property
+    def total_coupon_rolledback_redemptions(self):
+        """Gets the total_coupon_rolledback_redemptions of this CampaignAnalytics.  # noqa: E501
+
+        Number of coupon redemptions that have been rolled back (due to canceling closed session) in the campaign since it began.  # noqa: E501
+
+        :return: The total_coupon_rolledback_redemptions of this CampaignAnalytics.  # noqa: E501
+        :rtype: int
+        """
+        return self._total_coupon_rolledback_redemptions
+
+    @total_coupon_rolledback_redemptions.setter
+    def total_coupon_rolledback_redemptions(self, total_coupon_rolledback_redemptions):
+        """Sets the total_coupon_rolledback_redemptions of this CampaignAnalytics.
+
+        Number of coupon redemptions that have been rolled back (due to canceling closed session) in the campaign since it began.  # noqa: E501
+
+        :param total_coupon_rolledback_redemptions: The total_coupon_rolledback_redemptions of this CampaignAnalytics.  # noqa: E501
+        :type: int
+        """
+        if total_coupon_rolledback_redemptions is None:
+            raise ValueError("Invalid value for `total_coupon_rolledback_redemptions`, must not be `None`")  # noqa: E501
+
+        self._total_coupon_rolledback_redemptions = total_coupon_rolledback_redemptions
 
     @property
     def referral_redemptions(self):

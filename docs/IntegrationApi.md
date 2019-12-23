@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**create_referral**](IntegrationApi.md#create_referral) | **POST** /v1/referrals | Create a referral code for an advocate
 [**delete_coupon_reservation**](IntegrationApi.md#delete_coupon_reservation) | **DELETE** /v1/coupon_reservations/{couponValue} | Delete coupon reservations
 [**delete_customer_data**](IntegrationApi.md#delete_customer_data) | **DELETE** /v1/customer_data/{integrationId} | Delete the personal data of a customer.
+[**get_customer_inventory**](IntegrationApi.md#get_customer_inventory) | **GET** /v1/customer_profiles/{integrationId}/inventory | Get an inventory of all data associated with a specific customer profile.
 [**get_reserved_coupons**](IntegrationApi.md#get_reserved_coupons) | **GET** /v1/coupon_reservations/coupons/{integrationId} | Get all valid reserved coupons
 [**get_reserved_customers**](IntegrationApi.md#get_reserved_customers) | **GET** /v1/coupon_reservations/customerprofiles/{couponValue} | Get the users that have this coupon reserved
 [**track_event**](IntegrationApi.md#track_event) | **POST** /v1/events | Track an Event
@@ -241,6 +242,69 @@ Name | Type | Description  | Notes
 ### Return type
 
 void (empty response body)
+
+### Authorization
+
+[api_key_v1](../README.md#api_key_v1), [integration_auth](../README.md#integration_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_customer_inventory**
+> CustomerInventory get_customer_inventory(integration_id, profile=profile, referrals=referrals)
+
+Get an inventory of all data associated with a specific customer profile.
+
+Get information regarding entities referencing this customer profile's integrationId. Currently we support customer profile information and referral codes. In the future, this will be expanded with coupon codes and loyalty points.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration()
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+# Configure API key authorization: integration_auth
+configuration = talon_one.Configuration()
+configuration.api_key['Content-Signature'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Content-Signature'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = talon_one.IntegrationApi(talon_one.ApiClient(configuration))
+integration_id = 'integration_id_example' # str | The custom identifier for this profile, must be unique within the account.
+profile = NULL # object | optional flag to decide if you would like customer profile information in the response (optional)
+referrals = NULL # object | optional flag to decide if you would like referral information in the response (optional)
+
+try:
+    # Get an inventory of all data associated with a specific customer profile.
+    api_response = api_instance.get_customer_inventory(integration_id, profile=profile, referrals=referrals)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling IntegrationApi->get_customer_inventory: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **integration_id** | **str**| The custom identifier for this profile, must be unique within the account. | 
+ **profile** | [**object**](.md)| optional flag to decide if you would like customer profile information in the response | [optional] 
+ **referrals** | [**object**](.md)| optional flag to decide if you would like referral information in the response | [optional] 
+
+### Return type
+
+[**CustomerInventory**](CustomerInventory.md)
 
 ### Authorization
 

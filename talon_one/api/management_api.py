@@ -263,6 +263,105 @@ class ManagementApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def create_attribute(self, body, **kwargs):  # noqa: E501
+        """Define a new custom attribute  # noqa: E501
+
+        Defines a new _custom attribute_ in this account. Custom attributes allow you to attach new fields to Talon.One domain objects like campaigns, coupons, customers and so on. These attributes can then be given values when creating / updating these objects, and these values can be used in your campaign rules. For example, you could define a `zipCode` field for customer sessions, and add a rule to your campaign that only allows certain ZIP codes.  These attributes are shared across all applications in your account, and are never required.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_attribute(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param NewAttribute body: (required)
+        :return: Attribute
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.create_attribute_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.create_attribute_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def create_attribute_with_http_info(self, body, **kwargs):  # noqa: E501
+        """Define a new custom attribute  # noqa: E501
+
+        Defines a new _custom attribute_ in this account. Custom attributes allow you to attach new fields to Talon.One domain objects like campaigns, coupons, customers and so on. These attributes can then be given values when creating / updating these objects, and these values can be used in your campaign rules. For example, you could define a `zipCode` field for customer sessions, and add a rule to your campaign that only allows certain ZIP codes.  These attributes are shared across all applications in your account, and are never required.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_attribute_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param NewAttribute body: (required)
+        :return: Attribute
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method create_attribute" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if ('body' not in params or
+                params['body'] is None):
+            raise ValueError("Missing the required parameter `body` when calling `create_attribute`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['manager_auth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/v1/attributes', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='Attribute',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def create_campaign(self, application_id, body, **kwargs):  # noqa: E501
         """Create a Campaign  # noqa: E501
 
@@ -373,7 +472,7 @@ class ManagementApi(object):
     def create_coupons(self, application_id, campaign_id, body, **kwargs):  # noqa: E501
         """Create Coupons  # noqa: E501
 
-        Create coupons according to some pattern. Up to 20.000 coupons can be created without a unique prefix. When a unique prefix is provided, up to 200.000 coupns can be created.  # noqa: E501
+        Create coupons according to some pattern. Up to 20.000 coupons can be created without a unique prefix. When a unique prefix is provided, up to 200.000 coupons can be created.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_coupons(application_id, campaign_id, body, async_req=True)
@@ -398,7 +497,7 @@ class ManagementApi(object):
     def create_coupons_with_http_info(self, application_id, campaign_id, body, **kwargs):  # noqa: E501
         """Create Coupons  # noqa: E501
 
-        Create coupons according to some pattern. Up to 20.000 coupons can be created without a unique prefix. When a unique prefix is provided, up to 200.000 coupns can be created.  # noqa: E501
+        Create coupons according to some pattern. Up to 20.000 coupons can be created without a unique prefix. When a unique prefix is provided, up to 200.000 coupons can be created.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_coupons_with_http_info(application_id, campaign_id, body, async_req=True)
@@ -1426,8 +1525,8 @@ class ManagementApi(object):
         :param int application_id:  (required)
         :param datetime range_start: Only return results from after this timestamp, must be an RFC3339 timestamp string (required)
         :param datetime range_end: Only return results from before this timestamp, must be an RFC3339 timestamp string (required)
-        :param str path: Only return results where the request path matches the given regular expresssion.
-        :param str method: Only return results where the request method matches the given regular expresssion.
+        :param str path: Only return results where the request path matches the given regular expression.
+        :param str method: Only return results where the request method matches the given regular expression.
         :param str status: Filter results by HTTP status codes.
         :param int page_size: The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
         :param int skip: Skips the given number of items when paging through large result sets.
@@ -1456,8 +1555,8 @@ class ManagementApi(object):
         :param int application_id:  (required)
         :param datetime range_start: Only return results from after this timestamp, must be an RFC3339 timestamp string (required)
         :param datetime range_end: Only return results from before this timestamp, must be an RFC3339 timestamp string (required)
-        :param str path: Only return results where the request path matches the given regular expresssion.
-        :param str method: Only return results where the request method matches the given regular expresssion.
+        :param str path: Only return results where the request path matches the given regular expression.
+        :param str method: Only return results where the request method matches the given regular expression.
         :param str status: Filter results by HTTP status codes.
         :param int page_size: The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
         :param int skip: Skips the given number of items when paging through large result sets.
@@ -1565,8 +1664,8 @@ class ManagementApi(object):
         :param int application_id:  (required)
         :param datetime range_start: Only return results from after this timestamp, must be an RFC3339 timestamp string (required)
         :param datetime range_end: Only return results from before this timestamp, must be an RFC3339 timestamp string (required)
-        :param str path: Only return results where the request path matches the given regular expresssion.
-        :param str method: Only return results where the request method matches the given regular expresssion.
+        :param str path: Only return results where the request path matches the given regular expression.
+        :param str method: Only return results where the request method matches the given regular expression.
         :param str status: Filter results by HTTP status codes.
         :param int page_size: The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
         :param int skip: Skips the given number of items when paging through large result sets.
@@ -1595,8 +1694,8 @@ class ManagementApi(object):
         :param int application_id:  (required)
         :param datetime range_start: Only return results from after this timestamp, must be an RFC3339 timestamp string (required)
         :param datetime range_end: Only return results from before this timestamp, must be an RFC3339 timestamp string (required)
-        :param str path: Only return results where the request path matches the given regular expresssion.
-        :param str method: Only return results where the request method matches the given regular expresssion.
+        :param str path: Only return results where the request path matches the given regular expression.
+        :param str method: Only return results where the request method matches the given regular expression.
         :param str status: Filter results by HTTP status codes.
         :param int page_size: The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
         :param int skip: Skips the given number of items when paging through large result sets.
@@ -1889,105 +1988,6 @@ class ManagementApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def get_account_limits(self, account_id, **kwargs):  # noqa: E501
-        """Get Account Limits  # noqa: E501
-
-        Returns a list of all account limits set   # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_account_limits(account_id, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param int account_id:  (required)
-        :return: AccountLimits
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.get_account_limits_with_http_info(account_id, **kwargs)  # noqa: E501
-        else:
-            (data) = self.get_account_limits_with_http_info(account_id, **kwargs)  # noqa: E501
-            return data
-
-    def get_account_limits_with_http_info(self, account_id, **kwargs):  # noqa: E501
-        """Get Account Limits  # noqa: E501
-
-        Returns a list of all account limits set   # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_account_limits_with_http_info(account_id, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param int account_id:  (required)
-        :return: AccountLimits
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['account_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_account_limits" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'account_id' is set
-        if ('account_id' not in params or
-                params['account_id'] is None):
-            raise ValueError("Missing the required parameter `account_id` when calling `get_account_limits`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'account_id' in params:
-            path_params['accountId'] = params['account_id']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['manager_auth']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/v1/accounts/{accountId}/limits', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='AccountLimits',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
     def get_all_access_logs(self, range_start, range_end, **kwargs):  # noqa: E501
         """Get all access logs  # noqa: E501
 
@@ -2000,8 +2000,8 @@ class ManagementApi(object):
         :param async_req bool
         :param datetime range_start: Only return results from after this timestamp, must be an RFC3339 timestamp string (required)
         :param datetime range_end: Only return results from before this timestamp, must be an RFC3339 timestamp string (required)
-        :param str path: Only return results where the request path matches the given regular expresssion.
-        :param str method: Only return results where the request method matches the given regular expresssion.
+        :param str path: Only return results where the request path matches the given regular expression.
+        :param str method: Only return results where the request method matches the given regular expression.
         :param str status: Filter results by HTTP status codes.
         :param int page_size: The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
         :param int skip: Skips the given number of items when paging through large result sets.
@@ -2029,8 +2029,8 @@ class ManagementApi(object):
         :param async_req bool
         :param datetime range_start: Only return results from after this timestamp, must be an RFC3339 timestamp string (required)
         :param datetime range_end: Only return results from before this timestamp, must be an RFC3339 timestamp string (required)
-        :param str path: Only return results where the request path matches the given regular expresssion.
-        :param str method: Only return results where the request method matches the given regular expresssion.
+        :param str path: Only return results where the request path matches the given regular expression.
+        :param str method: Only return results where the request method matches the given regular expression.
         :param str status: Filter results by HTTP status codes.
         :param int page_size: The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
         :param int skip: Skips the given number of items when paging through large result sets.
@@ -2128,7 +2128,7 @@ class ManagementApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :return: InlineResponse20028
+        :return: InlineResponse20029
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2148,7 +2148,7 @@ class ManagementApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :return: InlineResponse20028
+        :return: InlineResponse20029
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2200,7 +2200,7 @@ class ManagementApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20028',  # noqa: E501
+            response_type='InlineResponse20029',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -2615,7 +2615,7 @@ class ManagementApi(object):
     def get_application_customers_by_attributes(self, body, **kwargs):  # noqa: E501
         """Get a list of the customer profiles that match the given attributes  # noqa: E501
 
-        Gets a list of all the customer profiles for the account that exactly match a set of attributes.  The match is successful if all the attributes of the request are found in a profile, even if the profile has more attributes that are not present on the request.  [Customer Profile]: http://help.talon.one/customer/en/portal/articles/2525263-data-model?b_id=14115#customer-profile   # noqa: E501
+        Gets a list of all the customer profiles for the account that exactly match a set of attributes.  The match is successful if all the attributes of the request are found in a profile, even if the profile has more attributes that are not present on the request.  [Customer Profile]: https://help.talon.one/hc/en-us/articles/360005130739-Data-Model#CustomerProfile   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_application_customers_by_attributes(body, async_req=True)
@@ -2637,7 +2637,7 @@ class ManagementApi(object):
     def get_application_customers_by_attributes_with_http_info(self, body, **kwargs):  # noqa: E501
         """Get a list of the customer profiles that match the given attributes  # noqa: E501
 
-        Gets a list of all the customer profiles for the account that exactly match a set of attributes.  The match is successful if all the attributes of the request are found in a profile, even if the profile has more attributes that are not present on the request.  [Customer Profile]: http://help.talon.one/customer/en/portal/articles/2525263-data-model?b_id=14115#customer-profile   # noqa: E501
+        Gets a list of all the customer profiles for the account that exactly match a set of attributes.  The match is successful if all the attributes of the request are found in a profile, even if the profile has more attributes that are not present on the request.  [Customer Profile]: https://help.talon.one/hc/en-us/articles/360005130739-Data-Model#CustomerProfile   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_application_customers_by_attributes_with_http_info(body, async_req=True)
@@ -3576,6 +3576,109 @@ class ManagementApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def get_attributes(self, **kwargs):  # noqa: E501
+        """List custom attributes  # noqa: E501
+
+        Returns all the defined custom attributes for the account.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_attributes(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int page_size: The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
+        :param int skip: Skips the given number of items when paging through large result sets.
+        :param str sort: The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
+        :return: InlineResponse20020
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.get_attributes_with_http_info(**kwargs)  # noqa: E501
+        else:
+            (data) = self.get_attributes_with_http_info(**kwargs)  # noqa: E501
+            return data
+
+    def get_attributes_with_http_info(self, **kwargs):  # noqa: E501
+        """List custom attributes  # noqa: E501
+
+        Returns all the defined custom attributes for the account.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_attributes_with_http_info(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int page_size: The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
+        :param int skip: Skips the given number of items when paging through large result sets.
+        :param str sort: The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
+        :return: InlineResponse20020
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['page_size', 'skip', 'sort']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_attributes" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+        if 'page_size' in params:
+            query_params.append(('pageSize', params['page_size']))  # noqa: E501
+        if 'skip' in params:
+            query_params.append(('skip', params['skip']))  # noqa: E501
+        if 'sort' in params:
+            query_params.append(('sort', params['sort']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['manager_auth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/v1/attributes', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='InlineResponse20020',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def get_campaign(self, application_id, campaign_id, **kwargs):  # noqa: E501
         """Get a Campaign  # noqa: E501
 
@@ -4181,7 +4284,7 @@ class ManagementApi(object):
         :param datetime created_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp.
         :param bool with_total_result_size: When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, hasMore will be be true whenever there is a next page. totalResultSize will always be zero. With this flag set to false, hasMore will always be set to false. totalResultSize will contain the total number of results for this query. 
         :param bool include_old: When this flag is set to false, the state without the change will not be returned. The default value is true.
-        :return: InlineResponse20025
+        :return: InlineResponse20026
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -4210,7 +4313,7 @@ class ManagementApi(object):
         :param datetime created_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp.
         :param bool with_total_result_size: When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, hasMore will be be true whenever there is a next page. totalResultSize will always be zero. With this flag set to false, hasMore will always be set to false. totalResultSize will contain the total number of results for this query. 
         :param bool include_old: When this flag is set to false, the state without the change will not be returned. The default value is true.
-        :return: InlineResponse20025
+        :return: InlineResponse20026
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -4278,7 +4381,7 @@ class ManagementApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20025',  # noqa: E501
+            response_type='InlineResponse20026',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -5679,7 +5782,7 @@ class ManagementApi(object):
     def get_customers_by_attributes(self, body, **kwargs):  # noqa: E501
         """Get a list of the customer profiles that match the given attributes  # noqa: E501
 
-        Gets a list of all the customer profiles for the account that exactly match a set of attributes.  The match is successful if all the attributes of the request are found in a profile, even if the profile has more attributes that are not present on the request.  [Customer Profile]: http://help.talon.one/customer/en/portal/articles/2525263-data-model?b_id=14115#customer-profile   # noqa: E501
+        Gets a list of all the customer profiles for the account that exactly match a set of attributes.  The match is successful if all the attributes of the request are found in a profile, even if the profile has more attributes that are not present on the request.  [Customer Profile]: https://help.talon.one/hc/en-us/articles/360005130739-Data-Model#CustomerProfile   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_customers_by_attributes(body, async_req=True)
@@ -5703,7 +5806,7 @@ class ManagementApi(object):
     def get_customers_by_attributes_with_http_info(self, body, **kwargs):  # noqa: E501
         """Get a list of the customer profiles that match the given attributes  # noqa: E501
 
-        Gets a list of all the customer profiles for the account that exactly match a set of attributes.  The match is successful if all the attributes of the request are found in a profile, even if the profile has more attributes that are not present on the request.  [Customer Profile]: http://help.talon.one/customer/en/portal/articles/2525263-data-model?b_id=14115#customer-profile   # noqa: E501
+        Gets a list of all the customer profiles for the account that exactly match a set of attributes.  The match is successful if all the attributes of the request are found in a profile, even if the profile has more attributes that are not present on the request.  [Customer Profile]: https://help.talon.one/hc/en-us/articles/360005130739-Data-Model#CustomerProfile   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_customers_by_attributes_with_http_info(body, async_req=True)
@@ -5799,7 +5902,7 @@ class ManagementApi(object):
         :param int page_size: The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
         :param int skip: Skips the given number of items when paging through large result sets.
         :param str sort: The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
-        :return: InlineResponse20023
+        :return: InlineResponse20024
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -5826,7 +5929,7 @@ class ManagementApi(object):
         :param int page_size: The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
         :param int skip: Skips the given number of items when paging through large result sets.
         :param str sort: The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
-        :return: InlineResponse20023
+        :return: InlineResponse20024
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -5890,7 +5993,7 @@ class ManagementApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20023',  # noqa: E501
+            response_type='InlineResponse20024',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -5913,7 +6016,7 @@ class ManagementApi(object):
         :param int application_id:
         :param int campaign_id:
         :param str entity: The name of the entity type that was exported.
-        :return: InlineResponse20026
+        :return: InlineResponse20027
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -5939,7 +6042,7 @@ class ManagementApi(object):
         :param int application_id:
         :param int campaign_id:
         :param str entity: The name of the entity type that was exported.
-        :return: InlineResponse20026
+        :return: InlineResponse20027
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -6001,7 +6104,7 @@ class ManagementApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20026',  # noqa: E501
+            response_type='InlineResponse20027',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -6021,7 +6124,7 @@ class ManagementApi(object):
         :param async_req bool
         :param int page_size: The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
         :param int skip: Skips the given number of items when paging through large result sets.
-        :return: InlineResponse20027
+        :return: InlineResponse20028
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -6044,7 +6147,7 @@ class ManagementApi(object):
         :param async_req bool
         :param int page_size: The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
         :param int skip: Skips the given number of items when paging through large result sets.
-        :return: InlineResponse20027
+        :return: InlineResponse20028
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -6100,7 +6203,7 @@ class ManagementApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20027',  # noqa: E501
+            response_type='InlineResponse20028',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -7134,7 +7237,7 @@ class ManagementApi(object):
         :param int page_size: The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
         :param int skip: Skips the given number of items when paging through large result sets.
         :param str sort: The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
-        :return: InlineResponse20024
+        :return: InlineResponse20025
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -7158,7 +7261,7 @@ class ManagementApi(object):
         :param int page_size: The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
         :param int skip: Skips the given number of items when paging through large result sets.
         :param str sort: The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
-        :return: InlineResponse20024
+        :return: InlineResponse20025
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -7216,7 +7319,7 @@ class ManagementApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20024',  # noqa: E501
+            response_type='InlineResponse20025',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -7342,7 +7445,7 @@ class ManagementApi(object):
         :param float campaign_id: Filter results by campaign.
         :param datetime created_before: Only return events created before this date.
         :param datetime created_after: Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string.
-        :return: InlineResponse20021
+        :return: InlineResponse20022
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -7372,7 +7475,7 @@ class ManagementApi(object):
         :param float campaign_id: Filter results by campaign.
         :param datetime created_before: Only return events created before this date.
         :param datetime created_after: Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string.
-        :return: InlineResponse20021
+        :return: InlineResponse20022
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -7442,7 +7545,7 @@ class ManagementApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20021',  # noqa: E501
+            response_type='InlineResponse20022',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -7470,7 +7573,7 @@ class ManagementApi(object):
         :param str request_uuid: Filter results by request UUID.
         :param datetime created_before: Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string.
         :param datetime created_after: Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string.
-        :return: InlineResponse20022
+        :return: InlineResponse20023
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -7501,7 +7604,7 @@ class ManagementApi(object):
         :param str request_uuid: Filter results by request UUID.
         :param datetime created_before: Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string.
         :param datetime created_after: Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string.
-        :return: InlineResponse20022
+        :return: InlineResponse20023
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -7573,7 +7676,7 @@ class ManagementApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20022',  # noqa: E501
+            response_type='InlineResponse20023',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -7595,7 +7698,7 @@ class ManagementApi(object):
         :param str sort: The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
         :param int page_size: The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
         :param int skip: Skips the given number of items when paging through large result sets.
-        :return: InlineResponse20020
+        :return: InlineResponse20021
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -7620,7 +7723,7 @@ class ManagementApi(object):
         :param str sort: The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
         :param int page_size: The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
         :param int skip: Skips the given number of items when paging through large result sets.
-        :return: InlineResponse20020
+        :return: InlineResponse20021
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -7680,7 +7783,7 @@ class ManagementApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20020',  # noqa: E501
+            response_type='InlineResponse20021',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -8637,47 +8740,47 @@ class ManagementApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def set_account_limits(self, account_id, body, **kwargs):  # noqa: E501
-        """Set account limits  # noqa: E501
+    def update_attribute(self, attribute_id, body, **kwargs):  # noqa: E501
+        """Update a custom attribute  # noqa: E501
 
-        sets account limits   # noqa: E501
+        Updates an existing custom attribute. Once created, the only property of a custom attribute that can be changed is the title (human readable description). This restriction is in place to prevent accidentally breaking live integrations. E.g. if you have a customer profile attribute with the name `region`, and your integration is sending `attributes.region` with customer profile updates, changing the name to `locale` would cause the integration requests to begin failing.  If you **really** need to change the `type` or `name` property of a custom attribute, create a new attribute and update any relevant integrations and rules to use the new attribute. Then delete the old attribute when you are confident you have migrated any needed data from the old attribute to the new one.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.set_account_limits(account_id, body, async_req=True)
+        >>> thread = api.update_attribute(attribute_id, body, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param int account_id:  (required)
-        :param AccountLimits body: (required)
-        :return: None
+        :param int attribute_id: (required)
+        :param NewAttribute body: (required)
+        :return: Attribute
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.set_account_limits_with_http_info(account_id, body, **kwargs)  # noqa: E501
+            return self.update_attribute_with_http_info(attribute_id, body, **kwargs)  # noqa: E501
         else:
-            (data) = self.set_account_limits_with_http_info(account_id, body, **kwargs)  # noqa: E501
+            (data) = self.update_attribute_with_http_info(attribute_id, body, **kwargs)  # noqa: E501
             return data
 
-    def set_account_limits_with_http_info(self, account_id, body, **kwargs):  # noqa: E501
-        """Set account limits  # noqa: E501
+    def update_attribute_with_http_info(self, attribute_id, body, **kwargs):  # noqa: E501
+        """Update a custom attribute  # noqa: E501
 
-        sets account limits   # noqa: E501
+        Updates an existing custom attribute. Once created, the only property of a custom attribute that can be changed is the title (human readable description). This restriction is in place to prevent accidentally breaking live integrations. E.g. if you have a customer profile attribute with the name `region`, and your integration is sending `attributes.region` with customer profile updates, changing the name to `locale` would cause the integration requests to begin failing.  If you **really** need to change the `type` or `name` property of a custom attribute, create a new attribute and update any relevant integrations and rules to use the new attribute. Then delete the old attribute when you are confident you have migrated any needed data from the old attribute to the new one.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.set_account_limits_with_http_info(account_id, body, async_req=True)
+        >>> thread = api.update_attribute_with_http_info(attribute_id, body, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param int account_id:  (required)
-        :param AccountLimits body: (required)
-        :return: None
+        :param int attribute_id: (required)
+        :param NewAttribute body: (required)
+        :return: Attribute
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['account_id', 'body']  # noqa: E501
+        all_params = ['attribute_id', 'body']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -8688,24 +8791,24 @@ class ManagementApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method set_account_limits" % key
+                    " to method update_attribute" % key
                 )
             params[key] = val
         del params['kwargs']
-        # verify the required parameter 'account_id' is set
-        if ('account_id' not in params or
-                params['account_id'] is None):
-            raise ValueError("Missing the required parameter `account_id` when calling `set_account_limits`")  # noqa: E501
+        # verify the required parameter 'attribute_id' is set
+        if ('attribute_id' not in params or
+                params['attribute_id'] is None):
+            raise ValueError("Missing the required parameter `attribute_id` when calling `update_attribute`")  # noqa: E501
         # verify the required parameter 'body' is set
         if ('body' not in params or
                 params['body'] is None):
-            raise ValueError("Missing the required parameter `body` when calling `set_account_limits`")  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `update_attribute`")  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'account_id' in params:
-            path_params['accountId'] = params['account_id']  # noqa: E501
+        if 'attribute_id' in params:
+            path_params['attributeId'] = params['attribute_id']  # noqa: E501
 
         query_params = []
 
@@ -8729,14 +8832,14 @@ class ManagementApi(object):
         auth_settings = ['manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
-            '/v1/accounts/{accountId}/limits', 'PUT',
+            '/v1/attributes/{attributeId}', 'PUT',
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type=None,  # noqa: E501
+            response_type='Attribute',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),

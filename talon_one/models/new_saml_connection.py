@@ -31,40 +31,45 @@ class NewSamlConnection(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'x509certificate': 'str',
+        'account_id': 'int',
         'name': 'str',
         'enabled': 'bool',
         'issuer': 'str',
         'sign_on_url': 'str',
         'sign_out_url': 'str',
         'metadata_url': 'str',
-        'x509certificate': 'str',
-        'audience': 'str'
+        'audience_uri': 'str'
     }
 
     attribute_map = {
+        'x509certificate': 'x509certificate',
+        'account_id': 'accountId',
         'name': 'name',
         'enabled': 'enabled',
         'issuer': 'issuer',
         'sign_on_url': 'signOnURL',
         'sign_out_url': 'signOutURL',
         'metadata_url': 'metadataURL',
-        'x509certificate': 'x509certificate',
-        'audience': 'audience'
+        'audience_uri': 'audienceURI'
     }
 
-    def __init__(self, name=None, enabled=None, issuer=None, sign_on_url=None, sign_out_url=None, metadata_url=None, x509certificate=None, audience=None):  # noqa: E501
+    def __init__(self, x509certificate=None, account_id=None, name=None, enabled=None, issuer=None, sign_on_url=None, sign_out_url=None, metadata_url=None, audience_uri=None):  # noqa: E501
         """NewSamlConnection - a model defined in Swagger"""  # noqa: E501
 
+        self._x509certificate = None
+        self._account_id = None
         self._name = None
         self._enabled = None
         self._issuer = None
         self._sign_on_url = None
         self._sign_out_url = None
         self._metadata_url = None
-        self._x509certificate = None
-        self._audience = None
+        self._audience_uri = None
         self.discriminator = None
 
+        self.x509certificate = x509certificate
+        self.account_id = account_id
         self.name = name
         self.enabled = enabled
         self.issuer = issuer
@@ -73,9 +78,60 @@ class NewSamlConnection(object):
             self.sign_out_url = sign_out_url
         if metadata_url is not None:
             self.metadata_url = metadata_url
-        self.x509certificate = x509certificate
-        if audience is not None:
-            self.audience = audience
+        if audience_uri is not None:
+            self.audience_uri = audience_uri
+
+    @property
+    def x509certificate(self):
+        """Gets the x509certificate of this NewSamlConnection.  # noqa: E501
+
+        X.509 Certificate.  # noqa: E501
+
+        :return: The x509certificate of this NewSamlConnection.  # noqa: E501
+        :rtype: str
+        """
+        return self._x509certificate
+
+    @x509certificate.setter
+    def x509certificate(self, x509certificate):
+        """Sets the x509certificate of this NewSamlConnection.
+
+        X.509 Certificate.  # noqa: E501
+
+        :param x509certificate: The x509certificate of this NewSamlConnection.  # noqa: E501
+        :type: str
+        """
+        if x509certificate is None:
+            raise ValueError("Invalid value for `x509certificate`, must not be `None`")  # noqa: E501
+        if x509certificate is not None and len(x509certificate) < 1:
+            raise ValueError("Invalid value for `x509certificate`, length must be greater than or equal to `1`")  # noqa: E501
+
+        self._x509certificate = x509certificate
+
+    @property
+    def account_id(self):
+        """Gets the account_id of this NewSamlConnection.  # noqa: E501
+
+        The ID of the account that owns this entity.  # noqa: E501
+
+        :return: The account_id of this NewSamlConnection.  # noqa: E501
+        :rtype: int
+        """
+        return self._account_id
+
+    @account_id.setter
+    def account_id(self, account_id):
+        """Sets the account_id of this NewSamlConnection.
+
+        The ID of the account that owns this entity.  # noqa: E501
+
+        :param account_id: The account_id of this NewSamlConnection.  # noqa: E501
+        :type: int
+        """
+        if account_id is None:
+            raise ValueError("Invalid value for `account_id`, must not be `None`")  # noqa: E501
+
+        self._account_id = account_id
 
     @property
     def name(self):
@@ -230,54 +286,27 @@ class NewSamlConnection(object):
         self._metadata_url = metadata_url
 
     @property
-    def x509certificate(self):
-        """Gets the x509certificate of this NewSamlConnection.  # noqa: E501
+    def audience_uri(self):
+        """Gets the audience_uri of this NewSamlConnection.  # noqa: E501
 
-        X.509 Certificate.  # noqa: E501
+        The application-defined unique identifier that is the intended audience of the SAML assertion. This is most often the SP Entity ID of your application. When not specified, the ACS URL will be used.   # noqa: E501
 
-        :return: The x509certificate of this NewSamlConnection.  # noqa: E501
+        :return: The audience_uri of this NewSamlConnection.  # noqa: E501
         :rtype: str
         """
-        return self._x509certificate
+        return self._audience_uri
 
-    @x509certificate.setter
-    def x509certificate(self, x509certificate):
-        """Sets the x509certificate of this NewSamlConnection.
+    @audience_uri.setter
+    def audience_uri(self, audience_uri):
+        """Sets the audience_uri of this NewSamlConnection.
 
-        X.509 Certificate.  # noqa: E501
+        The application-defined unique identifier that is the intended audience of the SAML assertion. This is most often the SP Entity ID of your application. When not specified, the ACS URL will be used.   # noqa: E501
 
-        :param x509certificate: The x509certificate of this NewSamlConnection.  # noqa: E501
-        :type: str
-        """
-        if x509certificate is None:
-            raise ValueError("Invalid value for `x509certificate`, must not be `None`")  # noqa: E501
-        if x509certificate is not None and len(x509certificate) < 1:
-            raise ValueError("Invalid value for `x509certificate`, length must be greater than or equal to `1`")  # noqa: E501
-
-        self._x509certificate = x509certificate
-
-    @property
-    def audience(self):
-        """Gets the audience of this NewSamlConnection.  # noqa: E501
-
-        The application-defined unique identifier that is the intended audience of the SAML assertion.  This is most often the SP Entity ID of your application. When not specified, the ACS URL will be used.   # noqa: E501
-
-        :return: The audience of this NewSamlConnection.  # noqa: E501
-        :rtype: str
-        """
-        return self._audience
-
-    @audience.setter
-    def audience(self, audience):
-        """Sets the audience of this NewSamlConnection.
-
-        The application-defined unique identifier that is the intended audience of the SAML assertion.  This is most often the SP Entity ID of your application. When not specified, the ACS URL will be used.   # noqa: E501
-
-        :param audience: The audience of this NewSamlConnection.  # noqa: E501
+        :param audience_uri: The audience_uri of this NewSamlConnection.  # noqa: E501
         :type: str
         """
 
-        self._audience = audience
+        self._audience_uri = audience_uri
 
     def to_dict(self):
         """Returns the model properties as a dict"""

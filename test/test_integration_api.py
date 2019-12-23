@@ -57,6 +57,13 @@ class TestIntegrationApi(unittest.TestCase):
         """
         pass
 
+    def test_get_customer_inventory(self):
+        """Test case for get_customer_inventory
+
+        Get an inventory of all data associated with a specific customer profile.  # noqa: E501
+        """
+        pass
+
     def test_get_reserved_coupons(self):
         """Test case for get_reserved_coupons
 
