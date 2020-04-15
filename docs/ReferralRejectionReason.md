@@ -1,5 +1,6 @@
 # ReferralRejectionReason
 
+Holds a reference to the campaign, the referral and the reason for which that referral was rejected. Should only be present when there is a 'rejectReferral' effect.
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

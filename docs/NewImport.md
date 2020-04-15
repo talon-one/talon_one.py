@@ -1,5 +1,6 @@
 # NewImport
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

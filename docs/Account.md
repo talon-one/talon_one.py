@@ -1,5 +1,6 @@
 # Account
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
@@ -8,7 +9,7 @@ Name | Type | Description | Notes
 **modified** | **datetime** | The exact moment this entity was last modified. | 
 **company_name** | **str** |  | 
 **domain_name** | **str** | Subdomain Name for yourcompany.talon.one | 
-**state** | **str** | State of the account (trial, active, trial_expired) | 
+**state** | **str** | State of the account (active, deactivated) | 
 **billing_email** | **str** | The billing email address associated with your company account. | 
 **plan_name** | **str** | The name of your booked plan. | [optional] 
 **plan_expires** | **datetime** | The point in time at which your current plan expires. | [optional] 
@@ -20,7 +21,7 @@ Name | Type | Description | Notes
 **user_count** | **int** | The current number of Campaign Manager Users in your account. | 
 **campaigns_active_count** | **int** | The current number of active Campaigns in your account. | 
 **campaigns_inactive_count** | **int** | The current number of inactive Campaigns in your account. | 
-**attributes** | **object** | Arbitrary properties associated with this campaign | [optional] 
+**attributes** | [**object**](.md) | Arbitrary properties associated with this campaign | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

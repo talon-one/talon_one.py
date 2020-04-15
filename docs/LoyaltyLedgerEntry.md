@@ -1,5 +1,6 @@
 # LoyaltyLedgerEntry
 
+A single row of the ledger, describing one addition or deduction.
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

@@ -1,5 +1,6 @@
 # LoyaltySubLedger
 
+Ledger of Balance in Loyalty Program for a Customer
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

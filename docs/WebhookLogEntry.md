@@ -1,5 +1,6 @@
 # WebhookLogEntry
 
+Log of webhook api calls
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

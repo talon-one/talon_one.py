@@ -1,5 +1,6 @@
 # Loyalty
 
+Customer specific information about loyalty points.
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

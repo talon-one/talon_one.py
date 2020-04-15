@@ -1,5 +1,6 @@
 # LoyaltyPoints
 
+Points to add or deduct
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

@@ -1,5 +1,6 @@
 # ApplicationApiHealth
 
+Report of health of the API connection of an application
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
