@@ -1,9 +1,10 @@
 # CampaignAnalytics
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**_date** | **datetime** |  | 
+**date** | **datetime** |  | 
 **campaign_revenue** | **float** | Amount of revenue in this campaign (for coupon or discount sessions). | 
 **total_campaign_revenue** | **float** | Amount of revenue in this campaign since it began (for coupon or discount sessions). | 
 **campaign_refund** | **float** | Amount of refunds in this campaign (for coupon or discount sessions). | 

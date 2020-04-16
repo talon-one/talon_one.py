@@ -1,5 +1,6 @@
 # CustomerSession
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
@@ -13,7 +14,7 @@ Name | Type | Description | Notes
 **cart_items** | [**list[CartItem]**](CartItem.md) | Serialized JSON representation. | 
 **identifiers** | **list[str]** | Identifiers for the customer, this can be used for limits on values such as device ID. | [optional] 
 **total** | **float** | The total sum of the cart in one session. | 
-**attributes** | **object** | A key-value map of the sessions attributes. The potentially valid attributes are configured in your accounts developer settings.  | 
+**attributes** | [**object**](.md) | A key-value map of the sessions attributes. The potentially valid attributes are configured in your accounts developer settings.  | 
 **first_session** | **bool** | Indicates whether this is the first session for the customer&#39;s profile. Will always be true for anonymous sessions. | 
 **discounts** | **dict(str, float)** | A map of labelled discount values, values will be in the same currency as the application associated with the session. | 
 

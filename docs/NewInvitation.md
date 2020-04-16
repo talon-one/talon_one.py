@@ -1,5 +1,6 @@
 # NewInvitation
 
+Parameters for inviting a new user
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

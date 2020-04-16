@@ -1,5 +1,6 @@
 # UpdateLoyaltyProgram
 
+Update Loyalty Program
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

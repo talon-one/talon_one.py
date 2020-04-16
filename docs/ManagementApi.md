@@ -1,11 +1,12 @@
 # talon_one.ManagementApi
 
-All URIs are relative to *https://localhost*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**add_loyalty_points**](ManagementApi.md#add_loyalty_points) | **PUT** /v1/loyalty_programs/{programID}/profile/{integrationID}/add_points | Add points in a certain loyalty program for the specified customer
 [**copy_campaign_to_applications**](ManagementApi.md#copy_campaign_to_applications) | **POST** /v1/applications/{applicationId}/campaigns/{campaignId}/copy | Copy the campaign into every specified application
+[**create_additional_cost**](ManagementApi.md#create_additional_cost) | **POST** /v1/additional_costs | Define a new additional cost
 [**create_attribute**](ManagementApi.md#create_attribute) | **POST** /v1/attributes | Define a new custom attribute
 [**create_campaign**](ManagementApi.md#create_campaign) | **POST** /v1/applications/{applicationId}/campaigns | Create a Campaign
 [**create_coupons**](ManagementApi.md#create_coupons) | **POST** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons | Create Coupons
@@ -21,6 +22,8 @@ Method | HTTP request | Description
 [**get_access_logs_without_total_count**](ManagementApi.md#get_access_logs_without_total_count) | **GET** /v1/applications/{applicationId}/access_logs/no_total | Get access logs for application
 [**get_account**](ManagementApi.md#get_account) | **GET** /v1/accounts/{accountId} | Get Account Details
 [**get_account_analytics**](ManagementApi.md#get_account_analytics) | **GET** /v1/accounts/{accountId}/analytics | Get Account Analytics
+[**get_additional_cost**](ManagementApi.md#get_additional_cost) | **GET** /v1/additional_costs/{additionalCostId} | Get an additional cost
+[**get_additional_costs**](ManagementApi.md#get_additional_costs) | **GET** /v1/additional_costs | List additional costs
 [**get_all_access_logs**](ManagementApi.md#get_all_access_logs) | **GET** /v1/access_logs | Get all access logs
 [**get_all_roles**](ManagementApi.md#get_all_roles) | **GET** /v1/roles | Get all roles.
 [**get_application**](ManagementApi.md#get_application) | **GET** /v1/applications/{applicationId} | Get Application
@@ -70,13 +73,13 @@ Method | HTTP request | Description
 [**get_webhook_activation_logs**](ManagementApi.md#get_webhook_activation_logs) | **GET** /v1/webhook_activation_logs | List Webhook activation Log Entries
 [**get_webhook_logs**](ManagementApi.md#get_webhook_logs) | **GET** /v1/webhook_logs | List Webhook Log Entries
 [**get_webhooks**](ManagementApi.md#get_webhooks) | **GET** /v1/webhooks | List Webhooks
-[**refresh_analytics**](ManagementApi.md#refresh_analytics) | **POST** /v1/refresh_analytics | Trigger refresh on stale analytics.
 [**remove_loyalty_points**](ManagementApi.md#remove_loyalty_points) | **PUT** /v1/loyalty_programs/{programID}/profile/{integrationID}/deduct_points | Deduct points in a certain loyalty program for the specified customer
 [**reset_password**](ManagementApi.md#reset_password) | **POST** /v1/reset_password | Reset password
 [**search_coupons_advanced**](ManagementApi.md#search_coupons_advanced) | **POST** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons_search_advanced | Get a list of the coupons that match the given attributes
 [**search_coupons_advanced_application_wide**](ManagementApi.md#search_coupons_advanced_application_wide) | **POST** /v1/applications/{applicationId}/coupons_search_advanced | Get a list of the coupons that match the given attributes in all active campaigns of an application
 [**search_coupons_advanced_application_wide_without_total_count**](ManagementApi.md#search_coupons_advanced_application_wide_without_total_count) | **POST** /v1/applications/{applicationId}/coupons_search_advanced/no_total | Get a list of the coupons that match the given attributes in all active campaigns of an application
 [**search_coupons_advanced_without_total_count**](ManagementApi.md#search_coupons_advanced_without_total_count) | **POST** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons_search_advanced/no_total | Get a list of the coupons that match the given attributes
+[**update_additional_cost**](ManagementApi.md#update_additional_cost) | **PUT** /v1/additional_costs/{additionalCostId} | Update an additional cost
 [**update_attribute**](ManagementApi.md#update_attribute) | **PUT** /v1/attributes/{attributeId} | Update a custom attribute
 [**update_campaign**](ManagementApi.md#update_campaign) | **PUT** /v1/applications/{applicationId}/campaigns/{campaignId} | Update a Campaign
 [**update_campaign_set**](ManagementApi.md#update_campaign_set) | **PUT** /v1/applications/{applicationId}/campaign_set | Update a Campaign Set
@@ -90,33 +93,36 @@ Method | HTTP request | Description
 
 Add points in a certain loyalty program for the specified customer
 
-
-
 ### Example
+
+* Api Key Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-
-# Configure API key authorization: manager_auth
 configuration = talon_one.Configuration()
+# Configure API key authorization: manager_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = talon_one.ManagementApi(talon_one.ApiClient(configuration))
-program_id = 'program_id_example' # str | 
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    program_id = 'program_id_example' # str | 
 integration_id = 'integration_id_example' # str | 
 body = talon_one.LoyaltyPoints() # LoyaltyPoints | 
 
-try:
-    # Add points in a certain loyalty program for the specified customer
-    api_instance.add_loyalty_points(program_id, integration_id, body)
-except ApiException as e:
-    print("Exception when calling ManagementApi->add_loyalty_points: %s\n" % e)
+    try:
+        # Add points in a certain loyalty program for the specified customer
+        api_instance.add_loyalty_points(program_id, integration_id, body)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->add_loyalty_points: %s\n" % e)
 ```
 
 ### Parameters
@@ -138,7 +144,12 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Accept**: Not defined
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | No Content |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -150,31 +161,36 @@ Copy the campaign into every specified application
 Copy the campaign into every specified application.
 
 ### Example
+
+* Api Key Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-
-# Configure API key authorization: manager_auth
 configuration = talon_one.Configuration()
+# Configure API key authorization: manager_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = talon_one.ManagementApi(talon_one.ApiClient(configuration))
-application_id = 56 # int | 
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | 
 campaign_id = 56 # int | 
 body = talon_one.CampaignCopy() # CampaignCopy | 
 
-try:
-    # Copy the campaign into every specified application
-    api_response = api_instance.copy_campaign_to_applications(application_id, campaign_id, body)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ManagementApi->copy_campaign_to_applications: %s\n" % e)
+    try:
+        # Copy the campaign into every specified application
+        api_response = api_instance.copy_campaign_to_applications(application_id, campaign_id, body)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->copy_campaign_to_applications: %s\n" % e)
 ```
 
 ### Parameters
@@ -198,6 +214,75 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **create_additional_cost**
+> AccountAdditionalCost create_additional_cost(body)
+
+Define a new additional cost
+
+Defines a new _additional cost_ in this account.  These additional costs are shared across all applications in your account, and are never required. 
+
+### Example
+
+* Api Key Authentication (manager_auth):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+configuration = talon_one.Configuration()
+# Configure API key authorization: manager_auth
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    body = talon_one.NewAdditionalCost() # NewAdditionalCost | 
+
+    try:
+        # Define a new additional cost
+        api_response = api_instance.create_additional_cost(body)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->create_additional_cost: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**NewAdditionalCost**](NewAdditionalCost.md)|  | 
+
+### Return type
+
+[**AccountAdditionalCost**](AccountAdditionalCost.md)
+
+### Authorization
+
+[manager_auth](../README.md#manager_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | Created |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_attribute**
@@ -208,29 +293,34 @@ Define a new custom attribute
 Defines a new _custom attribute_ in this account. Custom attributes allow you to attach new fields to Talon.One domain objects like campaigns, coupons, customers and so on. These attributes can then be given values when creating / updating these objects, and these values can be used in your campaign rules. For example, you could define a `zipCode` field for customer sessions, and add a rule to your campaign that only allows certain ZIP codes.  These attributes are shared across all applications in your account, and are never required. 
 
 ### Example
+
+* Api Key Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-
-# Configure API key authorization: manager_auth
 configuration = talon_one.Configuration()
+# Configure API key authorization: manager_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = talon_one.ManagementApi(talon_one.ApiClient(configuration))
-body = talon_one.NewAttribute() # NewAttribute | 
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    body = talon_one.NewAttribute() # NewAttribute | 
 
-try:
-    # Define a new custom attribute
-    api_response = api_instance.create_attribute(body)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ManagementApi->create_attribute: %s\n" % e)
+    try:
+        # Define a new custom attribute
+        api_response = api_instance.create_attribute(body)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->create_attribute: %s\n" % e)
 ```
 
 ### Parameters
@@ -252,6 +342,11 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | Created |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_campaign**
@@ -259,33 +354,36 @@ Name | Type | Description  | Notes
 
 Create a Campaign
 
-
-
 ### Example
+
+* Api Key Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-
-# Configure API key authorization: manager_auth
 configuration = talon_one.Configuration()
+# Configure API key authorization: manager_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = talon_one.ManagementApi(talon_one.ApiClient(configuration))
-application_id = 56 # int | 
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | 
 body = talon_one.NewCampaign() # NewCampaign | 
 
-try:
-    # Create a Campaign
-    api_response = api_instance.create_campaign(application_id, body)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ManagementApi->create_campaign: %s\n" % e)
+    try:
+        # Create a Campaign
+        api_response = api_instance.create_campaign(application_id, body)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->create_campaign: %s\n" % e)
 ```
 
 ### Parameters
@@ -308,6 +406,11 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | Created |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_coupons**
@@ -318,32 +421,37 @@ Create Coupons
 Create coupons according to some pattern. Up to 20.000 coupons can be created without a unique prefix. When a unique prefix is provided, up to 200.000 coupons can be created.
 
 ### Example
+
+* Api Key Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-
-# Configure API key authorization: manager_auth
 configuration = talon_one.Configuration()
+# Configure API key authorization: manager_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = talon_one.ManagementApi(talon_one.ApiClient(configuration))
-application_id = 56 # int | 
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | 
 campaign_id = 56 # int | 
 body = talon_one.NewCoupons() # NewCoupons | 
 silent = 'silent_example' # str | If set to 'yes', response will be an empty 204, otherwise a list of the coupons generated (to to 1000). (optional)
 
-try:
-    # Create Coupons
-    api_response = api_instance.create_coupons(application_id, campaign_id, body, silent=silent)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ManagementApi->create_coupons: %s\n" % e)
+    try:
+        # Create Coupons
+        api_response = api_instance.create_coupons(application_id, campaign_id, body, silent=silent)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->create_coupons: %s\n" % e)
 ```
 
 ### Parameters
@@ -368,6 +476,12 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**204** | No Content |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_password_recovery_email**
@@ -378,29 +492,34 @@ Request a password reset
 Sends an email with a password recovery link to the email of an existing account. 
 
 ### Example
+
+* Api Key Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-
-# Configure API key authorization: manager_auth
 configuration = talon_one.Configuration()
+# Configure API key authorization: manager_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = talon_one.ManagementApi(talon_one.ApiClient(configuration))
-body = talon_one.NewPasswordEmail() # NewPasswordEmail | 
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    body = talon_one.NewPasswordEmail() # NewPasswordEmail | 
 
-try:
-    # Request a password reset
-    api_response = api_instance.create_password_recovery_email(body)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ManagementApi->create_password_recovery_email: %s\n" % e)
+    try:
+        # Request a password reset
+        api_response = api_instance.create_password_recovery_email(body)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->create_password_recovery_email: %s\n" % e)
 ```
 
 ### Parameters
@@ -422,6 +541,11 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | Created |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_ruleset**
@@ -429,34 +553,37 @@ Name | Type | Description  | Notes
 
 Create a Ruleset
 
-
-
 ### Example
+
+* Api Key Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-
-# Configure API key authorization: manager_auth
 configuration = talon_one.Configuration()
+# Configure API key authorization: manager_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = talon_one.ManagementApi(talon_one.ApiClient(configuration))
-application_id = 56 # int | 
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | 
 campaign_id = 56 # int | 
 body = talon_one.NewRuleset() # NewRuleset | 
 
-try:
-    # Create a Ruleset
-    api_response = api_instance.create_ruleset(application_id, campaign_id, body)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ManagementApi->create_ruleset: %s\n" % e)
+    try:
+        # Create a Ruleset
+        api_response = api_instance.create_ruleset(application_id, campaign_id, body)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->create_ruleset: %s\n" % e)
 ```
 
 ### Parameters
@@ -480,6 +607,11 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | Created |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_session**
@@ -487,32 +619,35 @@ Name | Type | Description  | Notes
 
 Create a Session
 
-
-
 ### Example
+
+* Api Key Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-
-# Configure API key authorization: manager_auth
 configuration = talon_one.Configuration()
+# Configure API key authorization: manager_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = talon_one.ManagementApi(talon_one.ApiClient(configuration))
-body = talon_one.LoginParams() # LoginParams | 
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    body = talon_one.LoginParams() # LoginParams | 
 
-try:
-    # Create a Session
-    api_response = api_instance.create_session(body)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ManagementApi->create_session: %s\n" % e)
+    try:
+        # Create a Session
+        api_response = api_instance.create_session(body)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->create_session: %s\n" % e)
 ```
 
 ### Parameters
@@ -534,6 +669,11 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | Created |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_campaign**
@@ -541,32 +681,35 @@ Name | Type | Description  | Notes
 
 Delete a Campaign
 
-
-
 ### Example
+
+* Api Key Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-
-# Configure API key authorization: manager_auth
 configuration = talon_one.Configuration()
+# Configure API key authorization: manager_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = talon_one.ManagementApi(talon_one.ApiClient(configuration))
-application_id = 56 # int | 
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | 
 campaign_id = 56 # int | 
 
-try:
-    # Delete a Campaign
-    api_instance.delete_campaign(application_id, campaign_id)
-except ApiException as e:
-    print("Exception when calling ManagementApi->delete_campaign: %s\n" % e)
+    try:
+        # Delete a Campaign
+        api_instance.delete_campaign(application_id, campaign_id)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->delete_campaign: %s\n" % e)
 ```
 
 ### Parameters
@@ -586,8 +729,13 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | No Content |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -596,33 +744,36 @@ void (empty response body)
 
 Delete one Coupon
 
-
-
 ### Example
+
+* Api Key Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-
-# Configure API key authorization: manager_auth
 configuration = talon_one.Configuration()
+# Configure API key authorization: manager_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = talon_one.ManagementApi(talon_one.ApiClient(configuration))
-application_id = 56 # int | 
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | 
 campaign_id = 56 # int | 
 coupon_id = 'coupon_id_example' # str | The ID of the coupon code to delete
 
-try:
-    # Delete one Coupon
-    api_instance.delete_coupon(application_id, campaign_id, coupon_id)
-except ApiException as e:
-    print("Exception when calling ManagementApi->delete_coupon: %s\n" % e)
+    try:
+        # Delete one Coupon
+        api_instance.delete_coupon(application_id, campaign_id, coupon_id)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->delete_coupon: %s\n" % e)
 ```
 
 ### Parameters
@@ -643,8 +794,13 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | No Content |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -653,25 +809,28 @@ void (empty response body)
 
 Delete Coupons
 
-
-
 ### Example
+
+* Api Key Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-
-# Configure API key authorization: manager_auth
 configuration = talon_one.Configuration()
+# Configure API key authorization: manager_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = talon_one.ManagementApi(talon_one.ApiClient(configuration))
-application_id = 56 # int | 
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | 
 campaign_id = 56 # int | 
 value = 'value_example' # str | Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
 created_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)
@@ -685,13 +844,13 @@ batch_id = 'batch_id_example' # str | Filter results by batches of coupons (opti
 usable = 'usable_example' # str | Either \"true\" or \"false\". If \"true\", only coupons where `usageCounter < usageLimit` will be returned, \"false\" will return only coupons where `usageCounter >= usageLimit`.  (optional)
 referral_id = 56 # int | Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)
 recipient_integration_id = 'recipient_integration_id_example' # str | Filter results by match with a profile id specified in the coupon's RecipientIntegrationId field (optional)
-exact_match = false # bool | Filter results to an exact case-insensitive matching against the coupon code (optional) (default to false)
+exact_match = False # bool | Filter results to an exact case-insensitive matching against the coupon code (optional) (default to False)
 
-try:
-    # Delete Coupons
-    api_instance.delete_coupons(application_id, campaign_id, value=value, created_before=created_before, created_after=created_after, starts_after=starts_after, starts_before=starts_before, expires_after=expires_after, expires_before=expires_before, valid=valid, batch_id=batch_id, usable=usable, referral_id=referral_id, recipient_integration_id=recipient_integration_id, exact_match=exact_match)
-except ApiException as e:
-    print("Exception when calling ManagementApi->delete_coupons: %s\n" % e)
+    try:
+        # Delete Coupons
+        api_instance.delete_coupons(application_id, campaign_id, value=value, created_before=created_before, created_after=created_after, starts_after=starts_after, starts_before=starts_before, expires_after=expires_after, expires_before=expires_before, valid=valid, batch_id=batch_id, usable=usable, referral_id=referral_id, recipient_integration_id=recipient_integration_id, exact_match=exact_match)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->delete_coupons: %s\n" % e)
 ```
 
 ### Parameters
@@ -712,7 +871,7 @@ Name | Type | Description  | Notes
  **usable** | **str**| Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  | [optional] 
  **referral_id** | **int**| Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. | [optional] 
  **recipient_integration_id** | **str**| Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field | [optional] 
- **exact_match** | **bool**| Filter results to an exact case-insensitive matching against the coupon code | [optional] [default to false]
+ **exact_match** | **bool**| Filter results to an exact case-insensitive matching against the coupon code | [optional] [default to False]
 
 ### Return type
 
@@ -724,8 +883,13 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | No Content |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -734,33 +898,36 @@ void (empty response body)
 
 Delete one Referral
 
-
-
 ### Example
+
+* Api Key Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-
-# Configure API key authorization: manager_auth
 configuration = talon_one.Configuration()
+# Configure API key authorization: manager_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = talon_one.ManagementApi(talon_one.ApiClient(configuration))
-application_id = 56 # int | 
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | 
 campaign_id = 56 # int | 
 referral_id = 'referral_id_example' # str | The ID of the referral code to delete
 
-try:
-    # Delete one Referral
-    api_instance.delete_referral(application_id, campaign_id, referral_id)
-except ApiException as e:
-    print("Exception when calling ManagementApi->delete_referral: %s\n" % e)
+    try:
+        # Delete one Referral
+        api_instance.delete_referral(application_id, campaign_id, referral_id)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->delete_referral: %s\n" % e)
 ```
 
 ### Parameters
@@ -781,8 +948,13 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | No Content |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -791,33 +963,36 @@ void (empty response body)
 
 Delete a Ruleset
 
-
-
 ### Example
+
+* Api Key Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-
-# Configure API key authorization: manager_auth
 configuration = talon_one.Configuration()
+# Configure API key authorization: manager_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = talon_one.ManagementApi(talon_one.ApiClient(configuration))
-application_id = 56 # int | 
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | 
 campaign_id = 56 # int | 
 ruleset_id = 56 # int | 
 
-try:
-    # Delete a Ruleset
-    api_instance.delete_ruleset(application_id, campaign_id, ruleset_id)
-except ApiException as e:
-    print("Exception when calling ManagementApi->delete_ruleset: %s\n" % e)
+    try:
+        # Delete a Ruleset
+        api_instance.delete_ruleset(application_id, campaign_id, ruleset_id)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->delete_ruleset: %s\n" % e)
 ```
 
 ### Parameters
@@ -838,8 +1013,13 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | No Content |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -848,25 +1028,28 @@ void (empty response body)
 
 Get access logs for application
 
-
-
 ### Example
+
+* Api Key Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-
-# Configure API key authorization: manager_auth
 configuration = talon_one.Configuration()
+# Configure API key authorization: manager_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = talon_one.ManagementApi(talon_one.ApiClient(configuration))
-application_id = 56 # int | 
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | 
 range_start = '2013-10-20T19:20:30+01:00' # datetime | Only return results from after this timestamp, must be an RFC3339 timestamp string
 range_end = '2013-10-20T19:20:30+01:00' # datetime | Only return results from before this timestamp, must be an RFC3339 timestamp string
 path = 'path_example' # str | Only return results where the request path matches the given regular expression. (optional)
@@ -876,12 +1059,12 @@ page_size = 56 # int | The number of items to include in this response. When omi
 skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
 sort = 'sort_example' # str | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional)
 
-try:
-    # Get access logs for application
-    api_response = api_instance.get_access_logs(application_id, range_start, range_end, path=path, method=method, status=status, page_size=page_size, skip=skip, sort=sort)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ManagementApi->get_access_logs: %s\n" % e)
+    try:
+        # Get access logs for application
+        api_response = api_instance.get_access_logs(application_id, range_start, range_end, path=path, method=method, status=status, page_size=page_size, skip=skip, sort=sort)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_access_logs: %s\n" % e)
 ```
 
 ### Parameters
@@ -908,8 +1091,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -918,25 +1106,28 @@ Name | Type | Description  | Notes
 
 Get access logs for application
 
-
-
 ### Example
+
+* Api Key Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-
-# Configure API key authorization: manager_auth
 configuration = talon_one.Configuration()
+# Configure API key authorization: manager_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = talon_one.ManagementApi(talon_one.ApiClient(configuration))
-application_id = 56 # int | 
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | 
 range_start = '2013-10-20T19:20:30+01:00' # datetime | Only return results from after this timestamp, must be an RFC3339 timestamp string
 range_end = '2013-10-20T19:20:30+01:00' # datetime | Only return results from before this timestamp, must be an RFC3339 timestamp string
 path = 'path_example' # str | Only return results where the request path matches the given regular expression. (optional)
@@ -946,12 +1137,12 @@ page_size = 56 # int | The number of items to include in this response. When omi
 skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
 sort = 'sort_example' # str | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional)
 
-try:
-    # Get access logs for application
-    api_response = api_instance.get_access_logs_without_total_count(application_id, range_start, range_end, path=path, method=method, status=status, page_size=page_size, skip=skip, sort=sort)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ManagementApi->get_access_logs_without_total_count: %s\n" % e)
+    try:
+        # Get access logs for application
+        api_response = api_instance.get_access_logs_without_total_count(application_id, range_start, range_end, path=path, method=method, status=status, page_size=page_size, skip=skip, sort=sort)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_access_logs_without_total_count: %s\n" % e)
 ```
 
 ### Parameters
@@ -978,8 +1169,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -991,29 +1187,34 @@ Get Account Details
 Return the details of your companies Talon.One account. 
 
 ### Example
+
+* Api Key Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-
-# Configure API key authorization: manager_auth
 configuration = talon_one.Configuration()
+# Configure API key authorization: manager_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = talon_one.ManagementApi(talon_one.ApiClient(configuration))
-account_id = 56 # int | 
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    account_id = 56 # int | 
 
-try:
-    # Get Account Details
-    api_response = api_instance.get_account(account_id)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ManagementApi->get_account: %s\n" % e)
+    try:
+        # Get Account Details
+        api_response = api_instance.get_account(account_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_account: %s\n" % e)
 ```
 
 ### Parameters
@@ -1032,8 +1233,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1045,29 +1251,34 @@ Get Account Analytics
 Return the analytics of your companies Talon.One account. 
 
 ### Example
+
+* Api Key Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-
-# Configure API key authorization: manager_auth
 configuration = talon_one.Configuration()
+# Configure API key authorization: manager_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = talon_one.ManagementApi(talon_one.ApiClient(configuration))
-account_id = 56 # int | 
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    account_id = 56 # int | 
 
-try:
-    # Get Account Analytics
-    api_response = api_instance.get_account_analytics(account_id)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ManagementApi->get_account_analytics: %s\n" % e)
+    try:
+        # Get Account Analytics
+        api_response = api_instance.get_account_analytics(account_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_account_analytics: %s\n" % e)
 ```
 
 ### Parameters
@@ -1086,8 +1297,145 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_additional_cost**
+> AccountAdditionalCost get_additional_cost(additional_cost_id)
+
+Get an additional cost
+
+Returns additional cost for the account by its id. 
+
+### Example
+
+* Api Key Authentication (manager_auth):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+configuration = talon_one.Configuration()
+# Configure API key authorization: manager_auth
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    additional_cost_id = 56 # int | 
+
+    try:
+        # Get an additional cost
+        api_response = api_instance.get_additional_cost(additional_cost_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_additional_cost: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **additional_cost_id** | **int**|  | 
+
+### Return type
+
+[**AccountAdditionalCost**](AccountAdditionalCost.md)
+
+### Authorization
+
+[manager_auth](../README.md#manager_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_additional_costs**
+> InlineResponse20021 get_additional_costs(page_size=page_size, skip=skip, sort=sort)
+
+List additional costs
+
+Returns all the defined additional costs for the account. 
+
+### Example
+
+* Api Key Authentication (manager_auth):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+configuration = talon_one.Configuration()
+# Configure API key authorization: manager_auth
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    page_size = 56 # int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
+sort = 'sort_example' # str | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional)
+
+    try:
+        # List additional costs
+        api_response = api_instance.get_additional_costs(page_size=page_size, skip=skip, sort=sort)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_additional_costs: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **page_size** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
+ **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional] 
+ **sort** | **str**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional] 
+
+### Return type
+
+[**InlineResponse20021**](InlineResponse20021.md)
+
+### Authorization
+
+[manager_auth](../README.md#manager_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1099,22 +1447,27 @@ Get all access logs
 Fetches the access logs for the entire account. Sensitive requests (logins) are _always_ filtered from the logs. 
 
 ### Example
+
+* Api Key Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-
-# Configure API key authorization: manager_auth
 configuration = talon_one.Configuration()
+# Configure API key authorization: manager_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = talon_one.ManagementApi(talon_one.ApiClient(configuration))
-range_start = '2013-10-20T19:20:30+01:00' # datetime | Only return results from after this timestamp, must be an RFC3339 timestamp string
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    range_start = '2013-10-20T19:20:30+01:00' # datetime | Only return results from after this timestamp, must be an RFC3339 timestamp string
 range_end = '2013-10-20T19:20:30+01:00' # datetime | Only return results from before this timestamp, must be an RFC3339 timestamp string
 path = 'path_example' # str | Only return results where the request path matches the given regular expression. (optional)
 method = 'method_example' # str | Only return results where the request method matches the given regular expression. (optional)
@@ -1123,12 +1476,12 @@ page_size = 56 # int | The number of items to include in this response. When omi
 skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
 sort = 'sort_example' # str | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional)
 
-try:
-    # Get all access logs
-    api_response = api_instance.get_all_access_logs(range_start, range_end, path=path, method=method, status=status, page_size=page_size, skip=skip, sort=sort)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ManagementApi->get_all_access_logs: %s\n" % e)
+    try:
+        # Get all access logs
+        api_response = api_instance.get_all_access_logs(range_start, range_end, path=path, method=method, status=status, page_size=page_size, skip=skip, sort=sort)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_all_access_logs: %s\n" % e)
 ```
 
 ### Parameters
@@ -1154,39 +1507,49 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_all_roles**
-> InlineResponse20029 get_all_roles()
+> InlineResponse20030 get_all_roles()
 
 Get all roles.
 
 ### Example
+
+* Api Key Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-
-# Configure API key authorization: manager_auth
 configuration = talon_one.Configuration()
+# Configure API key authorization: manager_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = talon_one.ManagementApi(talon_one.ApiClient(configuration))
-
-try:
-    # Get all roles.
-    api_response = api_instance.get_all_roles()
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ManagementApi->get_all_roles: %s\n" % e)
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    
+    try:
+        # Get all roles.
+        api_response = api_instance.get_all_roles()
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_all_roles: %s\n" % e)
 ```
 
 ### Parameters
@@ -1194,7 +1557,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**InlineResponse20029**](InlineResponse20029.md)
+[**InlineResponse20030**](InlineResponse20030.md)
 
 ### Authorization
 
@@ -1202,8 +1565,13 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1215,29 +1583,34 @@ Get Application
 Get the application specified by the ID.
 
 ### Example
+
+* Api Key Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-
-# Configure API key authorization: manager_auth
 configuration = talon_one.Configuration()
+# Configure API key authorization: manager_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = talon_one.ManagementApi(talon_one.ApiClient(configuration))
-application_id = 56 # int | 
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | 
 
-try:
-    # Get Application
-    api_response = api_instance.get_application(application_id)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ManagementApi->get_application: %s\n" % e)
+    try:
+        # Get Application
+        api_response = api_instance.get_application(application_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_application: %s\n" % e)
 ```
 
 ### Parameters
@@ -1256,8 +1629,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1266,32 +1644,35 @@ Name | Type | Description  | Notes
 
 Get report of health of application API
 
-
-
 ### Example
+
+* Api Key Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-
-# Configure API key authorization: manager_auth
 configuration = talon_one.Configuration()
+# Configure API key authorization: manager_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = talon_one.ManagementApi(talon_one.ApiClient(configuration))
-application_id = 56 # int | 
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | 
 
-try:
-    # Get report of health of application API
-    api_response = api_instance.get_application_api_health(application_id)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ManagementApi->get_application_api_health: %s\n" % e)
+    try:
+        # Get report of health of application API
+        api_response = api_instance.get_application_api_health(application_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_application_api_health: %s\n" % e)
 ```
 
 ### Parameters
@@ -1310,8 +1691,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1320,33 +1706,36 @@ Name | Type | Description  | Notes
 
 Get Application Customer
 
-
-
 ### Example
+
+* Api Key Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-
-# Configure API key authorization: manager_auth
 configuration = talon_one.Configuration()
+# Configure API key authorization: manager_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = talon_one.ManagementApi(talon_one.ApiClient(configuration))
-application_id = 56 # int | 
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | 
 customer_id = 56 # int | 
 
-try:
-    # Get Application Customer
-    api_response = api_instance.get_application_customer(application_id, customer_id)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ManagementApi->get_application_customer: %s\n" % e)
+    try:
+        # Get Application Customer
+        api_response = api_instance.get_application_customer(application_id, customer_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_application_customer: %s\n" % e)
 ```
 
 ### Parameters
@@ -1366,8 +1755,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1376,32 +1770,35 @@ Name | Type | Description  | Notes
 
 List Application Customers
 
-
-
 ### Example
+
+* Api Key Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-
-# Configure API key authorization: manager_auth
 configuration = talon_one.Configuration()
+# Configure API key authorization: manager_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = talon_one.ManagementApi(talon_one.ApiClient(configuration))
-application_id = 56 # int | 
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | 
 
-try:
-    # List Application Customers
-    api_response = api_instance.get_application_customers(application_id)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ManagementApi->get_application_customers: %s\n" % e)
+    try:
+        # List Application Customers
+        api_response = api_instance.get_application_customers(application_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_application_customers: %s\n" % e)
 ```
 
 ### Parameters
@@ -1420,8 +1817,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1433,29 +1835,34 @@ Get a list of the customer profiles that match the given attributes
 Gets a list of all the customer profiles for the account that exactly match a set of attributes.  The match is successful if all the attributes of the request are found in a profile, even if the profile has more attributes that are not present on the request.  [Customer Profile]: https://help.talon.one/hc/en-us/articles/360005130739-Data-Model#CustomerProfile 
 
 ### Example
+
+* Api Key Authentication (integration_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-
-# Configure API key authorization: integration_auth
 configuration = talon_one.Configuration()
+# Configure API key authorization: integration_auth
 configuration.api_key['Content-Signature'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Content-Signature'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = talon_one.ManagementApi(talon_one.ApiClient(configuration))
-body = talon_one.ApplicationCustomerSearch() # ApplicationCustomerSearch | 
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    body = talon_one.ApplicationCustomerSearch() # ApplicationCustomerSearch | 
 
-try:
-    # Get a list of the customer profiles that match the given attributes
-    api_response = api_instance.get_application_customers_by_attributes(body)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ManagementApi->get_application_customers_by_attributes: %s\n" % e)
+    try:
+        # Get a list of the customer profiles that match the given attributes
+        api_response = api_instance.get_application_customers_by_attributes(body)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_application_customers_by_attributes: %s\n" % e)
 ```
 
 ### Parameters
@@ -1477,6 +1884,11 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_application_event_types**
@@ -1487,32 +1899,37 @@ List Applications Event Types
 Get all of the distinct values of the Event `type` property for events recorded in the application.  See also: [Track an event](/integration-api/reference/#trackEvent) 
 
 ### Example
+
+* Api Key Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-
-# Configure API key authorization: manager_auth
 configuration = talon_one.Configuration()
+# Configure API key authorization: manager_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = talon_one.ManagementApi(talon_one.ApiClient(configuration))
-application_id = 56 # int | 
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | 
 page_size = 56 # int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
 skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
 sort = 'sort_example' # str | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional)
 
-try:
-    # List Applications Event Types
-    api_response = api_instance.get_application_event_types(application_id, page_size=page_size, skip=skip, sort=sort)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ManagementApi->get_application_event_types: %s\n" % e)
+    try:
+        # List Applications Event Types
+        api_response = api_instance.get_application_event_types(application_id, page_size=page_size, skip=skip, sort=sort)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_application_event_types: %s\n" % e)
 ```
 
 ### Parameters
@@ -1534,35 +1951,45 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_application_events**
-> InlineResponse20017 get_application_events(application_id, page_size=page_size, skip=skip, sort=sort, type=type, created_before=created_before, created_after=created_after, session=session, profile=profile, customer_name=customer_name, customer_email=customer_email, effects_query=effects_query, attributes_query=attributes_query, rule_query=rule_query, campaign_query=campaign_query)
+> InlineResponse20017 get_application_events(application_id, page_size=page_size, skip=skip, sort=sort, type=type, created_before=created_before, created_after=created_after, session=session, profile=profile, customer_name=customer_name, customer_email=customer_email, coupon_code=coupon_code, referral_code=referral_code, rule_query=rule_query, campaign_query=campaign_query)
 
 List Applications Events
 
 Lists all events recorded for an application. 
 
 ### Example
+
+* Api Key Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-
-# Configure API key authorization: manager_auth
 configuration = talon_one.Configuration()
+# Configure API key authorization: manager_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = talon_one.ManagementApi(talon_one.ApiClient(configuration))
-application_id = 56 # int | 
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | 
 page_size = 56 # int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
 skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
 sort = 'sort_example' # str | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional)
@@ -1573,17 +2000,17 @@ session = 'session_example' # str | Session integration ID filter for events. Mu
 profile = 'profile_example' # str | Profile integration ID filter for events. Must be exact match. (optional)
 customer_name = 'customer_name_example' # str | Customer name filter for events. Will match substrings case-insensitively. (optional)
 customer_email = 'customer_email_example' # str | Customer e-mail address filter for events. Will match substrings case-insensitively. (optional)
-effects_query = 'effects_query_example' # str | Effects filter for events. Will perform a full-text search on the text content of the events effects, if any. (optional)
-attributes_query = 'attributes_query_example' # str | Attributes filter for events. Will perform a full-text search on the text content of the events attributes, both keys and values. (optional)
+coupon_code = 'coupon_code_example' # str | Coupon code (optional)
+referral_code = 'referral_code_example' # str | Referral code (optional)
 rule_query = 'rule_query_example' # str | Rule name filter for events (optional)
 campaign_query = 'campaign_query_example' # str | Campaign name filter for events (optional)
 
-try:
-    # List Applications Events
-    api_response = api_instance.get_application_events(application_id, page_size=page_size, skip=skip, sort=sort, type=type, created_before=created_before, created_after=created_after, session=session, profile=profile, customer_name=customer_name, customer_email=customer_email, effects_query=effects_query, attributes_query=attributes_query, rule_query=rule_query, campaign_query=campaign_query)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ManagementApi->get_application_events: %s\n" % e)
+    try:
+        # List Applications Events
+        api_response = api_instance.get_application_events(application_id, page_size=page_size, skip=skip, sort=sort, type=type, created_before=created_before, created_after=created_after, session=session, profile=profile, customer_name=customer_name, customer_email=customer_email, coupon_code=coupon_code, referral_code=referral_code, rule_query=rule_query, campaign_query=campaign_query)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_application_events: %s\n" % e)
 ```
 
 ### Parameters
@@ -1601,8 +2028,8 @@ Name | Type | Description  | Notes
  **profile** | **str**| Profile integration ID filter for events. Must be exact match. | [optional] 
  **customer_name** | **str**| Customer name filter for events. Will match substrings case-insensitively. | [optional] 
  **customer_email** | **str**| Customer e-mail address filter for events. Will match substrings case-insensitively. | [optional] 
- **effects_query** | **str**| Effects filter for events. Will perform a full-text search on the text content of the events effects, if any. | [optional] 
- **attributes_query** | **str**| Attributes filter for events. Will perform a full-text search on the text content of the events attributes, both keys and values. | [optional] 
+ **coupon_code** | **str**| Coupon code | [optional] 
+ **referral_code** | **str**| Referral code | [optional] 
  **rule_query** | **str**| Rule name filter for events | [optional] 
  **campaign_query** | **str**| Campaign name filter for events | [optional] 
 
@@ -1616,35 +2043,45 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_application_events_without_total_count**
-> InlineResponse20018 get_application_events_without_total_count(application_id, page_size=page_size, skip=skip, sort=sort, type=type, created_before=created_before, created_after=created_after, session=session, profile=profile, customer_name=customer_name, customer_email=customer_email, effects_query=effects_query, attributes_query=attributes_query, rule_query=rule_query, campaign_query=campaign_query)
+> InlineResponse20018 get_application_events_without_total_count(application_id, page_size=page_size, skip=skip, sort=sort, type=type, created_before=created_before, created_after=created_after, session=session, profile=profile, customer_name=customer_name, customer_email=customer_email, coupon_code=coupon_code, referral_code=referral_code, rule_query=rule_query, campaign_query=campaign_query)
 
 List Applications Events
 
 Lists all events recorded for an application. Instead of having the total number of results in the response, this endpoint only if there are more results. 
 
 ### Example
+
+* Api Key Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-
-# Configure API key authorization: manager_auth
 configuration = talon_one.Configuration()
+# Configure API key authorization: manager_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = talon_one.ManagementApi(talon_one.ApiClient(configuration))
-application_id = 56 # int | 
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | 
 page_size = 56 # int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
 skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
 sort = 'sort_example' # str | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional)
@@ -1655,17 +2092,17 @@ session = 'session_example' # str | Session integration ID filter for events. Mu
 profile = 'profile_example' # str | Profile integration ID filter for events. Must be exact match. (optional)
 customer_name = 'customer_name_example' # str | Customer name filter for events. Will match substrings case-insensitively. (optional)
 customer_email = 'customer_email_example' # str | Customer e-mail address filter for events. Will match substrings case-insensitively. (optional)
-effects_query = 'effects_query_example' # str | Effects filter for events. Will perform a full-text search on the text content of the events effects, if any. (optional)
-attributes_query = 'attributes_query_example' # str | Attributes filter for events. Will perform a full-text search on the text content of the events attributes, both keys and values. (optional)
+coupon_code = 'coupon_code_example' # str | Coupon code (optional)
+referral_code = 'referral_code_example' # str | Referral code (optional)
 rule_query = 'rule_query_example' # str | Rule name filter for events (optional)
 campaign_query = 'campaign_query_example' # str | Campaign name filter for events (optional)
 
-try:
-    # List Applications Events
-    api_response = api_instance.get_application_events_without_total_count(application_id, page_size=page_size, skip=skip, sort=sort, type=type, created_before=created_before, created_after=created_after, session=session, profile=profile, customer_name=customer_name, customer_email=customer_email, effects_query=effects_query, attributes_query=attributes_query, rule_query=rule_query, campaign_query=campaign_query)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ManagementApi->get_application_events_without_total_count: %s\n" % e)
+    try:
+        # List Applications Events
+        api_response = api_instance.get_application_events_without_total_count(application_id, page_size=page_size, skip=skip, sort=sort, type=type, created_before=created_before, created_after=created_after, session=session, profile=profile, customer_name=customer_name, customer_email=customer_email, coupon_code=coupon_code, referral_code=referral_code, rule_query=rule_query, campaign_query=campaign_query)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_application_events_without_total_count: %s\n" % e)
 ```
 
 ### Parameters
@@ -1683,8 +2120,8 @@ Name | Type | Description  | Notes
  **profile** | **str**| Profile integration ID filter for events. Must be exact match. | [optional] 
  **customer_name** | **str**| Customer name filter for events. Will match substrings case-insensitively. | [optional] 
  **customer_email** | **str**| Customer e-mail address filter for events. Will match substrings case-insensitively. | [optional] 
- **effects_query** | **str**| Effects filter for events. Will perform a full-text search on the text content of the events effects, if any. | [optional] 
- **attributes_query** | **str**| Attributes filter for events. Will perform a full-text search on the text content of the events attributes, both keys and values. | [optional] 
+ **coupon_code** | **str**| Coupon code | [optional] 
+ **referral_code** | **str**| Referral code | [optional] 
  **rule_query** | **str**| Rule name filter for events | [optional] 
  **campaign_query** | **str**| Campaign name filter for events | [optional] 
 
@@ -1698,8 +2135,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1708,33 +2150,36 @@ Name | Type | Description  | Notes
 
 Get Application Session
 
-
-
 ### Example
+
+* Api Key Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-
-# Configure API key authorization: manager_auth
 configuration = talon_one.Configuration()
+# Configure API key authorization: manager_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = talon_one.ManagementApi(talon_one.ApiClient(configuration))
-application_id = 56 # int | 
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | 
 session_id = 56 # int | 
 
-try:
-    # Get Application Session
-    api_response = api_instance.get_application_session(application_id, session_id)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ManagementApi->get_application_session: %s\n" % e)
+    try:
+        # Get Application Session
+        api_response = api_instance.get_application_session(application_id, session_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_application_session: %s\n" % e)
 ```
 
 ### Parameters
@@ -1754,48 +2199,59 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_application_sessions**
-> InlineResponse20016 get_application_sessions(application_id, page_size=page_size, skip=skip, sort=sort, profile=profile, state=state, coupon=coupon)
+> InlineResponse20016 get_application_sessions(application_id, page_size=page_size, skip=skip, sort=sort, profile=profile, state=state, coupon=coupon, referral=referral, integration_id=integration_id, customer_id=customer_id)
 
 List Application Sessions
 
-
-
 ### Example
+
+* Api Key Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-
-# Configure API key authorization: manager_auth
 configuration = talon_one.Configuration()
+# Configure API key authorization: manager_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = talon_one.ManagementApi(talon_one.ApiClient(configuration))
-application_id = 56 # int | 
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | 
 page_size = 56 # int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
 skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
 sort = 'sort_example' # str | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional)
 profile = 'profile_example' # str | Profile integration ID filter for sessions. Must be exact match. (optional)
 state = 'state_example' # str | Filter by sessions with this state. Must be exact match. (optional)
 coupon = 'coupon_example' # str | Filter by sessions with this coupon. Must be exact match. (optional)
+referral = 'referral_example' # str | Filter by sessions with this referral. Must be exact match. (optional)
+integration_id = 'integration_id_example' # str | Filter by sessions with this integrationId. Must be exact match. (optional)
+customer_id = 'customer_id_example' # str | Filter by integration ID of the customer for the session (optional)
 
-try:
-    # List Application Sessions
-    api_response = api_instance.get_application_sessions(application_id, page_size=page_size, skip=skip, sort=sort, profile=profile, state=state, coupon=coupon)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ManagementApi->get_application_sessions: %s\n" % e)
+    try:
+        # List Application Sessions
+        api_response = api_instance.get_application_sessions(application_id, page_size=page_size, skip=skip, sort=sort, profile=profile, state=state, coupon=coupon, referral=referral, integration_id=integration_id, customer_id=customer_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_application_sessions: %s\n" % e)
 ```
 
 ### Parameters
@@ -1809,6 +2265,9 @@ Name | Type | Description  | Notes
  **profile** | **str**| Profile integration ID filter for sessions. Must be exact match. | [optional] 
  **state** | **str**| Filter by sessions with this state. Must be exact match. | [optional] 
  **coupon** | **str**| Filter by sessions with this coupon. Must be exact match. | [optional] 
+ **referral** | **str**| Filter by sessions with this referral. Must be exact match. | [optional] 
+ **integration_id** | **str**| Filter by sessions with this integrationId. Must be exact match. | [optional] 
+ **customer_id** | **str**| Filter by integration ID of the customer for the session | [optional] 
 
 ### Return type
 
@@ -1820,8 +2279,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1833,31 +2297,36 @@ List Applications
 List all application in the current account.
 
 ### Example
+
+* Api Key Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-
-# Configure API key authorization: manager_auth
 configuration = talon_one.Configuration()
+# Configure API key authorization: manager_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = talon_one.ManagementApi(talon_one.ApiClient(configuration))
-page_size = 56 # int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    page_size = 56 # int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
 skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
 sort = 'sort_example' # str | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional)
 
-try:
-    # List Applications
-    api_response = api_instance.get_applications(page_size=page_size, skip=skip, sort=sort)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ManagementApi->get_applications: %s\n" % e)
+    try:
+        # List Applications
+        api_response = api_instance.get_applications(page_size=page_size, skip=skip, sort=sort)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_applications: %s\n" % e)
 ```
 
 ### Parameters
@@ -1878,8 +2347,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1891,29 +2365,34 @@ Get a custom attribute
 Returns custom attribute for the account by its id. 
 
 ### Example
+
+* Api Key Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-
-# Configure API key authorization: manager_auth
 configuration = talon_one.Configuration()
+# Configure API key authorization: manager_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = talon_one.ManagementApi(talon_one.ApiClient(configuration))
-attribute_id = 56 # int | 
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    attribute_id = 56 # int | 
 
-try:
-    # Get a custom attribute
-    api_response = api_instance.get_attribute(attribute_id)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ManagementApi->get_attribute: %s\n" % e)
+    try:
+        # Get a custom attribute
+        api_response = api_instance.get_attribute(attribute_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_attribute: %s\n" % e)
 ```
 
 ### Parameters
@@ -1932,8 +2411,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1945,31 +2429,36 @@ List custom attributes
 Returns all the defined custom attributes for the account. 
 
 ### Example
+
+* Api Key Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-
-# Configure API key authorization: manager_auth
 configuration = talon_one.Configuration()
+# Configure API key authorization: manager_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = talon_one.ManagementApi(talon_one.ApiClient(configuration))
-page_size = 56 # int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    page_size = 56 # int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
 skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
 sort = 'sort_example' # str | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional)
 
-try:
-    # List custom attributes
-    api_response = api_instance.get_attributes(page_size=page_size, skip=skip, sort=sort)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ManagementApi->get_attributes: %s\n" % e)
+    try:
+        # List custom attributes
+        api_response = api_instance.get_attributes(page_size=page_size, skip=skip, sort=sort)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_attributes: %s\n" % e)
 ```
 
 ### Parameters
@@ -1990,8 +2479,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2000,33 +2494,36 @@ Name | Type | Description  | Notes
 
 Get a Campaign
 
-
-
 ### Example
+
+* Api Key Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-
-# Configure API key authorization: manager_auth
 configuration = talon_one.Configuration()
+# Configure API key authorization: manager_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = talon_one.ManagementApi(talon_one.ApiClient(configuration))
-application_id = 56 # int | 
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | 
 campaign_id = 56 # int | 
 
-try:
-    # Get a Campaign
-    api_response = api_instance.get_campaign(application_id, campaign_id)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ManagementApi->get_campaign: %s\n" % e)
+    try:
+        # Get a Campaign
+        api_response = api_instance.get_campaign(application_id, campaign_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_campaign: %s\n" % e)
 ```
 
 ### Parameters
@@ -2046,8 +2543,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2056,36 +2558,39 @@ Name | Type | Description  | Notes
 
 Get analytics of campaigns
 
-
-
 ### Example
+
+* Api Key Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-
-# Configure API key authorization: manager_auth
 configuration = talon_one.Configuration()
+# Configure API key authorization: manager_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = talon_one.ManagementApi(talon_one.ApiClient(configuration))
-application_id = 56 # int | 
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | 
 campaign_id = 56 # int | 
 range_start = '2013-10-20T19:20:30+01:00' # datetime | Only return results from after this timestamp, must be an RFC3339 timestamp string
 range_end = '2013-10-20T19:20:30+01:00' # datetime | Only return results from before this timestamp, must be an RFC3339 timestamp string
 granularity = 'granularity_example' # str | The time interval between the results in the returned time-series. (optional)
 
-try:
-    # Get analytics of campaigns
-    api_response = api_instance.get_campaign_analytics(application_id, campaign_id, range_start, range_end, granularity=granularity)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ManagementApi->get_campaign_analytics: %s\n" % e)
+    try:
+        # Get analytics of campaigns
+        api_response = api_instance.get_campaign_analytics(application_id, campaign_id, range_start, range_end, granularity=granularity)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_campaign_analytics: %s\n" % e)
 ```
 
 ### Parameters
@@ -2108,8 +2613,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2121,34 +2631,39 @@ Get a list of all campaigns that match the given attributes
 Gets a list of all the campaigns that exactly match a set of attributes. 
 
 ### Example
+
+* Api Key Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-
-# Configure API key authorization: manager_auth
 configuration = talon_one.Configuration()
+# Configure API key authorization: manager_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = talon_one.ManagementApi(talon_one.ApiClient(configuration))
-application_id = 56 # int | 
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | 
 body = talon_one.CampaignSearch() # CampaignSearch | 
 page_size = 56 # int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
 skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
 sort = 'sort_example' # str | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional)
 campaign_state = 'campaign_state_example' # str | Filter results by the state of the campaign. (optional)
 
-try:
-    # Get a list of all campaigns that match the given attributes
-    api_response = api_instance.get_campaign_by_attributes(application_id, body, page_size=page_size, skip=skip, sort=sort, campaign_state=campaign_state)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ManagementApi->get_campaign_by_attributes: %s\n" % e)
+    try:
+        # Get a list of all campaigns that match the given attributes
+        api_response = api_instance.get_campaign_by_attributes(application_id, body, page_size=page_size, skip=skip, sort=sort, campaign_state=campaign_state)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_campaign_by_attributes: %s\n" % e)
 ```
 
 ### Parameters
@@ -2175,6 +2690,11 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_campaign_set**
@@ -2182,32 +2702,35 @@ Name | Type | Description  | Notes
 
 List CampaignSet
 
-
-
 ### Example
+
+* Api Key Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-
-# Configure API key authorization: manager_auth
 configuration = talon_one.Configuration()
+# Configure API key authorization: manager_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = talon_one.ManagementApi(talon_one.ApiClient(configuration))
-application_id = 56 # int | 
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | 
 
-try:
-    # List CampaignSet
-    api_response = api_instance.get_campaign_set(application_id)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ManagementApi->get_campaign_set: %s\n" % e)
+    try:
+        # List CampaignSet
+        api_response = api_instance.get_campaign_set(application_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_campaign_set: %s\n" % e)
 ```
 
 ### Parameters
@@ -2226,8 +2749,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2236,25 +2764,28 @@ Name | Type | Description  | Notes
 
 List your Campaigns
 
-
-
 ### Example
+
+* Api Key Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-
-# Configure API key authorization: manager_auth
 configuration = talon_one.Configuration()
+# Configure API key authorization: manager_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = talon_one.ManagementApi(talon_one.ApiClient(configuration))
-application_id = 56 # int | 
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | 
 page_size = 56 # int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
 skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
 sort = 'sort_example' # str | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional)
@@ -2264,12 +2795,12 @@ tags = 'tags_example' # str | Filter results performing case-insensitive matchin
 created_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. (optional)
 created_after = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. (optional)
 
-try:
-    # List your Campaigns
-    api_response = api_instance.get_campaigns(application_id, page_size=page_size, skip=skip, sort=sort, campaign_state=campaign_state, name=name, tags=tags, created_before=created_before, created_after=created_after)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ManagementApi->get_campaigns: %s\n" % e)
+    try:
+        # List your Campaigns
+        api_response = api_instance.get_campaigns(application_id, page_size=page_size, skip=skip, sort=sort, campaign_state=campaign_state, name=name, tags=tags, created_before=created_before, created_after=created_after)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_campaigns: %s\n" % e)
 ```
 
 ### Parameters
@@ -2296,49 +2827,59 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_changes**
-> InlineResponse20026 get_changes(page_size=page_size, skip=skip, sort=sort, application_id=application_id, created_before=created_before, created_after=created_after, with_total_result_size=with_total_result_size, include_old=include_old)
+> InlineResponse20027 get_changes(page_size=page_size, skip=skip, sort=sort, application_id=application_id, created_before=created_before, created_after=created_after, with_total_result_size=with_total_result_size, include_old=include_old)
 
 Get audit log for an account
 
 Get list of changes caused by API calls for an account. Only accessible for admins.
 
 ### Example
+
+* Api Key Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-
-# Configure API key authorization: manager_auth
 configuration = talon_one.Configuration()
+# Configure API key authorization: manager_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = talon_one.ManagementApi(talon_one.ApiClient(configuration))
-page_size = 56 # int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    page_size = 56 # int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
 skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
 sort = 'sort_example' # str | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional)
 application_id = 56 # int |  (optional)
 created_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp. (optional)
 created_after = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp. (optional)
-with_total_result_size = true # bool | When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, hasMore will be be true whenever there is a next page. totalResultSize will always be zero. With this flag set to false, hasMore will always be set to false. totalResultSize will contain the total number of results for this query.  (optional)
-include_old = true # bool | When this flag is set to false, the state without the change will not be returned. The default value is true. (optional)
+with_total_result_size = True # bool | When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, hasMore will be be true whenever there is a next page. totalResultSize will always be zero. With this flag set to false, hasMore will always be set to false. totalResultSize will contain the total number of results for this query.  (optional)
+include_old = True # bool | When this flag is set to false, the state without the change will not be returned. The default value is true. (optional)
 
-try:
-    # Get audit log for an account
-    api_response = api_instance.get_changes(page_size=page_size, skip=skip, sort=sort, application_id=application_id, created_before=created_before, created_after=created_after, with_total_result_size=with_total_result_size, include_old=include_old)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ManagementApi->get_changes: %s\n" % e)
+    try:
+        # Get audit log for an account
+        api_response = api_instance.get_changes(page_size=page_size, skip=skip, sort=sort, application_id=application_id, created_before=created_before, created_after=created_after, with_total_result_size=with_total_result_size, include_old=include_old)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_changes: %s\n" % e)
 ```
 
 ### Parameters
@@ -2356,7 +2897,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20026**](InlineResponse20026.md)
+[**InlineResponse20027**](InlineResponse20027.md)
 
 ### Authorization
 
@@ -2364,8 +2905,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2374,25 +2920,28 @@ Name | Type | Description  | Notes
 
 List Coupons
 
-
-
 ### Example
+
+* Api Key Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-
-# Configure API key authorization: manager_auth
 configuration = talon_one.Configuration()
+# Configure API key authorization: manager_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = talon_one.ManagementApi(talon_one.ApiClient(configuration))
-application_id = 56 # int | 
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | 
 campaign_id = 56 # int | 
 page_size = 56 # int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
 skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
@@ -2409,14 +2958,14 @@ batch_id = 'batch_id_example' # str | Filter results by batches of coupons (opti
 usable = 'usable_example' # str | Either \"true\" or \"false\". If \"true\", only coupons where `usageCounter < usageLimit` will be returned, \"false\" will return only coupons where `usageCounter >= usageLimit`.  (optional)
 referral_id = 56 # int | Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)
 recipient_integration_id = 'recipient_integration_id_example' # str | Filter results by match with a profile id specified in the coupon's RecipientIntegrationId field (optional)
-exact_match = false # bool | Filter results to an exact case-insensitive matching against the coupon code (optional) (default to false)
+exact_match = False # bool | Filter results to an exact case-insensitive matching against the coupon code (optional) (default to False)
 
-try:
-    # List Coupons
-    api_response = api_instance.get_coupons(application_id, campaign_id, page_size=page_size, skip=skip, sort=sort, value=value, created_before=created_before, created_after=created_after, starts_after=starts_after, starts_before=starts_before, expires_after=expires_after, expires_before=expires_before, valid=valid, batch_id=batch_id, usable=usable, referral_id=referral_id, recipient_integration_id=recipient_integration_id, exact_match=exact_match)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ManagementApi->get_coupons: %s\n" % e)
+    try:
+        # List Coupons
+        api_response = api_instance.get_coupons(application_id, campaign_id, page_size=page_size, skip=skip, sort=sort, value=value, created_before=created_before, created_after=created_after, starts_after=starts_after, starts_before=starts_before, expires_after=expires_after, expires_before=expires_before, valid=valid, batch_id=batch_id, usable=usable, referral_id=referral_id, recipient_integration_id=recipient_integration_id, exact_match=exact_match)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_coupons: %s\n" % e)
 ```
 
 ### Parameters
@@ -2440,7 +2989,7 @@ Name | Type | Description  | Notes
  **usable** | **str**| Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  | [optional] 
  **referral_id** | **int**| Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. | [optional] 
  **recipient_integration_id** | **str**| Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field | [optional] 
- **exact_match** | **bool**| Filter results to an exact case-insensitive matching against the coupon code | [optional] [default to false]
+ **exact_match** | **bool**| Filter results to an exact case-insensitive matching against the coupon code | [optional] [default to False]
 
 ### Return type
 
@@ -2452,8 +3001,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2465,22 +3019,27 @@ Get a list of the coupons that match the given attributes
 Gets a list of all the coupons that exactly match a set of attributes.  The match is successful if all the attributes of the request are found in a coupon, even if the coupon has more attributes that are not present on the request. 
 
 ### Example
+
+* Api Key Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-
-# Configure API key authorization: manager_auth
 configuration = talon_one.Configuration()
+# Configure API key authorization: manager_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = talon_one.ManagementApi(talon_one.ApiClient(configuration))
-application_id = 56 # int | 
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | 
 campaign_id = 56 # int | 
 body = talon_one.CouponSearch() # CouponSearch | 
 page_size = 56 # int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
@@ -2493,15 +3052,15 @@ valid = 'valid_example' # str | Either \"expired\", \"validNow\", or \"validFutu
 usable = 'usable_example' # str | Either \"true\" or \"false\". If \"true\", only coupons where `usageCounter < usageLimit` will be returned, \"false\" will return only coupons where `usageCounter >= usageLimit`.  (optional)
 referral_id = 56 # int | Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)
 recipient_integration_id = 'recipient_integration_id_example' # str | Filter results by match with a profile id specified in the coupon's RecipientIntegrationId field (optional)
-exact_match = false # bool | Filter results to an exact case-insensitive matching against the coupon code (optional) (default to false)
+exact_match = False # bool | Filter results to an exact case-insensitive matching against the coupon code (optional) (default to False)
 batch_id = 'batch_id_example' # str | Filter results by batches of coupons (optional)
 
-try:
-    # Get a list of the coupons that match the given attributes
-    api_response = api_instance.get_coupons_by_attributes(application_id, campaign_id, body, page_size=page_size, skip=skip, sort=sort, value=value, created_before=created_before, created_after=created_after, valid=valid, usable=usable, referral_id=referral_id, recipient_integration_id=recipient_integration_id, exact_match=exact_match, batch_id=batch_id)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ManagementApi->get_coupons_by_attributes: %s\n" % e)
+    try:
+        # Get a list of the coupons that match the given attributes
+        api_response = api_instance.get_coupons_by_attributes(application_id, campaign_id, body, page_size=page_size, skip=skip, sort=sort, value=value, created_before=created_before, created_after=created_after, valid=valid, usable=usable, referral_id=referral_id, recipient_integration_id=recipient_integration_id, exact_match=exact_match, batch_id=batch_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_coupons_by_attributes: %s\n" % e)
 ```
 
 ### Parameters
@@ -2521,7 +3080,7 @@ Name | Type | Description  | Notes
  **usable** | **str**| Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  | [optional] 
  **referral_id** | **int**| Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. | [optional] 
  **recipient_integration_id** | **str**| Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field | [optional] 
- **exact_match** | **bool**| Filter results to an exact case-insensitive matching against the coupon code | [optional] [default to false]
+ **exact_match** | **bool**| Filter results to an exact case-insensitive matching against the coupon code | [optional] [default to False]
  **batch_id** | **str**| Filter results by batches of coupons | [optional] 
 
 ### Return type
@@ -2537,6 +3096,11 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_coupons_by_attributes_application_wide**
@@ -2547,22 +3111,27 @@ Get a list of the coupons that match the given attributes in all active campaign
 Gets a list of all the coupons with attributes matching the query criteria Application wide 
 
 ### Example
+
+* Api Key Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-
-# Configure API key authorization: manager_auth
 configuration = talon_one.Configuration()
+# Configure API key authorization: manager_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = talon_one.ManagementApi(talon_one.ApiClient(configuration))
-application_id = 56 # int | 
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | 
 body = talon_one.CouponSearch() # CouponSearch | 
 page_size = 56 # int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
 skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
@@ -2575,15 +3144,15 @@ usable = 'usable_example' # str | Either \"true\" or \"false\". If \"true\", onl
 referral_id = 56 # int | Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)
 recipient_integration_id = 'recipient_integration_id_example' # str | Filter results by match with a profile id specified in the coupon's RecipientIntegrationId field (optional)
 batch_id = 'batch_id_example' # str | Filter results by batches of coupons (optional)
-exact_match = false # bool | Filter results to an exact case-insensitive matching against the coupon code (optional) (default to false)
+exact_match = False # bool | Filter results to an exact case-insensitive matching against the coupon code (optional) (default to False)
 campaign_state = 'campaign_state_example' # str | Filter results by the state of the campaign. (optional)
 
-try:
-    # Get a list of the coupons that match the given attributes in all active campaigns of an application
-    api_response = api_instance.get_coupons_by_attributes_application_wide(application_id, body, page_size=page_size, skip=skip, sort=sort, value=value, created_before=created_before, created_after=created_after, valid=valid, usable=usable, referral_id=referral_id, recipient_integration_id=recipient_integration_id, batch_id=batch_id, exact_match=exact_match, campaign_state=campaign_state)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ManagementApi->get_coupons_by_attributes_application_wide: %s\n" % e)
+    try:
+        # Get a list of the coupons that match the given attributes in all active campaigns of an application
+        api_response = api_instance.get_coupons_by_attributes_application_wide(application_id, body, page_size=page_size, skip=skip, sort=sort, value=value, created_before=created_before, created_after=created_after, valid=valid, usable=usable, referral_id=referral_id, recipient_integration_id=recipient_integration_id, batch_id=batch_id, exact_match=exact_match, campaign_state=campaign_state)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_coupons_by_attributes_application_wide: %s\n" % e)
 ```
 
 ### Parameters
@@ -2603,7 +3172,7 @@ Name | Type | Description  | Notes
  **referral_id** | **int**| Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. | [optional] 
  **recipient_integration_id** | **str**| Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field | [optional] 
  **batch_id** | **str**| Filter results by batches of coupons | [optional] 
- **exact_match** | **bool**| Filter results to an exact case-insensitive matching against the coupon code | [optional] [default to false]
+ **exact_match** | **bool**| Filter results to an exact case-insensitive matching against the coupon code | [optional] [default to False]
  **campaign_state** | **str**| Filter results by the state of the campaign. | [optional] 
 
 ### Return type
@@ -2619,6 +3188,11 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_coupons_without_total_count**
@@ -2626,25 +3200,28 @@ Name | Type | Description  | Notes
 
 List Coupons
 
-
-
 ### Example
+
+* Api Key Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-
-# Configure API key authorization: manager_auth
 configuration = talon_one.Configuration()
+# Configure API key authorization: manager_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = talon_one.ManagementApi(talon_one.ApiClient(configuration))
-application_id = 56 # int | 
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | 
 campaign_id = 56 # int | 
 page_size = 56 # int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
 skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
@@ -2657,14 +3234,14 @@ usable = 'usable_example' # str | Either \"true\" or \"false\". If \"true\", onl
 referral_id = 56 # int | Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)
 recipient_integration_id = 'recipient_integration_id_example' # str | Filter results by match with a profile id specified in the coupon's RecipientIntegrationId field (optional)
 batch_id = 'batch_id_example' # str | Filter results by batches of coupons (optional)
-exact_match = false # bool | Filter results to an exact case-insensitive matching against the coupon code (optional) (default to false)
+exact_match = False # bool | Filter results to an exact case-insensitive matching against the coupon code (optional) (default to False)
 
-try:
-    # List Coupons
-    api_response = api_instance.get_coupons_without_total_count(application_id, campaign_id, page_size=page_size, skip=skip, sort=sort, value=value, created_before=created_before, created_after=created_after, valid=valid, usable=usable, referral_id=referral_id, recipient_integration_id=recipient_integration_id, batch_id=batch_id, exact_match=exact_match)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ManagementApi->get_coupons_without_total_count: %s\n" % e)
+    try:
+        # List Coupons
+        api_response = api_instance.get_coupons_without_total_count(application_id, campaign_id, page_size=page_size, skip=skip, sort=sort, value=value, created_before=created_before, created_after=created_after, valid=valid, usable=usable, referral_id=referral_id, recipient_integration_id=recipient_integration_id, batch_id=batch_id, exact_match=exact_match)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_coupons_without_total_count: %s\n" % e)
 ```
 
 ### Parameters
@@ -2684,7 +3261,7 @@ Name | Type | Description  | Notes
  **referral_id** | **int**| Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. | [optional] 
  **recipient_integration_id** | **str**| Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field | [optional] 
  **batch_id** | **str**| Filter results by batches of coupons | [optional] 
- **exact_match** | **bool**| Filter results to an exact case-insensitive matching against the coupon code | [optional] [default to false]
+ **exact_match** | **bool**| Filter results to an exact case-insensitive matching against the coupon code | [optional] [default to False]
 
 ### Return type
 
@@ -2696,8 +3273,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2709,34 +3291,39 @@ Get Activity Report for Single Customer
 Fetch summary report for single application customer based on a time range
 
 ### Example
+
+* Api Key Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-
-# Configure API key authorization: manager_auth
 configuration = talon_one.Configuration()
+# Configure API key authorization: manager_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = talon_one.ManagementApi(talon_one.ApiClient(configuration))
-range_start = '2013-10-20T19:20:30+01:00' # datetime | Only return results from after this timestamp, must be an RFC3339 timestamp string
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    range_start = '2013-10-20T19:20:30+01:00' # datetime | Only return results from after this timestamp, must be an RFC3339 timestamp string
 range_end = '2013-10-20T19:20:30+01:00' # datetime | Only return results from before this timestamp, must be an RFC3339 timestamp string
 application_id = 56 # int | 
 customer_id = 56 # int | 
 page_size = 56 # int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
 skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
 
-try:
-    # Get Activity Report for Single Customer
-    api_response = api_instance.get_customer_activity_report(range_start, range_end, application_id, customer_id, page_size=page_size, skip=skip)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ManagementApi->get_customer_activity_report: %s\n" % e)
+    try:
+        # Get Activity Report for Single Customer
+        api_response = api_instance.get_customer_activity_report(range_start, range_end, application_id, customer_id, page_size=page_size, skip=skip)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_customer_activity_report: %s\n" % e)
 ```
 
 ### Parameters
@@ -2760,8 +3347,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2773,22 +3365,27 @@ Get Activity Reports for Application Customers
 Fetch summary reports for all application customers based on a time range
 
 ### Example
+
+* Api Key Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-
-# Configure API key authorization: manager_auth
 configuration = talon_one.Configuration()
+# Configure API key authorization: manager_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = talon_one.ManagementApi(talon_one.ApiClient(configuration))
-range_start = '2013-10-20T19:20:30+01:00' # datetime | Only return results from after this timestamp, must be an RFC3339 timestamp string
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    range_start = '2013-10-20T19:20:30+01:00' # datetime | Only return results from after this timestamp, must be an RFC3339 timestamp string
 range_end = '2013-10-20T19:20:30+01:00' # datetime | Only return results from before this timestamp, must be an RFC3339 timestamp string
 application_id = 56 # int | 
 page_size = 56 # int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
@@ -2799,12 +3396,12 @@ integration_id = 'integration_id_example' # str | Only return reports matching t
 campaign_name = 'campaign_name_example' # str | Only return reports matching the campaignName (optional)
 advocate_name = 'advocate_name_example' # str | Only return reports matching the current customer referrer name (optional)
 
-try:
-    # Get Activity Reports for Application Customers
-    api_response = api_instance.get_customer_activity_reports(range_start, range_end, application_id, page_size=page_size, skip=skip, sort=sort, name=name, integration_id=integration_id, campaign_name=campaign_name, advocate_name=advocate_name)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ManagementApi->get_customer_activity_reports: %s\n" % e)
+    try:
+        # Get Activity Reports for Application Customers
+        api_response = api_instance.get_customer_activity_reports(range_start, range_end, application_id, page_size=page_size, skip=skip, sort=sort, name=name, integration_id=integration_id, campaign_name=campaign_name, advocate_name=advocate_name)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_customer_activity_reports: %s\n" % e)
 ```
 
 ### Parameters
@@ -2832,8 +3429,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2845,22 +3447,27 @@ Get Activity Reports for Application Customers
 Fetch summary reports for all application customers based on a time range. Instead of having the total number of results in the response, this endpoint only if there are more results.
 
 ### Example
+
+* Api Key Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-
-# Configure API key authorization: manager_auth
 configuration = talon_one.Configuration()
+# Configure API key authorization: manager_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = talon_one.ManagementApi(talon_one.ApiClient(configuration))
-range_start = '2013-10-20T19:20:30+01:00' # datetime | Only return results from after this timestamp, must be an RFC3339 timestamp string
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    range_start = '2013-10-20T19:20:30+01:00' # datetime | Only return results from after this timestamp, must be an RFC3339 timestamp string
 range_end = '2013-10-20T19:20:30+01:00' # datetime | Only return results from before this timestamp, must be an RFC3339 timestamp string
 application_id = 56 # int | 
 page_size = 56 # int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
@@ -2871,12 +3478,12 @@ integration_id = 'integration_id_example' # str | Only return reports matching t
 campaign_name = 'campaign_name_example' # str | Only return reports matching the campaignName (optional)
 advocate_name = 'advocate_name_example' # str | Only return reports matching the current customer referrer name (optional)
 
-try:
-    # Get Activity Reports for Application Customers
-    api_response = api_instance.get_customer_activity_reports_without_total_count(range_start, range_end, application_id, page_size=page_size, skip=skip, sort=sort, name=name, integration_id=integration_id, campaign_name=campaign_name, advocate_name=advocate_name)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ManagementApi->get_customer_activity_reports_without_total_count: %s\n" % e)
+    try:
+        # Get Activity Reports for Application Customers
+        api_response = api_instance.get_customer_activity_reports_without_total_count(range_start, range_end, application_id, page_size=page_size, skip=skip, sort=sort, name=name, integration_id=integration_id, campaign_name=campaign_name, advocate_name=advocate_name)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_customer_activity_reports_without_total_count: %s\n" % e)
 ```
 
 ### Parameters
@@ -2904,8 +3511,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2917,33 +3529,38 @@ Get Analytics Report for a Customer
 Fetch analytics for single application customer
 
 ### Example
+
+* Api Key Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-
-# Configure API key authorization: manager_auth
 configuration = talon_one.Configuration()
+# Configure API key authorization: manager_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = talon_one.ManagementApi(talon_one.ApiClient(configuration))
-application_id = 56 # int | 
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | 
 customer_id = 56 # int | 
 page_size = 56 # int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
 skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
 sort = 'sort_example' # str | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional)
 
-try:
-    # Get Analytics Report for a Customer
-    api_response = api_instance.get_customer_analytics(application_id, customer_id, page_size=page_size, skip=skip, sort=sort)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ManagementApi->get_customer_analytics: %s\n" % e)
+    try:
+        # Get Analytics Report for a Customer
+        api_response = api_instance.get_customer_analytics(application_id, customer_id, page_size=page_size, skip=skip, sort=sort)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_customer_analytics: %s\n" % e)
 ```
 
 ### Parameters
@@ -2966,8 +3583,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2976,33 +3598,36 @@ Name | Type | Description  | Notes
 
 Get Customer Profile
 
-
-
 ### Example
+
+* Api Key Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-
-# Configure API key authorization: manager_auth
 configuration = talon_one.Configuration()
+# Configure API key authorization: manager_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = talon_one.ManagementApi(talon_one.ApiClient(configuration))
-application_id = 56 # int | 
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | 
 customer_id = 56 # int | 
 
-try:
-    # Get Customer Profile
-    api_response = api_instance.get_customer_profile(application_id, customer_id)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ManagementApi->get_customer_profile: %s\n" % e)
+    try:
+        # Get Customer Profile
+        api_response = api_instance.get_customer_profile(application_id, customer_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_customer_profile: %s\n" % e)
 ```
 
 ### Parameters
@@ -3022,8 +3647,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -3032,33 +3662,36 @@ Name | Type | Description  | Notes
 
 List Customer Profiles
 
-
-
 ### Example
+
+* Api Key Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-
-# Configure API key authorization: manager_auth
 configuration = talon_one.Configuration()
+# Configure API key authorization: manager_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = talon_one.ManagementApi(talon_one.ApiClient(configuration))
-page_size = 56 # int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    page_size = 56 # int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
 skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
 
-try:
-    # List Customer Profiles
-    api_response = api_instance.get_customer_profiles(page_size=page_size, skip=skip)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ManagementApi->get_customer_profiles: %s\n" % e)
+    try:
+        # List Customer Profiles
+        api_response = api_instance.get_customer_profiles(page_size=page_size, skip=skip)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_customer_profiles: %s\n" % e)
 ```
 
 ### Parameters
@@ -3078,8 +3711,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -3091,31 +3729,36 @@ Get a list of the customer profiles that match the given attributes
 Gets a list of all the customer profiles for the account that exactly match a set of attributes.  The match is successful if all the attributes of the request are found in a profile, even if the profile has more attributes that are not present on the request.  [Customer Profile]: https://help.talon.one/hc/en-us/articles/360005130739-Data-Model#CustomerProfile 
 
 ### Example
+
+* Api Key Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-
-# Configure API key authorization: manager_auth
 configuration = talon_one.Configuration()
+# Configure API key authorization: manager_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = talon_one.ManagementApi(talon_one.ApiClient(configuration))
-body = talon_one.ApplicationCustomerSearch() # ApplicationCustomerSearch | 
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    body = talon_one.ApplicationCustomerSearch() # ApplicationCustomerSearch | 
 page_size = 56 # int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
 skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
 
-try:
-    # Get a list of the customer profiles that match the given attributes
-    api_response = api_instance.get_customers_by_attributes(body, page_size=page_size, skip=skip)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ManagementApi->get_customers_by_attributes: %s\n" % e)
+    try:
+        # Get a list of the customer profiles that match the given attributes
+        api_response = api_instance.get_customers_by_attributes(body, page_size=page_size, skip=skip)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_customers_by_attributes: %s\n" % e)
 ```
 
 ### Parameters
@@ -3139,44 +3782,54 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_event_types**
-> InlineResponse20024 get_event_types(application_ids=application_ids, name=name, include_old_versions=include_old_versions, page_size=page_size, skip=skip, sort=sort)
+> InlineResponse20025 get_event_types(application_ids=application_ids, name=name, include_old_versions=include_old_versions, page_size=page_size, skip=skip, sort=sort)
 
 List Event Types
 
 Fetch all event type definitions for your account. Each event type can be 
 
 ### Example
+
+* Api Key Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-
-# Configure API key authorization: manager_auth
 configuration = talon_one.Configuration()
+# Configure API key authorization: manager_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = talon_one.ManagementApi(talon_one.ApiClient(configuration))
-application_ids = 'application_ids_example' # str | Filter by one or more application ids separated by comma (optional)
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_ids = 'application_ids_example' # str | Filter by one or more application ids separated by comma (optional)
 name = 'name_example' # str | Filter results to event types with the given name. This parameter implies `includeOldVersions`. (optional)
-include_old_versions = false # bool | Include all versions of every event type. (optional) (default to false)
+include_old_versions = False # bool | Include all versions of every event type. (optional) (default to False)
 page_size = 56 # int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
 skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
 sort = 'sort_example' # str | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional)
 
-try:
-    # List Event Types
-    api_response = api_instance.get_event_types(application_ids=application_ids, name=name, include_old_versions=include_old_versions, page_size=page_size, skip=skip, sort=sort)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ManagementApi->get_event_types: %s\n" % e)
+    try:
+        # List Event Types
+        api_response = api_instance.get_event_types(application_ids=application_ids, name=name, include_old_versions=include_old_versions, page_size=page_size, skip=skip, sort=sort)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_event_types: %s\n" % e)
 ```
 
 ### Parameters
@@ -3185,14 +3838,14 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **application_ids** | **str**| Filter by one or more application ids separated by comma | [optional] 
  **name** | **str**| Filter results to event types with the given name. This parameter implies &#x60;includeOldVersions&#x60;. | [optional] 
- **include_old_versions** | **bool**| Include all versions of every event type. | [optional] [default to false]
+ **include_old_versions** | **bool**| Include all versions of every event type. | [optional] [default to False]
  **page_size** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
  **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional] 
  **sort** | **str**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional] 
 
 ### Return type
 
-[**InlineResponse20024**](InlineResponse20024.md)
+[**InlineResponse20025**](InlineResponse20025.md)
 
 ### Authorization
 
@@ -3200,46 +3853,56 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_exports**
-> InlineResponse20027 get_exports(page_size=page_size, skip=skip, application_id=application_id, campaign_id=campaign_id, entity=entity)
+> InlineResponse20028 get_exports(page_size=page_size, skip=skip, application_id=application_id, campaign_id=campaign_id, entity=entity)
 
 Get Exports
 
 Get a list of all past exports 
 
 ### Example
+
+* Api Key Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-
-# Configure API key authorization: manager_auth
 configuration = talon_one.Configuration()
+# Configure API key authorization: manager_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = talon_one.ManagementApi(talon_one.ApiClient(configuration))
-page_size = 56 # int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    page_size = 56 # int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
 skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
 application_id = 56 # int |  (optional)
 campaign_id = 56 # int |  (optional)
 entity = 'entity_example' # str | The name of the entity type that was exported. (optional)
 
-try:
-    # Get Exports
-    api_response = api_instance.get_exports(page_size=page_size, skip=skip, application_id=application_id, campaign_id=campaign_id, entity=entity)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ManagementApi->get_exports: %s\n" % e)
+    try:
+        # Get Exports
+        api_response = api_instance.get_exports(page_size=page_size, skip=skip, application_id=application_id, campaign_id=campaign_id, entity=entity)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_exports: %s\n" % e)
 ```
 
 ### Parameters
@@ -3254,7 +3917,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20027**](InlineResponse20027.md)
+[**InlineResponse20028**](InlineResponse20028.md)
 
 ### Authorization
 
@@ -3262,43 +3925,53 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_imports**
-> InlineResponse20028 get_imports(page_size=page_size, skip=skip)
+> InlineResponse20029 get_imports(page_size=page_size, skip=skip)
 
 Get Imports
 
 Get a list of all past imports 
 
 ### Example
+
+* Api Key Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-
-# Configure API key authorization: manager_auth
 configuration = talon_one.Configuration()
+# Configure API key authorization: manager_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = talon_one.ManagementApi(talon_one.ApiClient(configuration))
-page_size = 56 # int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    page_size = 56 # int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
 skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
 
-try:
-    # Get Imports
-    api_response = api_instance.get_imports(page_size=page_size, skip=skip)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ManagementApi->get_imports: %s\n" % e)
+    try:
+        # Get Imports
+        api_response = api_instance.get_imports(page_size=page_size, skip=skip)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_imports: %s\n" % e)
 ```
 
 ### Parameters
@@ -3310,7 +3983,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20028**](InlineResponse20028.md)
+[**InlineResponse20029**](InlineResponse20029.md)
 
 ### Authorization
 
@@ -3318,8 +3991,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -3331,30 +4009,35 @@ get the Loyalty Ledger for this integrationID
 Get the Loyalty Ledger for this profile integration ID.
 
 ### Example
+
+* Api Key Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-
-# Configure API key authorization: manager_auth
 configuration = talon_one.Configuration()
+# Configure API key authorization: manager_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = talon_one.ManagementApi(talon_one.ApiClient(configuration))
-program_id = 'program_id_example' # str | The identifier for the application, must be unique within the account.
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    program_id = 'program_id_example' # str | The identifier for the application, must be unique within the account.
 integration_id = 'integration_id_example' # str | The identifier for the application, must be unique within the account.
 
-try:
-    # get the Loyalty Ledger for this integrationID
-    api_response = api_instance.get_loyalty_points(program_id, integration_id)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ManagementApi->get_loyalty_points: %s\n" % e)
+    try:
+        # get the Loyalty Ledger for this integrationID
+        api_response = api_instance.get_loyalty_points(program_id, integration_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_loyalty_points: %s\n" % e)
 ```
 
 ### Parameters
@@ -3374,8 +4057,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -3384,32 +4072,35 @@ Name | Type | Description  | Notes
 
 Get a loyalty program
 
-
-
 ### Example
+
+* Api Key Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-
-# Configure API key authorization: manager_auth
 configuration = talon_one.Configuration()
+# Configure API key authorization: manager_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = talon_one.ManagementApi(talon_one.ApiClient(configuration))
-program_id = 'program_id_example' # str | 
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    program_id = 'program_id_example' # str | 
 
-try:
-    # Get a loyalty program
-    api_response = api_instance.get_loyalty_program(program_id)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ManagementApi->get_loyalty_program: %s\n" % e)
+    try:
+        # Get a loyalty program
+        api_response = api_instance.get_loyalty_program(program_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_loyalty_program: %s\n" % e)
 ```
 
 ### Parameters
@@ -3428,8 +4119,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -3438,31 +4134,34 @@ Name | Type | Description  | Notes
 
 List all loyalty Programs
 
-
-
 ### Example
+
+* Api Key Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-
-# Configure API key authorization: manager_auth
 configuration = talon_one.Configuration()
+# Configure API key authorization: manager_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = talon_one.ManagementApi(talon_one.ApiClient(configuration))
-
-try:
-    # List all loyalty Programs
-    api_response = api_instance.get_loyalty_programs()
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ManagementApi->get_loyalty_programs: %s\n" % e)
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    
+    try:
+        # List all loyalty Programs
+        api_response = api_instance.get_loyalty_programs()
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_loyalty_programs: %s\n" % e)
 ```
 
 ### Parameters
@@ -3478,8 +4177,13 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -3488,25 +4192,28 @@ This endpoint does not need any parameter.
 
 List Referrals
 
-
-
 ### Example
+
+* Api Key Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-
-# Configure API key authorization: manager_auth
 configuration = talon_one.Configuration()
+# Configure API key authorization: manager_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = talon_one.ManagementApi(talon_one.ApiClient(configuration))
-application_id = 56 # int | 
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | 
 campaign_id = 56 # int | 
 page_size = 56 # int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
 skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
@@ -3518,12 +4225,12 @@ valid = 'valid_example' # str | Either \"expired\", \"validNow\", or \"validFutu
 usable = 'usable_example' # str | Either \"true\" or \"false\". If \"true\", only referrals where `usageCounter < usageLimit` will be returned, \"false\" will return only referrals where `usageCounter >= usageLimit`.  (optional)
 advocate = 'advocate_example' # str | Filter results by match with a profile id specified in the referral's AdvocateProfileIntegrationId field (optional)
 
-try:
-    # List Referrals
-    api_response = api_instance.get_referrals(application_id, campaign_id, page_size=page_size, skip=skip, sort=sort, code=code, created_before=created_before, created_after=created_after, valid=valid, usable=usable, advocate=advocate)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ManagementApi->get_referrals: %s\n" % e)
+    try:
+        # List Referrals
+        api_response = api_instance.get_referrals(application_id, campaign_id, page_size=page_size, skip=skip, sort=sort, code=code, created_before=created_before, created_after=created_after, valid=valid, usable=usable, advocate=advocate)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_referrals: %s\n" % e)
 ```
 
 ### Parameters
@@ -3552,8 +4259,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -3562,25 +4274,28 @@ Name | Type | Description  | Notes
 
 List Referrals
 
-
-
 ### Example
+
+* Api Key Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-
-# Configure API key authorization: manager_auth
 configuration = talon_one.Configuration()
+# Configure API key authorization: manager_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = talon_one.ManagementApi(talon_one.ApiClient(configuration))
-application_id = 56 # int | 
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | 
 campaign_id = 56 # int | 
 page_size = 56 # int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
 skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
@@ -3592,12 +4307,12 @@ valid = 'valid_example' # str | Either \"expired\", \"validNow\", or \"validFutu
 usable = 'usable_example' # str | Either \"true\" or \"false\". If \"true\", only referrals where `usageCounter < usageLimit` will be returned, \"false\" will return only referrals where `usageCounter >= usageLimit`.  (optional)
 advocate = 'advocate_example' # str | Filter results by match with a profile id specified in the referral's AdvocateProfileIntegrationId field (optional)
 
-try:
-    # List Referrals
-    api_response = api_instance.get_referrals_without_total_count(application_id, campaign_id, page_size=page_size, skip=skip, sort=sort, code=code, created_before=created_before, created_after=created_after, valid=valid, usable=usable, advocate=advocate)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ManagementApi->get_referrals_without_total_count: %s\n" % e)
+    try:
+        # List Referrals
+        api_response = api_instance.get_referrals_without_total_count(application_id, campaign_id, page_size=page_size, skip=skip, sort=sort, code=code, created_before=created_before, created_after=created_after, valid=valid, usable=usable, advocate=advocate)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_referrals_without_total_count: %s\n" % e)
 ```
 
 ### Parameters
@@ -3626,8 +4341,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -3637,29 +4357,34 @@ Name | Type | Description  | Notes
 Get information for the specified role.
 
 ### Example
+
+* Api Key Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-
-# Configure API key authorization: manager_auth
 configuration = talon_one.Configuration()
+# Configure API key authorization: manager_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = talon_one.ManagementApi(talon_one.ApiClient(configuration))
-role_id = 56 # int | 
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    role_id = 56 # int | 
 
-try:
-    # Get information for the specified role.
-    api_response = api_instance.get_role(role_id)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ManagementApi->get_role: %s\n" % e)
+    try:
+        # Get information for the specified role.
+        api_response = api_instance.get_role(role_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_role: %s\n" % e)
 ```
 
 ### Parameters
@@ -3678,8 +4403,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -3688,34 +4418,37 @@ Name | Type | Description  | Notes
 
 Get a Ruleset
 
-
-
 ### Example
+
+* Api Key Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-
-# Configure API key authorization: manager_auth
 configuration = talon_one.Configuration()
+# Configure API key authorization: manager_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = talon_one.ManagementApi(talon_one.ApiClient(configuration))
-application_id = 56 # int | 
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | 
 campaign_id = 56 # int | 
 ruleset_id = 56 # int | 
 
-try:
-    # Get a Ruleset
-    api_response = api_instance.get_ruleset(application_id, campaign_id, ruleset_id)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ManagementApi->get_ruleset: %s\n" % e)
+    try:
+        # Get a Ruleset
+        api_response = api_instance.get_ruleset(application_id, campaign_id, ruleset_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_ruleset: %s\n" % e)
 ```
 
 ### Parameters
@@ -3736,8 +4469,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -3746,36 +4484,39 @@ Name | Type | Description  | Notes
 
 List Campaign Rulesets
 
-
-
 ### Example
+
+* Api Key Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-
-# Configure API key authorization: manager_auth
 configuration = talon_one.Configuration()
+# Configure API key authorization: manager_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = talon_one.ManagementApi(talon_one.ApiClient(configuration))
-application_id = 56 # int | 
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | 
 campaign_id = 56 # int | 
 page_size = 56 # int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
 skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
 sort = 'sort_example' # str | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional)
 
-try:
-    # List Campaign Rulesets
-    api_response = api_instance.get_rulesets(application_id, campaign_id, page_size=page_size, skip=skip, sort=sort)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ManagementApi->get_rulesets: %s\n" % e)
+    try:
+        # List Campaign Rulesets
+        api_response = api_instance.get_rulesets(application_id, campaign_id, page_size=page_size, skip=skip, sort=sort)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_rulesets: %s\n" % e)
 ```
 
 ### Parameters
@@ -3798,8 +4539,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -3811,29 +4557,34 @@ Get a single User
 Retrieves the data (including an invitation code) for a user. Non-admin users can only get themselves. 
 
 ### Example
+
+* Api Key Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-
-# Configure API key authorization: manager_auth
 configuration = talon_one.Configuration()
+# Configure API key authorization: manager_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = talon_one.ManagementApi(talon_one.ApiClient(configuration))
-user_id = 56 # int | 
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    user_id = 56 # int | 
 
-try:
-    # Get a single User
-    api_response = api_instance.get_user(user_id)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ManagementApi->get_user: %s\n" % e)
+    try:
+        # Get a single User
+        api_response = api_instance.get_user(user_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_user: %s\n" % e)
 ```
 
 ### Parameters
@@ -3852,44 +4603,54 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_users**
-> InlineResponse20025 get_users(page_size=page_size, skip=skip, sort=sort)
+> InlineResponse20026 get_users(page_size=page_size, skip=skip, sort=sort)
 
 List Users in your account
 
 Retrieve all users in your account. 
 
 ### Example
+
+* Api Key Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-
-# Configure API key authorization: manager_auth
 configuration = talon_one.Configuration()
+# Configure API key authorization: manager_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = talon_one.ManagementApi(talon_one.ApiClient(configuration))
-page_size = 56 # int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    page_size = 56 # int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
 skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
 sort = 'sort_example' # str | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional)
 
-try:
-    # List Users in your account
-    api_response = api_instance.get_users(page_size=page_size, skip=skip, sort=sort)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ManagementApi->get_users: %s\n" % e)
+    try:
+        # List Users in your account
+        api_response = api_instance.get_users(page_size=page_size, skip=skip, sort=sort)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_users: %s\n" % e)
 ```
 
 ### Parameters
@@ -3902,7 +4663,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20025**](InlineResponse20025.md)
+[**InlineResponse20026**](InlineResponse20026.md)
 
 ### Authorization
 
@@ -3910,8 +4671,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -3923,29 +4689,34 @@ Get Webhook
 Returns an webhook by its id.
 
 ### Example
+
+* Api Key Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-
-# Configure API key authorization: manager_auth
 configuration = talon_one.Configuration()
+# Configure API key authorization: manager_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = talon_one.ManagementApi(talon_one.ApiClient(configuration))
-webhook_id = 56 # int | 
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    webhook_id = 56 # int | 
 
-try:
-    # Get Webhook
-    api_response = api_instance.get_webhook(webhook_id)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ManagementApi->get_webhook: %s\n" % e)
+    try:
+        # Get Webhook
+        api_response = api_instance.get_webhook(webhook_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_webhook: %s\n" % e)
 ```
 
 ### Parameters
@@ -3964,50 +4735,60 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_webhook_activation_logs**
-> InlineResponse20022 get_webhook_activation_logs(page_size=page_size, skip=skip, sort=sort, integration_request_uuid=integration_request_uuid, webhook_id=webhook_id, application_id=application_id, campaign_id=campaign_id, created_before=created_before, created_after=created_after)
+> InlineResponse20023 get_webhook_activation_logs(page_size=page_size, skip=skip, sort=sort, integration_request_uuid=integration_request_uuid, webhook_id=webhook_id, application_id=application_id, campaign_id=campaign_id, created_before=created_before, created_after=created_after)
 
 List Webhook activation Log Entries
 
 Webhook activation log entries would be created as soon as an integration request triggered an effect with a webhook
 
 ### Example
+
+* Api Key Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-
-# Configure API key authorization: manager_auth
 configuration = talon_one.Configuration()
+# Configure API key authorization: manager_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = talon_one.ManagementApi(talon_one.ApiClient(configuration))
-page_size = 56 # int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    page_size = 56 # int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
 skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
 sort = 'sort_example' # str | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional)
 integration_request_uuid = 'integration_request_uuid_example' # str | Filter results by integration request UUID. (optional)
-webhook_id = 8.14 # float | Filter results by Webhook. (optional)
-application_id = 8.14 # float |  (optional)
-campaign_id = 8.14 # float | Filter results by campaign. (optional)
+webhook_id = 3.4 # float | Filter results by Webhook. (optional)
+application_id = 3.4 # float |  (optional)
+campaign_id = 3.4 # float | Filter results by campaign. (optional)
 created_before = '2013-10-20T19:20:30+01:00' # datetime | Only return events created before this date. (optional)
 created_after = '2013-10-20T19:20:30+01:00' # datetime | Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. (optional)
 
-try:
-    # List Webhook activation Log Entries
-    api_response = api_instance.get_webhook_activation_logs(page_size=page_size, skip=skip, sort=sort, integration_request_uuid=integration_request_uuid, webhook_id=webhook_id, application_id=application_id, campaign_id=campaign_id, created_before=created_before, created_after=created_after)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ManagementApi->get_webhook_activation_logs: %s\n" % e)
+    try:
+        # List Webhook activation Log Entries
+        api_response = api_instance.get_webhook_activation_logs(page_size=page_size, skip=skip, sort=sort, integration_request_uuid=integration_request_uuid, webhook_id=webhook_id, application_id=application_id, campaign_id=campaign_id, created_before=created_before, created_after=created_after)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_webhook_activation_logs: %s\n" % e)
 ```
 
 ### Parameters
@@ -4026,7 +4807,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20022**](InlineResponse20022.md)
+[**InlineResponse20023**](InlineResponse20023.md)
 
 ### Authorization
 
@@ -4034,51 +4815,59 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_webhook_logs**
-> InlineResponse20023 get_webhook_logs(page_size=page_size, skip=skip, sort=sort, status=status, webhook_id=webhook_id, application_id=application_id, campaign_id=campaign_id, request_uuid=request_uuid, created_before=created_before, created_after=created_after)
+> InlineResponse20024 get_webhook_logs(page_size=page_size, skip=skip, sort=sort, status=status, webhook_id=webhook_id, application_id=application_id, campaign_id=campaign_id, request_uuid=request_uuid, created_before=created_before, created_after=created_after)
 
 List Webhook Log Entries
 
-
-
 ### Example
+
+* Api Key Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-
-# Configure API key authorization: manager_auth
 configuration = talon_one.Configuration()
+# Configure API key authorization: manager_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = talon_one.ManagementApi(talon_one.ApiClient(configuration))
-page_size = 56 # int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    page_size = 56 # int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
 skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
 sort = 'sort_example' # str | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional)
 status = 'status_example' # str | Filter results by HTTP status codes. (optional)
-webhook_id = 8.14 # float | Filter results by Webhook. (optional)
-application_id = 8.14 # float |  (optional)
-campaign_id = 8.14 # float | Filter results by campaign. (optional)
+webhook_id = 3.4 # float | Filter results by Webhook. (optional)
+application_id = 3.4 # float |  (optional)
+campaign_id = 3.4 # float | Filter results by campaign. (optional)
 request_uuid = 'request_uuid_example' # str | Filter results by request UUID. (optional)
 created_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. (optional)
 created_after = '2013-10-20T19:20:30+01:00' # datetime | Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. (optional)
 
-try:
-    # List Webhook Log Entries
-    api_response = api_instance.get_webhook_logs(page_size=page_size, skip=skip, sort=sort, status=status, webhook_id=webhook_id, application_id=application_id, campaign_id=campaign_id, request_uuid=request_uuid, created_before=created_before, created_after=created_after)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ManagementApi->get_webhook_logs: %s\n" % e)
+    try:
+        # List Webhook Log Entries
+        api_response = api_instance.get_webhook_logs(page_size=page_size, skip=skip, sort=sort, status=status, webhook_id=webhook_id, application_id=application_id, campaign_id=campaign_id, request_uuid=request_uuid, created_before=created_before, created_after=created_after)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_webhook_logs: %s\n" % e)
 ```
 
 ### Parameters
@@ -4098,7 +4887,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20023**](InlineResponse20023.md)
+[**InlineResponse20024**](InlineResponse20024.md)
 
 ### Authorization
 
@@ -4106,45 +4895,53 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_webhooks**
-> InlineResponse20021 get_webhooks(application_ids=application_ids, sort=sort, page_size=page_size, skip=skip)
+> InlineResponse20022 get_webhooks(application_ids=application_ids, sort=sort, page_size=page_size, skip=skip)
 
 List Webhooks
 
-
-
 ### Example
+
+* Api Key Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-
-# Configure API key authorization: manager_auth
 configuration = talon_one.Configuration()
+# Configure API key authorization: manager_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = talon_one.ManagementApi(talon_one.ApiClient(configuration))
-application_ids = 'application_ids_example' # str | Filter by one or more application ids separated by comma (optional)
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_ids = 'application_ids_example' # str | Filter by one or more application ids separated by comma (optional)
 sort = 'sort_example' # str | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional)
 page_size = 56 # int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
 skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
 
-try:
-    # List Webhooks
-    api_response = api_instance.get_webhooks(application_ids=application_ids, sort=sort, page_size=page_size, skip=skip)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ManagementApi->get_webhooks: %s\n" % e)
+    try:
+        # List Webhooks
+        api_response = api_instance.get_webhooks(application_ids=application_ids, sort=sort, page_size=page_size, skip=skip)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_webhooks: %s\n" % e)
 ```
 
 ### Parameters
@@ -4158,7 +4955,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20021**](InlineResponse20021.md)
+[**InlineResponse20022**](InlineResponse20022.md)
 
 ### Authorization
 
@@ -4166,57 +4963,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **refresh_analytics**
-> refresh_analytics()
-
-Trigger refresh on stale analytics.
-
-Should be used to trigger a manual refresh of analytics.
-
-### Example
-```python
-from __future__ import print_function
-import time
-import talon_one
-from talon_one.rest import ApiException
-from pprint import pprint
-
-# Configure API key authorization: manager_auth
-configuration = talon_one.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
-
-# create an instance of the API class
-api_instance = talon_one.ManagementApi(talon_one.ApiClient(configuration))
-
-try:
-    # Trigger refresh on stale analytics.
-    api_instance.refresh_analytics()
-except ApiException as e:
-    print("Exception when calling ManagementApi->refresh_analytics: %s\n" % e)
-```
-
-### Parameters
-This endpoint does not need any parameter.
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[manager_auth](../README.md#manager_auth)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -4225,33 +4978,36 @@ void (empty response body)
 
 Deduct points in a certain loyalty program for the specified customer
 
-
-
 ### Example
+
+* Api Key Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-
-# Configure API key authorization: manager_auth
 configuration = talon_one.Configuration()
+# Configure API key authorization: manager_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = talon_one.ManagementApi(talon_one.ApiClient(configuration))
-program_id = 'program_id_example' # str | 
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    program_id = 'program_id_example' # str | 
 integration_id = 'integration_id_example' # str | 
 body = talon_one.LoyaltyPoints() # LoyaltyPoints | 
 
-try:
-    # Deduct points in a certain loyalty program for the specified customer
-    api_instance.remove_loyalty_points(program_id, integration_id, body)
-except ApiException as e:
-    print("Exception when calling ManagementApi->remove_loyalty_points: %s\n" % e)
+    try:
+        # Deduct points in a certain loyalty program for the specified customer
+        api_instance.remove_loyalty_points(program_id, integration_id, body)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->remove_loyalty_points: %s\n" % e)
 ```
 
 ### Parameters
@@ -4273,7 +5029,12 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Accept**: Not defined
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | No Content |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -4285,29 +5046,34 @@ Reset password
 Consumes the supplied password reset token and updates the password for the associated account. 
 
 ### Example
+
+* Api Key Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-
-# Configure API key authorization: manager_auth
 configuration = talon_one.Configuration()
+# Configure API key authorization: manager_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = talon_one.ManagementApi(talon_one.ApiClient(configuration))
-body = talon_one.NewPassword() # NewPassword | 
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    body = talon_one.NewPassword() # NewPassword | 
 
-try:
-    # Reset password
-    api_response = api_instance.reset_password(body)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ManagementApi->reset_password: %s\n" % e)
+    try:
+        # Reset password
+        api_response = api_instance.reset_password(body)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->reset_password: %s\n" % e)
 ```
 
 ### Parameters
@@ -4329,6 +5095,11 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | Created |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **search_coupons_advanced**
@@ -4339,24 +5110,29 @@ Get a list of the coupons that match the given attributes
 Gets a list of all the coupons with attributes matching the query criteria 
 
 ### Example
+
+* Api Key Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-
-# Configure API key authorization: manager_auth
 configuration = talon_one.Configuration()
+# Configure API key authorization: manager_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = talon_one.ManagementApi(talon_one.ApiClient(configuration))
-application_id = 56 # int | 
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | 
 campaign_id = 56 # int | 
-body = talon_one.AttributeQuery() # AttributeQuery | 
+body = None # object | 
 page_size = 56 # int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
 skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
 sort = 'sort_example' # str | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional)
@@ -4367,15 +5143,15 @@ valid = 'valid_example' # str | Either \"expired\", \"validNow\", or \"validFutu
 usable = 'usable_example' # str | Either \"true\" or \"false\". If \"true\", only coupons where `usageCounter < usageLimit` will be returned, \"false\" will return only coupons where `usageCounter >= usageLimit`.  (optional)
 referral_id = 56 # int | Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)
 recipient_integration_id = 'recipient_integration_id_example' # str | Filter results by match with a profile id specified in the coupon's RecipientIntegrationId field (optional)
-exact_match = false # bool | Filter results to an exact case-insensitive matching against the coupon code (optional) (default to false)
+exact_match = False # bool | Filter results to an exact case-insensitive matching against the coupon code (optional) (default to False)
 batch_id = 'batch_id_example' # str | Filter results by batches of coupons (optional)
 
-try:
-    # Get a list of the coupons that match the given attributes
-    api_response = api_instance.search_coupons_advanced(application_id, campaign_id, body, page_size=page_size, skip=skip, sort=sort, value=value, created_before=created_before, created_after=created_after, valid=valid, usable=usable, referral_id=referral_id, recipient_integration_id=recipient_integration_id, exact_match=exact_match, batch_id=batch_id)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ManagementApi->search_coupons_advanced: %s\n" % e)
+    try:
+        # Get a list of the coupons that match the given attributes
+        api_response = api_instance.search_coupons_advanced(application_id, campaign_id, body, page_size=page_size, skip=skip, sort=sort, value=value, created_before=created_before, created_after=created_after, valid=valid, usable=usable, referral_id=referral_id, recipient_integration_id=recipient_integration_id, exact_match=exact_match, batch_id=batch_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->search_coupons_advanced: %s\n" % e)
 ```
 
 ### Parameters
@@ -4384,7 +5160,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **application_id** | **int**|  | 
  **campaign_id** | **int**|  | 
- **body** | [**AttributeQuery**](AttributeQuery.md)|  | 
+ **body** | **object**|  | 
  **page_size** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
  **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional] 
  **sort** | **str**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional] 
@@ -4395,7 +5171,7 @@ Name | Type | Description  | Notes
  **usable** | **str**| Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  | [optional] 
  **referral_id** | **int**| Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. | [optional] 
  **recipient_integration_id** | **str**| Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field | [optional] 
- **exact_match** | **bool**| Filter results to an exact case-insensitive matching against the coupon code | [optional] [default to false]
+ **exact_match** | **bool**| Filter results to an exact case-insensitive matching against the coupon code | [optional] [default to False]
  **batch_id** | **str**| Filter results by batches of coupons | [optional] 
 
 ### Return type
@@ -4410,6 +5186,11 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: application/json
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -4421,23 +5202,28 @@ Get a list of the coupons that match the given attributes in all active campaign
 Gets a list of all the coupons with attributes matching the query criteria in all active campaigns of an application 
 
 ### Example
+
+* Api Key Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-
-# Configure API key authorization: manager_auth
 configuration = talon_one.Configuration()
+# Configure API key authorization: manager_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = talon_one.ManagementApi(talon_one.ApiClient(configuration))
-application_id = 56 # int | 
-body = talon_one.AttributeQuery() # AttributeQuery | 
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | 
+body = None # object | 
 page_size = 56 # int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
 skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
 sort = 'sort_example' # str | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional)
@@ -4449,15 +5235,15 @@ usable = 'usable_example' # str | Either \"true\" or \"false\". If \"true\", onl
 referral_id = 56 # int | Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)
 recipient_integration_id = 'recipient_integration_id_example' # str | Filter results by match with a profile id specified in the coupon's RecipientIntegrationId field (optional)
 batch_id = 'batch_id_example' # str | Filter results by batches of coupons (optional)
-exact_match = false # bool | Filter results to an exact case-insensitive matching against the coupon code (optional) (default to false)
+exact_match = False # bool | Filter results to an exact case-insensitive matching against the coupon code (optional) (default to False)
 campaign_state = 'campaign_state_example' # str | Filter results by the state of the campaign. (optional)
 
-try:
-    # Get a list of the coupons that match the given attributes in all active campaigns of an application
-    api_response = api_instance.search_coupons_advanced_application_wide(application_id, body, page_size=page_size, skip=skip, sort=sort, value=value, created_before=created_before, created_after=created_after, valid=valid, usable=usable, referral_id=referral_id, recipient_integration_id=recipient_integration_id, batch_id=batch_id, exact_match=exact_match, campaign_state=campaign_state)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ManagementApi->search_coupons_advanced_application_wide: %s\n" % e)
+    try:
+        # Get a list of the coupons that match the given attributes in all active campaigns of an application
+        api_response = api_instance.search_coupons_advanced_application_wide(application_id, body, page_size=page_size, skip=skip, sort=sort, value=value, created_before=created_before, created_after=created_after, valid=valid, usable=usable, referral_id=referral_id, recipient_integration_id=recipient_integration_id, batch_id=batch_id, exact_match=exact_match, campaign_state=campaign_state)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->search_coupons_advanced_application_wide: %s\n" % e)
 ```
 
 ### Parameters
@@ -4465,7 +5251,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **application_id** | **int**|  | 
- **body** | [**AttributeQuery**](AttributeQuery.md)|  | 
+ **body** | **object**|  | 
  **page_size** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
  **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional] 
  **sort** | **str**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional] 
@@ -4477,7 +5263,7 @@ Name | Type | Description  | Notes
  **referral_id** | **int**| Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. | [optional] 
  **recipient_integration_id** | **str**| Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field | [optional] 
  **batch_id** | **str**| Filter results by batches of coupons | [optional] 
- **exact_match** | **bool**| Filter results to an exact case-insensitive matching against the coupon code | [optional] [default to false]
+ **exact_match** | **bool**| Filter results to an exact case-insensitive matching against the coupon code | [optional] [default to False]
  **campaign_state** | **str**| Filter results by the state of the campaign. | [optional] 
 
 ### Return type
@@ -4493,6 +5279,11 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **search_coupons_advanced_application_wide_without_total_count**
@@ -4503,23 +5294,28 @@ Get a list of the coupons that match the given attributes in all active campaign
 Gets a list of all the coupons with attributes matching the query criteria in all active campaigns of an application 
 
 ### Example
+
+* Api Key Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-
-# Configure API key authorization: manager_auth
 configuration = talon_one.Configuration()
+# Configure API key authorization: manager_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = talon_one.ManagementApi(talon_one.ApiClient(configuration))
-application_id = 56 # int | 
-body = talon_one.AttributeQuery() # AttributeQuery | 
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | 
+body = None # object | 
 page_size = 56 # int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
 skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
 sort = 'sort_example' # str | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional)
@@ -4531,15 +5327,15 @@ usable = 'usable_example' # str | Either \"true\" or \"false\". If \"true\", onl
 referral_id = 56 # int | Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)
 recipient_integration_id = 'recipient_integration_id_example' # str | Filter results by match with a profile id specified in the coupon's RecipientIntegrationId field (optional)
 batch_id = 'batch_id_example' # str | Filter results by batches of coupons (optional)
-exact_match = false # bool | Filter results to an exact case-insensitive matching against the coupon code (optional) (default to false)
+exact_match = False # bool | Filter results to an exact case-insensitive matching against the coupon code (optional) (default to False)
 campaign_state = 'campaign_state_example' # str | Filter results by the state of the campaign. (optional)
 
-try:
-    # Get a list of the coupons that match the given attributes in all active campaigns of an application
-    api_response = api_instance.search_coupons_advanced_application_wide_without_total_count(application_id, body, page_size=page_size, skip=skip, sort=sort, value=value, created_before=created_before, created_after=created_after, valid=valid, usable=usable, referral_id=referral_id, recipient_integration_id=recipient_integration_id, batch_id=batch_id, exact_match=exact_match, campaign_state=campaign_state)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ManagementApi->search_coupons_advanced_application_wide_without_total_count: %s\n" % e)
+    try:
+        # Get a list of the coupons that match the given attributes in all active campaigns of an application
+        api_response = api_instance.search_coupons_advanced_application_wide_without_total_count(application_id, body, page_size=page_size, skip=skip, sort=sort, value=value, created_before=created_before, created_after=created_after, valid=valid, usable=usable, referral_id=referral_id, recipient_integration_id=recipient_integration_id, batch_id=batch_id, exact_match=exact_match, campaign_state=campaign_state)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->search_coupons_advanced_application_wide_without_total_count: %s\n" % e)
 ```
 
 ### Parameters
@@ -4547,7 +5343,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **application_id** | **int**|  | 
- **body** | [**AttributeQuery**](AttributeQuery.md)|  | 
+ **body** | **object**|  | 
  **page_size** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
  **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional] 
  **sort** | **str**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional] 
@@ -4559,7 +5355,7 @@ Name | Type | Description  | Notes
  **referral_id** | **int**| Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. | [optional] 
  **recipient_integration_id** | **str**| Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field | [optional] 
  **batch_id** | **str**| Filter results by batches of coupons | [optional] 
- **exact_match** | **bool**| Filter results to an exact case-insensitive matching against the coupon code | [optional] [default to false]
+ **exact_match** | **bool**| Filter results to an exact case-insensitive matching against the coupon code | [optional] [default to False]
  **campaign_state** | **str**| Filter results by the state of the campaign. | [optional] 
 
 ### Return type
@@ -4575,6 +5371,11 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **search_coupons_advanced_without_total_count**
@@ -4585,24 +5386,29 @@ Get a list of the coupons that match the given attributes
 Gets a list of all the coupons with attributes matching the query criteria 
 
 ### Example
+
+* Api Key Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-
-# Configure API key authorization: manager_auth
 configuration = talon_one.Configuration()
+# Configure API key authorization: manager_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = talon_one.ManagementApi(talon_one.ApiClient(configuration))
-application_id = 56 # int | 
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | 
 campaign_id = 56 # int | 
-body = talon_one.AttributeQuery() # AttributeQuery | 
+body = None # object | 
 page_size = 56 # int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
 skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
 sort = 'sort_example' # str | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional)
@@ -4613,15 +5419,15 @@ valid = 'valid_example' # str | Either \"expired\", \"validNow\", or \"validFutu
 usable = 'usable_example' # str | Either \"true\" or \"false\". If \"true\", only coupons where `usageCounter < usageLimit` will be returned, \"false\" will return only coupons where `usageCounter >= usageLimit`.  (optional)
 referral_id = 56 # int | Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)
 recipient_integration_id = 'recipient_integration_id_example' # str | Filter results by match with a profile id specified in the coupon's RecipientIntegrationId field (optional)
-exact_match = false # bool | Filter results to an exact case-insensitive matching against the coupon code (optional) (default to false)
+exact_match = False # bool | Filter results to an exact case-insensitive matching against the coupon code (optional) (default to False)
 batch_id = 'batch_id_example' # str | Filter results by batches of coupons (optional)
 
-try:
-    # Get a list of the coupons that match the given attributes
-    api_response = api_instance.search_coupons_advanced_without_total_count(application_id, campaign_id, body, page_size=page_size, skip=skip, sort=sort, value=value, created_before=created_before, created_after=created_after, valid=valid, usable=usable, referral_id=referral_id, recipient_integration_id=recipient_integration_id, exact_match=exact_match, batch_id=batch_id)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ManagementApi->search_coupons_advanced_without_total_count: %s\n" % e)
+    try:
+        # Get a list of the coupons that match the given attributes
+        api_response = api_instance.search_coupons_advanced_without_total_count(application_id, campaign_id, body, page_size=page_size, skip=skip, sort=sort, value=value, created_before=created_before, created_after=created_after, valid=valid, usable=usable, referral_id=referral_id, recipient_integration_id=recipient_integration_id, exact_match=exact_match, batch_id=batch_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->search_coupons_advanced_without_total_count: %s\n" % e)
 ```
 
 ### Parameters
@@ -4630,7 +5436,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **application_id** | **int**|  | 
  **campaign_id** | **int**|  | 
- **body** | [**AttributeQuery**](AttributeQuery.md)|  | 
+ **body** | **object**|  | 
  **page_size** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
  **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional] 
  **sort** | **str**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional] 
@@ -4641,7 +5447,7 @@ Name | Type | Description  | Notes
  **usable** | **str**| Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  | [optional] 
  **referral_id** | **int**| Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. | [optional] 
  **recipient_integration_id** | **str**| Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field | [optional] 
- **exact_match** | **bool**| Filter results to an exact case-insensitive matching against the coupon code | [optional] [default to false]
+ **exact_match** | **bool**| Filter results to an exact case-insensitive matching against the coupon code | [optional] [default to False]
  **batch_id** | **str**| Filter results by batches of coupons | [optional] 
 
 ### Return type
@@ -4657,6 +5463,77 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **update_additional_cost**
+> AccountAdditionalCost update_additional_cost(additional_cost_id, body)
+
+Update an additional cost
+
+Updates an existing additional cost. Once created, the only property of an additional cost that can be changed is the title (human readable description). This restriction is in place to prevent accidentally breaking live integrations. 
+
+### Example
+
+* Api Key Authentication (manager_auth):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+configuration = talon_one.Configuration()
+# Configure API key authorization: manager_auth
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    additional_cost_id = 56 # int | 
+body = talon_one.NewAdditionalCost() # NewAdditionalCost | 
+
+    try:
+        # Update an additional cost
+        api_response = api_instance.update_additional_cost(additional_cost_id, body)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->update_additional_cost: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **additional_cost_id** | **int**|  | 
+ **body** | [**NewAdditionalCost**](NewAdditionalCost.md)|  | 
+
+### Return type
+
+[**AccountAdditionalCost**](AccountAdditionalCost.md)
+
+### Authorization
+
+[manager_auth](../README.md#manager_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_attribute**
@@ -4667,30 +5544,35 @@ Update a custom attribute
 Updates an existing custom attribute. Once created, the only property of a custom attribute that can be changed is the title (human readable description). This restriction is in place to prevent accidentally breaking live integrations. E.g. if you have a customer profile attribute with the name `region`, and your integration is sending `attributes.region` with customer profile updates, changing the name to `locale` would cause the integration requests to begin failing.  If you **really** need to change the `type` or `name` property of a custom attribute, create a new attribute and update any relevant integrations and rules to use the new attribute. Then delete the old attribute when you are confident you have migrated any needed data from the old attribute to the new one. 
 
 ### Example
+
+* Api Key Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-
-# Configure API key authorization: manager_auth
 configuration = talon_one.Configuration()
+# Configure API key authorization: manager_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = talon_one.ManagementApi(talon_one.ApiClient(configuration))
-attribute_id = 56 # int | 
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    attribute_id = 56 # int | 
 body = talon_one.NewAttribute() # NewAttribute | 
 
-try:
-    # Update a custom attribute
-    api_response = api_instance.update_attribute(attribute_id, body)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ManagementApi->update_attribute: %s\n" % e)
+    try:
+        # Update a custom attribute
+        api_response = api_instance.update_attribute(attribute_id, body)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->update_attribute: %s\n" % e)
 ```
 
 ### Parameters
@@ -4713,6 +5595,11 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_campaign**
@@ -4720,34 +5607,37 @@ Name | Type | Description  | Notes
 
 Update a Campaign
 
-
-
 ### Example
+
+* Api Key Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-
-# Configure API key authorization: manager_auth
 configuration = talon_one.Configuration()
+# Configure API key authorization: manager_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = talon_one.ManagementApi(talon_one.ApiClient(configuration))
-application_id = 56 # int | 
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | 
 campaign_id = 56 # int | 
 body = talon_one.UpdateCampaign() # UpdateCampaign | 
 
-try:
-    # Update a Campaign
-    api_response = api_instance.update_campaign(application_id, campaign_id, body)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ManagementApi->update_campaign: %s\n" % e)
+    try:
+        # Update a Campaign
+        api_response = api_instance.update_campaign(application_id, campaign_id, body)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->update_campaign: %s\n" % e)
 ```
 
 ### Parameters
@@ -4771,6 +5661,11 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_campaign_set**
@@ -4778,33 +5673,36 @@ Name | Type | Description  | Notes
 
 Update a Campaign Set
 
-
-
 ### Example
+
+* Api Key Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-
-# Configure API key authorization: manager_auth
 configuration = talon_one.Configuration()
+# Configure API key authorization: manager_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = talon_one.ManagementApi(talon_one.ApiClient(configuration))
-application_id = 56 # int | 
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | 
 body = talon_one.NewCampaignSet() # NewCampaignSet | 
 
-try:
-    # Update a Campaign Set
-    api_response = api_instance.update_campaign_set(application_id, body)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ManagementApi->update_campaign_set: %s\n" % e)
+    try:
+        # Update a Campaign Set
+        api_response = api_instance.update_campaign_set(application_id, body)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->update_campaign_set: %s\n" % e)
 ```
 
 ### Parameters
@@ -4827,6 +5725,11 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_coupon**
@@ -4834,35 +5737,38 @@ Name | Type | Description  | Notes
 
 Update a Coupon
 
-
-
 ### Example
+
+* Api Key Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-
-# Configure API key authorization: manager_auth
 configuration = talon_one.Configuration()
+# Configure API key authorization: manager_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = talon_one.ManagementApi(talon_one.ApiClient(configuration))
-application_id = 56 # int | 
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | 
 campaign_id = 56 # int | 
 coupon_id = 'coupon_id_example' # str | The ID of the coupon code to update
 body = talon_one.UpdateCoupon() # UpdateCoupon | 
 
-try:
-    # Update a Coupon
-    api_response = api_instance.update_coupon(application_id, campaign_id, coupon_id, body)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ManagementApi->update_coupon: %s\n" % e)
+    try:
+        # Update a Coupon
+        api_response = api_instance.update_coupon(application_id, campaign_id, coupon_id, body)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->update_coupon: %s\n" % e)
 ```
 
 ### Parameters
@@ -4887,6 +5793,11 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_coupon_batch**
@@ -4894,33 +5805,36 @@ Name | Type | Description  | Notes
 
 Update a Batch of Coupons
 
-
-
 ### Example
+
+* Api Key Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-
-# Configure API key authorization: manager_auth
 configuration = talon_one.Configuration()
+# Configure API key authorization: manager_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = talon_one.ManagementApi(talon_one.ApiClient(configuration))
-application_id = 56 # int | 
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | 
 campaign_id = 56 # int | 
 body = talon_one.UpdateCouponBatch() # UpdateCouponBatch | 
 
-try:
-    # Update a Batch of Coupons
-    api_instance.update_coupon_batch(application_id, campaign_id, body)
-except ApiException as e:
-    print("Exception when calling ManagementApi->update_coupon_batch: %s\n" % e)
+    try:
+        # Update a Batch of Coupons
+        api_instance.update_coupon_batch(application_id, campaign_id, body)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->update_coupon_batch: %s\n" % e)
 ```
 
 ### Parameters
@@ -4942,7 +5856,12 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Accept**: Not defined
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | No Content |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -4951,35 +5870,38 @@ void (empty response body)
 
 Update a Ruleset
 
-
-
 ### Example
+
+* Api Key Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-
-# Configure API key authorization: manager_auth
 configuration = talon_one.Configuration()
+# Configure API key authorization: manager_auth
 configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = talon_one.ManagementApi(talon_one.ApiClient(configuration))
-application_id = 56 # int | 
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | 
 campaign_id = 56 # int | 
 ruleset_id = 56 # int | 
 body = talon_one.NewRuleset() # NewRuleset | 
 
-try:
-    # Update a Ruleset
-    api_response = api_instance.update_ruleset(application_id, campaign_id, ruleset_id, body)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ManagementApi->update_ruleset: %s\n" % e)
+    try:
+        # Update a Ruleset
+        api_response = api_instance.update_ruleset(application_id, campaign_id, ruleset_id, body)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->update_ruleset: %s\n" % e)
 ```
 
 ### Parameters
@@ -5003,6 +5925,11 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: application/json
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

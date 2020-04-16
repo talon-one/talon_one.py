@@ -1,5 +1,6 @@
 # ErrorSource
 
+The source of the current error, exactly one of `pointer`, `parameter` or `line` will be defined. 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

@@ -1,5 +1,6 @@
 # NewEventType
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
@@ -9,7 +10,7 @@ Name | Type | Description | Notes
 **description** | **str** | An explanation of when the event type is triggered. Write this with a campaign manager in mind. For example:  &gt; The \&quot;Payment Accepted\&quot; event is triggered after successful processing of a payment by our payment gateway.  | 
 **mime_type** | **str** | This defines how the request payload will be parsed before your handler code is run. | 
 **example_payload** | **str** | It is often helpful to include an example payload with the event type definition for documentation purposes. | [optional] 
-**schema** | **object** | It is strongly recommended to define a JSON schema that will be used to perform structural validation of request payloads after parsing.  | [optional] 
+**schema** | [**object**](.md) | It is strongly recommended to define a JSON schema that will be used to perform structural validation of request payloads after parsing.  | [optional] 
 **handler_language** | **str** | The language of the handler code. Currently only &#x60;\&quot;talang\&quot;&#x60; is supported. | [optional] 
 **handler** | **str** | Code that will be run after successful parsing &amp; validation of the payload for this event. This code _may_ choose to evaluate campaign rules.  | 
 **version** | **int** | The version of this event type. When updating an existing event type this must be **exactly** &#x60;currentVersion + 1&#x60;.  | 

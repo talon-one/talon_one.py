@@ -1,5 +1,6 @@
 # WebhookActivationLogEntry
 
+Log of activated webhooks
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

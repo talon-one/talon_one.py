@@ -1,5 +1,6 @@
 # NewLoyaltyProgram
 
+A new loyalty program
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

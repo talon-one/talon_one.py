@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **description** | **str** | A detailed description of the campaign. | [optional] 
 **start_time** | **datetime** | Datetime when the campaign will become active. | [optional] 
 **end_time** | **datetime** | Datetime when the campaign will become in-active. | [optional] 
-**attributes** | **object** | Arbitrary properties associated with this campaign | [optional] 
+**attributes** | [**object**](.md) | Arbitrary properties associated with this campaign | [optional] 
 **state** | **str** | A disabled or archived campaign is not evaluated for rules or coupons.  | [optional] [default to 'enabled']
 **active_ruleset_id** | **int** | ID of Ruleset this campaign applies on customer session evaluation. | [optional] 
 **tags** | **list[str]** | A list of tags for the campaign. | 

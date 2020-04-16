@@ -1,5 +1,6 @@
 # NewCampaignSet
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
