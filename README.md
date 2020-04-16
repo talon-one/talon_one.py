@@ -56,6 +56,8 @@ Please follow the [installation procedure](#installation--usage) and then run th
 
 ### Integration API
 
+## V2
+
 ```python
 import talon_one
 from talon_one.rest import ApiException
@@ -63,19 +65,82 @@ from pprint import pprint
 
 # Create configuration with your host destination
 configuration = talon_one.Configuration()
-configuration.host = 'https://mycompany.talon.one'
+configuration.host = "https://mycompany.talon.one"
 
 # Configure API key authorization: api_key_v1
-configuration.api_key['Authorization'] = 'e18149e88f42247f0123456789abcdef9302722577ad60cebc86c4333b6fb70'
-configuration.api_key_prefix['Authorization'] = 'ApiKey-v1'
+configuration.api_key["Authorization"] = "e18149e88f42247f0123456789abcdef9302722577ad60cebc86c4333b6fb70"
+configuration.api_key_prefix["Authorization"] = "ApiKey-v1"
+
+# Integration API example to send a session update
+integration_api = talon_one.IntegrationApi(talon_one.ApiClient(configuration))
+
+# Preparing a NewCustomerSessionV2 object
+customer_session = talon_one.NewCustomerSessionV2(
+  "PROFILE_ID"
+)
+customer_session.cart_items = [
+    talon_one.CartItem("Red Spring Blouse", "rdbs-1111", 1, 49, "Shirts"),
+    talon_one.CartItem("Denim Trousers", "dtr-2222", 1, 74, "Trousers"),
+]
+customer_session.coupon_codes = [
+    "Cool_Stuff"
+]
+
+# Instantiating a new IntegrationRequest object
+integration_request = talon_one.IntegrationRequest(
+    customer_session,
+    # Optional list of requested information to be present on the response.
+    # See models/integration_request.py for full list
+    # ["customerSession", "loyalty"]
+)
+
+try:
+    # Create/update a customer session using `update_customer_session_v2` function
+    api_response = integration_api.update_customer_session_v2("my_unique_session_v2_id", integration_request)
+    pprint(api_response)
+
+    # Parsing the returned effects list, please consult https://developers.talon.one/Integration-API/handling-effects-v2 for the full list of effects and their corresponding properties
+    for effect in api_response.effects:
+        if effect.effect_type == "setDiscount":
+            # Initiating right props instance according to the effect type
+            setDiscountProps = integration_api.api_client.deserialize_model(effect.props, talon_one.SetDiscountEffectProps)
+
+            # Access the specific effect's properties
+            print("Set a discount '{name}' of {value}").format(
+                name = setDiscountProps.name,
+                value = setDiscountProps.value
+            )
+        elif effect.effect_type == "rejectCoupon":
+            rejectCouponEffectProps = integration_api.api_client.deserialize_model(effect.props, talon_one.RejectCouponEffectProps)
+
+            # Work with AcceptCouponEffectProps' properties
+            # ...
+except ApiException as e:
+    print("Exception when calling IntegrationApi->update_customer_session_v2: %s\n" % e)
+```
+
+## V1
+
+```python
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+
+# Create configuration with your host destination
+configuration = talon_one.Configuration()
+configuration.host = "https://mycompany.talon.one"
+
+# Configure API key authorization: api_key_v1
+configuration.api_key["Authorization"] = "e18149e88f42247f0123456789abcdef9302722577ad60cebc86c4333b6fb70"
+configuration.api_key_prefix["Authorization"] = "ApiKey-v1"
 
 # Integration API example to send a session update
 integration_api = talon_one.IntegrationApi(talon_one.ApiClient(configuration))
 customer_session = talon_one.NewCustomerSession(
-  'DEADDYBEEF', # profile_id
-  '', # coupon
-  '996732pucn', # referral
-  'open', # state
+  "DEADDYBEEF", # profile_id
+  ", # coupon
+  "996732pucn", # referral
+  "open", # state
   None, # cart_items
   None, # identifiers
   123.45, # total
@@ -84,7 +149,7 @@ customer_session = talon_one.NewCustomerSession(
 
 try:
     # Create/update a customer session using `update_customer_session` function
-    api_response = integration_api.update_customer_session('my_unique_session_id', customer_session)
+    api_response = integration_api.update_customer_session("my_unique_session_id", customer_session)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling IntegrationApi->update_customer_session: %s\n" % e)
@@ -95,19 +160,19 @@ except ApiException as e:
 ```python
 # Create configuration with your host destination
 configuration = talon_one.Configuration()
-configuration.host = 'https://mycompany.talon.one'
+configuration.host = "https://mycompany.talon.one"
 
 # Management API example to load application with id 7
 management_api = talon_one.ManagementApi(talon_one.ApiClient(configuration))
 
 try:
     # Acquire session token
-    login_params = talon_one.LoginParams('admin@talon.one', 'Password!@@')
+    login_params = talon_one.LoginParams("admin@talon.one", "Password!@@")
     session = management_api.create_session(login_params)
 
     # Save token in the configuration for future management API calls
-    configuration.api_key['Authorization'] = session.token
-    configuration.api_key_prefix['Authorization'] = 'Bearer'
+    configuration.api_key["Authorization"] = session.token
+    configuration.api_key_prefix["Authorization"] = "Bearer"
 
     # Calling get_application function with the desired id (7)
     application = management_api.get_application(7)
