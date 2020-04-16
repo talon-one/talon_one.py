@@ -106,10 +106,10 @@ try:
             setDiscountProps = integration_api.api_client.deserialize_model(effect.props, talon_one.SetDiscountEffectProps)
 
             # Access the specific effect's properties
-            print("Set a discount '{name}' of {value}").format(
+            print("Set a discount '{name}' of {value}".format(
                 name = setDiscountProps.name,
                 value = setDiscountProps.value
-            )
+            ))
         elif effect.effect_type == "rejectCoupon":
             rejectCouponEffectProps = integration_api.api_client.deserialize_model(effect.props, talon_one.RejectCouponEffectProps)
 
