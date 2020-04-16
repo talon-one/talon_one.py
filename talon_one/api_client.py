@@ -300,7 +300,7 @@ class ApiClient(object):
         elif klass == datetime.datetime:
             return self.__deserialize_datetime(data)
         else:
-            return self.__deserialize_model(data, klass)
+            return self.deserialize_model(data, klass)
 
     def call_api(self, resource_path, method,
                  path_params=None, query_params=None, header_params=None,
@@ -617,7 +617,7 @@ class ApiClient(object):
                 )
             )
 
-    def __deserialize_model(self, data, klass):
+    def deserialize_model(self, data, klass):
         """Deserializes list or dict to model.
 
         :param data: dict, list.
