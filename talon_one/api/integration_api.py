@@ -491,7 +491,7 @@ class IntegrationApi(object):
     def get_customer_inventory(self, integration_id, **kwargs):  # noqa: E501
         """Get an inventory of all data associated with a specific customer profile.  # noqa: E501
 
-        Get information regarding entities referencing this customer profile's integrationId. Currently we support customer profile information and referral codes. In the future, this will be expanded with coupon codes and loyalty points.  # noqa: E501
+        Get information regarding entities referencing this customer profile's integrationId. Currently we support customer profile information, referral codes and reserved coupons. In the future, this will be expanded with loyalty points.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_customer_inventory(integration_id, async_req=True)
@@ -501,6 +501,7 @@ class IntegrationApi(object):
         :param str integration_id: The custom identifier for this profile, must be unique within the account. (required)
         :param bool profile: optional flag to decide if you would like customer profile information in the response
         :param bool referrals: optional flag to decide if you would like referral information in the response
+        :param bool coupons: optional flag to decide if you would like coupon information in the response
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -518,7 +519,7 @@ class IntegrationApi(object):
     def get_customer_inventory_with_http_info(self, integration_id, **kwargs):  # noqa: E501
         """Get an inventory of all data associated with a specific customer profile.  # noqa: E501
 
-        Get information regarding entities referencing this customer profile's integrationId. Currently we support customer profile information and referral codes. In the future, this will be expanded with coupon codes and loyalty points.  # noqa: E501
+        Get information regarding entities referencing this customer profile's integrationId. Currently we support customer profile information, referral codes and reserved coupons. In the future, this will be expanded with loyalty points.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_customer_inventory_with_http_info(integration_id, async_req=True)
@@ -528,6 +529,7 @@ class IntegrationApi(object):
         :param str integration_id: The custom identifier for this profile, must be unique within the account. (required)
         :param bool profile: optional flag to decide if you would like customer profile information in the response
         :param bool referrals: optional flag to decide if you would like referral information in the response
+        :param bool coupons: optional flag to decide if you would like coupon information in the response
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -544,7 +546,7 @@ class IntegrationApi(object):
 
         local_var_params = locals()
 
-        all_params = ['integration_id', 'profile', 'referrals']  # noqa: E501
+        all_params = ['integration_id', 'profile', 'referrals', 'coupons']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -574,6 +576,8 @@ class IntegrationApi(object):
             query_params.append(('profile', local_var_params['profile']))  # noqa: E501
         if 'referrals' in local_var_params and local_var_params['referrals'] is not None:  # noqa: E501
             query_params.append(('referrals', local_var_params['referrals']))  # noqa: E501
+        if 'coupons' in local_var_params and local_var_params['coupons'] is not None:  # noqa: E501
+            query_params.append(('coupons', local_var_params['coupons']))  # noqa: E501
 
         header_params = {}
 
@@ -597,114 +601,6 @@ class IntegrationApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='CustomerInventory',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def get_reserved_coupons(self, integration_id, **kwargs):  # noqa: E501
-        """Get all valid reserved coupons  # noqa: E501
-
-        Returns all coupons this user is subscribed to that are valid and usable   # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_reserved_coupons(integration_id, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param str integration_id: The custom identifier for this profile, must be unique within the account. (required)
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: InlineResponse2001
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        return self.get_reserved_coupons_with_http_info(integration_id, **kwargs)  # noqa: E501
-
-    def get_reserved_coupons_with_http_info(self, integration_id, **kwargs):  # noqa: E501
-        """Get all valid reserved coupons  # noqa: E501
-
-        Returns all coupons this user is subscribed to that are valid and usable   # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_reserved_coupons_with_http_info(integration_id, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param str integration_id: The custom identifier for this profile, must be unique within the account. (required)
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(InlineResponse2001, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = ['integration_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_reserved_coupons" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'integration_id' is set
-        if self.api_client.client_side_validation and ('integration_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['integration_id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `integration_id` when calling `get_reserved_coupons`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'integration_id' in local_var_params:
-            path_params['integrationId'] = local_var_params['integration_id']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['api_key_v1', 'integration_auth']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/v1/coupon_reservations/coupons/{integrationId}', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='InlineResponse2001',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -831,6 +727,7 @@ class IntegrationApi(object):
 
         :param async_req bool: execute request asynchronously
         :param NewEvent body: (required)
+        :param bool dry: Flag to indicate whether to skip persisting the changes or not (Will not persist if set to 'true').
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -856,6 +753,7 @@ class IntegrationApi(object):
 
         :param async_req bool: execute request asynchronously
         :param NewEvent body: (required)
+        :param bool dry: Flag to indicate whether to skip persisting the changes or not (Will not persist if set to 'true').
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -872,7 +770,7 @@ class IntegrationApi(object):
 
         local_var_params = locals()
 
-        all_params = ['body']  # noqa: E501
+        all_params = ['body', 'dry']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -896,6 +794,8 @@ class IntegrationApi(object):
         path_params = {}
 
         query_params = []
+        if 'dry' in local_var_params and local_var_params['dry'] is not None:  # noqa: E501
+            query_params.append(('dry', local_var_params['dry']))  # noqa: E501
 
         header_params = {}
 
@@ -944,6 +844,7 @@ class IntegrationApi(object):
         :param async_req bool: execute request asynchronously
         :param str integration_id: The custom identifier for this profile, must be unique within the account. (required)
         :param NewCustomerProfile body: (required)
+        :param bool dry: Flag to indicate whether to skip persisting the changes or not (Will not persist if set to 'true').
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -970,6 +871,7 @@ class IntegrationApi(object):
         :param async_req bool: execute request asynchronously
         :param str integration_id: The custom identifier for this profile, must be unique within the account. (required)
         :param NewCustomerProfile body: (required)
+        :param bool dry: Flag to indicate whether to skip persisting the changes or not (Will not persist if set to 'true').
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -986,7 +888,7 @@ class IntegrationApi(object):
 
         local_var_params = locals()
 
-        all_params = ['integration_id', 'body']  # noqa: E501
+        all_params = ['integration_id', 'body', 'dry']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -1016,6 +918,8 @@ class IntegrationApi(object):
             path_params['integrationId'] = local_var_params['integration_id']  # noqa: E501
 
         query_params = []
+        if 'dry' in local_var_params and local_var_params['dry'] is not None:  # noqa: E501
+            query_params.append(('dry', local_var_params['dry']))  # noqa: E501
 
         header_params = {}
 
@@ -1052,6 +956,126 @@ class IntegrationApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def update_customer_profile_v2(self, customer_profile_id, body, **kwargs):  # noqa: E501
+        """Update a Customer Profile  # noqa: E501
+
+        Update (or create) a [Customer Profile][].   The `integrationId` may be any identifier that will remain stable for the customer. For example, you might use a database ID, an email, or a phone number as the `integrationId`. It is vital that this ID **not** change over time, so **don't** use any identifier that the customer can update themselves. E.g. if your application allows a customer to update their e-mail address, you should instead use a database ID.  [Customer Profile]: /Getting-Started/entities#customer-profile   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_customer_profile_v2(customer_profile_id, body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str customer_profile_id: The custom identifier for this profile, must be unique within the account. (required)
+        :param NewCustomerProfile body: (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: CustomerProfileUpdate
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.update_customer_profile_v2_with_http_info(customer_profile_id, body, **kwargs)  # noqa: E501
+
+    def update_customer_profile_v2_with_http_info(self, customer_profile_id, body, **kwargs):  # noqa: E501
+        """Update a Customer Profile  # noqa: E501
+
+        Update (or create) a [Customer Profile][].   The `integrationId` may be any identifier that will remain stable for the customer. For example, you might use a database ID, an email, or a phone number as the `integrationId`. It is vital that this ID **not** change over time, so **don't** use any identifier that the customer can update themselves. E.g. if your application allows a customer to update their e-mail address, you should instead use a database ID.  [Customer Profile]: /Getting-Started/entities#customer-profile   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_customer_profile_v2_with_http_info(customer_profile_id, body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str customer_profile_id: The custom identifier for this profile, must be unique within the account. (required)
+        :param NewCustomerProfile body: (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(CustomerProfileUpdate, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['customer_profile_id', 'body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method update_customer_profile_v2" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'customer_profile_id' is set
+        if self.api_client.client_side_validation and ('customer_profile_id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['customer_profile_id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `customer_profile_id` when calling `update_customer_profile_v2`")  # noqa: E501
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in local_var_params or  # noqa: E501
+                                                        local_var_params['body'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `body` when calling `update_customer_profile_v2`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'customer_profile_id' in local_var_params:
+            path_params['customerProfileId'] = local_var_params['customer_profile_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in local_var_params:
+            body_params = local_var_params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['api_key_v1']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/v2/customer_profiles/{customerProfileId}', 'PUT',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='CustomerProfileUpdate',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def update_customer_session(self, customer_session_id, body, **kwargs):  # noqa: E501
         """Update a Customer Session  # noqa: E501
 
@@ -1064,6 +1088,7 @@ class IntegrationApi(object):
         :param async_req bool: execute request asynchronously
         :param str customer_session_id: The custom identifier for this session, must be unique within the account. (required)
         :param NewCustomerSession body: (required)
+        :param bool dry: Flag to indicate whether to skip persisting the changes or not (Will not persist if set to 'true').
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -1090,6 +1115,7 @@ class IntegrationApi(object):
         :param async_req bool: execute request asynchronously
         :param str customer_session_id: The custom identifier for this session, must be unique within the account. (required)
         :param NewCustomerSession body: (required)
+        :param bool dry: Flag to indicate whether to skip persisting the changes or not (Will not persist if set to 'true').
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -1106,7 +1132,7 @@ class IntegrationApi(object):
 
         local_var_params = locals()
 
-        all_params = ['customer_session_id', 'body']  # noqa: E501
+        all_params = ['customer_session_id', 'body', 'dry']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -1136,6 +1162,8 @@ class IntegrationApi(object):
             path_params['customerSessionId'] = local_var_params['customer_session_id']  # noqa: E501
 
         query_params = []
+        if 'dry' in local_var_params and local_var_params['dry'] is not None:  # noqa: E501
+            query_params.append(('dry', local_var_params['dry']))  # noqa: E501
 
         header_params = {}
 
@@ -1184,6 +1212,7 @@ class IntegrationApi(object):
         :param async_req bool: execute request asynchronously
         :param str customer_session_id: The custom identifier for this session, must be unique within the account. (required)
         :param IntegrationRequest body: (required)
+        :param bool dry: Flag to indicate whether to skip persisting the changes or not (Will not persist if set to 'true').
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -1210,6 +1239,7 @@ class IntegrationApi(object):
         :param async_req bool: execute request asynchronously
         :param str customer_session_id: The custom identifier for this session, must be unique within the account. (required)
         :param IntegrationRequest body: (required)
+        :param bool dry: Flag to indicate whether to skip persisting the changes or not (Will not persist if set to 'true').
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -1226,7 +1256,7 @@ class IntegrationApi(object):
 
         local_var_params = locals()
 
-        all_params = ['customer_session_id', 'body']  # noqa: E501
+        all_params = ['customer_session_id', 'body', 'dry']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -1256,6 +1286,8 @@ class IntegrationApi(object):
             path_params['customerSessionId'] = local_var_params['customer_session_id']  # noqa: E501
 
         query_params = []
+        if 'dry' in local_var_params and local_var_params['dry'] is not None:  # noqa: E501
+            query_params.append(('dry', local_var_params['dry']))  # noqa: E501
 
         header_params = {}
 

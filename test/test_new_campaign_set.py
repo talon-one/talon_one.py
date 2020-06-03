@@ -37,6 +37,7 @@ class TestNewCampaignSet(unittest.TestCase):
         if include_optional :
             return NewCampaignSet(
                 application_id = 56, 
+                version = 1, 
                 set = talon_one.models.campaign_set_branch_node.CampaignSetBranchNode(
                     type = 'SET', 
                     name = '0', 
@@ -49,6 +50,7 @@ class TestNewCampaignSet(unittest.TestCase):
         else :
             return NewCampaignSet(
                 application_id = 56,
+                version = 1,
                 set = talon_one.models.campaign_set_branch_node.CampaignSetBranchNode(
                     type = 'SET', 
                     name = '0', 

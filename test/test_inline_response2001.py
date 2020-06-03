@@ -38,42 +38,94 @@ class TestInlineResponse2001(unittest.TestCase):
             return InlineResponse2001(
                 total_result_size = 56, 
                 data = [
-                    talon_one.models.coupon.Coupon(
+                    talon_one.models.application.Application(
                         id = 56, 
                         created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        campaign_id = 56, 
-                        value = '0123', 
-                        usage_limit = 0, 
-                        start_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        expiry_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        usage_counter = 56, 
-                        attributes = talon_one.models.attributes_of_coupon.Attributes of coupon(), 
-                        referral_id = 56, 
-                        recipient_integration_id = '0', 
-                        import_id = 56, 
-                        reservation = True, 
-                        batch_id = '0', )
+                        modified = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        account_id = 56, 
+                        name = '0', 
+                        description = '0', 
+                        timezone = '0', 
+                        currency = '0', 
+                        case_sensitivity = 'sensitive', 
+                        attributes = talon_one.models.attributes.attributes(), 
+                        limits = [
+                            talon_one.models.limit_config.LimitConfig(
+                                action = 'redeemCoupon', 
+                                limit = 0, 
+                                entities = [
+                                    'Coupon'
+                                    ], )
+                            ], 
+                        campaign_priority = 'universal', 
+                        attributes_settings = talon_one.models.attributes_settings.AttributesSettings(
+                            mandatory = talon_one.models.attributes_mandatory.AttributesMandatory(
+                                campaigns = [
+                                    '0'
+                                    ], 
+                                coupons = [
+                                    '0'
+                                    ], ), ), 
+                        loyalty_programs = [
+                            talon_one.models.loyalty_program.LoyaltyProgram(
+                                id = 56, 
+                                account_id = 56, 
+                                name = '0', 
+                                title = '0', 
+                                description = '0', 
+                                subscribed_applications = [
+                                    56
+                                    ], 
+                                default_validity = '0', 
+                                allow_subledger = True, )
+                            ], )
                     ]
             )
         else :
             return InlineResponse2001(
                 total_result_size = 56,
                 data = [
-                    talon_one.models.coupon.Coupon(
+                    talon_one.models.application.Application(
                         id = 56, 
                         created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        campaign_id = 56, 
-                        value = '0123', 
-                        usage_limit = 0, 
-                        start_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        expiry_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        usage_counter = 56, 
-                        attributes = talon_one.models.attributes_of_coupon.Attributes of coupon(), 
-                        referral_id = 56, 
-                        recipient_integration_id = '0', 
-                        import_id = 56, 
-                        reservation = True, 
-                        batch_id = '0', )
+                        modified = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        account_id = 56, 
+                        name = '0', 
+                        description = '0', 
+                        timezone = '0', 
+                        currency = '0', 
+                        case_sensitivity = 'sensitive', 
+                        attributes = talon_one.models.attributes.attributes(), 
+                        limits = [
+                            talon_one.models.limit_config.LimitConfig(
+                                action = 'redeemCoupon', 
+                                limit = 0, 
+                                entities = [
+                                    'Coupon'
+                                    ], )
+                            ], 
+                        campaign_priority = 'universal', 
+                        attributes_settings = talon_one.models.attributes_settings.AttributesSettings(
+                            mandatory = talon_one.models.attributes_mandatory.AttributesMandatory(
+                                campaigns = [
+                                    '0'
+                                    ], 
+                                coupons = [
+                                    '0'
+                                    ], ), ), 
+                        loyalty_programs = [
+                            talon_one.models.loyalty_program.LoyaltyProgram(
+                                id = 56, 
+                                account_id = 56, 
+                                name = '0', 
+                                title = '0', 
+                                description = '0', 
+                                subscribed_applications = [
+                                    56
+                                    ], 
+                                default_validity = '0', 
+                                allow_subledger = True, )
+                            ], )
                     ],
         )
 

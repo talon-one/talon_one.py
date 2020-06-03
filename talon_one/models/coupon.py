@@ -38,9 +38,12 @@ class Coupon(object):
         'campaign_id': 'int',
         'value': 'str',
         'usage_limit': 'int',
+        'discount_limit': 'float',
         'start_date': 'datetime',
         'expiry_date': 'datetime',
         'usage_counter': 'int',
+        'discount_counter': 'float',
+        'discount_remainder': 'float',
         'attributes': 'object',
         'referral_id': 'int',
         'recipient_integration_id': 'str',
@@ -55,9 +58,12 @@ class Coupon(object):
         'campaign_id': 'campaignId',
         'value': 'value',
         'usage_limit': 'usageLimit',
+        'discount_limit': 'discountLimit',
         'start_date': 'startDate',
         'expiry_date': 'expiryDate',
         'usage_counter': 'usageCounter',
+        'discount_counter': 'discountCounter',
+        'discount_remainder': 'discountRemainder',
         'attributes': 'attributes',
         'referral_id': 'referralId',
         'recipient_integration_id': 'recipientIntegrationId',
@@ -66,7 +72,7 @@ class Coupon(object):
         'batch_id': 'batchId'
     }
 
-    def __init__(self, id=None, created=None, campaign_id=None, value=None, usage_limit=None, start_date=None, expiry_date=None, usage_counter=None, attributes=None, referral_id=None, recipient_integration_id=None, import_id=None, reservation=None, batch_id=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, created=None, campaign_id=None, value=None, usage_limit=None, discount_limit=None, start_date=None, expiry_date=None, usage_counter=None, discount_counter=None, discount_remainder=None, attributes=None, referral_id=None, recipient_integration_id=None, import_id=None, reservation=None, batch_id=None, local_vars_configuration=None):  # noqa: E501
         """Coupon - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -77,9 +83,12 @@ class Coupon(object):
         self._campaign_id = None
         self._value = None
         self._usage_limit = None
+        self._discount_limit = None
         self._start_date = None
         self._expiry_date = None
         self._usage_counter = None
+        self._discount_counter = None
+        self._discount_remainder = None
         self._attributes = None
         self._referral_id = None
         self._recipient_integration_id = None
@@ -93,11 +102,17 @@ class Coupon(object):
         self.campaign_id = campaign_id
         self.value = value
         self.usage_limit = usage_limit
+        if discount_limit is not None:
+            self.discount_limit = discount_limit
         if start_date is not None:
             self.start_date = start_date
         if expiry_date is not None:
             self.expiry_date = expiry_date
         self.usage_counter = usage_counter
+        if discount_counter is not None:
+            self.discount_counter = discount_counter
+        if discount_remainder is not None:
+            self.discount_remainder = discount_remainder
         if attributes is not None:
             self.attributes = attributes
         if referral_id is not None:
@@ -246,6 +261,35 @@ class Coupon(object):
         self._usage_limit = usage_limit
 
     @property
+    def discount_limit(self):
+        """Gets the discount_limit of this Coupon.  # noqa: E501
+
+        The amount of discounts that can be given with this coupon code.   # noqa: E501
+
+        :return: The discount_limit of this Coupon.  # noqa: E501
+        :rtype: float
+        """
+        return self._discount_limit
+
+    @discount_limit.setter
+    def discount_limit(self, discount_limit):
+        """Sets the discount_limit of this Coupon.
+
+        The amount of discounts that can be given with this coupon code.   # noqa: E501
+
+        :param discount_limit: The discount_limit of this Coupon.  # noqa: E501
+        :type: float
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                discount_limit is not None and discount_limit > 999999):  # noqa: E501
+            raise ValueError("Invalid value for `discount_limit`, must be a value less than or equal to `999999`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                discount_limit is not None and discount_limit < 0):  # noqa: E501
+            raise ValueError("Invalid value for `discount_limit`, must be a value greater than or equal to `0`")  # noqa: E501
+
+        self._discount_limit = discount_limit
+
+    @property
     def start_date(self):
         """Gets the start_date of this Coupon.  # noqa: E501
 
@@ -317,6 +361,52 @@ class Coupon(object):
         self._usage_counter = usage_counter
 
     @property
+    def discount_counter(self):
+        """Gets the discount_counter of this Coupon.  # noqa: E501
+
+        The amount of discounts given on rules redeeming this coupon. Only usable if a coupon discount budget was set for this coupon.  # noqa: E501
+
+        :return: The discount_counter of this Coupon.  # noqa: E501
+        :rtype: float
+        """
+        return self._discount_counter
+
+    @discount_counter.setter
+    def discount_counter(self, discount_counter):
+        """Sets the discount_counter of this Coupon.
+
+        The amount of discounts given on rules redeeming this coupon. Only usable if a coupon discount budget was set for this coupon.  # noqa: E501
+
+        :param discount_counter: The discount_counter of this Coupon.  # noqa: E501
+        :type: float
+        """
+
+        self._discount_counter = discount_counter
+
+    @property
+    def discount_remainder(self):
+        """Gets the discount_remainder of this Coupon.  # noqa: E501
+
+        The remaining discount this coupon can give.  # noqa: E501
+
+        :return: The discount_remainder of this Coupon.  # noqa: E501
+        :rtype: float
+        """
+        return self._discount_remainder
+
+    @discount_remainder.setter
+    def discount_remainder(self, discount_remainder):
+        """Sets the discount_remainder of this Coupon.
+
+        The remaining discount this coupon can give.  # noqa: E501
+
+        :param discount_remainder: The discount_remainder of this Coupon.  # noqa: E501
+        :type: float
+        """
+
+        self._discount_remainder = discount_remainder
+
+    @property
     def attributes(self):
         """Gets the attributes of this Coupon.  # noqa: E501
 
@@ -366,7 +456,7 @@ class Coupon(object):
     def recipient_integration_id(self):
         """Gets the recipient_integration_id of this Coupon.  # noqa: E501
 
-        The integration ID of a referred customer profile.  # noqa: E501
+        The Integration ID of the customer that is allowed to redeem this coupon.  # noqa: E501
 
         :return: The recipient_integration_id of this Coupon.  # noqa: E501
         :rtype: str
@@ -377,7 +467,7 @@ class Coupon(object):
     def recipient_integration_id(self, recipient_integration_id):
         """Sets the recipient_integration_id of this Coupon.
 
-        The integration ID of a referred customer profile.  # noqa: E501
+        The Integration ID of the customer that is allowed to redeem this coupon.  # noqa: E501
 
         :param recipient_integration_id: The recipient_integration_id of this Coupon.  # noqa: E501
         :type: str

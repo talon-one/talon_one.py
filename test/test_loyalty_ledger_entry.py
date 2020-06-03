@@ -41,18 +41,19 @@ class TestLoyaltyLedgerEntry(unittest.TestCase):
                 customer_profile_id = '0', 
                 customer_session_id = '0', 
                 event_id = 56, 
-                type = 'addition', 
+                type = '0', 
                 amount = 1.337, 
                 expiry_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                 name = '0', 
-                sub_ledger_id = '0'
+                sub_ledger_id = '0', 
+                user_id = 56
             )
         else :
             return LoyaltyLedgerEntry(
                 created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 program_id = 56,
                 customer_profile_id = '0',
-                type = 'addition',
+                type = '0',
                 amount = 1.337,
                 name = '0',
                 sub_ledger_id = '0',

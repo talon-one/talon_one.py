@@ -40,6 +40,7 @@ class UpdateApplication(object):
         'case_sensitivity': 'str',
         'attributes': 'object',
         'limits': 'list[LimitConfig]',
+        'campaign_priority': 'str',
         'attributes_settings': 'AttributesSettings'
     }
 
@@ -51,10 +52,11 @@ class UpdateApplication(object):
         'case_sensitivity': 'caseSensitivity',
         'attributes': 'attributes',
         'limits': 'limits',
+        'campaign_priority': 'campaignPriority',
         'attributes_settings': 'attributesSettings'
     }
 
-    def __init__(self, name=None, description=None, timezone=None, currency=None, case_sensitivity=None, attributes=None, limits=None, attributes_settings=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, name=None, description=None, timezone=None, currency=None, case_sensitivity=None, attributes=None, limits=None, campaign_priority=None, attributes_settings=None, local_vars_configuration=None):  # noqa: E501
         """UpdateApplication - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -67,6 +69,7 @@ class UpdateApplication(object):
         self._case_sensitivity = None
         self._attributes = None
         self._limits = None
+        self._campaign_priority = None
         self._attributes_settings = None
         self.discriminator = None
 
@@ -81,6 +84,8 @@ class UpdateApplication(object):
             self.attributes = attributes
         if limits is not None:
             self.limits = limits
+        if campaign_priority is not None:
+            self.campaign_priority = campaign_priority
         if attributes_settings is not None:
             self.attributes_settings = attributes_settings
 
@@ -265,6 +270,35 @@ class UpdateApplication(object):
         """
 
         self._limits = limits
+
+    @property
+    def campaign_priority(self):
+        """Gets the campaign_priority of this UpdateApplication.  # noqa: E501
+
+        Default priority for campaigns created in this application, can be one of (universal, stackable, exclusive)  # noqa: E501
+
+        :return: The campaign_priority of this UpdateApplication.  # noqa: E501
+        :rtype: str
+        """
+        return self._campaign_priority
+
+    @campaign_priority.setter
+    def campaign_priority(self, campaign_priority):
+        """Sets the campaign_priority of this UpdateApplication.
+
+        Default priority for campaigns created in this application, can be one of (universal, stackable, exclusive)  # noqa: E501
+
+        :param campaign_priority: The campaign_priority of this UpdateApplication.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["universal", "stackable", "exclusive"]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and campaign_priority not in allowed_values:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `campaign_priority` ({0}), must be one of {1}"  # noqa: E501
+                .format(campaign_priority, allowed_values)
+            )
+
+        self._campaign_priority = campaign_priority
 
     @property
     def attributes_settings(self):

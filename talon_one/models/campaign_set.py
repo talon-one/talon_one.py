@@ -36,6 +36,7 @@ class CampaignSet(object):
         'id': 'int',
         'created': 'datetime',
         'application_id': 'int',
+        'version': 'int',
         'set': 'CampaignSetBranchNode'
     }
 
@@ -43,10 +44,11 @@ class CampaignSet(object):
         'id': 'id',
         'created': 'created',
         'application_id': 'applicationId',
+        'version': 'version',
         'set': 'set'
     }
 
-    def __init__(self, id=None, created=None, application_id=None, set=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, created=None, application_id=None, version=None, set=None, local_vars_configuration=None):  # noqa: E501
         """CampaignSet - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -55,12 +57,14 @@ class CampaignSet(object):
         self._id = None
         self._created = None
         self._application_id = None
+        self._version = None
         self._set = None
         self.discriminator = None
 
         self.id = id
         self.created = created
         self.application_id = application_id
+        self.version = version
         self.set = set
 
     @property
@@ -137,6 +141,34 @@ class CampaignSet(object):
             raise ValueError("Invalid value for `application_id`, must not be `None`")  # noqa: E501
 
         self._application_id = application_id
+
+    @property
+    def version(self):
+        """Gets the version of this CampaignSet.  # noqa: E501
+
+        Version of the campaign set  # noqa: E501
+
+        :return: The version of this CampaignSet.  # noqa: E501
+        :rtype: int
+        """
+        return self._version
+
+    @version.setter
+    def version(self, version):
+        """Sets the version of this CampaignSet.
+
+        Version of the campaign set  # noqa: E501
+
+        :param version: The version of this CampaignSet.  # noqa: E501
+        :type: int
+        """
+        if self.local_vars_configuration.client_side_validation and version is None:  # noqa: E501
+            raise ValueError("Invalid value for `version`, must not be `None`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                version is not None and version < 1):  # noqa: E501
+            raise ValueError("Invalid value for `version`, must be a value greater than or equal to `1`")  # noqa: E501
+
+        self._version = version
 
     @property
     def set(self):

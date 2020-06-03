@@ -34,15 +34,17 @@ class CustomerInventory(object):
     """
     openapi_types = {
         'profile': 'CustomerProfile',
-        'referrals': 'list[Referral]'
+        'referrals': 'list[Referral]',
+        'coupons': 'list[Coupon]'
     }
 
     attribute_map = {
         'profile': 'profile',
-        'referrals': 'referrals'
+        'referrals': 'referrals',
+        'coupons': 'coupons'
     }
 
-    def __init__(self, profile=None, referrals=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, profile=None, referrals=None, coupons=None, local_vars_configuration=None):  # noqa: E501
         """CustomerInventory - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -50,12 +52,15 @@ class CustomerInventory(object):
 
         self._profile = None
         self._referrals = None
+        self._coupons = None
         self.discriminator = None
 
         if profile is not None:
             self.profile = profile
         if referrals is not None:
             self.referrals = referrals
+        if coupons is not None:
+            self.coupons = coupons
 
     @property
     def profile(self):
@@ -98,6 +103,27 @@ class CustomerInventory(object):
         """
 
         self._referrals = referrals
+
+    @property
+    def coupons(self):
+        """Gets the coupons of this CustomerInventory.  # noqa: E501
+
+
+        :return: The coupons of this CustomerInventory.  # noqa: E501
+        :rtype: list[Coupon]
+        """
+        return self._coupons
+
+    @coupons.setter
+    def coupons(self, coupons):
+        """Sets the coupons of this CustomerInventory.
+
+
+        :param coupons: The coupons of this CustomerInventory.  # noqa: E501
+        :type: list[Coupon]
+        """
+
+        self._coupons = coupons
 
     def to_dict(self):
         """Returns the model properties as a dict"""

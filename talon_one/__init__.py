@@ -14,7 +14,7 @@
 
 from __future__ import absolute_import
 
-__version__ = "3.0.0"
+__version__ = "3.1.0"
 
 # import apis into sdk package
 from talon_one.api.integration_api import IntegrationApi
@@ -83,6 +83,7 @@ from talon_one.models.customer_analytics import CustomerAnalytics
 from talon_one.models.customer_inventory import CustomerInventory
 from talon_one.models.customer_profile import CustomerProfile
 from talon_one.models.customer_profile_search_query import CustomerProfileSearchQuery
+from talon_one.models.customer_profile_update import CustomerProfileUpdate
 from talon_one.models.customer_session import CustomerSession
 from talon_one.models.customer_session_v2 import CustomerSessionV2
 from talon_one.models.deduct_loyalty_points_effect_props import DeductLoyaltyPointsEffectProps

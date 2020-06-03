@@ -9,10 +9,10 @@ Method | HTTP request | Description
 [**delete_coupon_reservation**](IntegrationApi.md#delete_coupon_reservation) | **DELETE** /v1/coupon_reservations/{couponValue} | Delete coupon reservations
 [**delete_customer_data**](IntegrationApi.md#delete_customer_data) | **DELETE** /v1/customer_data/{integrationId} | Delete the personal data of a customer.
 [**get_customer_inventory**](IntegrationApi.md#get_customer_inventory) | **GET** /v1/customer_profiles/{integrationId}/inventory | Get an inventory of all data associated with a specific customer profile.
-[**get_reserved_coupons**](IntegrationApi.md#get_reserved_coupons) | **GET** /v1/coupon_reservations/coupons/{integrationId} | Get all valid reserved coupons
 [**get_reserved_customers**](IntegrationApi.md#get_reserved_customers) | **GET** /v1/coupon_reservations/customerprofiles/{couponValue} | Get the users that have this coupon reserved
 [**track_event**](IntegrationApi.md#track_event) | **POST** /v1/events | Track an Event
 [**update_customer_profile**](IntegrationApi.md#update_customer_profile) | **PUT** /v1/customer_profiles/{integrationId} | Update a Customer Profile
+[**update_customer_profile_v2**](IntegrationApi.md#update_customer_profile_v2) | **PUT** /v2/customer_profiles/{customerProfileId} | Update a Customer Profile
 [**update_customer_session**](IntegrationApi.md#update_customer_session) | **PUT** /v1/customer_sessions/{customerSessionId} | Update a Customer Session
 [**update_customer_session_v2**](IntegrationApi.md#update_customer_session_v2) | **PUT** /v2/customer_sessions/{customerSessionId} | Update a Customer Session
 
@@ -432,11 +432,11 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_customer_inventory**
-> CustomerInventory get_customer_inventory(integration_id, profile=profile, referrals=referrals)
+> CustomerInventory get_customer_inventory(integration_id, profile=profile, referrals=referrals, coupons=coupons)
 
 Get an inventory of all data associated with a specific customer profile.
 
-Get information regarding entities referencing this customer profile's integrationId. Currently we support customer profile information and referral codes. In the future, this will be expanded with coupon codes and loyalty points.
+Get information regarding entities referencing this customer profile's integrationId. Currently we support customer profile information, referral codes and reserved coupons. In the future, this will be expanded with loyalty points.
 
 ### Example
 
@@ -467,10 +467,11 @@ with talon_one.ApiClient(configuration) as api_client:
     integration_id = 'integration_id_example' # str | The custom identifier for this profile, must be unique within the account.
 profile = True # bool | optional flag to decide if you would like customer profile information in the response (optional)
 referrals = True # bool | optional flag to decide if you would like referral information in the response (optional)
+coupons = True # bool | optional flag to decide if you would like coupon information in the response (optional)
 
     try:
         # Get an inventory of all data associated with a specific customer profile.
-        api_response = api_instance.get_customer_inventory(integration_id, profile=profile, referrals=referrals)
+        api_response = api_instance.get_customer_inventory(integration_id, profile=profile, referrals=referrals, coupons=coupons)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling IntegrationApi->get_customer_inventory: %s\n" % e)
@@ -503,10 +504,11 @@ with talon_one.ApiClient(configuration) as api_client:
     integration_id = 'integration_id_example' # str | The custom identifier for this profile, must be unique within the account.
 profile = True # bool | optional flag to decide if you would like customer profile information in the response (optional)
 referrals = True # bool | optional flag to decide if you would like referral information in the response (optional)
+coupons = True # bool | optional flag to decide if you would like coupon information in the response (optional)
 
     try:
         # Get an inventory of all data associated with a specific customer profile.
-        api_response = api_instance.get_customer_inventory(integration_id, profile=profile, referrals=referrals)
+        api_response = api_instance.get_customer_inventory(integration_id, profile=profile, referrals=referrals, coupons=coupons)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling IntegrationApi->get_customer_inventory: %s\n" % e)
@@ -519,113 +521,11 @@ Name | Type | Description  | Notes
  **integration_id** | **str**| The custom identifier for this profile, must be unique within the account. | 
  **profile** | **bool**| optional flag to decide if you would like customer profile information in the response | [optional] 
  **referrals** | **bool**| optional flag to decide if you would like referral information in the response | [optional] 
+ **coupons** | **bool**| optional flag to decide if you would like coupon information in the response | [optional] 
 
 ### Return type
 
 [**CustomerInventory**](CustomerInventory.md)
-
-### Authorization
-
-[api_key_v1](../README.md#api_key_v1), [integration_auth](../README.md#integration_auth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | OK |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **get_reserved_coupons**
-> InlineResponse2001 get_reserved_coupons(integration_id)
-
-Get all valid reserved coupons
-
-Returns all coupons this user is subscribed to that are valid and usable 
-
-### Example
-
-* Api Key Authentication (api_key_v1):
-```python
-from __future__ import print_function
-import time
-import talon_one
-from talon_one.rest import ApiException
-from pprint import pprint
-configuration = talon_one.Configuration()
-# Configure API key authorization: api_key_v1
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
-configuration = talon_one.Configuration()
-# Configure API key authorization: integration_auth
-configuration.api_key['Content-Signature'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Content-Signature'] = 'Bearer'
-
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
-# Enter a context with an instance of the API client
-with talon_one.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = talon_one.IntegrationApi(api_client)
-    integration_id = 'integration_id_example' # str | The custom identifier for this profile, must be unique within the account.
-
-    try:
-        # Get all valid reserved coupons
-        api_response = api_instance.get_reserved_coupons(integration_id)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling IntegrationApi->get_reserved_coupons: %s\n" % e)
-```
-
-* Api Key Authentication (integration_auth):
-```python
-from __future__ import print_function
-import time
-import talon_one
-from talon_one.rest import ApiException
-from pprint import pprint
-configuration = talon_one.Configuration()
-# Configure API key authorization: api_key_v1
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
-configuration = talon_one.Configuration()
-# Configure API key authorization: integration_auth
-configuration.api_key['Content-Signature'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Content-Signature'] = 'Bearer'
-
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
-# Enter a context with an instance of the API client
-with talon_one.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = talon_one.IntegrationApi(api_client)
-    integration_id = 'integration_id_example' # str | The custom identifier for this profile, must be unique within the account.
-
-    try:
-        # Get all valid reserved coupons
-        api_response = api_instance.get_reserved_coupons(integration_id)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling IntegrationApi->get_reserved_coupons: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **integration_id** | **str**| The custom identifier for this profile, must be unique within the account. | 
-
-### Return type
-
-[**InlineResponse2001**](InlineResponse2001.md)
 
 ### Authorization
 
@@ -747,7 +647,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **track_event**
-> IntegrationState track_event(body)
+> IntegrationState track_event(body, dry=dry)
 
 Track an Event
 
@@ -780,10 +680,11 @@ with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.IntegrationApi(api_client)
     body = talon_one.NewEvent() # NewEvent | 
+dry = True # bool | Flag to indicate whether to skip persisting the changes or not (Will not persist if set to 'true'). (optional)
 
     try:
         # Track an Event
-        api_response = api_instance.track_event(body)
+        api_response = api_instance.track_event(body, dry=dry)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling IntegrationApi->track_event: %s\n" % e)
@@ -814,10 +715,11 @@ with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.IntegrationApi(api_client)
     body = talon_one.NewEvent() # NewEvent | 
+dry = True # bool | Flag to indicate whether to skip persisting the changes or not (Will not persist if set to 'true'). (optional)
 
     try:
         # Track an Event
-        api_response = api_instance.track_event(body)
+        api_response = api_instance.track_event(body, dry=dry)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling IntegrationApi->track_event: %s\n" % e)
@@ -828,6 +730,7 @@ with talon_one.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **body** | [**NewEvent**](NewEvent.md)|  | 
+ **dry** | **bool**| Flag to indicate whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;). | [optional] 
 
 ### Return type
 
@@ -850,7 +753,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_customer_profile**
-> IntegrationState update_customer_profile(integration_id, body)
+> IntegrationState update_customer_profile(integration_id, body, dry=dry)
 
 Update a Customer Profile
 
@@ -884,10 +787,11 @@ with talon_one.ApiClient(configuration) as api_client:
     api_instance = talon_one.IntegrationApi(api_client)
     integration_id = 'integration_id_example' # str | The custom identifier for this profile, must be unique within the account.
 body = talon_one.NewCustomerProfile() # NewCustomerProfile | 
+dry = True # bool | Flag to indicate whether to skip persisting the changes or not (Will not persist if set to 'true'). (optional)
 
     try:
         # Update a Customer Profile
-        api_response = api_instance.update_customer_profile(integration_id, body)
+        api_response = api_instance.update_customer_profile(integration_id, body, dry=dry)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling IntegrationApi->update_customer_profile: %s\n" % e)
@@ -919,10 +823,11 @@ with talon_one.ApiClient(configuration) as api_client:
     api_instance = talon_one.IntegrationApi(api_client)
     integration_id = 'integration_id_example' # str | The custom identifier for this profile, must be unique within the account.
 body = talon_one.NewCustomerProfile() # NewCustomerProfile | 
+dry = True # bool | Flag to indicate whether to skip persisting the changes or not (Will not persist if set to 'true'). (optional)
 
     try:
         # Update a Customer Profile
-        api_response = api_instance.update_customer_profile(integration_id, body)
+        api_response = api_instance.update_customer_profile(integration_id, body, dry=dry)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling IntegrationApi->update_customer_profile: %s\n" % e)
@@ -934,6 +839,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **integration_id** | **str**| The custom identifier for this profile, must be unique within the account. | 
  **body** | [**NewCustomerProfile**](NewCustomerProfile.md)|  | 
+ **dry** | **bool**| Flag to indicate whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;). | [optional] 
 
 ### Return type
 
@@ -955,8 +861,74 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **update_customer_profile_v2**
+> CustomerProfileUpdate update_customer_profile_v2(customer_profile_id, body)
+
+Update a Customer Profile
+
+Update (or create) a [Customer Profile][].   The `integrationId` may be any identifier that will remain stable for the customer. For example, you might use a database ID, an email, or a phone number as the `integrationId`. It is vital that this ID **not** change over time, so **don't** use any identifier that the customer can update themselves. E.g. if your application allows a customer to update their e-mail address, you should instead use a database ID.  [Customer Profile]: /Getting-Started/entities#customer-profile 
+
+### Example
+
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+configuration = talon_one.Configuration()
+# Configure API key authorization: api_key_v1
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Defining host is optional and default to http://localhost
+configuration.host = "http://localhost"
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.IntegrationApi(api_client)
+    customer_profile_id = 'customer_profile_id_example' # str | The custom identifier for this profile, must be unique within the account.
+body = talon_one.NewCustomerProfile() # NewCustomerProfile | 
+
+    try:
+        # Update a Customer Profile
+        api_response = api_instance.update_customer_profile_v2(customer_profile_id, body)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling IntegrationApi->update_customer_profile_v2: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **customer_profile_id** | **str**| The custom identifier for this profile, must be unique within the account. | 
+ **body** | [**NewCustomerProfile**](NewCustomerProfile.md)|  | 
+
+### Return type
+
+[**CustomerProfileUpdate**](CustomerProfileUpdate.md)
+
+### Authorization
+
+[api_key_v1](../README.md#api_key_v1)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **update_customer_session**
-> IntegrationState update_customer_session(customer_session_id, body)
+> IntegrationState update_customer_session(customer_session_id, body, dry=dry)
 
 Update a Customer Session
 
@@ -990,10 +962,11 @@ with talon_one.ApiClient(configuration) as api_client:
     api_instance = talon_one.IntegrationApi(api_client)
     customer_session_id = 'customer_session_id_example' # str | The custom identifier for this session, must be unique within the account.
 body = talon_one.NewCustomerSession() # NewCustomerSession | 
+dry = True # bool | Flag to indicate whether to skip persisting the changes or not (Will not persist if set to 'true'). (optional)
 
     try:
         # Update a Customer Session
-        api_response = api_instance.update_customer_session(customer_session_id, body)
+        api_response = api_instance.update_customer_session(customer_session_id, body, dry=dry)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling IntegrationApi->update_customer_session: %s\n" % e)
@@ -1025,10 +998,11 @@ with talon_one.ApiClient(configuration) as api_client:
     api_instance = talon_one.IntegrationApi(api_client)
     customer_session_id = 'customer_session_id_example' # str | The custom identifier for this session, must be unique within the account.
 body = talon_one.NewCustomerSession() # NewCustomerSession | 
+dry = True # bool | Flag to indicate whether to skip persisting the changes or not (Will not persist if set to 'true'). (optional)
 
     try:
         # Update a Customer Session
-        api_response = api_instance.update_customer_session(customer_session_id, body)
+        api_response = api_instance.update_customer_session(customer_session_id, body, dry=dry)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling IntegrationApi->update_customer_session: %s\n" % e)
@@ -1040,6 +1014,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **customer_session_id** | **str**| The custom identifier for this session, must be unique within the account. | 
  **body** | [**NewCustomerSession**](NewCustomerSession.md)|  | 
+ **dry** | **bool**| Flag to indicate whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;). | [optional] 
 
 ### Return type
 
@@ -1062,7 +1037,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_customer_session_v2**
-> IntegrationStateV2 update_customer_session_v2(customer_session_id, body)
+> IntegrationStateV2 update_customer_session_v2(customer_session_id, body, dry=dry)
 
 Update a Customer Session
 
@@ -1091,10 +1066,11 @@ with talon_one.ApiClient(configuration) as api_client:
     api_instance = talon_one.IntegrationApi(api_client)
     customer_session_id = 'customer_session_id_example' # str | The custom identifier for this session, must be unique within the account.
 body = talon_one.IntegrationRequest() # IntegrationRequest | 
+dry = True # bool | Flag to indicate whether to skip persisting the changes or not (Will not persist if set to 'true'). (optional)
 
     try:
         # Update a Customer Session
-        api_response = api_instance.update_customer_session_v2(customer_session_id, body)
+        api_response = api_instance.update_customer_session_v2(customer_session_id, body, dry=dry)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling IntegrationApi->update_customer_session_v2: %s\n" % e)
@@ -1106,6 +1082,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **customer_session_id** | **str**| The custom identifier for this session, must be unique within the account. | 
  **body** | [**IntegrationRequest**](IntegrationRequest.md)|  | 
+ **dry** | **bool**| Flag to indicate whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;). | [optional] 
 
 ### Return type
 

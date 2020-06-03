@@ -38,102 +38,78 @@ class TestInlineResponse2003(unittest.TestCase):
             return InlineResponse2003(
                 total_result_size = 56, 
                 data = [
-                    talon_one.models.campaign.Campaign(
+                    talon_one.models.ruleset.Ruleset(
                         id = 56, 
                         created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        application_id = 56, 
+                        campaign_id = 56, 
                         user_id = 56, 
-                        name = '0', 
-                        description = '0', 
-                        start_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        end_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        attributes = talon_one.models.attributes.attributes(), 
-                        state = 'enabled', 
-                        active_ruleset_id = 56, 
-                        tags = [
-                            '0'
-                            ], 
-                        features = [
-                            'coupons'
-                            ], 
-                        coupon_settings = talon_one.models.code_generator_settings.CodeGeneratorSettings(
-                            valid_characters = [
-                                '0'
-                                ], 
-                            coupon_pattern = '012', ), 
-                        referral_settings = talon_one.models.code_generator_settings.CodeGeneratorSettings(
-                            valid_characters = [
-                                '0'
-                                ], 
-                            coupon_pattern = '012', ), 
-                        limits = [
-                            talon_one.models.limit_config.LimitConfig(
-                                action = 'redeemCoupon', 
-                                limit = 0, 
-                                entities = [
-                                    'Coupon'
+                        rules = [
+                            talon_one.models.rule.Rule(
+                                title = '0', 
+                                description = '0', 
+                                bindings = [
+                                    talon_one.models.binding.Binding(
+                                        name = '0', 
+                                        expression = [
+                                            None
+                                            ], )
+                                    ], 
+                                condition = [
+                                    None
+                                    ], 
+                                effects = [
+                                    None
                                     ], )
                             ], 
-                        coupon_redemption_count = 56, 
-                        referral_redemption_count = 56, 
-                        discount_count = 56, 
-                        discount_effect_count = 56, 
-                        coupon_creation_count = 56, 
-                        last_activity = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        updated = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        created_by = '0', 
-                        updated_by = '0', )
+                        bindings = [
+                            talon_one.models.binding.Binding(
+                                name = '0', 
+                                expression = [
+                                    None
+                                    ], )
+                            ], 
+                        rb_version = '0', 
+                        activate = True, 
+                        activated_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), )
                     ]
             )
         else :
             return InlineResponse2003(
                 total_result_size = 56,
                 data = [
-                    talon_one.models.campaign.Campaign(
+                    talon_one.models.ruleset.Ruleset(
                         id = 56, 
                         created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        application_id = 56, 
+                        campaign_id = 56, 
                         user_id = 56, 
-                        name = '0', 
-                        description = '0', 
-                        start_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        end_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        attributes = talon_one.models.attributes.attributes(), 
-                        state = 'enabled', 
-                        active_ruleset_id = 56, 
-                        tags = [
-                            '0'
-                            ], 
-                        features = [
-                            'coupons'
-                            ], 
-                        coupon_settings = talon_one.models.code_generator_settings.CodeGeneratorSettings(
-                            valid_characters = [
-                                '0'
-                                ], 
-                            coupon_pattern = '012', ), 
-                        referral_settings = talon_one.models.code_generator_settings.CodeGeneratorSettings(
-                            valid_characters = [
-                                '0'
-                                ], 
-                            coupon_pattern = '012', ), 
-                        limits = [
-                            talon_one.models.limit_config.LimitConfig(
-                                action = 'redeemCoupon', 
-                                limit = 0, 
-                                entities = [
-                                    'Coupon'
+                        rules = [
+                            talon_one.models.rule.Rule(
+                                title = '0', 
+                                description = '0', 
+                                bindings = [
+                                    talon_one.models.binding.Binding(
+                                        name = '0', 
+                                        expression = [
+                                            None
+                                            ], )
+                                    ], 
+                                condition = [
+                                    None
+                                    ], 
+                                effects = [
+                                    None
                                     ], )
                             ], 
-                        coupon_redemption_count = 56, 
-                        referral_redemption_count = 56, 
-                        discount_count = 56, 
-                        discount_effect_count = 56, 
-                        coupon_creation_count = 56, 
-                        last_activity = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        updated = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        created_by = '0', 
-                        updated_by = '0', )
+                        bindings = [
+                            talon_one.models.binding.Binding(
+                                name = '0', 
+                                expression = [
+                                    None
+                                    ], )
+                            ], 
+                        rb_version = '0', 
+                        activate = True, 
+                        activated_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), )
                     ],
         )
 

@@ -34,6 +34,7 @@ class NewCoupons(object):
     """
     openapi_types = {
         'usage_limit': 'int',
+        'discount_limit': 'float',
         'start_date': 'datetime',
         'expiry_date': 'datetime',
         'valid_characters': 'list[str]',
@@ -46,6 +47,7 @@ class NewCoupons(object):
 
     attribute_map = {
         'usage_limit': 'usageLimit',
+        'discount_limit': 'discountLimit',
         'start_date': 'startDate',
         'expiry_date': 'expiryDate',
         'valid_characters': 'validCharacters',
@@ -56,13 +58,14 @@ class NewCoupons(object):
         'recipient_integration_id': 'recipientIntegrationId'
     }
 
-    def __init__(self, usage_limit=None, start_date=None, expiry_date=None, valid_characters=None, coupon_pattern=None, number_of_coupons=None, unique_prefix=None, attributes=None, recipient_integration_id=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, usage_limit=None, discount_limit=None, start_date=None, expiry_date=None, valid_characters=None, coupon_pattern=None, number_of_coupons=None, unique_prefix=None, attributes=None, recipient_integration_id=None, local_vars_configuration=None):  # noqa: E501
         """NewCoupons - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._usage_limit = None
+        self._discount_limit = None
         self._start_date = None
         self._expiry_date = None
         self._valid_characters = None
@@ -74,6 +77,8 @@ class NewCoupons(object):
         self.discriminator = None
 
         self.usage_limit = usage_limit
+        if discount_limit is not None:
+            self.discount_limit = discount_limit
         if start_date is not None:
             self.start_date = start_date
         if expiry_date is not None:
@@ -118,6 +123,35 @@ class NewCoupons(object):
             raise ValueError("Invalid value for `usage_limit`, must be a value greater than or equal to `0`")  # noqa: E501
 
         self._usage_limit = usage_limit
+
+    @property
+    def discount_limit(self):
+        """Gets the discount_limit of this NewCoupons.  # noqa: E501
+
+        The amount of discounts that can be given with this coupon code.   # noqa: E501
+
+        :return: The discount_limit of this NewCoupons.  # noqa: E501
+        :rtype: float
+        """
+        return self._discount_limit
+
+    @discount_limit.setter
+    def discount_limit(self, discount_limit):
+        """Sets the discount_limit of this NewCoupons.
+
+        The amount of discounts that can be given with this coupon code.   # noqa: E501
+
+        :param discount_limit: The discount_limit of this NewCoupons.  # noqa: E501
+        :type: float
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                discount_limit is not None and discount_limit > 999999):  # noqa: E501
+            raise ValueError("Invalid value for `discount_limit`, must be a value less than or equal to `999999`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                discount_limit is not None and discount_limit < 0):  # noqa: E501
+            raise ValueError("Invalid value for `discount_limit`, must be a value greater than or equal to `0`")  # noqa: E501
+
+        self._discount_limit = discount_limit
 
     @property
     def start_date(self):

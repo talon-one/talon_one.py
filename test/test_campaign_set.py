@@ -39,6 +39,7 @@ class TestCampaignSet(unittest.TestCase):
                 id = 56, 
                 created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                 application_id = 56, 
+                version = 1, 
                 set = talon_one.models.campaign_set_branch_node.CampaignSetBranchNode(
                     type = 'SET', 
                     name = '0', 
@@ -53,6 +54,7 @@ class TestCampaignSet(unittest.TestCase):
                 id = 56,
                 created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 application_id = 56,
+                version = 1,
                 set = talon_one.models.campaign_set_branch_node.CampaignSetBranchNode(
                     type = 'SET', 
                     name = '0', 

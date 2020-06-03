@@ -63,13 +63,6 @@ class TestIntegrationApi(unittest.TestCase):
         """
         pass
 
-    def test_get_reserved_coupons(self):
-        """Test case for get_reserved_coupons
-
-        Get all valid reserved coupons  # noqa: E501
-        """
-        pass
-
     def test_get_reserved_customers(self):
         """Test case for get_reserved_customers
 
@@ -86,6 +79,13 @@ class TestIntegrationApi(unittest.TestCase):
 
     def test_update_customer_profile(self):
         """Test case for update_customer_profile
+
+        Update a Customer Profile  # noqa: E501
+        """
+        pass
+
+    def test_update_customer_profile_v2(self):
+        """Test case for update_customer_profile_v2
 
         Update a Customer Profile  # noqa: E501
         """
