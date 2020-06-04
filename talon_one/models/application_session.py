@@ -98,8 +98,7 @@ class ApplicationSession(object):
         self.state = state
         self.cart_items = cart_items
         self.discounts = discounts
-        if total is not None:
-            self.total = total
+        self.total = total
         if attributes is not None:
             self.attributes = attributes
 
@@ -400,6 +399,8 @@ class ApplicationSession(object):
         :param total: The total of this ApplicationSession.  # noqa: E501
         :type: float
         """
+        if self.local_vars_configuration.client_side_validation and total is None:  # noqa: E501
+            raise ValueError("Invalid value for `total`, must not be `None`")  # noqa: E501
 
         self._total = total
 

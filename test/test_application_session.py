@@ -99,6 +99,7 @@ class TestApplicationSession(unittest.TestCase):
                 discounts = {
                     'key' : 1.337
                     },
+                total = 1.337,
         )
 
     def testApplicationSession(self):

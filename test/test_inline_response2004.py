@@ -38,78 +38,48 @@ class TestInlineResponse2004(unittest.TestCase):
             return InlineResponse2004(
                 total_result_size = 56, 
                 data = [
-                    talon_one.models.ruleset.Ruleset(
+                    talon_one.models.coupon.Coupon(
                         id = 56, 
                         created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                         campaign_id = 56, 
-                        user_id = 56, 
-                        rules = [
-                            talon_one.models.rule.Rule(
-                                title = '0', 
-                                description = '0', 
-                                bindings = [
-                                    talon_one.models.binding.Binding(
-                                        name = '0', 
-                                        expression = [
-                                            None
-                                            ], )
-                                    ], 
-                                condition = [
-                                    None
-                                    ], 
-                                effects = [
-                                    None
-                                    ], )
-                            ], 
-                        bindings = [
-                            talon_one.models.binding.Binding(
-                                name = '0', 
-                                expression = [
-                                    None
-                                    ], )
-                            ], 
-                        rb_version = '0', 
-                        activate = True, 
-                        activated_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), )
+                        value = '0123', 
+                        usage_limit = 0, 
+                        discount_limit = 0, 
+                        start_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        expiry_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        usage_counter = 56, 
+                        discount_counter = 1.337, 
+                        discount_remainder = 1.337, 
+                        attributes = talon_one.models.attributes_of_coupon.Attributes of coupon(), 
+                        referral_id = 56, 
+                        recipient_integration_id = '0', 
+                        import_id = 56, 
+                        reservation = True, 
+                        batch_id = '0', )
                     ]
             )
         else :
             return InlineResponse2004(
                 total_result_size = 56,
                 data = [
-                    talon_one.models.ruleset.Ruleset(
+                    talon_one.models.coupon.Coupon(
                         id = 56, 
                         created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                         campaign_id = 56, 
-                        user_id = 56, 
-                        rules = [
-                            talon_one.models.rule.Rule(
-                                title = '0', 
-                                description = '0', 
-                                bindings = [
-                                    talon_one.models.binding.Binding(
-                                        name = '0', 
-                                        expression = [
-                                            None
-                                            ], )
-                                    ], 
-                                condition = [
-                                    None
-                                    ], 
-                                effects = [
-                                    None
-                                    ], )
-                            ], 
-                        bindings = [
-                            talon_one.models.binding.Binding(
-                                name = '0', 
-                                expression = [
-                                    None
-                                    ], )
-                            ], 
-                        rb_version = '0', 
-                        activate = True, 
-                        activated_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), )
+                        value = '0123', 
+                        usage_limit = 0, 
+                        discount_limit = 0, 
+                        start_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        expiry_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        usage_counter = 56, 
+                        discount_counter = 1.337, 
+                        discount_remainder = 1.337, 
+                        attributes = talon_one.models.attributes_of_coupon.Attributes of coupon(), 
+                        referral_id = 56, 
+                        recipient_integration_id = '0', 
+                        import_id = 56, 
+                        reservation = True, 
+                        batch_id = '0', )
                     ],
         )
 

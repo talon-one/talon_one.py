@@ -45,11 +45,12 @@ class TestLoyaltyLedger(unittest.TestCase):
                             customer_profile_id = '0', 
                             customer_session_id = '0', 
                             event_id = 56, 
-                            type = 'addition', 
+                            type = '0', 
                             amount = 1.337, 
                             expiry_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                             name = '0', 
-                            sub_ledger_id = '0', )
+                            sub_ledger_id = '0', 
+                            user_id = 56, )
                         ], 
                     expiring_points = [
                         talon_one.models.loyalty_ledger_entry.LoyaltyLedgerEntry(
@@ -58,11 +59,12 @@ class TestLoyaltyLedger(unittest.TestCase):
                             customer_profile_id = '0', 
                             customer_session_id = '0', 
                             event_id = 56, 
-                            type = 'addition', 
+                            type = '0', 
                             amount = 1.337, 
                             expiry_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                             name = '0', 
-                            sub_ledger_id = '0', )
+                            sub_ledger_id = '0', 
+                            user_id = 56, )
                         ], ), 
                 sub_ledgers = {
                     'key' : talon_one.models.loyalty_sub_ledger.LoyaltySubLedger(
@@ -74,11 +76,12 @@ class TestLoyaltyLedger(unittest.TestCase):
                                 customer_profile_id = '0', 
                                 customer_session_id = '0', 
                                 event_id = 56, 
-                                type = 'addition', 
+                                type = '0', 
                                 amount = 1.337, 
                                 expiry_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                                 name = '0', 
-                                sub_ledger_id = '0', )
+                                sub_ledger_id = '0', 
+                                user_id = 56, )
                             ], 
                         expiring_points = [
                             talon_one.models.loyalty_ledger_entry.LoyaltyLedgerEntry(
@@ -87,11 +90,12 @@ class TestLoyaltyLedger(unittest.TestCase):
                                 customer_profile_id = '0', 
                                 customer_session_id = '0', 
                                 event_id = 56, 
-                                type = 'addition', 
+                                type = '0', 
                                 amount = 1.337, 
                                 expiry_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                                 name = '0', 
-                                sub_ledger_id = '0', )
+                                sub_ledger_id = '0', 
+                                user_id = 56, )
                             ], )
                     }
             )
@@ -106,11 +110,12 @@ class TestLoyaltyLedger(unittest.TestCase):
                             customer_profile_id = '0', 
                             customer_session_id = '0', 
                             event_id = 56, 
-                            type = 'addition', 
+                            type = '0', 
                             amount = 1.337, 
                             expiry_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                             name = '0', 
-                            sub_ledger_id = '0', )
+                            sub_ledger_id = '0', 
+                            user_id = 56, )
                         ], 
                     expiring_points = [
                         talon_one.models.loyalty_ledger_entry.LoyaltyLedgerEntry(
@@ -119,11 +124,12 @@ class TestLoyaltyLedger(unittest.TestCase):
                             customer_profile_id = '0', 
                             customer_session_id = '0', 
                             event_id = 56, 
-                            type = 'addition', 
+                            type = '0', 
                             amount = 1.337, 
                             expiry_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                             name = '0', 
-                            sub_ledger_id = '0', )
+                            sub_ledger_id = '0', 
+                            user_id = 56, )
                         ], ),
         )
 

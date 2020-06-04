@@ -42,7 +42,8 @@ class LoyaltyLedgerEntry(object):
         'amount': 'float',
         'expiry_date': 'datetime',
         'name': 'str',
-        'sub_ledger_id': 'str'
+        'sub_ledger_id': 'str',
+        'user_id': 'int'
     }
 
     attribute_map = {
@@ -55,10 +56,11 @@ class LoyaltyLedgerEntry(object):
         'amount': 'amount',
         'expiry_date': 'expiryDate',
         'name': 'name',
-        'sub_ledger_id': 'subLedgerID'
+        'sub_ledger_id': 'subLedgerID',
+        'user_id': 'userID'
     }
 
-    def __init__(self, created=None, program_id=None, customer_profile_id=None, customer_session_id=None, event_id=None, type=None, amount=None, expiry_date=None, name=None, sub_ledger_id=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, created=None, program_id=None, customer_profile_id=None, customer_session_id=None, event_id=None, type=None, amount=None, expiry_date=None, name=None, sub_ledger_id=None, user_id=None, local_vars_configuration=None):  # noqa: E501
         """LoyaltyLedgerEntry - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -74,6 +76,7 @@ class LoyaltyLedgerEntry(object):
         self._expiry_date = None
         self._name = None
         self._sub_ledger_id = None
+        self._user_id = None
         self.discriminator = None
 
         self.created = created
@@ -89,6 +92,8 @@ class LoyaltyLedgerEntry(object):
             self.expiry_date = expiry_date
         self.name = name
         self.sub_ledger_id = sub_ledger_id
+        if user_id is not None:
+            self.user_id = user_id
 
     @property
     def created(self):
@@ -205,6 +210,7 @@ class LoyaltyLedgerEntry(object):
     def type(self):
         """Gets the type of this LoyaltyLedgerEntry.  # noqa: E501
 
+        The type of the ledger transaction. Possible values are addition, subtraction, expire or expiring (for expiring points ledgers)   # noqa: E501
 
         :return: The type of this LoyaltyLedgerEntry.  # noqa: E501
         :rtype: str
@@ -215,18 +221,13 @@ class LoyaltyLedgerEntry(object):
     def type(self, type):
         """Sets the type of this LoyaltyLedgerEntry.
 
+        The type of the ledger transaction. Possible values are addition, subtraction, expire or expiring (for expiring points ledgers)   # noqa: E501
 
         :param type: The type of this LoyaltyLedgerEntry.  # noqa: E501
         :type: str
         """
         if self.local_vars_configuration.client_side_validation and type is None:  # noqa: E501
             raise ValueError("Invalid value for `type`, must not be `None`")  # noqa: E501
-        allowed_values = ["addition", "subtraction"]  # noqa: E501
-        if self.local_vars_configuration.client_side_validation and type not in allowed_values:  # noqa: E501
-            raise ValueError(
-                "Invalid value for `type` ({0}), must be one of {1}"  # noqa: E501
-                .format(type, allowed_values)
-            )
 
         self._type = type
 
@@ -323,6 +324,29 @@ class LoyaltyLedgerEntry(object):
             raise ValueError("Invalid value for `sub_ledger_id`, must not be `None`")  # noqa: E501
 
         self._sub_ledger_id = sub_ledger_id
+
+    @property
+    def user_id(self):
+        """Gets the user_id of this LoyaltyLedgerEntry.  # noqa: E501
+
+        This is the ID of the user who created this entry, if the addition or subtraction was done manually.  # noqa: E501
+
+        :return: The user_id of this LoyaltyLedgerEntry.  # noqa: E501
+        :rtype: int
+        """
+        return self._user_id
+
+    @user_id.setter
+    def user_id(self, user_id):
+        """Sets the user_id of this LoyaltyLedgerEntry.
+
+        This is the ID of the user who created this entry, if the addition or subtraction was done manually.  # noqa: E501
+
+        :param user_id: The user_id of this LoyaltyLedgerEntry.  # noqa: E501
+        :type: int
+        """
+
+        self._user_id = user_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

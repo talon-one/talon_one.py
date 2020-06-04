@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 **state** | **str** | Indicating if the customer session is in progress (\&quot;open\&quot;), \&quot;closed\&quot;, or \&quot;cancelled\&quot;. | 
 **cart_items** | [**list[CartItem]**](CartItem.md) | Serialized JSON representation. | 
 **discounts** | **dict(str, float)** | A map of labelled discount values, in the same currency as the session. | 
-**total** | **float** | The total sum of the session before any discounts applied. | [optional] 
+**total** | **float** | The total sum of the session before any discounts applied. | 
 **attributes** | [**object**](.md) | Arbitrary properties associated with this item | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

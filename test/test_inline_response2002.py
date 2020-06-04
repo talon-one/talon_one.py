@@ -38,17 +38,34 @@ class TestInlineResponse2002(unittest.TestCase):
             return InlineResponse2002(
                 total_result_size = 56, 
                 data = [
-                    talon_one.models.application.Application(
+                    talon_one.models.campaign.Campaign(
                         id = 56, 
                         created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        modified = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        account_id = 56, 
+                        application_id = 56, 
+                        user_id = 56, 
                         name = '0', 
                         description = '0', 
-                        timezone = '0', 
-                        currency = '0', 
-                        case_sensitivity = 'sensitive', 
+                        start_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        end_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                         attributes = talon_one.models.attributes.attributes(), 
+                        state = 'enabled', 
+                        active_ruleset_id = 56, 
+                        tags = [
+                            '0'
+                            ], 
+                        features = [
+                            'coupons'
+                            ], 
+                        coupon_settings = talon_one.models.code_generator_settings.CodeGeneratorSettings(
+                            valid_characters = [
+                                '0'
+                                ], 
+                            coupon_pattern = '012', ), 
+                        referral_settings = talon_one.models.code_generator_settings.CodeGeneratorSettings(
+                            valid_characters = [
+                                '0'
+                                ], 
+                            coupon_pattern = '012', ), 
                         limits = [
                             talon_one.models.limit_config.LimitConfig(
                                 action = 'redeemCoupon', 
@@ -57,44 +74,49 @@ class TestInlineResponse2002(unittest.TestCase):
                                     'Coupon'
                                     ], )
                             ], 
-                        attributes_settings = talon_one.models.attributes_settings.AttributesSettings(
-                            mandatory = talon_one.models.attributes_mandatory.AttributesMandatory(
-                                campaigns = [
-                                    '0'
-                                    ], 
-                                coupons = [
-                                    '0'
-                                    ], ), ), 
-                        loyalty_programs = [
-                            talon_one.models.loyalty_program.LoyaltyProgram(
-                                id = 56, 
-                                account_id = 56, 
-                                name = '0', 
-                                title = '0', 
-                                description = '0', 
-                                subscribed_applications = [
-                                    56
-                                    ], 
-                                default_validity = '0', 
-                                allow_subledger = True, )
-                            ], )
+                        coupon_redemption_count = 56, 
+                        referral_redemption_count = 56, 
+                        discount_count = 56, 
+                        discount_effect_count = 56, 
+                        coupon_creation_count = 56, 
+                        last_activity = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        updated = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        created_by = '0', 
+                        updated_by = '0', )
                     ]
             )
         else :
             return InlineResponse2002(
                 total_result_size = 56,
                 data = [
-                    talon_one.models.application.Application(
+                    talon_one.models.campaign.Campaign(
                         id = 56, 
                         created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        modified = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        account_id = 56, 
+                        application_id = 56, 
+                        user_id = 56, 
                         name = '0', 
                         description = '0', 
-                        timezone = '0', 
-                        currency = '0', 
-                        case_sensitivity = 'sensitive', 
+                        start_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        end_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                         attributes = talon_one.models.attributes.attributes(), 
+                        state = 'enabled', 
+                        active_ruleset_id = 56, 
+                        tags = [
+                            '0'
+                            ], 
+                        features = [
+                            'coupons'
+                            ], 
+                        coupon_settings = talon_one.models.code_generator_settings.CodeGeneratorSettings(
+                            valid_characters = [
+                                '0'
+                                ], 
+                            coupon_pattern = '012', ), 
+                        referral_settings = talon_one.models.code_generator_settings.CodeGeneratorSettings(
+                            valid_characters = [
+                                '0'
+                                ], 
+                            coupon_pattern = '012', ), 
                         limits = [
                             talon_one.models.limit_config.LimitConfig(
                                 action = 'redeemCoupon', 
@@ -103,27 +125,15 @@ class TestInlineResponse2002(unittest.TestCase):
                                     'Coupon'
                                     ], )
                             ], 
-                        attributes_settings = talon_one.models.attributes_settings.AttributesSettings(
-                            mandatory = talon_one.models.attributes_mandatory.AttributesMandatory(
-                                campaigns = [
-                                    '0'
-                                    ], 
-                                coupons = [
-                                    '0'
-                                    ], ), ), 
-                        loyalty_programs = [
-                            talon_one.models.loyalty_program.LoyaltyProgram(
-                                id = 56, 
-                                account_id = 56, 
-                                name = '0', 
-                                title = '0', 
-                                description = '0', 
-                                subscribed_applications = [
-                                    56
-                                    ], 
-                                default_validity = '0', 
-                                allow_subledger = True, )
-                            ], )
+                        coupon_redemption_count = 56, 
+                        referral_redemption_count = 56, 
+                        discount_count = 56, 
+                        discount_effect_count = 56, 
+                        coupon_creation_count = 56, 
+                        last_activity = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        updated = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        created_by = '0', 
+                        updated_by = '0', )
                     ],
         )
 

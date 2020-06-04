@@ -37,6 +37,7 @@ class TestUpdateCouponBatch(unittest.TestCase):
         if include_optional :
             return UpdateCouponBatch(
                 usage_limit = 0, 
+                discount_limit = 0, 
                 start_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                 expiry_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                 attributes = None, 

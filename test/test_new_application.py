@@ -50,6 +50,7 @@ class TestNewApplication(unittest.TestCase):
                             'Coupon'
                             ], )
                     ], 
+                campaign_priority = 'universal', 
                 attributes_settings = talon_one.models.attributes_settings.AttributesSettings(
                     mandatory = talon_one.models.attributes_mandatory.AttributesMandatory(
                         campaigns = [
