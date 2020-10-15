@@ -51,6 +51,9 @@ class TestNewApplication(unittest.TestCase):
                             ], )
                     ], 
                 campaign_priority = 'universal', 
+                exclusive_campaigns_strategy = 'listOrder', 
+                enable_cascading_discounts = True, 
+                enable_flattened_cart_items = True, 
                 attributes_settings = talon_one.models.attributes_settings.AttributesSettings(
                     mandatory = talon_one.models.attributes_mandatory.AttributesMandatory(
                         campaigns = [
@@ -59,6 +62,7 @@ class TestNewApplication(unittest.TestCase):
                         coupons = [
                             '0'
                             ], ), ), 
+                sandbox = True, 
                 key = 'a'
             )
         else :

@@ -35,16 +35,18 @@ class SetDiscountPerItemEffectProps(object):
     openapi_types = {
         'name': 'str',
         'value': 'float',
-        'position': 'float'
+        'position': 'float',
+        'sub_position': 'float'
     }
 
     attribute_map = {
         'name': 'name',
         'value': 'value',
-        'position': 'position'
+        'position': 'position',
+        'sub_position': 'subPosition'
     }
 
-    def __init__(self, name=None, value=None, position=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, name=None, value=None, position=None, sub_position=None, local_vars_configuration=None):  # noqa: E501
         """SetDiscountPerItemEffectProps - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -53,11 +55,14 @@ class SetDiscountPerItemEffectProps(object):
         self._name = None
         self._value = None
         self._position = None
+        self._sub_position = None
         self.discriminator = None
 
         self.name = name
         self.value = value
         self.position = position
+        if sub_position is not None:
+            self.sub_position = sub_position
 
     @property
     def name(self):
@@ -133,6 +138,29 @@ class SetDiscountPerItemEffectProps(object):
             raise ValueError("Invalid value for `position`, must not be `None`")  # noqa: E501
 
         self._position = position
+
+    @property
+    def sub_position(self):
+        """Gets the sub_position of this SetDiscountPerItemEffectProps.  # noqa: E501
+
+        The sub-index of the item in an item stack on which this discount should be applied  # noqa: E501
+
+        :return: The sub_position of this SetDiscountPerItemEffectProps.  # noqa: E501
+        :rtype: float
+        """
+        return self._sub_position
+
+    @sub_position.setter
+    def sub_position(self, sub_position):
+        """Sets the sub_position of this SetDiscountPerItemEffectProps.
+
+        The sub-index of the item in an item stack on which this discount should be applied  # noqa: E501
+
+        :param sub_position: The sub_position of this SetDiscountPerItemEffectProps.  # noqa: E501
+        :type: float
+        """
+
+        self._sub_position = sub_position
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -164,6 +164,7 @@ class Meta(object):
     def warnings(self):
         """Gets the warnings of this Meta.  # noqa: E501
 
+        Contains warnings about possible misuse.  # noqa: E501
 
         :return: The warnings of this Meta.  # noqa: E501
         :rtype: object
@@ -174,6 +175,7 @@ class Meta(object):
     def warnings(self, warnings):
         """Sets the warnings of this Meta.
 
+        Contains warnings about possible misuse.  # noqa: E501
 
         :param warnings: The warnings of this Meta.  # noqa: E501
         :type: object

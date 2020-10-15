@@ -34,84 +34,96 @@ class AccountAnalytics(object):
     """
     openapi_types = {
         'applications': 'int',
-        'active_campaigns': 'int',
+        'live_applications': 'int',
+        'sandbox_applications': 'int',
         'campaigns': 'int',
+        'active_campaigns': 'int',
+        'live_active_campaigns': 'int',
         'coupons': 'int',
         'active_coupons': 'int',
         'expired_coupons': 'int',
-        'custom_attributes': 'int',
         'referral_codes': 'int',
         'active_referral_codes': 'int',
         'expired_referral_codes': 'int',
+        'active_rules': 'int',
         'users': 'int',
         'roles': 'int',
+        'custom_attributes': 'int',
         'webhooks': 'int',
-        'loyalty_programs': 'int',
-        'active_rules': 'int'
+        'loyalty_programs': 'int'
     }
 
     attribute_map = {
         'applications': 'applications',
-        'active_campaigns': 'activeCampaigns',
+        'live_applications': 'liveApplications',
+        'sandbox_applications': 'sandboxApplications',
         'campaigns': 'campaigns',
+        'active_campaigns': 'activeCampaigns',
+        'live_active_campaigns': 'liveActiveCampaigns',
         'coupons': 'coupons',
         'active_coupons': 'activeCoupons',
         'expired_coupons': 'expiredCoupons',
-        'custom_attributes': 'customAttributes',
         'referral_codes': 'referralCodes',
         'active_referral_codes': 'activeReferralCodes',
         'expired_referral_codes': 'expiredReferralCodes',
+        'active_rules': 'activeRules',
         'users': 'users',
         'roles': 'roles',
+        'custom_attributes': 'customAttributes',
         'webhooks': 'webhooks',
-        'loyalty_programs': 'loyaltyPrograms',
-        'active_rules': 'activeRules'
+        'loyalty_programs': 'loyaltyPrograms'
     }
 
-    def __init__(self, applications=None, active_campaigns=None, campaigns=None, coupons=None, active_coupons=None, expired_coupons=None, custom_attributes=None, referral_codes=None, active_referral_codes=None, expired_referral_codes=None, users=None, roles=None, webhooks=None, loyalty_programs=None, active_rules=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, applications=None, live_applications=None, sandbox_applications=None, campaigns=None, active_campaigns=None, live_active_campaigns=None, coupons=None, active_coupons=None, expired_coupons=None, referral_codes=None, active_referral_codes=None, expired_referral_codes=None, active_rules=None, users=None, roles=None, custom_attributes=None, webhooks=None, loyalty_programs=None, local_vars_configuration=None):  # noqa: E501
         """AccountAnalytics - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._applications = None
-        self._active_campaigns = None
+        self._live_applications = None
+        self._sandbox_applications = None
         self._campaigns = None
+        self._active_campaigns = None
+        self._live_active_campaigns = None
         self._coupons = None
         self._active_coupons = None
         self._expired_coupons = None
-        self._custom_attributes = None
         self._referral_codes = None
         self._active_referral_codes = None
         self._expired_referral_codes = None
+        self._active_rules = None
         self._users = None
         self._roles = None
+        self._custom_attributes = None
         self._webhooks = None
         self._loyalty_programs = None
-        self._active_rules = None
         self.discriminator = None
 
         self.applications = applications
-        self.active_campaigns = active_campaigns
+        self.live_applications = live_applications
+        self.sandbox_applications = sandbox_applications
         self.campaigns = campaigns
+        self.active_campaigns = active_campaigns
+        self.live_active_campaigns = live_active_campaigns
         self.coupons = coupons
         self.active_coupons = active_coupons
         self.expired_coupons = expired_coupons
-        self.custom_attributes = custom_attributes
         self.referral_codes = referral_codes
         self.active_referral_codes = active_referral_codes
         self.expired_referral_codes = expired_referral_codes
+        self.active_rules = active_rules
         self.users = users
         self.roles = roles
+        self.custom_attributes = custom_attributes
         self.webhooks = webhooks
         self.loyalty_programs = loyalty_programs
-        self.active_rules = active_rules
 
     @property
     def applications(self):
         """Gets the applications of this AccountAnalytics.  # noqa: E501
 
-        Total Number of Applications inside the account  # noqa: E501
+        Total number of applications in the account  # noqa: E501
 
         :return: The applications of this AccountAnalytics.  # noqa: E501
         :rtype: int
@@ -122,7 +134,7 @@ class AccountAnalytics(object):
     def applications(self, applications):
         """Sets the applications of this AccountAnalytics.
 
-        Total Number of Applications inside the account  # noqa: E501
+        Total number of applications in the account  # noqa: E501
 
         :param applications: The applications of this AccountAnalytics.  # noqa: E501
         :type: int
@@ -133,35 +145,60 @@ class AccountAnalytics(object):
         self._applications = applications
 
     @property
-    def active_campaigns(self):
-        """Gets the active_campaigns of this AccountAnalytics.  # noqa: E501
+    def live_applications(self):
+        """Gets the live_applications of this AccountAnalytics.  # noqa: E501
 
-        Total Number of Active Applications inside the account  # noqa: E501
+        Total number of live applications in the account  # noqa: E501
 
-        :return: The active_campaigns of this AccountAnalytics.  # noqa: E501
+        :return: The live_applications of this AccountAnalytics.  # noqa: E501
         :rtype: int
         """
-        return self._active_campaigns
+        return self._live_applications
 
-    @active_campaigns.setter
-    def active_campaigns(self, active_campaigns):
-        """Sets the active_campaigns of this AccountAnalytics.
+    @live_applications.setter
+    def live_applications(self, live_applications):
+        """Sets the live_applications of this AccountAnalytics.
 
-        Total Number of Active Applications inside the account  # noqa: E501
+        Total number of live applications in the account  # noqa: E501
 
-        :param active_campaigns: The active_campaigns of this AccountAnalytics.  # noqa: E501
+        :param live_applications: The live_applications of this AccountAnalytics.  # noqa: E501
         :type: int
         """
-        if self.local_vars_configuration.client_side_validation and active_campaigns is None:  # noqa: E501
-            raise ValueError("Invalid value for `active_campaigns`, must not be `None`")  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and live_applications is None:  # noqa: E501
+            raise ValueError("Invalid value for `live_applications`, must not be `None`")  # noqa: E501
 
-        self._active_campaigns = active_campaigns
+        self._live_applications = live_applications
+
+    @property
+    def sandbox_applications(self):
+        """Gets the sandbox_applications of this AccountAnalytics.  # noqa: E501
+
+        Total number of sandbox applications in the account  # noqa: E501
+
+        :return: The sandbox_applications of this AccountAnalytics.  # noqa: E501
+        :rtype: int
+        """
+        return self._sandbox_applications
+
+    @sandbox_applications.setter
+    def sandbox_applications(self, sandbox_applications):
+        """Sets the sandbox_applications of this AccountAnalytics.
+
+        Total number of sandbox applications in the account  # noqa: E501
+
+        :param sandbox_applications: The sandbox_applications of this AccountAnalytics.  # noqa: E501
+        :type: int
+        """
+        if self.local_vars_configuration.client_side_validation and sandbox_applications is None:  # noqa: E501
+            raise ValueError("Invalid value for `sandbox_applications`, must not be `None`")  # noqa: E501
+
+        self._sandbox_applications = sandbox_applications
 
     @property
     def campaigns(self):
         """Gets the campaigns of this AccountAnalytics.  # noqa: E501
 
-        Total Number of campaigns inside the account  # noqa: E501
+        Total number of campaigns in the account  # noqa: E501
 
         :return: The campaigns of this AccountAnalytics.  # noqa: E501
         :rtype: int
@@ -172,7 +209,7 @@ class AccountAnalytics(object):
     def campaigns(self, campaigns):
         """Sets the campaigns of this AccountAnalytics.
 
-        Total Number of campaigns inside the account  # noqa: E501
+        Total number of campaigns in the account  # noqa: E501
 
         :param campaigns: The campaigns of this AccountAnalytics.  # noqa: E501
         :type: int
@@ -183,10 +220,60 @@ class AccountAnalytics(object):
         self._campaigns = campaigns
 
     @property
+    def active_campaigns(self):
+        """Gets the active_campaigns of this AccountAnalytics.  # noqa: E501
+
+        Total number of active campaigns in the account  # noqa: E501
+
+        :return: The active_campaigns of this AccountAnalytics.  # noqa: E501
+        :rtype: int
+        """
+        return self._active_campaigns
+
+    @active_campaigns.setter
+    def active_campaigns(self, active_campaigns):
+        """Sets the active_campaigns of this AccountAnalytics.
+
+        Total number of active campaigns in the account  # noqa: E501
+
+        :param active_campaigns: The active_campaigns of this AccountAnalytics.  # noqa: E501
+        :type: int
+        """
+        if self.local_vars_configuration.client_side_validation and active_campaigns is None:  # noqa: E501
+            raise ValueError("Invalid value for `active_campaigns`, must not be `None`")  # noqa: E501
+
+        self._active_campaigns = active_campaigns
+
+    @property
+    def live_active_campaigns(self):
+        """Gets the live_active_campaigns of this AccountAnalytics.  # noqa: E501
+
+        Total number of active campaigns in live applications in the account  # noqa: E501
+
+        :return: The live_active_campaigns of this AccountAnalytics.  # noqa: E501
+        :rtype: int
+        """
+        return self._live_active_campaigns
+
+    @live_active_campaigns.setter
+    def live_active_campaigns(self, live_active_campaigns):
+        """Sets the live_active_campaigns of this AccountAnalytics.
+
+        Total number of active campaigns in live applications in the account  # noqa: E501
+
+        :param live_active_campaigns: The live_active_campaigns of this AccountAnalytics.  # noqa: E501
+        :type: int
+        """
+        if self.local_vars_configuration.client_side_validation and live_active_campaigns is None:  # noqa: E501
+            raise ValueError("Invalid value for `live_active_campaigns`, must not be `None`")  # noqa: E501
+
+        self._live_active_campaigns = live_active_campaigns
+
+    @property
     def coupons(self):
         """Gets the coupons of this AccountAnalytics.  # noqa: E501
 
-        Total Number of coupons inside the account  # noqa: E501
+        Total number of coupons in the account  # noqa: E501
 
         :return: The coupons of this AccountAnalytics.  # noqa: E501
         :rtype: int
@@ -197,7 +284,7 @@ class AccountAnalytics(object):
     def coupons(self, coupons):
         """Sets the coupons of this AccountAnalytics.
 
-        Total Number of coupons inside the account  # noqa: E501
+        Total number of coupons in the account  # noqa: E501
 
         :param coupons: The coupons of this AccountAnalytics.  # noqa: E501
         :type: int
@@ -211,7 +298,7 @@ class AccountAnalytics(object):
     def active_coupons(self):
         """Gets the active_coupons of this AccountAnalytics.  # noqa: E501
 
-        Total Number of active coupons inside the account  # noqa: E501
+        Total number of active coupons in the account  # noqa: E501
 
         :return: The active_coupons of this AccountAnalytics.  # noqa: E501
         :rtype: int
@@ -222,7 +309,7 @@ class AccountAnalytics(object):
     def active_coupons(self, active_coupons):
         """Sets the active_coupons of this AccountAnalytics.
 
-        Total Number of active coupons inside the account  # noqa: E501
+        Total number of active coupons in the account  # noqa: E501
 
         :param active_coupons: The active_coupons of this AccountAnalytics.  # noqa: E501
         :type: int
@@ -236,7 +323,7 @@ class AccountAnalytics(object):
     def expired_coupons(self):
         """Gets the expired_coupons of this AccountAnalytics.  # noqa: E501
 
-        Total Number of expired coupons inside the account  # noqa: E501
+        Total number of expired coupons in the account  # noqa: E501
 
         :return: The expired_coupons of this AccountAnalytics.  # noqa: E501
         :rtype: int
@@ -247,7 +334,7 @@ class AccountAnalytics(object):
     def expired_coupons(self, expired_coupons):
         """Sets the expired_coupons of this AccountAnalytics.
 
-        Total Number of expired coupons inside the account  # noqa: E501
+        Total number of expired coupons in the account  # noqa: E501
 
         :param expired_coupons: The expired_coupons of this AccountAnalytics.  # noqa: E501
         :type: int
@@ -258,35 +345,10 @@ class AccountAnalytics(object):
         self._expired_coupons = expired_coupons
 
     @property
-    def custom_attributes(self):
-        """Gets the custom_attributes of this AccountAnalytics.  # noqa: E501
-
-        Total Number of custom attributes inside the account  # noqa: E501
-
-        :return: The custom_attributes of this AccountAnalytics.  # noqa: E501
-        :rtype: int
-        """
-        return self._custom_attributes
-
-    @custom_attributes.setter
-    def custom_attributes(self, custom_attributes):
-        """Sets the custom_attributes of this AccountAnalytics.
-
-        Total Number of custom attributes inside the account  # noqa: E501
-
-        :param custom_attributes: The custom_attributes of this AccountAnalytics.  # noqa: E501
-        :type: int
-        """
-        if self.local_vars_configuration.client_side_validation and custom_attributes is None:  # noqa: E501
-            raise ValueError("Invalid value for `custom_attributes`, must not be `None`")  # noqa: E501
-
-        self._custom_attributes = custom_attributes
-
-    @property
     def referral_codes(self):
         """Gets the referral_codes of this AccountAnalytics.  # noqa: E501
 
-        Total Number of referral codes inside the account  # noqa: E501
+        Total number of referral codes in the account  # noqa: E501
 
         :return: The referral_codes of this AccountAnalytics.  # noqa: E501
         :rtype: int
@@ -297,7 +359,7 @@ class AccountAnalytics(object):
     def referral_codes(self, referral_codes):
         """Sets the referral_codes of this AccountAnalytics.
 
-        Total Number of referral codes inside the account  # noqa: E501
+        Total number of referral codes in the account  # noqa: E501
 
         :param referral_codes: The referral_codes of this AccountAnalytics.  # noqa: E501
         :type: int
@@ -311,7 +373,7 @@ class AccountAnalytics(object):
     def active_referral_codes(self):
         """Gets the active_referral_codes of this AccountAnalytics.  # noqa: E501
 
-        Total Number of active referral codes inside the account  # noqa: E501
+        Total number of active referral codes in the account  # noqa: E501
 
         :return: The active_referral_codes of this AccountAnalytics.  # noqa: E501
         :rtype: int
@@ -322,7 +384,7 @@ class AccountAnalytics(object):
     def active_referral_codes(self, active_referral_codes):
         """Sets the active_referral_codes of this AccountAnalytics.
 
-        Total Number of active referral codes inside the account  # noqa: E501
+        Total number of active referral codes in the account  # noqa: E501
 
         :param active_referral_codes: The active_referral_codes of this AccountAnalytics.  # noqa: E501
         :type: int
@@ -336,7 +398,7 @@ class AccountAnalytics(object):
     def expired_referral_codes(self):
         """Gets the expired_referral_codes of this AccountAnalytics.  # noqa: E501
 
-        Total Number of expired referral codes inside the account  # noqa: E501
+        Total number of expired referral codes in the account  # noqa: E501
 
         :return: The expired_referral_codes of this AccountAnalytics.  # noqa: E501
         :rtype: int
@@ -347,7 +409,7 @@ class AccountAnalytics(object):
     def expired_referral_codes(self, expired_referral_codes):
         """Sets the expired_referral_codes of this AccountAnalytics.
 
-        Total Number of expired referral codes inside the account  # noqa: E501
+        Total number of expired referral codes in the account  # noqa: E501
 
         :param expired_referral_codes: The expired_referral_codes of this AccountAnalytics.  # noqa: E501
         :type: int
@@ -358,10 +420,35 @@ class AccountAnalytics(object):
         self._expired_referral_codes = expired_referral_codes
 
     @property
+    def active_rules(self):
+        """Gets the active_rules of this AccountAnalytics.  # noqa: E501
+
+        Total number of active rules in the account  # noqa: E501
+
+        :return: The active_rules of this AccountAnalytics.  # noqa: E501
+        :rtype: int
+        """
+        return self._active_rules
+
+    @active_rules.setter
+    def active_rules(self, active_rules):
+        """Sets the active_rules of this AccountAnalytics.
+
+        Total number of active rules in the account  # noqa: E501
+
+        :param active_rules: The active_rules of this AccountAnalytics.  # noqa: E501
+        :type: int
+        """
+        if self.local_vars_configuration.client_side_validation and active_rules is None:  # noqa: E501
+            raise ValueError("Invalid value for `active_rules`, must not be `None`")  # noqa: E501
+
+        self._active_rules = active_rules
+
+    @property
     def users(self):
         """Gets the users of this AccountAnalytics.  # noqa: E501
 
-        Total Number of users inside the account  # noqa: E501
+        Total number of users in the account  # noqa: E501
 
         :return: The users of this AccountAnalytics.  # noqa: E501
         :rtype: int
@@ -372,7 +459,7 @@ class AccountAnalytics(object):
     def users(self, users):
         """Sets the users of this AccountAnalytics.
 
-        Total Number of users inside the account  # noqa: E501
+        Total number of users in the account  # noqa: E501
 
         :param users: The users of this AccountAnalytics.  # noqa: E501
         :type: int
@@ -386,7 +473,7 @@ class AccountAnalytics(object):
     def roles(self):
         """Gets the roles of this AccountAnalytics.  # noqa: E501
 
-        Total Number of roles inside the account  # noqa: E501
+        Total number of roles in the account  # noqa: E501
 
         :return: The roles of this AccountAnalytics.  # noqa: E501
         :rtype: int
@@ -397,7 +484,7 @@ class AccountAnalytics(object):
     def roles(self, roles):
         """Sets the roles of this AccountAnalytics.
 
-        Total Number of roles inside the account  # noqa: E501
+        Total number of roles in the account  # noqa: E501
 
         :param roles: The roles of this AccountAnalytics.  # noqa: E501
         :type: int
@@ -408,10 +495,35 @@ class AccountAnalytics(object):
         self._roles = roles
 
     @property
+    def custom_attributes(self):
+        """Gets the custom_attributes of this AccountAnalytics.  # noqa: E501
+
+        Total number of custom attributes in the account  # noqa: E501
+
+        :return: The custom_attributes of this AccountAnalytics.  # noqa: E501
+        :rtype: int
+        """
+        return self._custom_attributes
+
+    @custom_attributes.setter
+    def custom_attributes(self, custom_attributes):
+        """Sets the custom_attributes of this AccountAnalytics.
+
+        Total number of custom attributes in the account  # noqa: E501
+
+        :param custom_attributes: The custom_attributes of this AccountAnalytics.  # noqa: E501
+        :type: int
+        """
+        if self.local_vars_configuration.client_side_validation and custom_attributes is None:  # noqa: E501
+            raise ValueError("Invalid value for `custom_attributes`, must not be `None`")  # noqa: E501
+
+        self._custom_attributes = custom_attributes
+
+    @property
     def webhooks(self):
         """Gets the webhooks of this AccountAnalytics.  # noqa: E501
 
-        Total Number of webhooks inside the account  # noqa: E501
+        Total number of webhooks in the account  # noqa: E501
 
         :return: The webhooks of this AccountAnalytics.  # noqa: E501
         :rtype: int
@@ -422,7 +534,7 @@ class AccountAnalytics(object):
     def webhooks(self, webhooks):
         """Sets the webhooks of this AccountAnalytics.
 
-        Total Number of webhooks inside the account  # noqa: E501
+        Total number of webhooks in the account  # noqa: E501
 
         :param webhooks: The webhooks of this AccountAnalytics.  # noqa: E501
         :type: int
@@ -436,7 +548,7 @@ class AccountAnalytics(object):
     def loyalty_programs(self):
         """Gets the loyalty_programs of this AccountAnalytics.  # noqa: E501
 
-        Total Number of loyalty programs inside the account  # noqa: E501
+        Total number of loyalty programs in the account  # noqa: E501
 
         :return: The loyalty_programs of this AccountAnalytics.  # noqa: E501
         :rtype: int
@@ -447,7 +559,7 @@ class AccountAnalytics(object):
     def loyalty_programs(self, loyalty_programs):
         """Sets the loyalty_programs of this AccountAnalytics.
 
-        Total Number of loyalty programs inside the account  # noqa: E501
+        Total number of loyalty programs in the account  # noqa: E501
 
         :param loyalty_programs: The loyalty_programs of this AccountAnalytics.  # noqa: E501
         :type: int
@@ -456,31 +568,6 @@ class AccountAnalytics(object):
             raise ValueError("Invalid value for `loyalty_programs`, must not be `None`")  # noqa: E501
 
         self._loyalty_programs = loyalty_programs
-
-    @property
-    def active_rules(self):
-        """Gets the active_rules of this AccountAnalytics.  # noqa: E501
-
-        Total Number of active rules in the account  # noqa: E501
-
-        :return: The active_rules of this AccountAnalytics.  # noqa: E501
-        :rtype: int
-        """
-        return self._active_rules
-
-    @active_rules.setter
-    def active_rules(self, active_rules):
-        """Sets the active_rules of this AccountAnalytics.
-
-        Total Number of active rules in the account  # noqa: E501
-
-        :param active_rules: The active_rules of this AccountAnalytics.  # noqa: E501
-        :type: int
-        """
-        if self.local_vars_configuration.client_side_validation and active_rules is None:  # noqa: E501
-            raise ValueError("Invalid value for `active_rules`, must not be `None`")  # noqa: E501
-
-        self._active_rules = active_rules
 
     def to_dict(self):
         """Returns the model properties as a dict"""

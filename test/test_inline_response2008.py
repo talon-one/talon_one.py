@@ -48,6 +48,7 @@ class TestInlineResponse2008(unittest.TestCase):
                             56
                             ], 
                         default_validity = '0', 
+                        default_pending = '0', 
                         allow_subledger = True, )
                     ]
             )
@@ -65,6 +66,7 @@ class TestInlineResponse2008(unittest.TestCase):
                             56
                             ], 
                         default_validity = '0', 
+                        default_pending = '0', 
                         allow_subledger = True, )
                     ],
         )

@@ -41,9 +41,8 @@ class User(object):
         'invite_token': 'str',
         'state': 'str',
         'name': 'str',
-        'policy': 'str',
-        'release_update': 'bool',
-        'latest_feature': 'str',
+        'policy': 'object',
+        'latest_feed_timestamp': 'datetime',
         'roles': 'list[int]',
         'application_notification_subscriptions': 'object',
         'auth_method': 'str'
@@ -59,14 +58,13 @@ class User(object):
         'state': 'state',
         'name': 'name',
         'policy': 'policy',
-        'release_update': 'releaseUpdate',
-        'latest_feature': 'latestFeature',
+        'latest_feed_timestamp': 'latestFeedTimestamp',
         'roles': 'roles',
         'application_notification_subscriptions': 'applicationNotificationSubscriptions',
         'auth_method': 'authMethod'
     }
 
-    def __init__(self, id=None, created=None, modified=None, email=None, account_id=None, invite_token=None, state=None, name=None, policy=None, release_update=None, latest_feature=None, roles=None, application_notification_subscriptions=None, auth_method=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, created=None, modified=None, email=None, account_id=None, invite_token=None, state=None, name=None, policy=None, latest_feed_timestamp=None, roles=None, application_notification_subscriptions=None, auth_method=None, local_vars_configuration=None):  # noqa: E501
         """User - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -81,8 +79,7 @@ class User(object):
         self._state = None
         self._name = None
         self._policy = None
-        self._release_update = None
-        self._latest_feature = None
+        self._latest_feed_timestamp = None
         self._roles = None
         self._application_notification_subscriptions = None
         self._auth_method = None
@@ -97,9 +94,8 @@ class User(object):
         self.state = state
         self.name = name
         self.policy = policy
-        self.release_update = release_update
-        if latest_feature is not None:
-            self.latest_feature = latest_feature
+        if latest_feed_timestamp is not None:
+            self.latest_feed_timestamp = latest_feed_timestamp
         if roles is not None:
             self.roles = roles
         if application_notification_subscriptions is not None:
@@ -317,10 +313,10 @@ class User(object):
     def policy(self):
         """Gets the policy of this User.  # noqa: E501
 
-        A blob of ACL JSON  # noqa: E501
+        User ACL Policy  # noqa: E501
 
         :return: The policy of this User.  # noqa: E501
-        :rtype: str
+        :rtype: object
         """
         return self._policy
 
@@ -328,10 +324,10 @@ class User(object):
     def policy(self, policy):
         """Sets the policy of this User.
 
-        A blob of ACL JSON  # noqa: E501
+        User ACL Policy  # noqa: E501
 
         :param policy: The policy of this User.  # noqa: E501
-        :type: str
+        :type: object
         """
         if self.local_vars_configuration.client_side_validation and policy is None:  # noqa: E501
             raise ValueError("Invalid value for `policy`, must not be `None`")  # noqa: E501
@@ -339,52 +335,27 @@ class User(object):
         self._policy = policy
 
     @property
-    def release_update(self):
-        """Gets the release_update of this User.  # noqa: E501
+    def latest_feed_timestamp(self):
+        """Gets the latest_feed_timestamp of this User.  # noqa: E501
 
-        Update the user via email  # noqa: E501
+        Latest timestamp the user has been notified for feed.  # noqa: E501
 
-        :return: The release_update of this User.  # noqa: E501
-        :rtype: bool
+        :return: The latest_feed_timestamp of this User.  # noqa: E501
+        :rtype: datetime
         """
-        return self._release_update
+        return self._latest_feed_timestamp
 
-    @release_update.setter
-    def release_update(self, release_update):
-        """Sets the release_update of this User.
+    @latest_feed_timestamp.setter
+    def latest_feed_timestamp(self, latest_feed_timestamp):
+        """Sets the latest_feed_timestamp of this User.
 
-        Update the user via email  # noqa: E501
+        Latest timestamp the user has been notified for feed.  # noqa: E501
 
-        :param release_update: The release_update of this User.  # noqa: E501
-        :type: bool
-        """
-        if self.local_vars_configuration.client_side_validation and release_update is None:  # noqa: E501
-            raise ValueError("Invalid value for `release_update`, must not be `None`")  # noqa: E501
-
-        self._release_update = release_update
-
-    @property
-    def latest_feature(self):
-        """Gets the latest_feature of this User.  # noqa: E501
-
-        Latest feature the user has been notified.  # noqa: E501
-
-        :return: The latest_feature of this User.  # noqa: E501
-        :rtype: str
-        """
-        return self._latest_feature
-
-    @latest_feature.setter
-    def latest_feature(self, latest_feature):
-        """Sets the latest_feature of this User.
-
-        Latest feature the user has been notified.  # noqa: E501
-
-        :param latest_feature: The latest_feature of this User.  # noqa: E501
-        :type: str
+        :param latest_feed_timestamp: The latest_feed_timestamp of this User.  # noqa: E501
+        :type: datetime
         """
 
-        self._latest_feature = latest_feature
+        self._latest_feed_timestamp = latest_feed_timestamp
 
     @property
     def roles(self):

@@ -34,37 +34,69 @@ class LoyaltySubLedger(object):
     """
     openapi_types = {
         'total': 'float',
+        'total_active_points': 'float',
+        'total_pending_points': 'float',
+        'total_spent_points': 'float',
+        'total_expired_points': 'float',
         'transactions': 'list[LoyaltyLedgerEntry]',
-        'expiring_points': 'list[LoyaltyLedgerEntry]'
+        'expiring_points': 'list[LoyaltyLedgerEntry]',
+        'active_points': 'list[LoyaltyLedgerEntry]',
+        'pending_points': 'list[LoyaltyLedgerEntry]',
+        'expired_points': 'list[LoyaltyLedgerEntry]'
     }
 
     attribute_map = {
         'total': 'total',
+        'total_active_points': 'totalActivePoints',
+        'total_pending_points': 'totalPendingPoints',
+        'total_spent_points': 'totalSpentPoints',
+        'total_expired_points': 'totalExpiredPoints',
         'transactions': 'transactions',
-        'expiring_points': 'expiringPoints'
+        'expiring_points': 'expiringPoints',
+        'active_points': 'activePoints',
+        'pending_points': 'pendingPoints',
+        'expired_points': 'expiredPoints'
     }
 
-    def __init__(self, total=None, transactions=None, expiring_points=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, total=None, total_active_points=None, total_pending_points=None, total_spent_points=None, total_expired_points=None, transactions=None, expiring_points=None, active_points=None, pending_points=None, expired_points=None, local_vars_configuration=None):  # noqa: E501
         """LoyaltySubLedger - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._total = None
+        self._total_active_points = None
+        self._total_pending_points = None
+        self._total_spent_points = None
+        self._total_expired_points = None
         self._transactions = None
         self._expiring_points = None
+        self._active_points = None
+        self._pending_points = None
+        self._expired_points = None
         self.discriminator = None
 
         self.total = total
+        self.total_active_points = total_active_points
+        self.total_pending_points = total_pending_points
+        self.total_spent_points = total_spent_points
+        self.total_expired_points = total_expired_points
         if transactions is not None:
             self.transactions = transactions
         if expiring_points is not None:
             self.expiring_points = expiring_points
+        if active_points is not None:
+            self.active_points = active_points
+        if pending_points is not None:
+            self.pending_points = pending_points
+        if expired_points is not None:
+            self.expired_points = expired_points
 
     @property
     def total(self):
         """Gets the total of this LoyaltySubLedger.  # noqa: E501
 
+        ⚠️ Deprecated: Please use 'totalActivePoints' property instead. Total amount of currently active and available points in the customer's balance   # noqa: E501
 
         :return: The total of this LoyaltySubLedger.  # noqa: E501
         :rtype: float
@@ -75,6 +107,7 @@ class LoyaltySubLedger(object):
     def total(self, total):
         """Sets the total of this LoyaltySubLedger.
 
+        ⚠️ Deprecated: Please use 'totalActivePoints' property instead. Total amount of currently active and available points in the customer's balance   # noqa: E501
 
         :param total: The total of this LoyaltySubLedger.  # noqa: E501
         :type: float
@@ -85,10 +118,110 @@ class LoyaltySubLedger(object):
         self._total = total
 
     @property
+    def total_active_points(self):
+        """Gets the total_active_points of this LoyaltySubLedger.  # noqa: E501
+
+        Total amount of currently active and available points in the customer's balance  # noqa: E501
+
+        :return: The total_active_points of this LoyaltySubLedger.  # noqa: E501
+        :rtype: float
+        """
+        return self._total_active_points
+
+    @total_active_points.setter
+    def total_active_points(self, total_active_points):
+        """Sets the total_active_points of this LoyaltySubLedger.
+
+        Total amount of currently active and available points in the customer's balance  # noqa: E501
+
+        :param total_active_points: The total_active_points of this LoyaltySubLedger.  # noqa: E501
+        :type: float
+        """
+        if self.local_vars_configuration.client_side_validation and total_active_points is None:  # noqa: E501
+            raise ValueError("Invalid value for `total_active_points`, must not be `None`")  # noqa: E501
+
+        self._total_active_points = total_active_points
+
+    @property
+    def total_pending_points(self):
+        """Gets the total_pending_points of this LoyaltySubLedger.  # noqa: E501
+
+        Total amount of pending points, which are not active yet but will become active in the future  # noqa: E501
+
+        :return: The total_pending_points of this LoyaltySubLedger.  # noqa: E501
+        :rtype: float
+        """
+        return self._total_pending_points
+
+    @total_pending_points.setter
+    def total_pending_points(self, total_pending_points):
+        """Sets the total_pending_points of this LoyaltySubLedger.
+
+        Total amount of pending points, which are not active yet but will become active in the future  # noqa: E501
+
+        :param total_pending_points: The total_pending_points of this LoyaltySubLedger.  # noqa: E501
+        :type: float
+        """
+        if self.local_vars_configuration.client_side_validation and total_pending_points is None:  # noqa: E501
+            raise ValueError("Invalid value for `total_pending_points`, must not be `None`")  # noqa: E501
+
+        self._total_pending_points = total_pending_points
+
+    @property
+    def total_spent_points(self):
+        """Gets the total_spent_points of this LoyaltySubLedger.  # noqa: E501
+
+        Total amount of points already spent by this customer  # noqa: E501
+
+        :return: The total_spent_points of this LoyaltySubLedger.  # noqa: E501
+        :rtype: float
+        """
+        return self._total_spent_points
+
+    @total_spent_points.setter
+    def total_spent_points(self, total_spent_points):
+        """Sets the total_spent_points of this LoyaltySubLedger.
+
+        Total amount of points already spent by this customer  # noqa: E501
+
+        :param total_spent_points: The total_spent_points of this LoyaltySubLedger.  # noqa: E501
+        :type: float
+        """
+        if self.local_vars_configuration.client_side_validation and total_spent_points is None:  # noqa: E501
+            raise ValueError("Invalid value for `total_spent_points`, must not be `None`")  # noqa: E501
+
+        self._total_spent_points = total_spent_points
+
+    @property
+    def total_expired_points(self):
+        """Gets the total_expired_points of this LoyaltySubLedger.  # noqa: E501
+
+        Total amount of points, that expired without ever being spent  # noqa: E501
+
+        :return: The total_expired_points of this LoyaltySubLedger.  # noqa: E501
+        :rtype: float
+        """
+        return self._total_expired_points
+
+    @total_expired_points.setter
+    def total_expired_points(self, total_expired_points):
+        """Sets the total_expired_points of this LoyaltySubLedger.
+
+        Total amount of points, that expired without ever being spent  # noqa: E501
+
+        :param total_expired_points: The total_expired_points of this LoyaltySubLedger.  # noqa: E501
+        :type: float
+        """
+        if self.local_vars_configuration.client_side_validation and total_expired_points is None:  # noqa: E501
+            raise ValueError("Invalid value for `total_expired_points`, must not be `None`")  # noqa: E501
+
+        self._total_expired_points = total_expired_points
+
+    @property
     def transactions(self):
         """Gets the transactions of this LoyaltySubLedger.  # noqa: E501
 
-        Transactions contains a list of all events that have happened such as additions, subtractions and expiries  # noqa: E501
+        List of all events that have happened such as additions, subtractions and expiries  # noqa: E501
 
         :return: The transactions of this LoyaltySubLedger.  # noqa: E501
         :rtype: list[LoyaltyLedgerEntry]
@@ -99,7 +232,7 @@ class LoyaltySubLedger(object):
     def transactions(self, transactions):
         """Sets the transactions of this LoyaltySubLedger.
 
-        Transactions contains a list of all events that have happened such as additions, subtractions and expiries  # noqa: E501
+        List of all events that have happened such as additions, subtractions and expiries  # noqa: E501
 
         :param transactions: The transactions of this LoyaltySubLedger.  # noqa: E501
         :type: list[LoyaltyLedgerEntry]
@@ -111,7 +244,7 @@ class LoyaltySubLedger(object):
     def expiring_points(self):
         """Gets the expiring_points of this LoyaltySubLedger.  # noqa: E501
 
-        ExpiringPoints contains a list of all points that will expiry and when  # noqa: E501
+        List of all points that will expire  # noqa: E501
 
         :return: The expiring_points of this LoyaltySubLedger.  # noqa: E501
         :rtype: list[LoyaltyLedgerEntry]
@@ -122,13 +255,82 @@ class LoyaltySubLedger(object):
     def expiring_points(self, expiring_points):
         """Sets the expiring_points of this LoyaltySubLedger.
 
-        ExpiringPoints contains a list of all points that will expiry and when  # noqa: E501
+        List of all points that will expire  # noqa: E501
 
         :param expiring_points: The expiring_points of this LoyaltySubLedger.  # noqa: E501
         :type: list[LoyaltyLedgerEntry]
         """
 
         self._expiring_points = expiring_points
+
+    @property
+    def active_points(self):
+        """Gets the active_points of this LoyaltySubLedger.  # noqa: E501
+
+        List of all currently active points  # noqa: E501
+
+        :return: The active_points of this LoyaltySubLedger.  # noqa: E501
+        :rtype: list[LoyaltyLedgerEntry]
+        """
+        return self._active_points
+
+    @active_points.setter
+    def active_points(self, active_points):
+        """Sets the active_points of this LoyaltySubLedger.
+
+        List of all currently active points  # noqa: E501
+
+        :param active_points: The active_points of this LoyaltySubLedger.  # noqa: E501
+        :type: list[LoyaltyLedgerEntry]
+        """
+
+        self._active_points = active_points
+
+    @property
+    def pending_points(self):
+        """Gets the pending_points of this LoyaltySubLedger.  # noqa: E501
+
+        List of all points pending activation  # noqa: E501
+
+        :return: The pending_points of this LoyaltySubLedger.  # noqa: E501
+        :rtype: list[LoyaltyLedgerEntry]
+        """
+        return self._pending_points
+
+    @pending_points.setter
+    def pending_points(self, pending_points):
+        """Sets the pending_points of this LoyaltySubLedger.
+
+        List of all points pending activation  # noqa: E501
+
+        :param pending_points: The pending_points of this LoyaltySubLedger.  # noqa: E501
+        :type: list[LoyaltyLedgerEntry]
+        """
+
+        self._pending_points = pending_points
+
+    @property
+    def expired_points(self):
+        """Gets the expired_points of this LoyaltySubLedger.  # noqa: E501
+
+        List of expired points  # noqa: E501
+
+        :return: The expired_points of this LoyaltySubLedger.  # noqa: E501
+        :rtype: list[LoyaltyLedgerEntry]
+        """
+        return self._expired_points
+
+    @expired_points.setter
+    def expired_points(self, expired_points):
+        """Sets the expired_points of this LoyaltySubLedger.
+
+        List of expired points  # noqa: E501
+
+        :param expired_points: The expired_points of this LoyaltySubLedger.  # noqa: E501
+        :type: list[LoyaltyLedgerEntry]
+        """
+
+        self._expired_points = expired_points
 
     def to_dict(self):
         """Returns the model properties as a dict"""

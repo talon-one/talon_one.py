@@ -39,8 +39,6 @@ class TestUpdateUser(unittest.TestCase):
                 name = '0', 
                 policy = '0', 
                 state = 'deactivated', 
-                release_update = True, 
-                latest_feature = '0', 
                 roles = [
                     56
                     ], 

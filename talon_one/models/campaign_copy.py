@@ -34,7 +34,7 @@ class CampaignCopy(object):
     """
     openapi_types = {
         'name': 'str',
-        'application_ids': 'list[str]',
+        'application_ids': 'list[int]',
         'description': 'str',
         'start_time': 'datetime',
         'end_time': 'datetime',
@@ -106,7 +106,7 @@ class CampaignCopy(object):
         Application IDs of the applications to which a campaign should be copied to  # noqa: E501
 
         :return: The application_ids of this CampaignCopy.  # noqa: E501
-        :rtype: list[str]
+        :rtype: list[int]
         """
         return self._application_ids
 
@@ -117,7 +117,7 @@ class CampaignCopy(object):
         Application IDs of the applications to which a campaign should be copied to  # noqa: E501
 
         :param application_ids: The application_ids of this CampaignCopy.  # noqa: E501
-        :type: list[str]
+        :type: list[int]
         """
         if self.local_vars_configuration.client_side_validation and application_ids is None:  # noqa: E501
             raise ValueError("Invalid value for `application_ids`, must not be `None`")  # noqa: E501

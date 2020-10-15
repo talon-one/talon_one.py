@@ -40,6 +40,7 @@ class LoyaltyProgram(object):
         'description': 'str',
         'subscribed_applications': 'list[int]',
         'default_validity': 'str',
+        'default_pending': 'str',
         'allow_subledger': 'bool'
     }
 
@@ -51,10 +52,11 @@ class LoyaltyProgram(object):
         'description': 'description',
         'subscribed_applications': 'subscribedApplications',
         'default_validity': 'defaultValidity',
+        'default_pending': 'defaultPending',
         'allow_subledger': 'allowSubledger'
     }
 
-    def __init__(self, id=None, account_id=None, name=None, title=None, description=None, subscribed_applications=None, default_validity=None, allow_subledger=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, account_id=None, name=None, title=None, description=None, subscribed_applications=None, default_validity=None, default_pending=None, allow_subledger=None, local_vars_configuration=None):  # noqa: E501
         """LoyaltyProgram - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -67,6 +69,7 @@ class LoyaltyProgram(object):
         self._description = None
         self._subscribed_applications = None
         self._default_validity = None
+        self._default_pending = None
         self._allow_subledger = None
         self.discriminator = None
 
@@ -77,6 +80,7 @@ class LoyaltyProgram(object):
         self.description = description
         self.subscribed_applications = subscribed_applications
         self.default_validity = default_validity
+        self.default_pending = default_pending
         self.allow_subledger = allow_subledger
 
     @property
@@ -233,7 +237,7 @@ class LoyaltyProgram(object):
     def default_validity(self):
         """Gets the default_validity of this LoyaltyProgram.  # noqa: E501
 
-        Indicates the default duration after which new loyalty points should expire. The format is a number, followed by one letter indicating the unit; like '1h' or '40m' or '30d'.  # noqa: E501
+        Indicates the default duration after which new loyalty points should expire. The format is a number, followed by one letter indicating the unit; like '1h' or '40m'.  # noqa: E501
 
         :return: The default_validity of this LoyaltyProgram.  # noqa: E501
         :rtype: str
@@ -244,7 +248,7 @@ class LoyaltyProgram(object):
     def default_validity(self, default_validity):
         """Sets the default_validity of this LoyaltyProgram.
 
-        Indicates the default duration after which new loyalty points should expire. The format is a number, followed by one letter indicating the unit; like '1h' or '40m' or '30d'.  # noqa: E501
+        Indicates the default duration after which new loyalty points should expire. The format is a number, followed by one letter indicating the unit; like '1h' or '40m'.  # noqa: E501
 
         :param default_validity: The default_validity of this LoyaltyProgram.  # noqa: E501
         :type: str
@@ -253,6 +257,31 @@ class LoyaltyProgram(object):
             raise ValueError("Invalid value for `default_validity`, must not be `None`")  # noqa: E501
 
         self._default_validity = default_validity
+
+    @property
+    def default_pending(self):
+        """Gets the default_pending of this LoyaltyProgram.  # noqa: E501
+
+        Indicates the default duration for the pending time, after which points will be valid. The format is a number followed by a duration unit, like '1h' or '40m'.  # noqa: E501
+
+        :return: The default_pending of this LoyaltyProgram.  # noqa: E501
+        :rtype: str
+        """
+        return self._default_pending
+
+    @default_pending.setter
+    def default_pending(self, default_pending):
+        """Sets the default_pending of this LoyaltyProgram.
+
+        Indicates the default duration for the pending time, after which points will be valid. The format is a number followed by a duration unit, like '1h' or '40m'.  # noqa: E501
+
+        :param default_pending: The default_pending of this LoyaltyProgram.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and default_pending is None:  # noqa: E501
+            raise ValueError("Invalid value for `default_pending`, must not be `None`")  # noqa: E501
+
+        self._default_pending = default_pending
 
     @property
     def allow_subledger(self):

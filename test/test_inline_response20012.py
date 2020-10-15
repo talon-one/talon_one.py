@@ -37,6 +37,7 @@ class TestInlineResponse20012(unittest.TestCase):
         if include_optional :
             return InlineResponse20012(
                 total_result_size = 56, 
+                has_more = True, 
                 data = [
                     talon_one.models.application_customer.ApplicationCustomer(
                         id = 56, 
@@ -51,12 +52,16 @@ class TestInlineResponse20012(unittest.TestCase):
                                 joined = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                                 loyalty_program_id = 56, )
                             ], 
+                        audience_memberships = [
+                            talon_one.models.audience_membership.AudienceMembership(
+                                id = 56, 
+                                name = '0', )
+                            ], 
                         last_activity = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), )
                     ]
             )
         else :
             return InlineResponse20012(
-                total_result_size = 56,
                 data = [
                     talon_one.models.application_customer.ApplicationCustomer(
                         id = 56, 
@@ -70,6 +75,11 @@ class TestInlineResponse20012(unittest.TestCase):
                             talon_one.models.loyalty_membership.LoyaltyMembership(
                                 joined = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                                 loyalty_program_id = 56, )
+                            ], 
+                        audience_memberships = [
+                            talon_one.models.audience_membership.AudienceMembership(
+                                id = 56, 
+                                name = '0', )
                             ], 
                         last_activity = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), )
                     ],

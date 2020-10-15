@@ -61,6 +61,7 @@ Method | HTTP request | Description
 [**get_loyalty_points**](ManagementApi.md#get_loyalty_points) | **GET** /v1/loyalty_programs/{programID}/profile/{integrationID} | get the Loyalty Ledger for this integrationID
 [**get_loyalty_program**](ManagementApi.md#get_loyalty_program) | **GET** /v1/loyalty_programs/{programID} | Get a loyalty program
 [**get_loyalty_programs**](ManagementApi.md#get_loyalty_programs) | **GET** /v1/loyalty_programs | List all loyalty Programs
+[**get_loyalty_statistics**](ManagementApi.md#get_loyalty_statistics) | **GET** /v1/loyalty_programs/{programID}/statistics | Get loyalty program statistics by loyalty program ID
 [**get_referrals**](ManagementApi.md#get_referrals) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/referrals | List Referrals (with total count)
 [**get_referrals_without_total_count**](ManagementApi.md#get_referrals_without_total_count) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/referrals/no_total | List Referrals
 [**get_role**](ManagementApi.md#get_role) | **GET** /v1/roles/{roleId} | Get information for the specified role.
@@ -100,14 +101,27 @@ import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-configuration = talon_one.Configuration()
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: manager_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration = talon_one.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -167,14 +181,27 @@ import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-configuration = talon_one.Configuration()
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: manager_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration = talon_one.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -235,14 +262,27 @@ import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-configuration = talon_one.Configuration()
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: manager_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration = talon_one.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -299,14 +339,27 @@ import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-configuration = talon_one.Configuration()
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: manager_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration = talon_one.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -361,14 +414,27 @@ import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-configuration = talon_one.Configuration()
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: manager_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration = talon_one.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -427,14 +493,27 @@ import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-configuration = talon_one.Configuration()
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: manager_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration = talon_one.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -498,14 +577,27 @@ import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-configuration = talon_one.Configuration()
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: manager_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration = talon_one.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -560,14 +652,27 @@ import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-configuration = talon_one.Configuration()
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: manager_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration = talon_one.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -626,14 +731,27 @@ import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-configuration = talon_one.Configuration()
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: manager_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration = talon_one.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -688,14 +806,27 @@ import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-configuration = talon_one.Configuration()
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: manager_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration = talon_one.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -751,14 +882,27 @@ import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-configuration = talon_one.Configuration()
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: manager_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration = talon_one.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -816,14 +960,27 @@ import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-configuration = talon_one.Configuration()
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: manager_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration = talon_one.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -905,14 +1062,27 @@ import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-configuration = talon_one.Configuration()
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: manager_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration = talon_one.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -970,14 +1140,27 @@ import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-configuration = talon_one.Configuration()
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: manager_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration = talon_one.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -1035,14 +1218,27 @@ import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-configuration = talon_one.Configuration()
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: manager_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration = talon_one.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -1113,14 +1309,27 @@ import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-configuration = talon_one.Configuration()
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: manager_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration = talon_one.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -1193,14 +1402,27 @@ import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-configuration = talon_one.Configuration()
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: manager_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration = talon_one.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -1257,14 +1479,27 @@ import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-configuration = talon_one.Configuration()
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: manager_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration = talon_one.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -1321,14 +1556,27 @@ import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-configuration = talon_one.Configuration()
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: manager_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration = talon_one.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -1385,14 +1633,27 @@ import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-configuration = talon_one.Configuration()
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: manager_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration = talon_one.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -1453,14 +1714,27 @@ import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-configuration = talon_one.Configuration()
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: manager_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration = talon_one.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -1529,14 +1803,27 @@ import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-configuration = talon_one.Configuration()
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: manager_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration = talon_one.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -1589,14 +1876,27 @@ import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-configuration = talon_one.Configuration()
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: manager_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration = talon_one.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -1651,14 +1951,27 @@ import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-configuration = talon_one.Configuration()
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: manager_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration = talon_one.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -1713,14 +2026,27 @@ import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-configuration = talon_one.Configuration()
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: manager_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration = talon_one.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -1764,7 +2090,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_application_customers**
-> InlineResponse20012 get_application_customers(application_id)
+> InlineResponse20012 get_application_customers(application_id, integration_id=integration_id, page_size=page_size, skip=skip, with_total_result_size=with_total_result_size)
 
 List Application Customers
 
@@ -1777,23 +2103,40 @@ import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-configuration = talon_one.Configuration()
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: manager_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration = talon_one.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
     application_id = 56 # int | 
+integration_id = 'integration_id_example' # str | Filter results performing an exact matching against the profile integration identifier. (optional)
+page_size = 56 # int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
+with_total_result_size = True # bool | When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, hasMore will be be true whenever there is a next page. totalResultSize will always be zero. With this flag set to false, hasMore will always be set to false. totalResultSize will contain the total number of results for this query.  (optional)
 
     try:
         # List Application Customers
-        api_response = api_instance.get_application_customers(application_id)
+        api_response = api_instance.get_application_customers(application_id, integration_id=integration_id, page_size=page_size, skip=skip, with_total_result_size=with_total_result_size)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling ManagementApi->get_application_customers: %s\n" % e)
@@ -1804,6 +2147,10 @@ with talon_one.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **application_id** | **int**|  | 
+ **integration_id** | **str**| Filter results performing an exact matching against the profile integration identifier. | [optional] 
+ **page_size** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
+ **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional] 
+ **with_total_result_size** | **bool**| When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, hasMore will be be true whenever there is a next page. totalResultSize will always be zero. With this flag set to false, hasMore will always be set to false. totalResultSize will contain the total number of results for this query.  | [optional] 
 
 ### Return type
 
@@ -1841,14 +2188,27 @@ import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-configuration = talon_one.Configuration()
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: integration_auth
-configuration.api_key['Content-Signature'] = 'YOUR_API_KEY'
+configuration = talon_one.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'Content-Signature': 'YOUR_API_KEY'
+    }
+)
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Content-Signature'] = 'Bearer'
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -1905,14 +2265,27 @@ import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-configuration = talon_one.Configuration()
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: manager_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration = talon_one.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -1975,14 +2348,27 @@ import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-configuration = talon_one.Configuration()
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: manager_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration = talon_one.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -2067,14 +2453,27 @@ import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-configuration = talon_one.Configuration()
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: manager_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration = talon_one.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -2157,14 +2556,27 @@ import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-configuration = talon_one.Configuration()
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: manager_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration = talon_one.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -2208,7 +2620,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_application_sessions**
-> InlineResponse20016 get_application_sessions(application_id, page_size=page_size, skip=skip, sort=sort, profile=profile, state=state, coupon=coupon, referral=referral, integration_id=integration_id, customer_id=customer_id)
+> InlineResponse20016 get_application_sessions(application_id, page_size=page_size, skip=skip, sort=sort, profile=profile, state=state, created_before=created_before, created_after=created_after, coupon=coupon, referral=referral, integration_id=integration_id)
 
 List Application Sessions
 
@@ -2221,14 +2633,27 @@ import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-configuration = talon_one.Configuration()
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: manager_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration = talon_one.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -2239,14 +2664,15 @@ skip = 56 # int | Skips the given number of items when paging through large resu
 sort = 'sort_example' # str | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional)
 profile = 'profile_example' # str | Profile integration ID filter for sessions. Must be exact match. (optional)
 state = 'state_example' # str | Filter by sessions with this state. Must be exact match. (optional)
+created_before = '2013-10-20T19:20:30+01:00' # datetime | Only return events created before this date (optional)
+created_after = '2013-10-20T19:20:30+01:00' # datetime | Only return events created after this date (optional)
 coupon = 'coupon_example' # str | Filter by sessions with this coupon. Must be exact match. (optional)
 referral = 'referral_example' # str | Filter by sessions with this referral. Must be exact match. (optional)
 integration_id = 'integration_id_example' # str | Filter by sessions with this integrationId. Must be exact match. (optional)
-customer_id = 'customer_id_example' # str | Filter by integration ID of the customer for the session (optional)
 
     try:
         # List Application Sessions
-        api_response = api_instance.get_application_sessions(application_id, page_size=page_size, skip=skip, sort=sort, profile=profile, state=state, coupon=coupon, referral=referral, integration_id=integration_id, customer_id=customer_id)
+        api_response = api_instance.get_application_sessions(application_id, page_size=page_size, skip=skip, sort=sort, profile=profile, state=state, created_before=created_before, created_after=created_after, coupon=coupon, referral=referral, integration_id=integration_id)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling ManagementApi->get_application_sessions: %s\n" % e)
@@ -2262,10 +2688,11 @@ Name | Type | Description  | Notes
  **sort** | **str**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional] 
  **profile** | **str**| Profile integration ID filter for sessions. Must be exact match. | [optional] 
  **state** | **str**| Filter by sessions with this state. Must be exact match. | [optional] 
+ **created_before** | **datetime**| Only return events created before this date | [optional] 
+ **created_after** | **datetime**| Only return events created after this date | [optional] 
  **coupon** | **str**| Filter by sessions with this coupon. Must be exact match. | [optional] 
  **referral** | **str**| Filter by sessions with this referral. Must be exact match. | [optional] 
  **integration_id** | **str**| Filter by sessions with this integrationId. Must be exact match. | [optional] 
- **customer_id** | **str**| Filter by integration ID of the customer for the session | [optional] 
 
 ### Return type
 
@@ -2303,14 +2730,27 @@ import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-configuration = talon_one.Configuration()
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: manager_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration = talon_one.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -2371,14 +2811,27 @@ import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-configuration = talon_one.Configuration()
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: manager_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration = talon_one.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -2435,14 +2888,27 @@ import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-configuration = talon_one.Configuration()
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: manager_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration = talon_one.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -2501,14 +2967,27 @@ import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-configuration = talon_one.Configuration()
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: manager_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration = talon_one.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -2565,14 +3044,27 @@ import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-configuration = talon_one.Configuration()
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: manager_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration = talon_one.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -2637,14 +3129,27 @@ import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-configuration = talon_one.Configuration()
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: manager_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration = talon_one.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -2696,7 +3201,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_campaigns**
-> InlineResponse2002 get_campaigns(application_id, page_size=page_size, skip=skip, sort=sort, campaign_state=campaign_state, name=name, tags=tags, created_before=created_before, created_after=created_after)
+> InlineResponse2002 get_campaigns(application_id, page_size=page_size, skip=skip, sort=sort, campaign_state=campaign_state, name=name, tags=tags, created_before=created_before, created_after=created_after, campaign_group_id=campaign_group_id)
 
 List your Campaigns
 
@@ -2709,14 +3214,27 @@ import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-configuration = talon_one.Configuration()
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: manager_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration = talon_one.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -2730,10 +3248,11 @@ name = 'name_example' # str | Filter results performing case-insensitive matchin
 tags = 'tags_example' # str | Filter results performing case-insensitive matching against the tags of the campaign. When used in conjunction with the \"name\" query parameter, a logical OR will be performed to search both tags and name for the provided values  (optional)
 created_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. (optional)
 created_after = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. (optional)
+campaign_group_id = 56 # int | Filter results to campaigns owned by the specified campaign group ID. (optional)
 
     try:
         # List your Campaigns
-        api_response = api_instance.get_campaigns(application_id, page_size=page_size, skip=skip, sort=sort, campaign_state=campaign_state, name=name, tags=tags, created_before=created_before, created_after=created_after)
+        api_response = api_instance.get_campaigns(application_id, page_size=page_size, skip=skip, sort=sort, campaign_state=campaign_state, name=name, tags=tags, created_before=created_before, created_after=created_after, campaign_group_id=campaign_group_id)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling ManagementApi->get_campaigns: %s\n" % e)
@@ -2752,6 +3271,7 @@ Name | Type | Description  | Notes
  **tags** | **str**| Filter results performing case-insensitive matching against the tags of the campaign. When used in conjunction with the \&quot;name\&quot; query parameter, a logical OR will be performed to search both tags and name for the provided values  | [optional] 
  **created_before** | **datetime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. | [optional] 
  **created_after** | **datetime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. | [optional] 
+ **campaign_group_id** | **int**| Filter results to campaigns owned by the specified campaign group ID. | [optional] 
 
 ### Return type
 
@@ -2789,14 +3309,27 @@ import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-configuration = talon_one.Configuration()
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: manager_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration = talon_one.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -2865,14 +3398,27 @@ import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-configuration = talon_one.Configuration()
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: manager_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration = talon_one.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -2963,14 +3509,27 @@ import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-configuration = talon_one.Configuration()
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: manager_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration = talon_one.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -3055,14 +3614,27 @@ import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-configuration = talon_one.Configuration()
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: manager_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration = talon_one.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -3145,14 +3717,27 @@ import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-configuration = talon_one.Configuration()
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: manager_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration = talon_one.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -3235,14 +3820,27 @@ import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-configuration = talon_one.Configuration()
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: manager_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration = talon_one.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -3309,14 +3907,27 @@ import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-configuration = talon_one.Configuration()
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: manager_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration = talon_one.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -3391,14 +4002,27 @@ import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-configuration = talon_one.Configuration()
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: manager_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration = talon_one.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -3473,14 +4097,27 @@ import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-configuration = talon_one.Configuration()
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: manager_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration = talon_one.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -3530,7 +4167,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_customer_profile**
-> ApplicationCustomer get_customer_profile(application_id, customer_id)
+> ApplicationCustomer get_customer_profile(customer_id)
 
 Get Customer Profile
 
@@ -3543,24 +4180,36 @@ import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-configuration = talon_one.Configuration()
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: manager_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration = talon_one.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
-    application_id = 56 # int | 
-customer_id = 56 # int | 
+    customer_id = 56 # int | 
 
     try:
         # Get Customer Profile
-        api_response = api_instance.get_customer_profile(application_id, customer_id)
+        api_response = api_instance.get_customer_profile(customer_id)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling ManagementApi->get_customer_profile: %s\n" % e)
@@ -3570,7 +4219,6 @@ customer_id = 56 # int |
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **application_id** | **int**|  | 
  **customer_id** | **int**|  | 
 
 ### Return type
@@ -3607,14 +4255,27 @@ import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-configuration = talon_one.Configuration()
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: manager_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration = talon_one.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -3673,14 +4334,27 @@ import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-configuration = talon_one.Configuration()
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: manager_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration = talon_one.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -3741,14 +4415,27 @@ import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-configuration = talon_one.Configuration()
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: manager_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration = talon_one.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -3815,14 +4502,27 @@ import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-configuration = talon_one.Configuration()
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: manager_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration = talon_one.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -3887,14 +4587,27 @@ import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-configuration = talon_one.Configuration()
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: manager_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration = talon_one.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -3953,14 +4666,27 @@ import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-configuration = talon_one.Configuration()
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: manager_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration = talon_one.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -4017,14 +4743,27 @@ import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-configuration = talon_one.Configuration()
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: manager_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration = talon_one.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -4079,14 +4818,27 @@ import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-configuration = talon_one.Configuration()
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: manager_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration = talon_one.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -4123,6 +4875,81 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **get_loyalty_statistics**
+> LoyaltyStatistics get_loyalty_statistics(program_id)
+
+Get loyalty program statistics by loyalty program ID
+
+### Example
+
+* Api Key Authentication (manager_auth):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    program_id = 'program_id_example' # str | 
+
+    try:
+        # Get loyalty program statistics by loyalty program ID
+        api_response = api_instance.get_loyalty_statistics(program_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_loyalty_statistics: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **program_id** | **str**|  | 
+
+### Return type
+
+[**LoyaltyStatistics**](LoyaltyStatistics.md)
+
+### Authorization
+
+[manager_auth](../README.md#manager_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **get_referrals**
 > InlineResponse2006 get_referrals(application_id, campaign_id, page_size=page_size, skip=skip, sort=sort, code=code, created_before=created_before, created_after=created_after, valid=valid, usable=usable, advocate=advocate)
 
@@ -4137,14 +4964,27 @@ import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-configuration = talon_one.Configuration()
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: manager_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration = talon_one.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -4219,14 +5059,27 @@ import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-configuration = talon_one.Configuration()
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: manager_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration = talon_one.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -4301,14 +5154,27 @@ import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-configuration = talon_one.Configuration()
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: manager_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration = talon_one.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -4363,14 +5229,27 @@ import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-configuration = talon_one.Configuration()
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: manager_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration = talon_one.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -4429,14 +5308,27 @@ import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-configuration = talon_one.Configuration()
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: manager_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration = talon_one.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -4501,14 +5393,27 @@ import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-configuration = talon_one.Configuration()
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: manager_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration = talon_one.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -4565,14 +5470,27 @@ import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-configuration = talon_one.Configuration()
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: manager_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration = talon_one.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -4633,14 +5551,27 @@ import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-configuration = talon_one.Configuration()
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: manager_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration = talon_one.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -4697,14 +5628,27 @@ import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-configuration = talon_one.Configuration()
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: manager_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration = talon_one.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -4775,14 +5719,27 @@ import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-configuration = talon_one.Configuration()
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: manager_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration = talon_one.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -4855,14 +5812,27 @@ import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-configuration = talon_one.Configuration()
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: manager_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration = talon_one.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -4923,14 +5893,27 @@ import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-configuration = talon_one.Configuration()
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: manager_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration = talon_one.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -4990,14 +5973,27 @@ import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-configuration = talon_one.Configuration()
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: manager_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration = talon_one.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -5054,14 +6050,27 @@ import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-configuration = talon_one.Configuration()
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: manager_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration = talon_one.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -5146,14 +6155,27 @@ import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-configuration = talon_one.Configuration()
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: manager_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration = talon_one.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -5238,14 +6260,27 @@ import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-configuration = talon_one.Configuration()
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: manager_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration = talon_one.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -5330,14 +6365,27 @@ import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-configuration = talon_one.Configuration()
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: manager_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration = talon_one.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -5422,14 +6470,27 @@ import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-configuration = talon_one.Configuration()
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: manager_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration = talon_one.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -5488,14 +6549,27 @@ import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-configuration = talon_one.Configuration()
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: manager_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration = talon_one.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -5552,14 +6626,27 @@ import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-configuration = talon_one.Configuration()
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: manager_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration = talon_one.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -5618,14 +6705,27 @@ import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-configuration = talon_one.Configuration()
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: manager_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration = talon_one.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -5686,14 +6786,27 @@ import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-configuration = talon_one.Configuration()
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: manager_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration = talon_one.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -5751,14 +6864,27 @@ import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-configuration = talon_one.Configuration()
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: manager_auth
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration = talon_one.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class

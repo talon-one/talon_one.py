@@ -80,7 +80,14 @@ class TestIntegrationApi(unittest.TestCase):
     def test_update_customer_profile(self):
         """Test case for update_customer_profile
 
-        Update a Customer Profile  # noqa: E501
+        Update a Customer Profile V1  # noqa: E501
+        """
+        pass
+
+    def test_update_customer_profile_audiences(self):
+        """Test case for update_customer_profile_audiences
+
+        Update a Customer Profile Audiences  # noqa: E501
         """
         pass
 
@@ -91,10 +98,17 @@ class TestIntegrationApi(unittest.TestCase):
         """
         pass
 
+    def test_update_customer_profiles_v2(self):
+        """Test case for update_customer_profiles_v2
+
+        Update multiple Customer Profiles  # noqa: E501
+        """
+        pass
+
     def test_update_customer_session(self):
         """Test case for update_customer_session
 
-        Update a Customer Session  # noqa: E501
+        Update a Customer Session V1  # noqa: E501
         """
         pass
 

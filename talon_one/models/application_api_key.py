@@ -33,47 +33,131 @@ class ApplicationAPIKey(object):
                             and the value is json key in definition.
     """
     openapi_types = {
+        'title': 'str',
+        'expires': 'datetime',
+        'platform': 'str',
         'id': 'int',
         'created_by': 'int',
-        'title': 'str',
         'account_id': 'int',
         'application_id': 'int',
-        'created': 'datetime',
-        'expires': 'datetime'
+        'created': 'datetime'
     }
 
     attribute_map = {
+        'title': 'title',
+        'expires': 'expires',
+        'platform': 'platform',
         'id': 'id',
         'created_by': 'createdBy',
-        'title': 'title',
         'account_id': 'accountID',
         'application_id': 'applicationID',
-        'created': 'created',
-        'expires': 'expires'
+        'created': 'created'
     }
 
-    def __init__(self, id=None, created_by=None, title=None, account_id=None, application_id=None, created=None, expires=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, title=None, expires=None, platform=None, id=None, created_by=None, account_id=None, application_id=None, created=None, local_vars_configuration=None):  # noqa: E501
         """ApplicationAPIKey - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
+        self._title = None
+        self._expires = None
+        self._platform = None
         self._id = None
         self._created_by = None
-        self._title = None
         self._account_id = None
         self._application_id = None
         self._created = None
-        self._expires = None
         self.discriminator = None
 
+        self.title = title
+        self.expires = expires
+        if platform is not None:
+            self.platform = platform
         self.id = id
         self.created_by = created_by
-        self.title = title
         self.account_id = account_id
         self.application_id = application_id
         self.created = created
-        self.expires = expires
+
+    @property
+    def title(self):
+        """Gets the title of this ApplicationAPIKey.  # noqa: E501
+
+        Title for API Key  # noqa: E501
+
+        :return: The title of this ApplicationAPIKey.  # noqa: E501
+        :rtype: str
+        """
+        return self._title
+
+    @title.setter
+    def title(self, title):
+        """Sets the title of this ApplicationAPIKey.
+
+        Title for API Key  # noqa: E501
+
+        :param title: The title of this ApplicationAPIKey.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and title is None:  # noqa: E501
+            raise ValueError("Invalid value for `title`, must not be `None`")  # noqa: E501
+
+        self._title = title
+
+    @property
+    def expires(self):
+        """Gets the expires of this ApplicationAPIKey.  # noqa: E501
+
+        The date the API key expired  # noqa: E501
+
+        :return: The expires of this ApplicationAPIKey.  # noqa: E501
+        :rtype: datetime
+        """
+        return self._expires
+
+    @expires.setter
+    def expires(self, expires):
+        """Sets the expires of this ApplicationAPIKey.
+
+        The date the API key expired  # noqa: E501
+
+        :param expires: The expires of this ApplicationAPIKey.  # noqa: E501
+        :type: datetime
+        """
+        if self.local_vars_configuration.client_side_validation and expires is None:  # noqa: E501
+            raise ValueError("Invalid value for `expires`, must not be `None`")  # noqa: E501
+
+        self._expires = expires
+
+    @property
+    def platform(self):
+        """Gets the platform of this ApplicationAPIKey.  # noqa: E501
+
+        Platform the API key is valid for.  # noqa: E501
+
+        :return: The platform of this ApplicationAPIKey.  # noqa: E501
+        :rtype: str
+        """
+        return self._platform
+
+    @platform.setter
+    def platform(self, platform):
+        """Sets the platform of this ApplicationAPIKey.
+
+        Platform the API key is valid for.  # noqa: E501
+
+        :param platform: The platform of this ApplicationAPIKey.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["none", "segment", "braze", "mparticle"]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and platform not in allowed_values:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `platform` ({0}), must be one of {1}"  # noqa: E501
+                .format(platform, allowed_values)
+            )
+
+        self._platform = platform
 
     @property
     def id(self):
@@ -124,31 +208,6 @@ class ApplicationAPIKey(object):
             raise ValueError("Invalid value for `created_by`, must not be `None`")  # noqa: E501
 
         self._created_by = created_by
-
-    @property
-    def title(self):
-        """Gets the title of this ApplicationAPIKey.  # noqa: E501
-
-        Title for API Key  # noqa: E501
-
-        :return: The title of this ApplicationAPIKey.  # noqa: E501
-        :rtype: str
-        """
-        return self._title
-
-    @title.setter
-    def title(self, title):
-        """Sets the title of this ApplicationAPIKey.
-
-        Title for API Key  # noqa: E501
-
-        :param title: The title of this ApplicationAPIKey.  # noqa: E501
-        :type: str
-        """
-        if self.local_vars_configuration.client_side_validation and title is None:  # noqa: E501
-            raise ValueError("Invalid value for `title`, must not be `None`")  # noqa: E501
-
-        self._title = title
 
     @property
     def account_id(self):
@@ -224,31 +283,6 @@ class ApplicationAPIKey(object):
             raise ValueError("Invalid value for `created`, must not be `None`")  # noqa: E501
 
         self._created = created
-
-    @property
-    def expires(self):
-        """Gets the expires of this ApplicationAPIKey.  # noqa: E501
-
-        The date the API key expired  # noqa: E501
-
-        :return: The expires of this ApplicationAPIKey.  # noqa: E501
-        :rtype: datetime
-        """
-        return self._expires
-
-    @expires.setter
-    def expires(self, expires):
-        """Sets the expires of this ApplicationAPIKey.
-
-        The date the API key expired  # noqa: E501
-
-        :param expires: The expires of this ApplicationAPIKey.  # noqa: E501
-        :type: datetime
-        """
-        if self.local_vars_configuration.client_side_validation and expires is None:  # noqa: E501
-            raise ValueError("Invalid value for `expires`, must not be `None`")  # noqa: E501
-
-        self._expires = expires
 
     def to_dict(self):
         """Returns the model properties as a dict"""

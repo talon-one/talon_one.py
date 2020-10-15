@@ -59,7 +59,11 @@ class TestInlineResponse20011(unittest.TestCase):
                         coupons_created = 56, 
                         total_coupons_created = 56, 
                         referrals_created = 56, 
-                        total_referrals_created = 56, )
+                        total_referrals_created = 56, 
+                        added_loyalty_points = 1.337, 
+                        total_added_loyalty_points = 1.337, 
+                        deducted_loyalty_points = 1.337, 
+                        total_deducted_loyalty_points = 1.337, )
                     ]
             )
         else :
@@ -87,7 +91,11 @@ class TestInlineResponse20011(unittest.TestCase):
                         coupons_created = 56, 
                         total_coupons_created = 56, 
                         referrals_created = 56, 
-                        total_referrals_created = 56, )
+                        total_referrals_created = 56, 
+                        added_loyalty_points = 1.337, 
+                        total_added_loyalty_points = 1.337, 
+                        deducted_loyalty_points = 1.337, 
+                        total_deducted_loyalty_points = 1.337, )
                     ],
         )
 

@@ -45,7 +45,11 @@ class Application(object):
         'attributes': 'object',
         'limits': 'list[LimitConfig]',
         'campaign_priority': 'str',
+        'exclusive_campaigns_strategy': 'str',
+        'enable_cascading_discounts': 'bool',
+        'enable_flattened_cart_items': 'bool',
         'attributes_settings': 'AttributesSettings',
+        'sandbox': 'bool',
         'loyalty_programs': 'list[LoyaltyProgram]'
     }
 
@@ -62,11 +66,15 @@ class Application(object):
         'attributes': 'attributes',
         'limits': 'limits',
         'campaign_priority': 'campaignPriority',
+        'exclusive_campaigns_strategy': 'exclusiveCampaignsStrategy',
+        'enable_cascading_discounts': 'enableCascadingDiscounts',
+        'enable_flattened_cart_items': 'enableFlattenedCartItems',
         'attributes_settings': 'attributesSettings',
+        'sandbox': 'sandbox',
         'loyalty_programs': 'loyaltyPrograms'
     }
 
-    def __init__(self, id=None, created=None, modified=None, account_id=None, name=None, description=None, timezone=None, currency=None, case_sensitivity=None, attributes=None, limits=None, campaign_priority=None, attributes_settings=None, loyalty_programs=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, created=None, modified=None, account_id=None, name=None, description=None, timezone=None, currency=None, case_sensitivity=None, attributes=None, limits=None, campaign_priority=None, exclusive_campaigns_strategy=None, enable_cascading_discounts=None, enable_flattened_cart_items=None, attributes_settings=None, sandbox=None, loyalty_programs=None, local_vars_configuration=None):  # noqa: E501
         """Application - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -84,7 +92,11 @@ class Application(object):
         self._attributes = None
         self._limits = None
         self._campaign_priority = None
+        self._exclusive_campaigns_strategy = None
+        self._enable_cascading_discounts = None
+        self._enable_flattened_cart_items = None
         self._attributes_settings = None
+        self._sandbox = None
         self._loyalty_programs = None
         self.discriminator = None
 
@@ -105,8 +117,16 @@ class Application(object):
             self.limits = limits
         if campaign_priority is not None:
             self.campaign_priority = campaign_priority
+        if exclusive_campaigns_strategy is not None:
+            self.exclusive_campaigns_strategy = exclusive_campaigns_strategy
+        if enable_cascading_discounts is not None:
+            self.enable_cascading_discounts = enable_cascading_discounts
+        if enable_flattened_cart_items is not None:
+            self.enable_flattened_cart_items = enable_flattened_cart_items
         if attributes_settings is not None:
             self.attributes_settings = attributes_settings
+        if sandbox is not None:
+            self.sandbox = sandbox
         self.loyalty_programs = loyalty_programs
 
     @property
@@ -395,7 +415,7 @@ class Application(object):
     def campaign_priority(self):
         """Gets the campaign_priority of this Application.  # noqa: E501
 
-        Default priority for campaigns created in this application, can be one of (universal, stackable, exclusive)  # noqa: E501
+        Default priority for campaigns created in this application, can be one of (universal, stackable, exclusive). If no value is provided, this is set to \"universal\"  # noqa: E501
 
         :return: The campaign_priority of this Application.  # noqa: E501
         :rtype: str
@@ -406,7 +426,7 @@ class Application(object):
     def campaign_priority(self, campaign_priority):
         """Sets the campaign_priority of this Application.
 
-        Default priority for campaigns created in this application, can be one of (universal, stackable, exclusive)  # noqa: E501
+        Default priority for campaigns created in this application, can be one of (universal, stackable, exclusive). If no value is provided, this is set to \"universal\"  # noqa: E501
 
         :param campaign_priority: The campaign_priority of this Application.  # noqa: E501
         :type: str
@@ -419,6 +439,81 @@ class Application(object):
             )
 
         self._campaign_priority = campaign_priority
+
+    @property
+    def exclusive_campaigns_strategy(self):
+        """Gets the exclusive_campaigns_strategy of this Application.  # noqa: E501
+
+        The strategy used when choosing exclusive campaigns for evaluation, can be one of (listOrder, lowestDiscount, highestDiscount). If no value is provided, this is set to \"listOrder\"  # noqa: E501
+
+        :return: The exclusive_campaigns_strategy of this Application.  # noqa: E501
+        :rtype: str
+        """
+        return self._exclusive_campaigns_strategy
+
+    @exclusive_campaigns_strategy.setter
+    def exclusive_campaigns_strategy(self, exclusive_campaigns_strategy):
+        """Sets the exclusive_campaigns_strategy of this Application.
+
+        The strategy used when choosing exclusive campaigns for evaluation, can be one of (listOrder, lowestDiscount, highestDiscount). If no value is provided, this is set to \"listOrder\"  # noqa: E501
+
+        :param exclusive_campaigns_strategy: The exclusive_campaigns_strategy of this Application.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["listOrder", "lowestDiscount", "highestDiscount"]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and exclusive_campaigns_strategy not in allowed_values:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `exclusive_campaigns_strategy` ({0}), must be one of {1}"  # noqa: E501
+                .format(exclusive_campaigns_strategy, allowed_values)
+            )
+
+        self._exclusive_campaigns_strategy = exclusive_campaigns_strategy
+
+    @property
+    def enable_cascading_discounts(self):
+        """Gets the enable_cascading_discounts of this Application.  # noqa: E501
+
+        Flag indicating if discounts should cascade for this application  # noqa: E501
+
+        :return: The enable_cascading_discounts of this Application.  # noqa: E501
+        :rtype: bool
+        """
+        return self._enable_cascading_discounts
+
+    @enable_cascading_discounts.setter
+    def enable_cascading_discounts(self, enable_cascading_discounts):
+        """Sets the enable_cascading_discounts of this Application.
+
+        Flag indicating if discounts should cascade for this application  # noqa: E501
+
+        :param enable_cascading_discounts: The enable_cascading_discounts of this Application.  # noqa: E501
+        :type: bool
+        """
+
+        self._enable_cascading_discounts = enable_cascading_discounts
+
+    @property
+    def enable_flattened_cart_items(self):
+        """Gets the enable_flattened_cart_items of this Application.  # noqa: E501
+
+        Flag indicating if cart items of quantity larger than one should be separated into different items of quantity one  # noqa: E501
+
+        :return: The enable_flattened_cart_items of this Application.  # noqa: E501
+        :rtype: bool
+        """
+        return self._enable_flattened_cart_items
+
+    @enable_flattened_cart_items.setter
+    def enable_flattened_cart_items(self, enable_flattened_cart_items):
+        """Sets the enable_flattened_cart_items of this Application.
+
+        Flag indicating if cart items of quantity larger than one should be separated into different items of quantity one  # noqa: E501
+
+        :param enable_flattened_cart_items: The enable_flattened_cart_items of this Application.  # noqa: E501
+        :type: bool
+        """
+
+        self._enable_flattened_cart_items = enable_flattened_cart_items
 
     @property
     def attributes_settings(self):
@@ -440,6 +535,29 @@ class Application(object):
         """
 
         self._attributes_settings = attributes_settings
+
+    @property
+    def sandbox(self):
+        """Gets the sandbox of this Application.  # noqa: E501
+
+        Flag indicating if this is a live or sandbox application  # noqa: E501
+
+        :return: The sandbox of this Application.  # noqa: E501
+        :rtype: bool
+        """
+        return self._sandbox
+
+    @sandbox.setter
+    def sandbox(self, sandbox):
+        """Sets the sandbox of this Application.
+
+        Flag indicating if this is a live or sandbox application  # noqa: E501
+
+        :param sandbox: The sandbox of this Application.  # noqa: E501
+        :type: bool
+        """
+
+        self._sandbox = sandbox
 
     @property
     def loyalty_programs(self):

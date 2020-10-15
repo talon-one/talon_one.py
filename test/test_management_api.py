@@ -427,6 +427,13 @@ class TestManagementApi(unittest.TestCase):
         """
         pass
 
+    def test_get_loyalty_statistics(self):
+        """Test case for get_loyalty_statistics
+
+        Get loyalty program statistics by loyalty program ID  # noqa: E501
+        """
+        pass
+
     def test_get_referrals(self):
         """Test case for get_referrals
 

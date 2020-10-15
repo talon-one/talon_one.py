@@ -43,6 +43,7 @@ class TestNewLoyaltyProgram(unittest.TestCase):
                     56
                     ], 
                 default_validity = '0', 
+                default_pending = '0', 
                 allow_subledger = True
             )
         else :
@@ -50,6 +51,7 @@ class TestNewLoyaltyProgram(unittest.TestCase):
                 name = '0',
                 title = '0',
                 default_validity = '0',
+                default_pending = '0',
                 allow_subledger = True,
         )
 

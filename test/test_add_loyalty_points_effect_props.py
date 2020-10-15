@@ -41,7 +41,8 @@ class TestAddLoyaltyPointsEffectProps(unittest.TestCase):
                 sub_ledger_id = '0', 
                 value = 1.337, 
                 recipient_integration_id = '0', 
-                expiry_condition = '0'
+                start_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                expiry_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f')
             )
         else :
             return AddLoyaltyPointsEffectProps(
@@ -50,7 +51,6 @@ class TestAddLoyaltyPointsEffectProps(unittest.TestCase):
                 sub_ledger_id = '0',
                 value = 1.337,
                 recipient_integration_id = '0',
-                expiry_condition = '0',
         )
 
     def testAddLoyaltyPointsEffectProps(self):

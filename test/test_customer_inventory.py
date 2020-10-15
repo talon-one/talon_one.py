@@ -48,7 +48,24 @@ class TestCustomerInventory(unittest.TestCase):
                             joined = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                             loyalty_program_id = 56, )
                         ], 
+                    audience_memberships = [
+                        talon_one.models.audience_membership.AudienceMembership(
+                            id = 56, 
+                            name = '0', )
+                        ], 
                     last_activity = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), ), 
+                loyalty = talon_one.models.loyalty.Loyalty(
+                    programs = {
+                        'key' : talon_one.models.loyalty_program_ledgers.LoyaltyProgramLedgers(
+                            title = '0', 
+                            name = '0', 
+                            ledger = talon_one.models.loyalty_program_balance.LoyaltyProgramBalance(
+                                current_balance = 1.337, ), 
+                            sub_ledgers = {
+                                'key' : talon_one.models.loyalty_program_balance.LoyaltyProgramBalance(
+                                    current_balance = 1.337, )
+                                }, )
+                        }, ), 
                 referrals = [
                     talon_one.models.referral.Referral(
                         id = 56, 

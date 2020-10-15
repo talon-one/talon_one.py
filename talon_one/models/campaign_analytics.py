@@ -53,7 +53,11 @@ class CampaignAnalytics(object):
         'coupons_created': 'int',
         'total_coupons_created': 'int',
         'referrals_created': 'int',
-        'total_referrals_created': 'int'
+        'total_referrals_created': 'int',
+        'added_loyalty_points': 'float',
+        'total_added_loyalty_points': 'float',
+        'deducted_loyalty_points': 'float',
+        'total_deducted_loyalty_points': 'float'
     }
 
     attribute_map = {
@@ -77,10 +81,14 @@ class CampaignAnalytics(object):
         'coupons_created': 'couponsCreated',
         'total_coupons_created': 'totalCouponsCreated',
         'referrals_created': 'referralsCreated',
-        'total_referrals_created': 'totalReferralsCreated'
+        'total_referrals_created': 'totalReferralsCreated',
+        'added_loyalty_points': 'addedLoyaltyPoints',
+        'total_added_loyalty_points': 'totalAddedLoyaltyPoints',
+        'deducted_loyalty_points': 'deductedLoyaltyPoints',
+        'total_deducted_loyalty_points': 'totalDeductedLoyaltyPoints'
     }
 
-    def __init__(self, date=None, campaign_revenue=None, total_campaign_revenue=None, campaign_refund=None, total_campaign_refund=None, campaign_discount_costs=None, total_campaign_discount_costs=None, campaign_refunded_discounts=None, total_campaign_refunded_discounts=None, campaign_free_items=None, total_campaign_free_items=None, coupon_redemptions=None, total_coupon_redemptions=None, coupon_rolledback_redemptions=None, total_coupon_rolledback_redemptions=None, referral_redemptions=None, total_referral_redemptions=None, coupons_created=None, total_coupons_created=None, referrals_created=None, total_referrals_created=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, date=None, campaign_revenue=None, total_campaign_revenue=None, campaign_refund=None, total_campaign_refund=None, campaign_discount_costs=None, total_campaign_discount_costs=None, campaign_refunded_discounts=None, total_campaign_refunded_discounts=None, campaign_free_items=None, total_campaign_free_items=None, coupon_redemptions=None, total_coupon_redemptions=None, coupon_rolledback_redemptions=None, total_coupon_rolledback_redemptions=None, referral_redemptions=None, total_referral_redemptions=None, coupons_created=None, total_coupons_created=None, referrals_created=None, total_referrals_created=None, added_loyalty_points=None, total_added_loyalty_points=None, deducted_loyalty_points=None, total_deducted_loyalty_points=None, local_vars_configuration=None):  # noqa: E501
         """CampaignAnalytics - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -107,6 +115,10 @@ class CampaignAnalytics(object):
         self._total_coupons_created = None
         self._referrals_created = None
         self._total_referrals_created = None
+        self._added_loyalty_points = None
+        self._total_added_loyalty_points = None
+        self._deducted_loyalty_points = None
+        self._total_deducted_loyalty_points = None
         self.discriminator = None
 
         self.date = date
@@ -130,6 +142,10 @@ class CampaignAnalytics(object):
         self.total_coupons_created = total_coupons_created
         self.referrals_created = referrals_created
         self.total_referrals_created = total_referrals_created
+        self.added_loyalty_points = added_loyalty_points
+        self.total_added_loyalty_points = total_added_loyalty_points
+        self.deducted_loyalty_points = deducted_loyalty_points
+        self.total_deducted_loyalty_points = total_deducted_loyalty_points
 
     @property
     def date(self):
@@ -653,6 +669,106 @@ class CampaignAnalytics(object):
             raise ValueError("Invalid value for `total_referrals_created`, must not be `None`")  # noqa: E501
 
         self._total_referrals_created = total_referrals_created
+
+    @property
+    def added_loyalty_points(self):
+        """Gets the added_loyalty_points of this CampaignAnalytics.  # noqa: E501
+
+        Number of added loyalty points in the campaign in a specific interval.  # noqa: E501
+
+        :return: The added_loyalty_points of this CampaignAnalytics.  # noqa: E501
+        :rtype: float
+        """
+        return self._added_loyalty_points
+
+    @added_loyalty_points.setter
+    def added_loyalty_points(self, added_loyalty_points):
+        """Sets the added_loyalty_points of this CampaignAnalytics.
+
+        Number of added loyalty points in the campaign in a specific interval.  # noqa: E501
+
+        :param added_loyalty_points: The added_loyalty_points of this CampaignAnalytics.  # noqa: E501
+        :type: float
+        """
+        if self.local_vars_configuration.client_side_validation and added_loyalty_points is None:  # noqa: E501
+            raise ValueError("Invalid value for `added_loyalty_points`, must not be `None`")  # noqa: E501
+
+        self._added_loyalty_points = added_loyalty_points
+
+    @property
+    def total_added_loyalty_points(self):
+        """Gets the total_added_loyalty_points of this CampaignAnalytics.  # noqa: E501
+
+        Number of added loyalty points in the campaign since it began.  # noqa: E501
+
+        :return: The total_added_loyalty_points of this CampaignAnalytics.  # noqa: E501
+        :rtype: float
+        """
+        return self._total_added_loyalty_points
+
+    @total_added_loyalty_points.setter
+    def total_added_loyalty_points(self, total_added_loyalty_points):
+        """Sets the total_added_loyalty_points of this CampaignAnalytics.
+
+        Number of added loyalty points in the campaign since it began.  # noqa: E501
+
+        :param total_added_loyalty_points: The total_added_loyalty_points of this CampaignAnalytics.  # noqa: E501
+        :type: float
+        """
+        if self.local_vars_configuration.client_side_validation and total_added_loyalty_points is None:  # noqa: E501
+            raise ValueError("Invalid value for `total_added_loyalty_points`, must not be `None`")  # noqa: E501
+
+        self._total_added_loyalty_points = total_added_loyalty_points
+
+    @property
+    def deducted_loyalty_points(self):
+        """Gets the deducted_loyalty_points of this CampaignAnalytics.  # noqa: E501
+
+        Number of deducted loyalty points in the campaign in a specific interval.  # noqa: E501
+
+        :return: The deducted_loyalty_points of this CampaignAnalytics.  # noqa: E501
+        :rtype: float
+        """
+        return self._deducted_loyalty_points
+
+    @deducted_loyalty_points.setter
+    def deducted_loyalty_points(self, deducted_loyalty_points):
+        """Sets the deducted_loyalty_points of this CampaignAnalytics.
+
+        Number of deducted loyalty points in the campaign in a specific interval.  # noqa: E501
+
+        :param deducted_loyalty_points: The deducted_loyalty_points of this CampaignAnalytics.  # noqa: E501
+        :type: float
+        """
+        if self.local_vars_configuration.client_side_validation and deducted_loyalty_points is None:  # noqa: E501
+            raise ValueError("Invalid value for `deducted_loyalty_points`, must not be `None`")  # noqa: E501
+
+        self._deducted_loyalty_points = deducted_loyalty_points
+
+    @property
+    def total_deducted_loyalty_points(self):
+        """Gets the total_deducted_loyalty_points of this CampaignAnalytics.  # noqa: E501
+
+        Number of deducted loyalty points in the campaign since it began.  # noqa: E501
+
+        :return: The total_deducted_loyalty_points of this CampaignAnalytics.  # noqa: E501
+        :rtype: float
+        """
+        return self._total_deducted_loyalty_points
+
+    @total_deducted_loyalty_points.setter
+    def total_deducted_loyalty_points(self, total_deducted_loyalty_points):
+        """Sets the total_deducted_loyalty_points of this CampaignAnalytics.
+
+        Number of deducted loyalty points in the campaign since it began.  # noqa: E501
+
+        :param total_deducted_loyalty_points: The total_deducted_loyalty_points of this CampaignAnalytics.  # noqa: E501
+        :type: float
+        """
+        if self.local_vars_configuration.client_side_validation and total_deducted_loyalty_points is None:  # noqa: E501
+            raise ValueError("Invalid value for `total_deducted_loyalty_points`, must not be `None`")  # noqa: E501
+
+        self._total_deducted_loyalty_points = total_deducted_loyalty_points
 
     def to_dict(self):
         """Returns the model properties as a dict"""

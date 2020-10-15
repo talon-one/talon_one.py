@@ -88,6 +88,11 @@ class TestIntegrationStateV2(unittest.TestCase):
                             joined = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                             loyalty_program_id = 56, )
                         ], 
+                    audience_memberships = [
+                        talon_one.models.audience_membership.AudienceMembership(
+                            id = 56, 
+                            name = '0', )
+                        ], 
                     last_activity = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), ), 
                 event = talon_one.models.event.Event(
                     id = 56, 
@@ -204,6 +209,9 @@ class TestIntegrationStateV2(unittest.TestCase):
                                 entities = [
                                     'Coupon'
                                     ], )
+                            ], 
+                        campaign_groups = [
+                            56
                             ], 
                         coupon_redemption_count = 56, 
                         referral_redemption_count = 56, 

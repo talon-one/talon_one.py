@@ -35,18 +35,20 @@ class LoyaltyPoints(object):
     openapi_types = {
         'points': 'float',
         'name': 'str',
-        'expiry_duration': 'str',
+        'validity_duration': 'str',
+        'pending_duration': 'str',
         'sub_ledger_id': 'str'
     }
 
     attribute_map = {
         'points': 'points',
         'name': 'name',
-        'expiry_duration': 'expiryDuration',
+        'validity_duration': 'validityDuration',
+        'pending_duration': 'pendingDuration',
         'sub_ledger_id': 'subLedgerID'
     }
 
-    def __init__(self, points=None, name=None, expiry_duration=None, sub_ledger_id=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, points=None, name=None, validity_duration=None, pending_duration=None, sub_ledger_id=None, local_vars_configuration=None):  # noqa: E501
         """LoyaltyPoints - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -54,15 +56,18 @@ class LoyaltyPoints(object):
 
         self._points = None
         self._name = None
-        self._expiry_duration = None
+        self._validity_duration = None
+        self._pending_duration = None
         self._sub_ledger_id = None
         self.discriminator = None
 
         self.points = points
         if name is not None:
             self.name = name
-        if expiry_duration is not None:
-            self.expiry_duration = expiry_duration
+        if validity_duration is not None:
+            self.validity_duration = validity_duration
+        if pending_duration is not None:
+            self.pending_duration = pending_duration
         if sub_ledger_id is not None:
             self.sub_ledger_id = sub_ledger_id
 
@@ -115,27 +120,50 @@ class LoyaltyPoints(object):
         self._name = name
 
     @property
-    def expiry_duration(self):
-        """Gets the expiry_duration of this LoyaltyPoints.  # noqa: E501
+    def validity_duration(self):
+        """Gets the validity_duration of this LoyaltyPoints.  # noqa: E501
 
-        Indicates the duration after which the added loyalty points should expire. The format is a number followed by one letter indicating the unit, like '1h' or '40m' or '30d'.  # noqa: E501
+        Indicates the duration after which the added loyalty points should expire. The format is a number followed by one letter indicating the time unit, like '1h' or '40m' (defined by Go time package).  # noqa: E501
 
-        :return: The expiry_duration of this LoyaltyPoints.  # noqa: E501
+        :return: The validity_duration of this LoyaltyPoints.  # noqa: E501
         :rtype: str
         """
-        return self._expiry_duration
+        return self._validity_duration
 
-    @expiry_duration.setter
-    def expiry_duration(self, expiry_duration):
-        """Sets the expiry_duration of this LoyaltyPoints.
+    @validity_duration.setter
+    def validity_duration(self, validity_duration):
+        """Sets the validity_duration of this LoyaltyPoints.
 
-        Indicates the duration after which the added loyalty points should expire. The format is a number followed by one letter indicating the unit, like '1h' or '40m' or '30d'.  # noqa: E501
+        Indicates the duration after which the added loyalty points should expire. The format is a number followed by one letter indicating the time unit, like '1h' or '40m' (defined by Go time package).  # noqa: E501
 
-        :param expiry_duration: The expiry_duration of this LoyaltyPoints.  # noqa: E501
+        :param validity_duration: The validity_duration of this LoyaltyPoints.  # noqa: E501
         :type: str
         """
 
-        self._expiry_duration = expiry_duration
+        self._validity_duration = validity_duration
+
+    @property
+    def pending_duration(self):
+        """Gets the pending_duration of this LoyaltyPoints.  # noqa: E501
+
+        Indicates the amount of time before the points are considered valid. The format is a number followed by one letter indicating the time unit, like '1h' or '40m' (defined by Go time package).  # noqa: E501
+
+        :return: The pending_duration of this LoyaltyPoints.  # noqa: E501
+        :rtype: str
+        """
+        return self._pending_duration
+
+    @pending_duration.setter
+    def pending_duration(self, pending_duration):
+        """Sets the pending_duration of this LoyaltyPoints.
+
+        Indicates the amount of time before the points are considered valid. The format is a number followed by one letter indicating the time unit, like '1h' or '40m' (defined by Go time package).  # noqa: E501
+
+        :param pending_duration: The pending_duration of this LoyaltyPoints.  # noqa: E501
+        :type: str
+        """
+
+        self._pending_duration = pending_duration
 
     @property
     def sub_ledger_id(self):

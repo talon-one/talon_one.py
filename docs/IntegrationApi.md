@@ -11,9 +11,11 @@ Method | HTTP request | Description
 [**get_customer_inventory**](IntegrationApi.md#get_customer_inventory) | **GET** /v1/customer_profiles/{integrationId}/inventory | Get an inventory of all data associated with a specific customer profile.
 [**get_reserved_customers**](IntegrationApi.md#get_reserved_customers) | **GET** /v1/coupon_reservations/customerprofiles/{couponValue} | Get the users that have this coupon reserved
 [**track_event**](IntegrationApi.md#track_event) | **POST** /v1/events | Track an Event
-[**update_customer_profile**](IntegrationApi.md#update_customer_profile) | **PUT** /v1/customer_profiles/{integrationId} | Update a Customer Profile
-[**update_customer_profile_v2**](IntegrationApi.md#update_customer_profile_v2) | **PUT** /v2/customer_profiles/{customerProfileId} | Update a Customer Profile
-[**update_customer_session**](IntegrationApi.md#update_customer_session) | **PUT** /v1/customer_sessions/{customerSessionId} | Update a Customer Session
+[**update_customer_profile**](IntegrationApi.md#update_customer_profile) | **PUT** /v1/customer_profiles/{integrationId} | Update a Customer Profile V1
+[**update_customer_profile_audiences**](IntegrationApi.md#update_customer_profile_audiences) | **POST** /v2/customer_audiences | Update a Customer Profile Audiences
+[**update_customer_profile_v2**](IntegrationApi.md#update_customer_profile_v2) | **PUT** /v2/customer_profiles/{integrationId} | Update a Customer Profile
+[**update_customer_profiles_v2**](IntegrationApi.md#update_customer_profiles_v2) | **PUT** /v2/customer_profiles | Update multiple Customer Profiles
+[**update_customer_session**](IntegrationApi.md#update_customer_session) | **PUT** /v1/customer_sessions/{customerSessionId} | Update a Customer Session V1
 [**update_customer_session_v2**](IntegrationApi.md#update_customer_session_v2) | **PUT** /v2/customer_sessions/{customerSessionId} | Update a Customer Session
 
 
@@ -33,19 +35,37 @@ import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-configuration = talon_one.Configuration()
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: api_key_v1
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration = talon_one.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
-configuration = talon_one.Configuration()
+
 # Configure API key authorization: integration_auth
-configuration.api_key['Content-Signature'] = 'YOUR_API_KEY'
+configuration = talon_one.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'Content-Signature': 'YOUR_API_KEY'
+    }
+)
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Content-Signature'] = 'Bearer'
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -68,19 +88,37 @@ import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-configuration = talon_one.Configuration()
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: api_key_v1
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration = talon_one.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
-configuration = talon_one.Configuration()
+
 # Configure API key authorization: integration_auth
-configuration.api_key['Content-Signature'] = 'YOUR_API_KEY'
+configuration = talon_one.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'Content-Signature': 'YOUR_API_KEY'
+    }
+)
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Content-Signature'] = 'Bearer'
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -139,19 +177,37 @@ import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-configuration = talon_one.Configuration()
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: api_key_v1
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration = talon_one.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
-configuration = talon_one.Configuration()
+
 # Configure API key authorization: integration_auth
-configuration.api_key['Content-Signature'] = 'YOUR_API_KEY'
+configuration = talon_one.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'Content-Signature': 'YOUR_API_KEY'
+    }
+)
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Content-Signature'] = 'Bearer'
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -173,19 +229,37 @@ import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-configuration = talon_one.Configuration()
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: api_key_v1
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration = talon_one.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
-configuration = talon_one.Configuration()
+
 # Configure API key authorization: integration_auth
-configuration.api_key['Content-Signature'] = 'YOUR_API_KEY'
+configuration = talon_one.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'Content-Signature': 'YOUR_API_KEY'
+    }
+)
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Content-Signature'] = 'Bearer'
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -242,19 +316,37 @@ import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-configuration = talon_one.Configuration()
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: api_key_v1
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration = talon_one.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
-configuration = talon_one.Configuration()
+
 # Configure API key authorization: integration_auth
-configuration.api_key['Content-Signature'] = 'YOUR_API_KEY'
+configuration = talon_one.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'Content-Signature': 'YOUR_API_KEY'
+    }
+)
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Content-Signature'] = 'Bearer'
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -276,19 +368,37 @@ import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-configuration = talon_one.Configuration()
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: api_key_v1
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration = talon_one.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
-configuration = talon_one.Configuration()
+
 # Configure API key authorization: integration_auth
-configuration.api_key['Content-Signature'] = 'YOUR_API_KEY'
+configuration = talon_one.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'Content-Signature': 'YOUR_API_KEY'
+    }
+)
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Content-Signature'] = 'Bearer'
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -346,19 +456,37 @@ import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-configuration = talon_one.Configuration()
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: api_key_v1
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration = talon_one.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
-configuration = talon_one.Configuration()
+
 # Configure API key authorization: integration_auth
-configuration.api_key['Content-Signature'] = 'YOUR_API_KEY'
+configuration = talon_one.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'Content-Signature': 'YOUR_API_KEY'
+    }
+)
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Content-Signature'] = 'Bearer'
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -379,19 +507,37 @@ import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-configuration = talon_one.Configuration()
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: api_key_v1
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration = talon_one.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
-configuration = talon_one.Configuration()
+
 # Configure API key authorization: integration_auth
-configuration.api_key['Content-Signature'] = 'YOUR_API_KEY'
+configuration = talon_one.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'Content-Signature': 'YOUR_API_KEY'
+    }
+)
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Content-Signature'] = 'Bearer'
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -432,7 +578,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_customer_inventory**
-> CustomerInventory get_customer_inventory(integration_id, profile=profile, referrals=referrals, coupons=coupons)
+> CustomerInventory get_customer_inventory(integration_id, profile=profile, referrals=referrals, coupons=coupons, loyalty=loyalty)
 
 Get an inventory of all data associated with a specific customer profile.
 
@@ -447,19 +593,37 @@ import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-configuration = talon_one.Configuration()
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: api_key_v1
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration = talon_one.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
-configuration = talon_one.Configuration()
+
 # Configure API key authorization: integration_auth
-configuration.api_key['Content-Signature'] = 'YOUR_API_KEY'
+configuration = talon_one.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'Content-Signature': 'YOUR_API_KEY'
+    }
+)
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Content-Signature'] = 'Bearer'
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -468,10 +632,11 @@ with talon_one.ApiClient(configuration) as api_client:
 profile = True # bool | optional flag to decide if you would like customer profile information in the response (optional)
 referrals = True # bool | optional flag to decide if you would like referral information in the response (optional)
 coupons = True # bool | optional flag to decide if you would like coupon information in the response (optional)
+loyalty = True # bool | optional flag to decide if you would like loyalty information in the response (optional)
 
     try:
         # Get an inventory of all data associated with a specific customer profile.
-        api_response = api_instance.get_customer_inventory(integration_id, profile=profile, referrals=referrals, coupons=coupons)
+        api_response = api_instance.get_customer_inventory(integration_id, profile=profile, referrals=referrals, coupons=coupons, loyalty=loyalty)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling IntegrationApi->get_customer_inventory: %s\n" % e)
@@ -484,19 +649,37 @@ import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-configuration = talon_one.Configuration()
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: api_key_v1
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration = talon_one.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
-configuration = talon_one.Configuration()
+
 # Configure API key authorization: integration_auth
-configuration.api_key['Content-Signature'] = 'YOUR_API_KEY'
+configuration = talon_one.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'Content-Signature': 'YOUR_API_KEY'
+    }
+)
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Content-Signature'] = 'Bearer'
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -505,10 +688,11 @@ with talon_one.ApiClient(configuration) as api_client:
 profile = True # bool | optional flag to decide if you would like customer profile information in the response (optional)
 referrals = True # bool | optional flag to decide if you would like referral information in the response (optional)
 coupons = True # bool | optional flag to decide if you would like coupon information in the response (optional)
+loyalty = True # bool | optional flag to decide if you would like loyalty information in the response (optional)
 
     try:
         # Get an inventory of all data associated with a specific customer profile.
-        api_response = api_instance.get_customer_inventory(integration_id, profile=profile, referrals=referrals, coupons=coupons)
+        api_response = api_instance.get_customer_inventory(integration_id, profile=profile, referrals=referrals, coupons=coupons, loyalty=loyalty)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling IntegrationApi->get_customer_inventory: %s\n" % e)
@@ -522,6 +706,7 @@ Name | Type | Description  | Notes
  **profile** | **bool**| optional flag to decide if you would like customer profile information in the response | [optional] 
  **referrals** | **bool**| optional flag to decide if you would like referral information in the response | [optional] 
  **coupons** | **bool**| optional flag to decide if you would like coupon information in the response | [optional] 
+ **loyalty** | **bool**| optional flag to decide if you would like loyalty information in the response | [optional] 
 
 ### Return type
 
@@ -559,19 +744,37 @@ import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-configuration = talon_one.Configuration()
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: api_key_v1
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration = talon_one.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
-configuration = talon_one.Configuration()
+
 # Configure API key authorization: integration_auth
-configuration.api_key['Content-Signature'] = 'YOUR_API_KEY'
+configuration = talon_one.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'Content-Signature': 'YOUR_API_KEY'
+    }
+)
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Content-Signature'] = 'Bearer'
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -593,19 +796,37 @@ import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-configuration = talon_one.Configuration()
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: api_key_v1
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration = talon_one.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
-configuration = talon_one.Configuration()
+
 # Configure API key authorization: integration_auth
-configuration.api_key['Content-Signature'] = 'YOUR_API_KEY'
+configuration = talon_one.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'Content-Signature': 'YOUR_API_KEY'
+    }
+)
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Content-Signature'] = 'Bearer'
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -662,19 +883,37 @@ import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-configuration = talon_one.Configuration()
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: api_key_v1
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration = talon_one.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
-configuration = talon_one.Configuration()
+
 # Configure API key authorization: integration_auth
-configuration.api_key['Content-Signature'] = 'YOUR_API_KEY'
+configuration = talon_one.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'Content-Signature': 'YOUR_API_KEY'
+    }
+)
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Content-Signature'] = 'Bearer'
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -697,19 +936,37 @@ import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-configuration = talon_one.Configuration()
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: api_key_v1
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration = talon_one.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
-configuration = talon_one.Configuration()
+
 # Configure API key authorization: integration_auth
-configuration.api_key['Content-Signature'] = 'YOUR_API_KEY'
+configuration = talon_one.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'Content-Signature': 'YOUR_API_KEY'
+    }
+)
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Content-Signature'] = 'Bearer'
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -755,9 +1012,9 @@ Name | Type | Description  | Notes
 # **update_customer_profile**
 > IntegrationState update_customer_profile(integration_id, body, dry=dry)
 
-Update a Customer Profile
+Update a Customer Profile V1
 
-Update (or create) a [Customer Profile][]. This profile information can then be matched and/or updated by campaign [Rules][].  The `integrationId` may be any identifier that will remain stable for the customer. For example, you might use a database ID, an email, or a phone number as the `integrationId`. It is vital that this ID **not** change over time, so **don't** use any identifier that the customer can update themselves. E.g. if your application allows a customer to update their e-mail address, you should instead use a database ID.  Updating a customer profile will return a response with the full integration state. This includes the current state of the customer profile, the customer session, the event that was recorded, and an array of effects that took place.  [Customer Profile]: /Getting-Started/entities#customer-profile [Rules]: /Getting-Started/entities#campaigns-rulesets-and-coupons 
+⚠️ Deprecation Notice: Support for requests to this endpoint will end on 15.07.2021. We will not remove the endpoint, and it will still be accessible for you to use. For new features support, please migrate to [API V2.0](/Getting-Started/APIV2).  Update (or create) a [Customer Profile][]. This profile information can then be matched and/or updated by campaign [Rules][].  The `integrationId` may be any identifier that will remain stable for the customer. For example, you might use a database ID, an email, or a phone number as the `integrationId`. It is vital that this ID **not** change over time, so **don't** use any identifier that the customer can update themselves. E.g. if your application allows a customer to update their e-mail address, you should instead use a database ID.  Updating a customer profile will return a response with the full integration state. This includes the current state of the customer profile, the customer session, the event that was recorded, and an array of effects that took place.  [Customer Profile]: /Getting-Started/entities#customer-profile [Rules]: /Getting-Started/entities#campaigns-rulesets-and-coupons 
 
 ### Example
 
@@ -768,19 +1025,37 @@ import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-configuration = talon_one.Configuration()
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: api_key_v1
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration = talon_one.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
-configuration = talon_one.Configuration()
+
 # Configure API key authorization: integration_auth
-configuration.api_key['Content-Signature'] = 'YOUR_API_KEY'
+configuration = talon_one.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'Content-Signature': 'YOUR_API_KEY'
+    }
+)
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Content-Signature'] = 'Bearer'
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -790,7 +1065,7 @@ body = talon_one.NewCustomerProfile() # NewCustomerProfile |
 dry = True # bool | Flag to indicate whether to skip persisting the changes or not (Will not persist if set to 'true'). (optional)
 
     try:
-        # Update a Customer Profile
+        # Update a Customer Profile V1
         api_response = api_instance.update_customer_profile(integration_id, body, dry=dry)
         pprint(api_response)
     except ApiException as e:
@@ -804,19 +1079,37 @@ import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-configuration = talon_one.Configuration()
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: api_key_v1
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration = talon_one.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
-configuration = talon_one.Configuration()
+
 # Configure API key authorization: integration_auth
-configuration.api_key['Content-Signature'] = 'YOUR_API_KEY'
+configuration = talon_one.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'Content-Signature': 'YOUR_API_KEY'
+    }
+)
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Content-Signature'] = 'Bearer'
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -826,7 +1119,7 @@ body = talon_one.NewCustomerProfile() # NewCustomerProfile |
 dry = True # bool | Flag to indicate whether to skip persisting the changes or not (Will not persist if set to 'true'). (optional)
 
     try:
-        # Update a Customer Profile
+        # Update a Customer Profile V1
         api_response = api_instance.update_customer_profile(integration_id, body, dry=dry)
         pprint(api_response)
     except ApiException as e:
@@ -861,12 +1154,12 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **update_customer_profile_v2**
-> CustomerProfileUpdate update_customer_profile_v2(customer_profile_id, body)
+# **update_customer_profile_audiences**
+> update_customer_profile_audiences(body)
 
-Update a Customer Profile
+Update a Customer Profile Audiences
 
-Update (or create) a [Customer Profile][].   The `integrationId` may be any identifier that will remain stable for the customer. For example, you might use a database ID, an email, or a phone number as the `integrationId`. It is vital that this ID **not** change over time, so **don't** use any identifier that the customer can update themselves. E.g. if your application allows a customer to update their e-mail address, you should instead use a database ID.  [Customer Profile]: /Getting-Started/entities#customer-profile 
+Update one ore multiple Customer Profiles with the specified Audiences 
 
 ### Example
 
@@ -877,24 +1170,115 @@ import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-configuration = talon_one.Configuration()
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: api_key_v1
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration = talon_one.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.IntegrationApi(api_client)
-    customer_profile_id = 'customer_profile_id_example' # str | The custom identifier for this profile, must be unique within the account.
-body = talon_one.NewCustomerProfile() # NewCustomerProfile | 
+    body = talon_one.CustomerProfileAudienceRequest() # CustomerProfileAudienceRequest | 
+
+    try:
+        # Update a Customer Profile Audiences
+        api_instance.update_customer_profile_audiences(body)
+    except ApiException as e:
+        print("Exception when calling IntegrationApi->update_customer_profile_audiences: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**CustomerProfileAudienceRequest**](CustomerProfileAudienceRequest.md)|  | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[api_key_v1](../README.md#api_key_v1)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | No Content |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **update_customer_profile_v2**
+> IntegrationStateV2 update_customer_profile_v2(integration_id, body, run_rule_engine=run_rule_engine, dry=dry)
+
+Update a Customer Profile
+
+Update (or create) a [Customer Profile][].  The `integrationId` may be any identifier that will remain stable for the customer. For example, you might use a database ID, an email, or a phone number as the `integrationId`. It is vital that this ID **not** change over time, so **don't** use any identifier that the customer can update themselves. E.g. if your application allows a customer to update their e-mail address, you should instead use a database ID.  [Customer Profile]: /Getting-Started/entities#customer-profile 
+
+### Example
+
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.IntegrationApi(api_client)
+    integration_id = 'integration_id_example' # str | The custom identifier for this profile, must be unique within the account.
+body = talon_one.CustomerProfileIntegrationRequestV2() # CustomerProfileIntegrationRequestV2 | 
+run_rule_engine = True # bool | Flag to indicate whether to run the rule engine (Defaults to false). (optional)
+dry = True # bool | Flag to indicate whether to skip persisting the changes or not (Will not persist if set to 'true'. Only used when 'runRuleEngine' is set to 'true'). (optional)
 
     try:
         # Update a Customer Profile
-        api_response = api_instance.update_customer_profile_v2(customer_profile_id, body)
+        api_response = api_instance.update_customer_profile_v2(integration_id, body, run_rule_engine=run_rule_engine, dry=dry)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling IntegrationApi->update_customer_profile_v2: %s\n" % e)
@@ -904,12 +1288,93 @@ body = talon_one.NewCustomerProfile() # NewCustomerProfile |
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **customer_profile_id** | **str**| The custom identifier for this profile, must be unique within the account. | 
- **body** | [**NewCustomerProfile**](NewCustomerProfile.md)|  | 
+ **integration_id** | **str**| The custom identifier for this profile, must be unique within the account. | 
+ **body** | [**CustomerProfileIntegrationRequestV2**](CustomerProfileIntegrationRequestV2.md)|  | 
+ **run_rule_engine** | **bool**| Flag to indicate whether to run the rule engine (Defaults to false). | [optional] 
+ **dry** | **bool**| Flag to indicate whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;. Only used when &#39;runRuleEngine&#39; is set to &#39;true&#39;). | [optional] 
 
 ### Return type
 
-[**CustomerProfileUpdate**](CustomerProfileUpdate.md)
+[**IntegrationStateV2**](IntegrationStateV2.md)
+
+### Authorization
+
+[api_key_v1](../README.md#api_key_v1)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **update_customer_profiles_v2**
+> MultipleCustomerProfileIntegrationResponseV2 update_customer_profiles_v2(body, silent=silent)
+
+Update multiple Customer Profiles
+
+Update (or create) up to 1000 [Customer Profiles][] in 1 request.  The `integrationId` may be any identifier that will remain stable for the customer. For example, you might use a database ID, an email, or a phone number as the `integrationId`. It is vital that this ID **not** change over time, so **don't** use any identifier that the customer can update themselves. E.g. if your application allows a customer to update their e-mail address, you should instead use a database ID.  [Customer Profiles]: /Getting-Started/entities#customer-profile 
+
+### Example
+
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.IntegrationApi(api_client)
+    body = talon_one.MultipleCustomerProfileIntegrationRequest() # MultipleCustomerProfileIntegrationRequest | 
+silent = 'silent_example' # str | If set to 'yes', response will be an empty 204, otherwise a list of the IntegrationStateV2  generated. (optional)
+
+    try:
+        # Update multiple Customer Profiles
+        api_response = api_instance.update_customer_profiles_v2(body, silent=silent)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling IntegrationApi->update_customer_profiles_v2: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**MultipleCustomerProfileIntegrationRequest**](MultipleCustomerProfileIntegrationRequest.md)|  | 
+ **silent** | **str**| If set to &#39;yes&#39;, response will be an empty 204, otherwise a list of the IntegrationStateV2  generated. | [optional] 
+
+### Return type
+
+[**MultipleCustomerProfileIntegrationResponseV2**](MultipleCustomerProfileIntegrationResponseV2.md)
 
 ### Authorization
 
@@ -930,9 +1395,9 @@ Name | Type | Description  | Notes
 # **update_customer_session**
 > IntegrationState update_customer_session(customer_session_id, body, dry=dry)
 
-Update a Customer Session
+Update a Customer Session V1
 
-Update (or create) a [Customer Session][]. For example, the items in a customers cart are part of a session.  The Talon.One platform supports multiple simultaneous sessions for the same profile, so if you have multiple ways of accessing the same application you have the option of either tracking multiple independent sessions or using the same session across all of them. You should share sessions when application access points share other state, such as the users cart. If two points of access to the application have independent state (e.g. a user can have different items in their cart across the two) they should use independent customer session ID's.  The `profileId` parameter in the request body should correspond to an `integrationId` for a customer profile, to track an anonymous session use the empty string (`\"\"`) as the `profileId`. Note that you do **not** need to create a customer profile first: if the specified profile does not yet exist, an empty profile will be created automatically.  Updating a customer profile will return a response with the full integration state. This includes the current state of the customer profile, the customer session, the event that was recorded, and an array of effects that took place.  The currency for the session and the cart items in the session is the same as that of the application with which the session is associated.  [Customer Session]: /Getting-Started/entities#customer-session 
+⚠️ Deprecation Notice: Support for requests to this endpoint will end on 15.07.2021. We will not remove the endpoint, and it will still be accessible for you to use. For new features support, please migrate to [API V2.0](/Getting-Started/APIV2).  Update (or create) a [Customer Session][]. For example, the items in a customers cart are part of a session.  The Talon.One platform supports multiple simultaneous sessions for the same profile, so if you have multiple ways of accessing the same application you have the option of either tracking multiple independent sessions or using the same session across all of them. You should share sessions when application access points share other state, such as the users cart. If two points of access to the application have independent state (e.g. a user can have different items in their cart across the two) they should use independent customer session ID's.  The `profileId` parameter in the request body should correspond to an `integrationId` for a customer profile, to track an anonymous session use the empty string (`\"\"`) as the `profileId`. Note that you do **not** need to create a customer profile first: if the specified profile does not yet exist, an empty profile will be created automatically.  Updating a customer profile will return a response with the full integration state. This includes the current state of the customer profile, the customer session, the event that was recorded, and an array of effects that took place.  The currency for the session and the cart items in the session is the same as that of the application with which the session is associated.  [Customer Session]: /Getting-Started/entities#customer-session 
 
 ### Example
 
@@ -943,19 +1408,37 @@ import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-configuration = talon_one.Configuration()
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: api_key_v1
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration = talon_one.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
-configuration = talon_one.Configuration()
+
 # Configure API key authorization: integration_auth
-configuration.api_key['Content-Signature'] = 'YOUR_API_KEY'
+configuration = talon_one.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'Content-Signature': 'YOUR_API_KEY'
+    }
+)
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Content-Signature'] = 'Bearer'
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -965,7 +1448,7 @@ body = talon_one.NewCustomerSession() # NewCustomerSession |
 dry = True # bool | Flag to indicate whether to skip persisting the changes or not (Will not persist if set to 'true'). (optional)
 
     try:
-        # Update a Customer Session
+        # Update a Customer Session V1
         api_response = api_instance.update_customer_session(customer_session_id, body, dry=dry)
         pprint(api_response)
     except ApiException as e:
@@ -979,19 +1462,37 @@ import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-configuration = talon_one.Configuration()
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: api_key_v1
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration = talon_one.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
-configuration = talon_one.Configuration()
+
 # Configure API key authorization: integration_auth
-configuration.api_key['Content-Signature'] = 'YOUR_API_KEY'
+configuration = talon_one.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'Content-Signature': 'YOUR_API_KEY'
+    }
+)
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Content-Signature'] = 'Bearer'
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -1001,7 +1502,7 @@ body = talon_one.NewCustomerSession() # NewCustomerSession |
 dry = True # bool | Flag to indicate whether to skip persisting the changes or not (Will not persist if set to 'true'). (optional)
 
     try:
-        # Update a Customer Session
+        # Update a Customer Session V1
         api_response = api_instance.update_customer_session(customer_session_id, body, dry=dry)
         pprint(api_response)
     except ApiException as e:
@@ -1052,14 +1553,27 @@ import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-configuration = talon_one.Configuration()
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
 # Configure API key authorization: api_key_v1
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+configuration = talon_one.Configuration(
+    host = "http://localhost",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Authorization'] = 'Bearer'
 
-# Defining host is optional and default to http://localhost
-configuration.host = "http://localhost"
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class

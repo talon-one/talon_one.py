@@ -38,7 +38,8 @@ class TestLoyaltyPoints(unittest.TestCase):
             return LoyaltyPoints(
                 points = 1.337, 
                 name = '0', 
-                expiry_duration = '0', 
+                validity_duration = '0', 
+                pending_duration = '0', 
                 sub_ledger_id = '0'
             )
         else :

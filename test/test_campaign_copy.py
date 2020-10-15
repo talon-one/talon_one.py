@@ -38,7 +38,7 @@ class TestCampaignCopy(unittest.TestCase):
             return CampaignCopy(
                 name = '0', 
                 application_ids = [
-                    '0'
+                    56
                     ], 
                 description = '0', 
                 start_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
@@ -50,7 +50,7 @@ class TestCampaignCopy(unittest.TestCase):
         else :
             return CampaignCopy(
                 application_ids = [
-                    '0'
+                    56
                     ],
         )
 
