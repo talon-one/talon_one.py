@@ -66,6 +66,9 @@ class TestUpdateCampaign(unittest.TestCase):
                         entities = [
                             'Coupon'
                             ], )
+                    ], 
+                campaign_groups = [
+                    56
                     ]
             )
         else :

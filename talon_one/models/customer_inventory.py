@@ -34,29 +34,34 @@ class CustomerInventory(object):
     """
     openapi_types = {
         'profile': 'CustomerProfile',
+        'loyalty': 'Loyalty',
         'referrals': 'list[Referral]',
         'coupons': 'list[Coupon]'
     }
 
     attribute_map = {
         'profile': 'profile',
+        'loyalty': 'loyalty',
         'referrals': 'referrals',
         'coupons': 'coupons'
     }
 
-    def __init__(self, profile=None, referrals=None, coupons=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, profile=None, loyalty=None, referrals=None, coupons=None, local_vars_configuration=None):  # noqa: E501
         """CustomerInventory - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._profile = None
+        self._loyalty = None
         self._referrals = None
         self._coupons = None
         self.discriminator = None
 
         if profile is not None:
             self.profile = profile
+        if loyalty is not None:
+            self.loyalty = loyalty
         if referrals is not None:
             self.referrals = referrals
         if coupons is not None:
@@ -82,6 +87,27 @@ class CustomerInventory(object):
         """
 
         self._profile = profile
+
+    @property
+    def loyalty(self):
+        """Gets the loyalty of this CustomerInventory.  # noqa: E501
+
+
+        :return: The loyalty of this CustomerInventory.  # noqa: E501
+        :rtype: Loyalty
+        """
+        return self._loyalty
+
+    @loyalty.setter
+    def loyalty(self, loyalty):
+        """Sets the loyalty of this CustomerInventory.
+
+
+        :param loyalty: The loyalty of this CustomerInventory.  # noqa: E501
+        :type: Loyalty
+        """
+
+        self._loyalty = loyalty
 
     @property
     def referrals(self):

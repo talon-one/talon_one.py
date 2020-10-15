@@ -34,15 +34,17 @@ class CreateApplicationAPIKey(object):
     """
     openapi_types = {
         'title': 'str',
-        'expires': 'datetime'
+        'expires': 'datetime',
+        'platform': 'str'
     }
 
     attribute_map = {
         'title': 'title',
-        'expires': 'expires'
+        'expires': 'expires',
+        'platform': 'platform'
     }
 
-    def __init__(self, title=None, expires=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, title=None, expires=None, platform=None, local_vars_configuration=None):  # noqa: E501
         """CreateApplicationAPIKey - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -50,10 +52,13 @@ class CreateApplicationAPIKey(object):
 
         self._title = None
         self._expires = None
+        self._platform = None
         self.discriminator = None
 
         self.title = title
         self.expires = expires
+        if platform is not None:
+            self.platform = platform
 
     @property
     def title(self):
@@ -104,6 +109,35 @@ class CreateApplicationAPIKey(object):
             raise ValueError("Invalid value for `expires`, must not be `None`")  # noqa: E501
 
         self._expires = expires
+
+    @property
+    def platform(self):
+        """Gets the platform of this CreateApplicationAPIKey.  # noqa: E501
+
+        Platform the API key is valid for.  # noqa: E501
+
+        :return: The platform of this CreateApplicationAPIKey.  # noqa: E501
+        :rtype: str
+        """
+        return self._platform
+
+    @platform.setter
+    def platform(self, platform):
+        """Sets the platform of this CreateApplicationAPIKey.
+
+        Platform the API key is valid for.  # noqa: E501
+
+        :param platform: The platform of this CreateApplicationAPIKey.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["none", "segment", "braze", "mparticle"]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and platform not in allowed_values:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `platform` ({0}), must be one of {1}"  # noqa: E501
+                .format(platform, allowed_values)
+            )
+
+        self._platform = platform
 
     def to_dict(self):
         """Returns the model properties as a dict"""

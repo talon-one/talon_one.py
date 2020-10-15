@@ -37,7 +37,8 @@ class TestCreateApplicationAPIKey(unittest.TestCase):
         if include_optional :
             return CreateApplicationAPIKey(
                 title = '0', 
-                expires = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f')
+                expires = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                platform = 'none'
             )
         else :
             return CreateApplicationAPIKey(

@@ -3038,6 +3038,10 @@ class ManagementApi(object):
 
         :param async_req bool: execute request asynchronously
         :param int application_id: (required)
+        :param str integration_id: Filter results performing an exact matching against the profile integration identifier.
+        :param int page_size: The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
+        :param int skip: Skips the given number of items when paging through large result sets.
+        :param bool with_total_result_size: When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, hasMore will be be true whenever there is a next page. totalResultSize will always be zero. With this flag set to false, hasMore will always be set to false. totalResultSize will contain the total number of results for this query. 
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -3062,6 +3066,10 @@ class ManagementApi(object):
 
         :param async_req bool: execute request asynchronously
         :param int application_id: (required)
+        :param str integration_id: Filter results performing an exact matching against the profile integration identifier.
+        :param int page_size: The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
+        :param int skip: Skips the given number of items when paging through large result sets.
+        :param bool with_total_result_size: When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, hasMore will be be true whenever there is a next page. totalResultSize will always be zero. With this flag set to false, hasMore will always be set to false. totalResultSize will contain the total number of results for this query. 
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -3078,7 +3086,7 @@ class ManagementApi(object):
 
         local_var_params = locals()
 
-        all_params = ['application_id']  # noqa: E501
+        all_params = ['application_id', 'integration_id', 'page_size', 'skip', 'with_total_result_size']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -3104,6 +3112,14 @@ class ManagementApi(object):
             path_params['applicationId'] = local_var_params['application_id']  # noqa: E501
 
         query_params = []
+        if 'integration_id' in local_var_params and local_var_params['integration_id'] is not None:  # noqa: E501
+            query_params.append(('integrationId', local_var_params['integration_id']))  # noqa: E501
+        if 'page_size' in local_var_params and local_var_params['page_size'] is not None:  # noqa: E501
+            query_params.append(('pageSize', local_var_params['page_size']))  # noqa: E501
+        if 'skip' in local_var_params and local_var_params['skip'] is not None:  # noqa: E501
+            query_params.append(('skip', local_var_params['skip']))  # noqa: E501
+        if 'with_total_result_size' in local_var_params and local_var_params['with_total_result_size'] is not None:  # noqa: E501
+            query_params.append(('withTotalResultSize', local_var_params['with_total_result_size']))  # noqa: E501
 
         header_params = {}
 
@@ -3835,10 +3851,11 @@ class ManagementApi(object):
         :param str sort: The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
         :param str profile: Profile integration ID filter for sessions. Must be exact match.
         :param str state: Filter by sessions with this state. Must be exact match.
+        :param datetime created_before: Only return events created before this date
+        :param datetime created_after: Only return events created after this date
         :param str coupon: Filter by sessions with this coupon. Must be exact match.
         :param str referral: Filter by sessions with this referral. Must be exact match.
         :param str integration_id: Filter by sessions with this integrationId. Must be exact match.
-        :param str customer_id: Filter by integration ID of the customer for the session
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -3868,10 +3885,11 @@ class ManagementApi(object):
         :param str sort: The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
         :param str profile: Profile integration ID filter for sessions. Must be exact match.
         :param str state: Filter by sessions with this state. Must be exact match.
+        :param datetime created_before: Only return events created before this date
+        :param datetime created_after: Only return events created after this date
         :param str coupon: Filter by sessions with this coupon. Must be exact match.
         :param str referral: Filter by sessions with this referral. Must be exact match.
         :param str integration_id: Filter by sessions with this integrationId. Must be exact match.
-        :param str customer_id: Filter by integration ID of the customer for the session
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -3888,7 +3906,7 @@ class ManagementApi(object):
 
         local_var_params = locals()
 
-        all_params = ['application_id', 'page_size', 'skip', 'sort', 'profile', 'state', 'coupon', 'referral', 'integration_id', 'customer_id']  # noqa: E501
+        all_params = ['application_id', 'page_size', 'skip', 'sort', 'profile', 'state', 'created_before', 'created_after', 'coupon', 'referral', 'integration_id']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -3924,14 +3942,16 @@ class ManagementApi(object):
             query_params.append(('profile', local_var_params['profile']))  # noqa: E501
         if 'state' in local_var_params and local_var_params['state'] is not None:  # noqa: E501
             query_params.append(('state', local_var_params['state']))  # noqa: E501
+        if 'created_before' in local_var_params and local_var_params['created_before'] is not None:  # noqa: E501
+            query_params.append(('createdBefore', local_var_params['created_before']))  # noqa: E501
+        if 'created_after' in local_var_params and local_var_params['created_after'] is not None:  # noqa: E501
+            query_params.append(('createdAfter', local_var_params['created_after']))  # noqa: E501
         if 'coupon' in local_var_params and local_var_params['coupon'] is not None:  # noqa: E501
             query_params.append(('coupon', local_var_params['coupon']))  # noqa: E501
         if 'referral' in local_var_params and local_var_params['referral'] is not None:  # noqa: E501
             query_params.append(('referral', local_var_params['referral']))  # noqa: E501
         if 'integration_id' in local_var_params and local_var_params['integration_id'] is not None:  # noqa: E501
             query_params.append(('integrationId', local_var_params['integration_id']))  # noqa: E501
-        if 'customer_id' in local_var_params and local_var_params['customer_id'] is not None:  # noqa: E501
-            query_params.append(('customerId', local_var_params['customer_id']))  # noqa: E501
 
         header_params = {}
 
@@ -4696,6 +4716,7 @@ class ManagementApi(object):
         :param str tags: Filter results performing case-insensitive matching against the tags of the campaign. When used in conjunction with the \"name\" query parameter, a logical OR will be performed to search both tags and name for the provided values 
         :param datetime created_before: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp.
         :param datetime created_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp.
+        :param int campaign_group_id: Filter results to campaigns owned by the specified campaign group ID.
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -4728,6 +4749,7 @@ class ManagementApi(object):
         :param str tags: Filter results performing case-insensitive matching against the tags of the campaign. When used in conjunction with the \"name\" query parameter, a logical OR will be performed to search both tags and name for the provided values 
         :param datetime created_before: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp.
         :param datetime created_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp.
+        :param int campaign_group_id: Filter results to campaigns owned by the specified campaign group ID.
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -4744,7 +4766,7 @@ class ManagementApi(object):
 
         local_var_params = locals()
 
-        all_params = ['application_id', 'page_size', 'skip', 'sort', 'campaign_state', 'name', 'tags', 'created_before', 'created_after']  # noqa: E501
+        all_params = ['application_id', 'page_size', 'skip', 'sort', 'campaign_state', 'name', 'tags', 'created_before', 'created_after', 'campaign_group_id']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -4786,6 +4808,8 @@ class ManagementApi(object):
             query_params.append(('createdBefore', local_var_params['created_before']))  # noqa: E501
         if 'created_after' in local_var_params and local_var_params['created_after'] is not None:  # noqa: E501
             query_params.append(('createdAfter', local_var_params['created_after']))  # noqa: E501
+        if 'campaign_group_id' in local_var_params and local_var_params['campaign_group_id'] is not None:  # noqa: E501
+            query_params.append(('campaignGroupId', local_var_params['campaign_group_id']))  # noqa: E501
 
         header_params = {}
 
@@ -6208,16 +6232,15 @@ class ManagementApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def get_customer_profile(self, application_id, customer_id, **kwargs):  # noqa: E501
+    def get_customer_profile(self, customer_id, **kwargs):  # noqa: E501
         """Get Customer Profile  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_customer_profile(application_id, customer_id, async_req=True)
+        >>> thread = api.get_customer_profile(customer_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param int application_id: (required)
         :param int customer_id: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -6231,18 +6254,17 @@ class ManagementApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.get_customer_profile_with_http_info(application_id, customer_id, **kwargs)  # noqa: E501
+        return self.get_customer_profile_with_http_info(customer_id, **kwargs)  # noqa: E501
 
-    def get_customer_profile_with_http_info(self, application_id, customer_id, **kwargs):  # noqa: E501
+    def get_customer_profile_with_http_info(self, customer_id, **kwargs):  # noqa: E501
         """Get Customer Profile  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_customer_profile_with_http_info(application_id, customer_id, async_req=True)
+        >>> thread = api.get_customer_profile_with_http_info(customer_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param int application_id: (required)
         :param int customer_id: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -6260,7 +6282,7 @@ class ManagementApi(object):
 
         local_var_params = locals()
 
-        all_params = ['application_id', 'customer_id']  # noqa: E501
+        all_params = ['customer_id']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -6274,10 +6296,6 @@ class ManagementApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
-        # verify the required parameter 'application_id' is set
-        if self.api_client.client_side_validation and ('application_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['application_id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `application_id` when calling `get_customer_profile`")  # noqa: E501
         # verify the required parameter 'customer_id' is set
         if self.api_client.client_side_validation and ('customer_id' not in local_var_params or  # noqa: E501
                                                         local_var_params['customer_id'] is None):  # noqa: E501
@@ -6286,8 +6304,6 @@ class ManagementApi(object):
         collection_formats = {}
 
         path_params = {}
-        if 'application_id' in local_var_params:
-            path_params['applicationId'] = local_var_params['application_id']  # noqa: E501
         if 'customer_id' in local_var_params:
             path_params['customerId'] = local_var_params['customer_id']  # noqa: E501
 
@@ -7213,6 +7229,112 @@ class ManagementApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='InlineResponse2008',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def get_loyalty_statistics(self, program_id, **kwargs):  # noqa: E501
+        """Get loyalty program statistics by loyalty program ID  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_loyalty_statistics(program_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str program_id: (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: LoyaltyStatistics
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.get_loyalty_statistics_with_http_info(program_id, **kwargs)  # noqa: E501
+
+    def get_loyalty_statistics_with_http_info(self, program_id, **kwargs):  # noqa: E501
+        """Get loyalty program statistics by loyalty program ID  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_loyalty_statistics_with_http_info(program_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str program_id: (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(LoyaltyStatistics, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['program_id']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_loyalty_statistics" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'program_id' is set
+        if self.api_client.client_side_validation and ('program_id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['program_id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `program_id` when calling `get_loyalty_statistics`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'program_id' in local_var_params:
+            path_params['programID'] = local_var_params['program_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['manager_auth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/v1/loyalty_programs/{programID}/statistics', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='LoyaltyStatistics',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501

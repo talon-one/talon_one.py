@@ -36,8 +36,6 @@ class UpdateUser(object):
         'name': 'str',
         'policy': 'str',
         'state': 'str',
-        'release_update': 'bool',
-        'latest_feature': 'str',
         'roles': 'list[int]',
         'application_notification_subscriptions': 'object'
     }
@@ -46,13 +44,11 @@ class UpdateUser(object):
         'name': 'name',
         'policy': 'policy',
         'state': 'state',
-        'release_update': 'releaseUpdate',
-        'latest_feature': 'latestFeature',
         'roles': 'roles',
         'application_notification_subscriptions': 'applicationNotificationSubscriptions'
     }
 
-    def __init__(self, name=None, policy=None, state=None, release_update=None, latest_feature=None, roles=None, application_notification_subscriptions=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, name=None, policy=None, state=None, roles=None, application_notification_subscriptions=None, local_vars_configuration=None):  # noqa: E501
         """UpdateUser - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -61,8 +57,6 @@ class UpdateUser(object):
         self._name = None
         self._policy = None
         self._state = None
-        self._release_update = None
-        self._latest_feature = None
         self._roles = None
         self._application_notification_subscriptions = None
         self.discriminator = None
@@ -73,10 +67,6 @@ class UpdateUser(object):
             self.policy = policy
         if state is not None:
             self.state = state
-        if release_update is not None:
-            self.release_update = release_update
-        if latest_feature is not None:
-            self.latest_feature = latest_feature
         if roles is not None:
             self.roles = roles
         if application_notification_subscriptions is not None:
@@ -156,52 +146,6 @@ class UpdateUser(object):
             )
 
         self._state = state
-
-    @property
-    def release_update(self):
-        """Gets the release_update of this UpdateUser.  # noqa: E501
-
-        Update the user via email  # noqa: E501
-
-        :return: The release_update of this UpdateUser.  # noqa: E501
-        :rtype: bool
-        """
-        return self._release_update
-
-    @release_update.setter
-    def release_update(self, release_update):
-        """Sets the release_update of this UpdateUser.
-
-        Update the user via email  # noqa: E501
-
-        :param release_update: The release_update of this UpdateUser.  # noqa: E501
-        :type: bool
-        """
-
-        self._release_update = release_update
-
-    @property
-    def latest_feature(self):
-        """Gets the latest_feature of this UpdateUser.  # noqa: E501
-
-        The latest feature you've been notified.  # noqa: E501
-
-        :return: The latest_feature of this UpdateUser.  # noqa: E501
-        :rtype: str
-        """
-        return self._latest_feature
-
-    @latest_feature.setter
-    def latest_feature(self, latest_feature):
-        """Sets the latest_feature of this UpdateUser.
-
-        The latest feature you've been notified.  # noqa: E501
-
-        :param latest_feature: The latest_feature of this UpdateUser.  # noqa: E501
-        :type: str
-        """
-
-        self._latest_feature = latest_feature
 
     @property
     def roles(self):

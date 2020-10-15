@@ -3,18 +3,18 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**live_applications** | **int** | Total Number of allowed live applications in the account | 
-**sandbox_applications** | **int** | Total Number of allowed sandbox applications in the account | 
-**active_campaigns** | **int** | Total Number of allowed active campaigns in the account | 
-**coupons** | **int** | Total Number of allowed coupons in the account | 
-**referral_codes** | **int** | Total Number of allowed referral codes in the account | 
-**live_loyalty_programs** | **int** | Total Number of allowed live loyalty programs in the account | 
-**sandbox_loyalty_programs** | **int** | Total Number of allowed sandbox loyalty programs in the account | 
-**webhooks** | **int** | Total Number of allowed webhooks in the account | 
-**users** | **int** | Total Number of allowed users in the account | 
-**api_volume** | **int** | Total allowed api volume | 
-**active_rules** | **int** | Total allowed active rulesets | [optional] 
-**promotion_types** | **list[str]** | array of rulesets where webhook is used | 
+**live_applications** | **int** | Total number of allowed live applications in the account | 
+**sandbox_applications** | **int** | Total number of allowed sandbox applications in the account | 
+**active_campaigns** | **int** | Total number of allowed active campaigns in live applications in the account | 
+**coupons** | **int** | Total number of allowed coupons in the account | 
+**referral_codes** | **int** | Total number of allowed referral codes in the account | 
+**active_rules** | **int** | Total number of allowed active rulesets in the account | 
+**live_loyalty_programs** | **int** | Total number of allowed live loyalty programs in the account | 
+**sandbox_loyalty_programs** | **int** | Total number of allowed sandbox loyalty programs in the account | 
+**webhooks** | **int** | Total number of allowed webhooks in the account | 
+**users** | **int** | Total number of allowed users in the account | 
+**api_volume** | **int** | Allowed volume of API requests to the account | 
+**promotion_types** | **list[str]** | Array of promotion types that are employed in the account | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

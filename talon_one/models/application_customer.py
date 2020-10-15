@@ -41,6 +41,7 @@ class ApplicationCustomer(object):
         'closed_sessions': 'int',
         'total_sales': 'float',
         'loyalty_memberships': 'list[LoyaltyMembership]',
+        'audience_memberships': 'list[AudienceMembership]',
         'last_activity': 'datetime'
     }
 
@@ -53,10 +54,11 @@ class ApplicationCustomer(object):
         'closed_sessions': 'closedSessions',
         'total_sales': 'totalSales',
         'loyalty_memberships': 'loyaltyMemberships',
+        'audience_memberships': 'audienceMemberships',
         'last_activity': 'lastActivity'
     }
 
-    def __init__(self, id=None, created=None, integration_id=None, attributes=None, account_id=None, closed_sessions=None, total_sales=None, loyalty_memberships=None, last_activity=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, created=None, integration_id=None, attributes=None, account_id=None, closed_sessions=None, total_sales=None, loyalty_memberships=None, audience_memberships=None, last_activity=None, local_vars_configuration=None):  # noqa: E501
         """ApplicationCustomer - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -70,6 +72,7 @@ class ApplicationCustomer(object):
         self._closed_sessions = None
         self._total_sales = None
         self._loyalty_memberships = None
+        self._audience_memberships = None
         self._last_activity = None
         self.discriminator = None
 
@@ -82,6 +85,8 @@ class ApplicationCustomer(object):
         self.total_sales = total_sales
         if loyalty_memberships is not None:
             self.loyalty_memberships = loyalty_memberships
+        if audience_memberships is not None:
+            self.audience_memberships = audience_memberships
         self.last_activity = last_activity
 
     @property
@@ -138,7 +143,7 @@ class ApplicationCustomer(object):
     def integration_id(self):
         """Gets the integration_id of this ApplicationCustomer.  # noqa: E501
 
-        The ID used for this entity in the application system. The ID used for this entity in the application system.  # noqa: E501
+        The integration ID for this entity sent to and used in the Talon.One system. The integration ID for this entity sent to and used in the Talon.One system.  # noqa: E501
 
         :return: The integration_id of this ApplicationCustomer.  # noqa: E501
         :rtype: str
@@ -149,7 +154,7 @@ class ApplicationCustomer(object):
     def integration_id(self, integration_id):
         """Sets the integration_id of this ApplicationCustomer.
 
-        The ID used for this entity in the application system. The ID used for this entity in the application system.  # noqa: E501
+        The integration ID for this entity sent to and used in the Talon.One system. The integration ID for this entity sent to and used in the Talon.One system.  # noqa: E501
 
         :param integration_id: The integration_id of this ApplicationCustomer.  # noqa: E501
         :type: str
@@ -281,6 +286,29 @@ class ApplicationCustomer(object):
         """
 
         self._loyalty_memberships = loyalty_memberships
+
+    @property
+    def audience_memberships(self):
+        """Gets the audience_memberships of this ApplicationCustomer.  # noqa: E501
+
+        A list of audiences the customer belongs to  # noqa: E501
+
+        :return: The audience_memberships of this ApplicationCustomer.  # noqa: E501
+        :rtype: list[AudienceMembership]
+        """
+        return self._audience_memberships
+
+    @audience_memberships.setter
+    def audience_memberships(self, audience_memberships):
+        """Sets the audience_memberships of this ApplicationCustomer.
+
+        A list of audiences the customer belongs to  # noqa: E501
+
+        :param audience_memberships: The audience_memberships of this ApplicationCustomer.  # noqa: E501
+        :type: list[AudienceMembership]
+        """
+
+        self._audience_memberships = audience_memberships
 
     @property
     def last_activity(self):

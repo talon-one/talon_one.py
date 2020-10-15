@@ -38,7 +38,8 @@ class TestSetDiscountPerItemEffectProps(unittest.TestCase):
             return SetDiscountPerItemEffectProps(
                 name = '0', 
                 value = 1.337, 
-                position = 1.337
+                position = 1.337, 
+                sub_position = 1.337
             )
         else :
             return SetDiscountPerItemEffectProps(

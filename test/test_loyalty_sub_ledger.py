@@ -37,6 +37,10 @@ class TestLoyaltySubLedger(unittest.TestCase):
         if include_optional :
             return LoyaltySubLedger(
                 total = 1.337, 
+                total_active_points = 1.337, 
+                total_pending_points = 1.337, 
+                total_spent_points = 1.337, 
+                total_expired_points = 1.337, 
                 transactions = [
                     talon_one.models.loyalty_ledger_entry.LoyaltyLedgerEntry(
                         created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
@@ -46,6 +50,7 @@ class TestLoyaltySubLedger(unittest.TestCase):
                         event_id = 56, 
                         type = '0', 
                         amount = 1.337, 
+                        start_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                         expiry_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                         name = '0', 
                         sub_ledger_id = '0', 
@@ -60,6 +65,52 @@ class TestLoyaltySubLedger(unittest.TestCase):
                         event_id = 56, 
                         type = '0', 
                         amount = 1.337, 
+                        start_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        expiry_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        name = '0', 
+                        sub_ledger_id = '0', 
+                        user_id = 56, )
+                    ], 
+                active_points = [
+                    talon_one.models.loyalty_ledger_entry.LoyaltyLedgerEntry(
+                        created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        program_id = 56, 
+                        customer_profile_id = '0', 
+                        customer_session_id = '0', 
+                        event_id = 56, 
+                        type = '0', 
+                        amount = 1.337, 
+                        start_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        expiry_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        name = '0', 
+                        sub_ledger_id = '0', 
+                        user_id = 56, )
+                    ], 
+                pending_points = [
+                    talon_one.models.loyalty_ledger_entry.LoyaltyLedgerEntry(
+                        created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        program_id = 56, 
+                        customer_profile_id = '0', 
+                        customer_session_id = '0', 
+                        event_id = 56, 
+                        type = '0', 
+                        amount = 1.337, 
+                        start_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        expiry_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        name = '0', 
+                        sub_ledger_id = '0', 
+                        user_id = 56, )
+                    ], 
+                expired_points = [
+                    talon_one.models.loyalty_ledger_entry.LoyaltyLedgerEntry(
+                        created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        program_id = 56, 
+                        customer_profile_id = '0', 
+                        customer_session_id = '0', 
+                        event_id = 56, 
+                        type = '0', 
+                        amount = 1.337, 
+                        start_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                         expiry_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                         name = '0', 
                         sub_ledger_id = '0', 
@@ -69,6 +120,10 @@ class TestLoyaltySubLedger(unittest.TestCase):
         else :
             return LoyaltySubLedger(
                 total = 1.337,
+                total_active_points = 1.337,
+                total_pending_points = 1.337,
+                total_spent_points = 1.337,
+                total_expired_points = 1.337,
         )
 
     def testLoyaltySubLedger(self):

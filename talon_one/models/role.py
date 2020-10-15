@@ -35,22 +35,24 @@ class Role(object):
     openapi_types = {
         'id': 'int',
         'account_id': 'int',
+        'campaign_group_id': 'int',
         'name': 'str',
         'description': 'str',
         'members': 'list[int]',
-        'acl': 'str'
+        'acl': 'object'
     }
 
     attribute_map = {
         'id': 'id',
         'account_id': 'accountID',
+        'campaign_group_id': 'campaignGroupID',
         'name': 'name',
         'description': 'description',
         'members': 'members',
         'acl': 'acl'
     }
 
-    def __init__(self, id=None, account_id=None, name=None, description=None, members=None, acl=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, account_id=None, campaign_group_id=None, name=None, description=None, members=None, acl=None, local_vars_configuration=None):  # noqa: E501
         """Role - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -58,6 +60,7 @@ class Role(object):
 
         self._id = None
         self._account_id = None
+        self._campaign_group_id = None
         self._name = None
         self._description = None
         self._members = None
@@ -66,6 +69,8 @@ class Role(object):
 
         self.id = id
         self.account_id = account_id
+        if campaign_group_id is not None:
+            self.campaign_group_id = campaign_group_id
         if name is not None:
             self.name = name
         if description is not None:
@@ -124,6 +129,29 @@ class Role(object):
             raise ValueError("Invalid value for `account_id`, must not be `None`")  # noqa: E501
 
         self._account_id = account_id
+
+    @property
+    def campaign_group_id(self):
+        """Gets the campaign_group_id of this Role.  # noqa: E501
+
+        The ID of the Campaign Group this role was created for.  # noqa: E501
+
+        :return: The campaign_group_id of this Role.  # noqa: E501
+        :rtype: int
+        """
+        return self._campaign_group_id
+
+    @campaign_group_id.setter
+    def campaign_group_id(self, campaign_group_id):
+        """Sets the campaign_group_id of this Role.
+
+        The ID of the Campaign Group this role was created for.  # noqa: E501
+
+        :param campaign_group_id: The campaign_group_id of this Role.  # noqa: E501
+        :type: int
+        """
+
+        self._campaign_group_id = campaign_group_id
 
     @property
     def name(self):
@@ -198,10 +226,10 @@ class Role(object):
     def acl(self):
         """Gets the acl of this Role.  # noqa: E501
 
-        Role Policy this should be a stringified blob of json  # noqa: E501
+        Role ACL Policy  # noqa: E501
 
         :return: The acl of this Role.  # noqa: E501
-        :rtype: str
+        :rtype: object
         """
         return self._acl
 
@@ -209,10 +237,10 @@ class Role(object):
     def acl(self, acl):
         """Sets the acl of this Role.
 
-        Role Policy this should be a stringified blob of json  # noqa: E501
+        Role ACL Policy  # noqa: E501
 
         :param acl: The acl of this Role.  # noqa: E501
-        :type: str
+        :type: object
         """
 
         self._acl = acl

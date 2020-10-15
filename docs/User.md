@@ -12,9 +12,8 @@ Name | Type | Description | Notes
 **invite_token** | **str** | Invite token, empty if the user as already accepted their invite. | 
 **state** | **str** | Current user state. | 
 **name** | **str** | Full name | 
-**policy** | **str** | A blob of ACL JSON | 
-**release_update** | **bool** | Update the user via email | 
-**latest_feature** | **str** | Latest feature the user has been notified. | [optional] 
+**policy** | [**object**](.md) | User ACL Policy | 
+**latest_feed_timestamp** | **datetime** | Latest timestamp the user has been notified for feed. | [optional] 
 **roles** | **list[int]** | Contains a list of all roles the user is a member of | [optional] 
 **application_notification_subscriptions** | [**object**](.md) |  | [optional] 
 **auth_method** | **str** | The Authentication method for this user | [optional] 

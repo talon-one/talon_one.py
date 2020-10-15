@@ -38,7 +38,8 @@ class AddLoyaltyPointsEffectProps(object):
         'sub_ledger_id': 'str',
         'value': 'float',
         'recipient_integration_id': 'str',
-        'expiry_condition': 'str'
+        'start_date': 'datetime',
+        'expiry_date': 'datetime'
     }
 
     attribute_map = {
@@ -47,10 +48,11 @@ class AddLoyaltyPointsEffectProps(object):
         'sub_ledger_id': 'subLedgerId',
         'value': 'value',
         'recipient_integration_id': 'recipientIntegrationId',
-        'expiry_condition': 'expiryCondition'
+        'start_date': 'startDate',
+        'expiry_date': 'expiryDate'
     }
 
-    def __init__(self, name=None, program_id=None, sub_ledger_id=None, value=None, recipient_integration_id=None, expiry_condition=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, name=None, program_id=None, sub_ledger_id=None, value=None, recipient_integration_id=None, start_date=None, expiry_date=None, local_vars_configuration=None):  # noqa: E501
         """AddLoyaltyPointsEffectProps - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -61,7 +63,8 @@ class AddLoyaltyPointsEffectProps(object):
         self._sub_ledger_id = None
         self._value = None
         self._recipient_integration_id = None
-        self._expiry_condition = None
+        self._start_date = None
+        self._expiry_date = None
         self.discriminator = None
 
         self.name = name
@@ -69,7 +72,10 @@ class AddLoyaltyPointsEffectProps(object):
         self.sub_ledger_id = sub_ledger_id
         self.value = value
         self.recipient_integration_id = recipient_integration_id
-        self.expiry_condition = expiry_condition
+        if start_date is not None:
+            self.start_date = start_date
+        if expiry_date is not None:
+            self.expiry_date = expiry_date
 
     @property
     def name(self):
@@ -197,29 +203,50 @@ class AddLoyaltyPointsEffectProps(object):
         self._recipient_integration_id = recipient_integration_id
 
     @property
-    def expiry_condition(self):
-        """Gets the expiry_condition of this AddLoyaltyPointsEffectProps.  # noqa: E501
+    def start_date(self):
+        """Gets the start_date of this AddLoyaltyPointsEffectProps.  # noqa: E501
 
-        The amount of time (in days) these points are valid  # noqa: E501
+        Date after which points will be valid  # noqa: E501
 
-        :return: The expiry_condition of this AddLoyaltyPointsEffectProps.  # noqa: E501
-        :rtype: str
+        :return: The start_date of this AddLoyaltyPointsEffectProps.  # noqa: E501
+        :rtype: datetime
         """
-        return self._expiry_condition
+        return self._start_date
 
-    @expiry_condition.setter
-    def expiry_condition(self, expiry_condition):
-        """Sets the expiry_condition of this AddLoyaltyPointsEffectProps.
+    @start_date.setter
+    def start_date(self, start_date):
+        """Sets the start_date of this AddLoyaltyPointsEffectProps.
 
-        The amount of time (in days) these points are valid  # noqa: E501
+        Date after which points will be valid  # noqa: E501
 
-        :param expiry_condition: The expiry_condition of this AddLoyaltyPointsEffectProps.  # noqa: E501
-        :type: str
+        :param start_date: The start_date of this AddLoyaltyPointsEffectProps.  # noqa: E501
+        :type: datetime
         """
-        if self.local_vars_configuration.client_side_validation and expiry_condition is None:  # noqa: E501
-            raise ValueError("Invalid value for `expiry_condition`, must not be `None`")  # noqa: E501
 
-        self._expiry_condition = expiry_condition
+        self._start_date = start_date
+
+    @property
+    def expiry_date(self):
+        """Gets the expiry_date of this AddLoyaltyPointsEffectProps.  # noqa: E501
+
+        Date after which points will expire  # noqa: E501
+
+        :return: The expiry_date of this AddLoyaltyPointsEffectProps.  # noqa: E501
+        :rtype: datetime
+        """
+        return self._expiry_date
+
+    @expiry_date.setter
+    def expiry_date(self, expiry_date):
+        """Sets the expiry_date of this AddLoyaltyPointsEffectProps.
+
+        Date after which points will expire  # noqa: E501
+
+        :param expiry_date: The expiry_date of this AddLoyaltyPointsEffectProps.  # noqa: E501
+        :type: datetime
+        """
+
+        self._expiry_date = expiry_date
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -36,24 +36,25 @@ class TestNewApplicationAPIKey(unittest.TestCase):
         # model = talon_one.models.new_application_api_key.NewApplicationAPIKey()  # noqa: E501
         if include_optional :
             return NewApplicationAPIKey(
+                title = '0', 
+                expires = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                platform = 'none', 
                 id = 56, 
                 created_by = 56, 
-                title = '0', 
                 account_id = 56, 
                 application_id = 56, 
                 created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                expires = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                 key = '0'
             )
         else :
             return NewApplicationAPIKey(
+                title = '0',
+                expires = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 id = 56,
                 created_by = 56,
-                title = '0',
                 account_id = 56,
                 application_id = 56,
                 created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
-                expires = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 key = '0',
         )
 

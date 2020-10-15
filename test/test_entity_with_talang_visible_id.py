@@ -16,11 +16,11 @@ import unittest
 import datetime
 
 import talon_one
-from talon_one.models.misc_update_user_latest_feature import MiscUpdateUserLatestFeature  # noqa: E501
+from talon_one.models.entity_with_talang_visible_id import EntityWithTalangVisibleID  # noqa: E501
 from talon_one.rest import ApiException
 
-class TestMiscUpdateUserLatestFeature(unittest.TestCase):
-    """MiscUpdateUserLatestFeature unit test stubs"""
+class TestEntityWithTalangVisibleID(unittest.TestCase):
+    """EntityWithTalangVisibleID unit test stubs"""
 
     def setUp(self):
         pass
@@ -29,21 +29,24 @@ class TestMiscUpdateUserLatestFeature(unittest.TestCase):
         pass
 
     def make_instance(self, include_optional):
-        """Test MiscUpdateUserLatestFeature
+        """Test EntityWithTalangVisibleID
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # model = talon_one.models.misc_update_user_latest_feature.MiscUpdateUserLatestFeature()  # noqa: E501
+        # model = talon_one.models.entity_with_talang_visible_id.EntityWithTalangVisibleID()  # noqa: E501
         if include_optional :
-            return MiscUpdateUserLatestFeature(
-                latest_feature = '0'
+            return EntityWithTalangVisibleID(
+                id = 56, 
+                created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f')
             )
         else :
-            return MiscUpdateUserLatestFeature(
+            return EntityWithTalangVisibleID(
+                id = 56,
+                created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
         )
 
-    def testMiscUpdateUserLatestFeature(self):
-        """Test MiscUpdateUserLatestFeature"""
+    def testEntityWithTalangVisibleID(self):
+        """Test EntityWithTalangVisibleID"""
         inst_req_only = self.make_instance(include_optional=False)
         inst_req_and_optional = self.make_instance(include_optional=True)
 

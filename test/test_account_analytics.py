@@ -37,38 +37,44 @@ class TestAccountAnalytics(unittest.TestCase):
         if include_optional :
             return AccountAnalytics(
                 applications = 56, 
-                active_campaigns = 56, 
+                live_applications = 56, 
+                sandbox_applications = 56, 
                 campaigns = 56, 
+                active_campaigns = 56, 
+                live_active_campaigns = 56, 
                 coupons = 56, 
                 active_coupons = 56, 
                 expired_coupons = 56, 
-                custom_attributes = 56, 
                 referral_codes = 56, 
                 active_referral_codes = 56, 
                 expired_referral_codes = 56, 
+                active_rules = 56, 
                 users = 56, 
                 roles = 56, 
+                custom_attributes = 56, 
                 webhooks = 56, 
-                loyalty_programs = 56, 
-                active_rules = 56
+                loyalty_programs = 56
             )
         else :
             return AccountAnalytics(
                 applications = 56,
-                active_campaigns = 56,
+                live_applications = 56,
+                sandbox_applications = 56,
                 campaigns = 56,
+                active_campaigns = 56,
+                live_active_campaigns = 56,
                 coupons = 56,
                 active_coupons = 56,
                 expired_coupons = 56,
-                custom_attributes = 56,
                 referral_codes = 56,
                 active_referral_codes = 56,
                 expired_referral_codes = 56,
+                active_rules = 56,
                 users = 56,
                 roles = 56,
+                custom_attributes = 56,
                 webhooks = 56,
                 loyalty_programs = 56,
-                active_rules = 56,
         )
 
     def testAccountAnalytics(self):

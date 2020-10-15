@@ -38,12 +38,12 @@ class AccountLimits(object):
         'active_campaigns': 'int',
         'coupons': 'int',
         'referral_codes': 'int',
+        'active_rules': 'int',
         'live_loyalty_programs': 'int',
         'sandbox_loyalty_programs': 'int',
         'webhooks': 'int',
         'users': 'int',
         'api_volume': 'int',
-        'active_rules': 'int',
         'promotion_types': 'list[str]'
     }
 
@@ -53,16 +53,16 @@ class AccountLimits(object):
         'active_campaigns': 'activeCampaigns',
         'coupons': 'coupons',
         'referral_codes': 'referralCodes',
+        'active_rules': 'activeRules',
         'live_loyalty_programs': 'liveLoyaltyPrograms',
         'sandbox_loyalty_programs': 'sandboxLoyaltyPrograms',
         'webhooks': 'webhooks',
         'users': 'users',
         'api_volume': 'apiVolume',
-        'active_rules': 'activeRules',
         'promotion_types': 'promotionTypes'
     }
 
-    def __init__(self, live_applications=None, sandbox_applications=None, active_campaigns=None, coupons=None, referral_codes=None, live_loyalty_programs=None, sandbox_loyalty_programs=None, webhooks=None, users=None, api_volume=None, active_rules=None, promotion_types=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, live_applications=None, sandbox_applications=None, active_campaigns=None, coupons=None, referral_codes=None, active_rules=None, live_loyalty_programs=None, sandbox_loyalty_programs=None, webhooks=None, users=None, api_volume=None, promotion_types=None, local_vars_configuration=None):  # noqa: E501
         """AccountLimits - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -73,12 +73,12 @@ class AccountLimits(object):
         self._active_campaigns = None
         self._coupons = None
         self._referral_codes = None
+        self._active_rules = None
         self._live_loyalty_programs = None
         self._sandbox_loyalty_programs = None
         self._webhooks = None
         self._users = None
         self._api_volume = None
-        self._active_rules = None
         self._promotion_types = None
         self.discriminator = None
 
@@ -87,20 +87,19 @@ class AccountLimits(object):
         self.active_campaigns = active_campaigns
         self.coupons = coupons
         self.referral_codes = referral_codes
+        self.active_rules = active_rules
         self.live_loyalty_programs = live_loyalty_programs
         self.sandbox_loyalty_programs = sandbox_loyalty_programs
         self.webhooks = webhooks
         self.users = users
         self.api_volume = api_volume
-        if active_rules is not None:
-            self.active_rules = active_rules
         self.promotion_types = promotion_types
 
     @property
     def live_applications(self):
         """Gets the live_applications of this AccountLimits.  # noqa: E501
 
-        Total Number of allowed live applications in the account  # noqa: E501
+        Total number of allowed live applications in the account  # noqa: E501
 
         :return: The live_applications of this AccountLimits.  # noqa: E501
         :rtype: int
@@ -111,7 +110,7 @@ class AccountLimits(object):
     def live_applications(self, live_applications):
         """Sets the live_applications of this AccountLimits.
 
-        Total Number of allowed live applications in the account  # noqa: E501
+        Total number of allowed live applications in the account  # noqa: E501
 
         :param live_applications: The live_applications of this AccountLimits.  # noqa: E501
         :type: int
@@ -125,7 +124,7 @@ class AccountLimits(object):
     def sandbox_applications(self):
         """Gets the sandbox_applications of this AccountLimits.  # noqa: E501
 
-        Total Number of allowed sandbox applications in the account  # noqa: E501
+        Total number of allowed sandbox applications in the account  # noqa: E501
 
         :return: The sandbox_applications of this AccountLimits.  # noqa: E501
         :rtype: int
@@ -136,7 +135,7 @@ class AccountLimits(object):
     def sandbox_applications(self, sandbox_applications):
         """Sets the sandbox_applications of this AccountLimits.
 
-        Total Number of allowed sandbox applications in the account  # noqa: E501
+        Total number of allowed sandbox applications in the account  # noqa: E501
 
         :param sandbox_applications: The sandbox_applications of this AccountLimits.  # noqa: E501
         :type: int
@@ -150,7 +149,7 @@ class AccountLimits(object):
     def active_campaigns(self):
         """Gets the active_campaigns of this AccountLimits.  # noqa: E501
 
-        Total Number of allowed active campaigns in the account  # noqa: E501
+        Total number of allowed active campaigns in live applications in the account  # noqa: E501
 
         :return: The active_campaigns of this AccountLimits.  # noqa: E501
         :rtype: int
@@ -161,7 +160,7 @@ class AccountLimits(object):
     def active_campaigns(self, active_campaigns):
         """Sets the active_campaigns of this AccountLimits.
 
-        Total Number of allowed active campaigns in the account  # noqa: E501
+        Total number of allowed active campaigns in live applications in the account  # noqa: E501
 
         :param active_campaigns: The active_campaigns of this AccountLimits.  # noqa: E501
         :type: int
@@ -175,7 +174,7 @@ class AccountLimits(object):
     def coupons(self):
         """Gets the coupons of this AccountLimits.  # noqa: E501
 
-        Total Number of allowed coupons in the account  # noqa: E501
+        Total number of allowed coupons in the account  # noqa: E501
 
         :return: The coupons of this AccountLimits.  # noqa: E501
         :rtype: int
@@ -186,7 +185,7 @@ class AccountLimits(object):
     def coupons(self, coupons):
         """Sets the coupons of this AccountLimits.
 
-        Total Number of allowed coupons in the account  # noqa: E501
+        Total number of allowed coupons in the account  # noqa: E501
 
         :param coupons: The coupons of this AccountLimits.  # noqa: E501
         :type: int
@@ -200,7 +199,7 @@ class AccountLimits(object):
     def referral_codes(self):
         """Gets the referral_codes of this AccountLimits.  # noqa: E501
 
-        Total Number of allowed referral codes in the account  # noqa: E501
+        Total number of allowed referral codes in the account  # noqa: E501
 
         :return: The referral_codes of this AccountLimits.  # noqa: E501
         :rtype: int
@@ -211,7 +210,7 @@ class AccountLimits(object):
     def referral_codes(self, referral_codes):
         """Sets the referral_codes of this AccountLimits.
 
-        Total Number of allowed referral codes in the account  # noqa: E501
+        Total number of allowed referral codes in the account  # noqa: E501
 
         :param referral_codes: The referral_codes of this AccountLimits.  # noqa: E501
         :type: int
@@ -222,10 +221,35 @@ class AccountLimits(object):
         self._referral_codes = referral_codes
 
     @property
+    def active_rules(self):
+        """Gets the active_rules of this AccountLimits.  # noqa: E501
+
+        Total number of allowed active rulesets in the account  # noqa: E501
+
+        :return: The active_rules of this AccountLimits.  # noqa: E501
+        :rtype: int
+        """
+        return self._active_rules
+
+    @active_rules.setter
+    def active_rules(self, active_rules):
+        """Sets the active_rules of this AccountLimits.
+
+        Total number of allowed active rulesets in the account  # noqa: E501
+
+        :param active_rules: The active_rules of this AccountLimits.  # noqa: E501
+        :type: int
+        """
+        if self.local_vars_configuration.client_side_validation and active_rules is None:  # noqa: E501
+            raise ValueError("Invalid value for `active_rules`, must not be `None`")  # noqa: E501
+
+        self._active_rules = active_rules
+
+    @property
     def live_loyalty_programs(self):
         """Gets the live_loyalty_programs of this AccountLimits.  # noqa: E501
 
-        Total Number of allowed live loyalty programs in the account  # noqa: E501
+        Total number of allowed live loyalty programs in the account  # noqa: E501
 
         :return: The live_loyalty_programs of this AccountLimits.  # noqa: E501
         :rtype: int
@@ -236,7 +260,7 @@ class AccountLimits(object):
     def live_loyalty_programs(self, live_loyalty_programs):
         """Sets the live_loyalty_programs of this AccountLimits.
 
-        Total Number of allowed live loyalty programs in the account  # noqa: E501
+        Total number of allowed live loyalty programs in the account  # noqa: E501
 
         :param live_loyalty_programs: The live_loyalty_programs of this AccountLimits.  # noqa: E501
         :type: int
@@ -250,7 +274,7 @@ class AccountLimits(object):
     def sandbox_loyalty_programs(self):
         """Gets the sandbox_loyalty_programs of this AccountLimits.  # noqa: E501
 
-        Total Number of allowed sandbox loyalty programs in the account  # noqa: E501
+        Total number of allowed sandbox loyalty programs in the account  # noqa: E501
 
         :return: The sandbox_loyalty_programs of this AccountLimits.  # noqa: E501
         :rtype: int
@@ -261,7 +285,7 @@ class AccountLimits(object):
     def sandbox_loyalty_programs(self, sandbox_loyalty_programs):
         """Sets the sandbox_loyalty_programs of this AccountLimits.
 
-        Total Number of allowed sandbox loyalty programs in the account  # noqa: E501
+        Total number of allowed sandbox loyalty programs in the account  # noqa: E501
 
         :param sandbox_loyalty_programs: The sandbox_loyalty_programs of this AccountLimits.  # noqa: E501
         :type: int
@@ -275,7 +299,7 @@ class AccountLimits(object):
     def webhooks(self):
         """Gets the webhooks of this AccountLimits.  # noqa: E501
 
-        Total Number of allowed webhooks in the account  # noqa: E501
+        Total number of allowed webhooks in the account  # noqa: E501
 
         :return: The webhooks of this AccountLimits.  # noqa: E501
         :rtype: int
@@ -286,7 +310,7 @@ class AccountLimits(object):
     def webhooks(self, webhooks):
         """Sets the webhooks of this AccountLimits.
 
-        Total Number of allowed webhooks in the account  # noqa: E501
+        Total number of allowed webhooks in the account  # noqa: E501
 
         :param webhooks: The webhooks of this AccountLimits.  # noqa: E501
         :type: int
@@ -300,7 +324,7 @@ class AccountLimits(object):
     def users(self):
         """Gets the users of this AccountLimits.  # noqa: E501
 
-        Total Number of allowed users in the account  # noqa: E501
+        Total number of allowed users in the account  # noqa: E501
 
         :return: The users of this AccountLimits.  # noqa: E501
         :rtype: int
@@ -311,7 +335,7 @@ class AccountLimits(object):
     def users(self, users):
         """Sets the users of this AccountLimits.
 
-        Total Number of allowed users in the account  # noqa: E501
+        Total number of allowed users in the account  # noqa: E501
 
         :param users: The users of this AccountLimits.  # noqa: E501
         :type: int
@@ -325,7 +349,7 @@ class AccountLimits(object):
     def api_volume(self):
         """Gets the api_volume of this AccountLimits.  # noqa: E501
 
-        Total allowed api volume  # noqa: E501
+        Allowed volume of API requests to the account  # noqa: E501
 
         :return: The api_volume of this AccountLimits.  # noqa: E501
         :rtype: int
@@ -336,7 +360,7 @@ class AccountLimits(object):
     def api_volume(self, api_volume):
         """Sets the api_volume of this AccountLimits.
 
-        Total allowed api volume  # noqa: E501
+        Allowed volume of API requests to the account  # noqa: E501
 
         :param api_volume: The api_volume of this AccountLimits.  # noqa: E501
         :type: int
@@ -347,33 +371,10 @@ class AccountLimits(object):
         self._api_volume = api_volume
 
     @property
-    def active_rules(self):
-        """Gets the active_rules of this AccountLimits.  # noqa: E501
-
-        Total allowed active rulesets  # noqa: E501
-
-        :return: The active_rules of this AccountLimits.  # noqa: E501
-        :rtype: int
-        """
-        return self._active_rules
-
-    @active_rules.setter
-    def active_rules(self, active_rules):
-        """Sets the active_rules of this AccountLimits.
-
-        Total allowed active rulesets  # noqa: E501
-
-        :param active_rules: The active_rules of this AccountLimits.  # noqa: E501
-        :type: int
-        """
-
-        self._active_rules = active_rules
-
-    @property
     def promotion_types(self):
         """Gets the promotion_types of this AccountLimits.  # noqa: E501
 
-        array of rulesets where webhook is used  # noqa: E501
+        Array of promotion types that are employed in the account  # noqa: E501
 
         :return: The promotion_types of this AccountLimits.  # noqa: E501
         :rtype: list[str]
@@ -384,7 +385,7 @@ class AccountLimits(object):
     def promotion_types(self, promotion_types):
         """Sets the promotion_types of this AccountLimits.
 
-        array of rulesets where webhook is used  # noqa: E501
+        Array of promotion types that are employed in the account  # noqa: E501
 
         :param promotion_types: The promotion_types of this AccountLimits.  # noqa: E501
         :type: list[str]

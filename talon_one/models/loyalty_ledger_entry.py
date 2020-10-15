@@ -40,6 +40,7 @@ class LoyaltyLedgerEntry(object):
         'event_id': 'int',
         'type': 'str',
         'amount': 'float',
+        'start_date': 'datetime',
         'expiry_date': 'datetime',
         'name': 'str',
         'sub_ledger_id': 'str',
@@ -54,13 +55,14 @@ class LoyaltyLedgerEntry(object):
         'event_id': 'eventID',
         'type': 'type',
         'amount': 'amount',
+        'start_date': 'startDate',
         'expiry_date': 'expiryDate',
         'name': 'name',
         'sub_ledger_id': 'subLedgerID',
         'user_id': 'userID'
     }
 
-    def __init__(self, created=None, program_id=None, customer_profile_id=None, customer_session_id=None, event_id=None, type=None, amount=None, expiry_date=None, name=None, sub_ledger_id=None, user_id=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, created=None, program_id=None, customer_profile_id=None, customer_session_id=None, event_id=None, type=None, amount=None, start_date=None, expiry_date=None, name=None, sub_ledger_id=None, user_id=None, local_vars_configuration=None):  # noqa: E501
         """LoyaltyLedgerEntry - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -73,6 +75,7 @@ class LoyaltyLedgerEntry(object):
         self._event_id = None
         self._type = None
         self._amount = None
+        self._start_date = None
         self._expiry_date = None
         self._name = None
         self._sub_ledger_id = None
@@ -88,6 +91,8 @@ class LoyaltyLedgerEntry(object):
             self.event_id = event_id
         self.type = type
         self.amount = amount
+        if start_date is not None:
+            self.start_date = start_date
         if expiry_date is not None:
             self.expiry_date = expiry_date
         self.name = name
@@ -253,6 +258,27 @@ class LoyaltyLedgerEntry(object):
             raise ValueError("Invalid value for `amount`, must not be `None`")  # noqa: E501
 
         self._amount = amount
+
+    @property
+    def start_date(self):
+        """Gets the start_date of this LoyaltyLedgerEntry.  # noqa: E501
+
+
+        :return: The start_date of this LoyaltyLedgerEntry.  # noqa: E501
+        :rtype: datetime
+        """
+        return self._start_date
+
+    @start_date.setter
+    def start_date(self, start_date):
+        """Sets the start_date of this LoyaltyLedgerEntry.
+
+
+        :param start_date: The start_date of this LoyaltyLedgerEntry.  # noqa: E501
+        :type: datetime
+        """
+
+        self._start_date = start_date
 
     @property
     def expiry_date(self):

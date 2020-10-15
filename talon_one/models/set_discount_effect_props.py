@@ -34,15 +34,17 @@ class SetDiscountEffectProps(object):
     """
     openapi_types = {
         'name': 'str',
-        'value': 'float'
+        'value': 'float',
+        'scope': 'str'
     }
 
     attribute_map = {
         'name': 'name',
-        'value': 'value'
+        'value': 'value',
+        'scope': 'scope'
     }
 
-    def __init__(self, name=None, value=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, name=None, value=None, scope=None, local_vars_configuration=None):  # noqa: E501
         """SetDiscountEffectProps - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -50,10 +52,13 @@ class SetDiscountEffectProps(object):
 
         self._name = None
         self._value = None
+        self._scope = None
         self.discriminator = None
 
         self.name = name
         self.value = value
+        if scope is not None:
+            self.scope = scope
 
     @property
     def name(self):
@@ -104,6 +109,29 @@ class SetDiscountEffectProps(object):
             raise ValueError("Invalid value for `value`, must not be `None`")  # noqa: E501
 
         self._value = value
+
+    @property
+    def scope(self):
+        """Gets the scope of this SetDiscountEffectProps.  # noqa: E501
+
+        The scope which the discount was applied on, can be one of (cartItems,additionalCosts,sessionTotal)  # noqa: E501
+
+        :return: The scope of this SetDiscountEffectProps.  # noqa: E501
+        :rtype: str
+        """
+        return self._scope
+
+    @scope.setter
+    def scope(self, scope):
+        """Sets the scope of this SetDiscountEffectProps.
+
+        The scope which the discount was applied on, can be one of (cartItems,additionalCosts,sessionTotal)  # noqa: E501
+
+        :param scope: The scope of this SetDiscountEffectProps.  # noqa: E501
+        :type: str
+        """
+
+        self._scope = scope
 
     def to_dict(self):
         """Returns the model properties as a dict"""

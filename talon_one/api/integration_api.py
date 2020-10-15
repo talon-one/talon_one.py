@@ -502,6 +502,7 @@ class IntegrationApi(object):
         :param bool profile: optional flag to decide if you would like customer profile information in the response
         :param bool referrals: optional flag to decide if you would like referral information in the response
         :param bool coupons: optional flag to decide if you would like coupon information in the response
+        :param bool loyalty: optional flag to decide if you would like loyalty information in the response
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -530,6 +531,7 @@ class IntegrationApi(object):
         :param bool profile: optional flag to decide if you would like customer profile information in the response
         :param bool referrals: optional flag to decide if you would like referral information in the response
         :param bool coupons: optional flag to decide if you would like coupon information in the response
+        :param bool loyalty: optional flag to decide if you would like loyalty information in the response
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -546,7 +548,7 @@ class IntegrationApi(object):
 
         local_var_params = locals()
 
-        all_params = ['integration_id', 'profile', 'referrals', 'coupons']  # noqa: E501
+        all_params = ['integration_id', 'profile', 'referrals', 'coupons', 'loyalty']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -578,6 +580,8 @@ class IntegrationApi(object):
             query_params.append(('referrals', local_var_params['referrals']))  # noqa: E501
         if 'coupons' in local_var_params and local_var_params['coupons'] is not None:  # noqa: E501
             query_params.append(('coupons', local_var_params['coupons']))  # noqa: E501
+        if 'loyalty' in local_var_params and local_var_params['loyalty'] is not None:  # noqa: E501
+            query_params.append(('loyalty', local_var_params['loyalty']))  # noqa: E501
 
         header_params = {}
 
@@ -833,9 +837,9 @@ class IntegrationApi(object):
             collection_formats=collection_formats)
 
     def update_customer_profile(self, integration_id, body, **kwargs):  # noqa: E501
-        """Update a Customer Profile  # noqa: E501
+        """Update a Customer Profile V1  # noqa: E501
 
-        Update (or create) a [Customer Profile][]. This profile information can then be matched and/or updated by campaign [Rules][].  The `integrationId` may be any identifier that will remain stable for the customer. For example, you might use a database ID, an email, or a phone number as the `integrationId`. It is vital that this ID **not** change over time, so **don't** use any identifier that the customer can update themselves. E.g. if your application allows a customer to update their e-mail address, you should instead use a database ID.  Updating a customer profile will return a response with the full integration state. This includes the current state of the customer profile, the customer session, the event that was recorded, and an array of effects that took place.  [Customer Profile]: /Getting-Started/entities#customer-profile [Rules]: /Getting-Started/entities#campaigns-rulesets-and-coupons   # noqa: E501
+        ⚠️ Deprecation Notice: Support for requests to this endpoint will end on 15.07.2021. We will not remove the endpoint, and it will still be accessible for you to use. For new features support, please migrate to [API V2.0](/Getting-Started/APIV2).  Update (or create) a [Customer Profile][]. This profile information can then be matched and/or updated by campaign [Rules][].  The `integrationId` may be any identifier that will remain stable for the customer. For example, you might use a database ID, an email, or a phone number as the `integrationId`. It is vital that this ID **not** change over time, so **don't** use any identifier that the customer can update themselves. E.g. if your application allows a customer to update their e-mail address, you should instead use a database ID.  Updating a customer profile will return a response with the full integration state. This includes the current state of the customer profile, the customer session, the event that was recorded, and an array of effects that took place.  [Customer Profile]: /Getting-Started/entities#customer-profile [Rules]: /Getting-Started/entities#campaigns-rulesets-and-coupons   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.update_customer_profile(integration_id, body, async_req=True)
@@ -860,9 +864,9 @@ class IntegrationApi(object):
         return self.update_customer_profile_with_http_info(integration_id, body, **kwargs)  # noqa: E501
 
     def update_customer_profile_with_http_info(self, integration_id, body, **kwargs):  # noqa: E501
-        """Update a Customer Profile  # noqa: E501
+        """Update a Customer Profile V1  # noqa: E501
 
-        Update (or create) a [Customer Profile][]. This profile information can then be matched and/or updated by campaign [Rules][].  The `integrationId` may be any identifier that will remain stable for the customer. For example, you might use a database ID, an email, or a phone number as the `integrationId`. It is vital that this ID **not** change over time, so **don't** use any identifier that the customer can update themselves. E.g. if your application allows a customer to update their e-mail address, you should instead use a database ID.  Updating a customer profile will return a response with the full integration state. This includes the current state of the customer profile, the customer session, the event that was recorded, and an array of effects that took place.  [Customer Profile]: /Getting-Started/entities#customer-profile [Rules]: /Getting-Started/entities#campaigns-rulesets-and-coupons   # noqa: E501
+        ⚠️ Deprecation Notice: Support for requests to this endpoint will end on 15.07.2021. We will not remove the endpoint, and it will still be accessible for you to use. For new features support, please migrate to [API V2.0](/Getting-Started/APIV2).  Update (or create) a [Customer Profile][]. This profile information can then be matched and/or updated by campaign [Rules][].  The `integrationId` may be any identifier that will remain stable for the customer. For example, you might use a database ID, an email, or a phone number as the `integrationId`. It is vital that this ID **not** change over time, so **don't** use any identifier that the customer can update themselves. E.g. if your application allows a customer to update their e-mail address, you should instead use a database ID.  Updating a customer profile will return a response with the full integration state. This includes the current state of the customer profile, the customer session, the event that was recorded, and an array of effects that took place.  [Customer Profile]: /Getting-Started/entities#customer-profile [Rules]: /Getting-Started/entities#campaigns-rulesets-and-coupons   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.update_customer_profile_with_http_info(integration_id, body, async_req=True)
@@ -956,18 +960,17 @@ class IntegrationApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def update_customer_profile_v2(self, customer_profile_id, body, **kwargs):  # noqa: E501
-        """Update a Customer Profile  # noqa: E501
+    def update_customer_profile_audiences(self, body, **kwargs):  # noqa: E501
+        """Update a Customer Profile Audiences  # noqa: E501
 
-        Update (or create) a [Customer Profile][].   The `integrationId` may be any identifier that will remain stable for the customer. For example, you might use a database ID, an email, or a phone number as the `integrationId`. It is vital that this ID **not** change over time, so **don't** use any identifier that the customer can update themselves. E.g. if your application allows a customer to update their e-mail address, you should instead use a database ID.  [Customer Profile]: /Getting-Started/entities#customer-profile   # noqa: E501
+        Update one ore multiple Customer Profiles with the specified Audiences   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_customer_profile_v2(customer_profile_id, body, async_req=True)
+        >>> thread = api.update_customer_profile_audiences(body, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str customer_profile_id: The custom identifier for this profile, must be unique within the account. (required)
-        :param NewCustomerProfile body: (required)
+        :param CustomerProfileAudienceRequest body: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -975,25 +978,24 @@ class IntegrationApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: CustomerProfileUpdate
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.update_customer_profile_v2_with_http_info(customer_profile_id, body, **kwargs)  # noqa: E501
+        return self.update_customer_profile_audiences_with_http_info(body, **kwargs)  # noqa: E501
 
-    def update_customer_profile_v2_with_http_info(self, customer_profile_id, body, **kwargs):  # noqa: E501
-        """Update a Customer Profile  # noqa: E501
+    def update_customer_profile_audiences_with_http_info(self, body, **kwargs):  # noqa: E501
+        """Update a Customer Profile Audiences  # noqa: E501
 
-        Update (or create) a [Customer Profile][].   The `integrationId` may be any identifier that will remain stable for the customer. For example, you might use a database ID, an email, or a phone number as the `integrationId`. It is vital that this ID **not** change over time, so **don't** use any identifier that the customer can update themselves. E.g. if your application allows a customer to update their e-mail address, you should instead use a database ID.  [Customer Profile]: /Getting-Started/entities#customer-profile   # noqa: E501
+        Update one ore multiple Customer Profiles with the specified Audiences   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_customer_profile_v2_with_http_info(customer_profile_id, body, async_req=True)
+        >>> thread = api.update_customer_profile_audiences_with_http_info(body, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str customer_profile_id: The custom identifier for this profile, must be unique within the account. (required)
-        :param NewCustomerProfile body: (required)
+        :param CustomerProfileAudienceRequest body: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -1003,14 +1005,128 @@ class IntegrationApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(CustomerProfileUpdate, status_code(int), headers(HTTPHeaderDict))
+        :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
         local_var_params = locals()
 
-        all_params = ['customer_profile_id', 'body']  # noqa: E501
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method update_customer_profile_audiences" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in local_var_params or  # noqa: E501
+                                                        local_var_params['body'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `body` when calling `update_customer_profile_audiences`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in local_var_params:
+            body_params = local_var_params['body']
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['api_key_v1']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/v2/customer_audiences', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type=None,  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def update_customer_profile_v2(self, integration_id, body, **kwargs):  # noqa: E501
+        """Update a Customer Profile  # noqa: E501
+
+        Update (or create) a [Customer Profile][].  The `integrationId` may be any identifier that will remain stable for the customer. For example, you might use a database ID, an email, or a phone number as the `integrationId`. It is vital that this ID **not** change over time, so **don't** use any identifier that the customer can update themselves. E.g. if your application allows a customer to update their e-mail address, you should instead use a database ID.  [Customer Profile]: /Getting-Started/entities#customer-profile   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_customer_profile_v2(integration_id, body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str integration_id: The custom identifier for this profile, must be unique within the account. (required)
+        :param CustomerProfileIntegrationRequestV2 body: (required)
+        :param bool run_rule_engine: Flag to indicate whether to run the rule engine (Defaults to false).
+        :param bool dry: Flag to indicate whether to skip persisting the changes or not (Will not persist if set to 'true'. Only used when 'runRuleEngine' is set to 'true').
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: IntegrationStateV2
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.update_customer_profile_v2_with_http_info(integration_id, body, **kwargs)  # noqa: E501
+
+    def update_customer_profile_v2_with_http_info(self, integration_id, body, **kwargs):  # noqa: E501
+        """Update a Customer Profile  # noqa: E501
+
+        Update (or create) a [Customer Profile][].  The `integrationId` may be any identifier that will remain stable for the customer. For example, you might use a database ID, an email, or a phone number as the `integrationId`. It is vital that this ID **not** change over time, so **don't** use any identifier that the customer can update themselves. E.g. if your application allows a customer to update their e-mail address, you should instead use a database ID.  [Customer Profile]: /Getting-Started/entities#customer-profile   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_customer_profile_v2_with_http_info(integration_id, body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str integration_id: The custom identifier for this profile, must be unique within the account. (required)
+        :param CustomerProfileIntegrationRequestV2 body: (required)
+        :param bool run_rule_engine: Flag to indicate whether to run the rule engine (Defaults to false).
+        :param bool dry: Flag to indicate whether to skip persisting the changes or not (Will not persist if set to 'true'. Only used when 'runRuleEngine' is set to 'true').
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(IntegrationStateV2, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['integration_id', 'body', 'run_rule_engine', 'dry']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -1024,10 +1140,10 @@ class IntegrationApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
-        # verify the required parameter 'customer_profile_id' is set
-        if self.api_client.client_side_validation and ('customer_profile_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['customer_profile_id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `customer_profile_id` when calling `update_customer_profile_v2`")  # noqa: E501
+        # verify the required parameter 'integration_id' is set
+        if self.api_client.client_side_validation and ('integration_id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['integration_id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `integration_id` when calling `update_customer_profile_v2`")  # noqa: E501
         # verify the required parameter 'body' is set
         if self.api_client.client_side_validation and ('body' not in local_var_params or  # noqa: E501
                                                         local_var_params['body'] is None):  # noqa: E501
@@ -1036,10 +1152,14 @@ class IntegrationApi(object):
         collection_formats = {}
 
         path_params = {}
-        if 'customer_profile_id' in local_var_params:
-            path_params['customerProfileId'] = local_var_params['customer_profile_id']  # noqa: E501
+        if 'integration_id' in local_var_params:
+            path_params['integrationId'] = local_var_params['integration_id']  # noqa: E501
 
         query_params = []
+        if 'run_rule_engine' in local_var_params and local_var_params['run_rule_engine'] is not None:  # noqa: E501
+            query_params.append(('runRuleEngine', local_var_params['run_rule_engine']))  # noqa: E501
+        if 'dry' in local_var_params and local_var_params['dry'] is not None:  # noqa: E501
+            query_params.append(('dry', local_var_params['dry']))  # noqa: E501
 
         header_params = {}
 
@@ -1061,14 +1181,130 @@ class IntegrationApi(object):
         auth_settings = ['api_key_v1']  # noqa: E501
 
         return self.api_client.call_api(
-            '/v2/customer_profiles/{customerProfileId}', 'PUT',
+            '/v2/customer_profiles/{integrationId}', 'PUT',
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='CustomerProfileUpdate',  # noqa: E501
+            response_type='IntegrationStateV2',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def update_customer_profiles_v2(self, body, **kwargs):  # noqa: E501
+        """Update multiple Customer Profiles  # noqa: E501
+
+        Update (or create) up to 1000 [Customer Profiles][] in 1 request.  The `integrationId` may be any identifier that will remain stable for the customer. For example, you might use a database ID, an email, or a phone number as the `integrationId`. It is vital that this ID **not** change over time, so **don't** use any identifier that the customer can update themselves. E.g. if your application allows a customer to update their e-mail address, you should instead use a database ID.  [Customer Profiles]: /Getting-Started/entities#customer-profile   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_customer_profiles_v2(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param MultipleCustomerProfileIntegrationRequest body: (required)
+        :param str silent: If set to 'yes', response will be an empty 204, otherwise a list of the IntegrationStateV2  generated.
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: MultipleCustomerProfileIntegrationResponseV2
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.update_customer_profiles_v2_with_http_info(body, **kwargs)  # noqa: E501
+
+    def update_customer_profiles_v2_with_http_info(self, body, **kwargs):  # noqa: E501
+        """Update multiple Customer Profiles  # noqa: E501
+
+        Update (or create) up to 1000 [Customer Profiles][] in 1 request.  The `integrationId` may be any identifier that will remain stable for the customer. For example, you might use a database ID, an email, or a phone number as the `integrationId`. It is vital that this ID **not** change over time, so **don't** use any identifier that the customer can update themselves. E.g. if your application allows a customer to update their e-mail address, you should instead use a database ID.  [Customer Profiles]: /Getting-Started/entities#customer-profile   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_customer_profiles_v2_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param MultipleCustomerProfileIntegrationRequest body: (required)
+        :param str silent: If set to 'yes', response will be an empty 204, otherwise a list of the IntegrationStateV2  generated.
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(MultipleCustomerProfileIntegrationResponseV2, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['body', 'silent']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method update_customer_profiles_v2" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in local_var_params or  # noqa: E501
+                                                        local_var_params['body'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `body` when calling `update_customer_profiles_v2`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+        if 'silent' in local_var_params and local_var_params['silent'] is not None:  # noqa: E501
+            query_params.append(('silent', local_var_params['silent']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in local_var_params:
+            body_params = local_var_params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['api_key_v1']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/v2/customer_profiles', 'PUT',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='MultipleCustomerProfileIntegrationResponseV2',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -1077,9 +1313,9 @@ class IntegrationApi(object):
             collection_formats=collection_formats)
 
     def update_customer_session(self, customer_session_id, body, **kwargs):  # noqa: E501
-        """Update a Customer Session  # noqa: E501
+        """Update a Customer Session V1  # noqa: E501
 
-        Update (or create) a [Customer Session][]. For example, the items in a customers cart are part of a session.  The Talon.One platform supports multiple simultaneous sessions for the same profile, so if you have multiple ways of accessing the same application you have the option of either tracking multiple independent sessions or using the same session across all of them. You should share sessions when application access points share other state, such as the users cart. If two points of access to the application have independent state (e.g. a user can have different items in their cart across the two) they should use independent customer session ID's.  The `profileId` parameter in the request body should correspond to an `integrationId` for a customer profile, to track an anonymous session use the empty string (`\"\"`) as the `profileId`. Note that you do **not** need to create a customer profile first: if the specified profile does not yet exist, an empty profile will be created automatically.  Updating a customer profile will return a response with the full integration state. This includes the current state of the customer profile, the customer session, the event that was recorded, and an array of effects that took place.  The currency for the session and the cart items in the session is the same as that of the application with which the session is associated.  [Customer Session]: /Getting-Started/entities#customer-session   # noqa: E501
+        ⚠️ Deprecation Notice: Support for requests to this endpoint will end on 15.07.2021. We will not remove the endpoint, and it will still be accessible for you to use. For new features support, please migrate to [API V2.0](/Getting-Started/APIV2).  Update (or create) a [Customer Session][]. For example, the items in a customers cart are part of a session.  The Talon.One platform supports multiple simultaneous sessions for the same profile, so if you have multiple ways of accessing the same application you have the option of either tracking multiple independent sessions or using the same session across all of them. You should share sessions when application access points share other state, such as the users cart. If two points of access to the application have independent state (e.g. a user can have different items in their cart across the two) they should use independent customer session ID's.  The `profileId` parameter in the request body should correspond to an `integrationId` for a customer profile, to track an anonymous session use the empty string (`\"\"`) as the `profileId`. Note that you do **not** need to create a customer profile first: if the specified profile does not yet exist, an empty profile will be created automatically.  Updating a customer profile will return a response with the full integration state. This includes the current state of the customer profile, the customer session, the event that was recorded, and an array of effects that took place.  The currency for the session and the cart items in the session is the same as that of the application with which the session is associated.  [Customer Session]: /Getting-Started/entities#customer-session   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.update_customer_session(customer_session_id, body, async_req=True)
@@ -1104,9 +1340,9 @@ class IntegrationApi(object):
         return self.update_customer_session_with_http_info(customer_session_id, body, **kwargs)  # noqa: E501
 
     def update_customer_session_with_http_info(self, customer_session_id, body, **kwargs):  # noqa: E501
-        """Update a Customer Session  # noqa: E501
+        """Update a Customer Session V1  # noqa: E501
 
-        Update (or create) a [Customer Session][]. For example, the items in a customers cart are part of a session.  The Talon.One platform supports multiple simultaneous sessions for the same profile, so if you have multiple ways of accessing the same application you have the option of either tracking multiple independent sessions or using the same session across all of them. You should share sessions when application access points share other state, such as the users cart. If two points of access to the application have independent state (e.g. a user can have different items in their cart across the two) they should use independent customer session ID's.  The `profileId` parameter in the request body should correspond to an `integrationId` for a customer profile, to track an anonymous session use the empty string (`\"\"`) as the `profileId`. Note that you do **not** need to create a customer profile first: if the specified profile does not yet exist, an empty profile will be created automatically.  Updating a customer profile will return a response with the full integration state. This includes the current state of the customer profile, the customer session, the event that was recorded, and an array of effects that took place.  The currency for the session and the cart items in the session is the same as that of the application with which the session is associated.  [Customer Session]: /Getting-Started/entities#customer-session   # noqa: E501
+        ⚠️ Deprecation Notice: Support for requests to this endpoint will end on 15.07.2021. We will not remove the endpoint, and it will still be accessible for you to use. For new features support, please migrate to [API V2.0](/Getting-Started/APIV2).  Update (or create) a [Customer Session][]. For example, the items in a customers cart are part of a session.  The Talon.One platform supports multiple simultaneous sessions for the same profile, so if you have multiple ways of accessing the same application you have the option of either tracking multiple independent sessions or using the same session across all of them. You should share sessions when application access points share other state, such as the users cart. If two points of access to the application have independent state (e.g. a user can have different items in their cart across the two) they should use independent customer session ID's.  The `profileId` parameter in the request body should correspond to an `integrationId` for a customer profile, to track an anonymous session use the empty string (`\"\"`) as the `profileId`. Note that you do **not** need to create a customer profile first: if the specified profile does not yet exist, an empty profile will be created automatically.  Updating a customer profile will return a response with the full integration state. This includes the current state of the customer profile, the customer session, the event that was recorded, and an array of effects that took place.  The currency for the session and the cart items in the session is the same as that of the application with which the session is associated.  [Customer Session]: /Getting-Started/entities#customer-session   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.update_customer_session_with_http_info(customer_session_id, body, async_req=True)

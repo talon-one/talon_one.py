@@ -58,6 +58,9 @@ class TestInlineResponse2001(unittest.TestCase):
                                     ], )
                             ], 
                         campaign_priority = 'universal', 
+                        exclusive_campaigns_strategy = 'listOrder', 
+                        enable_cascading_discounts = True, 
+                        enable_flattened_cart_items = True, 
                         attributes_settings = talon_one.models.attributes_settings.AttributesSettings(
                             mandatory = talon_one.models.attributes_mandatory.AttributesMandatory(
                                 campaigns = [
@@ -66,6 +69,7 @@ class TestInlineResponse2001(unittest.TestCase):
                                 coupons = [
                                     '0'
                                     ], ), ), 
+                        sandbox = True, 
                         loyalty_programs = [
                             talon_one.models.loyalty_program.LoyaltyProgram(
                                 id = 56, 
@@ -77,6 +81,7 @@ class TestInlineResponse2001(unittest.TestCase):
                                     56
                                     ], 
                                 default_validity = '0', 
+                                default_pending = '0', 
                                 allow_subledger = True, )
                             ], )
                     ]
@@ -105,6 +110,9 @@ class TestInlineResponse2001(unittest.TestCase):
                                     ], )
                             ], 
                         campaign_priority = 'universal', 
+                        exclusive_campaigns_strategy = 'listOrder', 
+                        enable_cascading_discounts = True, 
+                        enable_flattened_cart_items = True, 
                         attributes_settings = talon_one.models.attributes_settings.AttributesSettings(
                             mandatory = talon_one.models.attributes_mandatory.AttributesMandatory(
                                 campaigns = [
@@ -113,6 +121,7 @@ class TestInlineResponse2001(unittest.TestCase):
                                 coupons = [
                                     '0'
                                     ], ), ), 
+                        sandbox = True, 
                         loyalty_programs = [
                             talon_one.models.loyalty_program.LoyaltyProgram(
                                 id = 56, 
@@ -124,6 +133,7 @@ class TestInlineResponse2001(unittest.TestCase):
                                     56
                                     ], 
                                 default_validity = '0', 
+                                default_pending = '0', 
                                 allow_subledger = True, )
                             ], )
                     ],

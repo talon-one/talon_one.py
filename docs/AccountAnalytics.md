@@ -3,21 +3,24 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**applications** | **int** | Total Number of Applications inside the account | 
-**active_campaigns** | **int** | Total Number of Active Applications inside the account | 
-**campaigns** | **int** | Total Number of campaigns inside the account | 
-**coupons** | **int** | Total Number of coupons inside the account | 
-**active_coupons** | **int** | Total Number of active coupons inside the account | 
-**expired_coupons** | **int** | Total Number of expired coupons inside the account | 
-**custom_attributes** | **int** | Total Number of custom attributes inside the account | 
-**referral_codes** | **int** | Total Number of referral codes inside the account | 
-**active_referral_codes** | **int** | Total Number of active referral codes inside the account | 
-**expired_referral_codes** | **int** | Total Number of expired referral codes inside the account | 
-**users** | **int** | Total Number of users inside the account | 
-**roles** | **int** | Total Number of roles inside the account | 
-**webhooks** | **int** | Total Number of webhooks inside the account | 
-**loyalty_programs** | **int** | Total Number of loyalty programs inside the account | 
-**active_rules** | **int** | Total Number of active rules in the account | 
+**applications** | **int** | Total number of applications in the account | 
+**live_applications** | **int** | Total number of live applications in the account | 
+**sandbox_applications** | **int** | Total number of sandbox applications in the account | 
+**campaigns** | **int** | Total number of campaigns in the account | 
+**active_campaigns** | **int** | Total number of active campaigns in the account | 
+**live_active_campaigns** | **int** | Total number of active campaigns in live applications in the account | 
+**coupons** | **int** | Total number of coupons in the account | 
+**active_coupons** | **int** | Total number of active coupons in the account | 
+**expired_coupons** | **int** | Total number of expired coupons in the account | 
+**referral_codes** | **int** | Total number of referral codes in the account | 
+**active_referral_codes** | **int** | Total number of active referral codes in the account | 
+**expired_referral_codes** | **int** | Total number of expired referral codes in the account | 
+**active_rules** | **int** | Total number of active rules in the account | 
+**users** | **int** | Total number of users in the account | 
+**roles** | **int** | Total number of roles in the account | 
+**custom_attributes** | **int** | Total number of custom attributes in the account | 
+**webhooks** | **int** | Total number of webhooks in the account | 
+**loyalty_programs** | **int** | Total number of loyalty programs in the account | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

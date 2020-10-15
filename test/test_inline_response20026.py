@@ -47,9 +47,8 @@ class TestInlineResponse20026(unittest.TestCase):
                         invite_token = '0', 
                         state = 'invited', 
                         name = '0', 
-                        policy = '0', 
-                        release_update = True, 
-                        latest_feature = '0', 
+                        policy = talon_one.models.policy.policy(), 
+                        latest_feed_timestamp = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                         roles = [
                             56
                             ], 
@@ -70,9 +69,8 @@ class TestInlineResponse20026(unittest.TestCase):
                         invite_token = '0', 
                         state = 'invited', 
                         name = '0', 
-                        policy = '0', 
-                        release_update = True, 
-                        latest_feature = '0', 
+                        policy = talon_one.models.policy.policy(), 
+                        latest_feed_timestamp = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                         roles = [
                             56
                             ], 

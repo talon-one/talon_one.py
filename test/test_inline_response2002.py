@@ -74,6 +74,9 @@ class TestInlineResponse2002(unittest.TestCase):
                                     'Coupon'
                                     ], )
                             ], 
+                        campaign_groups = [
+                            56
+                            ], 
                         coupon_redemption_count = 56, 
                         referral_redemption_count = 56, 
                         discount_count = 56, 
@@ -124,6 +127,9 @@ class TestInlineResponse2002(unittest.TestCase):
                                 entities = [
                                     'Coupon'
                                     ], )
+                            ], 
+                        campaign_groups = [
+                            56
                             ], 
                         coupon_redemption_count = 56, 
                         referral_redemption_count = 56, 

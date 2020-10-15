@@ -38,12 +38,13 @@ class TestRole(unittest.TestCase):
             return Role(
                 id = 56, 
                 account_id = 56, 
+                campaign_group_id = 56, 
                 name = '0', 
                 description = '0', 
                 members = [
                     56
                     ], 
-                acl = '0'
+                acl = None
             )
         else :
             return Role(

@@ -41,12 +41,13 @@ class TestInlineResponse20030(unittest.TestCase):
                     talon_one.models.role.Role(
                         id = 56, 
                         account_id = 56, 
+                        campaign_group_id = 56, 
                         name = '0', 
                         description = '0', 
                         members = [
                             56
                             ], 
-                        acl = '0', )
+                        acl = talon_one.models.acl.acl(), )
                     ]
             )
         else :
@@ -56,12 +57,13 @@ class TestInlineResponse20030(unittest.TestCase):
                     talon_one.models.role.Role(
                         id = 56, 
                         account_id = 56, 
+                        campaign_group_id = 56, 
                         name = '0', 
                         description = '0', 
                         members = [
                             56
                             ], 
-                        acl = '0', )
+                        acl = talon_one.models.acl.acl(), )
                     ],
         )
 

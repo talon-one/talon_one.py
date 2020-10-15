@@ -37,7 +37,8 @@ class TestSetDiscountEffectProps(unittest.TestCase):
         if include_optional :
             return SetDiscountEffectProps(
                 name = '0', 
-                value = 1.337
+                value = 1.337, 
+                scope = '0'
             )
         else :
             return SetDiscountEffectProps(

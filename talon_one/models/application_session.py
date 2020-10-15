@@ -204,7 +204,7 @@ class ApplicationSession(object):
     def integration_id(self):
         """Gets the integration_id of this ApplicationSession.  # noqa: E501
 
-        The ID used for this entity in the application system.  # noqa: E501
+        The integration ID for this entity sent to and used in the Talon.One system.  # noqa: E501
 
         :return: The integration_id of this ApplicationSession.  # noqa: E501
         :rtype: str
@@ -215,7 +215,7 @@ class ApplicationSession(object):
     def integration_id(self, integration_id):
         """Sets the integration_id of this ApplicationSession.
 
-        The ID used for this entity in the application system.  # noqa: E501
+        The integration ID for this entity sent to and used in the Talon.One system.  # noqa: E501
 
         :param integration_id: The integration_id of this ApplicationSession.  # noqa: E501
         :type: str

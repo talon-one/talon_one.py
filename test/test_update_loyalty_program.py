@@ -42,6 +42,7 @@ class TestUpdateLoyaltyProgram(unittest.TestCase):
                     56
                     ], 
                 default_validity = '0', 
+                default_pending = '0', 
                 allow_subledger = True
             )
         else :

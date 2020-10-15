@@ -125,7 +125,7 @@ class ReferralRejectionReason(object):
         """
         if self.local_vars_configuration.client_side_validation and reason is None:  # noqa: E501
             raise ValueError("Invalid value for `reason`, must not be `None`")  # noqa: E501
-        allowed_values = ["ReferralNotFound", "ReferralRecipientIdSameAsAdvocate", "ReferralPartOfNotRunningCampaign", "ReferralValidConditionMissing", "ReferralLimitReached", "CampaignLimitReached", "ProfileLimitReached", "ReferralRecipientDoesNotMatch", "ReferralExpired", "ReferralStartDateInFuture", "ReferralRejectedByCondition", "EffectCouldNotBeApplied"]  # noqa: E501
+        allowed_values = ["ReferralNotFound", "ReferralRecipientIdSameAsAdvocate", "ReferralPartOfNotRunningCampaign", "ReferralLimitReached", "CampaignLimitReached", "ProfileLimitReached", "ReferralRecipientDoesNotMatch", "ReferralExpired", "ReferralStartDateInFuture", "ReferralRejectedByCondition", "EffectCouldNotBeApplied"]  # noqa: E501
         if self.local_vars_configuration.client_side_validation and reason not in allowed_values:  # noqa: E501
             raise ValueError(
                 "Invalid value for `reason` ({0}), must be one of {1}"  # noqa: E501

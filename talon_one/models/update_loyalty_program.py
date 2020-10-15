@@ -37,6 +37,7 @@ class UpdateLoyaltyProgram(object):
         'description': 'str',
         'subscribed_applications': 'list[int]',
         'default_validity': 'str',
+        'default_pending': 'str',
         'allow_subledger': 'bool'
     }
 
@@ -45,10 +46,11 @@ class UpdateLoyaltyProgram(object):
         'description': 'description',
         'subscribed_applications': 'subscribedApplications',
         'default_validity': 'defaultValidity',
+        'default_pending': 'defaultPending',
         'allow_subledger': 'allowSubledger'
     }
 
-    def __init__(self, title=None, description=None, subscribed_applications=None, default_validity=None, allow_subledger=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, title=None, description=None, subscribed_applications=None, default_validity=None, default_pending=None, allow_subledger=None, local_vars_configuration=None):  # noqa: E501
         """UpdateLoyaltyProgram - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -58,6 +60,7 @@ class UpdateLoyaltyProgram(object):
         self._description = None
         self._subscribed_applications = None
         self._default_validity = None
+        self._default_pending = None
         self._allow_subledger = None
         self.discriminator = None
 
@@ -69,6 +72,8 @@ class UpdateLoyaltyProgram(object):
             self.subscribed_applications = subscribed_applications
         if default_validity is not None:
             self.default_validity = default_validity
+        if default_pending is not None:
+            self.default_pending = default_pending
         if allow_subledger is not None:
             self.allow_subledger = allow_subledger
 
@@ -145,7 +150,7 @@ class UpdateLoyaltyProgram(object):
     def default_validity(self):
         """Gets the default_validity of this UpdateLoyaltyProgram.  # noqa: E501
 
-        Indicates the default duration after which new loyalty points should expire. The format is a number, followed by one letter indicating the unit; like '1h' or '40m' or '30d'.  # noqa: E501
+        Indicates the default duration after which new loyalty points should expire. The format is a number, followed by one letter indicating the unit; like '1h' or '40m'.  # noqa: E501
 
         :return: The default_validity of this UpdateLoyaltyProgram.  # noqa: E501
         :rtype: str
@@ -156,13 +161,36 @@ class UpdateLoyaltyProgram(object):
     def default_validity(self, default_validity):
         """Sets the default_validity of this UpdateLoyaltyProgram.
 
-        Indicates the default duration after which new loyalty points should expire. The format is a number, followed by one letter indicating the unit; like '1h' or '40m' or '30d'.  # noqa: E501
+        Indicates the default duration after which new loyalty points should expire. The format is a number, followed by one letter indicating the unit; like '1h' or '40m'.  # noqa: E501
 
         :param default_validity: The default_validity of this UpdateLoyaltyProgram.  # noqa: E501
         :type: str
         """
 
         self._default_validity = default_validity
+
+    @property
+    def default_pending(self):
+        """Gets the default_pending of this UpdateLoyaltyProgram.  # noqa: E501
+
+        Indicates the default duration for the pending time, after which points will be valid. The format is a number followed by a duration unit, like '1h' or '40m'.  # noqa: E501
+
+        :return: The default_pending of this UpdateLoyaltyProgram.  # noqa: E501
+        :rtype: str
+        """
+        return self._default_pending
+
+    @default_pending.setter
+    def default_pending(self, default_pending):
+        """Sets the default_pending of this UpdateLoyaltyProgram.
+
+        Indicates the default duration for the pending time, after which points will be valid. The format is a number followed by a duration unit, like '1h' or '40m'.  # noqa: E501
+
+        :param default_pending: The default_pending of this UpdateLoyaltyProgram.  # noqa: E501
+        :type: str
+        """
+
+        self._default_pending = default_pending
 
     @property
     def allow_subledger(self):

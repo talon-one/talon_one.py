@@ -25,6 +25,10 @@ Name | Type | Description | Notes
 **total_coupons_created** | **int** | Number of coupons created in the campaign by the rule engine since it began. | 
 **referrals_created** | **int** | Number of referrals created in the campaign by the rule engine. | 
 **total_referrals_created** | **int** | Number of referrals created in the campaign by the rule engine since it began. | 
+**added_loyalty_points** | **float** | Number of added loyalty points in the campaign in a specific interval. | 
+**total_added_loyalty_points** | **float** | Number of added loyalty points in the campaign since it began. | 
+**deducted_loyalty_points** | **float** | Number of deducted loyalty points in the campaign in a specific interval. | 
+**total_deducted_loyalty_points** | **float** | Number of deducted loyalty points in the campaign since it began. | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

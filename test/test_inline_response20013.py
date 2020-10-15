@@ -51,6 +51,11 @@ class TestInlineResponse20013(unittest.TestCase):
                                 joined = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                                 loyalty_program_id = 56, )
                             ], 
+                        audience_memberships = [
+                            talon_one.models.audience_membership.AudienceMembership(
+                                id = 56, 
+                                name = '0', )
+                            ], 
                         last_activity = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), )
                     ]
             )
@@ -70,6 +75,11 @@ class TestInlineResponse20013(unittest.TestCase):
                             talon_one.models.loyalty_membership.LoyaltyMembership(
                                 joined = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                                 loyalty_program_id = 56, )
+                            ], 
+                        audience_memberships = [
+                            talon_one.models.audience_membership.AudienceMembership(
+                                id = 56, 
+                                name = '0', )
                             ], 
                         last_activity = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), )
                     ],

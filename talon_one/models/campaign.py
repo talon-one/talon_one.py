@@ -49,6 +49,7 @@ class Campaign(object):
         'coupon_settings': 'CodeGeneratorSettings',
         'referral_settings': 'CodeGeneratorSettings',
         'limits': 'list[LimitConfig]',
+        'campaign_groups': 'list[int]',
         'coupon_redemption_count': 'int',
         'referral_redemption_count': 'int',
         'discount_count': 'int',
@@ -77,6 +78,7 @@ class Campaign(object):
         'coupon_settings': 'couponSettings',
         'referral_settings': 'referralSettings',
         'limits': 'limits',
+        'campaign_groups': 'campaignGroups',
         'coupon_redemption_count': 'couponRedemptionCount',
         'referral_redemption_count': 'referralRedemptionCount',
         'discount_count': 'discountCount',
@@ -88,7 +90,7 @@ class Campaign(object):
         'updated_by': 'updatedBy'
     }
 
-    def __init__(self, id=None, created=None, application_id=None, user_id=None, name=None, description=None, start_time=None, end_time=None, attributes=None, state='enabled', active_ruleset_id=None, tags=None, features=None, coupon_settings=None, referral_settings=None, limits=None, coupon_redemption_count=None, referral_redemption_count=None, discount_count=None, discount_effect_count=None, coupon_creation_count=None, last_activity=None, updated=None, created_by=None, updated_by=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, created=None, application_id=None, user_id=None, name=None, description=None, start_time=None, end_time=None, attributes=None, state='enabled', active_ruleset_id=None, tags=None, features=None, coupon_settings=None, referral_settings=None, limits=None, campaign_groups=None, coupon_redemption_count=None, referral_redemption_count=None, discount_count=None, discount_effect_count=None, coupon_creation_count=None, last_activity=None, updated=None, created_by=None, updated_by=None, local_vars_configuration=None):  # noqa: E501
         """Campaign - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -110,6 +112,7 @@ class Campaign(object):
         self._coupon_settings = None
         self._referral_settings = None
         self._limits = None
+        self._campaign_groups = None
         self._coupon_redemption_count = None
         self._referral_redemption_count = None
         self._discount_count = None
@@ -143,6 +146,8 @@ class Campaign(object):
         if referral_settings is not None:
             self.referral_settings = referral_settings
         self.limits = limits
+        if campaign_groups is not None:
+            self.campaign_groups = campaign_groups
         if coupon_redemption_count is not None:
             self.coupon_redemption_count = coupon_redemption_count
         if referral_redemption_count is not None:
@@ -562,6 +567,29 @@ class Campaign(object):
             raise ValueError("Invalid value for `limits`, must not be `None`")  # noqa: E501
 
         self._limits = limits
+
+    @property
+    def campaign_groups(self):
+        """Gets the campaign_groups of this Campaign.  # noqa: E501
+
+        The IDs of the campaign groups that own this entity.  # noqa: E501
+
+        :return: The campaign_groups of this Campaign.  # noqa: E501
+        :rtype: list[int]
+        """
+        return self._campaign_groups
+
+    @campaign_groups.setter
+    def campaign_groups(self, campaign_groups):
+        """Sets the campaign_groups of this Campaign.
+
+        The IDs of the campaign groups that own this entity.  # noqa: E501
+
+        :param campaign_groups: The campaign_groups of this Campaign.  # noqa: E501
+        :type: list[int]
+        """
+
+        self._campaign_groups = campaign_groups
 
     @property
     def coupon_redemption_count(self):

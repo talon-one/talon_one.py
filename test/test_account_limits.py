@@ -41,12 +41,12 @@ class TestAccountLimits(unittest.TestCase):
                 active_campaigns = 56, 
                 coupons = 56, 
                 referral_codes = 56, 
+                active_rules = 56, 
                 live_loyalty_programs = 56, 
                 sandbox_loyalty_programs = 56, 
                 webhooks = 56, 
                 users = 56, 
                 api_volume = 56, 
-                active_rules = 56, 
                 promotion_types = [
                     '0'
                     ]
@@ -58,6 +58,7 @@ class TestAccountLimits(unittest.TestCase):
                 active_campaigns = 56,
                 coupons = 56,
                 referral_codes = 56,
+                active_rules = 56,
                 live_loyalty_programs = 56,
                 sandbox_loyalty_programs = 56,
                 webhooks = 56,
