@@ -62,13 +62,16 @@ import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
 
-# Create configuration with your host destination
-configuration = talon_one.Configuration()
-configuration.host = "https://mycompany.talon.one"
-
-# Configure API key authorization: api_key_v1
-configuration.api_key["Authorization"] = "e18149e88f42247f0123456789abcdef9302722577ad60cebc86c4333b6fb70"
-configuration.api_key_prefix["Authorization"] = "ApiKey-v1"
+# Create configuration with your host destination and authorization using api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://mycompany.talon.one",
+    api_key_prefix = {
+        "Authorization": "ApiKey-v1"
+    },
+    api_key = {
+        'Authorization': 'e18149e88f42247f0123456789abcdef9302722577ad60cebc86c4333b6fb70'
+    }
+)
 
 # Integration API example to send a session update
 integration_api = talon_one.IntegrationApi(talon_one.ApiClient(configuration))
@@ -125,13 +128,16 @@ import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
 
-# Create configuration with your host destination
-configuration = talon_one.Configuration()
-configuration.host = "https://mycompany.talon.one"
-
-# Configure API key authorization: api_key_v1
-configuration.api_key["Authorization"] = "e18149e88f42247f0123456789abcdef9302722577ad60cebc86c4333b6fb70"
-configuration.api_key_prefix["Authorization"] = "ApiKey-v1"
+# Create configuration with your host destination and authorization using api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://mycompany.talon.one",
+    api_key_prefix = {
+        "Authorization": "ApiKey-v1"
+    },
+    api_key = {
+        'Authorization': 'e18149e88f42247f0123456789abcdef9302722577ad60cebc86c4333b6fb70'
+    }
+)
 
 # Integration API example to send a session update
 integration_api = talon_one.IntegrationApi(talon_one.ApiClient(configuration))
@@ -158,8 +164,9 @@ except ApiException as e:
 
 ```python
 # Create configuration with your host destination
-configuration = talon_one.Configuration()
-configuration.host = "https://mycompany.talon.one"
+configuration = talon_one.Configuration(
+    host = "https://mycompany.talon.one"
+)
 
 # Management API example to load application with id 7
 management_api = talon_one.ManagementApi(talon_one.ApiClient(configuration))
