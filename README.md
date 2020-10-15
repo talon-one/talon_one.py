@@ -69,7 +69,7 @@ configuration = talon_one.Configuration(
         "Authorization": "ApiKey-v1"
     },
     api_key = {
-        'Authorization': 'e18149e88f42247f0123456789abcdef9302722577ad60cebc86c4333b6fb70'
+        "Authorization": "e18149e88f42247f0123456789abcdef9302722577ad60cebc86c4333b6fb70"
     }
 )
 
@@ -135,7 +135,7 @@ configuration = talon_one.Configuration(
         "Authorization": "ApiKey-v1"
     },
     api_key = {
-        'Authorization': 'e18149e88f42247f0123456789abcdef9302722577ad60cebc86c4333b6fb70'
+        "Authorization": "e18149e88f42247f0123456789abcdef9302722577ad60cebc86c4333b6fb70"
     }
 )
 
