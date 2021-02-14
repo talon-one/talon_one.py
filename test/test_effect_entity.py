@@ -40,7 +40,8 @@ class TestEffectEntity(unittest.TestCase):
                 ruleset_id = 56, 
                 rule_index = 56, 
                 rule_name = '0', 
-                effect_type = '0'
+                effect_type = '0', 
+                triggered_by_coupon = 56
             )
         else :
             return EffectEntity(

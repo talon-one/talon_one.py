@@ -38,46 +38,25 @@ class TestInlineResponse20020(unittest.TestCase):
             return InlineResponse20020(
                 total_result_size = 56, 
                 data = [
-                    talon_one.models.attribute.Attribute(
+                    talon_one.models.audience.Audience(
+                        account_id = 56, 
                         id = 56, 
                         created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        account_id = 56, 
-                        entity = 'Account', 
-                        event_type = '0', 
                         name = '0', 
-                        title = '0', 
-                        type = 'string', 
-                        description = '0', 
-                        suggestions = [
-                            '0'
-                            ], 
-                        editable = True, 
-                        subscribed_applications_ids = [
-                            56
-                            ], )
+                        integration = 'mparticle', 
+                        integration_id = '0', )
                     ]
             )
         else :
             return InlineResponse20020(
-                total_result_size = 56,
                 data = [
-                    talon_one.models.attribute.Attribute(
+                    talon_one.models.audience.Audience(
+                        account_id = 56, 
                         id = 56, 
                         created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        account_id = 56, 
-                        entity = 'Account', 
-                        event_type = '0', 
                         name = '0', 
-                        title = '0', 
-                        type = 'string', 
-                        description = '0', 
-                        suggestions = [
-                            '0'
-                            ], 
-                        editable = True, 
-                        subscribed_applications_ids = [
-                            56
-                            ], )
+                        integration = 'mparticle', 
+                        integration_id = '0', )
                     ],
         )
 

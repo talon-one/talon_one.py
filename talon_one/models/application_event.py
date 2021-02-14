@@ -40,7 +40,8 @@ class ApplicationEvent(object):
         'session_id': 'int',
         'type': 'str',
         'attributes': 'object',
-        'effects': 'list[object]'
+        'effects': 'list[object]',
+        'rule_failure_reasons': 'list[RuleFailureReason]'
     }
 
     attribute_map = {
@@ -51,10 +52,11 @@ class ApplicationEvent(object):
         'session_id': 'sessionId',
         'type': 'type',
         'attributes': 'attributes',
-        'effects': 'effects'
+        'effects': 'effects',
+        'rule_failure_reasons': 'ruleFailureReasons'
     }
 
-    def __init__(self, id=None, created=None, application_id=None, profile_id=None, session_id=None, type=None, attributes=None, effects=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, created=None, application_id=None, profile_id=None, session_id=None, type=None, attributes=None, effects=None, rule_failure_reasons=None, local_vars_configuration=None):  # noqa: E501
         """ApplicationEvent - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -68,6 +70,7 @@ class ApplicationEvent(object):
         self._type = None
         self._attributes = None
         self._effects = None
+        self._rule_failure_reasons = None
         self.discriminator = None
 
         self.id = id
@@ -80,6 +83,8 @@ class ApplicationEvent(object):
         self.type = type
         self.attributes = attributes
         self.effects = effects
+        if rule_failure_reasons is not None:
+            self.rule_failure_reasons = rule_failure_reasons
 
     @property
     def id(self):
@@ -276,6 +281,29 @@ class ApplicationEvent(object):
             raise ValueError("Invalid value for `effects`, must not be `None`")  # noqa: E501
 
         self._effects = effects
+
+    @property
+    def rule_failure_reasons(self):
+        """Gets the rule_failure_reasons of this ApplicationEvent.  # noqa: E501
+
+        An array containing the rule failure reasons which happened during this event.  # noqa: E501
+
+        :return: The rule_failure_reasons of this ApplicationEvent.  # noqa: E501
+        :rtype: list[RuleFailureReason]
+        """
+        return self._rule_failure_reasons
+
+    @rule_failure_reasons.setter
+    def rule_failure_reasons(self, rule_failure_reasons):
+        """Sets the rule_failure_reasons of this ApplicationEvent.
+
+        An array containing the rule failure reasons which happened during this event.  # noqa: E501
+
+        :param rule_failure_reasons: The rule_failure_reasons of this ApplicationEvent.  # noqa: E501
+        :type: list[RuleFailureReason]
+        """
+
+        self._rule_failure_reasons = rule_failure_reasons
 
     def to_dict(self):
         """Returns the model properties as a dict"""

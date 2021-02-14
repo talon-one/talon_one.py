@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **coupons** | [**list[Coupon]**](Coupon.md) |  | [optional] 
 **triggered_campaigns** | [**list[Campaign]**](Campaign.md) |  | [optional] 
 **effects** | [**list[Effect]**](Effect.md) |  | 
+**rule_failure_reasons** | [**list[RuleFailureReason]**](RuleFailureReason.md) |  | [optional] 
 **created_coupons** | [**list[Coupon]**](Coupon.md) |  | 
 **created_referrals** | [**list[Referral]**](Referral.md) |  | 
 

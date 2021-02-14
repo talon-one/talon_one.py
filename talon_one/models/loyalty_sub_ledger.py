@@ -96,7 +96,7 @@ class LoyaltySubLedger(object):
     def total(self):
         """Gets the total of this LoyaltySubLedger.  # noqa: E501
 
-        ⚠️ Deprecated: Please use 'totalActivePoints' property instead. Total amount of currently active and available points in the customer's balance   # noqa: E501
+        ⚠️ Deprecated: Use 'totalActivePoints' property instead. Total amount of currently active and available points in the customer's balance   # noqa: E501
 
         :return: The total of this LoyaltySubLedger.  # noqa: E501
         :rtype: float
@@ -107,7 +107,7 @@ class LoyaltySubLedger(object):
     def total(self, total):
         """Sets the total of this LoyaltySubLedger.
 
-        ⚠️ Deprecated: Please use 'totalActivePoints' property instead. Total amount of currently active and available points in the customer's balance   # noqa: E501
+        ⚠️ Deprecated: Use 'totalActivePoints' property instead. Total amount of currently active and available points in the customer's balance   # noqa: E501
 
         :param total: The total of this LoyaltySubLedger.  # noqa: E501
         :type: float

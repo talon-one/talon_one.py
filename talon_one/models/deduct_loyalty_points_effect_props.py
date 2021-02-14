@@ -36,17 +36,19 @@ class DeductLoyaltyPointsEffectProps(object):
         'rule_title': 'str',
         'program_id': 'int',
         'sub_ledger_id': 'str',
-        'value': 'float'
+        'value': 'float',
+        'transaction_uuid': 'str'
     }
 
     attribute_map = {
         'rule_title': 'ruleTitle',
         'program_id': 'programId',
         'sub_ledger_id': 'subLedgerId',
-        'value': 'value'
+        'value': 'value',
+        'transaction_uuid': 'transactionUUID'
     }
 
-    def __init__(self, rule_title=None, program_id=None, sub_ledger_id=None, value=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, rule_title=None, program_id=None, sub_ledger_id=None, value=None, transaction_uuid=None, local_vars_configuration=None):  # noqa: E501
         """DeductLoyaltyPointsEffectProps - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -56,12 +58,14 @@ class DeductLoyaltyPointsEffectProps(object):
         self._program_id = None
         self._sub_ledger_id = None
         self._value = None
+        self._transaction_uuid = None
         self.discriminator = None
 
         self.rule_title = rule_title
         self.program_id = program_id
         self.sub_ledger_id = sub_ledger_id
         self.value = value
+        self.transaction_uuid = transaction_uuid
 
     @property
     def rule_title(self):
@@ -162,6 +166,31 @@ class DeductLoyaltyPointsEffectProps(object):
             raise ValueError("Invalid value for `value`, must not be `None`")  # noqa: E501
 
         self._value = value
+
+    @property
+    def transaction_uuid(self):
+        """Gets the transaction_uuid of this DeductLoyaltyPointsEffectProps.  # noqa: E501
+
+        The identifier of this deduction in the loyalty ledger  # noqa: E501
+
+        :return: The transaction_uuid of this DeductLoyaltyPointsEffectProps.  # noqa: E501
+        :rtype: str
+        """
+        return self._transaction_uuid
+
+    @transaction_uuid.setter
+    def transaction_uuid(self, transaction_uuid):
+        """Sets the transaction_uuid of this DeductLoyaltyPointsEffectProps.
+
+        The identifier of this deduction in the loyalty ledger  # noqa: E501
+
+        :param transaction_uuid: The transaction_uuid of this DeductLoyaltyPointsEffectProps.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and transaction_uuid is None:  # noqa: E501
+            raise ValueError("Invalid value for `transaction_uuid`, must not be `None`")  # noqa: E501
+
+        self._transaction_uuid = transaction_uuid
 
     def to_dict(self):
         """Returns the model properties as a dict"""

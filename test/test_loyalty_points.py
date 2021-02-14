@@ -36,7 +36,7 @@ class TestLoyaltyPoints(unittest.TestCase):
         # model = talon_one.models.loyalty_points.LoyaltyPoints()  # noqa: E501
         if include_optional :
             return LoyaltyPoints(
-                points = 1.337, 
+                points = 0, 
                 name = '0', 
                 validity_duration = '0', 
                 pending_duration = '0', 
@@ -44,7 +44,7 @@ class TestLoyaltyPoints(unittest.TestCase):
             )
         else :
             return LoyaltyPoints(
-                points = 1.337,
+                points = 0,
         )
 
     def testLoyaltyPoints(self):

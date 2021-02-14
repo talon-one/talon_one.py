@@ -61,7 +61,7 @@ class TestNewCampaign(unittest.TestCase):
                     coupon_pattern = '012', ), 
                 limits = [
                     talon_one.models.limit_config.LimitConfig(
-                        action = 'redeemCoupon', 
+                        action = '0', 
                         limit = 0, 
                         entities = [
                             'Coupon'
@@ -83,7 +83,7 @@ class TestNewCampaign(unittest.TestCase):
                     ],
                 limits = [
                     talon_one.models.limit_config.LimitConfig(
-                        action = 'redeemCoupon', 
+                        action = '0', 
                         limit = 0, 
                         entities = [
                             'Coupon'

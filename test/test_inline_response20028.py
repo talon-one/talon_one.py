@@ -37,27 +37,29 @@ class TestInlineResponse20028(unittest.TestCase):
         if include_optional :
             return InlineResponse20028(
                 total_result_size = 56, 
+                has_more = True, 
                 data = [
-                    talon_one.models.export.Export(
+                    talon_one.models.change.Change(
                         id = 56, 
                         created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        account_id = 56, 
                         user_id = 56, 
-                        entity = 'Coupon', 
-                        filter = talon_one.models.filter.filter(), )
+                        application_id = 56, 
+                        entity = '0', 
+                        old = talon_one.models.old.old(), 
+                        new = talon_one.models.new.new(), )
                     ]
             )
         else :
             return InlineResponse20028(
-                total_result_size = 56,
                 data = [
-                    talon_one.models.export.Export(
+                    talon_one.models.change.Change(
                         id = 56, 
                         created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        account_id = 56, 
                         user_id = 56, 
-                        entity = 'Coupon', 
-                        filter = talon_one.models.filter.filter(), )
+                        application_id = 56, 
+                        entity = '0', 
+                        old = talon_one.models.old.old(), 
+                        new = talon_one.models.new.new(), )
                     ],
         )
 

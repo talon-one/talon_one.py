@@ -52,14 +52,14 @@ class TestIntegrationApi(unittest.TestCase):
     def test_delete_customer_data(self):
         """Test case for delete_customer_data
 
-        Delete the personal data of a customer.  # noqa: E501
+        Delete the personal data of a customer  # noqa: E501
         """
         pass
 
     def test_get_customer_inventory(self):
         """Test case for get_customer_inventory
 
-        Get an inventory of all data associated with a specific customer profile.  # noqa: E501
+        Get an inventory of all data associated with a specific customer profile  # noqa: E501
         """
         pass
 

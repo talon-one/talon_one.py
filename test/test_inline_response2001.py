@@ -51,7 +51,7 @@ class TestInlineResponse2001(unittest.TestCase):
                         attributes = talon_one.models.attributes.attributes(), 
                         limits = [
                             talon_one.models.limit_config.LimitConfig(
-                                action = 'redeemCoupon', 
+                                action = '0', 
                                 limit = 0, 
                                 entities = [
                                     'Coupon'
@@ -59,6 +59,7 @@ class TestInlineResponse2001(unittest.TestCase):
                             ], 
                         campaign_priority = 'universal', 
                         exclusive_campaigns_strategy = 'listOrder', 
+                        default_discount_scope = 'sessionTotal', 
                         enable_cascading_discounts = True, 
                         enable_flattened_cart_items = True, 
                         attributes_settings = talon_one.models.attributes_settings.AttributesSettings(
@@ -103,7 +104,7 @@ class TestInlineResponse2001(unittest.TestCase):
                         attributes = talon_one.models.attributes.attributes(), 
                         limits = [
                             talon_one.models.limit_config.LimitConfig(
-                                action = 'redeemCoupon', 
+                                action = '0', 
                                 limit = 0, 
                                 entities = [
                                     'Coupon'
@@ -111,6 +112,7 @@ class TestInlineResponse2001(unittest.TestCase):
                             ], 
                         campaign_priority = 'universal', 
                         exclusive_campaigns_strategy = 'listOrder', 
+                        default_discount_scope = 'sessionTotal', 
                         enable_cascading_discounts = True, 
                         enable_flattened_cart_items = True, 
                         attributes_settings = talon_one.models.attributes_settings.AttributesSettings(

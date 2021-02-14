@@ -43,6 +43,7 @@ class TestNewRuleset(unittest.TestCase):
                         bindings = [
                             talon_one.models.binding.Binding(
                                 name = '0', 
+                                type = '0', 
                                 expression = [
                                     None
                                     ], )
@@ -57,6 +58,7 @@ class TestNewRuleset(unittest.TestCase):
                 bindings = [
                     talon_one.models.binding.Binding(
                         name = '0', 
+                        type = '0', 
                         expression = [
                             None
                             ], )
@@ -73,6 +75,7 @@ class TestNewRuleset(unittest.TestCase):
                         bindings = [
                             talon_one.models.binding.Binding(
                                 name = '0', 
+                                type = '0', 
                                 expression = [
                                     None
                                     ], )
@@ -87,6 +90,7 @@ class TestNewRuleset(unittest.TestCase):
                 bindings = [
                     talon_one.models.binding.Binding(
                         name = '0', 
+                        type = '0', 
                         expression = [
                             None
                             ], )

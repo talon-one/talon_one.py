@@ -93,6 +93,12 @@ class LoyaltyPoints(object):
         """
         if self.local_vars_configuration.client_side_validation and points is None:  # noqa: E501
             raise ValueError("Invalid value for `points`, must not be `None`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                points is not None and points >= 1E+8):  # noqa: E501
+            raise ValueError("Invalid value for `points`, must be a value less than `1E+8`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                points is not None and points <= 0):  # noqa: E501
+            raise ValueError("Invalid value for `points`, must be a value greater than `0`")  # noqa: E501
 
         self._points = points
 

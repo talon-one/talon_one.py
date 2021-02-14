@@ -60,11 +60,7 @@ class TestMultipleCustomerProfileIntegrationResponseV2(unittest.TestCase):
                                     width = 1.337, 
                                     length = 1.337, 
                                     position = 1.337, 
-                                    attributes = talon_one.models.item_attributes.Item attributes(), 
-                                    adjustment = talon_one.models.cart_item_adjustment.CartItemAdjustment(
-                                        pay_from_loyalty_program = 56, 
-                                        point_payment = 1, 
-                                        remaining_price = 0, ), )
+                                    attributes = talon_one.models.item_attributes.Item attributes(), )
                                 ], 
                             additional_costs = {
                                 'key' : talon_one.models.additional_cost.AdditionalCost(
@@ -135,13 +131,22 @@ class TestMultipleCustomerProfileIntegrationResponseV2(unittest.TestCase):
                         loyalty = talon_one.models.loyalty.Loyalty(
                             programs = {
                                 'key' : talon_one.models.loyalty_program_ledgers.LoyaltyProgramLedgers(
+                                    id = 56, 
                                     title = '0', 
                                     name = '0', 
                                     ledger = talon_one.models.loyalty_program_balance.LoyaltyProgramBalance(
-                                        current_balance = 1.337, ), 
+                                        current_balance = 1.337, 
+                                        pending_balance = 1.337, 
+                                        expired_balance = 1.337, 
+                                        spent_balance = 1.337, 
+                                        tentative_current_balance = 1.337, ), 
                                     sub_ledgers = {
                                         'key' : talon_one.models.loyalty_program_balance.LoyaltyProgramBalance(
-                                            current_balance = 1.337, )
+                                            current_balance = 1.337, 
+                                            pending_balance = 1.337, 
+                                            expired_balance = 1.337, 
+                                            spent_balance = 1.337, 
+                                            tentative_current_balance = 1.337, )
                                         }, )
                                 }, ), 
                         referral = talon_one.models.referral.Referral(
@@ -206,7 +211,7 @@ class TestMultipleCustomerProfileIntegrationResponseV2(unittest.TestCase):
                                     coupon_pattern = '012', ), 
                                 limits = [
                                     talon_one.models.limit_config.LimitConfig(
-                                        action = 'redeemCoupon', 
+                                        action = '0', 
                                         limit = 0, 
                                         entities = [
                                             'Coupon'
@@ -217,9 +222,14 @@ class TestMultipleCustomerProfileIntegrationResponseV2(unittest.TestCase):
                                     ], 
                                 coupon_redemption_count = 56, 
                                 referral_redemption_count = 56, 
-                                discount_count = 56, 
+                                discount_count = 1.337, 
                                 discount_effect_count = 56, 
                                 coupon_creation_count = 56, 
+                                referral_creation_count = 56, 
+                                created_loyalty_points_count = 1.337, 
+                                created_loyalty_points_effect_count = 56, 
+                                redeemed_loyalty_points_count = 1.337, 
+                                redeemed_loyalty_points_effect_count = 56, 
                                 last_activity = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                                 updated = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                                 created_by = '0', 
@@ -232,7 +242,23 @@ class TestMultipleCustomerProfileIntegrationResponseV2(unittest.TestCase):
                                 rule_index = 56, 
                                 rule_name = '0', 
                                 effect_type = '0', 
+                                triggered_by_coupon = 56, 
                                 props = talon_one.models.effect_props.EffectProps(), )
+                            ], 
+                        rule_failure_reasons = [
+                            talon_one.models.rule_failure_reason.RuleFailureReason(
+                                campaign_id = 56, 
+                                campaign_name = '0', 
+                                ruleset_id = 56, 
+                                coupon_id = 56, 
+                                coupon_value = '0', 
+                                referral_id = 56, 
+                                referral_value = '0', 
+                                rule_index = 56, 
+                                rule_name = '0', 
+                                condition_index = 56, 
+                                effect_index = 56, 
+                                details = '0', )
                             ], 
                         created_coupons = [
                             talon_one.models.coupon.Coupon(

@@ -37,7 +37,8 @@ class EffectEntity(object):
         'ruleset_id': 'int',
         'rule_index': 'int',
         'rule_name': 'str',
-        'effect_type': 'str'
+        'effect_type': 'str',
+        'triggered_by_coupon': 'int'
     }
 
     attribute_map = {
@@ -45,10 +46,11 @@ class EffectEntity(object):
         'ruleset_id': 'rulesetId',
         'rule_index': 'ruleIndex',
         'rule_name': 'ruleName',
-        'effect_type': 'effectType'
+        'effect_type': 'effectType',
+        'triggered_by_coupon': 'triggeredByCoupon'
     }
 
-    def __init__(self, campaign_id=None, ruleset_id=None, rule_index=None, rule_name=None, effect_type=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, campaign_id=None, ruleset_id=None, rule_index=None, rule_name=None, effect_type=None, triggered_by_coupon=None, local_vars_configuration=None):  # noqa: E501
         """EffectEntity - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -59,6 +61,7 @@ class EffectEntity(object):
         self._rule_index = None
         self._rule_name = None
         self._effect_type = None
+        self._triggered_by_coupon = None
         self.discriminator = None
 
         self.campaign_id = campaign_id
@@ -66,6 +69,8 @@ class EffectEntity(object):
         self.rule_index = rule_index
         self.rule_name = rule_name
         self.effect_type = effect_type
+        if triggered_by_coupon is not None:
+            self.triggered_by_coupon = triggered_by_coupon
 
     @property
     def campaign_id(self):
@@ -191,6 +196,29 @@ class EffectEntity(object):
             raise ValueError("Invalid value for `effect_type`, must not be `None`")  # noqa: E501
 
         self._effect_type = effect_type
+
+    @property
+    def triggered_by_coupon(self):
+        """Gets the triggered_by_coupon of this EffectEntity.  # noqa: E501
+
+        The ID of the coupon that was being evaluated when this effect was triggered  # noqa: E501
+
+        :return: The triggered_by_coupon of this EffectEntity.  # noqa: E501
+        :rtype: int
+        """
+        return self._triggered_by_coupon
+
+    @triggered_by_coupon.setter
+    def triggered_by_coupon(self, triggered_by_coupon):
+        """Sets the triggered_by_coupon of this EffectEntity.
+
+        The ID of the coupon that was being evaluated when this effect was triggered  # noqa: E501
+
+        :param triggered_by_coupon: The triggered_by_coupon of this EffectEntity.  # noqa: E501
+        :type: int
+        """
+
+        self._triggered_by_coupon = triggered_by_coupon
 
     def to_dict(self):
         """Returns the model properties as a dict"""

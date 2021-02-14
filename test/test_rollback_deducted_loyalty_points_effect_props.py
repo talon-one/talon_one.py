@@ -16,11 +16,11 @@ import unittest
 import datetime
 
 import talon_one
-from talon_one.models.import_coupons import ImportCoupons  # noqa: E501
+from talon_one.models.rollback_deducted_loyalty_points_effect_props import RollbackDeductedLoyaltyPointsEffectProps  # noqa: E501
 from talon_one.rest import ApiException
 
-class TestImportCoupons(unittest.TestCase):
-    """ImportCoupons unit test stubs"""
+class TestRollbackDeductedLoyaltyPointsEffectProps(unittest.TestCase):
+    """RollbackDeductedLoyaltyPointsEffectProps unit test stubs"""
 
     def setUp(self):
         pass
@@ -29,22 +29,32 @@ class TestImportCoupons(unittest.TestCase):
         pass
 
     def make_instance(self, include_optional):
-        """Test ImportCoupons
+        """Test RollbackDeductedLoyaltyPointsEffectProps
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # model = talon_one.models.import_coupons.ImportCoupons()  # noqa: E501
+        # model = talon_one.models.rollback_deducted_loyalty_points_effect_props.RollbackDeductedLoyaltyPointsEffectProps()  # noqa: E501
         if include_optional :
-            return ImportCoupons(
-                coupons = '0'
+            return RollbackDeductedLoyaltyPointsEffectProps(
+                program_id = 56, 
+                sub_ledger_id = '0', 
+                value = 1.337, 
+                recipient_integration_id = '0', 
+                start_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                expiry_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                transaction_uuid = '0'
             )
         else :
-            return ImportCoupons(
-                coupons = '0',
+            return RollbackDeductedLoyaltyPointsEffectProps(
+                program_id = 56,
+                sub_ledger_id = '0',
+                value = 1.337,
+                recipient_integration_id = '0',
+                transaction_uuid = '0',
         )
 
-    def testImportCoupons(self):
-        """Test ImportCoupons"""
+    def testRollbackDeductedLoyaltyPointsEffectProps(self):
+        """Test RollbackDeductedLoyaltyPointsEffectProps"""
         inst_req_only = self.make_instance(include_optional=False)
         inst_req_and_optional = self.make_instance(include_optional=True)
 

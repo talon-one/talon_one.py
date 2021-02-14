@@ -14,7 +14,7 @@
 
 from __future__ import absolute_import
 
-__version__ = "3.2.0"
+__version__ = "3.3.0"
 
 # import apis into sdk package
 from talon_one.api.integration_api import IntegrationApi
@@ -70,7 +70,6 @@ from talon_one.models.campaign_set_branch_node import CampaignSetBranchNode
 from talon_one.models.campaign_set_leaf_node import CampaignSetLeafNode
 from talon_one.models.campaign_set_node import CampaignSetNode
 from talon_one.models.cart_item import CartItem
-from talon_one.models.cart_item_adjustment import CartItemAdjustment
 from talon_one.models.change import Change
 from talon_one.models.change_profile_password import ChangeProfilePassword
 from talon_one.models.code_generator_settings import CodeGeneratorSettings
@@ -111,7 +110,6 @@ from talon_one.models.features_feed import FeaturesFeed
 from talon_one.models.feed_notification import FeedNotification
 from talon_one.models.func_arg_def import FuncArgDef
 from talon_one.models.function_def import FunctionDef
-from talon_one.models.import_coupons import ImportCoupons
 from talon_one.models.inline_response200 import InlineResponse200
 from talon_one.models.inline_response2001 import InlineResponse2001
 from talon_one.models.inline_response20010 import InlineResponse20010
@@ -182,13 +180,13 @@ from talon_one.models.new_campaign import NewCampaign
 from talon_one.models.new_campaign_group import NewCampaignGroup
 from talon_one.models.new_campaign_set import NewCampaignSet
 from talon_one.models.new_coupons import NewCoupons
+from talon_one.models.new_coupons_for_multiple_recipients import NewCouponsForMultipleRecipients
 from talon_one.models.new_customer_profile import NewCustomerProfile
 from talon_one.models.new_customer_session import NewCustomerSession
 from talon_one.models.new_customer_session_v2 import NewCustomerSessionV2
 from talon_one.models.new_event import NewEvent
 from talon_one.models.new_event_type import NewEventType
 from talon_one.models.new_feature_flags import NewFeatureFlags
-from talon_one.models.new_import import NewImport
 from talon_one.models.new_invitation import NewInvitation
 from talon_one.models.new_invite_email import NewInviteEmail
 from talon_one.models.new_loyalty_program import NewLoyaltyProgram
@@ -202,6 +200,7 @@ from talon_one.models.new_template_def import NewTemplateDef
 from talon_one.models.new_user import NewUser
 from talon_one.models.new_webhook import NewWebhook
 from talon_one.models.notification import Notification
+from talon_one.models.profile_audiences_changes import ProfileAudiencesChanges
 from talon_one.models.redeem_referral_effect_props import RedeemReferralEffectProps
 from talon_one.models.referral import Referral
 from talon_one.models.referral_created_effect_props import ReferralCreatedEffectProps
@@ -211,9 +210,13 @@ from talon_one.models.reject_referral_effect_props import RejectReferralEffectPr
 from talon_one.models.role import Role
 from talon_one.models.role_assign import RoleAssign
 from talon_one.models.role_membership import RoleMembership
+from talon_one.models.rollback_added_loyalty_points_effect_props import RollbackAddedLoyaltyPointsEffectProps
 from talon_one.models.rollback_coupon_effect_props import RollbackCouponEffectProps
+from talon_one.models.rollback_deducted_loyalty_points_effect_props import RollbackDeductedLoyaltyPointsEffectProps
 from talon_one.models.rollback_discount_effect_props import RollbackDiscountEffectProps
+from talon_one.models.rollback_referral_effect_props import RollbackReferralEffectProps
 from talon_one.models.rule import Rule
+from talon_one.models.rule_failure_reason import RuleFailureReason
 from talon_one.models.ruleset import Ruleset
 from talon_one.models.saml_connection import SamlConnection
 from talon_one.models.saml_connection_metadata import SamlConnectionMetadata

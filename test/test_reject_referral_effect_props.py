@@ -37,7 +37,10 @@ class TestRejectReferralEffectProps(unittest.TestCase):
         if include_optional :
             return RejectReferralEffectProps(
                 value = '0', 
-                rejection_reason = '0'
+                rejection_reason = '0', 
+                condition_index = 56, 
+                effect_index = 56, 
+                details = '0'
             )
         else :
             return RejectReferralEffectProps(

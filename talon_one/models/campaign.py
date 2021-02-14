@@ -52,9 +52,14 @@ class Campaign(object):
         'campaign_groups': 'list[int]',
         'coupon_redemption_count': 'int',
         'referral_redemption_count': 'int',
-        'discount_count': 'int',
+        'discount_count': 'float',
         'discount_effect_count': 'int',
         'coupon_creation_count': 'int',
+        'referral_creation_count': 'int',
+        'created_loyalty_points_count': 'float',
+        'created_loyalty_points_effect_count': 'int',
+        'redeemed_loyalty_points_count': 'float',
+        'redeemed_loyalty_points_effect_count': 'int',
         'last_activity': 'datetime',
         'updated': 'datetime',
         'created_by': 'str',
@@ -84,13 +89,18 @@ class Campaign(object):
         'discount_count': 'discountCount',
         'discount_effect_count': 'discountEffectCount',
         'coupon_creation_count': 'couponCreationCount',
+        'referral_creation_count': 'referralCreationCount',
+        'created_loyalty_points_count': 'createdLoyaltyPointsCount',
+        'created_loyalty_points_effect_count': 'createdLoyaltyPointsEffectCount',
+        'redeemed_loyalty_points_count': 'redeemedLoyaltyPointsCount',
+        'redeemed_loyalty_points_effect_count': 'redeemedLoyaltyPointsEffectCount',
         'last_activity': 'lastActivity',
         'updated': 'updated',
         'created_by': 'createdBy',
         'updated_by': 'updatedBy'
     }
 
-    def __init__(self, id=None, created=None, application_id=None, user_id=None, name=None, description=None, start_time=None, end_time=None, attributes=None, state='enabled', active_ruleset_id=None, tags=None, features=None, coupon_settings=None, referral_settings=None, limits=None, campaign_groups=None, coupon_redemption_count=None, referral_redemption_count=None, discount_count=None, discount_effect_count=None, coupon_creation_count=None, last_activity=None, updated=None, created_by=None, updated_by=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, created=None, application_id=None, user_id=None, name=None, description=None, start_time=None, end_time=None, attributes=None, state='enabled', active_ruleset_id=None, tags=None, features=None, coupon_settings=None, referral_settings=None, limits=None, campaign_groups=None, coupon_redemption_count=None, referral_redemption_count=None, discount_count=None, discount_effect_count=None, coupon_creation_count=None, referral_creation_count=None, created_loyalty_points_count=None, created_loyalty_points_effect_count=None, redeemed_loyalty_points_count=None, redeemed_loyalty_points_effect_count=None, last_activity=None, updated=None, created_by=None, updated_by=None, local_vars_configuration=None):  # noqa: E501
         """Campaign - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -118,6 +128,11 @@ class Campaign(object):
         self._discount_count = None
         self._discount_effect_count = None
         self._coupon_creation_count = None
+        self._referral_creation_count = None
+        self._created_loyalty_points_count = None
+        self._created_loyalty_points_effect_count = None
+        self._redeemed_loyalty_points_count = None
+        self._redeemed_loyalty_points_effect_count = None
         self._last_activity = None
         self._updated = None
         self._created_by = None
@@ -158,6 +173,16 @@ class Campaign(object):
             self.discount_effect_count = discount_effect_count
         if coupon_creation_count is not None:
             self.coupon_creation_count = coupon_creation_count
+        if referral_creation_count is not None:
+            self.referral_creation_count = referral_creation_count
+        if created_loyalty_points_count is not None:
+            self.created_loyalty_points_count = created_loyalty_points_count
+        if created_loyalty_points_effect_count is not None:
+            self.created_loyalty_points_effect_count = created_loyalty_points_effect_count
+        if redeemed_loyalty_points_count is not None:
+            self.redeemed_loyalty_points_count = redeemed_loyalty_points_count
+        if redeemed_loyalty_points_effect_count is not None:
+            self.redeemed_loyalty_points_effect_count = redeemed_loyalty_points_effect_count
         if last_activity is not None:
             self.last_activity = last_activity
         if updated is not None:
@@ -644,7 +669,7 @@ class Campaign(object):
         Total amount of discounts redeemed in the campaign.  # noqa: E501
 
         :return: The discount_count of this Campaign.  # noqa: E501
-        :rtype: int
+        :rtype: float
         """
         return self._discount_count
 
@@ -655,7 +680,7 @@ class Campaign(object):
         Total amount of discounts redeemed in the campaign.  # noqa: E501
 
         :param discount_count: The discount_count of this Campaign.  # noqa: E501
-        :type: int
+        :type: float
         """
 
         self._discount_count = discount_count
@@ -705,6 +730,121 @@ class Campaign(object):
         """
 
         self._coupon_creation_count = coupon_creation_count
+
+    @property
+    def referral_creation_count(self):
+        """Gets the referral_creation_count of this Campaign.  # noqa: E501
+
+        Total number of referrals created by rules in this campaign.  # noqa: E501
+
+        :return: The referral_creation_count of this Campaign.  # noqa: E501
+        :rtype: int
+        """
+        return self._referral_creation_count
+
+    @referral_creation_count.setter
+    def referral_creation_count(self, referral_creation_count):
+        """Sets the referral_creation_count of this Campaign.
+
+        Total number of referrals created by rules in this campaign.  # noqa: E501
+
+        :param referral_creation_count: The referral_creation_count of this Campaign.  # noqa: E501
+        :type: int
+        """
+
+        self._referral_creation_count = referral_creation_count
+
+    @property
+    def created_loyalty_points_count(self):
+        """Gets the created_loyalty_points_count of this Campaign.  # noqa: E501
+
+        Total number of loyalty points created by rules in this campaign.  # noqa: E501
+
+        :return: The created_loyalty_points_count of this Campaign.  # noqa: E501
+        :rtype: float
+        """
+        return self._created_loyalty_points_count
+
+    @created_loyalty_points_count.setter
+    def created_loyalty_points_count(self, created_loyalty_points_count):
+        """Sets the created_loyalty_points_count of this Campaign.
+
+        Total number of loyalty points created by rules in this campaign.  # noqa: E501
+
+        :param created_loyalty_points_count: The created_loyalty_points_count of this Campaign.  # noqa: E501
+        :type: float
+        """
+
+        self._created_loyalty_points_count = created_loyalty_points_count
+
+    @property
+    def created_loyalty_points_effect_count(self):
+        """Gets the created_loyalty_points_effect_count of this Campaign.  # noqa: E501
+
+        Total number of loyalty point creation effects triggered by rules in this campaign.  # noqa: E501
+
+        :return: The created_loyalty_points_effect_count of this Campaign.  # noqa: E501
+        :rtype: int
+        """
+        return self._created_loyalty_points_effect_count
+
+    @created_loyalty_points_effect_count.setter
+    def created_loyalty_points_effect_count(self, created_loyalty_points_effect_count):
+        """Sets the created_loyalty_points_effect_count of this Campaign.
+
+        Total number of loyalty point creation effects triggered by rules in this campaign.  # noqa: E501
+
+        :param created_loyalty_points_effect_count: The created_loyalty_points_effect_count of this Campaign.  # noqa: E501
+        :type: int
+        """
+
+        self._created_loyalty_points_effect_count = created_loyalty_points_effect_count
+
+    @property
+    def redeemed_loyalty_points_count(self):
+        """Gets the redeemed_loyalty_points_count of this Campaign.  # noqa: E501
+
+        Total number of loyalty points redeemed by rules in this campaign.  # noqa: E501
+
+        :return: The redeemed_loyalty_points_count of this Campaign.  # noqa: E501
+        :rtype: float
+        """
+        return self._redeemed_loyalty_points_count
+
+    @redeemed_loyalty_points_count.setter
+    def redeemed_loyalty_points_count(self, redeemed_loyalty_points_count):
+        """Sets the redeemed_loyalty_points_count of this Campaign.
+
+        Total number of loyalty points redeemed by rules in this campaign.  # noqa: E501
+
+        :param redeemed_loyalty_points_count: The redeemed_loyalty_points_count of this Campaign.  # noqa: E501
+        :type: float
+        """
+
+        self._redeemed_loyalty_points_count = redeemed_loyalty_points_count
+
+    @property
+    def redeemed_loyalty_points_effect_count(self):
+        """Gets the redeemed_loyalty_points_effect_count of this Campaign.  # noqa: E501
+
+        Total number of loyalty point redemption effects triggered by rules in this campaign.  # noqa: E501
+
+        :return: The redeemed_loyalty_points_effect_count of this Campaign.  # noqa: E501
+        :rtype: int
+        """
+        return self._redeemed_loyalty_points_effect_count
+
+    @redeemed_loyalty_points_effect_count.setter
+    def redeemed_loyalty_points_effect_count(self, redeemed_loyalty_points_effect_count):
+        """Sets the redeemed_loyalty_points_effect_count of this Campaign.
+
+        Total number of loyalty point redemption effects triggered by rules in this campaign.  # noqa: E501
+
+        :param redeemed_loyalty_points_effect_count: The redeemed_loyalty_points_effect_count of this Campaign.  # noqa: E501
+        :type: int
+        """
+
+        self._redeemed_loyalty_points_effect_count = redeemed_loyalty_points_effect_count
 
     @property
     def last_activity(self):

@@ -48,7 +48,7 @@ class TestApplication(unittest.TestCase):
                 attributes = None, 
                 limits = [
                     talon_one.models.limit_config.LimitConfig(
-                        action = 'redeemCoupon', 
+                        action = '0', 
                         limit = 0, 
                         entities = [
                             'Coupon'
@@ -56,6 +56,7 @@ class TestApplication(unittest.TestCase):
                     ], 
                 campaign_priority = 'universal', 
                 exclusive_campaigns_strategy = 'listOrder', 
+                default_discount_scope = 'sessionTotal', 
                 enable_cascading_discounts = True, 
                 enable_flattened_cart_items = True, 
                 attributes_settings = talon_one.models.attributes_settings.AttributesSettings(

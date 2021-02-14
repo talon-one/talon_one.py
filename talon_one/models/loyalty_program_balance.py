@@ -33,28 +33,45 @@ class LoyaltyProgramBalance(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'current_balance': 'float'
+        'current_balance': 'float',
+        'pending_balance': 'float',
+        'expired_balance': 'float',
+        'spent_balance': 'float',
+        'tentative_current_balance': 'float'
     }
 
     attribute_map = {
-        'current_balance': 'currentBalance'
+        'current_balance': 'currentBalance',
+        'pending_balance': 'pendingBalance',
+        'expired_balance': 'expiredBalance',
+        'spent_balance': 'spentBalance',
+        'tentative_current_balance': 'tentativeCurrentBalance'
     }
 
-    def __init__(self, current_balance=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, current_balance=None, pending_balance=None, expired_balance=None, spent_balance=None, tentative_current_balance=None, local_vars_configuration=None):  # noqa: E501
         """LoyaltyProgramBalance - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._current_balance = None
+        self._pending_balance = None
+        self._expired_balance = None
+        self._spent_balance = None
+        self._tentative_current_balance = None
         self.discriminator = None
 
         self.current_balance = current_balance
+        self.pending_balance = pending_balance
+        self.expired_balance = expired_balance
+        self.spent_balance = spent_balance
+        self.tentative_current_balance = tentative_current_balance
 
     @property
     def current_balance(self):
         """Gets the current_balance of this LoyaltyProgramBalance.  # noqa: E501
 
+        Sum of current active points amounts  # noqa: E501
 
         :return: The current_balance of this LoyaltyProgramBalance.  # noqa: E501
         :rtype: float
@@ -65,6 +82,7 @@ class LoyaltyProgramBalance(object):
     def current_balance(self, current_balance):
         """Sets the current_balance of this LoyaltyProgramBalance.
 
+        Sum of current active points amounts  # noqa: E501
 
         :param current_balance: The current_balance of this LoyaltyProgramBalance.  # noqa: E501
         :type: float
@@ -73,6 +91,106 @@ class LoyaltyProgramBalance(object):
             raise ValueError("Invalid value for `current_balance`, must not be `None`")  # noqa: E501
 
         self._current_balance = current_balance
+
+    @property
+    def pending_balance(self):
+        """Gets the pending_balance of this LoyaltyProgramBalance.  # noqa: E501
+
+        Sum of pending points amounts  # noqa: E501
+
+        :return: The pending_balance of this LoyaltyProgramBalance.  # noqa: E501
+        :rtype: float
+        """
+        return self._pending_balance
+
+    @pending_balance.setter
+    def pending_balance(self, pending_balance):
+        """Sets the pending_balance of this LoyaltyProgramBalance.
+
+        Sum of pending points amounts  # noqa: E501
+
+        :param pending_balance: The pending_balance of this LoyaltyProgramBalance.  # noqa: E501
+        :type: float
+        """
+        if self.local_vars_configuration.client_side_validation and pending_balance is None:  # noqa: E501
+            raise ValueError("Invalid value for `pending_balance`, must not be `None`")  # noqa: E501
+
+        self._pending_balance = pending_balance
+
+    @property
+    def expired_balance(self):
+        """Gets the expired_balance of this LoyaltyProgramBalance.  # noqa: E501
+
+        Sum of expired points amounts  # noqa: E501
+
+        :return: The expired_balance of this LoyaltyProgramBalance.  # noqa: E501
+        :rtype: float
+        """
+        return self._expired_balance
+
+    @expired_balance.setter
+    def expired_balance(self, expired_balance):
+        """Sets the expired_balance of this LoyaltyProgramBalance.
+
+        Sum of expired points amounts  # noqa: E501
+
+        :param expired_balance: The expired_balance of this LoyaltyProgramBalance.  # noqa: E501
+        :type: float
+        """
+        if self.local_vars_configuration.client_side_validation and expired_balance is None:  # noqa: E501
+            raise ValueError("Invalid value for `expired_balance`, must not be `None`")  # noqa: E501
+
+        self._expired_balance = expired_balance
+
+    @property
+    def spent_balance(self):
+        """Gets the spent_balance of this LoyaltyProgramBalance.  # noqa: E501
+
+        Sum of spent points amounts  # noqa: E501
+
+        :return: The spent_balance of this LoyaltyProgramBalance.  # noqa: E501
+        :rtype: float
+        """
+        return self._spent_balance
+
+    @spent_balance.setter
+    def spent_balance(self, spent_balance):
+        """Sets the spent_balance of this LoyaltyProgramBalance.
+
+        Sum of spent points amounts  # noqa: E501
+
+        :param spent_balance: The spent_balance of this LoyaltyProgramBalance.  # noqa: E501
+        :type: float
+        """
+        if self.local_vars_configuration.client_side_validation and spent_balance is None:  # noqa: E501
+            raise ValueError("Invalid value for `spent_balance`, must not be `None`")  # noqa: E501
+
+        self._spent_balance = spent_balance
+
+    @property
+    def tentative_current_balance(self):
+        """Gets the tentative_current_balance of this LoyaltyProgramBalance.  # noqa: E501
+
+        Sum of current active points amounts, including additions and deductions on open sessions  # noqa: E501
+
+        :return: The tentative_current_balance of this LoyaltyProgramBalance.  # noqa: E501
+        :rtype: float
+        """
+        return self._tentative_current_balance
+
+    @tentative_current_balance.setter
+    def tentative_current_balance(self, tentative_current_balance):
+        """Sets the tentative_current_balance of this LoyaltyProgramBalance.
+
+        Sum of current active points amounts, including additions and deductions on open sessions  # noqa: E501
+
+        :param tentative_current_balance: The tentative_current_balance of this LoyaltyProgramBalance.  # noqa: E501
+        :type: float
+        """
+        if self.local_vars_configuration.client_side_validation and tentative_current_balance is None:  # noqa: E501
+            raise ValueError("Invalid value for `tentative_current_balance`, must not be `None`")  # noqa: E501
+
+        self._tentative_current_balance = tentative_current_balance
 
     def to_dict(self):
         """Returns the model properties as a dict"""

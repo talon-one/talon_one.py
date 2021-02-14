@@ -153,6 +153,9 @@ class NewCustomerSessionV2(object):
         :param referral_code: The referral_code of this NewCustomerSessionV2.  # noqa: E501
         :type: str
         """
+        if (self.local_vars_configuration.client_side_validation and
+                referral_code is not None and len(referral_code) > 100):
+            raise ValueError("Invalid value for `referral_code`, length must be less than or equal to `100`")  # noqa: E501
 
         self._referral_code = referral_code
 

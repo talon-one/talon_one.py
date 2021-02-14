@@ -65,7 +65,7 @@ class TestCampaign(unittest.TestCase):
                     coupon_pattern = '012', ), 
                 limits = [
                     talon_one.models.limit_config.LimitConfig(
-                        action = 'redeemCoupon', 
+                        action = '0', 
                         limit = 0, 
                         entities = [
                             'Coupon'
@@ -76,9 +76,14 @@ class TestCampaign(unittest.TestCase):
                     ], 
                 coupon_redemption_count = 56, 
                 referral_redemption_count = 56, 
-                discount_count = 56, 
+                discount_count = 1.337, 
                 discount_effect_count = 56, 
                 coupon_creation_count = 56, 
+                referral_creation_count = 56, 
+                created_loyalty_points_count = 1.337, 
+                created_loyalty_points_effect_count = 56, 
+                redeemed_loyalty_points_count = 1.337, 
+                redeemed_loyalty_points_effect_count = 56, 
                 last_activity = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                 updated = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                 created_by = '0', 
@@ -101,7 +106,7 @@ class TestCampaign(unittest.TestCase):
                     ],
                 limits = [
                     talon_one.models.limit_config.LimitConfig(
-                        action = 'redeemCoupon', 
+                        action = '0', 
                         limit = 0, 
                         entities = [
                             'Coupon'

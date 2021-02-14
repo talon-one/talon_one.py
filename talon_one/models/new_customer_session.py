@@ -130,6 +130,9 @@ class NewCustomerSession(object):
         :param coupon: The coupon of this NewCustomerSession.  # noqa: E501
         :type: str
         """
+        if (self.local_vars_configuration.client_side_validation and
+                coupon is not None and len(coupon) > 100):
+            raise ValueError("Invalid value for `coupon`, length must be less than or equal to `100`")  # noqa: E501
 
         self._coupon = coupon
 
@@ -153,6 +156,9 @@ class NewCustomerSession(object):
         :param referral: The referral of this NewCustomerSession.  # noqa: E501
         :type: str
         """
+        if (self.local_vars_configuration.client_side_validation and
+                referral is not None and len(referral) > 100):
+            raise ValueError("Invalid value for `referral`, length must be less than or equal to `100`")  # noqa: E501
 
         self._referral = referral
 

@@ -103,6 +103,9 @@ class CodeGeneratorSettings(object):
         if self.local_vars_configuration.client_side_validation and coupon_pattern is None:  # noqa: E501
             raise ValueError("Invalid value for `coupon_pattern`, must not be `None`")  # noqa: E501
         if (self.local_vars_configuration.client_side_validation and
+                coupon_pattern is not None and len(coupon_pattern) > 100):
+            raise ValueError("Invalid value for `coupon_pattern`, length must be less than or equal to `100`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
                 coupon_pattern is not None and len(coupon_pattern) < 3):
             raise ValueError("Invalid value for `coupon_pattern`, length must be greater than or equal to `3`")  # noqa: E501
 

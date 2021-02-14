@@ -34,15 +34,21 @@ class RejectCouponEffectProps(object):
     """
     openapi_types = {
         'value': 'str',
-        'rejection_reason': 'str'
+        'rejection_reason': 'str',
+        'condition_index': 'int',
+        'effect_index': 'int',
+        'details': 'str'
     }
 
     attribute_map = {
         'value': 'value',
-        'rejection_reason': 'rejectionReason'
+        'rejection_reason': 'rejectionReason',
+        'condition_index': 'conditionIndex',
+        'effect_index': 'effectIndex',
+        'details': 'details'
     }
 
-    def __init__(self, value=None, rejection_reason=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, value=None, rejection_reason=None, condition_index=None, effect_index=None, details=None, local_vars_configuration=None):  # noqa: E501
         """RejectCouponEffectProps - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -50,10 +56,19 @@ class RejectCouponEffectProps(object):
 
         self._value = None
         self._rejection_reason = None
+        self._condition_index = None
+        self._effect_index = None
+        self._details = None
         self.discriminator = None
 
         self.value = value
         self.rejection_reason = rejection_reason
+        if condition_index is not None:
+            self.condition_index = condition_index
+        if effect_index is not None:
+            self.effect_index = effect_index
+        if details is not None:
+            self.details = details
 
     @property
     def value(self):
@@ -104,6 +119,75 @@ class RejectCouponEffectProps(object):
             raise ValueError("Invalid value for `rejection_reason`, must not be `None`")  # noqa: E501
 
         self._rejection_reason = rejection_reason
+
+    @property
+    def condition_index(self):
+        """Gets the condition_index of this RejectCouponEffectProps.  # noqa: E501
+
+        The index of the condition that caused the rejection of the coupon  # noqa: E501
+
+        :return: The condition_index of this RejectCouponEffectProps.  # noqa: E501
+        :rtype: int
+        """
+        return self._condition_index
+
+    @condition_index.setter
+    def condition_index(self, condition_index):
+        """Sets the condition_index of this RejectCouponEffectProps.
+
+        The index of the condition that caused the rejection of the coupon  # noqa: E501
+
+        :param condition_index: The condition_index of this RejectCouponEffectProps.  # noqa: E501
+        :type: int
+        """
+
+        self._condition_index = condition_index
+
+    @property
+    def effect_index(self):
+        """Gets the effect_index of this RejectCouponEffectProps.  # noqa: E501
+
+        The index of the effect that caused the rejection of the coupon  # noqa: E501
+
+        :return: The effect_index of this RejectCouponEffectProps.  # noqa: E501
+        :rtype: int
+        """
+        return self._effect_index
+
+    @effect_index.setter
+    def effect_index(self, effect_index):
+        """Sets the effect_index of this RejectCouponEffectProps.
+
+        The index of the effect that caused the rejection of the coupon  # noqa: E501
+
+        :param effect_index: The effect_index of this RejectCouponEffectProps.  # noqa: E501
+        :type: int
+        """
+
+        self._effect_index = effect_index
+
+    @property
+    def details(self):
+        """Gets the details of this RejectCouponEffectProps.  # noqa: E501
+
+        More details about the failure  # noqa: E501
+
+        :return: The details of this RejectCouponEffectProps.  # noqa: E501
+        :rtype: str
+        """
+        return self._details
+
+    @details.setter
+    def details(self, details):
+        """Sets the details of this RejectCouponEffectProps.
+
+        More details about the failure  # noqa: E501
+
+        :param details: The details of this RejectCouponEffectProps.  # noqa: E501
+        :type: str
+        """
+
+        self._details = details
 
     def to_dict(self):
         """Returns the model properties as a dict"""

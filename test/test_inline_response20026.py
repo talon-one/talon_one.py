@@ -38,44 +38,42 @@ class TestInlineResponse20026(unittest.TestCase):
             return InlineResponse20026(
                 total_result_size = 56, 
                 data = [
-                    talon_one.models.user.User(
+                    talon_one.models.event_type.EventType(
                         id = 56, 
                         created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        modified = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        email = '0', 
-                        account_id = 56, 
-                        invite_token = '0', 
-                        state = 'invited', 
-                        name = '0', 
-                        policy = talon_one.models.policy.policy(), 
-                        latest_feed_timestamp = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        roles = [
+                        application_ids = [
                             56
                             ], 
-                        application_notification_subscriptions = talon_one.models.application_notification_subscriptions.applicationNotificationSubscriptions(), 
-                        auth_method = '0', )
+                        title = '0', 
+                        name = '0', 
+                        description = '0', 
+                        mime_type = 'application/json', 
+                        example_payload = '0', 
+                        schema = talon_one.models.schema.schema(), 
+                        handler_language = 'talang', 
+                        handler = '0', 
+                        version = 56, )
                     ]
             )
         else :
             return InlineResponse20026(
                 total_result_size = 56,
                 data = [
-                    talon_one.models.user.User(
+                    talon_one.models.event_type.EventType(
                         id = 56, 
                         created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        modified = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        email = '0', 
-                        account_id = 56, 
-                        invite_token = '0', 
-                        state = 'invited', 
-                        name = '0', 
-                        policy = talon_one.models.policy.policy(), 
-                        latest_feed_timestamp = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        roles = [
+                        application_ids = [
                             56
                             ], 
-                        application_notification_subscriptions = talon_one.models.application_notification_subscriptions.applicationNotificationSubscriptions(), 
-                        auth_method = '0', )
+                        title = '0', 
+                        name = '0', 
+                        description = '0', 
+                        mime_type = 'application/json', 
+                        example_payload = '0', 
+                        schema = talon_one.models.schema.schema(), 
+                        handler_language = 'talang', 
+                        handler = '0', 
+                        version = 56, )
                     ],
         )
 

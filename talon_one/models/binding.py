@@ -34,25 +34,30 @@ class Binding(object):
     """
     openapi_types = {
         'name': 'str',
+        'type': 'str',
         'expression': 'list[object]'
     }
 
     attribute_map = {
         'name': 'name',
+        'type': 'type',
         'expression': 'expression'
     }
 
-    def __init__(self, name=None, expression=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, name=None, type=None, expression=None, local_vars_configuration=None):  # noqa: E501
         """Binding - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._name = None
+        self._type = None
         self._expression = None
         self.discriminator = None
 
         self.name = name
+        if type is not None:
+            self.type = type
         self.expression = expression
 
     @property
@@ -79,6 +84,29 @@ class Binding(object):
             raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
 
         self._name = name
+
+    @property
+    def type(self):
+        """Gets the type of this Binding.  # noqa: E501
+
+        The kind of binding. Possible values are cartItemFilter, subledgerBalance.  # noqa: E501
+
+        :return: The type of this Binding.  # noqa: E501
+        :rtype: str
+        """
+        return self._type
+
+    @type.setter
+    def type(self, type):
+        """Sets the type of this Binding.
+
+        The kind of binding. Possible values are cartItemFilter, subledgerBalance.  # noqa: E501
+
+        :param type: The type of this Binding.  # noqa: E501
+        :type: str
+        """
+
+        self._type = type
 
     @property
     def expression(self):

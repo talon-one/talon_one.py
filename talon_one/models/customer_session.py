@@ -222,6 +222,9 @@ class CustomerSession(object):
         """
         if self.local_vars_configuration.client_side_validation and coupon is None:  # noqa: E501
             raise ValueError("Invalid value for `coupon`, must not be `None`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                coupon is not None and len(coupon) > 100):
+            raise ValueError("Invalid value for `coupon`, length must be less than or equal to `100`")  # noqa: E501
 
         self._coupon = coupon
 
@@ -247,6 +250,9 @@ class CustomerSession(object):
         """
         if self.local_vars_configuration.client_side_validation and referral is None:  # noqa: E501
             raise ValueError("Invalid value for `referral`, must not be `None`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                referral is not None and len(referral) > 100):
+            raise ValueError("Invalid value for `referral`, length must be less than or equal to `100`")  # noqa: E501
 
         self._referral = referral
 

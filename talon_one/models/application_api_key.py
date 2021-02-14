@@ -150,7 +150,7 @@ class ApplicationAPIKey(object):
         :param platform: The platform of this ApplicationAPIKey.  # noqa: E501
         :type: str
         """
-        allowed_values = ["none", "segment", "braze", "mparticle"]  # noqa: E501
+        allowed_values = ["none", "segment", "braze", "mparticle", "selligent"]  # noqa: E501
         if self.local_vars_configuration.client_side_validation and platform not in allowed_values:  # noqa: E501
             raise ValueError(
                 "Invalid value for `platform` ({0}), must be one of {1}"  # noqa: E501

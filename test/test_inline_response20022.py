@@ -38,56 +38,32 @@ class TestInlineResponse20022(unittest.TestCase):
             return InlineResponse20022(
                 total_result_size = 56, 
                 data = [
-                    talon_one.models.webhook.Webhook(
+                    talon_one.models.account_additional_cost.AccountAdditionalCost(
                         id = 56, 
                         created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        modified = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        application_ids = [
-                            56
-                            ], 
+                        account_id = 56, 
+                        name = '0', 
                         title = '0', 
-                        verb = 'POST', 
-                        url = '0', 
-                        headers = [
-                            'a'
-                            ], 
-                        payload = '0', 
-                        params = [
-                            talon_one.models.template_arg_def.TemplateArgDef(
-                                type = 'string', 
-                                description = '0', 
-                                title = '0', 
-                                ui = talon_one.models.ui.ui(), )
-                            ], 
-                        enabled = True, )
+                        description = '0', 
+                        subscribed_applications_ids = [
+                            56
+                            ], )
                     ]
             )
         else :
             return InlineResponse20022(
                 total_result_size = 56,
                 data = [
-                    talon_one.models.webhook.Webhook(
+                    talon_one.models.account_additional_cost.AccountAdditionalCost(
                         id = 56, 
                         created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        modified = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        application_ids = [
-                            56
-                            ], 
+                        account_id = 56, 
+                        name = '0', 
                         title = '0', 
-                        verb = 'POST', 
-                        url = '0', 
-                        headers = [
-                            'a'
-                            ], 
-                        payload = '0', 
-                        params = [
-                            talon_one.models.template_arg_def.TemplateArgDef(
-                                type = 'string', 
-                                description = '0', 
-                                title = '0', 
-                                ui = talon_one.models.ui.ui(), )
-                            ], 
-                        enabled = True, )
+                        description = '0', 
+                        subscribed_applications_ids = [
+                            56
+                            ], )
                     ],
         )
 
