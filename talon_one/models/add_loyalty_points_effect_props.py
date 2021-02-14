@@ -39,7 +39,8 @@ class AddLoyaltyPointsEffectProps(object):
         'value': 'float',
         'recipient_integration_id': 'str',
         'start_date': 'datetime',
-        'expiry_date': 'datetime'
+        'expiry_date': 'datetime',
+        'transaction_uuid': 'str'
     }
 
     attribute_map = {
@@ -49,10 +50,11 @@ class AddLoyaltyPointsEffectProps(object):
         'value': 'value',
         'recipient_integration_id': 'recipientIntegrationId',
         'start_date': 'startDate',
-        'expiry_date': 'expiryDate'
+        'expiry_date': 'expiryDate',
+        'transaction_uuid': 'transactionUUID'
     }
 
-    def __init__(self, name=None, program_id=None, sub_ledger_id=None, value=None, recipient_integration_id=None, start_date=None, expiry_date=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, name=None, program_id=None, sub_ledger_id=None, value=None, recipient_integration_id=None, start_date=None, expiry_date=None, transaction_uuid=None, local_vars_configuration=None):  # noqa: E501
         """AddLoyaltyPointsEffectProps - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -65,6 +67,7 @@ class AddLoyaltyPointsEffectProps(object):
         self._recipient_integration_id = None
         self._start_date = None
         self._expiry_date = None
+        self._transaction_uuid = None
         self.discriminator = None
 
         self.name = name
@@ -76,6 +79,7 @@ class AddLoyaltyPointsEffectProps(object):
             self.start_date = start_date
         if expiry_date is not None:
             self.expiry_date = expiry_date
+        self.transaction_uuid = transaction_uuid
 
     @property
     def name(self):
@@ -247,6 +251,31 @@ class AddLoyaltyPointsEffectProps(object):
         """
 
         self._expiry_date = expiry_date
+
+    @property
+    def transaction_uuid(self):
+        """Gets the transaction_uuid of this AddLoyaltyPointsEffectProps.  # noqa: E501
+
+        The identifier of this addition in the loyalty ledger  # noqa: E501
+
+        :return: The transaction_uuid of this AddLoyaltyPointsEffectProps.  # noqa: E501
+        :rtype: str
+        """
+        return self._transaction_uuid
+
+    @transaction_uuid.setter
+    def transaction_uuid(self, transaction_uuid):
+        """Sets the transaction_uuid of this AddLoyaltyPointsEffectProps.
+
+        The identifier of this addition in the loyalty ledger  # noqa: E501
+
+        :param transaction_uuid: The transaction_uuid of this AddLoyaltyPointsEffectProps.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and transaction_uuid is None:  # noqa: E501
+            raise ValueError("Invalid value for `transaction_uuid`, must not be `None`")  # noqa: E501
+
+        self._transaction_uuid = transaction_uuid
 
     def to_dict(self):
         """Returns the model properties as a dict"""

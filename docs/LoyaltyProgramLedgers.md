@@ -4,6 +4,7 @@ Customer specific information about loyalty points.
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**id** | **int** | The internal ID of loyalty program | 
 **title** | **str** | Visible name of loyalty program | 
 **name** | **str** | Internal name of loyalty program | 
 **ledger** | [**LoyaltyProgramBalance**](LoyaltyProgramBalance.md) |  | 

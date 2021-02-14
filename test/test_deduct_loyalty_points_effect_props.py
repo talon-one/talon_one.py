@@ -39,7 +39,8 @@ class TestDeductLoyaltyPointsEffectProps(unittest.TestCase):
                 rule_title = '0', 
                 program_id = 56, 
                 sub_ledger_id = '0', 
-                value = 1.337
+                value = 1.337, 
+                transaction_uuid = '0'
             )
         else :
             return DeductLoyaltyPointsEffectProps(
@@ -47,6 +48,7 @@ class TestDeductLoyaltyPointsEffectProps(unittest.TestCase):
                 program_id = 56,
                 sub_ledger_id = '0',
                 value = 1.337,
+                transaction_uuid = '0',
         )
 
     def testDeductLoyaltyPointsEffectProps(self):

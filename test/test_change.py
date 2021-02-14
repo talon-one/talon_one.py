@@ -39,6 +39,7 @@ class TestChange(unittest.TestCase):
                 id = 56, 
                 created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                 user_id = 56, 
+                application_id = 56, 
                 entity = '0', 
                 old = None, 
                 new = None

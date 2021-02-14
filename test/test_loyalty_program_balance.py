@@ -36,11 +36,19 @@ class TestLoyaltyProgramBalance(unittest.TestCase):
         # model = talon_one.models.loyalty_program_balance.LoyaltyProgramBalance()  # noqa: E501
         if include_optional :
             return LoyaltyProgramBalance(
-                current_balance = 1.337
+                current_balance = 1.337, 
+                pending_balance = 1.337, 
+                expired_balance = 1.337, 
+                spent_balance = 1.337, 
+                tentative_current_balance = 1.337
             )
         else :
             return LoyaltyProgramBalance(
                 current_balance = 1.337,
+                pending_balance = 1.337,
+                expired_balance = 1.337,
+                spent_balance = 1.337,
+                tentative_current_balance = 1.337,
         )
 
     def testLoyaltyProgramBalance(self):

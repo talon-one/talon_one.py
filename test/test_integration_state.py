@@ -56,11 +56,7 @@ class TestIntegrationState(unittest.TestCase):
                             width = 1.337, 
                             length = 1.337, 
                             position = 1.337, 
-                            attributes = talon_one.models.item_attributes.Item attributes(), 
-                            adjustment = talon_one.models.cart_item_adjustment.CartItemAdjustment(
-                                pay_from_loyalty_program = 56, 
-                                point_payment = 1, 
-                                remaining_price = 0, ), )
+                            attributes = talon_one.models.item_attributes.Item attributes(), )
                         ], 
                     identifiers = [
                         '0'
@@ -128,13 +124,22 @@ class TestIntegrationState(unittest.TestCase):
                 loyalty = talon_one.models.loyalty.Loyalty(
                     programs = {
                         'key' : talon_one.models.loyalty_program_ledgers.LoyaltyProgramLedgers(
+                            id = 56, 
                             title = '0', 
                             name = '0', 
                             ledger = talon_one.models.loyalty_program_balance.LoyaltyProgramBalance(
-                                current_balance = 1.337, ), 
+                                current_balance = 1.337, 
+                                pending_balance = 1.337, 
+                                expired_balance = 1.337, 
+                                spent_balance = 1.337, 
+                                tentative_current_balance = 1.337, ), 
                             sub_ledgers = {
                                 'key' : talon_one.models.loyalty_program_balance.LoyaltyProgramBalance(
-                                    current_balance = 1.337, )
+                                    current_balance = 1.337, 
+                                    pending_balance = 1.337, 
+                                    expired_balance = 1.337, 
+                                    spent_balance = 1.337, 
+                                    tentative_current_balance = 1.337, )
                                 }, )
                         }, ), 
                 coupon = talon_one.models.coupon.Coupon(
@@ -178,11 +183,7 @@ class TestIntegrationState(unittest.TestCase):
                             width = 1.337, 
                             length = 1.337, 
                             position = 1.337, 
-                            attributes = talon_one.models.item_attributes.Item attributes(), 
-                            adjustment = talon_one.models.cart_item_adjustment.CartItemAdjustment(
-                                pay_from_loyalty_program = 56, 
-                                point_payment = 1, 
-                                remaining_price = 0, ), )
+                            attributes = talon_one.models.item_attributes.Item attributes(), )
                         ], 
                     identifiers = [
                         '0'

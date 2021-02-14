@@ -37,6 +37,13 @@ class TestCustomerProfileIntegrationRequestV2(unittest.TestCase):
         if include_optional :
             return CustomerProfileIntegrationRequestV2(
                 attributes = None, 
+                audiences_changes = talon_one.models.profile_audiences_changes.ProfileAudiencesChanges(
+                    adds = [
+                        56
+                        ], 
+                    deletes = [
+                        56
+                        ], ), 
                 response_content = [
                     'customerProfile'
                     ]

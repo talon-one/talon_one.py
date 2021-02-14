@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **rule_index** | **int** | The position of the rule that triggered this effect within the ruleset | 
 **rule_name** | **str** | The name of the rule that triggered this effect | 
 **effect_type** | **str** | The type of effect that was triggered | 
+**triggered_by_coupon** | **int** | The ID of the coupon that was being evaluated when this effect was triggered | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

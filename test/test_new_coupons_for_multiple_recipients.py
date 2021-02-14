@@ -16,11 +16,11 @@ import unittest
 import datetime
 
 import talon_one
-from talon_one.models.cart_item_adjustment import CartItemAdjustment  # noqa: E501
+from talon_one.models.new_coupons_for_multiple_recipients import NewCouponsForMultipleRecipients  # noqa: E501
 from talon_one.rest import ApiException
 
-class TestCartItemAdjustment(unittest.TestCase):
-    """CartItemAdjustment unit test stubs"""
+class TestNewCouponsForMultipleRecipients(unittest.TestCase):
+    """NewCouponsForMultipleRecipients unit test stubs"""
 
     def setUp(self):
         pass
@@ -29,25 +29,36 @@ class TestCartItemAdjustment(unittest.TestCase):
         pass
 
     def make_instance(self, include_optional):
-        """Test CartItemAdjustment
+        """Test NewCouponsForMultipleRecipients
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # model = talon_one.models.cart_item_adjustment.CartItemAdjustment()  # noqa: E501
+        # model = talon_one.models.new_coupons_for_multiple_recipients.NewCouponsForMultipleRecipients()  # noqa: E501
         if include_optional :
-            return CartItemAdjustment(
-                pay_from_loyalty_program = 56, 
-                point_payment = 1, 
-                remaining_price = 0
+            return NewCouponsForMultipleRecipients(
+                usage_limit = 0, 
+                discount_limit = 0, 
+                start_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                expiry_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                attributes = None, 
+                recipients_integration_ids = [
+                    '0'
+                    ], 
+                valid_characters = [
+                    '0'
+                    ], 
+                coupon_pattern = '012'
             )
         else :
-            return CartItemAdjustment(
-                pay_from_loyalty_program = 56,
-                point_payment = 1,
+            return NewCouponsForMultipleRecipients(
+                usage_limit = 0,
+                recipients_integration_ids = [
+                    '0'
+                    ],
         )
 
-    def testCartItemAdjustment(self):
-        """Test CartItemAdjustment"""
+    def testNewCouponsForMultipleRecipients(self):
+        """Test NewCouponsForMultipleRecipients"""
         inst_req_only = self.make_instance(include_optional=False)
         inst_req_and_optional = self.make_instance(include_optional=True)
 

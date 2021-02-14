@@ -175,7 +175,7 @@ class ModelImport(object):
     def entity(self):
         """Gets the entity of this ModelImport.  # noqa: E501
 
-        The name of the entity that was imported.  # noqa: E501
+        The name of the entity that was imported. Possible values are Coupons and LoyaltyPoints.  # noqa: E501
 
         :return: The entity of this ModelImport.  # noqa: E501
         :rtype: str
@@ -186,19 +186,13 @@ class ModelImport(object):
     def entity(self, entity):
         """Sets the entity of this ModelImport.
 
-        The name of the entity that was imported.  # noqa: E501
+        The name of the entity that was imported. Possible values are Coupons and LoyaltyPoints.  # noqa: E501
 
         :param entity: The entity of this ModelImport.  # noqa: E501
         :type: str
         """
         if self.local_vars_configuration.client_side_validation and entity is None:  # noqa: E501
             raise ValueError("Invalid value for `entity`, must not be `None`")  # noqa: E501
-        allowed_values = ["Coupon"]  # noqa: E501
-        if self.local_vars_configuration.client_side_validation and entity not in allowed_values:  # noqa: E501
-            raise ValueError(
-                "Invalid value for `entity` ({0}), must be one of {1}"  # noqa: E501
-                .format(entity, allowed_values)
-            )
 
         self._entity = entity
 

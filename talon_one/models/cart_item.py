@@ -43,8 +43,7 @@ class CartItem(object):
         'width': 'float',
         'length': 'float',
         'position': 'float',
-        'attributes': 'object',
-        'adjustment': 'CartItemAdjustment'
+        'attributes': 'object'
     }
 
     attribute_map = {
@@ -58,11 +57,10 @@ class CartItem(object):
         'width': 'width',
         'length': 'length',
         'position': 'position',
-        'attributes': 'attributes',
-        'adjustment': 'adjustment'
+        'attributes': 'attributes'
     }
 
-    def __init__(self, name=None, sku=None, quantity=None, price=None, category=None, weight=None, height=None, width=None, length=None, position=None, attributes=None, adjustment=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, name=None, sku=None, quantity=None, price=None, category=None, weight=None, height=None, width=None, length=None, position=None, attributes=None, local_vars_configuration=None):  # noqa: E501
         """CartItem - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -79,7 +77,6 @@ class CartItem(object):
         self._length = None
         self._position = None
         self._attributes = None
-        self._adjustment = None
         self.discriminator = None
 
         self.name = name
@@ -100,8 +97,6 @@ class CartItem(object):
             self.position = position
         if attributes is not None:
             self.attributes = attributes
-        if adjustment is not None:
-            self.adjustment = adjustment
 
     @property
     def name(self):
@@ -362,27 +357,6 @@ class CartItem(object):
         """
 
         self._attributes = attributes
-
-    @property
-    def adjustment(self):
-        """Gets the adjustment of this CartItem.  # noqa: E501
-
-
-        :return: The adjustment of this CartItem.  # noqa: E501
-        :rtype: CartItemAdjustment
-        """
-        return self._adjustment
-
-    @adjustment.setter
-    def adjustment(self, adjustment):
-        """Sets the adjustment of this CartItem.
-
-
-        :param adjustment: The adjustment of this CartItem.  # noqa: E501
-        :type: CartItemAdjustment
-        """
-
-        self._adjustment = adjustment
 
     def to_dict(self):
         """Returns the model properties as a dict"""

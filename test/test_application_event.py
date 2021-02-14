@@ -45,6 +45,21 @@ class TestApplicationEvent(unittest.TestCase):
                 attributes = None, 
                 effects = [
                     None
+                    ], 
+                rule_failure_reasons = [
+                    talon_one.models.rule_failure_reason.RuleFailureReason(
+                        campaign_id = 56, 
+                        campaign_name = '0', 
+                        ruleset_id = 56, 
+                        coupon_id = 56, 
+                        coupon_value = '0', 
+                        referral_id = 56, 
+                        referral_value = '0', 
+                        rule_index = 56, 
+                        rule_name = '0', 
+                        condition_index = 56, 
+                        effect_index = 56, 
+                        details = '0', )
                     ]
             )
         else :

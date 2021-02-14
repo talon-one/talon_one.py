@@ -40,22 +40,18 @@ class TestNewCoupons(unittest.TestCase):
                 discount_limit = 0, 
                 start_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                 expiry_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                valid_characters = [
-                    '0'
-                    ], 
-                coupon_pattern = '012', 
                 number_of_coupons = 56, 
                 unique_prefix = '0', 
                 attributes = None, 
-                recipient_integration_id = '0'
+                recipient_integration_id = '0', 
+                valid_characters = [
+                    '0'
+                    ], 
+                coupon_pattern = '012'
             )
         else :
             return NewCoupons(
                 usage_limit = 0,
-                valid_characters = [
-                    '0'
-                    ],
-                coupon_pattern = '012',
                 number_of_coupons = 56,
         )
 

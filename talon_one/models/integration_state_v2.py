@@ -41,6 +41,7 @@ class IntegrationStateV2(object):
         'coupons': 'list[Coupon]',
         'triggered_campaigns': 'list[Campaign]',
         'effects': 'list[Effect]',
+        'rule_failure_reasons': 'list[RuleFailureReason]',
         'created_coupons': 'list[Coupon]',
         'created_referrals': 'list[Referral]'
     }
@@ -54,11 +55,12 @@ class IntegrationStateV2(object):
         'coupons': 'coupons',
         'triggered_campaigns': 'triggeredCampaigns',
         'effects': 'effects',
+        'rule_failure_reasons': 'ruleFailureReasons',
         'created_coupons': 'createdCoupons',
         'created_referrals': 'createdReferrals'
     }
 
-    def __init__(self, customer_session=None, customer_profile=None, event=None, loyalty=None, referral=None, coupons=None, triggered_campaigns=None, effects=None, created_coupons=None, created_referrals=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, customer_session=None, customer_profile=None, event=None, loyalty=None, referral=None, coupons=None, triggered_campaigns=None, effects=None, rule_failure_reasons=None, created_coupons=None, created_referrals=None, local_vars_configuration=None):  # noqa: E501
         """IntegrationStateV2 - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -72,6 +74,7 @@ class IntegrationStateV2(object):
         self._coupons = None
         self._triggered_campaigns = None
         self._effects = None
+        self._rule_failure_reasons = None
         self._created_coupons = None
         self._created_referrals = None
         self.discriminator = None
@@ -91,6 +94,8 @@ class IntegrationStateV2(object):
         if triggered_campaigns is not None:
             self.triggered_campaigns = triggered_campaigns
         self.effects = effects
+        if rule_failure_reasons is not None:
+            self.rule_failure_reasons = rule_failure_reasons
         self.created_coupons = created_coupons
         self.created_referrals = created_referrals
 
@@ -263,6 +268,27 @@ class IntegrationStateV2(object):
             raise ValueError("Invalid value for `effects`, must not be `None`")  # noqa: E501
 
         self._effects = effects
+
+    @property
+    def rule_failure_reasons(self):
+        """Gets the rule_failure_reasons of this IntegrationStateV2.  # noqa: E501
+
+
+        :return: The rule_failure_reasons of this IntegrationStateV2.  # noqa: E501
+        :rtype: list[RuleFailureReason]
+        """
+        return self._rule_failure_reasons
+
+    @rule_failure_reasons.setter
+    def rule_failure_reasons(self, rule_failure_reasons):
+        """Sets the rule_failure_reasons of this IntegrationStateV2.
+
+
+        :param rule_failure_reasons: The rule_failure_reasons of this IntegrationStateV2.  # noqa: E501
+        :type: list[RuleFailureReason]
+        """
+
+        self._rule_failure_reasons = rule_failure_reasons
 
     @property
     def created_coupons(self):

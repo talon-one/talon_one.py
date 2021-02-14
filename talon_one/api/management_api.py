@@ -804,6 +804,147 @@ class ManagementApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def create_coupons_for_multiple_recipients(self, application_id, campaign_id, body, **kwargs):  # noqa: E501
+        """Create Coupons for Multiple Recipients  # noqa: E501
+
+        Create coupons according to some pattern for up to 1000 recipients.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_coupons_for_multiple_recipients(application_id, campaign_id, body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int application_id: (required)
+        :param int campaign_id: (required)
+        :param NewCouponsForMultipleRecipients body: (required)
+        :param str silent: If set to 'yes', response will be an empty 204, otherwise a list of the coupons generated (to to 1000).
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: InlineResponse2004
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.create_coupons_for_multiple_recipients_with_http_info(application_id, campaign_id, body, **kwargs)  # noqa: E501
+
+    def create_coupons_for_multiple_recipients_with_http_info(self, application_id, campaign_id, body, **kwargs):  # noqa: E501
+        """Create Coupons for Multiple Recipients  # noqa: E501
+
+        Create coupons according to some pattern for up to 1000 recipients.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_coupons_for_multiple_recipients_with_http_info(application_id, campaign_id, body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int application_id: (required)
+        :param int campaign_id: (required)
+        :param NewCouponsForMultipleRecipients body: (required)
+        :param str silent: If set to 'yes', response will be an empty 204, otherwise a list of the coupons generated (to to 1000).
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(InlineResponse2004, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'application_id',
+            'campaign_id',
+            'body',
+            'silent'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method create_coupons_for_multiple_recipients" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'application_id' is set
+        if self.api_client.client_side_validation and ('application_id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['application_id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `application_id` when calling `create_coupons_for_multiple_recipients`")  # noqa: E501
+        # verify the required parameter 'campaign_id' is set
+        if self.api_client.client_side_validation and ('campaign_id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['campaign_id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `campaign_id` when calling `create_coupons_for_multiple_recipients`")  # noqa: E501
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in local_var_params or  # noqa: E501
+                                                        local_var_params['body'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `body` when calling `create_coupons_for_multiple_recipients`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'application_id' in local_var_params:
+            path_params['applicationId'] = local_var_params['application_id']  # noqa: E501
+        if 'campaign_id' in local_var_params:
+            path_params['campaignId'] = local_var_params['campaign_id']  # noqa: E501
+
+        query_params = []
+        if 'silent' in local_var_params and local_var_params['silent'] is not None:  # noqa: E501
+            query_params.append(('silent', local_var_params['silent']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in local_var_params:
+            body_params = local_var_params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['manager_auth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/v1/applications/{applicationId}/campaigns/{campaignId}/coupons_with_recipients', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='InlineResponse2004',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def create_password_recovery_email(self, body, **kwargs):  # noqa: E501
         """Request a password reset  # noqa: E501
 
@@ -1427,12 +1568,12 @@ class ManagementApi(object):
         :param int application_id: (required)
         :param int campaign_id: (required)
         :param str value: Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters.
-        :param datetime created_before: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp.
-        :param datetime created_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp.
-        :param datetime starts_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp.
-        :param datetime starts_before: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp.
-        :param datetime expires_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp.
-        :param datetime expires_before: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp.
+        :param datetime created_before: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
+        :param datetime created_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
+        :param datetime starts_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
+        :param datetime starts_before: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
+        :param datetime expires_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
+        :param datetime expires_before: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
         :param str valid: Either \"expired\", \"validNow\", or \"validFuture\". The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future. 
         :param str batch_id: Filter results by batches of coupons
         :param str usable: Either \"true\" or \"false\". If \"true\", only coupons where `usageCounter < usageLimit` will be returned, \"false\" will return only coupons where `usageCounter >= usageLimit`. 
@@ -1465,12 +1606,12 @@ class ManagementApi(object):
         :param int application_id: (required)
         :param int campaign_id: (required)
         :param str value: Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters.
-        :param datetime created_before: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp.
-        :param datetime created_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp.
-        :param datetime starts_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp.
-        :param datetime starts_before: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp.
-        :param datetime expires_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp.
-        :param datetime expires_before: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp.
+        :param datetime created_before: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
+        :param datetime created_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
+        :param datetime starts_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
+        :param datetime starts_before: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
+        :param datetime expires_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
+        :param datetime expires_before: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
         :param str valid: Either \"expired\", \"validNow\", or \"validFuture\". The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future. 
         :param str batch_id: Filter results by batches of coupons
         :param str usable: Either \"true\" or \"false\". If \"true\", only coupons where `usageCounter < usageLimit` will be returned, \"false\" will return only coupons where `usageCounter >= usageLimit`. 
@@ -1842,6 +1983,817 @@ class ManagementApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type=None,  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def destroy_session(self, **kwargs):  # noqa: E501
+        """Destroy a Session  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.destroy_session(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.destroy_session_with_http_info(**kwargs)  # noqa: E501
+
+    def destroy_session_with_http_info(self, **kwargs):  # noqa: E501
+        """Destroy a Session  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.destroy_session_with_http_info(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method destroy_session" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # Authentication setting
+        auth_settings = ['manager_auth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/v1/sessions', 'DELETE',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type=None,  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def export_coupons(self, application_id, **kwargs):  # noqa: E501
+        """Export Coupons to a CSV file  # noqa: E501
+
+        Download a file with the coupons that match the given attributes.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.export_coupons(application_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int application_id: (required)
+        :param float campaign_id: Filter results by campaign.
+        :param str sort: The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
+        :param str value: Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters.
+        :param datetime created_before: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
+        :param datetime created_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
+        :param str valid: Either \"expired\", \"validNow\", or \"validFuture\". The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future. 
+        :param str usable: Either \"true\" or \"false\". If \"true\", only coupons where `usageCounter < usageLimit` will be returned, \"false\" will return only coupons where `usageCounter >= usageLimit`. 
+        :param int referral_id: Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code.
+        :param str recipient_integration_id: Filter results by match with a profile id specified in the coupon's RecipientIntegrationId field
+        :param str batch_id: Filter results by batches of coupons
+        :param bool exact_match: Filter results to an exact case-insensitive matching against the coupon code
+        :param str date_format: Determines the format of dates in the export document.
+        :param str campaign_state: Filter results by the state of the campaign.
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: str
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.export_coupons_with_http_info(application_id, **kwargs)  # noqa: E501
+
+    def export_coupons_with_http_info(self, application_id, **kwargs):  # noqa: E501
+        """Export Coupons to a CSV file  # noqa: E501
+
+        Download a file with the coupons that match the given attributes.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.export_coupons_with_http_info(application_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int application_id: (required)
+        :param float campaign_id: Filter results by campaign.
+        :param str sort: The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
+        :param str value: Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters.
+        :param datetime created_before: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
+        :param datetime created_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
+        :param str valid: Either \"expired\", \"validNow\", or \"validFuture\". The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future. 
+        :param str usable: Either \"true\" or \"false\". If \"true\", only coupons where `usageCounter < usageLimit` will be returned, \"false\" will return only coupons where `usageCounter >= usageLimit`. 
+        :param int referral_id: Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code.
+        :param str recipient_integration_id: Filter results by match with a profile id specified in the coupon's RecipientIntegrationId field
+        :param str batch_id: Filter results by batches of coupons
+        :param bool exact_match: Filter results to an exact case-insensitive matching against the coupon code
+        :param str date_format: Determines the format of dates in the export document.
+        :param str campaign_state: Filter results by the state of the campaign.
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(str, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'application_id',
+            'campaign_id',
+            'sort',
+            'value',
+            'created_before',
+            'created_after',
+            'valid',
+            'usable',
+            'referral_id',
+            'recipient_integration_id',
+            'batch_id',
+            'exact_match',
+            'date_format',
+            'campaign_state'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method export_coupons" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'application_id' is set
+        if self.api_client.client_side_validation and ('application_id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['application_id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `application_id` when calling `export_coupons`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'application_id' in local_var_params:
+            path_params['applicationId'] = local_var_params['application_id']  # noqa: E501
+
+        query_params = []
+        if 'campaign_id' in local_var_params and local_var_params['campaign_id'] is not None:  # noqa: E501
+            query_params.append(('campaignId', local_var_params['campaign_id']))  # noqa: E501
+        if 'sort' in local_var_params and local_var_params['sort'] is not None:  # noqa: E501
+            query_params.append(('sort', local_var_params['sort']))  # noqa: E501
+        if 'value' in local_var_params and local_var_params['value'] is not None:  # noqa: E501
+            query_params.append(('value', local_var_params['value']))  # noqa: E501
+        if 'created_before' in local_var_params and local_var_params['created_before'] is not None:  # noqa: E501
+            query_params.append(('createdBefore', local_var_params['created_before']))  # noqa: E501
+        if 'created_after' in local_var_params and local_var_params['created_after'] is not None:  # noqa: E501
+            query_params.append(('createdAfter', local_var_params['created_after']))  # noqa: E501
+        if 'valid' in local_var_params and local_var_params['valid'] is not None:  # noqa: E501
+            query_params.append(('valid', local_var_params['valid']))  # noqa: E501
+        if 'usable' in local_var_params and local_var_params['usable'] is not None:  # noqa: E501
+            query_params.append(('usable', local_var_params['usable']))  # noqa: E501
+        if 'referral_id' in local_var_params and local_var_params['referral_id'] is not None:  # noqa: E501
+            query_params.append(('referralId', local_var_params['referral_id']))  # noqa: E501
+        if 'recipient_integration_id' in local_var_params and local_var_params['recipient_integration_id'] is not None:  # noqa: E501
+            query_params.append(('recipientIntegrationId', local_var_params['recipient_integration_id']))  # noqa: E501
+        if 'batch_id' in local_var_params and local_var_params['batch_id'] is not None:  # noqa: E501
+            query_params.append(('batchId', local_var_params['batch_id']))  # noqa: E501
+        if 'exact_match' in local_var_params and local_var_params['exact_match'] is not None:  # noqa: E501
+            query_params.append(('exactMatch', local_var_params['exact_match']))  # noqa: E501
+        if 'date_format' in local_var_params and local_var_params['date_format'] is not None:  # noqa: E501
+            query_params.append(('dateFormat', local_var_params['date_format']))  # noqa: E501
+        if 'campaign_state' in local_var_params and local_var_params['campaign_state'] is not None:  # noqa: E501
+            query_params.append(('campaignState', local_var_params['campaign_state']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/csv'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['manager_auth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/v1/applications/{applicationId}/export_coupons', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='str',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def export_customer_sessions(self, application_id, **kwargs):  # noqa: E501
+        """Export Customer Sessions to a CSV file  # noqa: E501
+
+        Download a file with the customer sessions that match the request.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.export_customer_sessions(application_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int application_id: (required)
+        :param datetime created_before: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string.
+        :param datetime created_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string.
+        :param str profile_integration_id: Only return sessions for the customer that matches this customer integration ID.
+        :param str date_format: Determines the format of dates in the export document.
+        :param str customer_session_state: Filter results by state.
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: str
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.export_customer_sessions_with_http_info(application_id, **kwargs)  # noqa: E501
+
+    def export_customer_sessions_with_http_info(self, application_id, **kwargs):  # noqa: E501
+        """Export Customer Sessions to a CSV file  # noqa: E501
+
+        Download a file with the customer sessions that match the request.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.export_customer_sessions_with_http_info(application_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int application_id: (required)
+        :param datetime created_before: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string.
+        :param datetime created_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string.
+        :param str profile_integration_id: Only return sessions for the customer that matches this customer integration ID.
+        :param str date_format: Determines the format of dates in the export document.
+        :param str customer_session_state: Filter results by state.
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(str, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'application_id',
+            'created_before',
+            'created_after',
+            'profile_integration_id',
+            'date_format',
+            'customer_session_state'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method export_customer_sessions" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'application_id' is set
+        if self.api_client.client_side_validation and ('application_id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['application_id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `application_id` when calling `export_customer_sessions`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'application_id' in local_var_params:
+            path_params['applicationId'] = local_var_params['application_id']  # noqa: E501
+
+        query_params = []
+        if 'created_before' in local_var_params and local_var_params['created_before'] is not None:  # noqa: E501
+            query_params.append(('createdBefore', local_var_params['created_before']))  # noqa: E501
+        if 'created_after' in local_var_params and local_var_params['created_after'] is not None:  # noqa: E501
+            query_params.append(('createdAfter', local_var_params['created_after']))  # noqa: E501
+        if 'profile_integration_id' in local_var_params and local_var_params['profile_integration_id'] is not None:  # noqa: E501
+            query_params.append(('profileIntegrationId', local_var_params['profile_integration_id']))  # noqa: E501
+        if 'date_format' in local_var_params and local_var_params['date_format'] is not None:  # noqa: E501
+            query_params.append(('dateFormat', local_var_params['date_format']))  # noqa: E501
+        if 'customer_session_state' in local_var_params and local_var_params['customer_session_state'] is not None:  # noqa: E501
+            query_params.append(('customerSessionState', local_var_params['customer_session_state']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/csv'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['manager_auth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/v1/applications/{applicationId}/export_customer_sessions', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='str',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def export_effects(self, application_id, **kwargs):  # noqa: E501
+        """Export triggered Effects to a CSV file  # noqa: E501
+
+        Download a file with the triggered effects that match the given attributes.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.export_effects(application_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int application_id: (required)
+        :param float campaign_id: Filter results by campaign.
+        :param datetime created_before: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
+        :param datetime created_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
+        :param str date_format: Determines the format of dates in the export document.
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: str
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.export_effects_with_http_info(application_id, **kwargs)  # noqa: E501
+
+    def export_effects_with_http_info(self, application_id, **kwargs):  # noqa: E501
+        """Export triggered Effects to a CSV file  # noqa: E501
+
+        Download a file with the triggered effects that match the given attributes.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.export_effects_with_http_info(application_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int application_id: (required)
+        :param float campaign_id: Filter results by campaign.
+        :param datetime created_before: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
+        :param datetime created_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
+        :param str date_format: Determines the format of dates in the export document.
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(str, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'application_id',
+            'campaign_id',
+            'created_before',
+            'created_after',
+            'date_format'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method export_effects" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'application_id' is set
+        if self.api_client.client_side_validation and ('application_id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['application_id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `application_id` when calling `export_effects`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'application_id' in local_var_params:
+            path_params['applicationId'] = local_var_params['application_id']  # noqa: E501
+
+        query_params = []
+        if 'campaign_id' in local_var_params and local_var_params['campaign_id'] is not None:  # noqa: E501
+            query_params.append(('campaignId', local_var_params['campaign_id']))  # noqa: E501
+        if 'created_before' in local_var_params and local_var_params['created_before'] is not None:  # noqa: E501
+            query_params.append(('createdBefore', local_var_params['created_before']))  # noqa: E501
+        if 'created_after' in local_var_params and local_var_params['created_after'] is not None:  # noqa: E501
+            query_params.append(('createdAfter', local_var_params['created_after']))  # noqa: E501
+        if 'date_format' in local_var_params and local_var_params['date_format'] is not None:  # noqa: E501
+            query_params.append(('dateFormat', local_var_params['date_format']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/csv'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['manager_auth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/v1/applications/{applicationId}/export_effects', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='str',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def export_loyalty_balance(self, program_id, **kwargs):  # noqa: E501
+        """Export customer loyalty balance to a CSV file  # noqa: E501
+
+        Download a file with the balance of each customer in the loyalty program  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.export_loyalty_balance(program_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str program_id: (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: str
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.export_loyalty_balance_with_http_info(program_id, **kwargs)  # noqa: E501
+
+    def export_loyalty_balance_with_http_info(self, program_id, **kwargs):  # noqa: E501
+        """Export customer loyalty balance to a CSV file  # noqa: E501
+
+        Download a file with the balance of each customer in the loyalty program  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.export_loyalty_balance_with_http_info(program_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str program_id: (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(str, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'program_id'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method export_loyalty_balance" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'program_id' is set
+        if self.api_client.client_side_validation and ('program_id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['program_id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `program_id` when calling `export_loyalty_balance`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'program_id' in local_var_params:
+            path_params['programID'] = local_var_params['program_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/csv'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['manager_auth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/v1/loyalty_programs/{programID}/export_customer_balance', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='str',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def export_loyalty_ledger(self, range_start, range_end, program_id, integration_id, **kwargs):  # noqa: E501
+        """Export a customer's loyalty ledger log to a CSV file  # noqa: E501
+
+        Download a file with a customer's ledger log in the loyalty program  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.export_loyalty_ledger(range_start, range_end, program_id, integration_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param datetime range_start: Only return results from after this timestamp, must be an RFC3339 timestamp string (required)
+        :param datetime range_end: Only return results from before this timestamp, must be an RFC3339 timestamp string (required)
+        :param str program_id: (required)
+        :param str integration_id: (required)
+        :param str date_format: Determines the format of dates in the export document.
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: str
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.export_loyalty_ledger_with_http_info(range_start, range_end, program_id, integration_id, **kwargs)  # noqa: E501
+
+    def export_loyalty_ledger_with_http_info(self, range_start, range_end, program_id, integration_id, **kwargs):  # noqa: E501
+        """Export a customer's loyalty ledger log to a CSV file  # noqa: E501
+
+        Download a file with a customer's ledger log in the loyalty program  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.export_loyalty_ledger_with_http_info(range_start, range_end, program_id, integration_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param datetime range_start: Only return results from after this timestamp, must be an RFC3339 timestamp string (required)
+        :param datetime range_end: Only return results from before this timestamp, must be an RFC3339 timestamp string (required)
+        :param str program_id: (required)
+        :param str integration_id: (required)
+        :param str date_format: Determines the format of dates in the export document.
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(str, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'range_start',
+            'range_end',
+            'program_id',
+            'integration_id',
+            'date_format'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method export_loyalty_ledger" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'range_start' is set
+        if self.api_client.client_side_validation and ('range_start' not in local_var_params or  # noqa: E501
+                                                        local_var_params['range_start'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `range_start` when calling `export_loyalty_ledger`")  # noqa: E501
+        # verify the required parameter 'range_end' is set
+        if self.api_client.client_side_validation and ('range_end' not in local_var_params or  # noqa: E501
+                                                        local_var_params['range_end'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `range_end` when calling `export_loyalty_ledger`")  # noqa: E501
+        # verify the required parameter 'program_id' is set
+        if self.api_client.client_side_validation and ('program_id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['program_id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `program_id` when calling `export_loyalty_ledger`")  # noqa: E501
+        # verify the required parameter 'integration_id' is set
+        if self.api_client.client_side_validation and ('integration_id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['integration_id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `integration_id` when calling `export_loyalty_ledger`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'program_id' in local_var_params:
+            path_params['programID'] = local_var_params['program_id']  # noqa: E501
+        if 'integration_id' in local_var_params:
+            path_params['integrationID'] = local_var_params['integration_id']  # noqa: E501
+
+        query_params = []
+        if 'range_start' in local_var_params and local_var_params['range_start'] is not None:  # noqa: E501
+            query_params.append(('rangeStart', local_var_params['range_start']))  # noqa: E501
+        if 'range_end' in local_var_params and local_var_params['range_end'] is not None:  # noqa: E501
+            query_params.append(('rangeEnd', local_var_params['range_end']))  # noqa: E501
+        if 'date_format' in local_var_params and local_var_params['date_format'] is not None:  # noqa: E501
+            query_params.append(('dateFormat', local_var_params['date_format']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/csv'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['manager_auth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/v1/loyalty_programs/{programID}/profile/{integrationID}/export_log', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='str',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -2531,7 +3483,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20021
+        :return: InlineResponse20022
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2560,7 +3512,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20021, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20022, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2623,7 +3575,7 @@ class ManagementApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20021',  # noqa: E501
+            response_type='InlineResponse20022',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -2785,7 +3737,7 @@ class ManagementApi(object):
             collection_formats=collection_formats)
 
     def get_all_roles(self, **kwargs):  # noqa: E501
-        """Get all roles.  # noqa: E501
+        """Get all roles  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -2808,7 +3760,7 @@ class ManagementApi(object):
         return self.get_all_roles_with_http_info(**kwargs)  # noqa: E501
 
     def get_all_roles_with_http_info(self, **kwargs):  # noqa: E501
-        """Get all roles.  # noqa: E501
+        """Get all roles  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -3628,8 +4580,8 @@ class ManagementApi(object):
         :param int skip: Skips the given number of items when paging through large result sets.
         :param str sort: The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
         :param str type: Comma-separated list of types by which to filter events. Must be exact match(es).
-        :param datetime created_before: Only return events created before this date
-        :param datetime created_after: Only return events created after this date
+        :param datetime created_before: Only return events created before this date. You can use any timezone. Talon.One will convert to UTC internally.
+        :param datetime created_after: Only return events created after this date. You can use any timezone. Talon.One will convert to UTC internally.
         :param str session: Session integration ID filter for events. Must be exact match.
         :param str profile: Profile integration ID filter for events. Must be exact match.
         :param str customer_name: Customer name filter for events. Will match substrings case-insensitively.
@@ -3667,8 +4619,8 @@ class ManagementApi(object):
         :param int skip: Skips the given number of items when paging through large result sets.
         :param str sort: The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
         :param str type: Comma-separated list of types by which to filter events. Must be exact match(es).
-        :param datetime created_before: Only return events created before this date
-        :param datetime created_after: Only return events created after this date
+        :param datetime created_before: Only return events created before this date. You can use any timezone. Talon.One will convert to UTC internally.
+        :param datetime created_after: Only return events created after this date. You can use any timezone. Talon.One will convert to UTC internally.
         :param str session: Session integration ID filter for events. Must be exact match.
         :param str profile: Profile integration ID filter for events. Must be exact match.
         :param str customer_name: Customer name filter for events. Will match substrings case-insensitively.
@@ -3818,8 +4770,8 @@ class ManagementApi(object):
         :param int skip: Skips the given number of items when paging through large result sets.
         :param str sort: The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
         :param str type: Comma-separated list of types by which to filter events. Must be exact match(es).
-        :param datetime created_before: Only return events created before this date
-        :param datetime created_after: Only return events created after this date
+        :param datetime created_before: Only return events created before this date. You can use any timezone. Talon.One will convert to UTC internally.
+        :param datetime created_after: Only return events created after this date. You can use any timezone. Talon.One will convert to UTC internally.
         :param str session: Session integration ID filter for events. Must be exact match.
         :param str profile: Profile integration ID filter for events. Must be exact match.
         :param str customer_name: Customer name filter for events. Will match substrings case-insensitively.
@@ -3857,8 +4809,8 @@ class ManagementApi(object):
         :param int skip: Skips the given number of items when paging through large result sets.
         :param str sort: The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
         :param str type: Comma-separated list of types by which to filter events. Must be exact match(es).
-        :param datetime created_before: Only return events created before this date
-        :param datetime created_after: Only return events created after this date
+        :param datetime created_before: Only return events created before this date. You can use any timezone. Talon.One will convert to UTC internally.
+        :param datetime created_after: Only return events created after this date. You can use any timezone. Talon.One will convert to UTC internally.
         :param str session: Session integration ID filter for events. Must be exact match.
         :param str profile: Profile integration ID filter for events. Must be exact match.
         :param str customer_name: Customer name filter for events. Will match substrings case-insensitively.
@@ -4129,8 +5081,8 @@ class ManagementApi(object):
         :param str sort: The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
         :param str profile: Profile integration ID filter for sessions. Must be exact match.
         :param str state: Filter by sessions with this state. Must be exact match.
-        :param datetime created_before: Only return events created before this date
-        :param datetime created_after: Only return events created after this date
+        :param datetime created_before: Only return events created before this date. You can use any timezone. Talon.One will convert to UTC internally.
+        :param datetime created_after: Only return events created after this date. You can use any timezone. Talon.One will convert to UTC internally.
         :param str coupon: Filter by sessions with this coupon. Must be exact match.
         :param str referral: Filter by sessions with this referral. Must be exact match.
         :param str integration_id: Filter by sessions with this integrationId. Must be exact match.
@@ -4163,8 +5115,8 @@ class ManagementApi(object):
         :param str sort: The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
         :param str profile: Profile integration ID filter for sessions. Must be exact match.
         :param str state: Filter by sessions with this state. Must be exact match.
-        :param datetime created_before: Only return events created before this date
-        :param datetime created_after: Only return events created after this date
+        :param datetime created_before: Only return events created before this date. You can use any timezone. Talon.One will convert to UTC internally.
+        :param datetime created_after: Only return events created after this date. You can use any timezone. Talon.One will convert to UTC internally.
         :param str coupon: Filter by sessions with this coupon. Must be exact match.
         :param str referral: Filter by sessions with this referral. Must be exact match.
         :param str integration_id: Filter by sessions with this integrationId. Must be exact match.
@@ -4530,7 +5482,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20020
+        :return: InlineResponse20021
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -4559,7 +5511,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20020, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20021, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -4616,6 +5568,131 @@ class ManagementApi(object):
 
         return self.api_client.call_api(
             '/v1/attributes', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='InlineResponse20021',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def get_audiences(self, **kwargs):  # noqa: E501
+        """Get all audiences  # noqa: E501
+
+        Get All audiences created in the account.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_audiences(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int page_size: The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
+        :param int skip: Skips the given number of items when paging through large result sets.
+        :param str sort: The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
+        :param bool with_total_result_size: When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, hasMore will be be true whenever there is a next page. totalResultSize will always be zero. With this flag set to false, hasMore will always be set to false. totalResultSize will contain the total number of results for this query. 
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: InlineResponse20020
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.get_audiences_with_http_info(**kwargs)  # noqa: E501
+
+    def get_audiences_with_http_info(self, **kwargs):  # noqa: E501
+        """Get all audiences  # noqa: E501
+
+        Get All audiences created in the account.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_audiences_with_http_info(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int page_size: The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
+        :param int skip: Skips the given number of items when paging through large result sets.
+        :param str sort: The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
+        :param bool with_total_result_size: When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, hasMore will be be true whenever there is a next page. totalResultSize will always be zero. With this flag set to false, hasMore will always be set to false. totalResultSize will contain the total number of results for this query. 
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(InlineResponse20020, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'page_size',
+            'skip',
+            'sort',
+            'with_total_result_size'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_audiences" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+        if 'page_size' in local_var_params and local_var_params['page_size'] is not None:  # noqa: E501
+            query_params.append(('pageSize', local_var_params['page_size']))  # noqa: E501
+        if 'skip' in local_var_params and local_var_params['skip'] is not None:  # noqa: E501
+            query_params.append(('skip', local_var_params['skip']))  # noqa: E501
+        if 'sort' in local_var_params and local_var_params['sort'] is not None:  # noqa: E501
+            query_params.append(('sort', local_var_params['sort']))  # noqa: E501
+        if 'with_total_result_size' in local_var_params and local_var_params['with_total_result_size'] is not None:  # noqa: E501
+            query_params.append(('withTotalResultSize', local_var_params['with_total_result_size']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['manager_auth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/v1/audiences', 'GET',
             path_params,
             query_params,
             header_params,
@@ -5058,8 +6135,8 @@ class ManagementApi(object):
         :param str campaign_state: Filter results by the state of the campaign.
         :param str name: Filter results performing case-insensitive matching against the name of the campaign.
         :param str tags: Filter results performing case-insensitive matching against the tags of the campaign. When used in conjunction with the \"name\" query parameter, a logical OR will be performed to search both tags and name for the provided values 
-        :param datetime created_before: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp.
-        :param datetime created_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp.
+        :param datetime created_before: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
+        :param datetime created_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
         :param int campaign_group_id: Filter results to campaigns owned by the specified campaign group ID.
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -5091,8 +6168,8 @@ class ManagementApi(object):
         :param str campaign_state: Filter results by the state of the campaign.
         :param str name: Filter results performing case-insensitive matching against the name of the campaign.
         :param str tags: Filter results performing case-insensitive matching against the tags of the campaign. When used in conjunction with the \"name\" query parameter, a logical OR will be performed to search both tags and name for the provided values 
-        :param datetime created_before: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp.
-        :param datetime created_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp.
+        :param datetime created_before: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
+        :param datetime created_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
         :param int campaign_group_id: Filter results to campaigns owned by the specified campaign group ID.
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -5213,8 +6290,10 @@ class ManagementApi(object):
         :param int skip: Skips the given number of items when paging through large result sets.
         :param str sort: The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
         :param int application_id:
-        :param datetime created_before: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp.
-        :param datetime created_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp.
+        :param str entity_path: Filter results on a case insensitive matching of the url path of the entity
+        :param int user_id:
+        :param datetime created_before: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
+        :param datetime created_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
         :param bool with_total_result_size: When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, hasMore will be be true whenever there is a next page. totalResultSize will always be zero. With this flag set to false, hasMore will always be set to false. totalResultSize will contain the total number of results for this query. 
         :param bool include_old: When this flag is set to false, the state without the change will not be returned. The default value is true.
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -5224,7 +6303,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20027
+        :return: InlineResponse20028
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -5245,8 +6324,10 @@ class ManagementApi(object):
         :param int skip: Skips the given number of items when paging through large result sets.
         :param str sort: The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
         :param int application_id:
-        :param datetime created_before: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp.
-        :param datetime created_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp.
+        :param str entity_path: Filter results on a case insensitive matching of the url path of the entity
+        :param int user_id:
+        :param datetime created_before: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
+        :param datetime created_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
         :param bool with_total_result_size: When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, hasMore will be be true whenever there is a next page. totalResultSize will always be zero. With this flag set to false, hasMore will always be set to false. totalResultSize will contain the total number of results for this query. 
         :param bool include_old: When this flag is set to false, the state without the change will not be returned. The default value is true.
         :param _return_http_data_only: response data without head status code
@@ -5258,7 +6339,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20027, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20028, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -5270,6 +6351,8 @@ class ManagementApi(object):
             'skip',
             'sort',
             'application_id',
+            'entity_path',
+            'user_id',
             'created_before',
             'created_after',
             'with_total_result_size',
@@ -5306,6 +6389,10 @@ class ManagementApi(object):
             query_params.append(('sort', local_var_params['sort']))  # noqa: E501
         if 'application_id' in local_var_params and local_var_params['application_id'] is not None:  # noqa: E501
             query_params.append(('applicationId', local_var_params['application_id']))  # noqa: E501
+        if 'entity_path' in local_var_params and local_var_params['entity_path'] is not None:  # noqa: E501
+            query_params.append(('entityPath', local_var_params['entity_path']))  # noqa: E501
+        if 'user_id' in local_var_params and local_var_params['user_id'] is not None:  # noqa: E501
+            query_params.append(('userId', local_var_params['user_id']))  # noqa: E501
         if 'created_before' in local_var_params and local_var_params['created_before'] is not None:  # noqa: E501
             query_params.append(('createdBefore', local_var_params['created_before']))  # noqa: E501
         if 'created_after' in local_var_params and local_var_params['created_after'] is not None:  # noqa: E501
@@ -5336,7 +6423,7 @@ class ManagementApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20027',  # noqa: E501
+            response_type='InlineResponse20028',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -5359,12 +6446,12 @@ class ManagementApi(object):
         :param int skip: Skips the given number of items when paging through large result sets.
         :param str sort: The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
         :param str value: Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters.
-        :param datetime created_before: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp.
-        :param datetime created_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp.
-        :param datetime starts_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp.
-        :param datetime starts_before: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp.
-        :param datetime expires_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp.
-        :param datetime expires_before: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp.
+        :param datetime created_before: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
+        :param datetime created_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
+        :param datetime starts_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
+        :param datetime starts_before: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
+        :param datetime expires_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
+        :param datetime expires_before: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
         :param str valid: Either \"expired\", \"validNow\", or \"validFuture\". The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future. 
         :param str batch_id: Filter results by batches of coupons
         :param str usable: Either \"true\" or \"false\". If \"true\", only coupons where `usageCounter < usageLimit` will be returned, \"false\" will return only coupons where `usageCounter >= usageLimit`. 
@@ -5400,12 +6487,12 @@ class ManagementApi(object):
         :param int skip: Skips the given number of items when paging through large result sets.
         :param str sort: The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
         :param str value: Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters.
-        :param datetime created_before: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp.
-        :param datetime created_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp.
-        :param datetime starts_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp.
-        :param datetime starts_before: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp.
-        :param datetime expires_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp.
-        :param datetime expires_before: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp.
+        :param datetime created_before: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
+        :param datetime created_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
+        :param datetime starts_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
+        :param datetime starts_before: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
+        :param datetime expires_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
+        :param datetime expires_before: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
         :param str valid: Either \"expired\", \"validNow\", or \"validFuture\". The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future. 
         :param str batch_id: Filter results by batches of coupons
         :param str usable: Either \"true\" or \"false\". If \"true\", only coupons where `usageCounter < usageLimit` will be returned, \"false\" will return only coupons where `usageCounter >= usageLimit`. 
@@ -5562,8 +6649,8 @@ class ManagementApi(object):
         :param int skip: Skips the given number of items when paging through large result sets.
         :param str sort: The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
         :param str value: Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters.
-        :param datetime created_before: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp.
-        :param datetime created_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp.
+        :param datetime created_before: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
+        :param datetime created_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
         :param str valid: Either \"expired\", \"validNow\", or \"validFuture\". The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future. 
         :param str usable: Either \"true\" or \"false\". If \"true\", only coupons where `usageCounter < usageLimit` will be returned, \"false\" will return only coupons where `usageCounter >= usageLimit`. 
         :param int referral_id: Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code.
@@ -5601,8 +6688,8 @@ class ManagementApi(object):
         :param int skip: Skips the given number of items when paging through large result sets.
         :param str sort: The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
         :param str value: Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters.
-        :param datetime created_before: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp.
-        :param datetime created_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp.
+        :param datetime created_before: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
+        :param datetime created_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
         :param str valid: Either \"expired\", \"validNow\", or \"validFuture\". The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future. 
         :param str usable: Either \"true\" or \"false\". If \"true\", only coupons where `usageCounter < usageLimit` will be returned, \"false\" will return only coupons where `usageCounter >= usageLimit`. 
         :param int referral_id: Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code.
@@ -5757,8 +6844,8 @@ class ManagementApi(object):
         :param int skip: Skips the given number of items when paging through large result sets.
         :param str sort: The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
         :param str value: Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters.
-        :param datetime created_before: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp.
-        :param datetime created_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp.
+        :param datetime created_before: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
+        :param datetime created_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
         :param str valid: Either \"expired\", \"validNow\", or \"validFuture\". The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future. 
         :param str usable: Either \"true\" or \"false\". If \"true\", only coupons where `usageCounter < usageLimit` will be returned, \"false\" will return only coupons where `usageCounter >= usageLimit`. 
         :param int referral_id: Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code.
@@ -5796,8 +6883,8 @@ class ManagementApi(object):
         :param int skip: Skips the given number of items when paging through large result sets.
         :param str sort: The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
         :param str value: Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters.
-        :param datetime created_before: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp.
-        :param datetime created_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp.
+        :param datetime created_before: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
+        :param datetime created_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
         :param str valid: Either \"expired\", \"validNow\", or \"validFuture\". The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future. 
         :param str usable: Either \"true\" or \"false\". If \"true\", only coupons where `usageCounter < usageLimit` will be returned, \"false\" will return only coupons where `usageCounter >= usageLimit`. 
         :param int referral_id: Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code.
@@ -5948,8 +7035,8 @@ class ManagementApi(object):
         :param int skip: Skips the given number of items when paging through large result sets.
         :param str sort: The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
         :param str value: Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters.
-        :param datetime created_before: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp.
-        :param datetime created_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp.
+        :param datetime created_before: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
+        :param datetime created_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
         :param str valid: Either \"expired\", \"validNow\", or \"validFuture\". The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future. 
         :param str usable: Either \"true\" or \"false\". If \"true\", only coupons where `usageCounter < usageLimit` will be returned, \"false\" will return only coupons where `usageCounter >= usageLimit`. 
         :param int referral_id: Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code.
@@ -5985,8 +7072,8 @@ class ManagementApi(object):
         :param int skip: Skips the given number of items when paging through large result sets.
         :param str sort: The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
         :param str value: Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters.
-        :param datetime created_before: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp.
-        :param datetime created_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp.
+        :param datetime created_before: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
+        :param datetime created_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
         :param str valid: Either \"expired\", \"validNow\", or \"validFuture\". The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future. 
         :param str usable: Either \"true\" or \"false\". If \"true\", only coupons where `usageCounter < usageLimit` will be returned, \"false\" will return only coupons where `usageCounter >= usageLimit`. 
         :param int referral_id: Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code.
@@ -7113,7 +8200,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20025
+        :return: InlineResponse20026
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -7145,7 +8232,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20025, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20026, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -7217,7 +8304,7 @@ class ManagementApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20025',  # noqa: E501
+            response_type='InlineResponse20026',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -7247,7 +8334,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20028
+        :return: InlineResponse20029
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -7278,7 +8365,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20028, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20029, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -7341,121 +8428,6 @@ class ManagementApi(object):
 
         return self.api_client.call_api(
             '/v1/exports', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='InlineResponse20028',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def get_imports(self, **kwargs):  # noqa: E501
-        """Get Imports  # noqa: E501
-
-        Get a list of all past imports   # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_imports(async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param int page_size: The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
-        :param int skip: Skips the given number of items when paging through large result sets.
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: InlineResponse20029
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        return self.get_imports_with_http_info(**kwargs)  # noqa: E501
-
-    def get_imports_with_http_info(self, **kwargs):  # noqa: E501
-        """Get Imports  # noqa: E501
-
-        Get a list of all past imports   # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_imports_with_http_info(async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param int page_size: The number of items to include in this response. When omitted, the maximum value of 1000 will be used.
-        :param int skip: Skips the given number of items when paging through large result sets.
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(InlineResponse20029, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = [
-            'page_size',
-            'skip'
-        ]
-        all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
-            ]
-        )
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_imports" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-
-        collection_formats = {}
-
-        path_params = {}
-
-        query_params = []
-        if 'page_size' in local_var_params and local_var_params['page_size'] is not None:  # noqa: E501
-            query_params.append(('pageSize', local_var_params['page_size']))  # noqa: E501
-        if 'skip' in local_var_params and local_var_params['skip'] is not None:  # noqa: E501
-            query_params.append(('skip', local_var_params['skip']))  # noqa: E501
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['manager_auth']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/v1/imports', 'GET',
             path_params,
             query_params,
             header_params,
@@ -7935,8 +8907,8 @@ class ManagementApi(object):
         :param int skip: Skips the given number of items when paging through large result sets.
         :param str sort: The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
         :param str code: Filter results performing case-insensitive matching against the referral code. Both the code and the query are folded to remove all non-alpha-numeric characters.
-        :param datetime created_before: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp.
-        :param datetime created_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp.
+        :param datetime created_before: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
+        :param datetime created_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
         :param str valid: Either \"expired\", \"validNow\", or \"validFuture\". The first option matches referrals in which the expiry date is set and in the past. The second matches referrals in which start date is null or in the past and expiry date is null or in the future, the third matches referrals in which start date is set and in the future. 
         :param str usable: Either \"true\" or \"false\". If \"true\", only referrals where `usageCounter < usageLimit` will be returned, \"false\" will return only referrals where `usageCounter >= usageLimit`. 
         :param str advocate: Filter results by match with a profile id specified in the referral's AdvocateProfileIntegrationId field
@@ -7969,8 +8941,8 @@ class ManagementApi(object):
         :param int skip: Skips the given number of items when paging through large result sets.
         :param str sort: The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
         :param str code: Filter results performing case-insensitive matching against the referral code. Both the code and the query are folded to remove all non-alpha-numeric characters.
-        :param datetime created_before: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp.
-        :param datetime created_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp.
+        :param datetime created_before: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
+        :param datetime created_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
         :param str valid: Either \"expired\", \"validNow\", or \"validFuture\". The first option matches referrals in which the expiry date is set and in the past. The second matches referrals in which start date is null or in the past and expiry date is null or in the future, the third matches referrals in which start date is set and in the future. 
         :param str usable: Either \"true\" or \"false\". If \"true\", only referrals where `usageCounter < usageLimit` will be returned, \"false\" will return only referrals where `usageCounter >= usageLimit`. 
         :param str advocate: Filter results by match with a profile id specified in the referral's AdvocateProfileIntegrationId field
@@ -8101,8 +9073,8 @@ class ManagementApi(object):
         :param int skip: Skips the given number of items when paging through large result sets.
         :param str sort: The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
         :param str code: Filter results performing case-insensitive matching against the referral code. Both the code and the query are folded to remove all non-alpha-numeric characters.
-        :param datetime created_before: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp.
-        :param datetime created_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp.
+        :param datetime created_before: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
+        :param datetime created_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
         :param str valid: Either \"expired\", \"validNow\", or \"validFuture\". The first option matches referrals in which the expiry date is set and in the past. The second matches referrals in which start date is null or in the past and expiry date is null or in the future, the third matches referrals in which start date is set and in the future. 
         :param str usable: Either \"true\" or \"false\". If \"true\", only referrals where `usageCounter < usageLimit` will be returned, \"false\" will return only referrals where `usageCounter >= usageLimit`. 
         :param str advocate: Filter results by match with a profile id specified in the referral's AdvocateProfileIntegrationId field
@@ -8135,8 +9107,8 @@ class ManagementApi(object):
         :param int skip: Skips the given number of items when paging through large result sets.
         :param str sort: The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
         :param str code: Filter results performing case-insensitive matching against the referral code. Both the code and the query are folded to remove all non-alpha-numeric characters.
-        :param datetime created_before: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp.
-        :param datetime created_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp.
+        :param datetime created_before: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
+        :param datetime created_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
         :param str valid: Either \"expired\", \"validNow\", or \"validFuture\". The first option matches referrals in which the expiry date is set and in the past. The second matches referrals in which start date is null or in the past and expiry date is null or in the future, the third matches referrals in which start date is set and in the future. 
         :param str usable: Either \"true\" or \"false\". If \"true\", only referrals where `usageCounter < usageLimit` will be returned, \"false\" will return only referrals where `usageCounter >= usageLimit`. 
         :param str advocate: Filter results by match with a profile id specified in the referral's AdvocateProfileIntegrationId field
@@ -8253,7 +9225,7 @@ class ManagementApi(object):
             collection_formats=collection_formats)
 
     def get_role(self, role_id, **kwargs):  # noqa: E501
-        """Get information for the specified role.  # noqa: E501
+        """Get information for the specified role  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -8277,7 +9249,7 @@ class ManagementApi(object):
         return self.get_role_with_http_info(role_id, **kwargs)  # noqa: E501
 
     def get_role_with_http_info(self, role_id, **kwargs):  # noqa: E501
-        """Get information for the specified role.  # noqa: E501
+        """Get information for the specified role  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -8764,7 +9736,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20026
+        :return: InlineResponse20027
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -8793,7 +9765,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20026, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20027, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -8856,7 +9828,7 @@ class ManagementApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20026',  # noqa: E501
+            response_type='InlineResponse20027',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -8995,8 +9967,8 @@ class ManagementApi(object):
         :param float webhook_id: Filter results by Webhook.
         :param float application_id:
         :param float campaign_id: Filter results by campaign.
-        :param datetime created_before: Only return events created before this date.
-        :param datetime created_after: Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string.
+        :param datetime created_before: Only return events created before this date. You can use any timezone. Talon.One will convert to UTC internally.
+        :param datetime created_after: Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. You can use any timezone. Talon.One will convert to UTC internally.
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -9004,7 +9976,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20023
+        :return: InlineResponse20024
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -9028,8 +10000,8 @@ class ManagementApi(object):
         :param float webhook_id: Filter results by Webhook.
         :param float application_id:
         :param float campaign_id: Filter results by campaign.
-        :param datetime created_before: Only return events created before this date.
-        :param datetime created_after: Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string.
+        :param datetime created_before: Only return events created before this date. You can use any timezone. Talon.One will convert to UTC internally.
+        :param datetime created_after: Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. You can use any timezone. Talon.One will convert to UTC internally.
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -9039,7 +10011,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20023, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20024, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -9120,7 +10092,7 @@ class ManagementApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20023',  # noqa: E501
+            response_type='InlineResponse20024',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -9145,8 +10117,8 @@ class ManagementApi(object):
         :param float application_id:
         :param float campaign_id: Filter results by campaign.
         :param str request_uuid: Filter results by request UUID.
-        :param datetime created_before: Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string.
-        :param datetime created_after: Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string.
+        :param datetime created_before: Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. You can use any timezone. Talon.One will convert to UTC internally.
+        :param datetime created_after: Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. You can use any timezone. Talon.One will convert to UTC internally.
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -9154,7 +10126,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20024
+        :return: InlineResponse20025
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -9178,8 +10150,8 @@ class ManagementApi(object):
         :param float application_id:
         :param float campaign_id: Filter results by campaign.
         :param str request_uuid: Filter results by request UUID.
-        :param datetime created_before: Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string.
-        :param datetime created_after: Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string.
+        :param datetime created_before: Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. You can use any timezone. Talon.One will convert to UTC internally.
+        :param datetime created_after: Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. You can use any timezone. Talon.One will convert to UTC internally.
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -9189,7 +10161,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20024, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20025, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -9273,7 +10245,7 @@ class ManagementApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20024',  # noqa: E501
+            response_type='InlineResponse20025',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -9301,7 +10273,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20022
+        :return: InlineResponse20023
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -9330,7 +10302,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20022, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20023, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -9396,7 +10368,7 @@ class ManagementApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20022',  # noqa: E501
+            response_type='InlineResponse20023',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -9669,8 +10641,8 @@ class ManagementApi(object):
         :param int skip: Skips the given number of items when paging through large result sets.
         :param str sort: The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
         :param str value: Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters.
-        :param datetime created_before: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp.
-        :param datetime created_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp.
+        :param datetime created_before: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
+        :param datetime created_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
         :param str valid: Either \"expired\", \"validNow\", or \"validFuture\". The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future. 
         :param str usable: Either \"true\" or \"false\". If \"true\", only coupons where `usageCounter < usageLimit` will be returned, \"false\" will return only coupons where `usageCounter >= usageLimit`. 
         :param int referral_id: Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code.
@@ -9708,8 +10680,8 @@ class ManagementApi(object):
         :param int skip: Skips the given number of items when paging through large result sets.
         :param str sort: The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
         :param str value: Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters.
-        :param datetime created_before: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp.
-        :param datetime created_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp.
+        :param datetime created_before: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
+        :param datetime created_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
         :param str valid: Either \"expired\", \"validNow\", or \"validFuture\". The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future. 
         :param str usable: Either \"true\" or \"false\". If \"true\", only coupons where `usageCounter < usageLimit` will be returned, \"false\" will return only coupons where `usageCounter >= usageLimit`. 
         :param int referral_id: Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code.
@@ -9864,8 +10836,8 @@ class ManagementApi(object):
         :param int skip: Skips the given number of items when paging through large result sets.
         :param str sort: The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
         :param str value: Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters.
-        :param datetime created_before: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp.
-        :param datetime created_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp.
+        :param datetime created_before: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
+        :param datetime created_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
         :param str valid: Either \"expired\", \"validNow\", or \"validFuture\". The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future. 
         :param str usable: Either \"true\" or \"false\". If \"true\", only coupons where `usageCounter < usageLimit` will be returned, \"false\" will return only coupons where `usageCounter >= usageLimit`. 
         :param int referral_id: Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code.
@@ -9903,8 +10875,8 @@ class ManagementApi(object):
         :param int skip: Skips the given number of items when paging through large result sets.
         :param str sort: The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
         :param str value: Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters.
-        :param datetime created_before: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp.
-        :param datetime created_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp.
+        :param datetime created_before: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
+        :param datetime created_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
         :param str valid: Either \"expired\", \"validNow\", or \"validFuture\". The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future. 
         :param str usable: Either \"true\" or \"false\". If \"true\", only coupons where `usageCounter < usageLimit` will be returned, \"false\" will return only coupons where `usageCounter >= usageLimit`. 
         :param int referral_id: Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code.
@@ -10056,8 +11028,8 @@ class ManagementApi(object):
         :param int skip: Skips the given number of items when paging through large result sets.
         :param str sort: The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
         :param str value: Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters.
-        :param datetime created_before: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp.
-        :param datetime created_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp.
+        :param datetime created_before: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
+        :param datetime created_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
         :param str valid: Either \"expired\", \"validNow\", or \"validFuture\". The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future. 
         :param str usable: Either \"true\" or \"false\". If \"true\", only coupons where `usageCounter < usageLimit` will be returned, \"false\" will return only coupons where `usageCounter >= usageLimit`. 
         :param int referral_id: Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code.
@@ -10095,8 +11067,8 @@ class ManagementApi(object):
         :param int skip: Skips the given number of items when paging through large result sets.
         :param str sort: The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
         :param str value: Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters.
-        :param datetime created_before: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp.
-        :param datetime created_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp.
+        :param datetime created_before: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
+        :param datetime created_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
         :param str valid: Either \"expired\", \"validNow\", or \"validFuture\". The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future. 
         :param str usable: Either \"true\" or \"false\". If \"true\", only coupons where `usageCounter < usageLimit` will be returned, \"false\" will return only coupons where `usageCounter >= usageLimit`. 
         :param int referral_id: Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code.
@@ -10249,8 +11221,8 @@ class ManagementApi(object):
         :param int skip: Skips the given number of items when paging through large result sets.
         :param str sort: The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
         :param str value: Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters.
-        :param datetime created_before: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp.
-        :param datetime created_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp.
+        :param datetime created_before: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
+        :param datetime created_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
         :param str valid: Either \"expired\", \"validNow\", or \"validFuture\". The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future. 
         :param str usable: Either \"true\" or \"false\". If \"true\", only coupons where `usageCounter < usageLimit` will be returned, \"false\" will return only coupons where `usageCounter >= usageLimit`. 
         :param int referral_id: Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code.
@@ -10288,8 +11260,8 @@ class ManagementApi(object):
         :param int skip: Skips the given number of items when paging through large result sets.
         :param str sort: The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order.
         :param str value: Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters.
-        :param datetime created_before: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp.
-        :param datetime created_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp.
+        :param datetime created_before: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
+        :param datetime created_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
         :param str valid: Either \"expired\", \"validNow\", or \"validFuture\". The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future. 
         :param str usable: Either \"true\" or \"false\". If \"true\", only coupons where `usageCounter < usageLimit` will be returned, \"false\" will return only coupons where `usageCounter >= usageLimit`. 
         :param int referral_id: Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code.

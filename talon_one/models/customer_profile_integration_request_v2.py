@@ -34,26 +34,31 @@ class CustomerProfileIntegrationRequestV2(object):
     """
     openapi_types = {
         'attributes': 'object',
+        'audiences_changes': 'ProfileAudiencesChanges',
         'response_content': 'list[str]'
     }
 
     attribute_map = {
         'attributes': 'attributes',
+        'audiences_changes': 'audiencesChanges',
         'response_content': 'responseContent'
     }
 
-    def __init__(self, attributes=None, response_content=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, attributes=None, audiences_changes=None, response_content=None, local_vars_configuration=None):  # noqa: E501
         """CustomerProfileIntegrationRequestV2 - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._attributes = None
+        self._audiences_changes = None
         self._response_content = None
         self.discriminator = None
 
         if attributes is not None:
             self.attributes = attributes
+        if audiences_changes is not None:
+            self.audiences_changes = audiences_changes
         if response_content is not None:
             self.response_content = response_content
 
@@ -81,10 +86,31 @@ class CustomerProfileIntegrationRequestV2(object):
         self._attributes = attributes
 
     @property
+    def audiences_changes(self):
+        """Gets the audiences_changes of this CustomerProfileIntegrationRequestV2.  # noqa: E501
+
+
+        :return: The audiences_changes of this CustomerProfileIntegrationRequestV2.  # noqa: E501
+        :rtype: ProfileAudiencesChanges
+        """
+        return self._audiences_changes
+
+    @audiences_changes.setter
+    def audiences_changes(self, audiences_changes):
+        """Sets the audiences_changes of this CustomerProfileIntegrationRequestV2.
+
+
+        :param audiences_changes: The audiences_changes of this CustomerProfileIntegrationRequestV2.  # noqa: E501
+        :type: ProfileAudiencesChanges
+        """
+
+        self._audiences_changes = audiences_changes
+
+    @property
     def response_content(self):
         """Gets the response_content of this CustomerProfileIntegrationRequestV2.  # noqa: E501
 
-        Optional list of requested information to be present on the response related to the customer profile update. Currently supported: \"customerProfile\", \"triggeredCampaigns\", \"loyalty\" and \"event\".   # noqa: E501
+        Optional list of requested information to be present on the response related to the customer profile update. Currently supported: \"customerProfile\", \"triggeredCampaigns\", \"loyalty\", \"event\" and \"ruleFailureReasons\".   # noqa: E501
 
         :return: The response_content of this CustomerProfileIntegrationRequestV2.  # noqa: E501
         :rtype: list[str]
@@ -95,12 +121,12 @@ class CustomerProfileIntegrationRequestV2(object):
     def response_content(self, response_content):
         """Sets the response_content of this CustomerProfileIntegrationRequestV2.
 
-        Optional list of requested information to be present on the response related to the customer profile update. Currently supported: \"customerProfile\", \"triggeredCampaigns\", \"loyalty\" and \"event\".   # noqa: E501
+        Optional list of requested information to be present on the response related to the customer profile update. Currently supported: \"customerProfile\", \"triggeredCampaigns\", \"loyalty\", \"event\" and \"ruleFailureReasons\".   # noqa: E501
 
         :param response_content: The response_content of this CustomerProfileIntegrationRequestV2.  # noqa: E501
         :type: list[str]
         """
-        allowed_values = ["customerProfile", "triggeredCampaigns", "loyalty", "event"]  # noqa: E501
+        allowed_values = ["customerProfile", "triggeredCampaigns", "loyalty", "event", "ruleFailureReasons"]  # noqa: E501
         if (self.local_vars_configuration.client_side_validation and
                 not set(response_content).issubset(set(allowed_values))):  # noqa: E501
             raise ValueError(

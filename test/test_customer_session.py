@@ -55,11 +55,7 @@ class TestCustomerSession(unittest.TestCase):
                         width = 1.337, 
                         length = 1.337, 
                         position = 1.337, 
-                        attributes = talon_one.models.item_attributes.Item attributes(), 
-                        adjustment = talon_one.models.cart_item_adjustment.CartItemAdjustment(
-                            pay_from_loyalty_program = 56, 
-                            point_payment = 1, 
-                            remaining_price = 0, ), )
+                        attributes = talon_one.models.item_attributes.Item attributes(), )
                     ], 
                 identifiers = [
                     '0'
@@ -92,11 +88,7 @@ class TestCustomerSession(unittest.TestCase):
                         width = 1.337, 
                         length = 1.337, 
                         position = 1.337, 
-                        attributes = talon_one.models.item_attributes.Item attributes(), 
-                        adjustment = talon_one.models.cart_item_adjustment.CartItemAdjustment(
-                            pay_from_loyalty_program = 56, 
-                            point_payment = 1, 
-                            remaining_price = 0, ), )
+                        attributes = talon_one.models.item_attributes.Item attributes(), )
                     ],
                 total = 1.337,
                 attributes = None,

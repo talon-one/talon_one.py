@@ -4,7 +4,7 @@ Ledger of Balance in Loyalty Program for a Customer
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**total** | **float** | ⚠️ Deprecated: Please use &#39;totalActivePoints&#39; property instead. Total amount of currently active and available points in the customer&#39;s balance  | 
+**total** | **float** | ⚠️ Deprecated: Use &#39;totalActivePoints&#39; property instead. Total amount of currently active and available points in the customer&#39;s balance  | 
 **total_active_points** | **float** | Total amount of currently active and available points in the customer&#39;s balance | 
 **total_pending_points** | **float** | Total amount of pending points, which are not active yet but will become active in the future | 
 **total_spent_points** | **float** | Total amount of points already spent by this customer | 

@@ -40,7 +40,7 @@ class TestModelImport(unittest.TestCase):
                 created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                 account_id = 56, 
                 user_id = 56, 
-                entity = 'Coupon', 
+                entity = '0', 
                 amount = 0
             )
         else :
@@ -49,7 +49,7 @@ class TestModelImport(unittest.TestCase):
                 created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 account_id = 56,
                 user_id = 56,
-                entity = 'Coupon',
+                entity = '0',
                 amount = 0,
         )
 

@@ -70,6 +70,13 @@ class TestManagementApi(unittest.TestCase):
         """
         pass
 
+    def test_create_coupons_for_multiple_recipients(self):
+        """Test case for create_coupons_for_multiple_recipients
+
+        Create Coupons for Multiple Recipients  # noqa: E501
+        """
+        pass
+
     def test_create_password_recovery_email(self):
         """Test case for create_password_recovery_email
 
@@ -126,6 +133,48 @@ class TestManagementApi(unittest.TestCase):
         """
         pass
 
+    def test_destroy_session(self):
+        """Test case for destroy_session
+
+        Destroy a Session  # noqa: E501
+        """
+        pass
+
+    def test_export_coupons(self):
+        """Test case for export_coupons
+
+        Export Coupons to a CSV file  # noqa: E501
+        """
+        pass
+
+    def test_export_customer_sessions(self):
+        """Test case for export_customer_sessions
+
+        Export Customer Sessions to a CSV file  # noqa: E501
+        """
+        pass
+
+    def test_export_effects(self):
+        """Test case for export_effects
+
+        Export triggered Effects to a CSV file  # noqa: E501
+        """
+        pass
+
+    def test_export_loyalty_balance(self):
+        """Test case for export_loyalty_balance
+
+        Export customer loyalty balance to a CSV file  # noqa: E501
+        """
+        pass
+
+    def test_export_loyalty_ledger(self):
+        """Test case for export_loyalty_ledger
+
+        Export a customer's loyalty ledger log to a CSV file  # noqa: E501
+        """
+        pass
+
     def test_get_access_logs(self):
         """Test case for get_access_logs
 
@@ -178,7 +227,7 @@ class TestManagementApi(unittest.TestCase):
     def test_get_all_roles(self):
         """Test case for get_all_roles
 
-        Get all roles.  # noqa: E501
+        Get all roles  # noqa: E501
         """
         pass
 
@@ -270,6 +319,13 @@ class TestManagementApi(unittest.TestCase):
         """Test case for get_attributes
 
         List custom attributes  # noqa: E501
+        """
+        pass
+
+    def test_get_audiences(self):
+        """Test case for get_audiences
+
+        Get all audiences  # noqa: E501
         """
         pass
 
@@ -399,13 +455,6 @@ class TestManagementApi(unittest.TestCase):
         """
         pass
 
-    def test_get_imports(self):
-        """Test case for get_imports
-
-        Get Imports  # noqa: E501
-        """
-        pass
-
     def test_get_loyalty_points(self):
         """Test case for get_loyalty_points
 
@@ -451,7 +500,7 @@ class TestManagementApi(unittest.TestCase):
     def test_get_role(self):
         """Test case for get_role
 
-        Get information for the specified role.  # noqa: E501
+        Get information for the specified role  # noqa: E501
         """
         pass
 

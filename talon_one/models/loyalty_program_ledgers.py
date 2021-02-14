@@ -33,6 +33,7 @@ class LoyaltyProgramLedgers(object):
                             and the value is json key in definition.
     """
     openapi_types = {
+        'id': 'int',
         'title': 'str',
         'name': 'str',
         'ledger': 'LoyaltyProgramBalance',
@@ -40,29 +41,57 @@ class LoyaltyProgramLedgers(object):
     }
 
     attribute_map = {
+        'id': 'id',
         'title': 'title',
         'name': 'name',
         'ledger': 'ledger',
         'sub_ledgers': 'subLedgers'
     }
 
-    def __init__(self, title=None, name=None, ledger=None, sub_ledgers=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, title=None, name=None, ledger=None, sub_ledgers=None, local_vars_configuration=None):  # noqa: E501
         """LoyaltyProgramLedgers - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
+        self._id = None
         self._title = None
         self._name = None
         self._ledger = None
         self._sub_ledgers = None
         self.discriminator = None
 
+        self.id = id
         self.title = title
         self.name = name
         self.ledger = ledger
         if sub_ledgers is not None:
             self.sub_ledgers = sub_ledgers
+
+    @property
+    def id(self):
+        """Gets the id of this LoyaltyProgramLedgers.  # noqa: E501
+
+        The internal ID of loyalty program  # noqa: E501
+
+        :return: The id of this LoyaltyProgramLedgers.  # noqa: E501
+        :rtype: int
+        """
+        return self._id
+
+    @id.setter
+    def id(self, id):
+        """Sets the id of this LoyaltyProgramLedgers.
+
+        The internal ID of loyalty program  # noqa: E501
+
+        :param id: The id of this LoyaltyProgramLedgers.  # noqa: E501
+        :type: int
+        """
+        if self.local_vars_configuration.client_side_validation and id is None:  # noqa: E501
+            raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
+
+        self._id = id
 
     @property
     def title(self):

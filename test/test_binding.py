@@ -37,6 +37,7 @@ class TestBinding(unittest.TestCase):
         if include_optional :
             return Binding(
                 name = '0', 
+                type = '0', 
                 expression = [
                     None
                     ]

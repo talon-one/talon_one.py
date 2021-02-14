@@ -36,6 +36,7 @@ class Change(object):
         'id': 'int',
         'created': 'datetime',
         'user_id': 'int',
+        'application_id': 'int',
         'entity': 'str',
         'old': 'object',
         'new': 'object'
@@ -45,12 +46,13 @@ class Change(object):
         'id': 'id',
         'created': 'created',
         'user_id': 'userId',
+        'application_id': 'applicationId',
         'entity': 'entity',
         'old': 'old',
         'new': 'new'
     }
 
-    def __init__(self, id=None, created=None, user_id=None, entity=None, old=None, new=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, created=None, user_id=None, application_id=None, entity=None, old=None, new=None, local_vars_configuration=None):  # noqa: E501
         """Change - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -59,6 +61,7 @@ class Change(object):
         self._id = None
         self._created = None
         self._user_id = None
+        self._application_id = None
         self._entity = None
         self._old = None
         self._new = None
@@ -67,6 +70,8 @@ class Change(object):
         self.id = id
         self.created = created
         self.user_id = user_id
+        if application_id is not None:
+            self.application_id = application_id
         self.entity = entity
         if old is not None:
             self.old = old
@@ -147,6 +152,29 @@ class Change(object):
             raise ValueError("Invalid value for `user_id`, must not be `None`")  # noqa: E501
 
         self._user_id = user_id
+
+    @property
+    def application_id(self):
+        """Gets the application_id of this Change.  # noqa: E501
+
+        ID of application associated with change  # noqa: E501
+
+        :return: The application_id of this Change.  # noqa: E501
+        :rtype: int
+        """
+        return self._application_id
+
+    @application_id.setter
+    def application_id(self, application_id):
+        """Sets the application_id of this Change.
+
+        ID of application associated with change  # noqa: E501
+
+        :param application_id: The application_id of this Change.  # noqa: E501
+        :type: int
+        """
+
+        self._application_id = application_id
 
     @property
     def entity(self):

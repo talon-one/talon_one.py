@@ -38,6 +38,7 @@ class Effect(object):
         'rule_index': 'int',
         'rule_name': 'str',
         'effect_type': 'str',
+        'triggered_by_coupon': 'int',
         'props': 'object'
     }
 
@@ -47,10 +48,11 @@ class Effect(object):
         'rule_index': 'ruleIndex',
         'rule_name': 'ruleName',
         'effect_type': 'effectType',
+        'triggered_by_coupon': 'triggeredByCoupon',
         'props': 'props'
     }
 
-    def __init__(self, campaign_id=None, ruleset_id=None, rule_index=None, rule_name=None, effect_type=None, props=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, campaign_id=None, ruleset_id=None, rule_index=None, rule_name=None, effect_type=None, triggered_by_coupon=None, props=None, local_vars_configuration=None):  # noqa: E501
         """Effect - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -61,6 +63,7 @@ class Effect(object):
         self._rule_index = None
         self._rule_name = None
         self._effect_type = None
+        self._triggered_by_coupon = None
         self._props = None
         self.discriminator = None
 
@@ -69,6 +72,8 @@ class Effect(object):
         self.rule_index = rule_index
         self.rule_name = rule_name
         self.effect_type = effect_type
+        if triggered_by_coupon is not None:
+            self.triggered_by_coupon = triggered_by_coupon
         self.props = props
 
     @property
@@ -195,6 +200,29 @@ class Effect(object):
             raise ValueError("Invalid value for `effect_type`, must not be `None`")  # noqa: E501
 
         self._effect_type = effect_type
+
+    @property
+    def triggered_by_coupon(self):
+        """Gets the triggered_by_coupon of this Effect.  # noqa: E501
+
+        The ID of the coupon that was being evaluated when this effect was triggered  # noqa: E501
+
+        :return: The triggered_by_coupon of this Effect.  # noqa: E501
+        :rtype: int
+        """
+        return self._triggered_by_coupon
+
+    @triggered_by_coupon.setter
+    def triggered_by_coupon(self, triggered_by_coupon):
+        """Sets the triggered_by_coupon of this Effect.
+
+        The ID of the coupon that was being evaluated when this effect was triggered  # noqa: E501
+
+        :param triggered_by_coupon: The triggered_by_coupon of this Effect.  # noqa: E501
+        :type: int
+        """
+
+        self._triggered_by_coupon = triggered_by_coupon
 
     @property
     def props(self):

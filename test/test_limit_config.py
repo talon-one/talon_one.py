@@ -36,7 +36,7 @@ class TestLimitConfig(unittest.TestCase):
         # model = talon_one.models.limit_config.LimitConfig()  # noqa: E501
         if include_optional :
             return LimitConfig(
-                action = 'redeemCoupon', 
+                action = '0', 
                 limit = 0, 
                 entities = [
                     'Coupon'
@@ -44,7 +44,7 @@ class TestLimitConfig(unittest.TestCase):
             )
         else :
             return LimitConfig(
-                action = 'redeemCoupon',
+                action = '0',
                 limit = 0,
                 entities = [
                     'Coupon'

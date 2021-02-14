@@ -34,7 +34,7 @@ class InlineResponse20020(object):
     """
     openapi_types = {
         'total_result_size': 'int',
-        'data': 'list[Attribute]'
+        'data': 'list[Audience]'
     }
 
     attribute_map = {
@@ -52,7 +52,8 @@ class InlineResponse20020(object):
         self._data = None
         self.discriminator = None
 
-        self.total_result_size = total_result_size
+        if total_result_size is not None:
+            self.total_result_size = total_result_size
         self.data = data
 
     @property
@@ -73,8 +74,6 @@ class InlineResponse20020(object):
         :param total_result_size: The total_result_size of this InlineResponse20020.  # noqa: E501
         :type: int
         """
-        if self.local_vars_configuration.client_side_validation and total_result_size is None:  # noqa: E501
-            raise ValueError("Invalid value for `total_result_size`, must not be `None`")  # noqa: E501
 
         self._total_result_size = total_result_size
 
@@ -84,7 +83,7 @@ class InlineResponse20020(object):
 
 
         :return: The data of this InlineResponse20020.  # noqa: E501
-        :rtype: list[Attribute]
+        :rtype: list[Audience]
         """
         return self._data
 
@@ -94,7 +93,7 @@ class InlineResponse20020(object):
 
 
         :param data: The data of this InlineResponse20020.  # noqa: E501
-        :type: list[Attribute]
+        :type: list[Audience]
         """
         if self.local_vars_configuration.client_side_validation and data is None:  # noqa: E501
             raise ValueError("Invalid value for `data`, must not be `None`")  # noqa: E501

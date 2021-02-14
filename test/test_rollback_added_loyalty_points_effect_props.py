@@ -16,11 +16,11 @@ import unittest
 import datetime
 
 import talon_one
-from talon_one.models.new_import import NewImport  # noqa: E501
+from talon_one.models.rollback_added_loyalty_points_effect_props import RollbackAddedLoyaltyPointsEffectProps  # noqa: E501
 from talon_one.rest import ApiException
 
-class TestNewImport(unittest.TestCase):
-    """NewImport unit test stubs"""
+class TestRollbackAddedLoyaltyPointsEffectProps(unittest.TestCase):
+    """RollbackAddedLoyaltyPointsEffectProps unit test stubs"""
 
     def setUp(self):
         pass
@@ -29,22 +29,30 @@ class TestNewImport(unittest.TestCase):
         pass
 
     def make_instance(self, include_optional):
-        """Test NewImport
+        """Test RollbackAddedLoyaltyPointsEffectProps
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # model = talon_one.models.new_import.NewImport()  # noqa: E501
+        # model = talon_one.models.rollback_added_loyalty_points_effect_props.RollbackAddedLoyaltyPointsEffectProps()  # noqa: E501
         if include_optional :
-            return NewImport(
-                entity = 'Coupon'
+            return RollbackAddedLoyaltyPointsEffectProps(
+                program_id = 56, 
+                sub_ledger_id = '0', 
+                value = 1.337, 
+                recipient_integration_id = '0', 
+                transaction_uuid = '0'
             )
         else :
-            return NewImport(
-                entity = 'Coupon',
+            return RollbackAddedLoyaltyPointsEffectProps(
+                program_id = 56,
+                sub_ledger_id = '0',
+                value = 1.337,
+                recipient_integration_id = '0',
+                transaction_uuid = '0',
         )
 
-    def testNewImport(self):
-        """Test NewImport"""
+    def testRollbackAddedLoyaltyPointsEffectProps(self):
+        """Test RollbackAddedLoyaltyPointsEffectProps"""
         inst_req_only = self.make_instance(include_optional=False)
         inst_req_and_optional = self.make_instance(include_optional=True)
 

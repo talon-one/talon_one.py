@@ -46,6 +46,7 @@ class Application(object):
         'limits': 'list[LimitConfig]',
         'campaign_priority': 'str',
         'exclusive_campaigns_strategy': 'str',
+        'default_discount_scope': 'str',
         'enable_cascading_discounts': 'bool',
         'enable_flattened_cart_items': 'bool',
         'attributes_settings': 'AttributesSettings',
@@ -67,6 +68,7 @@ class Application(object):
         'limits': 'limits',
         'campaign_priority': 'campaignPriority',
         'exclusive_campaigns_strategy': 'exclusiveCampaignsStrategy',
+        'default_discount_scope': 'defaultDiscountScope',
         'enable_cascading_discounts': 'enableCascadingDiscounts',
         'enable_flattened_cart_items': 'enableFlattenedCartItems',
         'attributes_settings': 'attributesSettings',
@@ -74,7 +76,7 @@ class Application(object):
         'loyalty_programs': 'loyaltyPrograms'
     }
 
-    def __init__(self, id=None, created=None, modified=None, account_id=None, name=None, description=None, timezone=None, currency=None, case_sensitivity=None, attributes=None, limits=None, campaign_priority=None, exclusive_campaigns_strategy=None, enable_cascading_discounts=None, enable_flattened_cart_items=None, attributes_settings=None, sandbox=None, loyalty_programs=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, created=None, modified=None, account_id=None, name=None, description=None, timezone=None, currency=None, case_sensitivity=None, attributes=None, limits=None, campaign_priority=None, exclusive_campaigns_strategy=None, default_discount_scope=None, enable_cascading_discounts=None, enable_flattened_cart_items=None, attributes_settings=None, sandbox=None, loyalty_programs=None, local_vars_configuration=None):  # noqa: E501
         """Application - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -93,6 +95,7 @@ class Application(object):
         self._limits = None
         self._campaign_priority = None
         self._exclusive_campaigns_strategy = None
+        self._default_discount_scope = None
         self._enable_cascading_discounts = None
         self._enable_flattened_cart_items = None
         self._attributes_settings = None
@@ -119,6 +122,8 @@ class Application(object):
             self.campaign_priority = campaign_priority
         if exclusive_campaigns_strategy is not None:
             self.exclusive_campaigns_strategy = exclusive_campaigns_strategy
+        if default_discount_scope is not None:
+            self.default_discount_scope = default_discount_scope
         if enable_cascading_discounts is not None:
             self.enable_cascading_discounts = enable_cascading_discounts
         if enable_flattened_cart_items is not None:
@@ -468,6 +473,35 @@ class Application(object):
             )
 
         self._exclusive_campaigns_strategy = exclusive_campaigns_strategy
+
+    @property
+    def default_discount_scope(self):
+        """Gets the default_discount_scope of this Application.  # noqa: E501
+
+        The default scope to apply \"setDiscount\" effects on if no scope was provided with the effect.  # noqa: E501
+
+        :return: The default_discount_scope of this Application.  # noqa: E501
+        :rtype: str
+        """
+        return self._default_discount_scope
+
+    @default_discount_scope.setter
+    def default_discount_scope(self, default_discount_scope):
+        """Sets the default_discount_scope of this Application.
+
+        The default scope to apply \"setDiscount\" effects on if no scope was provided with the effect.  # noqa: E501
+
+        :param default_discount_scope: The default_discount_scope of this Application.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["sessionTotal", "cartItems", "additionalCosts"]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and default_discount_scope not in allowed_values:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `default_discount_scope` ({0}), must be one of {1}"  # noqa: E501
+                .format(default_discount_scope, allowed_values)
+            )
+
+        self._default_discount_scope = default_discount_scope
 
     @property
     def enable_cascading_discounts(self):

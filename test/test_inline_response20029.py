@@ -38,26 +38,26 @@ class TestInlineResponse20029(unittest.TestCase):
             return InlineResponse20029(
                 total_result_size = 56, 
                 data = [
-                    talon_one.models.import.Import(
+                    talon_one.models.export.Export(
                         id = 56, 
                         created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                         account_id = 56, 
                         user_id = 56, 
                         entity = 'Coupon', 
-                        amount = 0, )
+                        filter = talon_one.models.filter.filter(), )
                     ]
             )
         else :
             return InlineResponse20029(
                 total_result_size = 56,
                 data = [
-                    talon_one.models.import.Import(
+                    talon_one.models.export.Export(
                         id = 56, 
                         created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                         account_id = 56, 
                         user_id = 56, 
                         entity = 'Coupon', 
-                        amount = 0, )
+                        filter = talon_one.models.filter.filter(), )
                     ],
         )
 
