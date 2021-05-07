@@ -56,6 +56,7 @@ class Campaign(object):
         'discount_effect_count': 'int',
         'coupon_creation_count': 'int',
         'referral_creation_count': 'int',
+        'awarded_giveaways_count': 'int',
         'created_loyalty_points_count': 'float',
         'created_loyalty_points_effect_count': 'int',
         'redeemed_loyalty_points_count': 'float',
@@ -90,6 +91,7 @@ class Campaign(object):
         'discount_effect_count': 'discountEffectCount',
         'coupon_creation_count': 'couponCreationCount',
         'referral_creation_count': 'referralCreationCount',
+        'awarded_giveaways_count': 'awardedGiveawaysCount',
         'created_loyalty_points_count': 'createdLoyaltyPointsCount',
         'created_loyalty_points_effect_count': 'createdLoyaltyPointsEffectCount',
         'redeemed_loyalty_points_count': 'redeemedLoyaltyPointsCount',
@@ -100,7 +102,7 @@ class Campaign(object):
         'updated_by': 'updatedBy'
     }
 
-    def __init__(self, id=None, created=None, application_id=None, user_id=None, name=None, description=None, start_time=None, end_time=None, attributes=None, state='enabled', active_ruleset_id=None, tags=None, features=None, coupon_settings=None, referral_settings=None, limits=None, campaign_groups=None, coupon_redemption_count=None, referral_redemption_count=None, discount_count=None, discount_effect_count=None, coupon_creation_count=None, referral_creation_count=None, created_loyalty_points_count=None, created_loyalty_points_effect_count=None, redeemed_loyalty_points_count=None, redeemed_loyalty_points_effect_count=None, last_activity=None, updated=None, created_by=None, updated_by=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, created=None, application_id=None, user_id=None, name=None, description=None, start_time=None, end_time=None, attributes=None, state='enabled', active_ruleset_id=None, tags=None, features=None, coupon_settings=None, referral_settings=None, limits=None, campaign_groups=None, coupon_redemption_count=None, referral_redemption_count=None, discount_count=None, discount_effect_count=None, coupon_creation_count=None, referral_creation_count=None, awarded_giveaways_count=None, created_loyalty_points_count=None, created_loyalty_points_effect_count=None, redeemed_loyalty_points_count=None, redeemed_loyalty_points_effect_count=None, last_activity=None, updated=None, created_by=None, updated_by=None, local_vars_configuration=None):  # noqa: E501
         """Campaign - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -129,6 +131,7 @@ class Campaign(object):
         self._discount_effect_count = None
         self._coupon_creation_count = None
         self._referral_creation_count = None
+        self._awarded_giveaways_count = None
         self._created_loyalty_points_count = None
         self._created_loyalty_points_effect_count = None
         self._redeemed_loyalty_points_count = None
@@ -175,6 +178,8 @@ class Campaign(object):
             self.coupon_creation_count = coupon_creation_count
         if referral_creation_count is not None:
             self.referral_creation_count = referral_creation_count
+        if awarded_giveaways_count is not None:
+            self.awarded_giveaways_count = awarded_giveaways_count
         if created_loyalty_points_count is not None:
             self.created_loyalty_points_count = created_loyalty_points_count
         if created_loyalty_points_effect_count is not None:
@@ -515,7 +520,7 @@ class Campaign(object):
         """
         if self.local_vars_configuration.client_side_validation and features is None:  # noqa: E501
             raise ValueError("Invalid value for `features`, must not be `None`")  # noqa: E501
-        allowed_values = ["coupons", "referrals", "loyalty"]  # noqa: E501
+        allowed_values = ["coupons", "referrals", "loyalty", "giveaways"]  # noqa: E501
         if (self.local_vars_configuration.client_side_validation and
                 not set(features).issubset(set(allowed_values))):  # noqa: E501
             raise ValueError(
@@ -753,6 +758,29 @@ class Campaign(object):
         """
 
         self._referral_creation_count = referral_creation_count
+
+    @property
+    def awarded_giveaways_count(self):
+        """Gets the awarded_giveaways_count of this Campaign.  # noqa: E501
+
+        Total number of giveaways awarded by rules in this campaign.  # noqa: E501
+
+        :return: The awarded_giveaways_count of this Campaign.  # noqa: E501
+        :rtype: int
+        """
+        return self._awarded_giveaways_count
+
+    @awarded_giveaways_count.setter
+    def awarded_giveaways_count(self, awarded_giveaways_count):
+        """Sets the awarded_giveaways_count of this Campaign.
+
+        Total number of giveaways awarded by rules in this campaign.  # noqa: E501
+
+        :param awarded_giveaways_count: The awarded_giveaways_count of this Campaign.  # noqa: E501
+        :type: int
+        """
+
+        self._awarded_giveaways_count = awarded_giveaways_count
 
     @property
     def created_loyalty_points_count(self):

@@ -38,24 +38,34 @@ class TestInlineResponse20024(unittest.TestCase):
             return InlineResponse20024(
                 total_result_size = 56, 
                 data = [
-                    talon_one.models.webhook_activation_log_entry.WebhookActivationLogEntry(
+                    talon_one.models.webhook_log_entry.WebhookLogEntry(
+                        id = '0', 
                         integration_request_uuid = '0', 
                         webhook_id = 56, 
                         application_id = 56, 
-                        campaign_id = 56, 
-                        created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), )
+                        url = '0', 
+                        request = '0', 
+                        response = '0', 
+                        status = 56, 
+                        request_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        response_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), )
                     ]
             )
         else :
             return InlineResponse20024(
                 total_result_size = 56,
                 data = [
-                    talon_one.models.webhook_activation_log_entry.WebhookActivationLogEntry(
+                    talon_one.models.webhook_log_entry.WebhookLogEntry(
+                        id = '0', 
                         integration_request_uuid = '0', 
                         webhook_id = 56, 
                         application_id = 56, 
-                        campaign_id = 56, 
-                        created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), )
+                        url = '0', 
+                        request = '0', 
+                        response = '0', 
+                        status = 56, 
+                        request_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        response_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), )
                     ],
         )
 

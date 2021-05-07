@@ -38,34 +38,42 @@ class TestInlineResponse20025(unittest.TestCase):
             return InlineResponse20025(
                 total_result_size = 56, 
                 data = [
-                    talon_one.models.webhook_log_entry.WebhookLogEntry(
-                        id = '0', 
-                        integration_request_uuid = '0', 
-                        webhook_id = 56, 
-                        application_id = 56, 
-                        url = '0', 
-                        request = '0', 
-                        response = '0', 
-                        status = 56, 
-                        request_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        response_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), )
+                    talon_one.models.event_type.EventType(
+                        id = 56, 
+                        created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        application_ids = [
+                            56
+                            ], 
+                        title = '0', 
+                        name = '0', 
+                        description = '0', 
+                        mime_type = 'application/json', 
+                        example_payload = '0', 
+                        schema = talon_one.models.schema.schema(), 
+                        handler_language = 'talang', 
+                        handler = '0', 
+                        version = 56, )
                     ]
             )
         else :
             return InlineResponse20025(
                 total_result_size = 56,
                 data = [
-                    talon_one.models.webhook_log_entry.WebhookLogEntry(
-                        id = '0', 
-                        integration_request_uuid = '0', 
-                        webhook_id = 56, 
-                        application_id = 56, 
-                        url = '0', 
-                        request = '0', 
-                        response = '0', 
-                        status = 56, 
-                        request_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        response_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), )
+                    talon_one.models.event_type.EventType(
+                        id = 56, 
+                        created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        application_ids = [
+                            56
+                            ], 
+                        title = '0', 
+                        name = '0', 
+                        description = '0', 
+                        mime_type = 'application/json', 
+                        example_payload = '0', 
+                        schema = talon_one.models.schema.schema(), 
+                        handler_language = 'talang', 
+                        handler = '0', 
+                        version = 56, )
                     ],
         )
 

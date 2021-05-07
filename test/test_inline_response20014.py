@@ -36,7 +36,7 @@ class TestInlineResponse20014(unittest.TestCase):
         # model = talon_one.models.inline_response20014.InlineResponse20014()  # noqa: E501
         if include_optional :
             return InlineResponse20014(
-                total_result_size = 56, 
+                has_more = True, 
                 data = [
                     talon_one.models.customer_activity_report.CustomerActivityReport(
                         integration_id = '0', 
@@ -56,7 +56,7 @@ class TestInlineResponse20014(unittest.TestCase):
             )
         else :
             return InlineResponse20014(
-                total_result_size = 56,
+                has_more = True,
                 data = [
                     talon_one.models.customer_activity_report.CustomerActivityReport(
                         integration_id = '0', 

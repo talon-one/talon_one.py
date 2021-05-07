@@ -34,6 +34,8 @@ class Role(object):
     """
     openapi_types = {
         'id': 'int',
+        'created': 'datetime',
+        'modified': 'datetime',
         'account_id': 'int',
         'campaign_group_id': 'int',
         'name': 'str',
@@ -44,7 +46,9 @@ class Role(object):
 
     attribute_map = {
         'id': 'id',
-        'account_id': 'accountID',
+        'created': 'created',
+        'modified': 'modified',
+        'account_id': 'accountId',
         'campaign_group_id': 'campaignGroupID',
         'name': 'name',
         'description': 'description',
@@ -52,13 +56,15 @@ class Role(object):
         'acl': 'acl'
     }
 
-    def __init__(self, id=None, account_id=None, campaign_group_id=None, name=None, description=None, members=None, acl=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, created=None, modified=None, account_id=None, campaign_group_id=None, name=None, description=None, members=None, acl=None, local_vars_configuration=None):  # noqa: E501
         """Role - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._id = None
+        self._created = None
+        self._modified = None
         self._account_id = None
         self._campaign_group_id = None
         self._name = None
@@ -68,23 +74,23 @@ class Role(object):
         self.discriminator = None
 
         self.id = id
+        self.created = created
+        self.modified = modified
         self.account_id = account_id
         if campaign_group_id is not None:
             self.campaign_group_id = campaign_group_id
-        if name is not None:
-            self.name = name
+        self.name = name
         if description is not None:
             self.description = description
         if members is not None:
             self.members = members
-        if acl is not None:
-            self.acl = acl
+        self.acl = acl
 
     @property
     def id(self):
         """Gets the id of this Role.  # noqa: E501
 
-        The ID of the role corresponding to the DB row  # noqa: E501
+        Unique ID for this entity.  # noqa: E501
 
         :return: The id of this Role.  # noqa: E501
         :rtype: int
@@ -95,7 +101,7 @@ class Role(object):
     def id(self, id):
         """Sets the id of this Role.
 
-        The ID of the role corresponding to the DB row  # noqa: E501
+        Unique ID for this entity.  # noqa: E501
 
         :param id: The id of this Role.  # noqa: E501
         :type: int
@@ -106,10 +112,60 @@ class Role(object):
         self._id = id
 
     @property
+    def created(self):
+        """Gets the created of this Role.  # noqa: E501
+
+        The exact moment this entity was created.  # noqa: E501
+
+        :return: The created of this Role.  # noqa: E501
+        :rtype: datetime
+        """
+        return self._created
+
+    @created.setter
+    def created(self, created):
+        """Sets the created of this Role.
+
+        The exact moment this entity was created.  # noqa: E501
+
+        :param created: The created of this Role.  # noqa: E501
+        :type: datetime
+        """
+        if self.local_vars_configuration.client_side_validation and created is None:  # noqa: E501
+            raise ValueError("Invalid value for `created`, must not be `None`")  # noqa: E501
+
+        self._created = created
+
+    @property
+    def modified(self):
+        """Gets the modified of this Role.  # noqa: E501
+
+        The exact moment this entity was last modified.  # noqa: E501
+
+        :return: The modified of this Role.  # noqa: E501
+        :rtype: datetime
+        """
+        return self._modified
+
+    @modified.setter
+    def modified(self, modified):
+        """Sets the modified of this Role.
+
+        The exact moment this entity was last modified.  # noqa: E501
+
+        :param modified: The modified of this Role.  # noqa: E501
+        :type: datetime
+        """
+        if self.local_vars_configuration.client_side_validation and modified is None:  # noqa: E501
+            raise ValueError("Invalid value for `modified`, must not be `None`")  # noqa: E501
+
+        self._modified = modified
+
+    @property
     def account_id(self):
         """Gets the account_id of this Role.  # noqa: E501
 
-        The ID of the Talon.One account that owns this role.  # noqa: E501
+        The ID of the account that owns this entity.  # noqa: E501
 
         :return: The account_id of this Role.  # noqa: E501
         :rtype: int
@@ -120,7 +176,7 @@ class Role(object):
     def account_id(self, account_id):
         """Sets the account_id of this Role.
 
-        The ID of the Talon.One account that owns this role.  # noqa: E501
+        The ID of the account that owns this entity.  # noqa: E501
 
         :param account_id: The account_id of this Role.  # noqa: E501
         :type: int
@@ -173,6 +229,8 @@ class Role(object):
         :param name: The name of this Role.  # noqa: E501
         :type: str
         """
+        if self.local_vars_configuration.client_side_validation and name is None:  # noqa: E501
+            raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
 
         self._name = name
 
@@ -242,6 +300,8 @@ class Role(object):
         :param acl: The acl of this Role.  # noqa: E501
         :type: object
         """
+        if self.local_vars_configuration.client_side_validation and acl is None:  # noqa: E501
+            raise ValueError("Invalid value for `acl`, must not be `None`")  # noqa: E501
 
         self._acl = acl
 

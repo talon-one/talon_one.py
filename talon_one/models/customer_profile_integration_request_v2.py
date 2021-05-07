@@ -110,7 +110,7 @@ class CustomerProfileIntegrationRequestV2(object):
     def response_content(self):
         """Gets the response_content of this CustomerProfileIntegrationRequestV2.  # noqa: E501
 
-        Optional list of requested information to be present on the response related to the customer profile update. Currently supported: \"customerProfile\", \"triggeredCampaigns\", \"loyalty\", \"event\" and \"ruleFailureReasons\".   # noqa: E501
+        Optional list of requested information to be present on the response related to the customer profile update. Currently supported: \"customerProfile\", \"triggeredCampaigns\", \"loyalty\", \"event\", \"awardedGiveaways\", \"ruleFailureReasons\".   # noqa: E501
 
         :return: The response_content of this CustomerProfileIntegrationRequestV2.  # noqa: E501
         :rtype: list[str]
@@ -121,12 +121,12 @@ class CustomerProfileIntegrationRequestV2(object):
     def response_content(self, response_content):
         """Sets the response_content of this CustomerProfileIntegrationRequestV2.
 
-        Optional list of requested information to be present on the response related to the customer profile update. Currently supported: \"customerProfile\", \"triggeredCampaigns\", \"loyalty\", \"event\" and \"ruleFailureReasons\".   # noqa: E501
+        Optional list of requested information to be present on the response related to the customer profile update. Currently supported: \"customerProfile\", \"triggeredCampaigns\", \"loyalty\", \"event\", \"awardedGiveaways\", \"ruleFailureReasons\".   # noqa: E501
 
         :param response_content: The response_content of this CustomerProfileIntegrationRequestV2.  # noqa: E501
         :type: list[str]
         """
-        allowed_values = ["customerProfile", "triggeredCampaigns", "loyalty", "event", "ruleFailureReasons"]  # noqa: E501
+        allowed_values = ["customerProfile", "triggeredCampaigns", "loyalty", "event", "awardedGiveaways", "ruleFailureReasons"]  # noqa: E501
         if (self.local_vars_configuration.client_side_validation and
                 not set(response_content).issubset(set(allowed_values))):  # noqa: E501
             raise ValueError(

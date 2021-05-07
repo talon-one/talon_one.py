@@ -1,0 +1,11 @@
+# UpdateLoyaltyTier
+
+## Properties
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**name** | **str** | The name of the tier | 
+**min_points** | **float** | The minimum amount of points required to be eligible for the tier | 
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+

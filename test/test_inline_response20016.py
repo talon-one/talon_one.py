@@ -36,71 +36,66 @@ class TestInlineResponse20016(unittest.TestCase):
         # model = talon_one.models.inline_response20016.InlineResponse20016()  # noqa: E501
         if include_optional :
             return InlineResponse20016(
-                has_more = True, 
+                total_result_size = 56, 
                 data = [
-                    talon_one.models.application_session.ApplicationSession(
+                    talon_one.models.application_event.ApplicationEvent(
                         id = 56, 
                         created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                         application_id = 56, 
                         profile_id = 56, 
-                        integration_id = '0', 
-                        profileintegrationid = '0', 
-                        coupon = '0', 
-                        referral = '0', 
-                        state = 'open', 
-                        cart_items = [
-                            talon_one.models.cart_item.CartItem(
-                                name = '0', 
-                                sku = '0', 
-                                quantity = 1, 
-                                price = 1.337, 
-                                category = '0', 
-                                weight = 1.337, 
-                                height = 1.337, 
-                                width = 1.337, 
-                                length = 1.337, 
-                                position = 1.337, 
-                                attributes = talon_one.models.item_attributes.Item attributes(), )
+                        session_id = 56, 
+                        type = '0', 
+                        attributes = talon_one.models.attributes.attributes(), 
+                        effects = [
+                            None
                             ], 
-                        discounts = {
-                            'key' : 1.337
-                            }, 
-                        total = 1.337, 
-                        attributes = talon_one.models.attributes.attributes(), )
+                        rule_failure_reasons = [
+                            talon_one.models.rule_failure_reason.RuleFailureReason(
+                                campaign_id = 56, 
+                                campaign_name = '0', 
+                                ruleset_id = 56, 
+                                coupon_id = 56, 
+                                coupon_value = '0', 
+                                referral_id = 56, 
+                                referral_value = '0', 
+                                rule_index = 56, 
+                                rule_name = '0', 
+                                condition_index = 56, 
+                                effect_index = 56, 
+                                details = '0', )
+                            ], )
                     ]
             )
         else :
             return InlineResponse20016(
+                total_result_size = 56,
                 data = [
-                    talon_one.models.application_session.ApplicationSession(
+                    talon_one.models.application_event.ApplicationEvent(
                         id = 56, 
                         created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                         application_id = 56, 
                         profile_id = 56, 
-                        integration_id = '0', 
-                        profileintegrationid = '0', 
-                        coupon = '0', 
-                        referral = '0', 
-                        state = 'open', 
-                        cart_items = [
-                            talon_one.models.cart_item.CartItem(
-                                name = '0', 
-                                sku = '0', 
-                                quantity = 1, 
-                                price = 1.337, 
-                                category = '0', 
-                                weight = 1.337, 
-                                height = 1.337, 
-                                width = 1.337, 
-                                length = 1.337, 
-                                position = 1.337, 
-                                attributes = talon_one.models.item_attributes.Item attributes(), )
+                        session_id = 56, 
+                        type = '0', 
+                        attributes = talon_one.models.attributes.attributes(), 
+                        effects = [
+                            None
                             ], 
-                        discounts = {
-                            'key' : 1.337
-                            }, 
-                        total = 1.337, 
-                        attributes = talon_one.models.attributes.attributes(), )
+                        rule_failure_reasons = [
+                            talon_one.models.rule_failure_reason.RuleFailureReason(
+                                campaign_id = 56, 
+                                campaign_name = '0', 
+                                ruleset_id = 56, 
+                                coupon_id = 56, 
+                                coupon_value = '0', 
+                                referral_id = 56, 
+                                referral_value = '0', 
+                                rule_index = 56, 
+                                rule_name = '0', 
+                                condition_index = 56, 
+                                effect_index = 56, 
+                                details = '0', )
+                            ], )
                     ],
         )
 

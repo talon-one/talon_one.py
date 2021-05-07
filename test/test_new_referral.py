@@ -36,11 +36,13 @@ class TestNewReferral(unittest.TestCase):
         # model = talon_one.models.new_referral.NewReferral()  # noqa: E501
         if include_optional :
             return NewReferral(
+                start_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                expiry_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                usage_limit = 0, 
                 campaign_id = 56, 
                 advocate_profile_integration_id = '0', 
                 friend_profile_integration_id = '0', 
-                start_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                expiry_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f')
+                attributes = None
             )
         else :
             return NewReferral(

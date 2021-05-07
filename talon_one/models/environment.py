@@ -39,7 +39,12 @@ class Environment(object):
         'slots': 'list[SlotDef]',
         'functions': 'list[FunctionDef]',
         'templates': 'list[TemplateDef]',
-        'variables': 'str'
+        'giveaways_pools': 'list[GiveawaysPool]',
+        'variables': 'str',
+        'loyalty_programs': 'list[LoyaltyProgram]',
+        'attributes': 'list[Attribute]',
+        'additional_costs': 'list[AccountAdditionalCost]',
+        'audiences': 'list[Audience]'
     }
 
     attribute_map = {
@@ -49,10 +54,15 @@ class Environment(object):
         'slots': 'slots',
         'functions': 'functions',
         'templates': 'templates',
-        'variables': 'variables'
+        'giveaways_pools': 'giveawaysPools',
+        'variables': 'variables',
+        'loyalty_programs': 'loyaltyPrograms',
+        'attributes': 'attributes',
+        'additional_costs': 'additionalCosts',
+        'audiences': 'audiences'
     }
 
-    def __init__(self, id=None, created=None, application_id=None, slots=None, functions=None, templates=None, variables=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, created=None, application_id=None, slots=None, functions=None, templates=None, giveaways_pools=None, variables=None, loyalty_programs=None, attributes=None, additional_costs=None, audiences=None, local_vars_configuration=None):  # noqa: E501
         """Environment - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -64,7 +74,12 @@ class Environment(object):
         self._slots = None
         self._functions = None
         self._templates = None
+        self._giveaways_pools = None
         self._variables = None
+        self._loyalty_programs = None
+        self._attributes = None
+        self._additional_costs = None
+        self._audiences = None
         self.discriminator = None
 
         self.id = id
@@ -73,7 +88,17 @@ class Environment(object):
         self.slots = slots
         self.functions = functions
         self.templates = templates
+        if giveaways_pools is not None:
+            self.giveaways_pools = giveaways_pools
         self.variables = variables
+        if loyalty_programs is not None:
+            self.loyalty_programs = loyalty_programs
+        if attributes is not None:
+            self.attributes = attributes
+        if additional_costs is not None:
+            self.additional_costs = additional_costs
+        if audiences is not None:
+            self.audiences = audiences
 
     @property
     def id(self):
@@ -226,6 +251,29 @@ class Environment(object):
         self._templates = templates
 
     @property
+    def giveaways_pools(self):
+        """Gets the giveaways_pools of this Environment.  # noqa: E501
+
+        The giveaways pools that the application is subscribed to.  # noqa: E501
+
+        :return: The giveaways_pools of this Environment.  # noqa: E501
+        :rtype: list[GiveawaysPool]
+        """
+        return self._giveaways_pools
+
+    @giveaways_pools.setter
+    def giveaways_pools(self, giveaways_pools):
+        """Sets the giveaways_pools of this Environment.
+
+        The giveaways pools that the application is subscribed to.  # noqa: E501
+
+        :param giveaways_pools: The giveaways_pools of this Environment.  # noqa: E501
+        :type: list[GiveawaysPool]
+        """
+
+        self._giveaways_pools = giveaways_pools
+
+    @property
     def variables(self):
         """Gets the variables of this Environment.  # noqa: E501
 
@@ -247,6 +295,98 @@ class Environment(object):
             raise ValueError("Invalid value for `variables`, must not be `None`")  # noqa: E501
 
         self._variables = variables
+
+    @property
+    def loyalty_programs(self):
+        """Gets the loyalty_programs of this Environment.  # noqa: E501
+
+        The loyalty programs that the application is subscribed to.  # noqa: E501
+
+        :return: The loyalty_programs of this Environment.  # noqa: E501
+        :rtype: list[LoyaltyProgram]
+        """
+        return self._loyalty_programs
+
+    @loyalty_programs.setter
+    def loyalty_programs(self, loyalty_programs):
+        """Sets the loyalty_programs of this Environment.
+
+        The loyalty programs that the application is subscribed to.  # noqa: E501
+
+        :param loyalty_programs: The loyalty_programs of this Environment.  # noqa: E501
+        :type: list[LoyaltyProgram]
+        """
+
+        self._loyalty_programs = loyalty_programs
+
+    @property
+    def attributes(self):
+        """Gets the attributes of this Environment.  # noqa: E501
+
+        The attributes that the application is subscribed to.  # noqa: E501
+
+        :return: The attributes of this Environment.  # noqa: E501
+        :rtype: list[Attribute]
+        """
+        return self._attributes
+
+    @attributes.setter
+    def attributes(self, attributes):
+        """Sets the attributes of this Environment.
+
+        The attributes that the application is subscribed to.  # noqa: E501
+
+        :param attributes: The attributes of this Environment.  # noqa: E501
+        :type: list[Attribute]
+        """
+
+        self._attributes = attributes
+
+    @property
+    def additional_costs(self):
+        """Gets the additional_costs of this Environment.  # noqa: E501
+
+        The additional costs that the application is subscribed to.  # noqa: E501
+
+        :return: The additional_costs of this Environment.  # noqa: E501
+        :rtype: list[AccountAdditionalCost]
+        """
+        return self._additional_costs
+
+    @additional_costs.setter
+    def additional_costs(self, additional_costs):
+        """Sets the additional_costs of this Environment.
+
+        The additional costs that the application is subscribed to.  # noqa: E501
+
+        :param additional_costs: The additional_costs of this Environment.  # noqa: E501
+        :type: list[AccountAdditionalCost]
+        """
+
+        self._additional_costs = additional_costs
+
+    @property
+    def audiences(self):
+        """Gets the audiences of this Environment.  # noqa: E501
+
+        The audiences contained in the account which the application belongs to.  # noqa: E501
+
+        :return: The audiences of this Environment.  # noqa: E501
+        :rtype: list[Audience]
+        """
+        return self._audiences
+
+    @audiences.setter
+    def audiences(self, audiences):
+        """Sets the audiences of this Environment.
+
+        The audiences contained in the account which the application belongs to.  # noqa: E501
+
+        :param audiences: The audiences of this Environment.  # noqa: E501
+        :type: list[Audience]
+        """
+
+        self._audiences = audiences
 
     def to_dict(self):
         """Returns the model properties as a dict"""

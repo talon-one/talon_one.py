@@ -38,40 +38,69 @@ class TestInlineResponse20015(unittest.TestCase):
             return InlineResponse20015(
                 has_more = True, 
                 data = [
-                    talon_one.models.customer_activity_report.CustomerActivityReport(
-                        integration_id = '0', 
+                    talon_one.models.application_session.ApplicationSession(
+                        id = 56, 
                         created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        name = '0', 
-                        customer_id = 56, 
-                        last_activity = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        coupon_redemptions = 56, 
-                        coupon_use_attempts = 56, 
-                        coupon_failed_attempts = 56, 
-                        accrued_discounts = 1.337, 
-                        accrued_revenue = 1.337, 
-                        total_orders = 56, 
-                        total_orders_no_coupon = 56, 
-                        campaign_name = '0', )
+                        application_id = 56, 
+                        profile_id = 56, 
+                        integration_id = '0', 
+                        profileintegrationid = '0', 
+                        coupon = '0', 
+                        referral = '0', 
+                        state = 'open', 
+                        cart_items = [
+                            talon_one.models.cart_item.CartItem(
+                                name = '0', 
+                                sku = '0', 
+                                quantity = 1, 
+                                price = 1.337, 
+                                category = '0', 
+                                weight = 1.337, 
+                                height = 1.337, 
+                                width = 1.337, 
+                                length = 1.337, 
+                                position = 1.337, 
+                                attributes = talon_one.models.item_attributes.Item attributes(), )
+                            ], 
+                        discounts = {
+                            'key' : 1.337
+                            }, 
+                        total = 1.337, 
+                        attributes = talon_one.models.attributes.attributes(), )
                     ]
             )
         else :
             return InlineResponse20015(
-                has_more = True,
                 data = [
-                    talon_one.models.customer_activity_report.CustomerActivityReport(
-                        integration_id = '0', 
+                    talon_one.models.application_session.ApplicationSession(
+                        id = 56, 
                         created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        name = '0', 
-                        customer_id = 56, 
-                        last_activity = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        coupon_redemptions = 56, 
-                        coupon_use_attempts = 56, 
-                        coupon_failed_attempts = 56, 
-                        accrued_discounts = 1.337, 
-                        accrued_revenue = 1.337, 
-                        total_orders = 56, 
-                        total_orders_no_coupon = 56, 
-                        campaign_name = '0', )
+                        application_id = 56, 
+                        profile_id = 56, 
+                        integration_id = '0', 
+                        profileintegrationid = '0', 
+                        coupon = '0', 
+                        referral = '0', 
+                        state = 'open', 
+                        cart_items = [
+                            talon_one.models.cart_item.CartItem(
+                                name = '0', 
+                                sku = '0', 
+                                quantity = 1, 
+                                price = 1.337, 
+                                category = '0', 
+                                weight = 1.337, 
+                                height = 1.337, 
+                                width = 1.337, 
+                                length = 1.337, 
+                                position = 1.337, 
+                                attributes = talon_one.models.item_attributes.Item attributes(), )
+                            ], 
+                        discounts = {
+                            'key' : 1.337
+                            }, 
+                        total = 1.337, 
+                        attributes = talon_one.models.attributes.attributes(), )
                     ],
         )
 

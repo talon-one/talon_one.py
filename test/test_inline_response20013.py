@@ -36,52 +36,42 @@ class TestInlineResponse20013(unittest.TestCase):
         # model = talon_one.models.inline_response20013.InlineResponse20013()  # noqa: E501
         if include_optional :
             return InlineResponse20013(
-                has_more = True, 
+                total_result_size = 56, 
                 data = [
-                    talon_one.models.application_customer.ApplicationCustomer(
-                        id = 56, 
-                        created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                    talon_one.models.customer_activity_report.CustomerActivityReport(
                         integration_id = '0', 
-                        attributes = talon_one.models.attributes.attributes(), 
-                        account_id = 56, 
-                        closed_sessions = 56, 
-                        total_sales = 1.337, 
-                        loyalty_memberships = [
-                            talon_one.models.loyalty_membership.LoyaltyMembership(
-                                joined = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                                loyalty_program_id = 56, )
-                            ], 
-                        audience_memberships = [
-                            talon_one.models.audience_membership.AudienceMembership(
-                                id = 56, 
-                                name = '0', )
-                            ], 
-                        last_activity = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), )
+                        created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        name = '0', 
+                        customer_id = 56, 
+                        last_activity = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        coupon_redemptions = 56, 
+                        coupon_use_attempts = 56, 
+                        coupon_failed_attempts = 56, 
+                        accrued_discounts = 1.337, 
+                        accrued_revenue = 1.337, 
+                        total_orders = 56, 
+                        total_orders_no_coupon = 56, 
+                        campaign_name = '0', )
                     ]
             )
         else :
             return InlineResponse20013(
-                has_more = True,
+                total_result_size = 56,
                 data = [
-                    talon_one.models.application_customer.ApplicationCustomer(
-                        id = 56, 
-                        created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                    talon_one.models.customer_activity_report.CustomerActivityReport(
                         integration_id = '0', 
-                        attributes = talon_one.models.attributes.attributes(), 
-                        account_id = 56, 
-                        closed_sessions = 56, 
-                        total_sales = 1.337, 
-                        loyalty_memberships = [
-                            talon_one.models.loyalty_membership.LoyaltyMembership(
-                                joined = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                                loyalty_program_id = 56, )
-                            ], 
-                        audience_memberships = [
-                            talon_one.models.audience_membership.AudienceMembership(
-                                id = 56, 
-                                name = '0', )
-                            ], 
-                        last_activity = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), )
+                        created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        name = '0', 
+                        customer_id = 56, 
+                        last_activity = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        coupon_redemptions = 56, 
+                        coupon_use_attempts = 56, 
+                        coupon_failed_attempts = 56, 
+                        accrued_discounts = 1.337, 
+                        accrued_revenue = 1.337, 
+                        total_orders = 56, 
+                        total_orders_no_coupon = 56, 
+                        campaign_name = '0', )
                     ],
         )
 

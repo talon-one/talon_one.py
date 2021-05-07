@@ -82,7 +82,83 @@ class TestEnvironment(unittest.TestCase):
                         expose = True, 
                         name = '0', )
                     ], 
-                variables = '0'
+                giveaways_pools = [
+                    talon_one.models.giveaways_pool.GiveawaysPool(
+                        id = 56, 
+                        created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        account_id = 56, 
+                        name = '0', 
+                        description = '0', 
+                        subscribed_applications_ids = [
+                            56
+                            ], 
+                        modified = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        created_by = 56, 
+                        modified_by = 56, )
+                    ], 
+                variables = '0', 
+                loyalty_programs = [
+                    talon_one.models.loyalty_program.LoyaltyProgram(
+                        id = 56, 
+                        account_id = 56, 
+                        name = '0', 
+                        title = '0', 
+                        description = '0', 
+                        subscribed_applications = [
+                            56
+                            ], 
+                        default_validity = '0', 
+                        default_pending = '0', 
+                        allow_subledger = True, 
+                        tiers = [
+                            talon_one.models.loyalty_tier.LoyaltyTier(
+                                id = 56, 
+                                created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                                program_id = 56, 
+                                name = '0', 
+                                min_points = 0, )
+                            ], )
+                    ], 
+                attributes = [
+                    talon_one.models.attribute.Attribute(
+                        id = 56, 
+                        created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        account_id = 56, 
+                        entity = 'Account', 
+                        event_type = '0', 
+                        name = '0', 
+                        title = '0', 
+                        type = 'string', 
+                        description = '0', 
+                        suggestions = [
+                            '0'
+                            ], 
+                        editable = True, 
+                        subscribed_applications_ids = [
+                            56
+                            ], )
+                    ], 
+                additional_costs = [
+                    talon_one.models.account_additional_cost.AccountAdditionalCost(
+                        id = 56, 
+                        created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        account_id = 56, 
+                        name = '0', 
+                        title = '0', 
+                        description = '0', 
+                        subscribed_applications_ids = [
+                            56
+                            ], )
+                    ], 
+                audiences = [
+                    talon_one.models.audience.Audience(
+                        account_id = 56, 
+                        id = 56, 
+                        created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        name = '0', 
+                        integration = 'mparticle', 
+                        integration_id = '0', )
+                    ]
             )
         else :
             return Environment(

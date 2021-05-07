@@ -13,7 +13,7 @@
 from setuptools import setup, find_packages  # noqa: H301
 
 NAME = "talon_one"
-VERSION = "3.3.0"
+VERSION = "10.0.0"
 # To install the library, run the following
 #
 # python setup.py install
@@ -26,16 +26,15 @@ REQUIRES = ["urllib3 >= 1.15", "six >= 1.10", "certifi", "python-dateutil"]
 setup(
     name=NAME,
     version=VERSION,
-    description="Talon.One Python SDK",
-    author="Talon.One GmbH",
-    author_email="devs@talon.one",
+    description="Talon.One API",
+    author="OpenAPI Generator community",
+    author_email="team@openapitools.org",
     url="https://github.com/talon-one/talon_one.py/",
-    keywords=["Swagger", "OpenAPI", "Talon.One API"],
+    keywords=["OpenAPI", "OpenAPI-Generator", "Talon.One API"],
     install_requires=REQUIRES,
-    license="MIT",
     packages=find_packages(exclude=["test", "tests"]),
     include_package_data=True,
     long_description="""\
-    The Talon.One API is used to manage applications and campaigns, as well as to integrate with your application. The operations in the _Integration API_ section are used to integrate with our platform, while the other operations are used to manage applications and campaigns.
+    The Talon.One API is used to manage applications and campaigns, as well as to integrate with your application. The operations in the _Integration API_ section are used to integrate with our platform, while the other operations are used to manage applications and campaigns.  ### Where is the API?  The API is available at the same hostname as these docs. For example, if you are reading this page at &#x60;https://mycompany.talon.one/docs/api/&#x60;, the URL for the [updateCustomerProfile][] operation is &#x60;https://mycompany.talon.one/v1/customer_profiles/id&#x60;  [updateCustomerProfile]: #operation--v1-customer_profiles--integrationId--put   # noqa: E501
     """
 )

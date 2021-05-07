@@ -36,66 +36,16 @@ class TestInlineResponse20018(unittest.TestCase):
         # model = talon_one.models.inline_response20018.InlineResponse20018()  # noqa: E501
         if include_optional :
             return InlineResponse20018(
-                has_more = True, 
+                total_result_size = 56, 
                 data = [
-                    talon_one.models.application_event.ApplicationEvent(
-                        id = 56, 
-                        created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        application_id = 56, 
-                        profile_id = 56, 
-                        session_id = 56, 
-                        type = '0', 
-                        attributes = talon_one.models.attributes.attributes(), 
-                        effects = [
-                            None
-                            ], 
-                        rule_failure_reasons = [
-                            talon_one.models.rule_failure_reason.RuleFailureReason(
-                                campaign_id = 56, 
-                                campaign_name = '0', 
-                                ruleset_id = 56, 
-                                coupon_id = 56, 
-                                coupon_value = '0', 
-                                referral_id = 56, 
-                                referral_value = '0', 
-                                rule_index = 56, 
-                                rule_name = '0', 
-                                condition_index = 56, 
-                                effect_index = 56, 
-                                details = '0', )
-                            ], )
+                    '0'
                     ]
             )
         else :
             return InlineResponse20018(
-                has_more = True,
+                total_result_size = 56,
                 data = [
-                    talon_one.models.application_event.ApplicationEvent(
-                        id = 56, 
-                        created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        application_id = 56, 
-                        profile_id = 56, 
-                        session_id = 56, 
-                        type = '0', 
-                        attributes = talon_one.models.attributes.attributes(), 
-                        effects = [
-                            None
-                            ], 
-                        rule_failure_reasons = [
-                            talon_one.models.rule_failure_reason.RuleFailureReason(
-                                campaign_id = 56, 
-                                campaign_name = '0', 
-                                ruleset_id = 56, 
-                                coupon_id = 56, 
-                                coupon_value = '0', 
-                                referral_id = 56, 
-                                referral_value = '0', 
-                                rule_index = 56, 
-                                rule_name = '0', 
-                                condition_index = 56, 
-                                effect_index = 56, 
-                                details = '0', )
-                            ], )
+                    '0'
                     ],
         )
 

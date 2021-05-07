@@ -80,6 +80,7 @@ class TestCampaign(unittest.TestCase):
                 discount_effect_count = 56, 
                 coupon_creation_count = 56, 
                 referral_creation_count = 56, 
+                awarded_giveaways_count = 56, 
                 created_loyalty_points_count = 1.337, 
                 created_loyalty_points_effect_count = 56, 
                 redeemed_loyalty_points_count = 1.337, 

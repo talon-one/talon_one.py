@@ -38,36 +38,28 @@ class TestInlineResponse2008(unittest.TestCase):
             return InlineResponse2008(
                 total_result_size = 56, 
                 data = [
-                    talon_one.models.loyalty_program.LoyaltyProgram(
-                        id = 56, 
-                        account_id = 56, 
-                        name = '0', 
-                        title = '0', 
-                        description = '0', 
-                        subscribed_applications = [
-                            56
-                            ], 
-                        default_validity = '0', 
-                        default_pending = '0', 
-                        allow_subledger = True, )
+                    talon_one.models.access_log_entry.AccessLogEntry(
+                        uuid = '0', 
+                        status = 56, 
+                        method = '0', 
+                        request_uri = '0', 
+                        time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        request_payload = '0', 
+                        response_payload = '0', )
                     ]
             )
         else :
             return InlineResponse2008(
                 total_result_size = 56,
                 data = [
-                    talon_one.models.loyalty_program.LoyaltyProgram(
-                        id = 56, 
-                        account_id = 56, 
-                        name = '0', 
-                        title = '0', 
-                        description = '0', 
-                        subscribed_applications = [
-                            56
-                            ], 
-                        default_validity = '0', 
-                        default_pending = '0', 
-                        allow_subledger = True, )
+                    talon_one.models.access_log_entry.AccessLogEntry(
+                        uuid = '0', 
+                        status = 56, 
+                        method = '0', 
+                        request_uri = '0', 
+                        time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        request_payload = '0', 
+                        response_payload = '0', )
                     ],
         )
 
