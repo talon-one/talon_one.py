@@ -1,26 +1,25 @@
 # talon_one.ManagementApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *http://your_domain.your_region.talon.one*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**add_loyalty_points**](ManagementApi.md#add_loyalty_points) | **PUT** /v1/loyalty_programs/{programID}/profile/{integrationID}/add_points | Add points in a certain loyalty program for the specified customer
+[**add_loyalty_points**](ManagementApi.md#add_loyalty_points) | **PUT** /v1/loyalty_programs/{programID}/profile/{integrationID}/add_points | Add points in a loyalty program for the specified customer
 [**copy_campaign_to_applications**](ManagementApi.md#copy_campaign_to_applications) | **POST** /v1/applications/{applicationId}/campaigns/{campaignId}/copy | Copy the campaign into every specified application
 [**create_additional_cost**](ManagementApi.md#create_additional_cost) | **POST** /v1/additional_costs | Define a new additional cost
 [**create_attribute**](ManagementApi.md#create_attribute) | **POST** /v1/attributes | Define a new custom attribute
-[**create_campaign**](ManagementApi.md#create_campaign) | **POST** /v1/applications/{applicationId}/campaigns | Create a Campaign
-[**create_coupons**](ManagementApi.md#create_coupons) | **POST** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons | Create Coupons
-[**create_coupons_for_multiple_recipients**](ManagementApi.md#create_coupons_for_multiple_recipients) | **POST** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons_with_recipients | Create Coupons for Multiple Recipients
+[**create_campaign**](ManagementApi.md#create_campaign) | **POST** /v1/applications/{applicationId}/campaigns | Create campaign
+[**create_coupons**](ManagementApi.md#create_coupons) | **POST** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons | Create coupons
+[**create_coupons_for_multiple_recipients**](ManagementApi.md#create_coupons_for_multiple_recipients) | **POST** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons_with_recipients | Create coupons for multiple recipients
 [**create_password_recovery_email**](ManagementApi.md#create_password_recovery_email) | **POST** /v1/password_recovery_emails | Request a password reset
-[**create_ruleset**](ManagementApi.md#create_ruleset) | **POST** /v1/applications/{applicationId}/campaigns/{campaignId}/rulesets | Create a Ruleset
-[**create_session**](ManagementApi.md#create_session) | **POST** /v1/sessions | Create a Session
-[**delete_campaign**](ManagementApi.md#delete_campaign) | **DELETE** /v1/applications/{applicationId}/campaigns/{campaignId} | Delete a Campaign
-[**delete_coupon**](ManagementApi.md#delete_coupon) | **DELETE** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons/{couponId} | Delete one Coupon
-[**delete_coupons**](ManagementApi.md#delete_coupons) | **DELETE** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons | Delete Coupons
-[**delete_referral**](ManagementApi.md#delete_referral) | **DELETE** /v1/applications/{applicationId}/campaigns/{campaignId}/referrals/{referralId} | Delete one Referral
-[**delete_ruleset**](ManagementApi.md#delete_ruleset) | **DELETE** /v1/applications/{applicationId}/campaigns/{campaignId}/rulesets/{rulesetId} | Delete a Ruleset
-[**destroy_session**](ManagementApi.md#destroy_session) | **DELETE** /v1/sessions | Destroy a Session
-[**export_coupons**](ManagementApi.md#export_coupons) | **GET** /v1/applications/{applicationId}/export_coupons | Export Coupons to a CSV file
+[**create_ruleset**](ManagementApi.md#create_ruleset) | **POST** /v1/applications/{applicationId}/campaigns/{campaignId}/rulesets | Create ruleset
+[**create_session**](ManagementApi.md#create_session) | **POST** /v1/sessions | Create session
+[**delete_campaign**](ManagementApi.md#delete_campaign) | **DELETE** /v1/applications/{applicationId}/campaigns/{campaignId} | Delete campaign
+[**delete_coupon**](ManagementApi.md#delete_coupon) | **DELETE** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons/{couponId} | Delete coupon
+[**delete_coupons**](ManagementApi.md#delete_coupons) | **DELETE** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons | Delete coupons
+[**delete_referral**](ManagementApi.md#delete_referral) | **DELETE** /v1/applications/{applicationId}/campaigns/{campaignId}/referrals/{referralId} | Delete referral
+[**delete_ruleset**](ManagementApi.md#delete_ruleset) | **DELETE** /v1/applications/{applicationId}/campaigns/{campaignId}/rulesets/{rulesetId} | Delete ruleset
+[**export_coupons**](ManagementApi.md#export_coupons) | **GET** /v1/applications/{applicationId}/export_coupons | Export coupons to a CSV file
 [**export_customer_sessions**](ManagementApi.md#export_customer_sessions) | **GET** /v1/applications/{applicationId}/export_customer_sessions | Export Customer Sessions to a CSV file
 [**export_effects**](ManagementApi.md#export_effects) | **GET** /v1/applications/{applicationId}/export_effects | Export triggered Effects to a CSV file
 [**export_loyalty_balance**](ManagementApi.md#export_loyalty_balance) | **GET** /v1/loyalty_programs/{programID}/export_customer_balance | Export customer loyalty balance to a CSV file
@@ -31,8 +30,8 @@ Method | HTTP request | Description
 [**get_account_analytics**](ManagementApi.md#get_account_analytics) | **GET** /v1/accounts/{accountId}/analytics | Get Account Analytics
 [**get_additional_cost**](ManagementApi.md#get_additional_cost) | **GET** /v1/additional_costs/{additionalCostId} | Get an additional cost
 [**get_additional_costs**](ManagementApi.md#get_additional_costs) | **GET** /v1/additional_costs | List additional costs
-[**get_all_access_logs**](ManagementApi.md#get_all_access_logs) | **GET** /v1/access_logs | Get all access logs
-[**get_all_roles**](ManagementApi.md#get_all_roles) | **GET** /v1/roles | Get all roles
+[**get_all_access_logs**](ManagementApi.md#get_all_access_logs) | **GET** /v1/access_logs | List access logs
+[**get_all_roles**](ManagementApi.md#get_all_roles) | **GET** /v1/roles | List roles
 [**get_application**](ManagementApi.md#get_application) | **GET** /v1/applications/{applicationId} | Get Application
 [**get_application_api_health**](ManagementApi.md#get_application_api_health) | **GET** /v1/applications/{applicationId}/health_report | Get report of health of application API
 [**get_application_customer**](ManagementApi.md#get_application_customer) | **GET** /v1/applications/{applicationId}/customers/{customerId} | Get Application Customer
@@ -46,72 +45,77 @@ Method | HTTP request | Description
 [**get_applications**](ManagementApi.md#get_applications) | **GET** /v1/applications | List Applications
 [**get_attribute**](ManagementApi.md#get_attribute) | **GET** /v1/attributes/{attributeId} | Get a custom attribute
 [**get_attributes**](ManagementApi.md#get_attributes) | **GET** /v1/attributes | List custom attributes
-[**get_audiences**](ManagementApi.md#get_audiences) | **GET** /v1/audiences | Get all audiences
-[**get_campaign**](ManagementApi.md#get_campaign) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId} | Get a Campaign
+[**get_audiences**](ManagementApi.md#get_audiences) | **GET** /v1/audiences | List audiences
+[**get_campaign**](ManagementApi.md#get_campaign) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId} | Get campaign
 [**get_campaign_analytics**](ManagementApi.md#get_campaign_analytics) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/analytics | Get analytics of campaigns
-[**get_campaign_by_attributes**](ManagementApi.md#get_campaign_by_attributes) | **POST** /v1/applications/{applicationId}/campaigns_search | Get a list of all campaigns that match the given attributes
-[**get_campaigns**](ManagementApi.md#get_campaigns) | **GET** /v1/applications/{applicationId}/campaigns | List your Campaigns
+[**get_campaign_by_attributes**](ManagementApi.md#get_campaign_by_attributes) | **POST** /v1/applications/{applicationId}/campaigns_search | List campaigns that match the given attributes
+[**get_campaigns**](ManagementApi.md#get_campaigns) | **GET** /v1/applications/{applicationId}/campaigns | List campaigns
 [**get_changes**](ManagementApi.md#get_changes) | **GET** /v1/changes | Get audit log for an account
-[**get_coupons**](ManagementApi.md#get_coupons) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons | List Coupons (with total count)
-[**get_coupons_by_attributes**](ManagementApi.md#get_coupons_by_attributes) | **POST** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons_search | Get a list of the coupons that match the given attributes
-[**get_coupons_by_attributes_application_wide**](ManagementApi.md#get_coupons_by_attributes_application_wide) | **POST** /v1/applications/{applicationId}/coupons_search | Get a list of the coupons that match the given attributes in all active campaigns of an application (with total count)
-[**get_coupons_without_total_count**](ManagementApi.md#get_coupons_without_total_count) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons/no_total | List Coupons
+[**get_coupons**](ManagementApi.md#get_coupons) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons | List coupons (with total count)
+[**get_coupons_by_attributes**](ManagementApi.md#get_coupons_by_attributes) | **POST** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons_search | List coupons that match the given attributes
+[**get_coupons_by_attributes_application_wide**](ManagementApi.md#get_coupons_by_attributes_application_wide) | **POST** /v1/applications/{applicationId}/coupons_search | List coupons that match the given attributes in all active campaigns of an application (with total count)
+[**get_coupons_without_total_count**](ManagementApi.md#get_coupons_without_total_count) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons/no_total | List coupons
 [**get_customer_activity_report**](ManagementApi.md#get_customer_activity_report) | **GET** /v1/applications/{applicationId}/customer_activity_reports/{customerId} | Get Activity Report for Single Customer
 [**get_customer_activity_reports**](ManagementApi.md#get_customer_activity_reports) | **GET** /v1/applications/{applicationId}/customer_activity_reports | Get Activity Reports for Application Customers (with total count)
 [**get_customer_activity_reports_without_total_count**](ManagementApi.md#get_customer_activity_reports_without_total_count) | **GET** /v1/applications/{applicationId}/customer_activity_reports/no_total | Get Activity Reports for Application Customers
 [**get_customer_analytics**](ManagementApi.md#get_customer_analytics) | **GET** /v1/applications/{applicationId}/customers/{customerId}/analytics | Get Analytics Report for a Customer
 [**get_customer_profile**](ManagementApi.md#get_customer_profile) | **GET** /v1/customers/{customerId} | Get Customer Profile
 [**get_customer_profiles**](ManagementApi.md#get_customer_profiles) | **GET** /v1/customers/no_total | List Customer Profiles
-[**get_customers_by_attributes**](ManagementApi.md#get_customers_by_attributes) | **POST** /v1/customer_search/no_total | Get a list of the customer profiles that match the given attributes
-[**get_event_types**](ManagementApi.md#get_event_types) | **GET** /v1/event_types | List Event Types
-[**get_exports**](ManagementApi.md#get_exports) | **GET** /v1/exports | Get Exports
-[**get_loyalty_points**](ManagementApi.md#get_loyalty_points) | **GET** /v1/loyalty_programs/{programID}/profile/{integrationID} | get the Loyalty Ledger for this integrationID
+[**get_customers_by_attributes**](ManagementApi.md#get_customers_by_attributes) | **POST** /v1/customer_search/no_total | List customer profiles that match the given attributes
+[**get_event_types**](ManagementApi.md#get_event_types) | **GET** /v1/event_types | List event types
+[**get_exports**](ManagementApi.md#get_exports) | **GET** /v1/exports | Get exports
+[**get_loyalty_points**](ManagementApi.md#get_loyalty_points) | **GET** /v1/loyalty_programs/{programID}/profile/{integrationID} | Get integration&#39;s Loyalty Ledger
 [**get_loyalty_program**](ManagementApi.md#get_loyalty_program) | **GET** /v1/loyalty_programs/{programID} | Get a loyalty program
-[**get_loyalty_programs**](ManagementApi.md#get_loyalty_programs) | **GET** /v1/loyalty_programs | List all loyalty Programs
+[**get_loyalty_programs**](ManagementApi.md#get_loyalty_programs) | **GET** /v1/loyalty_programs | List loyalty programs
 [**get_loyalty_statistics**](ManagementApi.md#get_loyalty_statistics) | **GET** /v1/loyalty_programs/{programID}/statistics | Get loyalty program statistics by loyalty program ID
-[**get_referrals**](ManagementApi.md#get_referrals) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/referrals | List Referrals (with total count)
-[**get_referrals_without_total_count**](ManagementApi.md#get_referrals_without_total_count) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/referrals/no_total | List Referrals
+[**get_referrals**](ManagementApi.md#get_referrals) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/referrals | List referrals (with total count)
+[**get_referrals_without_total_count**](ManagementApi.md#get_referrals_without_total_count) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/referrals/no_total | List referrals
 [**get_role**](ManagementApi.md#get_role) | **GET** /v1/roles/{roleId} | Get information for the specified role
-[**get_ruleset**](ManagementApi.md#get_ruleset) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/rulesets/{rulesetId} | Get a Ruleset
-[**get_rulesets**](ManagementApi.md#get_rulesets) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/rulesets | List Campaign Rulesets
+[**get_ruleset**](ManagementApi.md#get_ruleset) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/rulesets/{rulesetId} | Get ruleset
+[**get_rulesets**](ManagementApi.md#get_rulesets) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/rulesets | List rulesets
 [**get_user**](ManagementApi.md#get_user) | **GET** /v1/users/{userId} | Get a single User
-[**get_users**](ManagementApi.md#get_users) | **GET** /v1/users | List Users in your account
+[**get_users**](ManagementApi.md#get_users) | **GET** /v1/users | List users
 [**get_webhook**](ManagementApi.md#get_webhook) | **GET** /v1/webhooks/{webhookId} | Get Webhook
 [**get_webhook_activation_logs**](ManagementApi.md#get_webhook_activation_logs) | **GET** /v1/webhook_activation_logs | List Webhook activation Log Entries
 [**get_webhook_logs**](ManagementApi.md#get_webhook_logs) | **GET** /v1/webhook_logs | List Webhook Log Entries
 [**get_webhooks**](ManagementApi.md#get_webhooks) | **GET** /v1/webhooks | List Webhooks
-[**remove_loyalty_points**](ManagementApi.md#remove_loyalty_points) | **PUT** /v1/loyalty_programs/{programID}/profile/{integrationID}/deduct_points | Deduct points in a certain loyalty program for the specified customer
+[**import_coupons**](ManagementApi.md#import_coupons) | **POST** /v1/applications/{applicationId}/campaigns/{campaignId}/import_coupons | Import coupons via CSV file
+[**import_loyalty_points**](ManagementApi.md#import_loyalty_points) | **POST** /v1/loyalty_programs/{programID}/import_points | Import loyalty points via CSV file
+[**import_pool_giveaways**](ManagementApi.md#import_pool_giveaways) | **POST** /v1/giveaways/pools/{poolId}/import | Import giveaways codes into a giveaways pool
+[**import_referrals**](ManagementApi.md#import_referrals) | **POST** /v1/applications/{applicationId}/campaigns/{campaignId}/import_referrals | Import referrals via CSV file
+[**remove_loyalty_points**](ManagementApi.md#remove_loyalty_points) | **PUT** /v1/loyalty_programs/{programID}/profile/{integrationID}/deduct_points | Deduct points in a loyalty program for the specified customer
 [**reset_password**](ManagementApi.md#reset_password) | **POST** /v1/reset_password | Reset password
-[**search_coupons_advanced**](ManagementApi.md#search_coupons_advanced) | **POST** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons_search_advanced | Get a list of the coupons that match the given attributes (with total count)
-[**search_coupons_advanced_application_wide**](ManagementApi.md#search_coupons_advanced_application_wide) | **POST** /v1/applications/{applicationId}/coupons_search_advanced | Get a list of the coupons that match the given attributes in all active campaigns of an application (with total count)
-[**search_coupons_advanced_application_wide_without_total_count**](ManagementApi.md#search_coupons_advanced_application_wide_without_total_count) | **POST** /v1/applications/{applicationId}/coupons_search_advanced/no_total | Get a list of the coupons that match the given attributes in all active campaigns of an application
-[**search_coupons_advanced_without_total_count**](ManagementApi.md#search_coupons_advanced_without_total_count) | **POST** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons_search_advanced/no_total | Get a list of the coupons that match the given attributes
+[**search_coupons_advanced**](ManagementApi.md#search_coupons_advanced) | **POST** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons_search_advanced | List coupons that match the given attributes (with total count)
+[**search_coupons_advanced_application_wide**](ManagementApi.md#search_coupons_advanced_application_wide) | **POST** /v1/applications/{applicationId}/coupons_search_advanced | List coupons that match the given attributes in all active campaigns of an application (with total count)
+[**search_coupons_advanced_application_wide_without_total_count**](ManagementApi.md#search_coupons_advanced_application_wide_without_total_count) | **POST** /v1/applications/{applicationId}/coupons_search_advanced/no_total | List coupons that match the given attributes in all active campaigns of an application
+[**search_coupons_advanced_without_total_count**](ManagementApi.md#search_coupons_advanced_without_total_count) | **POST** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons_search_advanced/no_total | List coupons that match the given attributes
 [**update_additional_cost**](ManagementApi.md#update_additional_cost) | **PUT** /v1/additional_costs/{additionalCostId} | Update an additional cost
 [**update_attribute**](ManagementApi.md#update_attribute) | **PUT** /v1/attributes/{attributeId} | Update a custom attribute
-[**update_campaign**](ManagementApi.md#update_campaign) | **PUT** /v1/applications/{applicationId}/campaigns/{campaignId} | Update a Campaign
-[**update_coupon**](ManagementApi.md#update_coupon) | **PUT** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons/{couponId} | Update a Coupon
-[**update_coupon_batch**](ManagementApi.md#update_coupon_batch) | **PUT** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons | Update a Batch of Coupons
-[**update_ruleset**](ManagementApi.md#update_ruleset) | **PUT** /v1/applications/{applicationId}/campaigns/{campaignId}/rulesets/{rulesetId} | Update a Ruleset
+[**update_campaign**](ManagementApi.md#update_campaign) | **PUT** /v1/applications/{applicationId}/campaigns/{campaignId} | Update campaign
+[**update_coupon**](ManagementApi.md#update_coupon) | **PUT** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons/{couponId} | Update coupon
+[**update_coupon_batch**](ManagementApi.md#update_coupon_batch) | **PUT** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons | Update a batch of coupons
+[**update_referral**](ManagementApi.md#update_referral) | **PUT** /v1/applications/{applicationId}/campaigns/{campaignId}/referrals/{referralId} | Update referral
+[**update_ruleset**](ManagementApi.md#update_ruleset) | **PUT** /v1/applications/{applicationId}/campaigns/{campaignId}/rulesets/{rulesetId} | Update ruleset
 
 
 # **add_loyalty_points**
-> add_loyalty_points(program_id, integration_id, body)
+> add_loyalty_points(program_id, integration_id, loyalty_points)
 
-Add points in a certain loyalty program for the specified customer
+Add points in a loyalty program for the specified customer
 
 ### Example
 
-* Api Key Authentication (manager_auth):
+* Bearer Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to http://your_domain.your_region.talon.one
 # See configuration.py for a list of all supported configuration parameters.
 configuration = talon_one.Configuration(
-    host = "http://localhost"
+    host = "http://your_domain.your_region.talon.one"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -119,27 +123,22 @@ configuration = talon_one.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure API key authorization: manager_auth
+# Configure Bearer authorization: manager_auth
 configuration = talon_one.Configuration(
-    host = "http://localhost",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
+    access_token = 'YOUR_BEARER_TOKEN'
 )
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
-    program_id = 'program_id_example' # str | 
+    program_id = 56 # int | The identifier for the loyalty program, must be unique within the account.
 integration_id = 'integration_id_example' # str | 
-body = talon_one.LoyaltyPoints() # LoyaltyPoints | 
+loyalty_points = talon_one.LoyaltyPoints() # LoyaltyPoints | 
 
     try:
-        # Add points in a certain loyalty program for the specified customer
-        api_instance.add_loyalty_points(program_id, integration_id, body)
+        # Add points in a loyalty program for the specified customer
+        api_instance.add_loyalty_points(program_id, integration_id, loyalty_points)
     except ApiException as e:
         print("Exception when calling ManagementApi->add_loyalty_points: %s\n" % e)
 ```
@@ -148,9 +147,9 @@ body = talon_one.LoyaltyPoints() # LoyaltyPoints |
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **program_id** | **str**|  | 
+ **program_id** | **int**| The identifier for the loyalty program, must be unique within the account. | 
  **integration_id** | **str**|  | 
- **body** | [**LoyaltyPoints**](LoyaltyPoints.md)|  | 
+ **loyalty_points** | [**LoyaltyPoints**](LoyaltyPoints.md)|  | 
 
 ### Return type
 
@@ -173,7 +172,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **copy_campaign_to_applications**
-> InlineResponse2002 copy_campaign_to_applications(application_id, campaign_id, body)
+> InlineResponse2002 copy_campaign_to_applications(application_id, campaign_id, campaign_copy)
 
 Copy the campaign into every specified application
 
@@ -181,17 +180,17 @@ Copy the campaign into every specified application.
 
 ### Example
 
-* Api Key Authentication (manager_auth):
+* Bearer Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to http://your_domain.your_region.talon.one
 # See configuration.py for a list of all supported configuration parameters.
 configuration = talon_one.Configuration(
-    host = "http://localhost"
+    host = "http://your_domain.your_region.talon.one"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -199,15 +198,10 @@ configuration = talon_one.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure API key authorization: manager_auth
+# Configure Bearer authorization: manager_auth
 configuration = talon_one.Configuration(
-    host = "http://localhost",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
+    access_token = 'YOUR_BEARER_TOKEN'
 )
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
@@ -215,11 +209,11 @@ with talon_one.ApiClient(configuration) as api_client:
     api_instance = talon_one.ManagementApi(api_client)
     application_id = 56 # int | 
 campaign_id = 56 # int | 
-body = talon_one.CampaignCopy() # CampaignCopy | 
+campaign_copy = talon_one.CampaignCopy() # CampaignCopy | 
 
     try:
         # Copy the campaign into every specified application
-        api_response = api_instance.copy_campaign_to_applications(application_id, campaign_id, body)
+        api_response = api_instance.copy_campaign_to_applications(application_id, campaign_id, campaign_copy)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling ManagementApi->copy_campaign_to_applications: %s\n" % e)
@@ -231,7 +225,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **application_id** | **int**|  | 
  **campaign_id** | **int**|  | 
- **body** | [**CampaignCopy**](CampaignCopy.md)|  | 
+ **campaign_copy** | [**CampaignCopy**](CampaignCopy.md)|  | 
 
 ### Return type
 
@@ -254,7 +248,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_additional_cost**
-> AccountAdditionalCost create_additional_cost(body)
+> AccountAdditionalCost create_additional_cost(new_additional_cost)
 
 Define a new additional cost
 
@@ -262,17 +256,17 @@ Defines a new _additional cost_ in this account.  These additional costs are sha
 
 ### Example
 
-* Api Key Authentication (manager_auth):
+* Bearer Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to http://your_domain.your_region.talon.one
 # See configuration.py for a list of all supported configuration parameters.
 configuration = talon_one.Configuration(
-    host = "http://localhost"
+    host = "http://your_domain.your_region.talon.one"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -280,25 +274,20 @@ configuration = talon_one.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure API key authorization: manager_auth
+# Configure Bearer authorization: manager_auth
 configuration = talon_one.Configuration(
-    host = "http://localhost",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
+    access_token = 'YOUR_BEARER_TOKEN'
 )
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
-    body = talon_one.NewAdditionalCost() # NewAdditionalCost | 
+    new_additional_cost = talon_one.NewAdditionalCost() # NewAdditionalCost | 
 
     try:
         # Define a new additional cost
-        api_response = api_instance.create_additional_cost(body)
+        api_response = api_instance.create_additional_cost(new_additional_cost)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling ManagementApi->create_additional_cost: %s\n" % e)
@@ -308,7 +297,7 @@ with talon_one.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**NewAdditionalCost**](NewAdditionalCost.md)|  | 
+ **new_additional_cost** | [**NewAdditionalCost**](NewAdditionalCost.md)|  | 
 
 ### Return type
 
@@ -331,7 +320,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_attribute**
-> Attribute create_attribute(body)
+> Attribute create_attribute(new_attribute)
 
 Define a new custom attribute
 
@@ -339,17 +328,17 @@ Defines a new _custom attribute_ in this account. Custom attributes allow you to
 
 ### Example
 
-* Api Key Authentication (manager_auth):
+* Bearer Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to http://your_domain.your_region.talon.one
 # See configuration.py for a list of all supported configuration parameters.
 configuration = talon_one.Configuration(
-    host = "http://localhost"
+    host = "http://your_domain.your_region.talon.one"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -357,25 +346,20 @@ configuration = talon_one.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure API key authorization: manager_auth
+# Configure Bearer authorization: manager_auth
 configuration = talon_one.Configuration(
-    host = "http://localhost",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
+    access_token = 'YOUR_BEARER_TOKEN'
 )
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
-    body = talon_one.NewAttribute() # NewAttribute | 
+    new_attribute = talon_one.NewAttribute() # NewAttribute | 
 
     try:
         # Define a new custom attribute
-        api_response = api_instance.create_attribute(body)
+        api_response = api_instance.create_attribute(new_attribute)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling ManagementApi->create_attribute: %s\n" % e)
@@ -385,7 +369,7 @@ with talon_one.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**NewAttribute**](NewAttribute.md)|  | 
+ **new_attribute** | [**NewAttribute**](NewAttribute.md)|  | 
 
 ### Return type
 
@@ -408,23 +392,23 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_campaign**
-> Campaign create_campaign(application_id, body)
+> Campaign create_campaign(application_id, new_campaign)
 
-Create a Campaign
+Create campaign
 
 ### Example
 
-* Api Key Authentication (manager_auth):
+* Bearer Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to http://your_domain.your_region.talon.one
 # See configuration.py for a list of all supported configuration parameters.
 configuration = talon_one.Configuration(
-    host = "http://localhost"
+    host = "http://your_domain.your_region.talon.one"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -432,26 +416,21 @@ configuration = talon_one.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure API key authorization: manager_auth
+# Configure Bearer authorization: manager_auth
 configuration = talon_one.Configuration(
-    host = "http://localhost",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
+    access_token = 'YOUR_BEARER_TOKEN'
 )
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
     application_id = 56 # int | 
-body = talon_one.NewCampaign() # NewCampaign | 
+new_campaign = talon_one.NewCampaign() # NewCampaign | 
 
     try:
-        # Create a Campaign
-        api_response = api_instance.create_campaign(application_id, body)
+        # Create campaign
+        api_response = api_instance.create_campaign(application_id, new_campaign)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling ManagementApi->create_campaign: %s\n" % e)
@@ -462,7 +441,7 @@ body = talon_one.NewCampaign() # NewCampaign |
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **application_id** | **int**|  | 
- **body** | [**NewCampaign**](NewCampaign.md)|  | 
+ **new_campaign** | [**NewCampaign**](NewCampaign.md)|  | 
 
 ### Return type
 
@@ -485,25 +464,25 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_coupons**
-> InlineResponse2004 create_coupons(application_id, campaign_id, body, silent=silent)
+> InlineResponse2004 create_coupons(application_id, campaign_id, new_coupons, silent=silent)
 
-Create Coupons
+Create coupons
 
 Create coupons according to some pattern. Up to 20.000 coupons can be created without a unique prefix. When a unique prefix is provided, up to 200.000 coupons can be created.
 
 ### Example
 
-* Api Key Authentication (manager_auth):
+* Bearer Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to http://your_domain.your_region.talon.one
 # See configuration.py for a list of all supported configuration parameters.
 configuration = talon_one.Configuration(
-    host = "http://localhost"
+    host = "http://your_domain.your_region.talon.one"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -511,15 +490,10 @@ configuration = talon_one.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure API key authorization: manager_auth
+# Configure Bearer authorization: manager_auth
 configuration = talon_one.Configuration(
-    host = "http://localhost",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
+    access_token = 'YOUR_BEARER_TOKEN'
 )
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
@@ -527,12 +501,12 @@ with talon_one.ApiClient(configuration) as api_client:
     api_instance = talon_one.ManagementApi(api_client)
     application_id = 56 # int | 
 campaign_id = 56 # int | 
-body = talon_one.NewCoupons() # NewCoupons | 
-silent = 'silent_example' # str | If set to 'yes', response will be an empty 204, otherwise a list of the coupons generated (to to 1000). (optional)
+new_coupons = talon_one.NewCoupons() # NewCoupons | 
+silent = 'silent_example' # str | If set to `yes`, response will be an empty 204, otherwise a list of integration states will be generated (up to 1000). (optional)
 
     try:
-        # Create Coupons
-        api_response = api_instance.create_coupons(application_id, campaign_id, body, silent=silent)
+        # Create coupons
+        api_response = api_instance.create_coupons(application_id, campaign_id, new_coupons, silent=silent)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling ManagementApi->create_coupons: %s\n" % e)
@@ -544,8 +518,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **application_id** | **int**|  | 
  **campaign_id** | **int**|  | 
- **body** | [**NewCoupons**](NewCoupons.md)|  | 
- **silent** | **str**| If set to &#39;yes&#39;, response will be an empty 204, otherwise a list of the coupons generated (to to 1000). | [optional] 
+ **new_coupons** | [**NewCoupons**](NewCoupons.md)|  | 
+ **silent** | **str**| If set to &#x60;yes&#x60;, response will be an empty 204, otherwise a list of integration states will be generated (up to 1000). | [optional] 
 
 ### Return type
 
@@ -569,25 +543,25 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_coupons_for_multiple_recipients**
-> InlineResponse2004 create_coupons_for_multiple_recipients(application_id, campaign_id, body, silent=silent)
+> InlineResponse2004 create_coupons_for_multiple_recipients(application_id, campaign_id, new_coupons_for_multiple_recipients, silent=silent)
 
-Create Coupons for Multiple Recipients
+Create coupons for multiple recipients
 
-Create coupons according to some pattern for up to 1000 recipients.
+Create coupons according to the specified pattern for up to 1000 recipients.
 
 ### Example
 
-* Api Key Authentication (manager_auth):
+* Bearer Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to http://your_domain.your_region.talon.one
 # See configuration.py for a list of all supported configuration parameters.
 configuration = talon_one.Configuration(
-    host = "http://localhost"
+    host = "http://your_domain.your_region.talon.one"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -595,15 +569,10 @@ configuration = talon_one.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure API key authorization: manager_auth
+# Configure Bearer authorization: manager_auth
 configuration = talon_one.Configuration(
-    host = "http://localhost",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
+    access_token = 'YOUR_BEARER_TOKEN'
 )
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
@@ -611,12 +580,12 @@ with talon_one.ApiClient(configuration) as api_client:
     api_instance = talon_one.ManagementApi(api_client)
     application_id = 56 # int | 
 campaign_id = 56 # int | 
-body = talon_one.NewCouponsForMultipleRecipients() # NewCouponsForMultipleRecipients | 
-silent = 'silent_example' # str | If set to 'yes', response will be an empty 204, otherwise a list of the coupons generated (to to 1000). (optional)
+new_coupons_for_multiple_recipients = talon_one.NewCouponsForMultipleRecipients() # NewCouponsForMultipleRecipients | 
+silent = 'silent_example' # str | If set to `yes`, response will be an empty 204, otherwise a list of integration states will be generated (up to 1000). (optional)
 
     try:
-        # Create Coupons for Multiple Recipients
-        api_response = api_instance.create_coupons_for_multiple_recipients(application_id, campaign_id, body, silent=silent)
+        # Create coupons for multiple recipients
+        api_response = api_instance.create_coupons_for_multiple_recipients(application_id, campaign_id, new_coupons_for_multiple_recipients, silent=silent)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling ManagementApi->create_coupons_for_multiple_recipients: %s\n" % e)
@@ -628,8 +597,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **application_id** | **int**|  | 
  **campaign_id** | **int**|  | 
- **body** | [**NewCouponsForMultipleRecipients**](NewCouponsForMultipleRecipients.md)|  | 
- **silent** | **str**| If set to &#39;yes&#39;, response will be an empty 204, otherwise a list of the coupons generated (to to 1000). | [optional] 
+ **new_coupons_for_multiple_recipients** | [**NewCouponsForMultipleRecipients**](NewCouponsForMultipleRecipients.md)|  | 
+ **silent** | **str**| If set to &#x60;yes&#x60;, response will be an empty 204, otherwise a list of integration states will be generated (up to 1000). | [optional] 
 
 ### Return type
 
@@ -653,7 +622,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_password_recovery_email**
-> NewPasswordEmail create_password_recovery_email(body)
+> NewPasswordEmail create_password_recovery_email(new_password_email)
 
 Request a password reset
 
@@ -661,17 +630,17 @@ Sends an email with a password recovery link to the email of an existing account
 
 ### Example
 
-* Api Key Authentication (manager_auth):
+* Bearer Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to http://your_domain.your_region.talon.one
 # See configuration.py for a list of all supported configuration parameters.
 configuration = talon_one.Configuration(
-    host = "http://localhost"
+    host = "http://your_domain.your_region.talon.one"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -679,25 +648,20 @@ configuration = talon_one.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure API key authorization: manager_auth
+# Configure Bearer authorization: manager_auth
 configuration = talon_one.Configuration(
-    host = "http://localhost",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
+    access_token = 'YOUR_BEARER_TOKEN'
 )
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
-    body = talon_one.NewPasswordEmail() # NewPasswordEmail | 
+    new_password_email = talon_one.NewPasswordEmail() # NewPasswordEmail | 
 
     try:
         # Request a password reset
-        api_response = api_instance.create_password_recovery_email(body)
+        api_response = api_instance.create_password_recovery_email(new_password_email)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling ManagementApi->create_password_recovery_email: %s\n" % e)
@@ -707,7 +671,7 @@ with talon_one.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**NewPasswordEmail**](NewPasswordEmail.md)|  | 
+ **new_password_email** | [**NewPasswordEmail**](NewPasswordEmail.md)|  | 
 
 ### Return type
 
@@ -730,23 +694,23 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_ruleset**
-> Ruleset create_ruleset(application_id, campaign_id, body)
+> Ruleset create_ruleset(application_id, campaign_id, new_ruleset)
 
-Create a Ruleset
+Create ruleset
 
 ### Example
 
-* Api Key Authentication (manager_auth):
+* Bearer Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to http://your_domain.your_region.talon.one
 # See configuration.py for a list of all supported configuration parameters.
 configuration = talon_one.Configuration(
-    host = "http://localhost"
+    host = "http://your_domain.your_region.talon.one"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -754,15 +718,10 @@ configuration = talon_one.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure API key authorization: manager_auth
+# Configure Bearer authorization: manager_auth
 configuration = talon_one.Configuration(
-    host = "http://localhost",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
+    access_token = 'YOUR_BEARER_TOKEN'
 )
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
@@ -770,11 +729,11 @@ with talon_one.ApiClient(configuration) as api_client:
     api_instance = talon_one.ManagementApi(api_client)
     application_id = 56 # int | 
 campaign_id = 56 # int | 
-body = talon_one.NewRuleset() # NewRuleset | 
+new_ruleset = talon_one.NewRuleset() # NewRuleset | 
 
     try:
-        # Create a Ruleset
-        api_response = api_instance.create_ruleset(application_id, campaign_id, body)
+        # Create ruleset
+        api_response = api_instance.create_ruleset(application_id, campaign_id, new_ruleset)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling ManagementApi->create_ruleset: %s\n" % e)
@@ -786,7 +745,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **application_id** | **int**|  | 
  **campaign_id** | **int**|  | 
- **body** | [**NewRuleset**](NewRuleset.md)|  | 
+ **new_ruleset** | [**NewRuleset**](NewRuleset.md)|  | 
 
 ### Return type
 
@@ -809,49 +768,36 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_session**
-> Session create_session(body)
+> Session create_session(login_params)
 
-Create a Session
+Create session
+
+Create a session to use the other Management API endpoints. Use the `token` property of the response as bearer token.
 
 ### Example
 
-* Api Key Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to http://your_domain.your_region.talon.one
 # See configuration.py for a list of all supported configuration parameters.
 configuration = talon_one.Configuration(
-    host = "http://localhost"
+    host = "http://your_domain.your_region.talon.one"
 )
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: manager_auth
-configuration = talon_one.Configuration(
-    host = "http://localhost",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
-)
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with talon_one.ApiClient(configuration) as api_client:
+with talon_one.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
-    body = talon_one.LoginParams() # LoginParams | 
+    login_params = talon_one.LoginParams() # LoginParams | 
 
     try:
-        # Create a Session
-        api_response = api_instance.create_session(body)
+        # Create session
+        api_response = api_instance.create_session(login_params)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling ManagementApi->create_session: %s\n" % e)
@@ -861,7 +807,7 @@ with talon_one.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**LoginParams**](LoginParams.md)|  | 
+ **login_params** | [**LoginParams**](LoginParams.md)|  | 
 
 ### Return type
 
@@ -869,7 +815,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[manager_auth](../README.md#manager_auth)
+No authorization required
 
 ### HTTP request headers
 
@@ -886,21 +832,21 @@ Name | Type | Description  | Notes
 # **delete_campaign**
 > delete_campaign(application_id, campaign_id)
 
-Delete a Campaign
+Delete campaign
 
 ### Example
 
-* Api Key Authentication (manager_auth):
+* Bearer Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to http://your_domain.your_region.talon.one
 # See configuration.py for a list of all supported configuration parameters.
 configuration = talon_one.Configuration(
-    host = "http://localhost"
+    host = "http://your_domain.your_region.talon.one"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -908,15 +854,10 @@ configuration = talon_one.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure API key authorization: manager_auth
+# Configure Bearer authorization: manager_auth
 configuration = talon_one.Configuration(
-    host = "http://localhost",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
+    access_token = 'YOUR_BEARER_TOKEN'
 )
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
@@ -926,7 +867,7 @@ with talon_one.ApiClient(configuration) as api_client:
 campaign_id = 56 # int | 
 
     try:
-        # Delete a Campaign
+        # Delete campaign
         api_instance.delete_campaign(application_id, campaign_id)
     except ApiException as e:
         print("Exception when calling ManagementApi->delete_campaign: %s\n" % e)
@@ -962,40 +903,25 @@ void (empty response body)
 # **delete_coupon**
 > delete_coupon(application_id, campaign_id, coupon_id)
 
-Delete one Coupon
+Delete coupon
 
 ### Example
 
-* Api Key Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to http://your_domain.your_region.talon.one
 # See configuration.py for a list of all supported configuration parameters.
 configuration = talon_one.Configuration(
-    host = "http://localhost"
+    host = "http://your_domain.your_region.talon.one"
 )
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: manager_auth
-configuration = talon_one.Configuration(
-    host = "http://localhost",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
-)
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with talon_one.ApiClient(configuration) as api_client:
+with talon_one.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
     application_id = 56 # int | 
@@ -1003,7 +929,7 @@ campaign_id = 56 # int |
 coupon_id = 'coupon_id_example' # str | The ID of the coupon code to delete
 
     try:
-        # Delete one Coupon
+        # Delete coupon
         api_instance.delete_coupon(application_id, campaign_id, coupon_id)
     except ApiException as e:
         print("Exception when calling ManagementApi->delete_coupon: %s\n" % e)
@@ -1023,7 +949,7 @@ void (empty response body)
 
 ### Authorization
 
-[manager_auth](../README.md#manager_auth)
+No authorization required
 
 ### HTTP request headers
 
@@ -1040,21 +966,21 @@ void (empty response body)
 # **delete_coupons**
 > delete_coupons(application_id, campaign_id, value=value, created_before=created_before, created_after=created_after, starts_after=starts_after, starts_before=starts_before, expires_after=expires_after, expires_before=expires_before, valid=valid, batch_id=batch_id, usable=usable, referral_id=referral_id, recipient_integration_id=recipient_integration_id, exact_match=exact_match)
 
-Delete Coupons
+Delete coupons
 
 ### Example
 
-* Api Key Authentication (manager_auth):
+* Bearer Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to http://your_domain.your_region.talon.one
 # See configuration.py for a list of all supported configuration parameters.
 configuration = talon_one.Configuration(
-    host = "http://localhost"
+    host = "http://your_domain.your_region.talon.one"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -1062,15 +988,10 @@ configuration = talon_one.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure API key authorization: manager_auth
+# Configure Bearer authorization: manager_auth
 configuration = talon_one.Configuration(
-    host = "http://localhost",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
+    access_token = 'YOUR_BEARER_TOKEN'
 )
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
@@ -1093,7 +1014,7 @@ recipient_integration_id = 'recipient_integration_id_example' # str | Filter res
 exact_match = False # bool | Filter results to an exact case-insensitive matching against the coupon code (optional) (default to False)
 
     try:
-        # Delete Coupons
+        # Delete coupons
         api_instance.delete_coupons(application_id, campaign_id, value=value, created_before=created_before, created_after=created_after, starts_after=starts_after, starts_before=starts_before, expires_after=expires_after, expires_before=expires_before, valid=valid, batch_id=batch_id, usable=usable, referral_id=referral_id, recipient_integration_id=recipient_integration_id, exact_match=exact_match)
     except ApiException as e:
         print("Exception when calling ManagementApi->delete_coupons: %s\n" % e)
@@ -1142,21 +1063,21 @@ void (empty response body)
 # **delete_referral**
 > delete_referral(application_id, campaign_id, referral_id)
 
-Delete one Referral
+Delete referral
 
 ### Example
 
-* Api Key Authentication (manager_auth):
+* Bearer Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to http://your_domain.your_region.talon.one
 # See configuration.py for a list of all supported configuration parameters.
 configuration = talon_one.Configuration(
-    host = "http://localhost"
+    host = "http://your_domain.your_region.talon.one"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -1164,15 +1085,10 @@ configuration = talon_one.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure API key authorization: manager_auth
+# Configure Bearer authorization: manager_auth
 configuration = talon_one.Configuration(
-    host = "http://localhost",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
+    access_token = 'YOUR_BEARER_TOKEN'
 )
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
@@ -1183,7 +1099,7 @@ campaign_id = 56 # int |
 referral_id = 'referral_id_example' # str | The ID of the referral code to delete
 
     try:
-        # Delete one Referral
+        # Delete referral
         api_instance.delete_referral(application_id, campaign_id, referral_id)
     except ApiException as e:
         print("Exception when calling ManagementApi->delete_referral: %s\n" % e)
@@ -1220,21 +1136,21 @@ void (empty response body)
 # **delete_ruleset**
 > delete_ruleset(application_id, campaign_id, ruleset_id)
 
-Delete a Ruleset
+Delete ruleset
 
 ### Example
 
-* Api Key Authentication (manager_auth):
+* Bearer Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to http://your_domain.your_region.talon.one
 # See configuration.py for a list of all supported configuration parameters.
 configuration = talon_one.Configuration(
-    host = "http://localhost"
+    host = "http://your_domain.your_region.talon.one"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -1242,15 +1158,10 @@ configuration = talon_one.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure API key authorization: manager_auth
+# Configure Bearer authorization: manager_auth
 configuration = talon_one.Configuration(
-    host = "http://localhost",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
+    access_token = 'YOUR_BEARER_TOKEN'
 )
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
@@ -1261,7 +1172,7 @@ campaign_id = 56 # int |
 ruleset_id = 56 # int | 
 
     try:
-        # Delete a Ruleset
+        # Delete ruleset
         api_instance.delete_ruleset(application_id, campaign_id, ruleset_id)
     except ApiException as e:
         print("Exception when calling ManagementApi->delete_ruleset: %s\n" % e)
@@ -1295,96 +1206,26 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **destroy_session**
-> destroy_session()
-
-Destroy a Session
-
-### Example
-
-* Api Key Authentication (manager_auth):
-```python
-from __future__ import print_function
-import time
-import talon_one
-from talon_one.rest import ApiException
-from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
-# See configuration.py for a list of all supported configuration parameters.
-configuration = talon_one.Configuration(
-    host = "http://localhost"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: manager_auth
-configuration = talon_one.Configuration(
-    host = "http://localhost",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
-)
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with talon_one.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = talon_one.ManagementApi(api_client)
-    
-    try:
-        # Destroy a Session
-        api_instance.destroy_session()
-    except ApiException as e:
-        print("Exception when calling ManagementApi->destroy_session: %s\n" % e)
-```
-
-### Parameters
-This endpoint does not need any parameter.
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[manager_auth](../README.md#manager_auth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: Not defined
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**204** | No Content |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **export_coupons**
 > str export_coupons(application_id, campaign_id=campaign_id, sort=sort, value=value, created_before=created_before, created_after=created_after, valid=valid, usable=usable, referral_id=referral_id, recipient_integration_id=recipient_integration_id, batch_id=batch_id, exact_match=exact_match, date_format=date_format, campaign_state=campaign_state)
 
-Export Coupons to a CSV file
+Export coupons to a CSV file
 
 Download a file with the coupons that match the given attributes.
 
 ### Example
 
-* Api Key Authentication (manager_auth):
+* Bearer Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to http://your_domain.your_region.talon.one
 # See configuration.py for a list of all supported configuration parameters.
 configuration = talon_one.Configuration(
-    host = "http://localhost"
+    host = "http://your_domain.your_region.talon.one"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -1392,15 +1233,10 @@ configuration = talon_one.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure API key authorization: manager_auth
+# Configure Bearer authorization: manager_auth
 configuration = talon_one.Configuration(
-    host = "http://localhost",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
+    access_token = 'YOUR_BEARER_TOKEN'
 )
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
@@ -1408,7 +1244,7 @@ with talon_one.ApiClient(configuration) as api_client:
     api_instance = talon_one.ManagementApi(api_client)
     application_id = 56 # int | 
 campaign_id = 3.4 # float | Filter results by campaign. (optional)
-sort = 'sort_example' # str | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional)
+sort = 'sort_example' # str |  (optional)
 value = 'value_example' # str | Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
 created_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
 created_after = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
@@ -1422,7 +1258,7 @@ date_format = 'date_format_example' # str | Determines the format of dates in th
 campaign_state = 'campaign_state_example' # str | Filter results by the state of the campaign. (optional)
 
     try:
-        # Export Coupons to a CSV file
+        # Export coupons to a CSV file
         api_response = api_instance.export_coupons(application_id, campaign_id=campaign_id, sort=sort, value=value, created_before=created_before, created_after=created_after, valid=valid, usable=usable, referral_id=referral_id, recipient_integration_id=recipient_integration_id, batch_id=batch_id, exact_match=exact_match, date_format=date_format, campaign_state=campaign_state)
         pprint(api_response)
     except ApiException as e:
@@ -1435,7 +1271,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **application_id** | **int**|  | 
  **campaign_id** | **float**| Filter results by campaign. | [optional] 
- **sort** | **str**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional] 
+ **sort** | **str**|  | [optional] 
  **value** | **str**| Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. | [optional] 
  **created_before** | **datetime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. | [optional] 
  **created_after** | **datetime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. | [optional] 
@@ -1459,7 +1295,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/csv
+ - **Accept**: text/csv
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -1477,17 +1313,17 @@ Download a file with the customer sessions that match the request.
 
 ### Example
 
-* Api Key Authentication (manager_auth):
+* Bearer Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to http://your_domain.your_region.talon.one
 # See configuration.py for a list of all supported configuration parameters.
 configuration = talon_one.Configuration(
-    host = "http://localhost"
+    host = "http://your_domain.your_region.talon.one"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -1495,15 +1331,10 @@ configuration = talon_one.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure API key authorization: manager_auth
+# Configure Bearer authorization: manager_auth
 configuration = talon_one.Configuration(
-    host = "http://localhost",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
+    access_token = 'YOUR_BEARER_TOKEN'
 )
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
@@ -1546,7 +1377,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/csv
+ - **Accept**: text/csv
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -1564,17 +1395,17 @@ Download a file with the triggered effects that match the given attributes.
 
 ### Example
 
-* Api Key Authentication (manager_auth):
+* Bearer Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to http://your_domain.your_region.talon.one
 # See configuration.py for a list of all supported configuration parameters.
 configuration = talon_one.Configuration(
-    host = "http://localhost"
+    host = "http://your_domain.your_region.talon.one"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -1582,15 +1413,10 @@ configuration = talon_one.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure API key authorization: manager_auth
+# Configure Bearer authorization: manager_auth
 configuration = talon_one.Configuration(
-    host = "http://localhost",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
+    access_token = 'YOUR_BEARER_TOKEN'
 )
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
@@ -1631,7 +1457,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/csv
+ - **Accept**: text/csv
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -1649,17 +1475,17 @@ Download a file with the balance of each customer in the loyalty program
 
 ### Example
 
-* Api Key Authentication (manager_auth):
+* Bearer Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to http://your_domain.your_region.talon.one
 # See configuration.py for a list of all supported configuration parameters.
 configuration = talon_one.Configuration(
-    host = "http://localhost"
+    host = "http://your_domain.your_region.talon.one"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -1667,21 +1493,16 @@ configuration = talon_one.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure API key authorization: manager_auth
+# Configure Bearer authorization: manager_auth
 configuration = talon_one.Configuration(
-    host = "http://localhost",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
+    access_token = 'YOUR_BEARER_TOKEN'
 )
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
-    program_id = 'program_id_example' # str | 
+    program_id = 56 # int | The identifier for the loyalty program, must be unique within the account.
 
     try:
         # Export customer loyalty balance to a CSV file
@@ -1695,7 +1516,7 @@ with talon_one.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **program_id** | **str**|  | 
+ **program_id** | **int**| The identifier for the loyalty program, must be unique within the account. | 
 
 ### Return type
 
@@ -1708,7 +1529,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/csv
+ - **Accept**: text/csv
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -1718,7 +1539,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **export_loyalty_ledger**
-> str export_loyalty_ledger(range_start, range_end, program_id, integration_id, date_format=date_format)
+> str export_loyalty_ledger(program_id, integration_id, range_start, range_end, date_format=date_format)
 
 Export a customer's loyalty ledger log to a CSV file
 
@@ -1726,17 +1547,17 @@ Download a file with a customer's ledger log in the loyalty program
 
 ### Example
 
-* Api Key Authentication (manager_auth):
+* Bearer Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to http://your_domain.your_region.talon.one
 # See configuration.py for a list of all supported configuration parameters.
 configuration = talon_one.Configuration(
-    host = "http://localhost"
+    host = "http://your_domain.your_region.talon.one"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -1744,29 +1565,24 @@ configuration = talon_one.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure API key authorization: manager_auth
+# Configure Bearer authorization: manager_auth
 configuration = talon_one.Configuration(
-    host = "http://localhost",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
+    access_token = 'YOUR_BEARER_TOKEN'
 )
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
-    range_start = '2013-10-20T19:20:30+01:00' # datetime | Only return results from after this timestamp, must be an RFC3339 timestamp string
-range_end = '2013-10-20T19:20:30+01:00' # datetime | Only return results from before this timestamp, must be an RFC3339 timestamp string
-program_id = 'program_id_example' # str | 
+    program_id = 56 # int | The identifier for the loyalty program, must be unique within the account.
 integration_id = 'integration_id_example' # str | 
+range_start = '2013-10-20T19:20:30+01:00' # datetime | Only return results from after this timestamp, must be an RFC3339 timestamp string
+range_end = '2013-10-20T19:20:30+01:00' # datetime | Only return results from before this timestamp, must be an RFC3339 timestamp string
 date_format = 'date_format_example' # str | Determines the format of dates in the export document. (optional)
 
     try:
         # Export a customer's loyalty ledger log to a CSV file
-        api_response = api_instance.export_loyalty_ledger(range_start, range_end, program_id, integration_id, date_format=date_format)
+        api_response = api_instance.export_loyalty_ledger(program_id, integration_id, range_start, range_end, date_format=date_format)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling ManagementApi->export_loyalty_ledger: %s\n" % e)
@@ -1776,10 +1592,10 @@ date_format = 'date_format_example' # str | Determines the format of dates in th
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **program_id** | **int**| The identifier for the loyalty program, must be unique within the account. | 
+ **integration_id** | **str**|  | 
  **range_start** | **datetime**| Only return results from after this timestamp, must be an RFC3339 timestamp string | 
  **range_end** | **datetime**| Only return results from before this timestamp, must be an RFC3339 timestamp string | 
- **program_id** | **str**|  | 
- **integration_id** | **str**|  | 
  **date_format** | **str**| Determines the format of dates in the export document. | [optional] 
 
 ### Return type
@@ -1793,7 +1609,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/csv
+ - **Accept**: text/csv
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -1803,23 +1619,23 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_access_logs**
-> InlineResponse2009 get_access_logs(application_id, range_start, range_end, path=path, method=method, status=status, page_size=page_size, skip=skip, sort=sort)
+> InlineResponse2008 get_access_logs(application_id, range_start, range_end, path=path, method=method, status=status, page_size=page_size, skip=skip, sort=sort)
 
 Get access logs for application (with total count)
 
 ### Example
 
-* Api Key Authentication (manager_auth):
+* Bearer Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to http://your_domain.your_region.talon.one
 # See configuration.py for a list of all supported configuration parameters.
 configuration = talon_one.Configuration(
-    host = "http://localhost"
+    host = "http://your_domain.your_region.talon.one"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -1827,15 +1643,10 @@ configuration = talon_one.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure API key authorization: manager_auth
+# Configure Bearer authorization: manager_auth
 configuration = talon_one.Configuration(
-    host = "http://localhost",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
+    access_token = 'YOUR_BEARER_TOKEN'
 )
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
@@ -1849,7 +1660,7 @@ method = 'method_example' # str | Only return results where the request method m
 status = 'status_example' # str | Filter results by HTTP status codes. (optional)
 page_size = 56 # int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
 skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
-sort = 'sort_example' # str | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional)
+sort = 'sort_example' # str |  (optional)
 
     try:
         # Get access logs for application (with total count)
@@ -1871,11 +1682,11 @@ Name | Type | Description  | Notes
  **status** | **str**| Filter results by HTTP status codes. | [optional] 
  **page_size** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
  **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional] 
- **sort** | **str**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional] 
+ **sort** | **str**|  | [optional] 
 
 ### Return type
 
-[**InlineResponse2009**](InlineResponse2009.md)
+[**InlineResponse2008**](InlineResponse2008.md)
 
 ### Authorization
 
@@ -1894,23 +1705,23 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_access_logs_without_total_count**
-> InlineResponse20010 get_access_logs_without_total_count(application_id, range_start, range_end, path=path, method=method, status=status, page_size=page_size, skip=skip, sort=sort)
+> InlineResponse2009 get_access_logs_without_total_count(application_id, range_start, range_end, path=path, method=method, status=status, page_size=page_size, skip=skip, sort=sort)
 
 Get access logs for application
 
 ### Example
 
-* Api Key Authentication (manager_auth):
+* Bearer Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to http://your_domain.your_region.talon.one
 # See configuration.py for a list of all supported configuration parameters.
 configuration = talon_one.Configuration(
-    host = "http://localhost"
+    host = "http://your_domain.your_region.talon.one"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -1918,15 +1729,10 @@ configuration = talon_one.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure API key authorization: manager_auth
+# Configure Bearer authorization: manager_auth
 configuration = talon_one.Configuration(
-    host = "http://localhost",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
+    access_token = 'YOUR_BEARER_TOKEN'
 )
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
@@ -1940,7 +1746,7 @@ method = 'method_example' # str | Only return results where the request method m
 status = 'status_example' # str | Filter results by HTTP status codes. (optional)
 page_size = 56 # int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
 skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
-sort = 'sort_example' # str | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional)
+sort = 'sort_example' # str |  (optional)
 
     try:
         # Get access logs for application
@@ -1962,11 +1768,11 @@ Name | Type | Description  | Notes
  **status** | **str**| Filter results by HTTP status codes. | [optional] 
  **page_size** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
  **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional] 
- **sort** | **str**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional] 
+ **sort** | **str**|  | [optional] 
 
 ### Return type
 
-[**InlineResponse20010**](InlineResponse20010.md)
+[**InlineResponse2009**](InlineResponse2009.md)
 
 ### Authorization
 
@@ -1993,17 +1799,17 @@ Return the details of your companies Talon.One account.
 
 ### Example
 
-* Api Key Authentication (manager_auth):
+* Bearer Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to http://your_domain.your_region.talon.one
 # See configuration.py for a list of all supported configuration parameters.
 configuration = talon_one.Configuration(
-    host = "http://localhost"
+    host = "http://your_domain.your_region.talon.one"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -2011,15 +1817,10 @@ configuration = talon_one.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure API key authorization: manager_auth
+# Configure Bearer authorization: manager_auth
 configuration = talon_one.Configuration(
-    host = "http://localhost",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
+    access_token = 'YOUR_BEARER_TOKEN'
 )
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
@@ -2070,17 +1871,17 @@ Return the analytics of your companies Talon.One account.
 
 ### Example
 
-* Api Key Authentication (manager_auth):
+* Bearer Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to http://your_domain.your_region.talon.one
 # See configuration.py for a list of all supported configuration parameters.
 configuration = talon_one.Configuration(
-    host = "http://localhost"
+    host = "http://your_domain.your_region.talon.one"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -2088,15 +1889,10 @@ configuration = talon_one.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure API key authorization: manager_auth
+# Configure Bearer authorization: manager_auth
 configuration = talon_one.Configuration(
-    host = "http://localhost",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
+    access_token = 'YOUR_BEARER_TOKEN'
 )
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
@@ -2147,17 +1943,17 @@ Returns additional cost for the account by its id.
 
 ### Example
 
-* Api Key Authentication (manager_auth):
+* Bearer Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to http://your_domain.your_region.talon.one
 # See configuration.py for a list of all supported configuration parameters.
 configuration = talon_one.Configuration(
-    host = "http://localhost"
+    host = "http://your_domain.your_region.talon.one"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -2165,15 +1961,10 @@ configuration = talon_one.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure API key authorization: manager_auth
+# Configure Bearer authorization: manager_auth
 configuration = talon_one.Configuration(
-    host = "http://localhost",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
+    access_token = 'YOUR_BEARER_TOKEN'
 )
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
@@ -2216,7 +2007,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_additional_costs**
-> InlineResponse20022 get_additional_costs(page_size=page_size, skip=skip, sort=sort)
+> InlineResponse20021 get_additional_costs(page_size=page_size, skip=skip, sort=sort)
 
 List additional costs
 
@@ -2224,17 +2015,17 @@ Returns all the defined additional costs for the account.
 
 ### Example
 
-* Api Key Authentication (manager_auth):
+* Bearer Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to http://your_domain.your_region.talon.one
 # See configuration.py for a list of all supported configuration parameters.
 configuration = talon_one.Configuration(
-    host = "http://localhost"
+    host = "http://your_domain.your_region.talon.one"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -2242,15 +2033,10 @@ configuration = talon_one.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure API key authorization: manager_auth
+# Configure Bearer authorization: manager_auth
 configuration = talon_one.Configuration(
-    host = "http://localhost",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
+    access_token = 'YOUR_BEARER_TOKEN'
 )
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
@@ -2258,7 +2044,7 @@ with talon_one.ApiClient(configuration) as api_client:
     api_instance = talon_one.ManagementApi(api_client)
     page_size = 56 # int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
 skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
-sort = 'sort_example' # str | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional)
+sort = 'sort_example' # str |  (optional)
 
     try:
         # List additional costs
@@ -2274,11 +2060,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **page_size** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
  **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional] 
- **sort** | **str**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional] 
+ **sort** | **str**|  | [optional] 
 
 ### Return type
 
-[**InlineResponse20022**](InlineResponse20022.md)
+[**InlineResponse20021**](InlineResponse20021.md)
 
 ### Authorization
 
@@ -2297,25 +2083,25 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_all_access_logs**
-> InlineResponse2009 get_all_access_logs(range_start, range_end, path=path, method=method, status=status, page_size=page_size, skip=skip, sort=sort)
+> InlineResponse2008 get_all_access_logs(range_start, range_end, path=path, method=method, status=status, page_size=page_size, skip=skip, sort=sort)
 
-Get all access logs
+List access logs
 
 Fetches the access logs for the entire account. Sensitive requests (logins) are _always_ filtered from the logs. 
 
 ### Example
 
-* Api Key Authentication (manager_auth):
+* Bearer Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to http://your_domain.your_region.talon.one
 # See configuration.py for a list of all supported configuration parameters.
 configuration = talon_one.Configuration(
-    host = "http://localhost"
+    host = "http://your_domain.your_region.talon.one"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -2323,15 +2109,10 @@ configuration = talon_one.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure API key authorization: manager_auth
+# Configure Bearer authorization: manager_auth
 configuration = talon_one.Configuration(
-    host = "http://localhost",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
+    access_token = 'YOUR_BEARER_TOKEN'
 )
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
@@ -2344,10 +2125,10 @@ method = 'method_example' # str | Only return results where the request method m
 status = 'status_example' # str | Filter results by HTTP status codes. (optional)
 page_size = 56 # int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
 skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
-sort = 'sort_example' # str | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional)
+sort = 'sort_example' # str |  (optional)
 
     try:
-        # Get all access logs
+        # List access logs
         api_response = api_instance.get_all_access_logs(range_start, range_end, path=path, method=method, status=status, page_size=page_size, skip=skip, sort=sort)
         pprint(api_response)
     except ApiException as e:
@@ -2365,11 +2146,11 @@ Name | Type | Description  | Notes
  **status** | **str**| Filter results by HTTP status codes. | [optional] 
  **page_size** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
  **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional] 
- **sort** | **str**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional] 
+ **sort** | **str**|  | [optional] 
 
 ### Return type
 
-[**InlineResponse2009**](InlineResponse2009.md)
+[**InlineResponse2008**](InlineResponse2008.md)
 
 ### Authorization
 
@@ -2388,47 +2169,32 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_all_roles**
-> InlineResponse20030 get_all_roles()
+> InlineResponse20029 get_all_roles()
 
-Get all roles
+List roles
 
 ### Example
 
-* Api Key Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to http://your_domain.your_region.talon.one
 # See configuration.py for a list of all supported configuration parameters.
 configuration = talon_one.Configuration(
-    host = "http://localhost"
+    host = "http://your_domain.your_region.talon.one"
 )
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: manager_auth
-configuration = talon_one.Configuration(
-    host = "http://localhost",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
-)
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with talon_one.ApiClient(configuration) as api_client:
+with talon_one.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
     
     try:
-        # Get all roles
+        # List roles
         api_response = api_instance.get_all_roles()
         pprint(api_response)
     except ApiException as e:
@@ -2440,11 +2206,11 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**InlineResponse20030**](InlineResponse20030.md)
+[**InlineResponse20029**](InlineResponse20029.md)
 
 ### Authorization
 
-[manager_auth](../README.md#manager_auth)
+No authorization required
 
 ### HTTP request headers
 
@@ -2467,17 +2233,17 @@ Get the application specified by the ID.
 
 ### Example
 
-* Api Key Authentication (manager_auth):
+* Bearer Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to http://your_domain.your_region.talon.one
 # See configuration.py for a list of all supported configuration parameters.
 configuration = talon_one.Configuration(
-    host = "http://localhost"
+    host = "http://your_domain.your_region.talon.one"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -2485,15 +2251,10 @@ configuration = talon_one.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure API key authorization: manager_auth
+# Configure Bearer authorization: manager_auth
 configuration = talon_one.Configuration(
-    host = "http://localhost",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
+    access_token = 'YOUR_BEARER_TOKEN'
 )
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
@@ -2542,17 +2303,17 @@ Get report of health of application API
 
 ### Example
 
-* Api Key Authentication (manager_auth):
+* Bearer Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to http://your_domain.your_region.talon.one
 # See configuration.py for a list of all supported configuration parameters.
 configuration = talon_one.Configuration(
-    host = "http://localhost"
+    host = "http://your_domain.your_region.talon.one"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -2560,15 +2321,10 @@ configuration = talon_one.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure API key authorization: manager_auth
+# Configure Bearer authorization: manager_auth
 configuration = talon_one.Configuration(
-    host = "http://localhost",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
+    access_token = 'YOUR_BEARER_TOKEN'
 )
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
@@ -2617,17 +2373,17 @@ Get Application Customer
 
 ### Example
 
-* Api Key Authentication (manager_auth):
+* Bearer Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to http://your_domain.your_region.talon.one
 # See configuration.py for a list of all supported configuration parameters.
 configuration = talon_one.Configuration(
-    host = "http://localhost"
+    host = "http://your_domain.your_region.talon.one"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -2635,15 +2391,10 @@ configuration = talon_one.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure API key authorization: manager_auth
+# Configure Bearer authorization: manager_auth
 configuration = talon_one.Configuration(
-    host = "http://localhost",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
+    access_token = 'YOUR_BEARER_TOKEN'
 )
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
@@ -2688,23 +2439,23 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_application_customers**
-> InlineResponse20012 get_application_customers(application_id, integration_id=integration_id, page_size=page_size, skip=skip, with_total_result_size=with_total_result_size)
+> InlineResponse20011 get_application_customers(application_id, integration_id=integration_id, page_size=page_size, skip=skip, with_total_result_size=with_total_result_size)
 
 List Application Customers
 
 ### Example
 
-* Api Key Authentication (manager_auth):
+* Bearer Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to http://your_domain.your_region.talon.one
 # See configuration.py for a list of all supported configuration parameters.
 configuration = talon_one.Configuration(
-    host = "http://localhost"
+    host = "http://your_domain.your_region.talon.one"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -2712,15 +2463,10 @@ configuration = talon_one.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure API key authorization: manager_auth
+# Configure Bearer authorization: manager_auth
 configuration = talon_one.Configuration(
-    host = "http://localhost",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
+    access_token = 'YOUR_BEARER_TOKEN'
 )
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
@@ -2752,7 +2498,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20012**](InlineResponse20012.md)
+[**InlineResponse20011**](InlineResponse20011.md)
 
 ### Authorization
 
@@ -2771,25 +2517,25 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_application_customers_by_attributes**
-> InlineResponse20013 get_application_customers_by_attributes(body)
+> InlineResponse20012 get_application_customers_by_attributes(application_customer_search)
 
 Get a list of the customer profiles that match the given attributes (with total count)
 
-Gets a list of all the customer profiles for the account that exactly match a set of attributes.  The match is successful if all the attributes of the request are found in a profile, even if the profile has more attributes that are not present on the request.  [Customer Profile]: https://help.talon.one/hc/en-us/articles/360005130739-Data-Model#CustomerProfile 
+Gets a list of all the customer profiles for the account that exactly match a set of attributes.  The match is successful if all the attributes of the request are found in a profile, even if the profile has more attributes that are not present on the request.  [Customer Profile]: https://help.talon.one/hc/en-us/articles/360005130739-Data-Model#/customerProfile 
 
 ### Example
 
-* Api Key Authentication (integration_auth):
+* Bearer Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to http://your_domain.your_region.talon.one
 # See configuration.py for a list of all supported configuration parameters.
 configuration = talon_one.Configuration(
-    host = "http://localhost"
+    host = "http://your_domain.your_region.talon.one"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -2797,25 +2543,20 @@ configuration = talon_one.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure API key authorization: integration_auth
+# Configure Bearer authorization: manager_auth
 configuration = talon_one.Configuration(
-    host = "http://localhost",
-    api_key = {
-        'Content-Signature': 'YOUR_API_KEY'
-    }
+    access_token = 'YOUR_BEARER_TOKEN'
 )
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Content-Signature'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
-    body = talon_one.ApplicationCustomerSearch() # ApplicationCustomerSearch | 
+    application_customer_search = talon_one.ApplicationCustomerSearch() # ApplicationCustomerSearch | 
 
     try:
         # Get a list of the customer profiles that match the given attributes (with total count)
-        api_response = api_instance.get_application_customers_by_attributes(body)
+        api_response = api_instance.get_application_customers_by_attributes(application_customer_search)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling ManagementApi->get_application_customers_by_attributes: %s\n" % e)
@@ -2825,15 +2566,15 @@ with talon_one.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**ApplicationCustomerSearch**](ApplicationCustomerSearch.md)|  | 
+ **application_customer_search** | [**ApplicationCustomerSearch**](ApplicationCustomerSearch.md)|  | 
 
 ### Return type
 
-[**InlineResponse20013**](InlineResponse20013.md)
+[**InlineResponse20012**](InlineResponse20012.md)
 
 ### Authorization
 
-[integration_auth](../README.md#integration_auth)
+[manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -2848,7 +2589,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_application_event_types**
-> InlineResponse20019 get_application_event_types(application_id, page_size=page_size, skip=skip, sort=sort)
+> InlineResponse20018 get_application_event_types(application_id, page_size=page_size, skip=skip, sort=sort)
 
 List Applications Event Types
 
@@ -2856,17 +2597,17 @@ Get all of the distinct values of the Event `type` property for events recorded 
 
 ### Example
 
-* Api Key Authentication (manager_auth):
+* Bearer Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to http://your_domain.your_region.talon.one
 # See configuration.py for a list of all supported configuration parameters.
 configuration = talon_one.Configuration(
-    host = "http://localhost"
+    host = "http://your_domain.your_region.talon.one"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -2874,15 +2615,10 @@ configuration = talon_one.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure API key authorization: manager_auth
+# Configure Bearer authorization: manager_auth
 configuration = talon_one.Configuration(
-    host = "http://localhost",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
+    access_token = 'YOUR_BEARER_TOKEN'
 )
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
@@ -2891,7 +2627,7 @@ with talon_one.ApiClient(configuration) as api_client:
     application_id = 56 # int | 
 page_size = 56 # int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
 skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
-sort = 'sort_example' # str | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional)
+sort = 'sort_example' # str |  (optional)
 
     try:
         # List Applications Event Types
@@ -2908,11 +2644,11 @@ Name | Type | Description  | Notes
  **application_id** | **int**|  | 
  **page_size** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
  **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional] 
- **sort** | **str**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional] 
+ **sort** | **str**|  | [optional] 
 
 ### Return type
 
-[**InlineResponse20019**](InlineResponse20019.md)
+[**InlineResponse20018**](InlineResponse20018.md)
 
 ### Authorization
 
@@ -2931,7 +2667,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_application_events**
-> InlineResponse20017 get_application_events(application_id, page_size=page_size, skip=skip, sort=sort, type=type, created_before=created_before, created_after=created_after, session=session, profile=profile, customer_name=customer_name, customer_email=customer_email, coupon_code=coupon_code, referral_code=referral_code, rule_query=rule_query, campaign_query=campaign_query)
+> InlineResponse20016 get_application_events(application_id, page_size=page_size, skip=skip, sort=sort, type=type, created_before=created_before, created_after=created_after, session=session, profile=profile, customer_name=customer_name, customer_email=customer_email, coupon_code=coupon_code, referral_code=referral_code, rule_query=rule_query, campaign_query=campaign_query)
 
 List Applications Events (with total count)
 
@@ -2939,17 +2675,17 @@ Lists all events recorded for an application.
 
 ### Example
 
-* Api Key Authentication (manager_auth):
+* Bearer Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to http://your_domain.your_region.talon.one
 # See configuration.py for a list of all supported configuration parameters.
 configuration = talon_one.Configuration(
-    host = "http://localhost"
+    host = "http://your_domain.your_region.talon.one"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -2957,15 +2693,10 @@ configuration = talon_one.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure API key authorization: manager_auth
+# Configure Bearer authorization: manager_auth
 configuration = talon_one.Configuration(
-    host = "http://localhost",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
+    access_token = 'YOUR_BEARER_TOKEN'
 )
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
@@ -2974,7 +2705,7 @@ with talon_one.ApiClient(configuration) as api_client:
     application_id = 56 # int | 
 page_size = 56 # int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
 skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
-sort = 'sort_example' # str | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional)
+sort = 'sort_example' # str |  (optional)
 type = 'type_example' # str | Comma-separated list of types by which to filter events. Must be exact match(es). (optional)
 created_before = '2013-10-20T19:20:30+01:00' # datetime | Only return events created before this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)
 created_after = '2013-10-20T19:20:30+01:00' # datetime | Only return events created after this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)
@@ -3002,7 +2733,107 @@ Name | Type | Description  | Notes
  **application_id** | **int**|  | 
  **page_size** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
  **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional] 
- **sort** | **str**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional] 
+ **sort** | **str**|  | [optional] 
+ **type** | **str**| Comma-separated list of types by which to filter events. Must be exact match(es). | [optional] 
+ **created_before** | **datetime**| Only return events created before this date. You can use any timezone. Talon.One will convert to UTC internally. | [optional] 
+ **created_after** | **datetime**| Only return events created after this date. You can use any timezone. Talon.One will convert to UTC internally. | [optional] 
+ **session** | **str**| Session integration ID filter for events. Must be exact match. | [optional] 
+ **profile** | **str**| Profile integration ID filter for events. Must be exact match. | [optional] 
+ **customer_name** | **str**| Customer name filter for events. Will match substrings case-insensitively. | [optional] 
+ **customer_email** | **str**| Customer e-mail address filter for events. Will match substrings case-insensitively. | [optional] 
+ **coupon_code** | **str**| Coupon code | [optional] 
+ **referral_code** | **str**| Referral code | [optional] 
+ **rule_query** | **str**| Rule name filter for events | [optional] 
+ **campaign_query** | **str**| Campaign name filter for events | [optional] 
+
+### Return type
+
+[**InlineResponse20016**](InlineResponse20016.md)
+
+### Authorization
+
+[manager_auth](../README.md#manager_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_application_events_without_total_count**
+> InlineResponse20017 get_application_events_without_total_count(application_id, page_size=page_size, skip=skip, sort=sort, type=type, created_before=created_before, created_after=created_after, session=session, profile=profile, customer_name=customer_name, customer_email=customer_email, coupon_code=coupon_code, referral_code=referral_code, rule_query=rule_query, campaign_query=campaign_query)
+
+List Applications Events
+
+Lists all events recorded for an application. Instead of having the total number of results in the response, this endpoint only if there are more results. 
+
+### Example
+
+* Bearer Authentication (manager_auth):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://your_domain.your_region.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "http://your_domain.your_region.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization: manager_auth
+configuration = talon_one.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | 
+page_size = 56 # int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
+sort = 'sort_example' # str |  (optional)
+type = 'type_example' # str | Comma-separated list of types by which to filter events. Must be exact match(es). (optional)
+created_before = '2013-10-20T19:20:30+01:00' # datetime | Only return events created before this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)
+created_after = '2013-10-20T19:20:30+01:00' # datetime | Only return events created after this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)
+session = 'session_example' # str | Session integration ID filter for events. Must be exact match. (optional)
+profile = 'profile_example' # str | Profile integration ID filter for events. Must be exact match. (optional)
+customer_name = 'customer_name_example' # str | Customer name filter for events. Will match substrings case-insensitively. (optional)
+customer_email = 'customer_email_example' # str | Customer e-mail address filter for events. Will match substrings case-insensitively. (optional)
+coupon_code = 'coupon_code_example' # str | Coupon code (optional)
+referral_code = 'referral_code_example' # str | Referral code (optional)
+rule_query = 'rule_query_example' # str | Rule name filter for events (optional)
+campaign_query = 'campaign_query_example' # str | Campaign name filter for events (optional)
+
+    try:
+        # List Applications Events
+        api_response = api_instance.get_application_events_without_total_count(application_id, page_size=page_size, skip=skip, sort=sort, type=type, created_before=created_before, created_after=created_after, session=session, profile=profile, customer_name=customer_name, customer_email=customer_email, coupon_code=coupon_code, referral_code=referral_code, rule_query=rule_query, campaign_query=campaign_query)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_application_events_without_total_count: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **application_id** | **int**|  | 
+ **page_size** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
+ **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional] 
+ **sort** | **str**|  | [optional] 
  **type** | **str**| Comma-separated list of types by which to filter events. Must be exact match(es). | [optional] 
  **created_before** | **datetime**| Only return events created before this date. You can use any timezone. Talon.One will convert to UTC internally. | [optional] 
  **created_after** | **datetime**| Only return events created after this date. You can use any timezone. Talon.One will convert to UTC internally. | [optional] 
@@ -3035,111 +2866,6 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **get_application_events_without_total_count**
-> InlineResponse20018 get_application_events_without_total_count(application_id, page_size=page_size, skip=skip, sort=sort, type=type, created_before=created_before, created_after=created_after, session=session, profile=profile, customer_name=customer_name, customer_email=customer_email, coupon_code=coupon_code, referral_code=referral_code, rule_query=rule_query, campaign_query=campaign_query)
-
-List Applications Events
-
-Lists all events recorded for an application. Instead of having the total number of results in the response, this endpoint only if there are more results. 
-
-### Example
-
-* Api Key Authentication (manager_auth):
-```python
-from __future__ import print_function
-import time
-import talon_one
-from talon_one.rest import ApiException
-from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
-# See configuration.py for a list of all supported configuration parameters.
-configuration = talon_one.Configuration(
-    host = "http://localhost"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: manager_auth
-configuration = talon_one.Configuration(
-    host = "http://localhost",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
-)
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with talon_one.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = talon_one.ManagementApi(api_client)
-    application_id = 56 # int | 
-page_size = 56 # int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
-skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
-sort = 'sort_example' # str | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional)
-type = 'type_example' # str | Comma-separated list of types by which to filter events. Must be exact match(es). (optional)
-created_before = '2013-10-20T19:20:30+01:00' # datetime | Only return events created before this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)
-created_after = '2013-10-20T19:20:30+01:00' # datetime | Only return events created after this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)
-session = 'session_example' # str | Session integration ID filter for events. Must be exact match. (optional)
-profile = 'profile_example' # str | Profile integration ID filter for events. Must be exact match. (optional)
-customer_name = 'customer_name_example' # str | Customer name filter for events. Will match substrings case-insensitively. (optional)
-customer_email = 'customer_email_example' # str | Customer e-mail address filter for events. Will match substrings case-insensitively. (optional)
-coupon_code = 'coupon_code_example' # str | Coupon code (optional)
-referral_code = 'referral_code_example' # str | Referral code (optional)
-rule_query = 'rule_query_example' # str | Rule name filter for events (optional)
-campaign_query = 'campaign_query_example' # str | Campaign name filter for events (optional)
-
-    try:
-        # List Applications Events
-        api_response = api_instance.get_application_events_without_total_count(application_id, page_size=page_size, skip=skip, sort=sort, type=type, created_before=created_before, created_after=created_after, session=session, profile=profile, customer_name=customer_name, customer_email=customer_email, coupon_code=coupon_code, referral_code=referral_code, rule_query=rule_query, campaign_query=campaign_query)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling ManagementApi->get_application_events_without_total_count: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **application_id** | **int**|  | 
- **page_size** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
- **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional] 
- **sort** | **str**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional] 
- **type** | **str**| Comma-separated list of types by which to filter events. Must be exact match(es). | [optional] 
- **created_before** | **datetime**| Only return events created before this date. You can use any timezone. Talon.One will convert to UTC internally. | [optional] 
- **created_after** | **datetime**| Only return events created after this date. You can use any timezone. Talon.One will convert to UTC internally. | [optional] 
- **session** | **str**| Session integration ID filter for events. Must be exact match. | [optional] 
- **profile** | **str**| Profile integration ID filter for events. Must be exact match. | [optional] 
- **customer_name** | **str**| Customer name filter for events. Will match substrings case-insensitively. | [optional] 
- **customer_email** | **str**| Customer e-mail address filter for events. Will match substrings case-insensitively. | [optional] 
- **coupon_code** | **str**| Coupon code | [optional] 
- **referral_code** | **str**| Referral code | [optional] 
- **rule_query** | **str**| Rule name filter for events | [optional] 
- **campaign_query** | **str**| Campaign name filter for events | [optional] 
-
-### Return type
-
-[**InlineResponse20018**](InlineResponse20018.md)
-
-### Authorization
-
-[manager_auth](../README.md#manager_auth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | OK |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **get_application_session**
 > ApplicationSession get_application_session(application_id, session_id)
 
@@ -3147,17 +2873,17 @@ Get Application Session
 
 ### Example
 
-* Api Key Authentication (manager_auth):
+* Bearer Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to http://your_domain.your_region.talon.one
 # See configuration.py for a list of all supported configuration parameters.
 configuration = talon_one.Configuration(
-    host = "http://localhost"
+    host = "http://your_domain.your_region.talon.one"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -3165,15 +2891,10 @@ configuration = talon_one.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure API key authorization: manager_auth
+# Configure Bearer authorization: manager_auth
 configuration = talon_one.Configuration(
-    host = "http://localhost",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
+    access_token = 'YOUR_BEARER_TOKEN'
 )
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
@@ -3218,23 +2939,23 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_application_sessions**
-> InlineResponse20016 get_application_sessions(application_id, page_size=page_size, skip=skip, sort=sort, profile=profile, state=state, created_before=created_before, created_after=created_after, coupon=coupon, referral=referral, integration_id=integration_id)
+> InlineResponse20015 get_application_sessions(application_id, page_size=page_size, skip=skip, sort=sort, profile=profile, state=state, created_before=created_before, created_after=created_after, coupon=coupon, referral=referral, integration_id=integration_id)
 
 List Application Sessions
 
 ### Example
 
-* Api Key Authentication (manager_auth):
+* Bearer Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to http://your_domain.your_region.talon.one
 # See configuration.py for a list of all supported configuration parameters.
 configuration = talon_one.Configuration(
-    host = "http://localhost"
+    host = "http://your_domain.your_region.talon.one"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -3242,15 +2963,10 @@ configuration = talon_one.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure API key authorization: manager_auth
+# Configure Bearer authorization: manager_auth
 configuration = talon_one.Configuration(
-    host = "http://localhost",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
+    access_token = 'YOUR_BEARER_TOKEN'
 )
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
@@ -3259,7 +2975,7 @@ with talon_one.ApiClient(configuration) as api_client:
     application_id = 56 # int | 
 page_size = 56 # int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
 skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
-sort = 'sort_example' # str | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional)
+sort = 'sort_example' # str |  (optional)
 profile = 'profile_example' # str | Profile integration ID filter for sessions. Must be exact match. (optional)
 state = 'state_example' # str | Filter by sessions with this state. Must be exact match. (optional)
 created_before = '2013-10-20T19:20:30+01:00' # datetime | Only return events created before this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)
@@ -3283,7 +2999,7 @@ Name | Type | Description  | Notes
  **application_id** | **int**|  | 
  **page_size** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
  **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional] 
- **sort** | **str**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional] 
+ **sort** | **str**|  | [optional] 
  **profile** | **str**| Profile integration ID filter for sessions. Must be exact match. | [optional] 
  **state** | **str**| Filter by sessions with this state. Must be exact match. | [optional] 
  **created_before** | **datetime**| Only return events created before this date. You can use any timezone. Talon.One will convert to UTC internally. | [optional] 
@@ -3294,7 +3010,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20016**](InlineResponse20016.md)
+[**InlineResponse20015**](InlineResponse20015.md)
 
 ### Authorization
 
@@ -3321,17 +3037,17 @@ List all application in the current account.
 
 ### Example
 
-* Api Key Authentication (manager_auth):
+* Bearer Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to http://your_domain.your_region.talon.one
 # See configuration.py for a list of all supported configuration parameters.
 configuration = talon_one.Configuration(
-    host = "http://localhost"
+    host = "http://your_domain.your_region.talon.one"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -3339,15 +3055,10 @@ configuration = talon_one.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure API key authorization: manager_auth
+# Configure Bearer authorization: manager_auth
 configuration = talon_one.Configuration(
-    host = "http://localhost",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
+    access_token = 'YOUR_BEARER_TOKEN'
 )
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
@@ -3355,7 +3066,7 @@ with talon_one.ApiClient(configuration) as api_client:
     api_instance = talon_one.ManagementApi(api_client)
     page_size = 56 # int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
 skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
-sort = 'sort_example' # str | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional)
+sort = 'sort_example' # str |  (optional)
 
     try:
         # List Applications
@@ -3371,7 +3082,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **page_size** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
  **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional] 
- **sort** | **str**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional] 
+ **sort** | **str**|  | [optional] 
 
 ### Return type
 
@@ -3402,17 +3113,17 @@ Returns custom attribute for the account by its id.
 
 ### Example
 
-* Api Key Authentication (manager_auth):
+* Bearer Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to http://your_domain.your_region.talon.one
 # See configuration.py for a list of all supported configuration parameters.
 configuration = talon_one.Configuration(
-    host = "http://localhost"
+    host = "http://your_domain.your_region.talon.one"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -3420,15 +3131,10 @@ configuration = talon_one.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure API key authorization: manager_auth
+# Configure Bearer authorization: manager_auth
 configuration = talon_one.Configuration(
-    host = "http://localhost",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
+    access_token = 'YOUR_BEARER_TOKEN'
 )
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
@@ -3471,7 +3177,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_attributes**
-> InlineResponse20021 get_attributes(page_size=page_size, skip=skip, sort=sort)
+> InlineResponse20020 get_attributes(page_size=page_size, skip=skip, sort=sort, entity=entity)
 
 List custom attributes
 
@@ -3479,17 +3185,17 @@ Returns all the defined custom attributes for the account.
 
 ### Example
 
-* Api Key Authentication (manager_auth):
+* Bearer Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to http://your_domain.your_region.talon.one
 # See configuration.py for a list of all supported configuration parameters.
 configuration = talon_one.Configuration(
-    host = "http://localhost"
+    host = "http://your_domain.your_region.talon.one"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -3497,15 +3203,10 @@ configuration = talon_one.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure API key authorization: manager_auth
+# Configure Bearer authorization: manager_auth
 configuration = talon_one.Configuration(
-    host = "http://localhost",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
+    access_token = 'YOUR_BEARER_TOKEN'
 )
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
@@ -3513,11 +3214,12 @@ with talon_one.ApiClient(configuration) as api_client:
     api_instance = talon_one.ManagementApi(api_client)
     page_size = 56 # int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
 skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
-sort = 'sort_example' # str | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional)
+sort = 'sort_example' # str |  (optional)
+entity = 'entity_example' # str |  (optional)
 
     try:
         # List custom attributes
-        api_response = api_instance.get_attributes(page_size=page_size, skip=skip, sort=sort)
+        api_response = api_instance.get_attributes(page_size=page_size, skip=skip, sort=sort, entity=entity)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling ManagementApi->get_attributes: %s\n" % e)
@@ -3529,90 +3231,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **page_size** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
  **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional] 
- **sort** | **str**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional] 
-
-### Return type
-
-[**InlineResponse20021**](InlineResponse20021.md)
-
-### Authorization
-
-[manager_auth](../README.md#manager_auth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | OK |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **get_audiences**
-> InlineResponse20020 get_audiences(page_size=page_size, skip=skip, sort=sort, with_total_result_size=with_total_result_size)
-
-Get all audiences
-
-Get All audiences created in the account. 
-
-### Example
-
-* Api Key Authentication (manager_auth):
-```python
-from __future__ import print_function
-import time
-import talon_one
-from talon_one.rest import ApiException
-from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
-# See configuration.py for a list of all supported configuration parameters.
-configuration = talon_one.Configuration(
-    host = "http://localhost"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: manager_auth
-configuration = talon_one.Configuration(
-    host = "http://localhost",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
-)
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with talon_one.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = talon_one.ManagementApi(api_client)
-    page_size = 56 # int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
-skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
-sort = 'sort_example' # str | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional)
-with_total_result_size = True # bool | When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, hasMore will be be true whenever there is a next page. totalResultSize will always be zero. With this flag set to false, hasMore will always be set to false. totalResultSize will contain the total number of results for this query.  (optional)
-
-    try:
-        # Get all audiences
-        api_response = api_instance.get_audiences(page_size=page_size, skip=skip, sort=sort, with_total_result_size=with_total_result_size)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling ManagementApi->get_audiences: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **page_size** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
- **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional] 
- **sort** | **str**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional] 
- **with_total_result_size** | **bool**| When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, hasMore will be be true whenever there is a next page. totalResultSize will always be zero. With this flag set to false, hasMore will always be set to false. totalResultSize will contain the total number of results for this query.  | [optional] 
+ **sort** | **str**|  | [optional] 
+ **entity** | **str**|  | [optional] 
 
 ### Return type
 
@@ -3634,24 +3254,26 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **get_campaign**
-> Campaign get_campaign(application_id, campaign_id)
+# **get_audiences**
+> InlineResponse20019 get_audiences(page_size=page_size, skip=skip, sort=sort, with_total_result_size=with_total_result_size)
 
-Get a Campaign
+List audiences
+
+Get All audiences created in the account. 
 
 ### Example
 
-* Api Key Authentication (manager_auth):
+* Bearer Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to http://your_domain.your_region.talon.one
 # See configuration.py for a list of all supported configuration parameters.
 configuration = talon_one.Configuration(
-    host = "http://localhost"
+    host = "http://your_domain.your_region.talon.one"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -3659,15 +3281,86 @@ configuration = talon_one.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure API key authorization: manager_auth
+# Configure Bearer authorization: manager_auth
 configuration = talon_one.Configuration(
-    host = "http://localhost",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
+    access_token = 'YOUR_BEARER_TOKEN'
 )
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    page_size = 56 # int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
+sort = 'sort_example' # str |  (optional)
+with_total_result_size = True # bool | When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, hasMore will be be true whenever there is a next page. totalResultSize will always be zero. With this flag set to false, hasMore will always be set to false. totalResultSize will contain the total number of results for this query.  (optional)
+
+    try:
+        # List audiences
+        api_response = api_instance.get_audiences(page_size=page_size, skip=skip, sort=sort, with_total_result_size=with_total_result_size)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_audiences: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **page_size** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
+ **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional] 
+ **sort** | **str**|  | [optional] 
+ **with_total_result_size** | **bool**| When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, hasMore will be be true whenever there is a next page. totalResultSize will always be zero. With this flag set to false, hasMore will always be set to false. totalResultSize will contain the total number of results for this query.  | [optional] 
+
+### Return type
+
+[**InlineResponse20019**](InlineResponse20019.md)
+
+### Authorization
+
+[manager_auth](../README.md#manager_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_campaign**
+> Campaign get_campaign(application_id, campaign_id)
+
+Get campaign
+
+### Example
+
+* Bearer Authentication (manager_auth):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://your_domain.your_region.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "http://your_domain.your_region.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization: manager_auth
+configuration = talon_one.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
 
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
@@ -3677,7 +3370,7 @@ with talon_one.ApiClient(configuration) as api_client:
 campaign_id = 56 # int | 
 
     try:
-        # Get a Campaign
+        # Get campaign
         api_response = api_instance.get_campaign(application_id, campaign_id)
         pprint(api_response)
     except ApiException as e:
@@ -3712,23 +3405,23 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_campaign_analytics**
-> InlineResponse20011 get_campaign_analytics(application_id, campaign_id, range_start, range_end, granularity=granularity)
+> InlineResponse20010 get_campaign_analytics(application_id, campaign_id, range_start, range_end, granularity=granularity)
 
 Get analytics of campaigns
 
 ### Example
 
-* Api Key Authentication (manager_auth):
+* Bearer Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to http://your_domain.your_region.talon.one
 # See configuration.py for a list of all supported configuration parameters.
 configuration = talon_one.Configuration(
-    host = "http://localhost"
+    host = "http://your_domain.your_region.talon.one"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -3736,15 +3429,10 @@ configuration = talon_one.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure API key authorization: manager_auth
+# Configure Bearer authorization: manager_auth
 configuration = talon_one.Configuration(
-    host = "http://localhost",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
+    access_token = 'YOUR_BEARER_TOKEN'
 )
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
@@ -3776,7 +3464,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20011**](InlineResponse20011.md)
+[**InlineResponse20010**](InlineResponse20010.md)
 
 ### Authorization
 
@@ -3795,25 +3483,25 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_campaign_by_attributes**
-> InlineResponse2002 get_campaign_by_attributes(application_id, body, page_size=page_size, skip=skip, sort=sort, campaign_state=campaign_state)
+> InlineResponse2002 get_campaign_by_attributes(application_id, campaign_search, page_size=page_size, skip=skip, sort=sort, campaign_state=campaign_state)
 
-Get a list of all campaigns that match the given attributes
+List campaigns that match the given attributes
 
 Gets a list of all the campaigns that exactly match a set of attributes. 
 
 ### Example
 
-* Api Key Authentication (manager_auth):
+* Bearer Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to http://your_domain.your_region.talon.one
 # See configuration.py for a list of all supported configuration parameters.
 configuration = talon_one.Configuration(
-    host = "http://localhost"
+    host = "http://your_domain.your_region.talon.one"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -3821,30 +3509,25 @@ configuration = talon_one.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure API key authorization: manager_auth
+# Configure Bearer authorization: manager_auth
 configuration = talon_one.Configuration(
-    host = "http://localhost",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
+    access_token = 'YOUR_BEARER_TOKEN'
 )
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
     application_id = 56 # int | 
-body = talon_one.CampaignSearch() # CampaignSearch | 
+campaign_search = talon_one.CampaignSearch() # CampaignSearch | 
 page_size = 56 # int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
 skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
-sort = 'sort_example' # str | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional)
+sort = 'sort_example' # str |  (optional)
 campaign_state = 'campaign_state_example' # str | Filter results by the state of the campaign. (optional)
 
     try:
-        # Get a list of all campaigns that match the given attributes
-        api_response = api_instance.get_campaign_by_attributes(application_id, body, page_size=page_size, skip=skip, sort=sort, campaign_state=campaign_state)
+        # List campaigns that match the given attributes
+        api_response = api_instance.get_campaign_by_attributes(application_id, campaign_search, page_size=page_size, skip=skip, sort=sort, campaign_state=campaign_state)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling ManagementApi->get_campaign_by_attributes: %s\n" % e)
@@ -3855,10 +3538,10 @@ campaign_state = 'campaign_state_example' # str | Filter results by the state of
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **application_id** | **int**|  | 
- **body** | [**CampaignSearch**](CampaignSearch.md)|  | 
+ **campaign_search** | [**CampaignSearch**](CampaignSearch.md)|  | 
  **page_size** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
  **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional] 
- **sort** | **str**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional] 
+ **sort** | **str**|  | [optional] 
  **campaign_state** | **str**| Filter results by the state of the campaign. | [optional] 
 
 ### Return type
@@ -3884,21 +3567,21 @@ Name | Type | Description  | Notes
 # **get_campaigns**
 > InlineResponse2002 get_campaigns(application_id, page_size=page_size, skip=skip, sort=sort, campaign_state=campaign_state, name=name, tags=tags, created_before=created_before, created_after=created_after, campaign_group_id=campaign_group_id)
 
-List your Campaigns
+List campaigns
 
 ### Example
 
-* Api Key Authentication (manager_auth):
+* Bearer Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to http://your_domain.your_region.talon.one
 # See configuration.py for a list of all supported configuration parameters.
 configuration = talon_one.Configuration(
-    host = "http://localhost"
+    host = "http://your_domain.your_region.talon.one"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -3906,15 +3589,10 @@ configuration = talon_one.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure API key authorization: manager_auth
+# Configure Bearer authorization: manager_auth
 configuration = talon_one.Configuration(
-    host = "http://localhost",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
+    access_token = 'YOUR_BEARER_TOKEN'
 )
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
@@ -3923,7 +3601,7 @@ with talon_one.ApiClient(configuration) as api_client:
     application_id = 56 # int | 
 page_size = 56 # int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
 skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
-sort = 'sort_example' # str | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional)
+sort = 'sort_example' # str |  (optional)
 campaign_state = 'campaign_state_example' # str | Filter results by the state of the campaign. (optional)
 name = 'name_example' # str | Filter results performing case-insensitive matching against the name of the campaign. (optional)
 tags = 'tags_example' # str | Filter results performing case-insensitive matching against the tags of the campaign. When used in conjunction with the \"name\" query parameter, a logical OR will be performed to search both tags and name for the provided values  (optional)
@@ -3932,7 +3610,7 @@ created_after = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparin
 campaign_group_id = 56 # int | Filter results to campaigns owned by the specified campaign group ID. (optional)
 
     try:
-        # List your Campaigns
+        # List campaigns
         api_response = api_instance.get_campaigns(application_id, page_size=page_size, skip=skip, sort=sort, campaign_state=campaign_state, name=name, tags=tags, created_before=created_before, created_after=created_after, campaign_group_id=campaign_group_id)
         pprint(api_response)
     except ApiException as e:
@@ -3946,7 +3624,7 @@ Name | Type | Description  | Notes
  **application_id** | **int**|  | 
  **page_size** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
  **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional] 
- **sort** | **str**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional] 
+ **sort** | **str**|  | [optional] 
  **campaign_state** | **str**| Filter results by the state of the campaign. | [optional] 
  **name** | **str**| Filter results performing case-insensitive matching against the name of the campaign. | [optional] 
  **tags** | **str**| Filter results performing case-insensitive matching against the tags of the campaign. When used in conjunction with the \&quot;name\&quot; query parameter, a logical OR will be performed to search both tags and name for the provided values  | [optional] 
@@ -3975,7 +3653,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_changes**
-> InlineResponse20028 get_changes(page_size=page_size, skip=skip, sort=sort, application_id=application_id, entity_path=entity_path, user_id=user_id, created_before=created_before, created_after=created_after, with_total_result_size=with_total_result_size, include_old=include_old)
+> InlineResponse20027 get_changes(page_size=page_size, skip=skip, sort=sort, application_id=application_id, entity_path=entity_path, user_id=user_id, created_before=created_before, created_after=created_after, with_total_result_size=with_total_result_size, include_old=include_old)
 
 Get audit log for an account
 
@@ -3983,17 +3661,17 @@ Get list of changes caused by API calls for an account. Only accessible for admi
 
 ### Example
 
-* Api Key Authentication (manager_auth):
+* Bearer Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to http://your_domain.your_region.talon.one
 # See configuration.py for a list of all supported configuration parameters.
 configuration = talon_one.Configuration(
-    host = "http://localhost"
+    host = "http://your_domain.your_region.talon.one"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -4001,15 +3679,10 @@ configuration = talon_one.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure API key authorization: manager_auth
+# Configure Bearer authorization: manager_auth
 configuration = talon_one.Configuration(
-    host = "http://localhost",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
+    access_token = 'YOUR_BEARER_TOKEN'
 )
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
@@ -4017,7 +3690,7 @@ with talon_one.ApiClient(configuration) as api_client:
     api_instance = talon_one.ManagementApi(api_client)
     page_size = 56 # int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
 skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
-sort = 'sort_example' # str | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional)
+sort = 'sort_example' # str |  (optional)
 application_id = 56 # int |  (optional)
 entity_path = 'entity_path_example' # str | Filter results on a case insensitive matching of the url path of the entity (optional)
 user_id = 56 # int |  (optional)
@@ -4040,7 +3713,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **page_size** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
  **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional] 
- **sort** | **str**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional] 
+ **sort** | **str**|  | [optional] 
  **application_id** | **int**|  | [optional] 
  **entity_path** | **str**| Filter results on a case insensitive matching of the url path of the entity | [optional] 
  **user_id** | **int**|  | [optional] 
@@ -4051,7 +3724,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20028**](InlineResponse20028.md)
+[**InlineResponse20027**](InlineResponse20027.md)
 
 ### Authorization
 
@@ -4072,21 +3745,21 @@ Name | Type | Description  | Notes
 # **get_coupons**
 > InlineResponse2004 get_coupons(application_id, campaign_id, page_size=page_size, skip=skip, sort=sort, value=value, created_before=created_before, created_after=created_after, starts_after=starts_after, starts_before=starts_before, expires_after=expires_after, expires_before=expires_before, valid=valid, batch_id=batch_id, usable=usable, referral_id=referral_id, recipient_integration_id=recipient_integration_id, exact_match=exact_match)
 
-List Coupons (with total count)
+List coupons (with total count)
 
 ### Example
 
-* Api Key Authentication (manager_auth):
+* Bearer Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to http://your_domain.your_region.talon.one
 # See configuration.py for a list of all supported configuration parameters.
 configuration = talon_one.Configuration(
-    host = "http://localhost"
+    host = "http://your_domain.your_region.talon.one"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -4094,15 +3767,10 @@ configuration = talon_one.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure API key authorization: manager_auth
+# Configure Bearer authorization: manager_auth
 configuration = talon_one.Configuration(
-    host = "http://localhost",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
+    access_token = 'YOUR_BEARER_TOKEN'
 )
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
@@ -4112,7 +3780,7 @@ with talon_one.ApiClient(configuration) as api_client:
 campaign_id = 56 # int | 
 page_size = 56 # int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
 skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
-sort = 'sort_example' # str | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional)
+sort = 'sort_example' # str |  (optional)
 value = 'value_example' # str | Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
 created_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
 created_after = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
@@ -4128,7 +3796,7 @@ recipient_integration_id = 'recipient_integration_id_example' # str | Filter res
 exact_match = False # bool | Filter results to an exact case-insensitive matching against the coupon code (optional) (default to False)
 
     try:
-        # List Coupons (with total count)
+        # List coupons (with total count)
         api_response = api_instance.get_coupons(application_id, campaign_id, page_size=page_size, skip=skip, sort=sort, value=value, created_before=created_before, created_after=created_after, starts_after=starts_after, starts_before=starts_before, expires_after=expires_after, expires_before=expires_before, valid=valid, batch_id=batch_id, usable=usable, referral_id=referral_id, recipient_integration_id=recipient_integration_id, exact_match=exact_match)
         pprint(api_response)
     except ApiException as e:
@@ -4143,7 +3811,7 @@ Name | Type | Description  | Notes
  **campaign_id** | **int**|  | 
  **page_size** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
  **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional] 
- **sort** | **str**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional] 
+ **sort** | **str**|  | [optional] 
  **value** | **str**| Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. | [optional] 
  **created_before** | **datetime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. | [optional] 
  **created_after** | **datetime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. | [optional] 
@@ -4179,25 +3847,25 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_coupons_by_attributes**
-> InlineResponse2004 get_coupons_by_attributes(application_id, campaign_id, body, page_size=page_size, skip=skip, sort=sort, value=value, created_before=created_before, created_after=created_after, valid=valid, usable=usable, referral_id=referral_id, recipient_integration_id=recipient_integration_id, exact_match=exact_match, batch_id=batch_id)
+> InlineResponse2004 get_coupons_by_attributes(application_id, campaign_id, coupon_search, page_size=page_size, skip=skip, sort=sort, value=value, created_before=created_before, created_after=created_after, valid=valid, usable=usable, referral_id=referral_id, recipient_integration_id=recipient_integration_id, exact_match=exact_match, batch_id=batch_id)
 
-Get a list of the coupons that match the given attributes
+List coupons that match the given attributes
 
 Gets a list of all the coupons that exactly match a set of attributes.  The match is successful if all the attributes of the request are found in a coupon, even if the coupon has more attributes that are not present on the request. 
 
 ### Example
 
-* Api Key Authentication (manager_auth):
+* Bearer Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to http://your_domain.your_region.talon.one
 # See configuration.py for a list of all supported configuration parameters.
 configuration = talon_one.Configuration(
-    host = "http://localhost"
+    host = "http://your_domain.your_region.talon.one"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -4205,15 +3873,10 @@ configuration = talon_one.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure API key authorization: manager_auth
+# Configure Bearer authorization: manager_auth
 configuration = talon_one.Configuration(
-    host = "http://localhost",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
+    access_token = 'YOUR_BEARER_TOKEN'
 )
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
@@ -4221,10 +3884,10 @@ with talon_one.ApiClient(configuration) as api_client:
     api_instance = talon_one.ManagementApi(api_client)
     application_id = 56 # int | 
 campaign_id = 56 # int | 
-body = talon_one.CouponSearch() # CouponSearch | 
+coupon_search = talon_one.CouponSearch() # CouponSearch | 
 page_size = 56 # int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
 skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
-sort = 'sort_example' # str | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional)
+sort = 'sort_example' # str |  (optional)
 value = 'value_example' # str | Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
 created_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
 created_after = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
@@ -4236,8 +3899,8 @@ exact_match = False # bool | Filter results to an exact case-insensitive matchin
 batch_id = 'batch_id_example' # str | Filter results by batches of coupons (optional)
 
     try:
-        # Get a list of the coupons that match the given attributes
-        api_response = api_instance.get_coupons_by_attributes(application_id, campaign_id, body, page_size=page_size, skip=skip, sort=sort, value=value, created_before=created_before, created_after=created_after, valid=valid, usable=usable, referral_id=referral_id, recipient_integration_id=recipient_integration_id, exact_match=exact_match, batch_id=batch_id)
+        # List coupons that match the given attributes
+        api_response = api_instance.get_coupons_by_attributes(application_id, campaign_id, coupon_search, page_size=page_size, skip=skip, sort=sort, value=value, created_before=created_before, created_after=created_after, valid=valid, usable=usable, referral_id=referral_id, recipient_integration_id=recipient_integration_id, exact_match=exact_match, batch_id=batch_id)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling ManagementApi->get_coupons_by_attributes: %s\n" % e)
@@ -4249,10 +3912,10 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **application_id** | **int**|  | 
  **campaign_id** | **int**|  | 
- **body** | [**CouponSearch**](CouponSearch.md)|  | 
+ **coupon_search** | [**CouponSearch**](CouponSearch.md)|  | 
  **page_size** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
  **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional] 
- **sort** | **str**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional] 
+ **sort** | **str**|  | [optional] 
  **value** | **str**| Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. | [optional] 
  **created_before** | **datetime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. | [optional] 
  **created_after** | **datetime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. | [optional] 
@@ -4284,25 +3947,25 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_coupons_by_attributes_application_wide**
-> InlineResponse2004 get_coupons_by_attributes_application_wide(application_id, body, page_size=page_size, skip=skip, sort=sort, value=value, created_before=created_before, created_after=created_after, valid=valid, usable=usable, referral_id=referral_id, recipient_integration_id=recipient_integration_id, batch_id=batch_id, exact_match=exact_match, campaign_state=campaign_state)
+> InlineResponse2004 get_coupons_by_attributes_application_wide(application_id, coupon_search, page_size=page_size, skip=skip, sort=sort, value=value, created_before=created_before, created_after=created_after, valid=valid, usable=usable, referral_id=referral_id, recipient_integration_id=recipient_integration_id, batch_id=batch_id, exact_match=exact_match, campaign_state=campaign_state)
 
-Get a list of the coupons that match the given attributes in all active campaigns of an application (with total count)
+List coupons that match the given attributes in all active campaigns of an application (with total count)
 
 Gets a list of all the coupons with attributes matching the query criteria Application wide 
 
 ### Example
 
-* Api Key Authentication (manager_auth):
+* Bearer Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to http://your_domain.your_region.talon.one
 # See configuration.py for a list of all supported configuration parameters.
 configuration = talon_one.Configuration(
-    host = "http://localhost"
+    host = "http://your_domain.your_region.talon.one"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -4310,25 +3973,20 @@ configuration = talon_one.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure API key authorization: manager_auth
+# Configure Bearer authorization: manager_auth
 configuration = talon_one.Configuration(
-    host = "http://localhost",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
+    access_token = 'YOUR_BEARER_TOKEN'
 )
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
     application_id = 56 # int | 
-body = talon_one.CouponSearch() # CouponSearch | 
+coupon_search = talon_one.CouponSearch() # CouponSearch | 
 page_size = 56 # int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
 skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
-sort = 'sort_example' # str | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional)
+sort = 'sort_example' # str |  (optional)
 value = 'value_example' # str | Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
 created_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
 created_after = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
@@ -4341,8 +3999,8 @@ exact_match = False # bool | Filter results to an exact case-insensitive matchin
 campaign_state = 'campaign_state_example' # str | Filter results by the state of the campaign. (optional)
 
     try:
-        # Get a list of the coupons that match the given attributes in all active campaigns of an application (with total count)
-        api_response = api_instance.get_coupons_by_attributes_application_wide(application_id, body, page_size=page_size, skip=skip, sort=sort, value=value, created_before=created_before, created_after=created_after, valid=valid, usable=usable, referral_id=referral_id, recipient_integration_id=recipient_integration_id, batch_id=batch_id, exact_match=exact_match, campaign_state=campaign_state)
+        # List coupons that match the given attributes in all active campaigns of an application (with total count)
+        api_response = api_instance.get_coupons_by_attributes_application_wide(application_id, coupon_search, page_size=page_size, skip=skip, sort=sort, value=value, created_before=created_before, created_after=created_after, valid=valid, usable=usable, referral_id=referral_id, recipient_integration_id=recipient_integration_id, batch_id=batch_id, exact_match=exact_match, campaign_state=campaign_state)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling ManagementApi->get_coupons_by_attributes_application_wide: %s\n" % e)
@@ -4353,10 +4011,10 @@ campaign_state = 'campaign_state_example' # str | Filter results by the state of
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **application_id** | **int**|  | 
- **body** | [**CouponSearch**](CouponSearch.md)|  | 
+ **coupon_search** | [**CouponSearch**](CouponSearch.md)|  | 
  **page_size** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
  **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional] 
- **sort** | **str**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional] 
+ **sort** | **str**|  | [optional] 
  **value** | **str**| Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. | [optional] 
  **created_before** | **datetime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. | [optional] 
  **created_after** | **datetime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. | [optional] 
@@ -4391,21 +4049,21 @@ Name | Type | Description  | Notes
 # **get_coupons_without_total_count**
 > InlineResponse2005 get_coupons_without_total_count(application_id, campaign_id, page_size=page_size, skip=skip, sort=sort, value=value, created_before=created_before, created_after=created_after, valid=valid, usable=usable, referral_id=referral_id, recipient_integration_id=recipient_integration_id, batch_id=batch_id, exact_match=exact_match)
 
-List Coupons
+List coupons
 
 ### Example
 
-* Api Key Authentication (manager_auth):
+* Bearer Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to http://your_domain.your_region.talon.one
 # See configuration.py for a list of all supported configuration parameters.
 configuration = talon_one.Configuration(
-    host = "http://localhost"
+    host = "http://your_domain.your_region.talon.one"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -4413,15 +4071,10 @@ configuration = talon_one.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure API key authorization: manager_auth
+# Configure Bearer authorization: manager_auth
 configuration = talon_one.Configuration(
-    host = "http://localhost",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
+    access_token = 'YOUR_BEARER_TOKEN'
 )
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
@@ -4431,7 +4084,7 @@ with talon_one.ApiClient(configuration) as api_client:
 campaign_id = 56 # int | 
 page_size = 56 # int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
 skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
-sort = 'sort_example' # str | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional)
+sort = 'sort_example' # str |  (optional)
 value = 'value_example' # str | Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
 created_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
 created_after = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
@@ -4443,7 +4096,7 @@ batch_id = 'batch_id_example' # str | Filter results by batches of coupons (opti
 exact_match = False # bool | Filter results to an exact case-insensitive matching against the coupon code (optional) (default to False)
 
     try:
-        # List Coupons
+        # List coupons
         api_response = api_instance.get_coupons_without_total_count(application_id, campaign_id, page_size=page_size, skip=skip, sort=sort, value=value, created_before=created_before, created_after=created_after, valid=valid, usable=usable, referral_id=referral_id, recipient_integration_id=recipient_integration_id, batch_id=batch_id, exact_match=exact_match)
         pprint(api_response)
     except ApiException as e:
@@ -4458,7 +4111,7 @@ Name | Type | Description  | Notes
  **campaign_id** | **int**|  | 
  **page_size** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
  **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional] 
- **sort** | **str**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional] 
+ **sort** | **str**|  | [optional] 
  **value** | **str**| Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. | [optional] 
  **created_before** | **datetime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. | [optional] 
  **created_after** | **datetime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. | [optional] 
@@ -4498,17 +4151,17 @@ Fetch summary report for single application customer based on a time range
 
 ### Example
 
-* Api Key Authentication (manager_auth):
+* Bearer Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to http://your_domain.your_region.talon.one
 # See configuration.py for a list of all supported configuration parameters.
 configuration = talon_one.Configuration(
-    host = "http://localhost"
+    host = "http://your_domain.your_region.talon.one"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -4516,15 +4169,10 @@ configuration = talon_one.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure API key authorization: manager_auth
+# Configure Bearer authorization: manager_auth
 configuration = talon_one.Configuration(
-    host = "http://localhost",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
+    access_token = 'YOUR_BEARER_TOKEN'
 )
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
@@ -4577,7 +4225,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_customer_activity_reports**
-> InlineResponse20014 get_customer_activity_reports(range_start, range_end, application_id, page_size=page_size, skip=skip, sort=sort, name=name, integration_id=integration_id, campaign_name=campaign_name, advocate_name=advocate_name)
+> InlineResponse20013 get_customer_activity_reports(range_start, range_end, application_id, page_size=page_size, skip=skip, sort=sort, name=name, integration_id=integration_id, campaign_name=campaign_name, advocate_name=advocate_name)
 
 Get Activity Reports for Application Customers (with total count)
 
@@ -4585,17 +4233,17 @@ Fetch summary reports for all application customers based on a time range
 
 ### Example
 
-* Api Key Authentication (manager_auth):
+* Bearer Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to http://your_domain.your_region.talon.one
 # See configuration.py for a list of all supported configuration parameters.
 configuration = talon_one.Configuration(
-    host = "http://localhost"
+    host = "http://your_domain.your_region.talon.one"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -4603,15 +4251,10 @@ configuration = talon_one.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure API key authorization: manager_auth
+# Configure Bearer authorization: manager_auth
 configuration = talon_one.Configuration(
-    host = "http://localhost",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
+    access_token = 'YOUR_BEARER_TOKEN'
 )
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
@@ -4622,7 +4265,7 @@ range_end = '2013-10-20T19:20:30+01:00' # datetime | Only return results from be
 application_id = 56 # int | 
 page_size = 56 # int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
 skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
-sort = 'sort_example' # str | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional)
+sort = 'sort_example' # str |  (optional)
 name = 'name_example' # str | Only return reports matching the customer name (optional)
 integration_id = 'integration_id_example' # str | Only return reports matching the integrationId (optional)
 campaign_name = 'campaign_name_example' # str | Only return reports matching the campaignName (optional)
@@ -4645,7 +4288,7 @@ Name | Type | Description  | Notes
  **application_id** | **int**|  | 
  **page_size** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
  **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional] 
- **sort** | **str**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional] 
+ **sort** | **str**|  | [optional] 
  **name** | **str**| Only return reports matching the customer name | [optional] 
  **integration_id** | **str**| Only return reports matching the integrationId | [optional] 
  **campaign_name** | **str**| Only return reports matching the campaignName | [optional] 
@@ -4653,7 +4296,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20014**](InlineResponse20014.md)
+[**InlineResponse20013**](InlineResponse20013.md)
 
 ### Authorization
 
@@ -4672,7 +4315,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_customer_activity_reports_without_total_count**
-> InlineResponse20015 get_customer_activity_reports_without_total_count(range_start, range_end, application_id, page_size=page_size, skip=skip, sort=sort, name=name, integration_id=integration_id, campaign_name=campaign_name, advocate_name=advocate_name)
+> InlineResponse20014 get_customer_activity_reports_without_total_count(range_start, range_end, application_id, page_size=page_size, skip=skip, sort=sort, name=name, integration_id=integration_id, campaign_name=campaign_name, advocate_name=advocate_name)
 
 Get Activity Reports for Application Customers
 
@@ -4680,17 +4323,17 @@ Fetch summary reports for all application customers based on a time range. Inste
 
 ### Example
 
-* Api Key Authentication (manager_auth):
+* Bearer Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to http://your_domain.your_region.talon.one
 # See configuration.py for a list of all supported configuration parameters.
 configuration = talon_one.Configuration(
-    host = "http://localhost"
+    host = "http://your_domain.your_region.talon.one"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -4698,15 +4341,10 @@ configuration = talon_one.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure API key authorization: manager_auth
+# Configure Bearer authorization: manager_auth
 configuration = talon_one.Configuration(
-    host = "http://localhost",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
+    access_token = 'YOUR_BEARER_TOKEN'
 )
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
@@ -4717,7 +4355,7 @@ range_end = '2013-10-20T19:20:30+01:00' # datetime | Only return results from be
 application_id = 56 # int | 
 page_size = 56 # int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
 skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
-sort = 'sort_example' # str | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional)
+sort = 'sort_example' # str |  (optional)
 name = 'name_example' # str | Only return reports matching the customer name (optional)
 integration_id = 'integration_id_example' # str | Only return reports matching the integrationId (optional)
 campaign_name = 'campaign_name_example' # str | Only return reports matching the campaignName (optional)
@@ -4740,7 +4378,7 @@ Name | Type | Description  | Notes
  **application_id** | **int**|  | 
  **page_size** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
  **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional] 
- **sort** | **str**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional] 
+ **sort** | **str**|  | [optional] 
  **name** | **str**| Only return reports matching the customer name | [optional] 
  **integration_id** | **str**| Only return reports matching the integrationId | [optional] 
  **campaign_name** | **str**| Only return reports matching the campaignName | [optional] 
@@ -4748,7 +4386,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20015**](InlineResponse20015.md)
+[**InlineResponse20014**](InlineResponse20014.md)
 
 ### Authorization
 
@@ -4775,17 +4413,17 @@ Fetch analytics for single application customer
 
 ### Example
 
-* Api Key Authentication (manager_auth):
+* Bearer Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to http://your_domain.your_region.talon.one
 # See configuration.py for a list of all supported configuration parameters.
 configuration = talon_one.Configuration(
-    host = "http://localhost"
+    host = "http://your_domain.your_region.talon.one"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -4793,15 +4431,10 @@ configuration = talon_one.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure API key authorization: manager_auth
+# Configure Bearer authorization: manager_auth
 configuration = talon_one.Configuration(
-    host = "http://localhost",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
+    access_token = 'YOUR_BEARER_TOKEN'
 )
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
@@ -4811,7 +4444,7 @@ with talon_one.ApiClient(configuration) as api_client:
 customer_id = 56 # int | 
 page_size = 56 # int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
 skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
-sort = 'sort_example' # str | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional)
+sort = 'sort_example' # str |  (optional)
 
     try:
         # Get Analytics Report for a Customer
@@ -4829,7 +4462,7 @@ Name | Type | Description  | Notes
  **customer_id** | **int**|  | 
  **page_size** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
  **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional] 
- **sort** | **str**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional] 
+ **sort** | **str**|  | [optional] 
 
 ### Return type
 
@@ -4858,17 +4491,17 @@ Get Customer Profile
 
 ### Example
 
-* Api Key Authentication (manager_auth):
+* Bearer Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to http://your_domain.your_region.talon.one
 # See configuration.py for a list of all supported configuration parameters.
 configuration = talon_one.Configuration(
-    host = "http://localhost"
+    host = "http://your_domain.your_region.talon.one"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -4876,15 +4509,10 @@ configuration = talon_one.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure API key authorization: manager_auth
+# Configure Bearer authorization: manager_auth
 configuration = talon_one.Configuration(
-    host = "http://localhost",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
+    access_token = 'YOUR_BEARER_TOKEN'
 )
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
@@ -4927,23 +4555,23 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_customer_profiles**
-> InlineResponse20013 get_customer_profiles(page_size=page_size, skip=skip)
+> InlineResponse20012 get_customer_profiles(page_size=page_size, skip=skip)
 
 List Customer Profiles
 
 ### Example
 
-* Api Key Authentication (manager_auth):
+* Bearer Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to http://your_domain.your_region.talon.one
 # See configuration.py for a list of all supported configuration parameters.
 configuration = talon_one.Configuration(
-    host = "http://localhost"
+    host = "http://your_domain.your_region.talon.one"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -4951,15 +4579,10 @@ configuration = talon_one.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure API key authorization: manager_auth
+# Configure Bearer authorization: manager_auth
 configuration = talon_one.Configuration(
-    host = "http://localhost",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
+    access_token = 'YOUR_BEARER_TOKEN'
 )
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
@@ -4985,7 +4608,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20013**](InlineResponse20013.md)
+[**InlineResponse20012**](InlineResponse20012.md)
 
 ### Authorization
 
@@ -5004,25 +4627,25 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_customers_by_attributes**
-> InlineResponse20013 get_customers_by_attributes(body, page_size=page_size, skip=skip)
+> InlineResponse20012 get_customers_by_attributes(application_customer_search, page_size=page_size, skip=skip)
 
-Get a list of the customer profiles that match the given attributes
+List customer profiles that match the given attributes
 
-Gets a list of all the customer profiles for the account that exactly match a set of attributes.  The match is successful if all the attributes of the request are found in a profile, even if the profile has more attributes that are not present on the request.  [Customer Profile]: https://help.talon.one/hc/en-us/articles/360005130739-Data-Model#CustomerProfile 
+Get a list of all the customer profiles for the account that exactly match a set of attributes.  The match is successful if all the attributes of the request are found in a profile, even if the profile has more attributes that are not present on the request.  [Customer Profile]: https://help.talon.one/hc/en-us/articles/360005130739-Data-Model#/customerProfile 
 
 ### Example
 
-* Api Key Authentication (manager_auth):
+* Bearer Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to http://your_domain.your_region.talon.one
 # See configuration.py for a list of all supported configuration parameters.
 configuration = talon_one.Configuration(
-    host = "http://localhost"
+    host = "http://your_domain.your_region.talon.one"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -5030,27 +4653,22 @@ configuration = talon_one.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure API key authorization: manager_auth
+# Configure Bearer authorization: manager_auth
 configuration = talon_one.Configuration(
-    host = "http://localhost",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
+    access_token = 'YOUR_BEARER_TOKEN'
 )
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
-    body = talon_one.ApplicationCustomerSearch() # ApplicationCustomerSearch | 
+    application_customer_search = talon_one.ApplicationCustomerSearch() # ApplicationCustomerSearch | 
 page_size = 56 # int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
 skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
 
     try:
-        # Get a list of the customer profiles that match the given attributes
-        api_response = api_instance.get_customers_by_attributes(body, page_size=page_size, skip=skip)
+        # List customer profiles that match the given attributes
+        api_response = api_instance.get_customers_by_attributes(application_customer_search, page_size=page_size, skip=skip)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling ManagementApi->get_customers_by_attributes: %s\n" % e)
@@ -5060,13 +4678,13 @@ skip = 56 # int | Skips the given number of items when paging through large resu
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**ApplicationCustomerSearch**](ApplicationCustomerSearch.md)|  | 
+ **application_customer_search** | [**ApplicationCustomerSearch**](ApplicationCustomerSearch.md)|  | 
  **page_size** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
  **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional] 
 
 ### Return type
 
-[**InlineResponse20013**](InlineResponse20013.md)
+[**InlineResponse20012**](InlineResponse20012.md)
 
 ### Authorization
 
@@ -5085,25 +4703,25 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_event_types**
-> InlineResponse20026 get_event_types(application_ids=application_ids, name=name, include_old_versions=include_old_versions, page_size=page_size, skip=skip, sort=sort)
+> InlineResponse20025 get_event_types(application_ids=application_ids, name=name, include_old_versions=include_old_versions, page_size=page_size, skip=skip, sort=sort)
 
-List Event Types
+List event types
 
-Fetch all event type definitions for your account. Each event type can be 
+Fetch all event type definitions for your account. 
 
 ### Example
 
-* Api Key Authentication (manager_auth):
+* Bearer Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to http://your_domain.your_region.talon.one
 # See configuration.py for a list of all supported configuration parameters.
 configuration = talon_one.Configuration(
-    host = "http://localhost"
+    host = "http://your_domain.your_region.talon.one"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -5111,15 +4729,10 @@ configuration = talon_one.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure API key authorization: manager_auth
+# Configure Bearer authorization: manager_auth
 configuration = talon_one.Configuration(
-    host = "http://localhost",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
+    access_token = 'YOUR_BEARER_TOKEN'
 )
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
@@ -5130,10 +4743,10 @@ name = 'name_example' # str | Filter results to event types with the given name.
 include_old_versions = False # bool | Include all versions of every event type. (optional) (default to False)
 page_size = 56 # int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
 skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
-sort = 'sort_example' # str | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional)
+sort = 'sort_example' # str |  (optional)
 
     try:
-        # List Event Types
+        # List event types
         api_response = api_instance.get_event_types(application_ids=application_ids, name=name, include_old_versions=include_old_versions, page_size=page_size, skip=skip, sort=sort)
         pprint(api_response)
     except ApiException as e:
@@ -5149,11 +4762,11 @@ Name | Type | Description  | Notes
  **include_old_versions** | **bool**| Include all versions of every event type. | [optional] [default to False]
  **page_size** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
  **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional] 
- **sort** | **str**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional] 
+ **sort** | **str**|  | [optional] 
 
 ### Return type
 
-[**InlineResponse20026**](InlineResponse20026.md)
+[**InlineResponse20025**](InlineResponse20025.md)
 
 ### Authorization
 
@@ -5172,25 +4785,25 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_exports**
-> InlineResponse20029 get_exports(page_size=page_size, skip=skip, application_id=application_id, campaign_id=campaign_id, entity=entity)
+> InlineResponse20028 get_exports(page_size=page_size, skip=skip, application_id=application_id, campaign_id=campaign_id, entity=entity)
 
-Get Exports
+Get exports
 
 Get a list of all past exports 
 
 ### Example
 
-* Api Key Authentication (manager_auth):
+* Bearer Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to http://your_domain.your_region.talon.one
 # See configuration.py for a list of all supported configuration parameters.
 configuration = talon_one.Configuration(
-    host = "http://localhost"
+    host = "http://your_domain.your_region.talon.one"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -5198,15 +4811,10 @@ configuration = talon_one.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure API key authorization: manager_auth
+# Configure Bearer authorization: manager_auth
 configuration = talon_one.Configuration(
-    host = "http://localhost",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
+    access_token = 'YOUR_BEARER_TOKEN'
 )
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
@@ -5219,7 +4827,7 @@ campaign_id = 56 # int |  (optional)
 entity = 'entity_example' # str | The name of the entity type that was exported. (optional)
 
     try:
-        # Get Exports
+        # Get exports
         api_response = api_instance.get_exports(page_size=page_size, skip=skip, application_id=application_id, campaign_id=campaign_id, entity=entity)
         pprint(api_response)
     except ApiException as e:
@@ -5238,7 +4846,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20029**](InlineResponse20029.md)
+[**InlineResponse20028**](InlineResponse20028.md)
 
 ### Authorization
 
@@ -5259,23 +4867,23 @@ Name | Type | Description  | Notes
 # **get_loyalty_points**
 > LoyaltyLedger get_loyalty_points(program_id, integration_id)
 
-get the Loyalty Ledger for this integrationID
+Get integration's Loyalty Ledger
 
 Get the Loyalty Ledger for this profile integration ID.
 
 ### Example
 
-* Api Key Authentication (manager_auth):
+* Bearer Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to http://your_domain.your_region.talon.one
 # See configuration.py for a list of all supported configuration parameters.
 configuration = talon_one.Configuration(
-    host = "http://localhost"
+    host = "http://your_domain.your_region.talon.one"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -5283,25 +4891,20 @@ configuration = talon_one.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure API key authorization: manager_auth
+# Configure Bearer authorization: manager_auth
 configuration = talon_one.Configuration(
-    host = "http://localhost",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
+    access_token = 'YOUR_BEARER_TOKEN'
 )
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
-    program_id = 'program_id_example' # str | The identifier for the application, must be unique within the account.
+    program_id = 56 # int | The identifier for the loyalty program, must be unique within the account.
 integration_id = 'integration_id_example' # str | The identifier for the application, must be unique within the account.
 
     try:
-        # get the Loyalty Ledger for this integrationID
+        # Get integration's Loyalty Ledger
         api_response = api_instance.get_loyalty_points(program_id, integration_id)
         pprint(api_response)
     except ApiException as e:
@@ -5312,7 +4915,7 @@ integration_id = 'integration_id_example' # str | The identifier for the applica
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **program_id** | **str**| The identifier for the application, must be unique within the account. | 
+ **program_id** | **int**| The identifier for the loyalty program, must be unique within the account. | 
  **integration_id** | **str**| The identifier for the application, must be unique within the account. | 
 
 ### Return type
@@ -5340,19 +4943,21 @@ Name | Type | Description  | Notes
 
 Get a loyalty program
 
+Get a loyalty program.
+
 ### Example
 
-* Api Key Authentication (manager_auth):
+* Bearer Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to http://your_domain.your_region.talon.one
 # See configuration.py for a list of all supported configuration parameters.
 configuration = talon_one.Configuration(
-    host = "http://localhost"
+    host = "http://your_domain.your_region.talon.one"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -5360,21 +4965,16 @@ configuration = talon_one.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure API key authorization: manager_auth
+# Configure Bearer authorization: manager_auth
 configuration = talon_one.Configuration(
-    host = "http://localhost",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
+    access_token = 'YOUR_BEARER_TOKEN'
 )
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
-    program_id = 'program_id_example' # str | 
+    program_id = 56 # int | The identifier for the loyalty program, must be unique within the account.
 
     try:
         # Get a loyalty program
@@ -5388,7 +4988,7 @@ with talon_one.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **program_id** | **str**|  | 
+ **program_id** | **int**| The identifier for the loyalty program, must be unique within the account. | 
 
 ### Return type
 
@@ -5411,23 +5011,25 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_loyalty_programs**
-> InlineResponse2008 get_loyalty_programs()
+> InlineResponse2007 get_loyalty_programs()
 
-List all loyalty Programs
+List loyalty programs
+
+List all the loyalty programs.
 
 ### Example
 
-* Api Key Authentication (manager_auth):
+* Bearer Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to http://your_domain.your_region.talon.one
 # See configuration.py for a list of all supported configuration parameters.
 configuration = talon_one.Configuration(
-    host = "http://localhost"
+    host = "http://your_domain.your_region.talon.one"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -5435,15 +5037,10 @@ configuration = talon_one.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure API key authorization: manager_auth
+# Configure Bearer authorization: manager_auth
 configuration = talon_one.Configuration(
-    host = "http://localhost",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
+    access_token = 'YOUR_BEARER_TOKEN'
 )
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
@@ -5451,7 +5048,7 @@ with talon_one.ApiClient(configuration) as api_client:
     api_instance = talon_one.ManagementApi(api_client)
     
     try:
-        # List all loyalty Programs
+        # List loyalty programs
         api_response = api_instance.get_loyalty_programs()
         pprint(api_response)
     except ApiException as e:
@@ -5463,7 +5060,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**InlineResponse2008**](InlineResponse2008.md)
+[**InlineResponse2007**](InlineResponse2007.md)
 
 ### Authorization
 
@@ -5488,17 +5085,17 @@ Get loyalty program statistics by loyalty program ID
 
 ### Example
 
-* Api Key Authentication (manager_auth):
+* Bearer Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to http://your_domain.your_region.talon.one
 # See configuration.py for a list of all supported configuration parameters.
 configuration = talon_one.Configuration(
-    host = "http://localhost"
+    host = "http://your_domain.your_region.talon.one"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -5506,21 +5103,16 @@ configuration = talon_one.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure API key authorization: manager_auth
+# Configure Bearer authorization: manager_auth
 configuration = talon_one.Configuration(
-    host = "http://localhost",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
+    access_token = 'YOUR_BEARER_TOKEN'
 )
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
-    program_id = 'program_id_example' # str | 
+    program_id = 56 # int | The identifier for the loyalty program, must be unique within the account.
 
     try:
         # Get loyalty program statistics by loyalty program ID
@@ -5534,7 +5126,7 @@ with talon_one.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **program_id** | **str**|  | 
+ **program_id** | **int**| The identifier for the loyalty program, must be unique within the account. | 
 
 ### Return type
 
@@ -5557,23 +5149,23 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_referrals**
-> InlineResponse2006 get_referrals(application_id, campaign_id, page_size=page_size, skip=skip, sort=sort, code=code, created_before=created_before, created_after=created_after, valid=valid, usable=usable, advocate=advocate)
+> InlineResponse201 get_referrals(application_id, campaign_id, page_size=page_size, skip=skip, sort=sort, code=code, created_before=created_before, created_after=created_after, valid=valid, usable=usable, advocate=advocate)
 
-List Referrals (with total count)
+List referrals (with total count)
 
 ### Example
 
-* Api Key Authentication (manager_auth):
+* Bearer Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to http://your_domain.your_region.talon.one
 # See configuration.py for a list of all supported configuration parameters.
 configuration = talon_one.Configuration(
-    host = "http://localhost"
+    host = "http://your_domain.your_region.talon.one"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -5581,15 +5173,10 @@ configuration = talon_one.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure API key authorization: manager_auth
+# Configure Bearer authorization: manager_auth
 configuration = talon_one.Configuration(
-    host = "http://localhost",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
+    access_token = 'YOUR_BEARER_TOKEN'
 )
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
@@ -5599,7 +5186,7 @@ with talon_one.ApiClient(configuration) as api_client:
 campaign_id = 56 # int | 
 page_size = 56 # int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
 skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
-sort = 'sort_example' # str | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional)
+sort = 'sort_example' # str |  (optional)
 code = 'code_example' # str | Filter results performing case-insensitive matching against the referral code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
 created_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
 created_after = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
@@ -5608,7 +5195,7 @@ usable = 'usable_example' # str | Either \"true\" or \"false\". If \"true\", onl
 advocate = 'advocate_example' # str | Filter results by match with a profile id specified in the referral's AdvocateProfileIntegrationId field (optional)
 
     try:
-        # List Referrals (with total count)
+        # List referrals (with total count)
         api_response = api_instance.get_referrals(application_id, campaign_id, page_size=page_size, skip=skip, sort=sort, code=code, created_before=created_before, created_after=created_after, valid=valid, usable=usable, advocate=advocate)
         pprint(api_response)
     except ApiException as e:
@@ -5623,7 +5210,97 @@ Name | Type | Description  | Notes
  **campaign_id** | **int**|  | 
  **page_size** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
  **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional] 
- **sort** | **str**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional] 
+ **sort** | **str**|  | [optional] 
+ **code** | **str**| Filter results performing case-insensitive matching against the referral code. Both the code and the query are folded to remove all non-alpha-numeric characters. | [optional] 
+ **created_before** | **datetime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. | [optional] 
+ **created_after** | **datetime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. | [optional] 
+ **valid** | **str**| Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches referrals in which the expiry date is set and in the past. The second matches referrals in which start date is null or in the past and expiry date is null or in the future, the third matches referrals in which start date is set and in the future.  | [optional] 
+ **usable** | **str**| Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only referrals where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only referrals where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  | [optional] 
+ **advocate** | **str**| Filter results by match with a profile id specified in the referral&#39;s AdvocateProfileIntegrationId field | [optional] 
+
+### Return type
+
+[**InlineResponse201**](InlineResponse201.md)
+
+### Authorization
+
+[manager_auth](../README.md#manager_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_referrals_without_total_count**
+> InlineResponse2006 get_referrals_without_total_count(application_id, campaign_id, page_size=page_size, skip=skip, sort=sort, code=code, created_before=created_before, created_after=created_after, valid=valid, usable=usable, advocate=advocate)
+
+List referrals
+
+### Example
+
+* Bearer Authentication (manager_auth):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://your_domain.your_region.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "http://your_domain.your_region.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization: manager_auth
+configuration = talon_one.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | 
+campaign_id = 56 # int | 
+page_size = 56 # int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
+skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
+sort = 'sort_example' # str |  (optional)
+code = 'code_example' # str | Filter results performing case-insensitive matching against the referral code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
+created_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
+created_after = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
+valid = 'valid_example' # str | Either \"expired\", \"validNow\", or \"validFuture\". The first option matches referrals in which the expiry date is set and in the past. The second matches referrals in which start date is null or in the past and expiry date is null or in the future, the third matches referrals in which start date is set and in the future.  (optional)
+usable = 'usable_example' # str | Either \"true\" or \"false\". If \"true\", only referrals where `usageCounter < usageLimit` will be returned, \"false\" will return only referrals where `usageCounter >= usageLimit`.  (optional)
+advocate = 'advocate_example' # str | Filter results by match with a profile id specified in the referral's AdvocateProfileIntegrationId field (optional)
+
+    try:
+        # List referrals
+        api_response = api_instance.get_referrals_without_total_count(application_id, campaign_id, page_size=page_size, skip=skip, sort=sort, code=code, created_before=created_before, created_after=created_after, valid=valid, usable=usable, advocate=advocate)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_referrals_without_total_count: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **application_id** | **int**|  | 
+ **campaign_id** | **int**|  | 
+ **page_size** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
+ **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional] 
+ **sort** | **str**|  | [optional] 
  **code** | **str**| Filter results performing case-insensitive matching against the referral code. Both the code and the query are folded to remove all non-alpha-numeric characters. | [optional] 
  **created_before** | **datetime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. | [optional] 
  **created_after** | **datetime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. | [optional] 
@@ -5651,101 +5328,6 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **get_referrals_without_total_count**
-> InlineResponse2007 get_referrals_without_total_count(application_id, campaign_id, page_size=page_size, skip=skip, sort=sort, code=code, created_before=created_before, created_after=created_after, valid=valid, usable=usable, advocate=advocate)
-
-List Referrals
-
-### Example
-
-* Api Key Authentication (manager_auth):
-```python
-from __future__ import print_function
-import time
-import talon_one
-from talon_one.rest import ApiException
-from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
-# See configuration.py for a list of all supported configuration parameters.
-configuration = talon_one.Configuration(
-    host = "http://localhost"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: manager_auth
-configuration = talon_one.Configuration(
-    host = "http://localhost",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
-)
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with talon_one.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = talon_one.ManagementApi(api_client)
-    application_id = 56 # int | 
-campaign_id = 56 # int | 
-page_size = 56 # int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
-skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
-sort = 'sort_example' # str | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional)
-code = 'code_example' # str | Filter results performing case-insensitive matching against the referral code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
-created_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
-created_after = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
-valid = 'valid_example' # str | Either \"expired\", \"validNow\", or \"validFuture\". The first option matches referrals in which the expiry date is set and in the past. The second matches referrals in which start date is null or in the past and expiry date is null or in the future, the third matches referrals in which start date is set and in the future.  (optional)
-usable = 'usable_example' # str | Either \"true\" or \"false\". If \"true\", only referrals where `usageCounter < usageLimit` will be returned, \"false\" will return only referrals where `usageCounter >= usageLimit`.  (optional)
-advocate = 'advocate_example' # str | Filter results by match with a profile id specified in the referral's AdvocateProfileIntegrationId field (optional)
-
-    try:
-        # List Referrals
-        api_response = api_instance.get_referrals_without_total_count(application_id, campaign_id, page_size=page_size, skip=skip, sort=sort, code=code, created_before=created_before, created_after=created_after, valid=valid, usable=usable, advocate=advocate)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling ManagementApi->get_referrals_without_total_count: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **application_id** | **int**|  | 
- **campaign_id** | **int**|  | 
- **page_size** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
- **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional] 
- **sort** | **str**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional] 
- **code** | **str**| Filter results performing case-insensitive matching against the referral code. Both the code and the query are folded to remove all non-alpha-numeric characters. | [optional] 
- **created_before** | **datetime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. | [optional] 
- **created_after** | **datetime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. | [optional] 
- **valid** | **str**| Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches referrals in which the expiry date is set and in the past. The second matches referrals in which start date is null or in the past and expiry date is null or in the future, the third matches referrals in which start date is set and in the future.  | [optional] 
- **usable** | **str**| Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only referrals where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only referrals where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  | [optional] 
- **advocate** | **str**| Filter results by match with a profile id specified in the referral&#39;s AdvocateProfileIntegrationId field | [optional] 
-
-### Return type
-
-[**InlineResponse2007**](InlineResponse2007.md)
-
-### Authorization
-
-[manager_auth](../README.md#manager_auth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | OK |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **get_role**
 > Role get_role(role_id)
 
@@ -5753,36 +5335,21 @@ Get information for the specified role
 
 ### Example
 
-* Api Key Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to http://your_domain.your_region.talon.one
 # See configuration.py for a list of all supported configuration parameters.
 configuration = talon_one.Configuration(
-    host = "http://localhost"
+    host = "http://your_domain.your_region.talon.one"
 )
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: manager_auth
-configuration = talon_one.Configuration(
-    host = "http://localhost",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
-)
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with talon_one.ApiClient(configuration) as api_client:
+with talon_one.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
     role_id = 56 # int | 
@@ -5807,7 +5374,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[manager_auth](../README.md#manager_auth)
+No authorization required
 
 ### HTTP request headers
 
@@ -5824,21 +5391,23 @@ Name | Type | Description  | Notes
 # **get_ruleset**
 > Ruleset get_ruleset(application_id, campaign_id, ruleset_id)
 
-Get a Ruleset
+Get ruleset
+
+Retrieve the details of a ruleset.
 
 ### Example
 
-* Api Key Authentication (manager_auth):
+* Bearer Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to http://your_domain.your_region.talon.one
 # See configuration.py for a list of all supported configuration parameters.
 configuration = talon_one.Configuration(
-    host = "http://localhost"
+    host = "http://your_domain.your_region.talon.one"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -5846,15 +5415,10 @@ configuration = talon_one.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure API key authorization: manager_auth
+# Configure Bearer authorization: manager_auth
 configuration = talon_one.Configuration(
-    host = "http://localhost",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
+    access_token = 'YOUR_BEARER_TOKEN'
 )
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
@@ -5865,7 +5429,7 @@ campaign_id = 56 # int |
 ruleset_id = 56 # int | 
 
     try:
-        # Get a Ruleset
+        # Get ruleset
         api_response = api_instance.get_ruleset(application_id, campaign_id, ruleset_id)
         pprint(api_response)
     except ApiException as e:
@@ -5903,21 +5467,23 @@ Name | Type | Description  | Notes
 # **get_rulesets**
 > InlineResponse2003 get_rulesets(application_id, campaign_id, page_size=page_size, skip=skip, sort=sort)
 
-List Campaign Rulesets
+List rulesets
+
+List all rulesets in the given campaign.
 
 ### Example
 
-* Api Key Authentication (manager_auth):
+* Bearer Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to http://your_domain.your_region.talon.one
 # See configuration.py for a list of all supported configuration parameters.
 configuration = talon_one.Configuration(
-    host = "http://localhost"
+    host = "http://your_domain.your_region.talon.one"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -5925,15 +5491,10 @@ configuration = talon_one.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure API key authorization: manager_auth
+# Configure Bearer authorization: manager_auth
 configuration = talon_one.Configuration(
-    host = "http://localhost",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
+    access_token = 'YOUR_BEARER_TOKEN'
 )
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
@@ -5943,10 +5504,10 @@ with talon_one.ApiClient(configuration) as api_client:
 campaign_id = 56 # int | 
 page_size = 56 # int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
 skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
-sort = 'sort_example' # str | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional)
+sort = 'sort_example' # str |  (optional)
 
     try:
-        # List Campaign Rulesets
+        # List rulesets
         api_response = api_instance.get_rulesets(application_id, campaign_id, page_size=page_size, skip=skip, sort=sort)
         pprint(api_response)
     except ApiException as e:
@@ -5961,7 +5522,7 @@ Name | Type | Description  | Notes
  **campaign_id** | **int**|  | 
  **page_size** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
  **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional] 
- **sort** | **str**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional] 
+ **sort** | **str**|  | [optional] 
 
 ### Return type
 
@@ -5992,17 +5553,17 @@ Retrieves the data (including an invitation code) for a user. Non-admin users ca
 
 ### Example
 
-* Api Key Authentication (manager_auth):
+* Bearer Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to http://your_domain.your_region.talon.one
 # See configuration.py for a list of all supported configuration parameters.
 configuration = talon_one.Configuration(
-    host = "http://localhost"
+    host = "http://your_domain.your_region.talon.one"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -6010,15 +5571,10 @@ configuration = talon_one.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure API key authorization: manager_auth
+# Configure Bearer authorization: manager_auth
 configuration = talon_one.Configuration(
-    host = "http://localhost",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
+    access_token = 'YOUR_BEARER_TOKEN'
 )
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
@@ -6061,25 +5617,25 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_users**
-> InlineResponse20027 get_users(page_size=page_size, skip=skip, sort=sort)
+> InlineResponse20026 get_users(page_size=page_size, skip=skip, sort=sort)
 
-List Users in your account
+List users
 
 Retrieve all users in your account. 
 
 ### Example
 
-* Api Key Authentication (manager_auth):
+* Bearer Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to http://your_domain.your_region.talon.one
 # See configuration.py for a list of all supported configuration parameters.
 configuration = talon_one.Configuration(
-    host = "http://localhost"
+    host = "http://your_domain.your_region.talon.one"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -6087,15 +5643,10 @@ configuration = talon_one.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure API key authorization: manager_auth
+# Configure Bearer authorization: manager_auth
 configuration = talon_one.Configuration(
-    host = "http://localhost",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
+    access_token = 'YOUR_BEARER_TOKEN'
 )
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
@@ -6103,10 +5654,10 @@ with talon_one.ApiClient(configuration) as api_client:
     api_instance = talon_one.ManagementApi(api_client)
     page_size = 56 # int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
 skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
-sort = 'sort_example' # str | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional)
+sort = 'sort_example' # str |  (optional)
 
     try:
-        # List Users in your account
+        # List users
         api_response = api_instance.get_users(page_size=page_size, skip=skip, sort=sort)
         pprint(api_response)
     except ApiException as e:
@@ -6119,11 +5670,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **page_size** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
  **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional] 
- **sort** | **str**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional] 
+ **sort** | **str**|  | [optional] 
 
 ### Return type
 
-[**InlineResponse20027**](InlineResponse20027.md)
+[**InlineResponse20026**](InlineResponse20026.md)
 
 ### Authorization
 
@@ -6150,17 +5701,17 @@ Returns an webhook by its id.
 
 ### Example
 
-* Api Key Authentication (manager_auth):
+* Bearer Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to http://your_domain.your_region.talon.one
 # See configuration.py for a list of all supported configuration parameters.
 configuration = talon_one.Configuration(
-    host = "http://localhost"
+    host = "http://your_domain.your_region.talon.one"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -6168,15 +5719,10 @@ configuration = talon_one.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure API key authorization: manager_auth
+# Configure Bearer authorization: manager_auth
 configuration = talon_one.Configuration(
-    host = "http://localhost",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
+    access_token = 'YOUR_BEARER_TOKEN'
 )
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
@@ -6219,7 +5765,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_webhook_activation_logs**
-> InlineResponse20024 get_webhook_activation_logs(page_size=page_size, skip=skip, sort=sort, integration_request_uuid=integration_request_uuid, webhook_id=webhook_id, application_id=application_id, campaign_id=campaign_id, created_before=created_before, created_after=created_after)
+> InlineResponse20023 get_webhook_activation_logs(page_size=page_size, skip=skip, sort=sort, integration_request_uuid=integration_request_uuid, webhook_id=webhook_id, application_id=application_id, campaign_id=campaign_id, created_before=created_before, created_after=created_after)
 
 List Webhook activation Log Entries
 
@@ -6227,17 +5773,17 @@ Webhook activation log entries would be created as soon as an integration reques
 
 ### Example
 
-* Api Key Authentication (manager_auth):
+* Bearer Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to http://your_domain.your_region.talon.one
 # See configuration.py for a list of all supported configuration parameters.
 configuration = talon_one.Configuration(
-    host = "http://localhost"
+    host = "http://your_domain.your_region.talon.one"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -6245,15 +5791,10 @@ configuration = talon_one.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure API key authorization: manager_auth
+# Configure Bearer authorization: manager_auth
 configuration = talon_one.Configuration(
-    host = "http://localhost",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
+    access_token = 'YOUR_BEARER_TOKEN'
 )
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
@@ -6261,7 +5802,7 @@ with talon_one.ApiClient(configuration) as api_client:
     api_instance = talon_one.ManagementApi(api_client)
     page_size = 56 # int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
 skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
-sort = 'sort_example' # str | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional)
+sort = 'sort_example' # str |  (optional)
 integration_request_uuid = 'integration_request_uuid_example' # str | Filter results by integration request UUID. (optional)
 webhook_id = 3.4 # float | Filter results by Webhook. (optional)
 application_id = 3.4 # float |  (optional)
@@ -6283,7 +5824,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **page_size** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
  **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional] 
- **sort** | **str**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional] 
+ **sort** | **str**|  | [optional] 
  **integration_request_uuid** | **str**| Filter results by integration request UUID. | [optional] 
  **webhook_id** | **float**| Filter results by Webhook. | [optional] 
  **application_id** | **float**|  | [optional] 
@@ -6293,7 +5834,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20024**](InlineResponse20024.md)
+[**InlineResponse20023**](InlineResponse20023.md)
 
 ### Authorization
 
@@ -6312,23 +5853,23 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_webhook_logs**
-> InlineResponse20025 get_webhook_logs(page_size=page_size, skip=skip, sort=sort, status=status, webhook_id=webhook_id, application_id=application_id, campaign_id=campaign_id, request_uuid=request_uuid, created_before=created_before, created_after=created_after)
+> InlineResponse20024 get_webhook_logs(page_size=page_size, skip=skip, sort=sort, status=status, webhook_id=webhook_id, application_id=application_id, campaign_id=campaign_id, request_uuid=request_uuid, created_before=created_before, created_after=created_after)
 
 List Webhook Log Entries
 
 ### Example
 
-* Api Key Authentication (manager_auth):
+* Bearer Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to http://your_domain.your_region.talon.one
 # See configuration.py for a list of all supported configuration parameters.
 configuration = talon_one.Configuration(
-    host = "http://localhost"
+    host = "http://your_domain.your_region.talon.one"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -6336,15 +5877,10 @@ configuration = talon_one.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure API key authorization: manager_auth
+# Configure Bearer authorization: manager_auth
 configuration = talon_one.Configuration(
-    host = "http://localhost",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
+    access_token = 'YOUR_BEARER_TOKEN'
 )
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
@@ -6352,7 +5888,7 @@ with talon_one.ApiClient(configuration) as api_client:
     api_instance = talon_one.ManagementApi(api_client)
     page_size = 56 # int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
 skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
-sort = 'sort_example' # str | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional)
+sort = 'sort_example' # str |  (optional)
 status = 'status_example' # str | Filter results by HTTP status codes. (optional)
 webhook_id = 3.4 # float | Filter results by Webhook. (optional)
 application_id = 3.4 # float |  (optional)
@@ -6375,7 +5911,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **page_size** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
  **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional] 
- **sort** | **str**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional] 
+ **sort** | **str**|  | [optional] 
  **status** | **str**| Filter results by HTTP status codes. | [optional] 
  **webhook_id** | **float**| Filter results by Webhook. | [optional] 
  **application_id** | **float**|  | [optional] 
@@ -6386,7 +5922,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20025**](InlineResponse20025.md)
+[**InlineResponse20024**](InlineResponse20024.md)
 
 ### Authorization
 
@@ -6405,23 +5941,23 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_webhooks**
-> InlineResponse20023 get_webhooks(application_ids=application_ids, sort=sort, page_size=page_size, skip=skip)
+> InlineResponse20022 get_webhooks(application_ids=application_ids, sort=sort, page_size=page_size, skip=skip)
 
 List Webhooks
 
 ### Example
 
-* Api Key Authentication (manager_auth):
+* Bearer Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to http://your_domain.your_region.talon.one
 # See configuration.py for a list of all supported configuration parameters.
 configuration = talon_one.Configuration(
-    host = "http://localhost"
+    host = "http://your_domain.your_region.talon.one"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -6429,22 +5965,17 @@ configuration = talon_one.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure API key authorization: manager_auth
+# Configure Bearer authorization: manager_auth
 configuration = talon_one.Configuration(
-    host = "http://localhost",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
+    access_token = 'YOUR_BEARER_TOKEN'
 )
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
     application_ids = 'application_ids_example' # str | Filter by one or more application ids separated by comma (optional)
-sort = 'sort_example' # str | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional)
+sort = 'sort_example' # str |  (optional)
 page_size = 56 # int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
 skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
 
@@ -6461,13 +5992,13 @@ skip = 56 # int | Skips the given number of items when paging through large resu
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **application_ids** | **str**| Filter by one or more application ids separated by comma | [optional] 
- **sort** | **str**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional] 
+ **sort** | **str**|  | [optional] 
  **page_size** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
  **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional] 
 
 ### Return type
 
-[**InlineResponse20023**](InlineResponse20023.md)
+[**InlineResponse20022**](InlineResponse20022.md)
 
 ### Authorization
 
@@ -6485,24 +6016,284 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **remove_loyalty_points**
-> remove_loyalty_points(program_id, integration_id, body)
+# **import_coupons**
+> ModelImport import_coupons(application_id, campaign_id, upfile=upfile)
 
-Deduct points in a certain loyalty program for the specified customer
+Import coupons via CSV file
+
+Upload a CSV file containing the coupons that should be created. The file should be sent as multipart data.
 
 ### Example
 
-* Api Key Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to http://your_domain.your_region.talon.one
 # See configuration.py for a list of all supported configuration parameters.
 configuration = talon_one.Configuration(
-    host = "http://localhost"
+    host = "http://your_domain.your_region.talon.one"
+)
+
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | 
+campaign_id = 56 # int | 
+upfile = 'upfile_example' # str | The file with the information about the loyalty points that should be imported. (optional)
+
+    try:
+        # Import coupons via CSV file
+        api_response = api_instance.import_coupons(application_id, campaign_id, upfile=upfile)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->import_coupons: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **application_id** | **int**|  | 
+ **campaign_id** | **int**|  | 
+ **upfile** | **str**| The file with the information about the loyalty points that should be imported. | [optional] 
+
+### Return type
+
+[**ModelImport**](ModelImport.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **import_loyalty_points**
+> ModelImport import_loyalty_points(program_id, up_file=up_file)
+
+Import loyalty points via CSV file
+
+Upload a CSV file containing the loyalty points that should be created. The file should be sent as multipart data.
+
+### Example
+
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://your_domain.your_region.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "http://your_domain.your_region.talon.one"
+)
+
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    program_id = 56 # int | The identifier for the loyalty program, must be unique within the account.
+up_file = 'up_file_example' # str | The file with the information about the loyalty points that should be imported. (optional)
+
+    try:
+        # Import loyalty points via CSV file
+        api_response = api_instance.import_loyalty_points(program_id, up_file=up_file)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->import_loyalty_points: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **program_id** | **int**| The identifier for the loyalty program, must be unique within the account. | 
+ **up_file** | **str**| The file with the information about the loyalty points that should be imported. | [optional] 
+
+### Return type
+
+[**ModelImport**](ModelImport.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **import_pool_giveaways**
+> ModelImport import_pool_giveaways(pool_id, upfile=upfile)
+
+Import giveaways codes into a giveaways pool
+
+Upload a CSV file containing the giveaways codes that should be created. Send the file as multipart data.  The CSV file can contain the following columns: - `code` (required): the code of your giveaway, for instance, a gift card redemption code. - `startdate`:  the start date in RFC3339 of the code redemption period. - `enddate`: the last date in RFC3339 of the code redemption period. - `attributes`: A json object describing _custom_ giveaways attribute names and their values. Double the double-quotes in the object.   For example, if you created a custom attribute called `provider`, set it with `\"{\"\"provider\"\": \"\"myPartnerCompany\"\"}\"`.  The `startdate` and `enddate` have nothing to do with the _validity_ of the codes. They are only used by the Rule Engine to award the codes or not. You can use the timezone of your choice. It is converted to UTC internally by Talon.One. 
+
+### Example
+
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://your_domain.your_region.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "http://your_domain.your_region.talon.one"
+)
+
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    pool_id = 56 # int | 
+upfile = 'upfile_example' # str | The file with the information about the loyalty points that should be imported. (optional)
+
+    try:
+        # Import giveaways codes into a giveaways pool
+        api_response = api_instance.import_pool_giveaways(pool_id, upfile=upfile)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->import_pool_giveaways: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pool_id** | **int**|  | 
+ **upfile** | **str**| The file with the information about the loyalty points that should be imported. | [optional] 
+
+### Return type
+
+[**ModelImport**](ModelImport.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **import_referrals**
+> ModelImport import_referrals(application_id, campaign_id, up_file=up_file)
+
+Import referrals via CSV file
+
+Upload a CSV file containing the referrals that should be created. The file should be sent as multipart data.  The CSV file can contain the following colums:  - `code` (required): the referral code. - `advocateprofileintegrationid` (required): The profile ID of the advocate. - `startdate`: the start date in RFC3339 of the code redemption period. - `expirydate`: the end date in RFC3339 of the code redemption period. - `limitval`: The maximum amount of redemptions of this code. Unlimited (0) when blank. - `attributes`: A json object describing _custom_ referral attribute names and their values. Double the double-quotes in the object.   For example, if you created a custom attribute called `category`, set it with `\"{\"\"category\"\": \"\"10_off\"\"}\"`.  You can use the timezone of your choice. It is converted to UTC internally by Talon.One. 
+
+### Example
+
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://your_domain.your_region.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "http://your_domain.your_region.talon.one"
+)
+
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | 
+campaign_id = 56 # int | 
+up_file = 'up_file_example' # str | The file with the information about the loyalty points that should be imported. (optional)
+
+    try:
+        # Import referrals via CSV file
+        api_response = api_instance.import_referrals(application_id, campaign_id, up_file=up_file)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->import_referrals: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **application_id** | **int**|  | 
+ **campaign_id** | **int**|  | 
+ **up_file** | **str**| The file with the information about the loyalty points that should be imported. | [optional] 
+
+### Return type
+
+[**ModelImport**](ModelImport.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **remove_loyalty_points**
+> remove_loyalty_points(program_id, integration_id, loyalty_points)
+
+Deduct points in a loyalty program for the specified customer
+
+### Example
+
+* Bearer Authentication (manager_auth):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://your_domain.your_region.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "http://your_domain.your_region.talon.one"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -6510,27 +6301,22 @@ configuration = talon_one.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure API key authorization: manager_auth
+# Configure Bearer authorization: manager_auth
 configuration = talon_one.Configuration(
-    host = "http://localhost",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
+    access_token = 'YOUR_BEARER_TOKEN'
 )
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
-    program_id = 'program_id_example' # str | 
+    program_id = 56 # int | The identifier for the loyalty program, must be unique within the account.
 integration_id = 'integration_id_example' # str | 
-body = talon_one.LoyaltyPoints() # LoyaltyPoints | 
+loyalty_points = talon_one.LoyaltyPoints() # LoyaltyPoints | 
 
     try:
-        # Deduct points in a certain loyalty program for the specified customer
-        api_instance.remove_loyalty_points(program_id, integration_id, body)
+        # Deduct points in a loyalty program for the specified customer
+        api_instance.remove_loyalty_points(program_id, integration_id, loyalty_points)
     except ApiException as e:
         print("Exception when calling ManagementApi->remove_loyalty_points: %s\n" % e)
 ```
@@ -6539,9 +6325,9 @@ body = talon_one.LoyaltyPoints() # LoyaltyPoints |
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **program_id** | **str**|  | 
+ **program_id** | **int**| The identifier for the loyalty program, must be unique within the account. | 
  **integration_id** | **str**|  | 
- **body** | [**LoyaltyPoints**](LoyaltyPoints.md)|  | 
+ **loyalty_points** | [**LoyaltyPoints**](LoyaltyPoints.md)|  | 
 
 ### Return type
 
@@ -6564,7 +6350,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **reset_password**
-> NewPassword reset_password(body)
+> NewPassword reset_password(new_password)
 
 Reset password
 
@@ -6572,17 +6358,17 @@ Consumes the supplied password reset token and updates the password for the asso
 
 ### Example
 
-* Api Key Authentication (manager_auth):
+* Bearer Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to http://your_domain.your_region.talon.one
 # See configuration.py for a list of all supported configuration parameters.
 configuration = talon_one.Configuration(
-    host = "http://localhost"
+    host = "http://your_domain.your_region.talon.one"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -6590,25 +6376,20 @@ configuration = talon_one.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure API key authorization: manager_auth
+# Configure Bearer authorization: manager_auth
 configuration = talon_one.Configuration(
-    host = "http://localhost",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
+    access_token = 'YOUR_BEARER_TOKEN'
 )
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
-    body = talon_one.NewPassword() # NewPassword | 
+    new_password = talon_one.NewPassword() # NewPassword | 
 
     try:
         # Reset password
-        api_response = api_instance.reset_password(body)
+        api_response = api_instance.reset_password(new_password)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling ManagementApi->reset_password: %s\n" % e)
@@ -6618,7 +6399,7 @@ with talon_one.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**NewPassword**](NewPassword.md)|  | 
+ **new_password** | [**NewPassword**](NewPassword.md)|  | 
 
 ### Return type
 
@@ -6643,23 +6424,23 @@ Name | Type | Description  | Notes
 # **search_coupons_advanced**
 > InlineResponse2004 search_coupons_advanced(application_id, campaign_id, body, page_size=page_size, skip=skip, sort=sort, value=value, created_before=created_before, created_after=created_after, valid=valid, usable=usable, referral_id=referral_id, recipient_integration_id=recipient_integration_id, exact_match=exact_match, batch_id=batch_id)
 
-Get a list of the coupons that match the given attributes (with total count)
+List coupons that match the given attributes (with total count)
 
 Gets a list of all the coupons with attributes matching the query criteria 
 
 ### Example
 
-* Api Key Authentication (manager_auth):
+* Bearer Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to http://your_domain.your_region.talon.one
 # See configuration.py for a list of all supported configuration parameters.
 configuration = talon_one.Configuration(
-    host = "http://localhost"
+    host = "http://your_domain.your_region.talon.one"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -6667,15 +6448,10 @@ configuration = talon_one.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure API key authorization: manager_auth
+# Configure Bearer authorization: manager_auth
 configuration = talon_one.Configuration(
-    host = "http://localhost",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
+    access_token = 'YOUR_BEARER_TOKEN'
 )
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
@@ -6686,7 +6462,7 @@ campaign_id = 56 # int |
 body = None # object | 
 page_size = 56 # int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
 skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
-sort = 'sort_example' # str | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional)
+sort = 'sort_example' # str |  (optional)
 value = 'value_example' # str | Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
 created_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
 created_after = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
@@ -6698,7 +6474,7 @@ exact_match = False # bool | Filter results to an exact case-insensitive matchin
 batch_id = 'batch_id_example' # str | Filter results by batches of coupons (optional)
 
     try:
-        # Get a list of the coupons that match the given attributes (with total count)
+        # List coupons that match the given attributes (with total count)
         api_response = api_instance.search_coupons_advanced(application_id, campaign_id, body, page_size=page_size, skip=skip, sort=sort, value=value, created_before=created_before, created_after=created_after, valid=valid, usable=usable, referral_id=referral_id, recipient_integration_id=recipient_integration_id, exact_match=exact_match, batch_id=batch_id)
         pprint(api_response)
     except ApiException as e:
@@ -6714,7 +6490,7 @@ Name | Type | Description  | Notes
  **body** | **object**|  | 
  **page_size** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
  **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional] 
- **sort** | **str**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional] 
+ **sort** | **str**|  | [optional] 
  **value** | **str**| Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. | [optional] 
  **created_before** | **datetime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. | [optional] 
  **created_after** | **datetime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. | [optional] 
@@ -6748,23 +6524,23 @@ Name | Type | Description  | Notes
 # **search_coupons_advanced_application_wide**
 > InlineResponse2004 search_coupons_advanced_application_wide(application_id, body, page_size=page_size, skip=skip, sort=sort, value=value, created_before=created_before, created_after=created_after, valid=valid, usable=usable, referral_id=referral_id, recipient_integration_id=recipient_integration_id, batch_id=batch_id, exact_match=exact_match, campaign_state=campaign_state)
 
-Get a list of the coupons that match the given attributes in all active campaigns of an application (with total count)
+List coupons that match the given attributes in all active campaigns of an application (with total count)
 
-Gets a list of all the coupons with attributes matching the query criteria in all active campaigns of an application 
+Get a list of all the coupons with attributes matching the query criteria in all active campaigns of an application 
 
 ### Example
 
-* Api Key Authentication (manager_auth):
+* Bearer Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to http://your_domain.your_region.talon.one
 # See configuration.py for a list of all supported configuration parameters.
 configuration = talon_one.Configuration(
-    host = "http://localhost"
+    host = "http://your_domain.your_region.talon.one"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -6772,15 +6548,10 @@ configuration = talon_one.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure API key authorization: manager_auth
+# Configure Bearer authorization: manager_auth
 configuration = talon_one.Configuration(
-    host = "http://localhost",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
+    access_token = 'YOUR_BEARER_TOKEN'
 )
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
@@ -6790,7 +6561,7 @@ with talon_one.ApiClient(configuration) as api_client:
 body = None # object | 
 page_size = 56 # int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
 skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
-sort = 'sort_example' # str | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional)
+sort = 'sort_example' # str |  (optional)
 value = 'value_example' # str | Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
 created_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
 created_after = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
@@ -6803,7 +6574,7 @@ exact_match = False # bool | Filter results to an exact case-insensitive matchin
 campaign_state = 'campaign_state_example' # str | Filter results by the state of the campaign. (optional)
 
     try:
-        # Get a list of the coupons that match the given attributes in all active campaigns of an application (with total count)
+        # List coupons that match the given attributes in all active campaigns of an application (with total count)
         api_response = api_instance.search_coupons_advanced_application_wide(application_id, body, page_size=page_size, skip=skip, sort=sort, value=value, created_before=created_before, created_after=created_after, valid=valid, usable=usable, referral_id=referral_id, recipient_integration_id=recipient_integration_id, batch_id=batch_id, exact_match=exact_match, campaign_state=campaign_state)
         pprint(api_response)
     except ApiException as e:
@@ -6818,7 +6589,7 @@ Name | Type | Description  | Notes
  **body** | **object**|  | 
  **page_size** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
  **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional] 
- **sort** | **str**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional] 
+ **sort** | **str**|  | [optional] 
  **value** | **str**| Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. | [optional] 
  **created_before** | **datetime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. | [optional] 
  **created_after** | **datetime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. | [optional] 
@@ -6853,23 +6624,23 @@ Name | Type | Description  | Notes
 # **search_coupons_advanced_application_wide_without_total_count**
 > InlineResponse2005 search_coupons_advanced_application_wide_without_total_count(application_id, body, page_size=page_size, skip=skip, sort=sort, value=value, created_before=created_before, created_after=created_after, valid=valid, usable=usable, referral_id=referral_id, recipient_integration_id=recipient_integration_id, batch_id=batch_id, exact_match=exact_match, campaign_state=campaign_state)
 
-Get a list of the coupons that match the given attributes in all active campaigns of an application
+List coupons that match the given attributes in all active campaigns of an application
 
-Gets a list of all the coupons with attributes matching the query criteria in all active campaigns of an application 
+List of all the coupons with attributes matching the query criteria in all active campaigns of an application. 
 
 ### Example
 
-* Api Key Authentication (manager_auth):
+* Bearer Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to http://your_domain.your_region.talon.one
 # See configuration.py for a list of all supported configuration parameters.
 configuration = talon_one.Configuration(
-    host = "http://localhost"
+    host = "http://your_domain.your_region.talon.one"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -6877,15 +6648,10 @@ configuration = talon_one.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure API key authorization: manager_auth
+# Configure Bearer authorization: manager_auth
 configuration = talon_one.Configuration(
-    host = "http://localhost",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
+    access_token = 'YOUR_BEARER_TOKEN'
 )
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
@@ -6895,7 +6661,7 @@ with talon_one.ApiClient(configuration) as api_client:
 body = None # object | 
 page_size = 56 # int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
 skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
-sort = 'sort_example' # str | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional)
+sort = 'sort_example' # str |  (optional)
 value = 'value_example' # str | Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
 created_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
 created_after = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
@@ -6908,7 +6674,7 @@ exact_match = False # bool | Filter results to an exact case-insensitive matchin
 campaign_state = 'campaign_state_example' # str | Filter results by the state of the campaign. (optional)
 
     try:
-        # Get a list of the coupons that match the given attributes in all active campaigns of an application
+        # List coupons that match the given attributes in all active campaigns of an application
         api_response = api_instance.search_coupons_advanced_application_wide_without_total_count(application_id, body, page_size=page_size, skip=skip, sort=sort, value=value, created_before=created_before, created_after=created_after, valid=valid, usable=usable, referral_id=referral_id, recipient_integration_id=recipient_integration_id, batch_id=batch_id, exact_match=exact_match, campaign_state=campaign_state)
         pprint(api_response)
     except ApiException as e:
@@ -6923,7 +6689,7 @@ Name | Type | Description  | Notes
  **body** | **object**|  | 
  **page_size** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
  **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional] 
- **sort** | **str**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional] 
+ **sort** | **str**|  | [optional] 
  **value** | **str**| Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. | [optional] 
  **created_before** | **datetime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. | [optional] 
  **created_after** | **datetime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. | [optional] 
@@ -6958,23 +6724,23 @@ Name | Type | Description  | Notes
 # **search_coupons_advanced_without_total_count**
 > InlineResponse2005 search_coupons_advanced_without_total_count(application_id, campaign_id, body, page_size=page_size, skip=skip, sort=sort, value=value, created_before=created_before, created_after=created_after, valid=valid, usable=usable, referral_id=referral_id, recipient_integration_id=recipient_integration_id, exact_match=exact_match, batch_id=batch_id)
 
-Get a list of the coupons that match the given attributes
+List coupons that match the given attributes
 
-Gets a list of all the coupons with attributes matching the query criteria 
+List of all the coupons with attributes matching the query criteria. 
 
 ### Example
 
-* Api Key Authentication (manager_auth):
+* Bearer Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to http://your_domain.your_region.talon.one
 # See configuration.py for a list of all supported configuration parameters.
 configuration = talon_one.Configuration(
-    host = "http://localhost"
+    host = "http://your_domain.your_region.talon.one"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -6982,15 +6748,10 @@ configuration = talon_one.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure API key authorization: manager_auth
+# Configure Bearer authorization: manager_auth
 configuration = talon_one.Configuration(
-    host = "http://localhost",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
+    access_token = 'YOUR_BEARER_TOKEN'
 )
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
@@ -7001,7 +6762,7 @@ campaign_id = 56 # int |
 body = None # object | 
 page_size = 56 # int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)
 skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
-sort = 'sort_example' # str | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional)
+sort = 'sort_example' # str |  (optional)
 value = 'value_example' # str | Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
 created_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
 created_after = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
@@ -7013,7 +6774,7 @@ exact_match = False # bool | Filter results to an exact case-insensitive matchin
 batch_id = 'batch_id_example' # str | Filter results by batches of coupons (optional)
 
     try:
-        # Get a list of the coupons that match the given attributes
+        # List coupons that match the given attributes
         api_response = api_instance.search_coupons_advanced_without_total_count(application_id, campaign_id, body, page_size=page_size, skip=skip, sort=sort, value=value, created_before=created_before, created_after=created_after, valid=valid, usable=usable, referral_id=referral_id, recipient_integration_id=recipient_integration_id, exact_match=exact_match, batch_id=batch_id)
         pprint(api_response)
     except ApiException as e:
@@ -7029,7 +6790,7 @@ Name | Type | Description  | Notes
  **body** | **object**|  | 
  **page_size** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
  **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional] 
- **sort** | **str**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional] 
+ **sort** | **str**|  | [optional] 
  **value** | **str**| Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. | [optional] 
  **created_before** | **datetime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. | [optional] 
  **created_after** | **datetime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. | [optional] 
@@ -7061,7 +6822,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_additional_cost**
-> AccountAdditionalCost update_additional_cost(additional_cost_id, body)
+> AccountAdditionalCost update_additional_cost(additional_cost_id, new_additional_cost)
 
 Update an additional cost
 
@@ -7069,17 +6830,17 @@ Updates an existing additional cost. Once created, the only property of an addit
 
 ### Example
 
-* Api Key Authentication (manager_auth):
+* Bearer Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to http://your_domain.your_region.talon.one
 # See configuration.py for a list of all supported configuration parameters.
 configuration = talon_one.Configuration(
-    host = "http://localhost"
+    host = "http://your_domain.your_region.talon.one"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -7087,26 +6848,21 @@ configuration = talon_one.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure API key authorization: manager_auth
+# Configure Bearer authorization: manager_auth
 configuration = talon_one.Configuration(
-    host = "http://localhost",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
+    access_token = 'YOUR_BEARER_TOKEN'
 )
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
     additional_cost_id = 56 # int | 
-body = talon_one.NewAdditionalCost() # NewAdditionalCost | 
+new_additional_cost = talon_one.NewAdditionalCost() # NewAdditionalCost | 
 
     try:
         # Update an additional cost
-        api_response = api_instance.update_additional_cost(additional_cost_id, body)
+        api_response = api_instance.update_additional_cost(additional_cost_id, new_additional_cost)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling ManagementApi->update_additional_cost: %s\n" % e)
@@ -7117,7 +6873,7 @@ body = talon_one.NewAdditionalCost() # NewAdditionalCost |
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **additional_cost_id** | **int**|  | 
- **body** | [**NewAdditionalCost**](NewAdditionalCost.md)|  | 
+ **new_additional_cost** | [**NewAdditionalCost**](NewAdditionalCost.md)|  | 
 
 ### Return type
 
@@ -7140,7 +6896,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_attribute**
-> Attribute update_attribute(attribute_id, body)
+> Attribute update_attribute(attribute_id, new_attribute)
 
 Update a custom attribute
 
@@ -7148,17 +6904,17 @@ Updates an existing custom attribute. Once created, the only property of a custo
 
 ### Example
 
-* Api Key Authentication (manager_auth):
+* Bearer Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to http://your_domain.your_region.talon.one
 # See configuration.py for a list of all supported configuration parameters.
 configuration = talon_one.Configuration(
-    host = "http://localhost"
+    host = "http://your_domain.your_region.talon.one"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -7166,26 +6922,21 @@ configuration = talon_one.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure API key authorization: manager_auth
+# Configure Bearer authorization: manager_auth
 configuration = talon_one.Configuration(
-    host = "http://localhost",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
+    access_token = 'YOUR_BEARER_TOKEN'
 )
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
     attribute_id = 56 # int | 
-body = talon_one.NewAttribute() # NewAttribute | 
+new_attribute = talon_one.NewAttribute() # NewAttribute | 
 
     try:
         # Update a custom attribute
-        api_response = api_instance.update_attribute(attribute_id, body)
+        api_response = api_instance.update_attribute(attribute_id, new_attribute)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling ManagementApi->update_attribute: %s\n" % e)
@@ -7196,7 +6947,7 @@ body = talon_one.NewAttribute() # NewAttribute |
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **attribute_id** | **int**|  | 
- **body** | [**NewAttribute**](NewAttribute.md)|  | 
+ **new_attribute** | [**NewAttribute**](NewAttribute.md)|  | 
 
 ### Return type
 
@@ -7219,23 +6970,23 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_campaign**
-> Campaign update_campaign(application_id, campaign_id, body)
+> Campaign update_campaign(application_id, campaign_id, update_campaign)
 
-Update a Campaign
+Update campaign
 
 ### Example
 
-* Api Key Authentication (manager_auth):
+* Bearer Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to http://your_domain.your_region.talon.one
 # See configuration.py for a list of all supported configuration parameters.
 configuration = talon_one.Configuration(
-    host = "http://localhost"
+    host = "http://your_domain.your_region.talon.one"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -7243,15 +6994,10 @@ configuration = talon_one.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure API key authorization: manager_auth
+# Configure Bearer authorization: manager_auth
 configuration = talon_one.Configuration(
-    host = "http://localhost",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
+    access_token = 'YOUR_BEARER_TOKEN'
 )
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
@@ -7259,11 +7005,11 @@ with talon_one.ApiClient(configuration) as api_client:
     api_instance = talon_one.ManagementApi(api_client)
     application_id = 56 # int | 
 campaign_id = 56 # int | 
-body = talon_one.UpdateCampaign() # UpdateCampaign | 
+update_campaign = talon_one.UpdateCampaign() # UpdateCampaign | 
 
     try:
-        # Update a Campaign
-        api_response = api_instance.update_campaign(application_id, campaign_id, body)
+        # Update campaign
+        api_response = api_instance.update_campaign(application_id, campaign_id, update_campaign)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling ManagementApi->update_campaign: %s\n" % e)
@@ -7275,7 +7021,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **application_id** | **int**|  | 
  **campaign_id** | **int**|  | 
- **body** | [**UpdateCampaign**](UpdateCampaign.md)|  | 
+ **update_campaign** | [**UpdateCampaign**](UpdateCampaign.md)|  | 
 
 ### Return type
 
@@ -7298,23 +7044,23 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_coupon**
-> Coupon update_coupon(application_id, campaign_id, coupon_id, body)
+> Coupon update_coupon(application_id, campaign_id, coupon_id, update_coupon)
 
-Update a Coupon
+Update coupon
 
 ### Example
 
-* Api Key Authentication (manager_auth):
+* Bearer Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to http://your_domain.your_region.talon.one
 # See configuration.py for a list of all supported configuration parameters.
 configuration = talon_one.Configuration(
-    host = "http://localhost"
+    host = "http://your_domain.your_region.talon.one"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -7322,15 +7068,10 @@ configuration = talon_one.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure API key authorization: manager_auth
+# Configure Bearer authorization: manager_auth
 configuration = talon_one.Configuration(
-    host = "http://localhost",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
+    access_token = 'YOUR_BEARER_TOKEN'
 )
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
@@ -7339,11 +7080,11 @@ with talon_one.ApiClient(configuration) as api_client:
     application_id = 56 # int | 
 campaign_id = 56 # int | 
 coupon_id = 'coupon_id_example' # str | The ID of the coupon code to update
-body = talon_one.UpdateCoupon() # UpdateCoupon | 
+update_coupon = talon_one.UpdateCoupon() # UpdateCoupon | 
 
     try:
-        # Update a Coupon
-        api_response = api_instance.update_coupon(application_id, campaign_id, coupon_id, body)
+        # Update coupon
+        api_response = api_instance.update_coupon(application_id, campaign_id, coupon_id, update_coupon)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling ManagementApi->update_coupon: %s\n" % e)
@@ -7356,7 +7097,7 @@ Name | Type | Description  | Notes
  **application_id** | **int**|  | 
  **campaign_id** | **int**|  | 
  **coupon_id** | **str**| The ID of the coupon code to update | 
- **body** | [**UpdateCoupon**](UpdateCoupon.md)|  | 
+ **update_coupon** | [**UpdateCoupon**](UpdateCoupon.md)|  | 
 
 ### Return type
 
@@ -7379,23 +7120,23 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_coupon_batch**
-> update_coupon_batch(application_id, campaign_id, body)
+> update_coupon_batch(application_id, campaign_id, update_coupon_batch)
 
-Update a Batch of Coupons
+Update a batch of coupons
 
 ### Example
 
-* Api Key Authentication (manager_auth):
+* Bearer Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to http://your_domain.your_region.talon.one
 # See configuration.py for a list of all supported configuration parameters.
 configuration = talon_one.Configuration(
-    host = "http://localhost"
+    host = "http://your_domain.your_region.talon.one"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -7403,15 +7144,10 @@ configuration = talon_one.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure API key authorization: manager_auth
+# Configure Bearer authorization: manager_auth
 configuration = talon_one.Configuration(
-    host = "http://localhost",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
+    access_token = 'YOUR_BEARER_TOKEN'
 )
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
@@ -7419,11 +7155,11 @@ with talon_one.ApiClient(configuration) as api_client:
     api_instance = talon_one.ManagementApi(api_client)
     application_id = 56 # int | 
 campaign_id = 56 # int | 
-body = talon_one.UpdateCouponBatch() # UpdateCouponBatch | 
+update_coupon_batch = talon_one.UpdateCouponBatch() # UpdateCouponBatch | 
 
     try:
-        # Update a Batch of Coupons
-        api_instance.update_coupon_batch(application_id, campaign_id, body)
+        # Update a batch of coupons
+        api_instance.update_coupon_batch(application_id, campaign_id, update_coupon_batch)
     except ApiException as e:
         print("Exception when calling ManagementApi->update_coupon_batch: %s\n" % e)
 ```
@@ -7434,7 +7170,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **application_id** | **int**|  | 
  **campaign_id** | **int**|  | 
- **body** | [**UpdateCouponBatch**](UpdateCouponBatch.md)|  | 
+ **update_coupon_batch** | [**UpdateCouponBatch**](UpdateCouponBatch.md)|  | 
 
 ### Return type
 
@@ -7456,24 +7192,92 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **update_ruleset**
-> Ruleset update_ruleset(application_id, campaign_id, ruleset_id, body)
+# **update_referral**
+> Referral update_referral(application_id, campaign_id, referral_id, update_referral)
 
-Update a Ruleset
+Update referral
 
 ### Example
 
-* Api Key Authentication (manager_auth):
 ```python
 from __future__ import print_function
 import time
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to http://your_domain.your_region.talon.one
 # See configuration.py for a list of all supported configuration parameters.
 configuration = talon_one.Configuration(
-    host = "http://localhost"
+    host = "http://your_domain.your_region.talon.one"
+)
+
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | 
+campaign_id = 56 # int | 
+referral_id = 'referral_id_example' # str | The ID of the referral code to delete
+update_referral = talon_one.UpdateReferral() # UpdateReferral | 
+
+    try:
+        # Update referral
+        api_response = api_instance.update_referral(application_id, campaign_id, referral_id, update_referral)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->update_referral: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **application_id** | **int**|  | 
+ **campaign_id** | **int**|  | 
+ **referral_id** | **str**| The ID of the referral code to delete | 
+ **update_referral** | [**UpdateReferral**](UpdateReferral.md)|  | 
+
+### Return type
+
+[**Referral**](Referral.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **update_ruleset**
+> Ruleset update_ruleset(application_id, campaign_id, ruleset_id, new_ruleset)
+
+Update ruleset
+
+Update the specified ruleset.
+
+### Example
+
+* Bearer Authentication (manager_auth):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://your_domain.your_region.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "http://your_domain.your_region.talon.one"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -7481,15 +7285,10 @@ configuration = talon_one.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure API key authorization: manager_auth
+# Configure Bearer authorization: manager_auth
 configuration = talon_one.Configuration(
-    host = "http://localhost",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
+    access_token = 'YOUR_BEARER_TOKEN'
 )
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with talon_one.ApiClient(configuration) as api_client:
@@ -7498,11 +7297,11 @@ with talon_one.ApiClient(configuration) as api_client:
     application_id = 56 # int | 
 campaign_id = 56 # int | 
 ruleset_id = 56 # int | 
-body = talon_one.NewRuleset() # NewRuleset | 
+new_ruleset = talon_one.NewRuleset() # NewRuleset | 
 
     try:
-        # Update a Ruleset
-        api_response = api_instance.update_ruleset(application_id, campaign_id, ruleset_id, body)
+        # Update ruleset
+        api_response = api_instance.update_ruleset(application_id, campaign_id, ruleset_id, new_ruleset)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling ManagementApi->update_ruleset: %s\n" % e)
@@ -7515,7 +7314,7 @@ Name | Type | Description  | Notes
  **application_id** | **int**|  | 
  **campaign_id** | **int**|  | 
  **ruleset_id** | **int**|  | 
- **body** | [**NewRuleset**](NewRuleset.md)|  | 
+ **new_ruleset** | [**NewRuleset**](NewRuleset.md)|  | 
 
 ### Return type
 

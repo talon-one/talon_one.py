@@ -327,7 +327,7 @@ class UpdateCampaign(object):
         """
         if self.local_vars_configuration.client_side_validation and features is None:  # noqa: E501
             raise ValueError("Invalid value for `features`, must not be `None`")  # noqa: E501
-        allowed_values = ["coupons", "referrals", "loyalty"]  # noqa: E501
+        allowed_values = ["coupons", "referrals", "loyalty", "giveaways"]  # noqa: E501
         if (self.local_vars_configuration.client_side_validation and
                 not set(features).issubset(set(allowed_values))):  # noqa: E501
             raise ValueError(

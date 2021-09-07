@@ -1,6 +1,5 @@
 # NewCoupons
 
-
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

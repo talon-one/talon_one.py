@@ -74,7 +74,7 @@ conf = talon_one.Configuration(
 
     _default = None
 
-    def __init__(self, host="http://localhost",
+    def __init__(self, host="http://your_domain.your_region.talon.one",
                  api_key=None, api_key_prefix=None,
                  username=None, password=None,
                  discard_unknown_keys=False,
@@ -108,6 +108,9 @@ conf = talon_one.Configuration(
         """Password for HTTP basic authentication
         """
         self.discard_unknown_keys = discard_unknown_keys
+        self.access_token = None
+        """access token for OAuth/Bearer
+        """
         self.logger = {}
         """Logging Settings
         """
@@ -341,19 +344,12 @@ conf = talon_one.Configuration(
                 'key': 'Authorization',
                 'value': self.get_api_key_with_prefix('Authorization')
             }
-        if 'Content-Signature' in self.api_key:
-            auth['integration_auth'] = {
-                'type': 'api_key',
-                'in': 'header',
-                'key': 'Content-Signature',
-                'value': self.get_api_key_with_prefix('Content-Signature')
-            }
-        if 'Authorization' in self.api_key:
+        if self.access_token is not None:
             auth['manager_auth'] = {
-                'type': 'api_key',
+                'type': 'bearer',
                 'in': 'header',
                 'key': 'Authorization',
-                'value': self.get_api_key_with_prefix('Authorization')
+                'value': 'Bearer ' + self.access_token
             }
         return auth
 
@@ -366,7 +362,7 @@ conf = talon_one.Configuration(
                "OS: {env}\n"\
                "Python Version: {pyversion}\n"\
                "Version of the API: 1.0.0\n"\
-               "SDK Package Version: 3.3.0".\
+               "SDK Package Version: 10.0.0".\
                format(env=sys.platform, pyversion=sys.version)
 
     def get_host_settings(self):
@@ -376,7 +372,7 @@ conf = talon_one.Configuration(
         """
         return [
             {
-                'url': "/",
+                'url': "your_domain.your_region.talon.one",
                 'description': "No description provided",
             }
         ]

@@ -140,7 +140,7 @@ class UpdateRole(object):
     def users(self):
         """Gets the users of this UpdateRole.  # noqa: E501
 
-        an array of user identifiers  # noqa: E501
+        An array of user identifiers  # noqa: E501
 
         :return: The users of this UpdateRole.  # noqa: E501
         :rtype: list[int]
@@ -151,7 +151,7 @@ class UpdateRole(object):
     def users(self, users):
         """Sets the users of this UpdateRole.
 
-        an array of user identifiers  # noqa: E501
+        An array of user identifiers  # noqa: E501
 
         :param users: The users of this UpdateRole.  # noqa: E501
         :type: list[int]

@@ -141,7 +141,7 @@ class NewRole(object):
     def users(self):
         """Gets the users of this NewRole.  # noqa: E501
 
-        An array of userIDs  # noqa: E501
+        An array of user identifiers  # noqa: E501
 
         :return: The users of this NewRole.  # noqa: E501
         :rtype: list[int]
@@ -152,7 +152,7 @@ class NewRole(object):
     def users(self, users):
         """Sets the users of this NewRole.
 
-        An array of userIDs  # noqa: E501
+        An array of user identifiers  # noqa: E501
 
         :param users: The users of this NewRole.  # noqa: E501
         :type: list[int]

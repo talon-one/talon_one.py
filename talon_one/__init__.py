@@ -14,7 +14,7 @@
 
 from __future__ import absolute_import
 
-__version__ = "3.3.0"
+__version__ = "10.0.0"
 
 # import apis into sdk package
 from talon_one.api.integration_api import IntegrationApi
@@ -44,11 +44,13 @@ from talon_one.models.additional_cost import AdditionalCost
 from talon_one.models.application import Application
 from talon_one.models.application_api_key import ApplicationAPIKey
 from talon_one.models.application_api_health import ApplicationApiHealth
+from talon_one.models.application_campaign_stats import ApplicationCampaignStats
 from talon_one.models.application_customer import ApplicationCustomer
 from talon_one.models.application_customer_entity import ApplicationCustomerEntity
 from talon_one.models.application_customer_search import ApplicationCustomerSearch
 from talon_one.models.application_entity import ApplicationEntity
 from talon_one.models.application_event import ApplicationEvent
+from talon_one.models.application_referee import ApplicationReferee
 from talon_one.models.application_session import ApplicationSession
 from talon_one.models.application_session_entity import ApplicationSessionEntity
 from talon_one.models.attribute import Attribute
@@ -56,6 +58,7 @@ from talon_one.models.attributes_mandatory import AttributesMandatory
 from talon_one.models.attributes_settings import AttributesSettings
 from talon_one.models.audience import Audience
 from talon_one.models.audience_membership import AudienceMembership
+from talon_one.models.award_giveaway_effect_props import AwardGiveawayEffectProps
 from talon_one.models.base_saml_connection import BaseSamlConnection
 from talon_one.models.binding import Binding
 from talon_one.models.campaign import Campaign
@@ -81,6 +84,8 @@ from talon_one.models.coupon_reservations import CouponReservations
 from talon_one.models.coupon_search import CouponSearch
 from talon_one.models.coupon_value import CouponValue
 from talon_one.models.create_application_api_key import CreateApplicationAPIKey
+from talon_one.models.custom_effect import CustomEffect
+from talon_one.models.custom_effect_props import CustomEffectProps
 from talon_one.models.customer_activity_report import CustomerActivityReport
 from talon_one.models.customer_analytics import CustomerAnalytics
 from talon_one.models.customer_inventory import CustomerInventory
@@ -110,6 +115,9 @@ from talon_one.models.features_feed import FeaturesFeed
 from talon_one.models.feed_notification import FeedNotification
 from talon_one.models.func_arg_def import FuncArgDef
 from talon_one.models.function_def import FunctionDef
+from talon_one.models.giveaway import Giveaway
+from talon_one.models.giveaways_pool import GiveawaysPool
+from talon_one.models.import_entity import ImportEntity
 from talon_one.models.inline_response200 import InlineResponse200
 from talon_one.models.inline_response2001 import InlineResponse2001
 from talon_one.models.inline_response20010 import InlineResponse20010
@@ -134,19 +142,20 @@ from talon_one.models.inline_response20027 import InlineResponse20027
 from talon_one.models.inline_response20028 import InlineResponse20028
 from talon_one.models.inline_response20029 import InlineResponse20029
 from talon_one.models.inline_response2003 import InlineResponse2003
-from talon_one.models.inline_response20030 import InlineResponse20030
 from talon_one.models.inline_response2004 import InlineResponse2004
 from talon_one.models.inline_response2005 import InlineResponse2005
 from talon_one.models.inline_response2006 import InlineResponse2006
 from talon_one.models.inline_response2007 import InlineResponse2007
 from talon_one.models.inline_response2008 import InlineResponse2008
 from talon_one.models.inline_response2009 import InlineResponse2009
+from talon_one.models.inline_response201 import InlineResponse201
 from talon_one.models.integration_entity import IntegrationEntity
 from talon_one.models.integration_event import IntegrationEvent
 from talon_one.models.integration_profile_entity import IntegrationProfileEntity
 from talon_one.models.integration_request import IntegrationRequest
 from talon_one.models.integration_state import IntegrationState
 from talon_one.models.integration_state_v2 import IntegrationStateV2
+from talon_one.models.inventory_coupon import InventoryCoupon
 from talon_one.models.ledger_entry import LedgerEntry
 from talon_one.models.library_attribute import LibraryAttribute
 from talon_one.models.limit_config import LimitConfig
@@ -158,9 +167,11 @@ from talon_one.models.loyalty_membership import LoyaltyMembership
 from talon_one.models.loyalty_points import LoyaltyPoints
 from talon_one.models.loyalty_program import LoyaltyProgram
 from talon_one.models.loyalty_program_balance import LoyaltyProgramBalance
+from talon_one.models.loyalty_program_entity import LoyaltyProgramEntity
 from talon_one.models.loyalty_program_ledgers import LoyaltyProgramLedgers
 from talon_one.models.loyalty_statistics import LoyaltyStatistics
 from talon_one.models.loyalty_sub_ledger import LoyaltySubLedger
+from talon_one.models.loyalty_tier import LoyaltyTier
 from talon_one.models.manager_config import ManagerConfig
 from talon_one.models.meta import Meta
 from talon_one.models.model_import import ModelImport
@@ -181,18 +192,22 @@ from talon_one.models.new_campaign_group import NewCampaignGroup
 from talon_one.models.new_campaign_set import NewCampaignSet
 from talon_one.models.new_coupons import NewCoupons
 from talon_one.models.new_coupons_for_multiple_recipients import NewCouponsForMultipleRecipients
+from talon_one.models.new_custom_effect import NewCustomEffect
 from talon_one.models.new_customer_profile import NewCustomerProfile
 from talon_one.models.new_customer_session import NewCustomerSession
 from talon_one.models.new_customer_session_v2 import NewCustomerSessionV2
 from talon_one.models.new_event import NewEvent
 from talon_one.models.new_event_type import NewEventType
 from talon_one.models.new_feature_flags import NewFeatureFlags
+from talon_one.models.new_giveaways_pool import NewGiveawaysPool
 from talon_one.models.new_invitation import NewInvitation
 from talon_one.models.new_invite_email import NewInviteEmail
 from talon_one.models.new_loyalty_program import NewLoyaltyProgram
+from talon_one.models.new_loyalty_tier import NewLoyaltyTier
 from talon_one.models.new_password import NewPassword
 from talon_one.models.new_password_email import NewPasswordEmail
 from talon_one.models.new_referral import NewReferral
+from talon_one.models.new_referrals_for_multiple_advocates import NewReferralsForMultipleAdvocates
 from talon_one.models.new_role import NewRole
 from talon_one.models.new_ruleset import NewRuleset
 from talon_one.models.new_saml_connection import NewSamlConnection
@@ -203,6 +218,7 @@ from talon_one.models.notification import Notification
 from talon_one.models.profile_audiences_changes import ProfileAudiencesChanges
 from talon_one.models.redeem_referral_effect_props import RedeemReferralEffectProps
 from talon_one.models.referral import Referral
+from talon_one.models.referral_constraints import ReferralConstraints
 from talon_one.models.referral_created_effect_props import ReferralCreatedEffectProps
 from talon_one.models.referral_rejection_reason import ReferralRejectionReason
 from talon_one.models.reject_coupon_effect_props import RejectCouponEffectProps
@@ -238,7 +254,10 @@ from talon_one.models.update_campaign import UpdateCampaign
 from talon_one.models.update_campaign_group import UpdateCampaignGroup
 from talon_one.models.update_coupon import UpdateCoupon
 from talon_one.models.update_coupon_batch import UpdateCouponBatch
+from talon_one.models.update_custom_effect import UpdateCustomEffect
 from talon_one.models.update_loyalty_program import UpdateLoyaltyProgram
+from talon_one.models.update_loyalty_tier import UpdateLoyaltyTier
+from talon_one.models.update_referral import UpdateReferral
 from talon_one.models.update_role import UpdateRole
 from talon_one.models.update_user import UpdateUser
 from talon_one.models.update_user_latest_feed_timestamp import UpdateUserLatestFeedTimestamp
@@ -248,4 +267,5 @@ from talon_one.models.user_feed_notifications import UserFeedNotifications
 from talon_one.models.webhook import Webhook
 from talon_one.models.webhook_activation_log_entry import WebhookActivationLogEntry
 from talon_one.models.webhook_log_entry import WebhookLogEntry
+from talon_one.models.will_award_giveaway_effect_props import WillAwardGiveawayEffectProps
 

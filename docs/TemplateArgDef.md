@@ -1,6 +1,5 @@
 # TemplateArgDef
 
-
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

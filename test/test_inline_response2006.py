@@ -36,36 +36,42 @@ class TestInlineResponse2006(unittest.TestCase):
         # model = talon_one.models.inline_response2006.InlineResponse2006()  # noqa: E501
         if include_optional :
             return InlineResponse2006(
-                total_result_size = 56, 
+                has_more = True, 
                 data = [
                     talon_one.models.referral.Referral(
                         id = 56, 
                         created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        start_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        expiry_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        usage_limit = 0, 
                         campaign_id = 56, 
                         advocate_profile_integration_id = '0', 
                         friend_profile_integration_id = '0', 
-                        start_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        expiry_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        attributes = talon_one.models.attributes.attributes(), 
+                        import_id = 56, 
                         code = '0123', 
                         usage_counter = 56, 
-                        usage_limit = 0, )
+                        batch_id = '0', )
                     ]
             )
         else :
             return InlineResponse2006(
-                total_result_size = 56,
+                has_more = True,
                 data = [
                     talon_one.models.referral.Referral(
                         id = 56, 
                         created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        start_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        expiry_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        usage_limit = 0, 
                         campaign_id = 56, 
                         advocate_profile_integration_id = '0', 
                         friend_profile_integration_id = '0', 
-                        start_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        expiry_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        attributes = talon_one.models.attributes.attributes(), 
+                        import_id = 56, 
                         code = '0123', 
                         usage_counter = 56, 
-                        usage_limit = 0, )
+                        batch_id = '0', )
                     ],
         )
 

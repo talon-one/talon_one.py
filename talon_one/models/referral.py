@@ -35,30 +35,36 @@ class Referral(object):
     openapi_types = {
         'id': 'int',
         'created': 'datetime',
+        'start_date': 'datetime',
+        'expiry_date': 'datetime',
+        'usage_limit': 'int',
         'campaign_id': 'int',
         'advocate_profile_integration_id': 'str',
         'friend_profile_integration_id': 'str',
-        'start_date': 'datetime',
-        'expiry_date': 'datetime',
+        'attributes': 'object',
+        'import_id': 'int',
         'code': 'str',
         'usage_counter': 'int',
-        'usage_limit': 'int'
+        'batch_id': 'str'
     }
 
     attribute_map = {
         'id': 'id',
         'created': 'created',
+        'start_date': 'startDate',
+        'expiry_date': 'expiryDate',
+        'usage_limit': 'usageLimit',
         'campaign_id': 'campaignId',
         'advocate_profile_integration_id': 'advocateProfileIntegrationId',
         'friend_profile_integration_id': 'friendProfileIntegrationId',
-        'start_date': 'startDate',
-        'expiry_date': 'expiryDate',
+        'attributes': 'attributes',
+        'import_id': 'importId',
         'code': 'code',
         'usage_counter': 'usageCounter',
-        'usage_limit': 'usageLimit'
+        'batch_id': 'batchId'
     }
 
-    def __init__(self, id=None, created=None, campaign_id=None, advocate_profile_integration_id=None, friend_profile_integration_id=None, start_date=None, expiry_date=None, code=None, usage_counter=None, usage_limit=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, created=None, start_date=None, expiry_date=None, usage_limit=None, campaign_id=None, advocate_profile_integration_id=None, friend_profile_integration_id=None, attributes=None, import_id=None, code=None, usage_counter=None, batch_id=None, local_vars_configuration=None):  # noqa: E501
         """Referral - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -66,29 +72,38 @@ class Referral(object):
 
         self._id = None
         self._created = None
+        self._start_date = None
+        self._expiry_date = None
+        self._usage_limit = None
         self._campaign_id = None
         self._advocate_profile_integration_id = None
         self._friend_profile_integration_id = None
-        self._start_date = None
-        self._expiry_date = None
+        self._attributes = None
+        self._import_id = None
         self._code = None
         self._usage_counter = None
-        self._usage_limit = None
+        self._batch_id = None
         self.discriminator = None
 
         self.id = id
         self.created = created
-        self.campaign_id = campaign_id
-        self.advocate_profile_integration_id = advocate_profile_integration_id
-        if friend_profile_integration_id is not None:
-            self.friend_profile_integration_id = friend_profile_integration_id
         if start_date is not None:
             self.start_date = start_date
         if expiry_date is not None:
             self.expiry_date = expiry_date
+        self.usage_limit = usage_limit
+        self.campaign_id = campaign_id
+        self.advocate_profile_integration_id = advocate_profile_integration_id
+        if friend_profile_integration_id is not None:
+            self.friend_profile_integration_id = friend_profile_integration_id
+        if attributes is not None:
+            self.attributes = attributes
+        if import_id is not None:
+            self.import_id = import_id
         self.code = code
         self.usage_counter = usage_counter
-        self.usage_limit = usage_limit
+        if batch_id is not None:
+            self.batch_id = batch_id
 
     @property
     def id(self):
@@ -141,79 +156,6 @@ class Referral(object):
         self._created = created
 
     @property
-    def campaign_id(self):
-        """Gets the campaign_id of this Referral.  # noqa: E501
-
-        ID of the campaign from which the referral received the referral code.  # noqa: E501
-
-        :return: The campaign_id of this Referral.  # noqa: E501
-        :rtype: int
-        """
-        return self._campaign_id
-
-    @campaign_id.setter
-    def campaign_id(self, campaign_id):
-        """Sets the campaign_id of this Referral.
-
-        ID of the campaign from which the referral received the referral code.  # noqa: E501
-
-        :param campaign_id: The campaign_id of this Referral.  # noqa: E501
-        :type: int
-        """
-        if self.local_vars_configuration.client_side_validation and campaign_id is None:  # noqa: E501
-            raise ValueError("Invalid value for `campaign_id`, must not be `None`")  # noqa: E501
-
-        self._campaign_id = campaign_id
-
-    @property
-    def advocate_profile_integration_id(self):
-        """Gets the advocate_profile_integration_id of this Referral.  # noqa: E501
-
-        The Integration Id of the Advocate's Profile  # noqa: E501
-
-        :return: The advocate_profile_integration_id of this Referral.  # noqa: E501
-        :rtype: str
-        """
-        return self._advocate_profile_integration_id
-
-    @advocate_profile_integration_id.setter
-    def advocate_profile_integration_id(self, advocate_profile_integration_id):
-        """Sets the advocate_profile_integration_id of this Referral.
-
-        The Integration Id of the Advocate's Profile  # noqa: E501
-
-        :param advocate_profile_integration_id: The advocate_profile_integration_id of this Referral.  # noqa: E501
-        :type: str
-        """
-        if self.local_vars_configuration.client_side_validation and advocate_profile_integration_id is None:  # noqa: E501
-            raise ValueError("Invalid value for `advocate_profile_integration_id`, must not be `None`")  # noqa: E501
-
-        self._advocate_profile_integration_id = advocate_profile_integration_id
-
-    @property
-    def friend_profile_integration_id(self):
-        """Gets the friend_profile_integration_id of this Referral.  # noqa: E501
-
-        An optional Integration ID of the Friend's Profile  # noqa: E501
-
-        :return: The friend_profile_integration_id of this Referral.  # noqa: E501
-        :rtype: str
-        """
-        return self._friend_profile_integration_id
-
-    @friend_profile_integration_id.setter
-    def friend_profile_integration_id(self, friend_profile_integration_id):
-        """Sets the friend_profile_integration_id of this Referral.
-
-        An optional Integration ID of the Friend's Profile  # noqa: E501
-
-        :param friend_profile_integration_id: The friend_profile_integration_id of this Referral.  # noqa: E501
-        :type: str
-        """
-
-        self._friend_profile_integration_id = friend_profile_integration_id
-
-    @property
     def start_date(self):
         """Gets the start_date of this Referral.  # noqa: E501
 
@@ -258,6 +200,156 @@ class Referral(object):
         """
 
         self._expiry_date = expiry_date
+
+    @property
+    def usage_limit(self):
+        """Gets the usage_limit of this Referral.  # noqa: E501
+
+        The number of times a referral code can be used. This can be set to 0 for no limit, but any campaign usage limits will still apply.   # noqa: E501
+
+        :return: The usage_limit of this Referral.  # noqa: E501
+        :rtype: int
+        """
+        return self._usage_limit
+
+    @usage_limit.setter
+    def usage_limit(self, usage_limit):
+        """Sets the usage_limit of this Referral.
+
+        The number of times a referral code can be used. This can be set to 0 for no limit, but any campaign usage limits will still apply.   # noqa: E501
+
+        :param usage_limit: The usage_limit of this Referral.  # noqa: E501
+        :type: int
+        """
+        if self.local_vars_configuration.client_side_validation and usage_limit is None:  # noqa: E501
+            raise ValueError("Invalid value for `usage_limit`, must not be `None`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                usage_limit is not None and usage_limit > 999999):  # noqa: E501
+            raise ValueError("Invalid value for `usage_limit`, must be a value less than or equal to `999999`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                usage_limit is not None and usage_limit < 0):  # noqa: E501
+            raise ValueError("Invalid value for `usage_limit`, must be a value greater than or equal to `0`")  # noqa: E501
+
+        self._usage_limit = usage_limit
+
+    @property
+    def campaign_id(self):
+        """Gets the campaign_id of this Referral.  # noqa: E501
+
+        ID of the campaign from which the referral received the referral code.  # noqa: E501
+
+        :return: The campaign_id of this Referral.  # noqa: E501
+        :rtype: int
+        """
+        return self._campaign_id
+
+    @campaign_id.setter
+    def campaign_id(self, campaign_id):
+        """Sets the campaign_id of this Referral.
+
+        ID of the campaign from which the referral received the referral code.  # noqa: E501
+
+        :param campaign_id: The campaign_id of this Referral.  # noqa: E501
+        :type: int
+        """
+        if self.local_vars_configuration.client_side_validation and campaign_id is None:  # noqa: E501
+            raise ValueError("Invalid value for `campaign_id`, must not be `None`")  # noqa: E501
+
+        self._campaign_id = campaign_id
+
+    @property
+    def advocate_profile_integration_id(self):
+        """Gets the advocate_profile_integration_id of this Referral.  # noqa: E501
+
+        The Integration ID of the Advocate's Profile.  # noqa: E501
+
+        :return: The advocate_profile_integration_id of this Referral.  # noqa: E501
+        :rtype: str
+        """
+        return self._advocate_profile_integration_id
+
+    @advocate_profile_integration_id.setter
+    def advocate_profile_integration_id(self, advocate_profile_integration_id):
+        """Sets the advocate_profile_integration_id of this Referral.
+
+        The Integration ID of the Advocate's Profile.  # noqa: E501
+
+        :param advocate_profile_integration_id: The advocate_profile_integration_id of this Referral.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and advocate_profile_integration_id is None:  # noqa: E501
+            raise ValueError("Invalid value for `advocate_profile_integration_id`, must not be `None`")  # noqa: E501
+
+        self._advocate_profile_integration_id = advocate_profile_integration_id
+
+    @property
+    def friend_profile_integration_id(self):
+        """Gets the friend_profile_integration_id of this Referral.  # noqa: E501
+
+        An optional Integration ID of the Friend's Profile  # noqa: E501
+
+        :return: The friend_profile_integration_id of this Referral.  # noqa: E501
+        :rtype: str
+        """
+        return self._friend_profile_integration_id
+
+    @friend_profile_integration_id.setter
+    def friend_profile_integration_id(self, friend_profile_integration_id):
+        """Sets the friend_profile_integration_id of this Referral.
+
+        An optional Integration ID of the Friend's Profile  # noqa: E501
+
+        :param friend_profile_integration_id: The friend_profile_integration_id of this Referral.  # noqa: E501
+        :type: str
+        """
+
+        self._friend_profile_integration_id = friend_profile_integration_id
+
+    @property
+    def attributes(self):
+        """Gets the attributes of this Referral.  # noqa: E501
+
+        Arbitrary properties associated with this item.  # noqa: E501
+
+        :return: The attributes of this Referral.  # noqa: E501
+        :rtype: object
+        """
+        return self._attributes
+
+    @attributes.setter
+    def attributes(self, attributes):
+        """Sets the attributes of this Referral.
+
+        Arbitrary properties associated with this item.  # noqa: E501
+
+        :param attributes: The attributes of this Referral.  # noqa: E501
+        :type: object
+        """
+
+        self._attributes = attributes
+
+    @property
+    def import_id(self):
+        """Gets the import_id of this Referral.  # noqa: E501
+
+        The ID of the Import which created this referral.  # noqa: E501
+
+        :return: The import_id of this Referral.  # noqa: E501
+        :rtype: int
+        """
+        return self._import_id
+
+    @import_id.setter
+    def import_id(self, import_id):
+        """Sets the import_id of this Referral.
+
+        The ID of the Import which created this referral.  # noqa: E501
+
+        :param import_id: The import_id of this Referral.  # noqa: E501
+        :type: int
+        """
+
+        self._import_id = import_id
 
     @property
     def code(self):
@@ -313,32 +405,27 @@ class Referral(object):
         self._usage_counter = usage_counter
 
     @property
-    def usage_limit(self):
-        """Gets the usage_limit of this Referral.  # noqa: E501
+    def batch_id(self):
+        """Gets the batch_id of this Referral.  # noqa: E501
 
-        The number of times a referral code can be used. This can be set to 0 for no limit, but any campaign usage limits will still apply.   # noqa: E501
+        The ID of the batch the referrals belong to.  # noqa: E501
 
-        :return: The usage_limit of this Referral.  # noqa: E501
-        :rtype: int
+        :return: The batch_id of this Referral.  # noqa: E501
+        :rtype: str
         """
-        return self._usage_limit
+        return self._batch_id
 
-    @usage_limit.setter
-    def usage_limit(self, usage_limit):
-        """Sets the usage_limit of this Referral.
+    @batch_id.setter
+    def batch_id(self, batch_id):
+        """Sets the batch_id of this Referral.
 
-        The number of times a referral code can be used. This can be set to 0 for no limit, but any campaign usage limits will still apply.   # noqa: E501
+        The ID of the batch the referrals belong to.  # noqa: E501
 
-        :param usage_limit: The usage_limit of this Referral.  # noqa: E501
-        :type: int
+        :param batch_id: The batch_id of this Referral.  # noqa: E501
+        :type: str
         """
-        if self.local_vars_configuration.client_side_validation and usage_limit is None:  # noqa: E501
-            raise ValueError("Invalid value for `usage_limit`, must not be `None`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                usage_limit is not None and usage_limit < 0):  # noqa: E501
-            raise ValueError("Invalid value for `usage_limit`, must be a value greater than or equal to `0`")  # noqa: E501
 
-        self._usage_limit = usage_limit
+        self._batch_id = batch_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

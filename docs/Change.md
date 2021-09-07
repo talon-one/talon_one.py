@@ -1,6 +1,5 @@
 # Change
 
-
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

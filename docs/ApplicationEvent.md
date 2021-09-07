@@ -1,6 +1,5 @@
 # ApplicationEvent
 
-
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

@@ -1,6 +1,5 @@
 # Environment
 
-
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
@@ -10,7 +9,12 @@ Name | Type | Description | Notes
 **slots** | [**list[SlotDef]**](SlotDef.md) | The slots defined for this application. | 
 **functions** | [**list[FunctionDef]**](FunctionDef.md) | The functions defined for this application. | 
 **templates** | [**list[TemplateDef]**](TemplateDef.md) | The templates defined for this application. | 
+**giveaways_pools** | [**list[GiveawaysPool]**](GiveawaysPool.md) | The giveaways pools that the application is subscribed to. | [optional] 
 **variables** | **str** |  | 
+**loyalty_programs** | [**list[LoyaltyProgram]**](LoyaltyProgram.md) | The loyalty programs that the application is subscribed to. | [optional] 
+**attributes** | [**list[Attribute]**](Attribute.md) | The attributes that the application is subscribed to. | [optional] 
+**additional_costs** | [**list[AccountAdditionalCost]**](AccountAdditionalCost.md) | The additional costs that the application is subscribed to. | [optional] 
+**audiences** | [**list[Audience]**](Audience.md) | The audiences contained in the account which the application belongs to. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -41,7 +41,8 @@ class LoyaltyProgram(object):
         'subscribed_applications': 'list[int]',
         'default_validity': 'str',
         'default_pending': 'str',
-        'allow_subledger': 'bool'
+        'allow_subledger': 'bool',
+        'tiers': 'list[LoyaltyTier]'
     }
 
     attribute_map = {
@@ -53,10 +54,11 @@ class LoyaltyProgram(object):
         'subscribed_applications': 'subscribedApplications',
         'default_validity': 'defaultValidity',
         'default_pending': 'defaultPending',
-        'allow_subledger': 'allowSubledger'
+        'allow_subledger': 'allowSubledger',
+        'tiers': 'tiers'
     }
 
-    def __init__(self, id=None, account_id=None, name=None, title=None, description=None, subscribed_applications=None, default_validity=None, default_pending=None, allow_subledger=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, account_id=None, name=None, title=None, description=None, subscribed_applications=None, default_validity=None, default_pending=None, allow_subledger=None, tiers=None, local_vars_configuration=None):  # noqa: E501
         """LoyaltyProgram - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -71,6 +73,7 @@ class LoyaltyProgram(object):
         self._default_validity = None
         self._default_pending = None
         self._allow_subledger = None
+        self._tiers = None
         self.discriminator = None
 
         self.id = id
@@ -82,6 +85,8 @@ class LoyaltyProgram(object):
         self.default_validity = default_validity
         self.default_pending = default_pending
         self.allow_subledger = allow_subledger
+        if tiers is not None:
+            self.tiers = tiers
 
     @property
     def id(self):
@@ -307,6 +312,29 @@ class LoyaltyProgram(object):
             raise ValueError("Invalid value for `allow_subledger`, must not be `None`")  # noqa: E501
 
         self._allow_subledger = allow_subledger
+
+    @property
+    def tiers(self):
+        """Gets the tiers of this LoyaltyProgram.  # noqa: E501
+
+        The tiers in this loyalty program  # noqa: E501
+
+        :return: The tiers of this LoyaltyProgram.  # noqa: E501
+        :rtype: list[LoyaltyTier]
+        """
+        return self._tiers
+
+    @tiers.setter
+    def tiers(self, tiers):
+        """Sets the tiers of this LoyaltyProgram.
+
+        The tiers in this loyalty program  # noqa: E501
+
+        :param tiers: The tiers of this LoyaltyProgram.  # noqa: E501
+        :type: list[LoyaltyTier]
+        """
+
+        self._tiers = tiers
 
     def to_dict(self):
         """Returns the model properties as a dict"""

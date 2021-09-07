@@ -1,6 +1,5 @@
 # SamlConnection
 
-
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

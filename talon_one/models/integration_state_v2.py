@@ -43,7 +43,8 @@ class IntegrationStateV2(object):
         'effects': 'list[Effect]',
         'rule_failure_reasons': 'list[RuleFailureReason]',
         'created_coupons': 'list[Coupon]',
-        'created_referrals': 'list[Referral]'
+        'created_referrals': 'list[Referral]',
+        'awarded_giveaways': 'list[Giveaway]'
     }
 
     attribute_map = {
@@ -57,10 +58,11 @@ class IntegrationStateV2(object):
         'effects': 'effects',
         'rule_failure_reasons': 'ruleFailureReasons',
         'created_coupons': 'createdCoupons',
-        'created_referrals': 'createdReferrals'
+        'created_referrals': 'createdReferrals',
+        'awarded_giveaways': 'awardedGiveaways'
     }
 
-    def __init__(self, customer_session=None, customer_profile=None, event=None, loyalty=None, referral=None, coupons=None, triggered_campaigns=None, effects=None, rule_failure_reasons=None, created_coupons=None, created_referrals=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, customer_session=None, customer_profile=None, event=None, loyalty=None, referral=None, coupons=None, triggered_campaigns=None, effects=None, rule_failure_reasons=None, created_coupons=None, created_referrals=None, awarded_giveaways=None, local_vars_configuration=None):  # noqa: E501
         """IntegrationStateV2 - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -77,6 +79,7 @@ class IntegrationStateV2(object):
         self._rule_failure_reasons = None
         self._created_coupons = None
         self._created_referrals = None
+        self._awarded_giveaways = None
         self.discriminator = None
 
         if customer_session is not None:
@@ -98,6 +101,8 @@ class IntegrationStateV2(object):
             self.rule_failure_reasons = rule_failure_reasons
         self.created_coupons = created_coupons
         self.created_referrals = created_referrals
+        if awarded_giveaways is not None:
+            self.awarded_giveaways = awarded_giveaways
 
     @property
     def customer_session(self):
@@ -335,6 +340,27 @@ class IntegrationStateV2(object):
             raise ValueError("Invalid value for `created_referrals`, must not be `None`")  # noqa: E501
 
         self._created_referrals = created_referrals
+
+    @property
+    def awarded_giveaways(self):
+        """Gets the awarded_giveaways of this IntegrationStateV2.  # noqa: E501
+
+
+        :return: The awarded_giveaways of this IntegrationStateV2.  # noqa: E501
+        :rtype: list[Giveaway]
+        """
+        return self._awarded_giveaways
+
+    @awarded_giveaways.setter
+    def awarded_giveaways(self, awarded_giveaways):
+        """Sets the awarded_giveaways of this IntegrationStateV2.
+
+
+        :param awarded_giveaways: The awarded_giveaways of this IntegrationStateV2.  # noqa: E501
+        :type: list[Giveaway]
+        """
+
+        self._awarded_giveaways = awarded_giveaways
 
     def to_dict(self):
         """Returns the model properties as a dict"""

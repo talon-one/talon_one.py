@@ -36,36 +36,54 @@ class TestInlineResponse2007(unittest.TestCase):
         # model = talon_one.models.inline_response2007.InlineResponse2007()  # noqa: E501
         if include_optional :
             return InlineResponse2007(
-                has_more = True, 
+                total_result_size = 56, 
                 data = [
-                    talon_one.models.referral.Referral(
+                    talon_one.models.loyalty_program.LoyaltyProgram(
                         id = 56, 
-                        created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        campaign_id = 56, 
-                        advocate_profile_integration_id = '0', 
-                        friend_profile_integration_id = '0', 
-                        start_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        expiry_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        code = '0123', 
-                        usage_counter = 56, 
-                        usage_limit = 0, )
+                        account_id = 56, 
+                        name = '0', 
+                        title = '0', 
+                        description = '0', 
+                        subscribed_applications = [
+                            56
+                            ], 
+                        default_validity = '0', 
+                        default_pending = '0', 
+                        allow_subledger = True, 
+                        tiers = [
+                            talon_one.models.loyalty_tier.LoyaltyTier(
+                                id = 56, 
+                                created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                                program_id = 56, 
+                                name = '0', 
+                                min_points = 0, )
+                            ], )
                     ]
             )
         else :
             return InlineResponse2007(
-                has_more = True,
+                total_result_size = 56,
                 data = [
-                    talon_one.models.referral.Referral(
+                    talon_one.models.loyalty_program.LoyaltyProgram(
                         id = 56, 
-                        created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        campaign_id = 56, 
-                        advocate_profile_integration_id = '0', 
-                        friend_profile_integration_id = '0', 
-                        start_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        expiry_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        code = '0123', 
-                        usage_counter = 56, 
-                        usage_limit = 0, )
+                        account_id = 56, 
+                        name = '0', 
+                        title = '0', 
+                        description = '0', 
+                        subscribed_applications = [
+                            56
+                            ], 
+                        default_validity = '0', 
+                        default_pending = '0', 
+                        allow_subledger = True, 
+                        tiers = [
+                            talon_one.models.loyalty_tier.LoyaltyTier(
+                                id = 56, 
+                                created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                                program_id = 56, 
+                                name = '0', 
+                                min_points = 0, )
+                            ], )
                     ],
         )
 

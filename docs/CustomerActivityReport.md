@@ -1,6 +1,5 @@
 # CustomerActivityReport
 
-
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

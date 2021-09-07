@@ -1,6 +1,5 @@
 # ApplicationCustomer
 
-
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

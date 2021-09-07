@@ -1,6 +1,5 @@
 # CustomerProfile
 
-
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

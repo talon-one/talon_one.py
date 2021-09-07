@@ -79,17 +79,20 @@ class TestCustomerInventory(unittest.TestCase):
                     talon_one.models.referral.Referral(
                         id = 56, 
                         created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        start_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        expiry_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        usage_limit = 0, 
                         campaign_id = 56, 
                         advocate_profile_integration_id = '0', 
                         friend_profile_integration_id = '0', 
-                        start_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        expiry_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        attributes = talon_one.models.attributes.attributes(), 
+                        import_id = 56, 
                         code = '0123', 
                         usage_counter = 56, 
-                        usage_limit = 0, )
+                        batch_id = '0', )
                     ], 
                 coupons = [
-                    talon_one.models.coupon.Coupon(
+                    talon_one.models.inventory_coupon.InventoryCoupon(
                         id = 56, 
                         created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                         campaign_id = 56, 
@@ -106,7 +109,21 @@ class TestCustomerInventory(unittest.TestCase):
                         recipient_integration_id = '0', 
                         import_id = 56, 
                         reservation = True, 
-                        batch_id = '0', )
+                        batch_id = '0', 
+                        profile_redemption_count = 56, 
+                        state = '0', )
+                    ], 
+                giveaways = [
+                    talon_one.models.giveaway.Giveaway(
+                        id = 56, 
+                        created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        code = '0', 
+                        pool_id = 56, 
+                        start_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        end_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        attributes = talon_one.models.attributes.attributes(), 
+                        used = True, 
+                        import_id = 56, )
                     ]
             )
         else :

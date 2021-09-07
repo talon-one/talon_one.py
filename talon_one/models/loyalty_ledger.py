@@ -53,8 +53,7 @@ class LoyaltyLedger(object):
         self.discriminator = None
 
         self.ledger = ledger
-        if sub_ledgers is not None:
-            self.sub_ledgers = sub_ledgers
+        self.sub_ledgers = sub_ledgers
 
     @property
     def ledger(self):
@@ -99,6 +98,8 @@ class LoyaltyLedger(object):
         :param sub_ledgers: The sub_ledgers of this LoyaltyLedger.  # noqa: E501
         :type: dict(str, LoyaltySubLedger)
         """
+        if self.local_vars_configuration.client_side_validation and sub_ledgers is None:  # noqa: E501
+            raise ValueError("Invalid value for `sub_ledgers`, must not be `None`")  # noqa: E501
 
         self._sub_ledgers = sub_ledgers
 

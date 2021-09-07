@@ -42,6 +42,13 @@ class TestIntegrationApi(unittest.TestCase):
         """
         pass
 
+    def test_create_referrals_for_multiple_advocates(self):
+        """Test case for create_referrals_for_multiple_advocates
+
+        Create referral codes for multiple advocates  # noqa: E501
+        """
+        pass
+
     def test_delete_coupon_reservation(self):
         """Test case for delete_coupon_reservation
 

@@ -31,7 +31,7 @@ class TestManagementApi(unittest.TestCase):
     def test_add_loyalty_points(self):
         """Test case for add_loyalty_points
 
-        Add points in a certain loyalty program for the specified customer  # noqa: E501
+        Add points in a loyalty program for the specified customer  # noqa: E501
         """
         pass
 
@@ -59,21 +59,21 @@ class TestManagementApi(unittest.TestCase):
     def test_create_campaign(self):
         """Test case for create_campaign
 
-        Create a Campaign  # noqa: E501
+        Create campaign  # noqa: E501
         """
         pass
 
     def test_create_coupons(self):
         """Test case for create_coupons
 
-        Create Coupons  # noqa: E501
+        Create coupons  # noqa: E501
         """
         pass
 
     def test_create_coupons_for_multiple_recipients(self):
         """Test case for create_coupons_for_multiple_recipients
 
-        Create Coupons for Multiple Recipients  # noqa: E501
+        Create coupons for multiple recipients  # noqa: E501
         """
         pass
 
@@ -87,63 +87,56 @@ class TestManagementApi(unittest.TestCase):
     def test_create_ruleset(self):
         """Test case for create_ruleset
 
-        Create a Ruleset  # noqa: E501
+        Create ruleset  # noqa: E501
         """
         pass
 
     def test_create_session(self):
         """Test case for create_session
 
-        Create a Session  # noqa: E501
+        Create session  # noqa: E501
         """
         pass
 
     def test_delete_campaign(self):
         """Test case for delete_campaign
 
-        Delete a Campaign  # noqa: E501
+        Delete campaign  # noqa: E501
         """
         pass
 
     def test_delete_coupon(self):
         """Test case for delete_coupon
 
-        Delete one Coupon  # noqa: E501
+        Delete coupon  # noqa: E501
         """
         pass
 
     def test_delete_coupons(self):
         """Test case for delete_coupons
 
-        Delete Coupons  # noqa: E501
+        Delete coupons  # noqa: E501
         """
         pass
 
     def test_delete_referral(self):
         """Test case for delete_referral
 
-        Delete one Referral  # noqa: E501
+        Delete referral  # noqa: E501
         """
         pass
 
     def test_delete_ruleset(self):
         """Test case for delete_ruleset
 
-        Delete a Ruleset  # noqa: E501
-        """
-        pass
-
-    def test_destroy_session(self):
-        """Test case for destroy_session
-
-        Destroy a Session  # noqa: E501
+        Delete ruleset  # noqa: E501
         """
         pass
 
     def test_export_coupons(self):
         """Test case for export_coupons
 
-        Export Coupons to a CSV file  # noqa: E501
+        Export coupons to a CSV file  # noqa: E501
         """
         pass
 
@@ -220,14 +213,14 @@ class TestManagementApi(unittest.TestCase):
     def test_get_all_access_logs(self):
         """Test case for get_all_access_logs
 
-        Get all access logs  # noqa: E501
+        List access logs  # noqa: E501
         """
         pass
 
     def test_get_all_roles(self):
         """Test case for get_all_roles
 
-        Get all roles  # noqa: E501
+        List roles  # noqa: E501
         """
         pass
 
@@ -325,14 +318,14 @@ class TestManagementApi(unittest.TestCase):
     def test_get_audiences(self):
         """Test case for get_audiences
 
-        Get all audiences  # noqa: E501
+        List audiences  # noqa: E501
         """
         pass
 
     def test_get_campaign(self):
         """Test case for get_campaign
 
-        Get a Campaign  # noqa: E501
+        Get campaign  # noqa: E501
         """
         pass
 
@@ -346,14 +339,14 @@ class TestManagementApi(unittest.TestCase):
     def test_get_campaign_by_attributes(self):
         """Test case for get_campaign_by_attributes
 
-        Get a list of all campaigns that match the given attributes  # noqa: E501
+        List campaigns that match the given attributes  # noqa: E501
         """
         pass
 
     def test_get_campaigns(self):
         """Test case for get_campaigns
 
-        List your Campaigns  # noqa: E501
+        List campaigns  # noqa: E501
         """
         pass
 
@@ -367,28 +360,28 @@ class TestManagementApi(unittest.TestCase):
     def test_get_coupons(self):
         """Test case for get_coupons
 
-        List Coupons (with total count)  # noqa: E501
+        List coupons (with total count)  # noqa: E501
         """
         pass
 
     def test_get_coupons_by_attributes(self):
         """Test case for get_coupons_by_attributes
 
-        Get a list of the coupons that match the given attributes  # noqa: E501
+        List coupons that match the given attributes  # noqa: E501
         """
         pass
 
     def test_get_coupons_by_attributes_application_wide(self):
         """Test case for get_coupons_by_attributes_application_wide
 
-        Get a list of the coupons that match the given attributes in all active campaigns of an application (with total count)  # noqa: E501
+        List coupons that match the given attributes in all active campaigns of an application (with total count)  # noqa: E501
         """
         pass
 
     def test_get_coupons_without_total_count(self):
         """Test case for get_coupons_without_total_count
 
-        List Coupons  # noqa: E501
+        List coupons  # noqa: E501
         """
         pass
 
@@ -437,28 +430,28 @@ class TestManagementApi(unittest.TestCase):
     def test_get_customers_by_attributes(self):
         """Test case for get_customers_by_attributes
 
-        Get a list of the customer profiles that match the given attributes  # noqa: E501
+        List customer profiles that match the given attributes  # noqa: E501
         """
         pass
 
     def test_get_event_types(self):
         """Test case for get_event_types
 
-        List Event Types  # noqa: E501
+        List event types  # noqa: E501
         """
         pass
 
     def test_get_exports(self):
         """Test case for get_exports
 
-        Get Exports  # noqa: E501
+        Get exports  # noqa: E501
         """
         pass
 
     def test_get_loyalty_points(self):
         """Test case for get_loyalty_points
 
-        get the Loyalty Ledger for this integrationID  # noqa: E501
+        Get integration's Loyalty Ledger  # noqa: E501
         """
         pass
 
@@ -472,7 +465,7 @@ class TestManagementApi(unittest.TestCase):
     def test_get_loyalty_programs(self):
         """Test case for get_loyalty_programs
 
-        List all loyalty Programs  # noqa: E501
+        List loyalty programs  # noqa: E501
         """
         pass
 
@@ -486,14 +479,14 @@ class TestManagementApi(unittest.TestCase):
     def test_get_referrals(self):
         """Test case for get_referrals
 
-        List Referrals (with total count)  # noqa: E501
+        List referrals (with total count)  # noqa: E501
         """
         pass
 
     def test_get_referrals_without_total_count(self):
         """Test case for get_referrals_without_total_count
 
-        List Referrals  # noqa: E501
+        List referrals  # noqa: E501
         """
         pass
 
@@ -507,14 +500,14 @@ class TestManagementApi(unittest.TestCase):
     def test_get_ruleset(self):
         """Test case for get_ruleset
 
-        Get a Ruleset  # noqa: E501
+        Get ruleset  # noqa: E501
         """
         pass
 
     def test_get_rulesets(self):
         """Test case for get_rulesets
 
-        List Campaign Rulesets  # noqa: E501
+        List rulesets  # noqa: E501
         """
         pass
 
@@ -528,7 +521,7 @@ class TestManagementApi(unittest.TestCase):
     def test_get_users(self):
         """Test case for get_users
 
-        List Users in your account  # noqa: E501
+        List users  # noqa: E501
         """
         pass
 
@@ -560,10 +553,38 @@ class TestManagementApi(unittest.TestCase):
         """
         pass
 
+    def test_import_coupons(self):
+        """Test case for import_coupons
+
+        Import coupons via CSV file  # noqa: E501
+        """
+        pass
+
+    def test_import_loyalty_points(self):
+        """Test case for import_loyalty_points
+
+        Import loyalty points via CSV file  # noqa: E501
+        """
+        pass
+
+    def test_import_pool_giveaways(self):
+        """Test case for import_pool_giveaways
+
+        Import giveaways codes into a giveaways pool  # noqa: E501
+        """
+        pass
+
+    def test_import_referrals(self):
+        """Test case for import_referrals
+
+        Import referrals via CSV file  # noqa: E501
+        """
+        pass
+
     def test_remove_loyalty_points(self):
         """Test case for remove_loyalty_points
 
-        Deduct points in a certain loyalty program for the specified customer  # noqa: E501
+        Deduct points in a loyalty program for the specified customer  # noqa: E501
         """
         pass
 
@@ -577,28 +598,28 @@ class TestManagementApi(unittest.TestCase):
     def test_search_coupons_advanced(self):
         """Test case for search_coupons_advanced
 
-        Get a list of the coupons that match the given attributes (with total count)  # noqa: E501
+        List coupons that match the given attributes (with total count)  # noqa: E501
         """
         pass
 
     def test_search_coupons_advanced_application_wide(self):
         """Test case for search_coupons_advanced_application_wide
 
-        Get a list of the coupons that match the given attributes in all active campaigns of an application (with total count)  # noqa: E501
+        List coupons that match the given attributes in all active campaigns of an application (with total count)  # noqa: E501
         """
         pass
 
     def test_search_coupons_advanced_application_wide_without_total_count(self):
         """Test case for search_coupons_advanced_application_wide_without_total_count
 
-        Get a list of the coupons that match the given attributes in all active campaigns of an application  # noqa: E501
+        List coupons that match the given attributes in all active campaigns of an application  # noqa: E501
         """
         pass
 
     def test_search_coupons_advanced_without_total_count(self):
         """Test case for search_coupons_advanced_without_total_count
 
-        Get a list of the coupons that match the given attributes  # noqa: E501
+        List coupons that match the given attributes  # noqa: E501
         """
         pass
 
@@ -619,28 +640,35 @@ class TestManagementApi(unittest.TestCase):
     def test_update_campaign(self):
         """Test case for update_campaign
 
-        Update a Campaign  # noqa: E501
+        Update campaign  # noqa: E501
         """
         pass
 
     def test_update_coupon(self):
         """Test case for update_coupon
 
-        Update a Coupon  # noqa: E501
+        Update coupon  # noqa: E501
         """
         pass
 
     def test_update_coupon_batch(self):
         """Test case for update_coupon_batch
 
-        Update a Batch of Coupons  # noqa: E501
+        Update a batch of coupons  # noqa: E501
+        """
+        pass
+
+    def test_update_referral(self):
+        """Test case for update_referral
+
+        Update referral  # noqa: E501
         """
         pass
 
     def test_update_ruleset(self):
         """Test case for update_ruleset
 
-        Update a Ruleset  # noqa: E501
+        Update ruleset  # noqa: E501
         """
         pass
 

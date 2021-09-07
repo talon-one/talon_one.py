@@ -46,7 +46,15 @@ class TestLoyaltyProgram(unittest.TestCase):
                     ], 
                 default_validity = '0', 
                 default_pending = '0', 
-                allow_subledger = True
+                allow_subledger = True, 
+                tiers = [
+                    talon_one.models.loyalty_tier.LoyaltyTier(
+                        id = 56, 
+                        created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        program_id = 56, 
+                        name = '0', 
+                        min_points = 0, )
+                    ]
             )
         else :
             return LoyaltyProgram(

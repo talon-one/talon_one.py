@@ -37,6 +37,8 @@ class TestRole(unittest.TestCase):
         if include_optional :
             return Role(
                 id = 56, 
+                created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                modified = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                 account_id = 56, 
                 campaign_group_id = 56, 
                 name = '0', 
@@ -49,7 +51,11 @@ class TestRole(unittest.TestCase):
         else :
             return Role(
                 id = 56,
+                created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
+                modified = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 account_id = 56,
+                name = '0',
+                acl = None,
         )
 
     def testRole(self):

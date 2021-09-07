@@ -38,26 +38,36 @@ class TestInlineResponse20029(unittest.TestCase):
             return InlineResponse20029(
                 total_result_size = 56, 
                 data = [
-                    talon_one.models.export.Export(
+                    talon_one.models.role.Role(
                         id = 56, 
                         created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        modified = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                         account_id = 56, 
-                        user_id = 56, 
-                        entity = 'Coupon', 
-                        filter = talon_one.models.filter.filter(), )
+                        campaign_group_id = 56, 
+                        name = '0', 
+                        description = '0', 
+                        members = [
+                            56
+                            ], 
+                        acl = talon_one.models.acl.acl(), )
                     ]
             )
         else :
             return InlineResponse20029(
                 total_result_size = 56,
                 data = [
-                    talon_one.models.export.Export(
+                    talon_one.models.role.Role(
                         id = 56, 
                         created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        modified = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                         account_id = 56, 
-                        user_id = 56, 
-                        entity = 'Coupon', 
-                        filter = talon_one.models.filter.filter(), )
+                        campaign_group_id = 56, 
+                        name = '0', 
+                        description = '0', 
+                        members = [
+                            56
+                            ], 
+                        acl = talon_one.models.acl.acl(), )
                     ],
         )
 

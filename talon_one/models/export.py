@@ -193,7 +193,7 @@ class Export(object):
         """
         if self.local_vars_configuration.client_side_validation and entity is None:  # noqa: E501
             raise ValueError("Invalid value for `entity`, must not be `None`")  # noqa: E501
-        allowed_values = ["Coupon", "Effect", "CustomerSession"]  # noqa: E501
+        allowed_values = ["Coupon", "Effect", "CustomerSession", "LoyaltyLedger", "LoyaltyLedgerLog"]  # noqa: E501
         if self.local_vars_configuration.client_side_validation and entity not in allowed_values:  # noqa: E501
             raise ValueError(
                 "Invalid value for `entity` ({0}), must be one of {1}"  # noqa: E501

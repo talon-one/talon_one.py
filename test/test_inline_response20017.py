@@ -36,7 +36,7 @@ class TestInlineResponse20017(unittest.TestCase):
         # model = talon_one.models.inline_response20017.InlineResponse20017()  # noqa: E501
         if include_optional :
             return InlineResponse20017(
-                total_result_size = 56, 
+                has_more = True, 
                 data = [
                     talon_one.models.application_event.ApplicationEvent(
                         id = 56, 
@@ -68,7 +68,7 @@ class TestInlineResponse20017(unittest.TestCase):
             )
         else :
             return InlineResponse20017(
-                total_result_size = 56,
+                has_more = True,
                 data = [
                     talon_one.models.application_event.ApplicationEvent(
                         id = 56, 

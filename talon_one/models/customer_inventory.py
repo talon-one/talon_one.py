@@ -36,17 +36,19 @@ class CustomerInventory(object):
         'profile': 'CustomerProfile',
         'loyalty': 'Loyalty',
         'referrals': 'list[Referral]',
-        'coupons': 'list[Coupon]'
+        'coupons': 'list[InventoryCoupon]',
+        'giveaways': 'list[Giveaway]'
     }
 
     attribute_map = {
         'profile': 'profile',
         'loyalty': 'loyalty',
         'referrals': 'referrals',
-        'coupons': 'coupons'
+        'coupons': 'coupons',
+        'giveaways': 'giveaways'
     }
 
-    def __init__(self, profile=None, loyalty=None, referrals=None, coupons=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, profile=None, loyalty=None, referrals=None, coupons=None, giveaways=None, local_vars_configuration=None):  # noqa: E501
         """CustomerInventory - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -56,6 +58,7 @@ class CustomerInventory(object):
         self._loyalty = None
         self._referrals = None
         self._coupons = None
+        self._giveaways = None
         self.discriminator = None
 
         if profile is not None:
@@ -66,6 +69,8 @@ class CustomerInventory(object):
             self.referrals = referrals
         if coupons is not None:
             self.coupons = coupons
+        if giveaways is not None:
+            self.giveaways = giveaways
 
     @property
     def profile(self):
@@ -136,7 +141,7 @@ class CustomerInventory(object):
 
 
         :return: The coupons of this CustomerInventory.  # noqa: E501
-        :rtype: list[Coupon]
+        :rtype: list[InventoryCoupon]
         """
         return self._coupons
 
@@ -146,10 +151,31 @@ class CustomerInventory(object):
 
 
         :param coupons: The coupons of this CustomerInventory.  # noqa: E501
-        :type: list[Coupon]
+        :type: list[InventoryCoupon]
         """
 
         self._coupons = coupons
+
+    @property
+    def giveaways(self):
+        """Gets the giveaways of this CustomerInventory.  # noqa: E501
+
+
+        :return: The giveaways of this CustomerInventory.  # noqa: E501
+        :rtype: list[Giveaway]
+        """
+        return self._giveaways
+
+    @giveaways.setter
+    def giveaways(self, giveaways):
+        """Sets the giveaways of this CustomerInventory.
+
+
+        :param giveaways: The giveaways of this CustomerInventory.  # noqa: E501
+        :type: list[Giveaway]
+        """
+
+        self._giveaways = giveaways
 
     def to_dict(self):
         """Returns the model properties as a dict"""

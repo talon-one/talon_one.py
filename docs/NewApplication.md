@@ -1,6 +1,5 @@
 # NewApplication
 
-
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
