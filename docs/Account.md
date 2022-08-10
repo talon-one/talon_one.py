@@ -4,12 +4,12 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **int** | Unique ID for this entity. | 
+**id** | **int** | Unique ID for this entity. Not to be confused with the Integration ID, which is set by your integration layer and used in most endpoints. | 
 **created** | **datetime** | The exact moment this entity was created. | 
 **modified** | **datetime** | The exact moment this entity was last modified. | 
 **company_name** | **str** |  | 
-**domain_name** | **str** | Subdomain Name for yourcompany.talon.one | 
-**state** | **str** | State of the account (active, deactivated) | 
+**domain_name** | **str** | Subdomain Name for yourcompany.talon.one. | 
+**state** | **str** | State of the account (active, deactivated). | 
 **billing_email** | **str** | The billing email address associated with your company account. | 
 **plan_name** | **str** | The name of your booked plan. | [optional] 
 **plan_expires** | **datetime** | The point in time at which your current plan expires. | [optional] 
@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 **user_count** | **int** | The current number of Campaign Manager Users in your account. | 
 **campaigns_active_count** | **int** | The current number of active Campaigns in your account. | 
 **campaigns_inactive_count** | **int** | The current number of inactive Campaigns in your account. | 
-**attributes** | [**object**](.md) | Arbitrary properties associated with this campaign | [optional] 
+**attributes** | [**object**](.md) | Arbitrary properties associated with this campaign. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

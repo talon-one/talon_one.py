@@ -4,8 +4,8 @@ The properties specific to the \"couponCreated\" effect. This gets triggered whe
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**value** | **str** | The coupon code that was created | 
-**profile_id** | **str** | The integration identifier of the customer for whom this coupon was created | 
+**value** | **str** | The coupon code that was created. | 
+**profile_id** | **str** | The integration identifier of the customer for whom this coupon was created. | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

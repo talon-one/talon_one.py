@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **int** | Unique ID for this entity. | 
+**id** | **int** | Unique ID for this entity. Not to be confused with the Integration ID, which is set by your integration layer and used in most endpoints. | 
 **created** | **datetime** | The exact moment this entity was created. | 
 **application_id** | **int** | The ID of the application that owns this entity. | 
 **title** | **str** | Campaigner-friendly name for the template that will be shown in the rule editor. | 

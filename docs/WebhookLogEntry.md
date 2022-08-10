@@ -1,17 +1,17 @@
 # WebhookLogEntry
 
-Log of webhook api calls
+Log of webhook api calls.
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **str** | UUID reference of the webhook request | 
-**integration_request_uuid** | **str** | UUID reference of the integration request linked to this webhook request | 
-**webhook_id** | **int** | ID of the webhook that triggered the request | 
-**application_id** | **int** | ID of the application that triggered the webhook | [optional] 
+**id** | **str** | UUID reference of the webhook request. | 
+**integration_request_uuid** | **str** | UUID reference of the integration request linked to this webhook request. | 
+**webhook_id** | **int** | ID of the webhook that triggered the request. | 
+**application_id** | **int** | ID of the application that triggered the webhook. | [optional] 
 **url** | **str** | Target url of request | 
 **request** | **str** | Request message | 
 **response** | **str** | Response message | [optional] 
-**status** | **int** | HTTP status code of response | [optional] 
+**status** | **int** | HTTP status code of response. | [optional] 
 **request_time** | **datetime** | Timestamp of request | 
 **response_time** | **datetime** | Timestamp of response | [optional] 
 

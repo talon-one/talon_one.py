@@ -1,12 +1,12 @@
 # AccessLogEntry
 
-Log of application accesses
+Log of application accesses.
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**uuid** | **str** | UUID reference of request | 
-**status** | **int** | HTTP status code of response | 
-**method** | **str** | HTTP method of request | 
+**uuid** | **str** | UUID reference of request. | 
+**status** | **int** | HTTP status code of response. | 
+**method** | **str** | HTTP method of request. | 
 **request_uri** | **str** | target URI of request | 
 **time** | **datetime** | timestamp of request | 
 **request_payload** | **str** | payload of request | 

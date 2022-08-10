@@ -5,7 +5,7 @@ The body of a V2 integration API request (customer session update). Next to the 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **customer_session** | [**NewCustomerSessionV2**](NewCustomerSessionV2.md) |  | 
-**response_content** | **list[str]** | Optional list of requested information to be present on the response related to the customer session update. Currently supported: \&quot;customerSession\&quot;, \&quot;customerProfile\&quot;, \&quot;coupons\&quot;, \&quot;triggeredCampaigns\&quot;, \&quot;referral\&quot;, \&quot;loyalty\&quot;, \&quot;event\&quot; and \&quot;ruleFailureReasons\&quot;.  | [optional] 
+**response_content** | **list[str]** | Optional list of extra data that you want to get in the response. Use this property to get as much data as you need in one request instead of sending extra requests to other endpoints.  **Note:** &#x60;ruleFailureReasons&#x60; is always part of the response when the [Application type](https://docs.talon.one/docs/product/applications/overview#application-types) is &#x60;sandbox&#x60;.  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

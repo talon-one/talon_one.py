@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **sign_out_url** | **str** | Single Sign-Out URL. | [optional] 
 **metadata_url** | **str** | Metadata URL. | [optional] 
 **audience_uri** | **str** | The application-defined unique identifier that is the intended audience of the SAML assertion. This is most often the SP Entity ID of your application. When not specified, the ACS URL will be used.  | 
-**id** | **int** | Unique ID for this entity. | 
+**id** | **int** | Unique ID for this entity. Not to be confused with the Integration ID, which is set by your integration layer and used in most endpoints. | 
 **created** | **datetime** | The exact moment this entity was created. | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
