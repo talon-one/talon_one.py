@@ -4,8 +4,8 @@ The properties specific to the \"addFreeItem\" effect. This gets triggered whene
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**sku** | **str** | SKU of the item that needs to be added | 
-**name** | **str** | The name/description of the effect | 
+**sku** | **str** | SKU of the item that needs to be added. | 
+**name** | **str** | The name/description of the effect. | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **int** | Unique ID for this entity. | 
+**id** | **int** | Unique ID for this entity. Not to be confused with the Integration ID, which is set by your integration layer and used in most endpoints. | 
 **created** | **datetime** | The exact moment this entity was created. | 
 **application_id** | **int** | The ID of the application that owns this entity. | 
 **profile_id** | **int** | The globally unique Talon.One ID of the customer that created this entity. | [optional] 

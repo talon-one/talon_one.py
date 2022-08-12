@@ -4,8 +4,8 @@ The properties specific to the \"updateAttribute\" effect. This gets triggered w
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**path** | **str** | The exact path of the attribute that was updated | 
-**value** | [**object**](.md) | The new value of this attribute. Value can be any of the following types (time, string, number, location, boolean) or a list of any of those types | 
+**path** | **str** | The exact path of the attribute that was updated. | 
+**value** | [**object**](.md) | The new value of this attribute. The value can be of the following types: - boolean - location - number - string - time - list of any of those types  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
