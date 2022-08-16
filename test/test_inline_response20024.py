@@ -36,66 +36,30 @@ class TestInlineResponse20024(unittest.TestCase):
         # model = talon_one.models.inline_response20024.InlineResponse20024()  # noqa: E501
         if include_optional :
             return InlineResponse20024(
+                has_more = True, 
                 total_result_size = 56, 
                 data = [
-                    talon_one.models.attribute.Attribute(
-                        id = 6, 
-                        created = '2020-06-10T09:05:27.993483Z', 
-                        account_id = 3886, 
-                        entity = 'Account', 
-                        event_type = '0', 
-                        name = 'a', 
-                        title = 'a', 
-                        type = 'string', 
-                        description = '0', 
-                        suggestions = [
-                            '0'
-                            ], 
-                        has_allowed_list = True, 
-                        restricted_by_suggestions = True, 
-                        editable = True, 
-                        subscribed_applications_ids = [
-                            56
-                            ], 
-                        subscribed_catalogs_ids = [
-                            56
-                            ], 
-                        allowed_subscriptions = [
-                            'application'
-                            ], 
-                        event_type_id = 22, )
+                    talon_one.models.application_referee.ApplicationReferee(
+                        application_id = 322, 
+                        session_id = '0', 
+                        advocate_integration_id = '0', 
+                        friend_integration_id = '0', 
+                        code = '0', 
+                        created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), )
                     ]
             )
         else :
             return InlineResponse20024(
+                has_more = True,
                 total_result_size = 56,
                 data = [
-                    talon_one.models.attribute.Attribute(
-                        id = 6, 
-                        created = '2020-06-10T09:05:27.993483Z', 
-                        account_id = 3886, 
-                        entity = 'Account', 
-                        event_type = '0', 
-                        name = 'a', 
-                        title = 'a', 
-                        type = 'string', 
-                        description = '0', 
-                        suggestions = [
-                            '0'
-                            ], 
-                        has_allowed_list = True, 
-                        restricted_by_suggestions = True, 
-                        editable = True, 
-                        subscribed_applications_ids = [
-                            56
-                            ], 
-                        subscribed_catalogs_ids = [
-                            56
-                            ], 
-                        allowed_subscriptions = [
-                            'application'
-                            ], 
-                        event_type_id = 22, )
+                    talon_one.models.application_referee.ApplicationReferee(
+                        application_id = 322, 
+                        session_id = '0', 
+                        advocate_integration_id = '0', 
+                        friend_integration_id = '0', 
+                        code = '0', 
+                        created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), )
                     ],
         )
 

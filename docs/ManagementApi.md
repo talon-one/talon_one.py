@@ -196,7 +196,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **copy_campaign_to_applications**
-> InlineResponse2002 copy_campaign_to_applications(application_id, campaign_id, body)
+> InlineResponse2003 copy_campaign_to_applications(application_id, campaign_id, body)
 
 Copy the campaign into the specified application
 
@@ -258,7 +258,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2002**](InlineResponse2002.md)
+[**InlineResponse2003**](InlineResponse2003.md)
 
 ### Authorization
 
@@ -671,7 +671,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_coupons**
-> InlineResponse2005 create_coupons(application_id, campaign_id, body, silent=silent)
+> InlineResponse2006 create_coupons(application_id, campaign_id, body, silent=silent)
 
 Create coupons
 
@@ -735,7 +735,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2005**](InlineResponse2005.md)
+[**InlineResponse2006**](InlineResponse2006.md)
 
 ### Authorization
 
@@ -836,7 +836,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_coupons_for_multiple_recipients**
-> InlineResponse2005 create_coupons_for_multiple_recipients(application_id, campaign_id, body, silent=silent)
+> InlineResponse2006 create_coupons_for_multiple_recipients(application_id, campaign_id, body, silent=silent)
 
 Create coupons for multiple recipients
 
@@ -900,7 +900,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2005**](InlineResponse2005.md)
+[**InlineResponse2006**](InlineResponse2006.md)
 
 ### Authorization
 
@@ -2495,7 +2495,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_access_logs_without_total_count**
-> InlineResponse20012 get_access_logs_without_total_count(application_id, range_start, range_end, path=path, method=method, status=status, page_size=page_size, skip=skip, sort=sort)
+> InlineResponse20013 get_access_logs_without_total_count(application_id, range_start, range_end, path=path, method=method, status=status, page_size=page_size, skip=skip, sort=sort)
 
 Get access logs for Application
 
@@ -2569,7 +2569,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20012**](InlineResponse20012.md)
+[**InlineResponse20013**](InlineResponse20013.md)
 
 ### Authorization
 
@@ -2897,7 +2897,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_additional_costs**
-> InlineResponse20025 get_additional_costs(page_size=page_size, skip=skip, sort=sort)
+> InlineResponse20026 get_additional_costs(page_size=page_size, skip=skip, sort=sort)
 
 List additional costs
 
@@ -2959,7 +2959,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20025**](InlineResponse20025.md)
+[**InlineResponse20026**](InlineResponse20026.md)
 
 ### Authorization
 
@@ -2978,7 +2978,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_all_access_logs**
-> InlineResponse20013 get_all_access_logs(range_start, range_end, path=path, method=method, status=status, page_size=page_size, skip=skip, sort=sort)
+> InlineResponse20014 get_all_access_logs(range_start, range_end, path=path, method=method, status=status, page_size=page_size, skip=skip, sort=sort)
 
 List access logs
 
@@ -3050,7 +3050,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20013**](InlineResponse20013.md)
+[**InlineResponse20014**](InlineResponse20014.md)
 
 ### Authorization
 
@@ -3069,7 +3069,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_all_roles**
-> InlineResponse20033 get_all_roles()
+> InlineResponse20034 get_all_roles()
 
 List roles
 
@@ -3123,7 +3123,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**InlineResponse20033**](InlineResponse20033.md)
+[**InlineResponse20034**](InlineResponse20034.md)
 
 ### Authorization
 
@@ -3375,7 +3375,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_application_customer_friends**
-> InlineResponse20023 get_application_customer_friends(application_id, integration_id, page_size=page_size, skip=skip, sort=sort, with_total_result_size=with_total_result_size)
+> InlineResponse20024 get_application_customer_friends(application_id, integration_id, page_size=page_size, skip=skip, sort=sort, with_total_result_size=with_total_result_size)
 
 List friends referred by customer profile
 
@@ -3443,7 +3443,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20023**](InlineResponse20023.md)
+[**InlineResponse20024**](InlineResponse20024.md)
 
 ### Authorization
 
@@ -3462,7 +3462,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_application_customers**
-> InlineResponse20015 get_application_customers(application_id, integration_id=integration_id, page_size=page_size, skip=skip, with_total_result_size=with_total_result_size)
+> InlineResponse20016 get_application_customers(application_id, integration_id=integration_id, page_size=page_size, skip=skip, with_total_result_size=with_total_result_size)
 
 List application's customers
 
@@ -3528,7 +3528,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20015**](InlineResponse20015.md)
+[**InlineResponse20016**](InlineResponse20016.md)
 
 ### Authorization
 
@@ -3547,7 +3547,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_application_customers_by_attributes**
-> InlineResponse20016 get_application_customers_by_attributes(application_id, body, page_size=page_size, skip=skip, with_total_result_size=with_total_result_size)
+> InlineResponse20017 get_application_customers_by_attributes(application_id, body, page_size=page_size, skip=skip, with_total_result_size=with_total_result_size)
 
 List application customers matching the given attributes
 
@@ -3613,7 +3613,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20016**](InlineResponse20016.md)
+[**InlineResponse20017**](InlineResponse20017.md)
 
 ### Authorization
 
@@ -3632,7 +3632,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_application_event_types**
-> InlineResponse20021 get_application_event_types(application_id, page_size=page_size, skip=skip, sort=sort)
+> InlineResponse20022 get_application_event_types(application_id, page_size=page_size, skip=skip, sort=sort)
 
 List Applications event types
 
@@ -3696,7 +3696,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20021**](InlineResponse20021.md)
+[**InlineResponse20022**](InlineResponse20022.md)
 
 ### Authorization
 
@@ -3715,7 +3715,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_application_events_without_total_count**
-> InlineResponse20020 get_application_events_without_total_count(application_id, page_size=page_size, skip=skip, sort=sort, type=type, created_before=created_before, created_after=created_after, session=session, profile=profile, customer_name=customer_name, customer_email=customer_email, coupon_code=coupon_code, referral_code=referral_code, rule_query=rule_query, campaign_query=campaign_query)
+> InlineResponse20021 get_application_events_without_total_count(application_id, page_size=page_size, skip=skip, sort=sort, type=type, created_before=created_before, created_after=created_after, session=session, profile=profile, customer_name=customer_name, customer_email=customer_email, coupon_code=coupon_code, referral_code=referral_code, rule_query=rule_query, campaign_query=campaign_query)
 
 List Applications events
 
@@ -3801,7 +3801,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20020**](InlineResponse20020.md)
+[**InlineResponse20021**](InlineResponse20021.md)
 
 ### Authorization
 
@@ -3899,7 +3899,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_application_sessions**
-> InlineResponse20019 get_application_sessions(application_id, page_size=page_size, skip=skip, sort=sort, profile=profile, state=state, created_before=created_before, created_after=created_after, coupon=coupon, referral=referral, integration_id=integration_id)
+> InlineResponse20020 get_application_sessions(application_id, page_size=page_size, skip=skip, sort=sort, profile=profile, state=state, created_before=created_before, created_after=created_after, coupon=coupon, referral=referral, integration_id=integration_id)
 
 List Application sessions
 
@@ -3977,7 +3977,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20019**](InlineResponse20019.md)
+[**InlineResponse20020**](InlineResponse20020.md)
 
 ### Authorization
 
@@ -3996,7 +3996,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_applications**
-> InlineResponse2001 get_applications(page_size=page_size, skip=skip, sort=sort)
+> InlineResponse2002 get_applications(page_size=page_size, skip=skip, sort=sort)
 
 List applications
 
@@ -4058,7 +4058,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2001**](InlineResponse2001.md)
+[**InlineResponse2002**](InlineResponse2002.md)
 
 ### Authorization
 
@@ -4154,7 +4154,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_attributes**
-> InlineResponse20024 get_attributes(page_size=page_size, skip=skip, sort=sort, entity=entity)
+> InlineResponse20025 get_attributes(page_size=page_size, skip=skip, sort=sort, entity=entity)
 
 List custom attributes
 
@@ -4218,7 +4218,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20024**](InlineResponse20024.md)
+[**InlineResponse20025**](InlineResponse20025.md)
 
 ### Authorization
 
@@ -4237,7 +4237,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_audiences**
-> InlineResponse20022 get_audiences(page_size=page_size, skip=skip, sort=sort, with_total_result_size=with_total_result_size)
+> InlineResponse20023 get_audiences(page_size=page_size, skip=skip, sort=sort, with_total_result_size=with_total_result_size)
 
 List audiences
 
@@ -4301,7 +4301,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20022**](InlineResponse20022.md)
+[**InlineResponse20023**](InlineResponse20023.md)
 
 ### Authorization
 
@@ -4399,7 +4399,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_campaign_analytics**
-> InlineResponse20014 get_campaign_analytics(application_id, campaign_id, range_start, range_end, granularity=granularity)
+> InlineResponse20015 get_campaign_analytics(application_id, campaign_id, range_start, range_end, granularity=granularity)
 
 Get analytics of campaigns
 
@@ -4465,7 +4465,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20014**](InlineResponse20014.md)
+[**InlineResponse20015**](InlineResponse20015.md)
 
 ### Authorization
 
@@ -4484,7 +4484,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_campaign_by_attributes**
-> InlineResponse2002 get_campaign_by_attributes(application_id, body, page_size=page_size, skip=skip, sort=sort, campaign_state=campaign_state)
+> InlineResponse2003 get_campaign_by_attributes(application_id, body, page_size=page_size, skip=skip, sort=sort, campaign_state=campaign_state)
 
 List campaigns that match the given attributes
 
@@ -4552,7 +4552,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2002**](InlineResponse2002.md)
+[**InlineResponse2003**](InlineResponse2003.md)
 
 ### Authorization
 
@@ -4571,7 +4571,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_campaigns**
-> InlineResponse2002 get_campaigns(application_id, page_size=page_size, skip=skip, sort=sort, campaign_state=campaign_state, name=name, tags=tags, created_before=created_before, created_after=created_after, campaign_group_id=campaign_group_id, template_id=template_id)
+> InlineResponse2003 get_campaigns(application_id, page_size=page_size, skip=skip, sort=sort, campaign_state=campaign_state, name=name, tags=tags, created_before=created_before, created_after=created_after, campaign_group_id=campaign_group_id, template_id=template_id)
 
 List campaigns
 
@@ -4649,7 +4649,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2002**](InlineResponse2002.md)
+[**InlineResponse2003**](InlineResponse2003.md)
 
 ### Authorization
 
@@ -4669,7 +4669,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_changes**
-> InlineResponse20031 get_changes(page_size=page_size, skip=skip, sort=sort, application_id=application_id, entity_path=entity_path, user_id=user_id, created_before=created_before, created_after=created_after, with_total_result_size=with_total_result_size, include_old=include_old)
+> InlineResponse20032 get_changes(page_size=page_size, skip=skip, sort=sort, application_id=application_id, entity_path=entity_path, user_id=user_id, created_before=created_before, created_after=created_after, with_total_result_size=with_total_result_size, include_old=include_old)
 
 Get audit logs for an account
 
@@ -4745,7 +4745,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20031**](InlineResponse20031.md)
+[**InlineResponse20032**](InlineResponse20032.md)
 
 ### Authorization
 
@@ -4846,7 +4846,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_collection_items**
-> InlineResponse20010 get_collection_items(collection_id, page_size=page_size, skip=skip)
+> InlineResponse20011 get_collection_items(collection_id, page_size=page_size, skip=skip)
 
 Get collection items
 
@@ -4908,7 +4908,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20010**](InlineResponse20010.md)
+[**InlineResponse20011**](InlineResponse20011.md)
 
 ### Authorization
 
@@ -4928,7 +4928,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_coupons_without_total_count**
-> InlineResponse2006 get_coupons_without_total_count(application_id, campaign_id, page_size=page_size, skip=skip, sort=sort, value=value, created_before=created_before, created_after=created_after, valid=valid, usable=usable, referral_id=referral_id, recipient_integration_id=recipient_integration_id, batch_id=batch_id, exact_match=exact_match)
+> InlineResponse2007 get_coupons_without_total_count(application_id, campaign_id, page_size=page_size, skip=skip, sort=sort, value=value, created_before=created_before, created_after=created_after, valid=valid, usable=usable, referral_id=referral_id, recipient_integration_id=recipient_integration_id, batch_id=batch_id, exact_match=exact_match)
 
 List coupons
 
@@ -5012,7 +5012,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2006**](InlineResponse2006.md)
+[**InlineResponse2007**](InlineResponse2007.md)
 
 ### Authorization
 
@@ -5118,7 +5118,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_customer_activity_reports_without_total_count**
-> InlineResponse20018 get_customer_activity_reports_without_total_count(range_start, range_end, application_id, page_size=page_size, skip=skip, sort=sort, name=name, integration_id=integration_id, campaign_name=campaign_name, advocate_name=advocate_name)
+> InlineResponse20019 get_customer_activity_reports_without_total_count(range_start, range_end, application_id, page_size=page_size, skip=skip, sort=sort, name=name, integration_id=integration_id, campaign_name=campaign_name, advocate_name=advocate_name)
 
 Get Activity Reports for Application Customers
 
@@ -5194,7 +5194,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20018**](InlineResponse20018.md)
+[**InlineResponse20019**](InlineResponse20019.md)
 
 ### Authorization
 
@@ -5375,7 +5375,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_customer_profiles**
-> InlineResponse20017 get_customer_profiles(page_size=page_size, skip=skip)
+> InlineResponse20018 get_customer_profiles(page_size=page_size, skip=skip)
 
 List customer profiles
 
@@ -5435,7 +5435,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20017**](InlineResponse20017.md)
+[**InlineResponse20018**](InlineResponse20018.md)
 
 ### Authorization
 
@@ -5454,7 +5454,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_customers_by_attributes**
-> InlineResponse20017 get_customers_by_attributes(body, page_size=page_size, skip=skip)
+> InlineResponse20018 get_customers_by_attributes(body, page_size=page_size, skip=skip)
 
 List customer profiles matching the given attributes
 
@@ -5516,7 +5516,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20017**](InlineResponse20017.md)
+[**InlineResponse20018**](InlineResponse20018.md)
 
 ### Authorization
 
@@ -5535,7 +5535,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_event_types**
-> InlineResponse20029 get_event_types(name=name, include_old_versions=include_old_versions, page_size=page_size, skip=skip, sort=sort)
+> InlineResponse20030 get_event_types(name=name, include_old_versions=include_old_versions, page_size=page_size, skip=skip, sort=sort)
 
 List event types
 
@@ -5601,7 +5601,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20029**](InlineResponse20029.md)
+[**InlineResponse20030**](InlineResponse20030.md)
 
 ### Authorization
 
@@ -5620,7 +5620,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_exports**
-> InlineResponse20032 get_exports(page_size=page_size, skip=skip, application_id=application_id, campaign_id=campaign_id, entity=entity)
+> InlineResponse20033 get_exports(page_size=page_size, skip=skip, application_id=application_id, campaign_id=campaign_id, entity=entity)
 
 Get exports
 
@@ -5686,7 +5686,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20032**](InlineResponse20032.md)
+[**InlineResponse20033**](InlineResponse20033.md)
 
 ### Authorization
 
@@ -5861,7 +5861,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_loyalty_programs**
-> InlineResponse2008 get_loyalty_programs()
+> InlineResponse2009 get_loyalty_programs()
 
 List loyalty programs
 
@@ -5915,7 +5915,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**InlineResponse2008**](InlineResponse2008.md)
+[**InlineResponse2009**](InlineResponse2009.md)
 
 ### Authorization
 
@@ -6090,7 +6090,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_notification_webhooks**
-> InlineResponse2003 get_notification_webhooks(application_id)
+> InlineResponse2004 get_notification_webhooks(application_id)
 
 List notification webhooks
 
@@ -6148,7 +6148,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2003**](InlineResponse2003.md)
+[**InlineResponse2004**](InlineResponse2004.md)
 
 ### Authorization
 
@@ -6167,7 +6167,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_referrals_without_total_count**
-> InlineResponse2007 get_referrals_without_total_count(application_id, campaign_id, page_size=page_size, skip=skip, sort=sort, code=code, created_before=created_before, created_after=created_after, valid=valid, usable=usable, advocate=advocate)
+> InlineResponse2008 get_referrals_without_total_count(application_id, campaign_id, page_size=page_size, skip=skip, sort=sort, code=code, created_before=created_before, created_after=created_after, valid=valid, usable=usable, advocate=advocate)
 
 List referrals
 
@@ -6245,7 +6245,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2007**](InlineResponse2007.md)
+[**InlineResponse2008**](InlineResponse2008.md)
 
 ### Authorization
 
@@ -6422,7 +6422,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_rulesets**
-> InlineResponse2004 get_rulesets(application_id, campaign_id, page_size=page_size, skip=skip, sort=sort)
+> InlineResponse2005 get_rulesets(application_id, campaign_id, page_size=page_size, skip=skip, sort=sort)
 
 List campaign rulesets
 
@@ -6488,7 +6488,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2004**](InlineResponse2004.md)
+[**InlineResponse2005**](InlineResponse2005.md)
 
 ### Authorization
 
@@ -6584,7 +6584,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_users**
-> InlineResponse20030 get_users(page_size=page_size, skip=skip, sort=sort)
+> InlineResponse20031 get_users(page_size=page_size, skip=skip, sort=sort)
 
 List users in account
 
@@ -6646,7 +6646,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20030**](InlineResponse20030.md)
+[**InlineResponse20031**](InlineResponse20031.md)
 
 ### Authorization
 
@@ -6742,7 +6742,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_webhook_activation_logs**
-> InlineResponse20027 get_webhook_activation_logs(page_size=page_size, skip=skip, sort=sort, integration_request_uuid=integration_request_uuid, webhook_id=webhook_id, application_id=application_id, campaign_id=campaign_id, created_before=created_before, created_after=created_after)
+> InlineResponse20028 get_webhook_activation_logs(page_size=page_size, skip=skip, sort=sort, integration_request_uuid=integration_request_uuid, webhook_id=webhook_id, application_id=application_id, campaign_id=campaign_id, created_before=created_before, created_after=created_after)
 
 List webhook activation log entries
 
@@ -6816,7 +6816,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20027**](InlineResponse20027.md)
+[**InlineResponse20028**](InlineResponse20028.md)
 
 ### Authorization
 
@@ -6835,7 +6835,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_webhook_logs**
-> InlineResponse20028 get_webhook_logs(page_size=page_size, skip=skip, sort=sort, status=status, webhook_id=webhook_id, application_id=application_id, campaign_id=campaign_id, request_uuid=request_uuid, created_before=created_before, created_after=created_after)
+> InlineResponse20029 get_webhook_logs(page_size=page_size, skip=skip, sort=sort, status=status, webhook_id=webhook_id, application_id=application_id, campaign_id=campaign_id, request_uuid=request_uuid, created_before=created_before, created_after=created_after)
 
 List webhook log entries
 
@@ -6911,7 +6911,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20028**](InlineResponse20028.md)
+[**InlineResponse20029**](InlineResponse20029.md)
 
 ### Authorization
 
@@ -6930,7 +6930,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_webhooks**
-> InlineResponse20026 get_webhooks(application_ids=application_ids, sort=sort, page_size=page_size, skip=skip)
+> InlineResponse20027 get_webhooks(application_ids=application_ids, sort=sort, page_size=page_size, skip=skip)
 
 List webhooks
 
@@ -6994,7 +6994,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20026**](InlineResponse20026.md)
+[**InlineResponse20027**](InlineResponse20027.md)
 
 ### Authorization
 
@@ -7580,7 +7580,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_account_collections**
-> InlineResponse2009 list_account_collections(page_size=page_size, skip=skip, sort=sort, with_total_result_size=with_total_result_size, name=name)
+> InlineResponse20010 list_account_collections(page_size=page_size, skip=skip, sort=sort, with_total_result_size=with_total_result_size, name=name)
 
 List collections in account
 
@@ -7646,7 +7646,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2009**](InlineResponse2009.md)
+[**InlineResponse20010**](InlineResponse20010.md)
 
 ### Authorization
 
@@ -7668,7 +7668,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_collections**
-> InlineResponse20011 list_collections(application_id, campaign_id, page_size=page_size, skip=skip, sort=sort, with_total_result_size=with_total_result_size, name=name)
+> InlineResponse20012 list_collections(application_id, campaign_id, page_size=page_size, skip=skip, sort=sort, with_total_result_size=with_total_result_size, name=name)
 
 List collections
 
@@ -7738,7 +7738,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20011**](InlineResponse20011.md)
+[**InlineResponse20012**](InlineResponse20012.md)
 
 ### Authorization
 
@@ -7758,7 +7758,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_collections_in_application**
-> InlineResponse20011 list_collections_in_application(application_id, page_size=page_size, skip=skip, sort=sort, with_total_result_size=with_total_result_size, name=name)
+> InlineResponse20012 list_collections_in_application(application_id, page_size=page_size, skip=skip, sort=sort, with_total_result_size=with_total_result_size, name=name)
 
 List collections in application
 
@@ -7826,7 +7826,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20011**](InlineResponse20011.md)
+[**InlineResponse20012**](InlineResponse20012.md)
 
 ### Authorization
 
@@ -8006,7 +8006,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **search_coupons_advanced_application_wide_without_total_count**
-> InlineResponse2006 search_coupons_advanced_application_wide_without_total_count(application_id, body, page_size=page_size, skip=skip, sort=sort, value=value, created_before=created_before, created_after=created_after, valid=valid, usable=usable, referral_id=referral_id, recipient_integration_id=recipient_integration_id, batch_id=batch_id, exact_match=exact_match, campaign_state=campaign_state)
+> InlineResponse2007 search_coupons_advanced_application_wide_without_total_count(application_id, body, page_size=page_size, skip=skip, sort=sort, value=value, created_before=created_before, created_after=created_after, valid=valid, usable=usable, referral_id=referral_id, recipient_integration_id=recipient_integration_id, batch_id=batch_id, exact_match=exact_match, campaign_state=campaign_state)
 
 List coupons that match the given attributes (without total count)
 
@@ -8092,7 +8092,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2006**](InlineResponse2006.md)
+[**InlineResponse2007**](InlineResponse2007.md)
 
 ### Authorization
 
@@ -8111,7 +8111,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **search_coupons_advanced_without_total_count**
-> InlineResponse2006 search_coupons_advanced_without_total_count(application_id, campaign_id, body, page_size=page_size, skip=skip, sort=sort, value=value, created_before=created_before, created_after=created_after, valid=valid, usable=usable, referral_id=referral_id, recipient_integration_id=recipient_integration_id, exact_match=exact_match, batch_id=batch_id)
+> InlineResponse2007 search_coupons_advanced_without_total_count(application_id, campaign_id, body, page_size=page_size, skip=skip, sort=sort, value=value, created_before=created_before, created_after=created_after, valid=valid, usable=usable, referral_id=referral_id, recipient_integration_id=recipient_integration_id, exact_match=exact_match, batch_id=batch_id)
 
 List coupons that match the given attributes in campaign (without total count)
 
@@ -8197,7 +8197,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2006**](InlineResponse2006.md)
+[**InlineResponse2007**](InlineResponse2007.md)
 
 ### Authorization
 

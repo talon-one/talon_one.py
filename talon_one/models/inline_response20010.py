@@ -34,25 +34,31 @@ class InlineResponse20010(object):
     """
     openapi_types = {
         'has_more': 'bool',
-        'data': 'list[CollectionItem]'
+        'total_result_size': 'int',
+        'data': 'list[CollectionWithoutPayload]'
     }
 
     attribute_map = {
         'has_more': 'hasMore',
+        'total_result_size': 'totalResultSize',
         'data': 'data'
     }
 
-    def __init__(self, has_more=None, data=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, has_more=None, total_result_size=None, data=None, local_vars_configuration=None):  # noqa: E501
         """InlineResponse20010 - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._has_more = None
+        self._total_result_size = None
         self._data = None
         self.discriminator = None
 
-        self.has_more = has_more
+        if has_more is not None:
+            self.has_more = has_more
+        if total_result_size is not None:
+            self.total_result_size = total_result_size
         self.data = data
 
     @property
@@ -73,10 +79,29 @@ class InlineResponse20010(object):
         :param has_more: The has_more of this InlineResponse20010.  # noqa: E501
         :type: bool
         """
-        if self.local_vars_configuration.client_side_validation and has_more is None:  # noqa: E501
-            raise ValueError("Invalid value for `has_more`, must not be `None`")  # noqa: E501
 
         self._has_more = has_more
+
+    @property
+    def total_result_size(self):
+        """Gets the total_result_size of this InlineResponse20010.  # noqa: E501
+
+
+        :return: The total_result_size of this InlineResponse20010.  # noqa: E501
+        :rtype: int
+        """
+        return self._total_result_size
+
+    @total_result_size.setter
+    def total_result_size(self, total_result_size):
+        """Sets the total_result_size of this InlineResponse20010.
+
+
+        :param total_result_size: The total_result_size of this InlineResponse20010.  # noqa: E501
+        :type: int
+        """
+
+        self._total_result_size = total_result_size
 
     @property
     def data(self):
@@ -84,7 +109,7 @@ class InlineResponse20010(object):
 
 
         :return: The data of this InlineResponse20010.  # noqa: E501
-        :rtype: list[CollectionItem]
+        :rtype: list[CollectionWithoutPayload]
         """
         return self._data
 
@@ -94,7 +119,7 @@ class InlineResponse20010(object):
 
 
         :param data: The data of this InlineResponse20010.  # noqa: E501
-        :type: list[CollectionItem]
+        :type: list[CollectionWithoutPayload]
         """
         if self.local_vars_configuration.client_side_validation and data is None:  # noqa: E501
             raise ValueError("Invalid value for `data`, must not be `None`")  # noqa: E501

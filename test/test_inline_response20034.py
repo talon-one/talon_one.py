@@ -16,11 +16,11 @@ import unittest
 import datetime
 
 import talon_one
-from talon_one.models.inline_response2004 import InlineResponse2004  # noqa: E501
+from talon_one.models.inline_response20034 import InlineResponse20034  # noqa: E501
 from talon_one.rest import ApiException
 
-class TestInlineResponse2004(unittest.TestCase):
-    """InlineResponse2004 unit test stubs"""
+class TestInlineResponse20034(unittest.TestCase):
+    """InlineResponse20034 unit test stubs"""
 
     def setUp(self):
         pass
@@ -29,44 +29,50 @@ class TestInlineResponse2004(unittest.TestCase):
         pass
 
     def make_instance(self, include_optional):
-        """Test InlineResponse2004
+        """Test InlineResponse20034
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # model = talon_one.models.inline_response2004.InlineResponse2004()  # noqa: E501
+        # model = talon_one.models.inline_response20034.InlineResponse20034()  # noqa: E501
         if include_optional :
-            return InlineResponse2004(
+            return InlineResponse20034(
                 total_result_size = 56, 
                 data = [
-                    talon_one.models.notification_webhook.NotificationWebhook(
+                    talon_one.models.role.Role(
                         id = 6, 
                         created = '2020-06-10T09:05:27.993483Z', 
                         modified = '2021-09-12T10:12:42Z', 
-                        application_id = 322, 
-                        url = '0', 
-                        headers = [
-                            'a'
-                            ], )
+                        account_id = 3886, 
+                        campaign_group_id = 56, 
+                        name = '0', 
+                        description = '0', 
+                        members = [
+                            56
+                            ], 
+                        acl = talon_one.models.acl.acl(), )
                     ]
             )
         else :
-            return InlineResponse2004(
+            return InlineResponse20034(
                 total_result_size = 56,
                 data = [
-                    talon_one.models.notification_webhook.NotificationWebhook(
+                    talon_one.models.role.Role(
                         id = 6, 
                         created = '2020-06-10T09:05:27.993483Z', 
                         modified = '2021-09-12T10:12:42Z', 
-                        application_id = 322, 
-                        url = '0', 
-                        headers = [
-                            'a'
-                            ], )
+                        account_id = 3886, 
+                        campaign_group_id = 56, 
+                        name = '0', 
+                        description = '0', 
+                        members = [
+                            56
+                            ], 
+                        acl = talon_one.models.acl.acl(), )
                     ],
         )
 
-    def testInlineResponse2004(self):
-        """Test InlineResponse2004"""
+    def testInlineResponse20034(self):
+        """Test InlineResponse20034"""
         inst_req_only = self.make_instance(include_optional=False)
         inst_req_and_optional = self.make_instance(include_optional=True)
 

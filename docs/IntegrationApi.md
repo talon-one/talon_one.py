@@ -838,7 +838,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_loyalty_transactions**
-> LedgerTransactionLogEntryIntegrationAPI get_loyalty_transactions(loyalty_program_id, integration_id, start_date=start_date, end_date=end_date, page_size=page_size, skip=skip)
+> InlineResponse2001 get_loyalty_transactions(loyalty_program_id, integration_id, start_date=start_date, end_date=end_date, page_size=page_size, skip=skip)
 
 Get loyalty ledger transaction logs
 
@@ -906,7 +906,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**LedgerTransactionLogEntryIntegrationAPI**](LedgerTransactionLogEntryIntegrationAPI.md)
+[**InlineResponse2001**](InlineResponse2001.md)
 
 ### Authorization
 

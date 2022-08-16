@@ -39,27 +39,31 @@ class TestInlineResponse20023(unittest.TestCase):
                 has_more = True, 
                 total_result_size = 56, 
                 data = [
-                    talon_one.models.application_referee.ApplicationReferee(
-                        application_id = 322, 
-                        session_id = '0', 
-                        advocate_integration_id = '0', 
-                        friend_integration_id = '0', 
-                        code = '0', 
-                        created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), )
+                    talon_one.models.audience.Audience(
+                        account_id = 3886, 
+                        id = 6, 
+                        created = '2020-06-10T09:05:27.993483Z', 
+                        name = 'Travel audience', 
+                        sandbox = True, 
+                        description = 'Travel audience 18-25', 
+                        integration = 'mparticle', 
+                        integration_id = '382370BKDB946', 
+                        created_in3rd_party = False, )
                     ]
             )
         else :
             return InlineResponse20023(
-                has_more = True,
-                total_result_size = 56,
                 data = [
-                    talon_one.models.application_referee.ApplicationReferee(
-                        application_id = 322, 
-                        session_id = '0', 
-                        advocate_integration_id = '0', 
-                        friend_integration_id = '0', 
-                        code = '0', 
-                        created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), )
+                    talon_one.models.audience.Audience(
+                        account_id = 3886, 
+                        id = 6, 
+                        created = '2020-06-10T09:05:27.993483Z', 
+                        name = 'Travel audience', 
+                        sandbox = True, 
+                        description = 'Travel audience 18-25', 
+                        integration = 'mparticle', 
+                        integration_id = '382370BKDB946', 
+                        created_in3rd_party = False, )
                     ],
         )
 
