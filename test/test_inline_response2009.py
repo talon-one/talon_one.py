@@ -36,38 +36,44 @@ class TestInlineResponse2009(unittest.TestCase):
         # model = talon_one.models.inline_response2009.InlineResponse2009()  # noqa: E501
         if include_optional :
             return InlineResponse2009(
-                has_more = True, 
                 total_result_size = 56, 
                 data = [
-                    talon_one.models.collection_without_payload.CollectionWithoutPayload(
-                        id = 6, 
+                    talon_one.models.loyalty_program.LoyaltyProgram(
+                        id = 56, 
                         created = '2020-06-10T09:05:27.993483Z', 
-                        account_id = 3886, 
-                        modified = '2021-09-12T10:12:42Z', 
-                        description = 'My collection of SKUs', 
-                        subscribed_applications_ids = [1, 2, 3], 
-                        name = 'My collection', 
-                        modified_by = 48, 
-                        created_by = 134, 
-                        application_id = 1, 
-                        campaign_id = 7, )
+                        title = 'Point collection', 
+                        description = 'Customers collect 10 points per 1$ spent', 
+                        subscribed_applications = [132, 97], 
+                        default_validity = 'unlimited', 
+                        default_pending = 'immediate', 
+                        allow_subledger = False, 
+                        users_per_card_limit = 111, 
+                        account_id = 1, 
+                        name = 'my_program', 
+                        tiers = [{name=Gold, minPoints=300, id=3, created=2021-06-10T09:05:27.993483Z, programID=139}, {name=Silver, minPoints=200, id=2, created=2021-06-10T09:04:59.355258Z, programId=139}, {name=Bronze, minPoints=100, id=1, created=2021-06-10T09:04:39.355258Z, programId=139}], 
+                        timezone = 'Europe/Berlin', 
+                        card_based = True, )
                     ]
             )
         else :
             return InlineResponse2009(
+                total_result_size = 56,
                 data = [
-                    talon_one.models.collection_without_payload.CollectionWithoutPayload(
-                        id = 6, 
+                    talon_one.models.loyalty_program.LoyaltyProgram(
+                        id = 56, 
                         created = '2020-06-10T09:05:27.993483Z', 
-                        account_id = 3886, 
-                        modified = '2021-09-12T10:12:42Z', 
-                        description = 'My collection of SKUs', 
-                        subscribed_applications_ids = [1, 2, 3], 
-                        name = 'My collection', 
-                        modified_by = 48, 
-                        created_by = 134, 
-                        application_id = 1, 
-                        campaign_id = 7, )
+                        title = 'Point collection', 
+                        description = 'Customers collect 10 points per 1$ spent', 
+                        subscribed_applications = [132, 97], 
+                        default_validity = 'unlimited', 
+                        default_pending = 'immediate', 
+                        allow_subledger = False, 
+                        users_per_card_limit = 111, 
+                        account_id = 1, 
+                        name = 'my_program', 
+                        tiers = [{name=Gold, minPoints=300, id=3, created=2021-06-10T09:05:27.993483Z, programID=139}, {name=Silver, minPoints=200, id=2, created=2021-06-10T09:04:59.355258Z, programId=139}, {name=Bronze, minPoints=100, id=1, created=2021-06-10T09:04:39.355258Z, programId=139}], 
+                        timezone = 'Europe/Berlin', 
+                        card_based = True, )
                     ],
         )
 

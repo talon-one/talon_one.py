@@ -38,26 +38,17 @@ class TestInlineResponse2002(unittest.TestCase):
             return InlineResponse2002(
                 total_result_size = 56, 
                 data = [
-                    talon_one.models.campaign.Campaign(
-                        id = 56, 
-                        created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        application_id = 322, 
-                        user_id = 56, 
-                        name = 'Summer promotions', 
-                        description = 'Campaign for all summer 2021 promotions', 
-                        start_time = '2021-07-20T22:00Z', 
-                        end_time = '2021-09-22T22:00Z', 
+                    talon_one.models.application.Application(
+                        id = 6, 
+                        created = '2020-06-10T09:05:27.993483Z', 
+                        modified = '2021-09-12T10:12:42Z', 
+                        account_id = 3886, 
+                        name = 'My Application', 
+                        description = 'A test Application', 
+                        timezone = 'Europe/Berlin', 
+                        currency = 'EUR', 
+                        case_sensitivity = 'sensitive', 
                         attributes = talon_one.models.attributes.attributes(), 
-                        state = 'enabled', 
-                        active_ruleset_id = 56, 
-                        tags = [summer], 
-                        features = [coupons, referrals], 
-                        coupon_settings = talon_one.models.code_generator_settings.CodeGeneratorSettings(
-                            valid_characters = [A, B, C, D, E, 2, 0], 
-                            coupon_pattern = 'SUMMER-####-####', ), 
-                        referral_settings = talon_one.models.code_generator_settings.CodeGeneratorSettings(
-                            valid_characters = [A, B, C, D, E, 2, 0], 
-                            coupon_pattern = 'SUMMER-####-####', ), 
                         limits = [
                             talon_one.models.limit_config.LimitConfig(
                                 action = 'createCoupon', 
@@ -65,52 +56,56 @@ class TestInlineResponse2002(unittest.TestCase):
                                 period = 'yearly', 
                                 entities = [Coupon], )
                             ], 
-                        campaign_groups = [1, 3], 
-                        coupon_redemption_count = 163, 
-                        referral_redemption_count = 3, 
-                        discount_count = 288.0, 
-                        discount_effect_count = 343, 
-                        coupon_creation_count = 16, 
-                        custom_effect_count = 0, 
-                        referral_creation_count = 8, 
-                        add_free_item_effect_count = 0, 
-                        awarded_giveaways_count = 9, 
-                        created_loyalty_points_count = 9.0, 
-                        created_loyalty_points_effect_count = 2, 
-                        redeemed_loyalty_points_count = 8.0, 
-                        redeemed_loyalty_points_effect_count = 9, 
-                        call_api_effect_count = 0, 
-                        last_activity = '2022-11-10T23:00Z', 
-                        updated = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        created_by = 'John Doe', 
-                        updated_by = 'Jane Doe', 
-                        template_id = 3, )
+                        campaign_priority = 'universal', 
+                        exclusive_campaigns_strategy = 'listOrder', 
+                        default_discount_scope = 'sessionTotal', 
+                        enable_cascading_discounts = True, 
+                        enable_flattened_cart_items = True, 
+                        attributes_settings = talon_one.models.attributes_settings.AttributesSettings(
+                            mandatory = talon_one.models.attributes_mandatory.AttributesMandatory(
+                                campaigns = [
+                                    '0'
+                                    ], 
+                                coupons = [
+                                    '0'
+                                    ], ), ), 
+                        sandbox = True, 
+                        enable_partial_discounts = False, 
+                        default_discount_additional_cost_per_item_scope = 'price', 
+                        loyalty_programs = [
+                            talon_one.models.loyalty_program.LoyaltyProgram(
+                                id = 56, 
+                                created = '2020-06-10T09:05:27.993483Z', 
+                                title = 'Point collection', 
+                                description = 'Customers collect 10 points per 1$ spent', 
+                                subscribed_applications = [132, 97], 
+                                default_validity = 'unlimited', 
+                                default_pending = 'immediate', 
+                                allow_subledger = False, 
+                                users_per_card_limit = 111, 
+                                account_id = 1, 
+                                name = 'my_program', 
+                                tiers = [{name=Gold, minPoints=300, id=3, created=2021-06-10T09:05:27.993483Z, programID=139}, {name=Silver, minPoints=200, id=2, created=2021-06-10T09:04:59.355258Z, programId=139}, {name=Bronze, minPoints=100, id=1, created=2021-06-10T09:04:39.355258Z, programId=139}], 
+                                timezone = 'Europe/Berlin', 
+                                card_based = True, )
+                            ], )
                     ]
             )
         else :
             return InlineResponse2002(
                 total_result_size = 56,
                 data = [
-                    talon_one.models.campaign.Campaign(
-                        id = 56, 
-                        created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        application_id = 322, 
-                        user_id = 56, 
-                        name = 'Summer promotions', 
-                        description = 'Campaign for all summer 2021 promotions', 
-                        start_time = '2021-07-20T22:00Z', 
-                        end_time = '2021-09-22T22:00Z', 
+                    talon_one.models.application.Application(
+                        id = 6, 
+                        created = '2020-06-10T09:05:27.993483Z', 
+                        modified = '2021-09-12T10:12:42Z', 
+                        account_id = 3886, 
+                        name = 'My Application', 
+                        description = 'A test Application', 
+                        timezone = 'Europe/Berlin', 
+                        currency = 'EUR', 
+                        case_sensitivity = 'sensitive', 
                         attributes = talon_one.models.attributes.attributes(), 
-                        state = 'enabled', 
-                        active_ruleset_id = 56, 
-                        tags = [summer], 
-                        features = [coupons, referrals], 
-                        coupon_settings = talon_one.models.code_generator_settings.CodeGeneratorSettings(
-                            valid_characters = [A, B, C, D, E, 2, 0], 
-                            coupon_pattern = 'SUMMER-####-####', ), 
-                        referral_settings = talon_one.models.code_generator_settings.CodeGeneratorSettings(
-                            valid_characters = [A, B, C, D, E, 2, 0], 
-                            coupon_pattern = 'SUMMER-####-####', ), 
                         limits = [
                             talon_one.models.limit_config.LimitConfig(
                                 action = 'createCoupon', 
@@ -118,26 +113,39 @@ class TestInlineResponse2002(unittest.TestCase):
                                 period = 'yearly', 
                                 entities = [Coupon], )
                             ], 
-                        campaign_groups = [1, 3], 
-                        coupon_redemption_count = 163, 
-                        referral_redemption_count = 3, 
-                        discount_count = 288.0, 
-                        discount_effect_count = 343, 
-                        coupon_creation_count = 16, 
-                        custom_effect_count = 0, 
-                        referral_creation_count = 8, 
-                        add_free_item_effect_count = 0, 
-                        awarded_giveaways_count = 9, 
-                        created_loyalty_points_count = 9.0, 
-                        created_loyalty_points_effect_count = 2, 
-                        redeemed_loyalty_points_count = 8.0, 
-                        redeemed_loyalty_points_effect_count = 9, 
-                        call_api_effect_count = 0, 
-                        last_activity = '2022-11-10T23:00Z', 
-                        updated = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        created_by = 'John Doe', 
-                        updated_by = 'Jane Doe', 
-                        template_id = 3, )
+                        campaign_priority = 'universal', 
+                        exclusive_campaigns_strategy = 'listOrder', 
+                        default_discount_scope = 'sessionTotal', 
+                        enable_cascading_discounts = True, 
+                        enable_flattened_cart_items = True, 
+                        attributes_settings = talon_one.models.attributes_settings.AttributesSettings(
+                            mandatory = talon_one.models.attributes_mandatory.AttributesMandatory(
+                                campaigns = [
+                                    '0'
+                                    ], 
+                                coupons = [
+                                    '0'
+                                    ], ), ), 
+                        sandbox = True, 
+                        enable_partial_discounts = False, 
+                        default_discount_additional_cost_per_item_scope = 'price', 
+                        loyalty_programs = [
+                            talon_one.models.loyalty_program.LoyaltyProgram(
+                                id = 56, 
+                                created = '2020-06-10T09:05:27.993483Z', 
+                                title = 'Point collection', 
+                                description = 'Customers collect 10 points per 1$ spent', 
+                                subscribed_applications = [132, 97], 
+                                default_validity = 'unlimited', 
+                                default_pending = 'immediate', 
+                                allow_subledger = False, 
+                                users_per_card_limit = 111, 
+                                account_id = 1, 
+                                name = 'my_program', 
+                                tiers = [{name=Gold, minPoints=300, id=3, created=2021-06-10T09:05:27.993483Z, programID=139}, {name=Silver, minPoints=200, id=2, created=2021-06-10T09:04:59.355258Z, programId=139}, {name=Bronze, minPoints=100, id=1, created=2021-06-10T09:04:39.355258Z, programId=139}], 
+                                timezone = 'Europe/Berlin', 
+                                card_based = True, )
+                            ], )
                     ],
         )
 

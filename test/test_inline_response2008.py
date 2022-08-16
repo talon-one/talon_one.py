@@ -36,44 +36,42 @@ class TestInlineResponse2008(unittest.TestCase):
         # model = talon_one.models.inline_response2008.InlineResponse2008()  # noqa: E501
         if include_optional :
             return InlineResponse2008(
-                total_result_size = 56, 
+                has_more = True, 
                 data = [
-                    talon_one.models.loyalty_program.LoyaltyProgram(
-                        id = 56, 
+                    talon_one.models.referral.Referral(
+                        id = 6, 
                         created = '2020-06-10T09:05:27.993483Z', 
-                        title = 'Point collection', 
-                        description = 'Customers collect 10 points per 1$ spent', 
-                        subscribed_applications = [132, 97], 
-                        default_validity = 'unlimited', 
-                        default_pending = 'immediate', 
-                        allow_subledger = False, 
-                        users_per_card_limit = 111, 
-                        account_id = 1, 
-                        name = 'my_program', 
-                        tiers = [{name=Gold, minPoints=300, id=3, created=2021-06-10T09:05:27.993483Z, programID=139}, {name=Silver, minPoints=200, id=2, created=2021-06-10T09:04:59.355258Z, programId=139}, {name=Bronze, minPoints=100, id=1, created=2021-06-10T09:04:39.355258Z, programId=139}], 
-                        timezone = 'Europe/Berlin', 
-                        card_based = True, )
+                        start_date = '2020-11-10T23:00Z', 
+                        expiry_date = '2021-11-10T23:00Z', 
+                        usage_limit = 1, 
+                        campaign_id = 78, 
+                        advocate_profile_integration_id = 'URNGV8294NV', 
+                        friend_profile_integration_id = 'BZGGC2454PA', 
+                        attributes = talon_one.models.attributes.attributes(), 
+                        import_id = 56, 
+                        code = '27G47Y54VH9L', 
+                        usage_counter = 1, 
+                        batch_id = 'tqyrgahe', )
                     ]
             )
         else :
             return InlineResponse2008(
-                total_result_size = 56,
+                has_more = True,
                 data = [
-                    talon_one.models.loyalty_program.LoyaltyProgram(
-                        id = 56, 
+                    talon_one.models.referral.Referral(
+                        id = 6, 
                         created = '2020-06-10T09:05:27.993483Z', 
-                        title = 'Point collection', 
-                        description = 'Customers collect 10 points per 1$ spent', 
-                        subscribed_applications = [132, 97], 
-                        default_validity = 'unlimited', 
-                        default_pending = 'immediate', 
-                        allow_subledger = False, 
-                        users_per_card_limit = 111, 
-                        account_id = 1, 
-                        name = 'my_program', 
-                        tiers = [{name=Gold, minPoints=300, id=3, created=2021-06-10T09:05:27.993483Z, programID=139}, {name=Silver, minPoints=200, id=2, created=2021-06-10T09:04:59.355258Z, programId=139}, {name=Bronze, minPoints=100, id=1, created=2021-06-10T09:04:39.355258Z, programId=139}], 
-                        timezone = 'Europe/Berlin', 
-                        card_based = True, )
+                        start_date = '2020-11-10T23:00Z', 
+                        expiry_date = '2021-11-10T23:00Z', 
+                        usage_limit = 1, 
+                        campaign_id = 78, 
+                        advocate_profile_integration_id = 'URNGV8294NV', 
+                        friend_profile_integration_id = 'BZGGC2454PA', 
+                        attributes = talon_one.models.attributes.attributes(), 
+                        import_id = 56, 
+                        code = '27G47Y54VH9L', 
+                        usage_counter = 1, 
+                        batch_id = 'tqyrgahe', )
                     ],
         )
 

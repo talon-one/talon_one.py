@@ -38,56 +38,34 @@ class TestInlineResponse20026(unittest.TestCase):
             return InlineResponse20026(
                 total_result_size = 56, 
                 data = [
-                    talon_one.models.webhook.Webhook(
+                    talon_one.models.account_additional_cost.AccountAdditionalCost(
                         id = 6, 
                         created = '2020-06-10T09:05:27.993483Z', 
-                        modified = '2021-09-12T10:12:42Z', 
-                        application_ids = [
+                        account_id = 3886, 
+                        name = 'a', 
+                        title = 'a', 
+                        description = '0', 
+                        subscribed_applications_ids = [
                             56
                             ], 
-                        title = 'a', 
-                        verb = 'POST', 
-                        url = '0', 
-                        headers = [
-                            'a'
-                            ], 
-                        payload = '0', 
-                        params = [
-                            talon_one.models.template_arg_def.TemplateArgDef(
-                                type = 'string', 
-                                description = '0', 
-                                title = '0', 
-                                ui = talon_one.models.ui.ui(), )
-                            ], 
-                        enabled = True, )
+                        type = 'session', )
                     ]
             )
         else :
             return InlineResponse20026(
                 total_result_size = 56,
                 data = [
-                    talon_one.models.webhook.Webhook(
+                    talon_one.models.account_additional_cost.AccountAdditionalCost(
                         id = 6, 
                         created = '2020-06-10T09:05:27.993483Z', 
-                        modified = '2021-09-12T10:12:42Z', 
-                        application_ids = [
+                        account_id = 3886, 
+                        name = 'a', 
+                        title = 'a', 
+                        description = '0', 
+                        subscribed_applications_ids = [
                             56
                             ], 
-                        title = 'a', 
-                        verb = 'POST', 
-                        url = '0', 
-                        headers = [
-                            'a'
-                            ], 
-                        payload = '0', 
-                        params = [
-                            talon_one.models.template_arg_def.TemplateArgDef(
-                                type = 'string', 
-                                description = '0', 
-                                title = '0', 
-                                ui = talon_one.models.ui.ui(), )
-                            ], 
-                        enabled = True, )
+                        type = 'session', )
                     ],
         )
 

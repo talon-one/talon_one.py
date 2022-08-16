@@ -38,40 +38,24 @@ class TestInlineResponse20030(unittest.TestCase):
             return InlineResponse20030(
                 total_result_size = 56, 
                 data = [
-                    talon_one.models.user.User(
+                    talon_one.models.event_type.EventType(
                         id = 6, 
                         created = '2020-06-10T09:05:27.993483Z', 
-                        modified = '2021-09-12T10:12:42Z', 
-                        email = 'john.doe@example.com', 
-                        account_id = 3886, 
-                        invite_token = 'Gy9b8w1irmQtEPo5RmbMmSPheL5h4', 
-                        state = 'invited', 
-                        name = 'John Doe', 
-                        policy = {"Role":127}, 
-                        latest_feed_timestamp = '2020-06-01T00:00Z', 
-                        roles = [71], 
-                        application_notification_subscriptions = talon_one.models.application_notification_subscriptions.applicationNotificationSubscriptions(), 
-                        auth_method = 'basic_auth', )
+                        title = '0', 
+                        name = '0', 
+                        description = '0', )
                     ]
             )
         else :
             return InlineResponse20030(
                 total_result_size = 56,
                 data = [
-                    talon_one.models.user.User(
+                    talon_one.models.event_type.EventType(
                         id = 6, 
                         created = '2020-06-10T09:05:27.993483Z', 
-                        modified = '2021-09-12T10:12:42Z', 
-                        email = 'john.doe@example.com', 
-                        account_id = 3886, 
-                        invite_token = 'Gy9b8w1irmQtEPo5RmbMmSPheL5h4', 
-                        state = 'invited', 
-                        name = 'John Doe', 
-                        policy = {"Role":127}, 
-                        latest_feed_timestamp = '2020-06-01T00:00Z', 
-                        roles = [71], 
-                        application_notification_subscriptions = talon_one.models.application_notification_subscriptions.applicationNotificationSubscriptions(), 
-                        auth_method = 'basic_auth', )
+                        title = '0', 
+                        name = '0', 
+                        description = '0', )
                     ],
         )
 

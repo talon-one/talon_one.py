@@ -38,40 +38,62 @@ class TestInlineResponse2007(unittest.TestCase):
             return InlineResponse2007(
                 has_more = True, 
                 data = [
-                    talon_one.models.referral.Referral(
+                    talon_one.models.coupon.Coupon(
                         id = 6, 
                         created = '2020-06-10T09:05:27.993483Z', 
-                        start_date = '2020-11-10T23:00Z', 
-                        expiry_date = '2021-11-10T23:00Z', 
-                        usage_limit = 1, 
-                        campaign_id = 78, 
-                        advocate_profile_integration_id = 'URNGV8294NV', 
-                        friend_profile_integration_id = 'BZGGC2454PA', 
-                        attributes = talon_one.models.attributes.attributes(), 
+                        campaign_id = 211, 
+                        value = 'XMAS-20-2021', 
+                        usage_limit = 100, 
+                        discount_limit = 30.0, 
+                        start_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        expiry_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        limits = [
+                            talon_one.models.limit_config.LimitConfig(
+                                action = 'createCoupon', 
+                                limit = 1000.0, 
+                                period = 'yearly', 
+                                entities = [Coupon], )
+                            ], 
+                        usage_counter = 10, 
+                        discount_counter = 1.337, 
+                        discount_remainder = 1.337, 
+                        attributes = talon_one.models.attributes_of_coupon.Attributes of coupon(), 
+                        referral_id = 326632952, 
+                        recipient_integration_id = 'URNGV8294NV', 
                         import_id = 56, 
-                        code = '27G47Y54VH9L', 
-                        usage_counter = 1, 
-                        batch_id = 'tqyrgahe', )
+                        reservation = False, 
+                        batch_id = '32535-43255', )
                     ]
             )
         else :
             return InlineResponse2007(
                 has_more = True,
                 data = [
-                    talon_one.models.referral.Referral(
+                    talon_one.models.coupon.Coupon(
                         id = 6, 
                         created = '2020-06-10T09:05:27.993483Z', 
-                        start_date = '2020-11-10T23:00Z', 
-                        expiry_date = '2021-11-10T23:00Z', 
-                        usage_limit = 1, 
-                        campaign_id = 78, 
-                        advocate_profile_integration_id = 'URNGV8294NV', 
-                        friend_profile_integration_id = 'BZGGC2454PA', 
-                        attributes = talon_one.models.attributes.attributes(), 
+                        campaign_id = 211, 
+                        value = 'XMAS-20-2021', 
+                        usage_limit = 100, 
+                        discount_limit = 30.0, 
+                        start_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        expiry_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        limits = [
+                            talon_one.models.limit_config.LimitConfig(
+                                action = 'createCoupon', 
+                                limit = 1000.0, 
+                                period = 'yearly', 
+                                entities = [Coupon], )
+                            ], 
+                        usage_counter = 10, 
+                        discount_counter = 1.337, 
+                        discount_remainder = 1.337, 
+                        attributes = talon_one.models.attributes_of_coupon.Attributes of coupon(), 
+                        referral_id = 326632952, 
+                        recipient_integration_id = 'URNGV8294NV', 
                         import_id = 56, 
-                        code = '27G47Y54VH9L', 
-                        usage_counter = 1, 
-                        batch_id = 'tqyrgahe', )
+                        reservation = False, 
+                        batch_id = '32535-43255', )
                     ],
         )
 

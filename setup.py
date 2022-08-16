@@ -13,7 +13,7 @@
 from setuptools import setup, find_packages  # noqa: H301
 
 NAME = "talon_one"
-VERSION = "3.4.0"
+VERSION = "3.4.1"
 # To install the library, run the following
 #
 # python setup.py install

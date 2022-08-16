@@ -36,7 +36,7 @@ class TestInlineResponse2006(unittest.TestCase):
         # model = talon_one.models.inline_response2006.InlineResponse2006()  # noqa: E501
         if include_optional :
             return InlineResponse2006(
-                has_more = True, 
+                total_result_size = 56, 
                 data = [
                     talon_one.models.coupon.Coupon(
                         id = 6, 
@@ -67,7 +67,7 @@ class TestInlineResponse2006(unittest.TestCase):
             )
         else :
             return InlineResponse2006(
-                has_more = True,
+                total_result_size = 56,
                 data = [
                     talon_one.models.coupon.Coupon(
                         id = 6, 

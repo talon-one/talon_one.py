@@ -38,30 +38,106 @@ class TestInlineResponse2003(unittest.TestCase):
             return InlineResponse2003(
                 total_result_size = 56, 
                 data = [
-                    talon_one.models.notification_webhook.NotificationWebhook(
-                        id = 6, 
-                        created = '2020-06-10T09:05:27.993483Z', 
-                        modified = '2021-09-12T10:12:42Z', 
+                    talon_one.models.campaign.Campaign(
+                        id = 56, 
+                        created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                         application_id = 322, 
-                        url = '0', 
-                        headers = [
-                            'a'
-                            ], )
+                        user_id = 56, 
+                        name = 'Summer promotions', 
+                        description = 'Campaign for all summer 2021 promotions', 
+                        start_time = '2021-07-20T22:00Z', 
+                        end_time = '2021-09-22T22:00Z', 
+                        attributes = talon_one.models.attributes.attributes(), 
+                        state = 'enabled', 
+                        active_ruleset_id = 56, 
+                        tags = [summer], 
+                        features = [coupons, referrals], 
+                        coupon_settings = talon_one.models.code_generator_settings.CodeGeneratorSettings(
+                            valid_characters = [A, B, C, D, E, 2, 0], 
+                            coupon_pattern = 'SUMMER-####-####', ), 
+                        referral_settings = talon_one.models.code_generator_settings.CodeGeneratorSettings(
+                            valid_characters = [A, B, C, D, E, 2, 0], 
+                            coupon_pattern = 'SUMMER-####-####', ), 
+                        limits = [
+                            talon_one.models.limit_config.LimitConfig(
+                                action = 'createCoupon', 
+                                limit = 1000.0, 
+                                period = 'yearly', 
+                                entities = [Coupon], )
+                            ], 
+                        campaign_groups = [1, 3], 
+                        coupon_redemption_count = 163, 
+                        referral_redemption_count = 3, 
+                        discount_count = 288.0, 
+                        discount_effect_count = 343, 
+                        coupon_creation_count = 16, 
+                        custom_effect_count = 0, 
+                        referral_creation_count = 8, 
+                        add_free_item_effect_count = 0, 
+                        awarded_giveaways_count = 9, 
+                        created_loyalty_points_count = 9.0, 
+                        created_loyalty_points_effect_count = 2, 
+                        redeemed_loyalty_points_count = 8.0, 
+                        redeemed_loyalty_points_effect_count = 9, 
+                        call_api_effect_count = 0, 
+                        last_activity = '2022-11-10T23:00Z', 
+                        updated = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        created_by = 'John Doe', 
+                        updated_by = 'Jane Doe', 
+                        template_id = 3, )
                     ]
             )
         else :
             return InlineResponse2003(
                 total_result_size = 56,
                 data = [
-                    talon_one.models.notification_webhook.NotificationWebhook(
-                        id = 6, 
-                        created = '2020-06-10T09:05:27.993483Z', 
-                        modified = '2021-09-12T10:12:42Z', 
+                    talon_one.models.campaign.Campaign(
+                        id = 56, 
+                        created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                         application_id = 322, 
-                        url = '0', 
-                        headers = [
-                            'a'
-                            ], )
+                        user_id = 56, 
+                        name = 'Summer promotions', 
+                        description = 'Campaign for all summer 2021 promotions', 
+                        start_time = '2021-07-20T22:00Z', 
+                        end_time = '2021-09-22T22:00Z', 
+                        attributes = talon_one.models.attributes.attributes(), 
+                        state = 'enabled', 
+                        active_ruleset_id = 56, 
+                        tags = [summer], 
+                        features = [coupons, referrals], 
+                        coupon_settings = talon_one.models.code_generator_settings.CodeGeneratorSettings(
+                            valid_characters = [A, B, C, D, E, 2, 0], 
+                            coupon_pattern = 'SUMMER-####-####', ), 
+                        referral_settings = talon_one.models.code_generator_settings.CodeGeneratorSettings(
+                            valid_characters = [A, B, C, D, E, 2, 0], 
+                            coupon_pattern = 'SUMMER-####-####', ), 
+                        limits = [
+                            talon_one.models.limit_config.LimitConfig(
+                                action = 'createCoupon', 
+                                limit = 1000.0, 
+                                period = 'yearly', 
+                                entities = [Coupon], )
+                            ], 
+                        campaign_groups = [1, 3], 
+                        coupon_redemption_count = 163, 
+                        referral_redemption_count = 3, 
+                        discount_count = 288.0, 
+                        discount_effect_count = 343, 
+                        coupon_creation_count = 16, 
+                        custom_effect_count = 0, 
+                        referral_creation_count = 8, 
+                        add_free_item_effect_count = 0, 
+                        awarded_giveaways_count = 9, 
+                        created_loyalty_points_count = 9.0, 
+                        created_loyalty_points_effect_count = 2, 
+                        redeemed_loyalty_points_count = 8.0, 
+                        redeemed_loyalty_points_effect_count = 9, 
+                        call_api_effect_count = 0, 
+                        last_activity = '2022-11-10T23:00Z', 
+                        updated = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        created_by = 'John Doe', 
+                        updated_by = 'Jane Doe', 
+                        template_id = 3, )
                     ],
         )
 

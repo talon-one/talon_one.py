@@ -38,24 +38,56 @@ class TestInlineResponse20027(unittest.TestCase):
             return InlineResponse20027(
                 total_result_size = 56, 
                 data = [
-                    talon_one.models.webhook_activation_log_entry.WebhookActivationLogEntry(
-                        integration_request_uuid = '0', 
-                        webhook_id = 56, 
-                        application_id = 56, 
-                        campaign_id = 56, 
-                        created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), )
+                    talon_one.models.webhook.Webhook(
+                        id = 6, 
+                        created = '2020-06-10T09:05:27.993483Z', 
+                        modified = '2021-09-12T10:12:42Z', 
+                        application_ids = [
+                            56
+                            ], 
+                        title = 'a', 
+                        verb = 'POST', 
+                        url = '0', 
+                        headers = [
+                            'a'
+                            ], 
+                        payload = '0', 
+                        params = [
+                            talon_one.models.template_arg_def.TemplateArgDef(
+                                type = 'string', 
+                                description = '0', 
+                                title = '0', 
+                                ui = talon_one.models.ui.ui(), )
+                            ], 
+                        enabled = True, )
                     ]
             )
         else :
             return InlineResponse20027(
                 total_result_size = 56,
                 data = [
-                    talon_one.models.webhook_activation_log_entry.WebhookActivationLogEntry(
-                        integration_request_uuid = '0', 
-                        webhook_id = 56, 
-                        application_id = 56, 
-                        campaign_id = 56, 
-                        created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), )
+                    talon_one.models.webhook.Webhook(
+                        id = 6, 
+                        created = '2020-06-10T09:05:27.993483Z', 
+                        modified = '2021-09-12T10:12:42Z', 
+                        application_ids = [
+                            56
+                            ], 
+                        title = 'a', 
+                        verb = 'POST', 
+                        url = '0', 
+                        headers = [
+                            'a'
+                            ], 
+                        payload = '0', 
+                        params = [
+                            talon_one.models.template_arg_def.TemplateArgDef(
+                                type = 'string', 
+                                description = '0', 
+                                title = '0', 
+                                ui = talon_one.models.ui.ui(), )
+                            ], 
+                        enabled = True, )
                     ],
         )
 

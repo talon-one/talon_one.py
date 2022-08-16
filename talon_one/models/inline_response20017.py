@@ -34,7 +34,7 @@ class InlineResponse20017(object):
     """
     openapi_types = {
         'has_more': 'bool',
-        'data': 'list[CustomerProfile]'
+        'data': 'list[ApplicationCustomer]'
     }
 
     attribute_map = {
@@ -84,7 +84,7 @@ class InlineResponse20017(object):
 
 
         :return: The data of this InlineResponse20017.  # noqa: E501
-        :rtype: list[CustomerProfile]
+        :rtype: list[ApplicationCustomer]
         """
         return self._data
 
@@ -94,7 +94,7 @@ class InlineResponse20017(object):
 
 
         :param data: The data of this InlineResponse20017.  # noqa: E501
-        :type: list[CustomerProfile]
+        :type: list[ApplicationCustomer]
         """
         if self.local_vars_configuration.client_side_validation and data is None:  # noqa: E501
             raise ValueError("Invalid value for `data`, must not be `None`")  # noqa: E501

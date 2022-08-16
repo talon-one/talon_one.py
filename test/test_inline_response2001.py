@@ -36,116 +36,40 @@ class TestInlineResponse2001(unittest.TestCase):
         # model = talon_one.models.inline_response2001.InlineResponse2001()  # noqa: E501
         if include_optional :
             return InlineResponse2001(
-                total_result_size = 56, 
+                has_more = True, 
                 data = [
-                    talon_one.models.application.Application(
-                        id = 6, 
-                        created = '2020-06-10T09:05:27.993483Z', 
-                        modified = '2021-09-12T10:12:42Z', 
-                        account_id = 3886, 
-                        name = 'My Application', 
-                        description = 'A test Application', 
-                        timezone = 'Europe/Berlin', 
-                        currency = 'EUR', 
-                        case_sensitivity = 'sensitive', 
-                        attributes = talon_one.models.attributes.attributes(), 
-                        limits = [
-                            talon_one.models.limit_config.LimitConfig(
-                                action = 'createCoupon', 
-                                limit = 1000.0, 
-                                period = 'yearly', 
-                                entities = [Coupon], )
-                            ], 
-                        campaign_priority = 'universal', 
-                        exclusive_campaigns_strategy = 'listOrder', 
-                        default_discount_scope = 'sessionTotal', 
-                        enable_cascading_discounts = True, 
-                        enable_flattened_cart_items = True, 
-                        attributes_settings = talon_one.models.attributes_settings.AttributesSettings(
-                            mandatory = talon_one.models.attributes_mandatory.AttributesMandatory(
-                                campaigns = [
-                                    '0'
-                                    ], 
-                                coupons = [
-                                    '0'
-                                    ], ), ), 
-                        sandbox = True, 
-                        enable_partial_discounts = False, 
-                        default_discount_additional_cost_per_item_scope = 'price', 
-                        loyalty_programs = [
-                            talon_one.models.loyalty_program.LoyaltyProgram(
-                                id = 56, 
-                                created = '2020-06-10T09:05:27.993483Z', 
-                                title = 'Point collection', 
-                                description = 'Customers collect 10 points per 1$ spent', 
-                                subscribed_applications = [132, 97], 
-                                default_validity = 'unlimited', 
-                                default_pending = 'immediate', 
-                                allow_subledger = False, 
-                                users_per_card_limit = 111, 
-                                account_id = 1, 
-                                name = 'my_program', 
-                                tiers = [{name=Gold, minPoints=300, id=3, created=2021-06-10T09:05:27.993483Z, programID=139}, {name=Silver, minPoints=200, id=2, created=2021-06-10T09:04:59.355258Z, programId=139}, {name=Bronze, minPoints=100, id=1, created=2021-06-10T09:04:39.355258Z, programId=139}], 
-                                timezone = 'Europe/Berlin', 
-                                card_based = True, )
-                            ], )
+                    talon_one.models.ledger_transaction_log_entry_integration_api.LedgerTransactionLogEntryIntegrationAPI(
+                        created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        program_id = 324, 
+                        customer_session_id = '05c2da0d-48fa-4aa1-b629-898f58f1584d', 
+                        type = 'addition', 
+                        name = 'Reward 10% points of a purchase's current total', 
+                        start_date = '2022-01-02T15:04:05Z07:00', 
+                        expiry_date = '2022-01-02T15:04:05Z07:00', 
+                        subledger_id = 'sub-123', 
+                        amount = 10.25, 
+                        id = 123, 
+                        ruleset_id = 11, 
+                        rule_name = 'Add 2 points', )
                     ]
             )
         else :
             return InlineResponse2001(
-                total_result_size = 56,
+                has_more = True,
                 data = [
-                    talon_one.models.application.Application(
-                        id = 6, 
-                        created = '2020-06-10T09:05:27.993483Z', 
-                        modified = '2021-09-12T10:12:42Z', 
-                        account_id = 3886, 
-                        name = 'My Application', 
-                        description = 'A test Application', 
-                        timezone = 'Europe/Berlin', 
-                        currency = 'EUR', 
-                        case_sensitivity = 'sensitive', 
-                        attributes = talon_one.models.attributes.attributes(), 
-                        limits = [
-                            talon_one.models.limit_config.LimitConfig(
-                                action = 'createCoupon', 
-                                limit = 1000.0, 
-                                period = 'yearly', 
-                                entities = [Coupon], )
-                            ], 
-                        campaign_priority = 'universal', 
-                        exclusive_campaigns_strategy = 'listOrder', 
-                        default_discount_scope = 'sessionTotal', 
-                        enable_cascading_discounts = True, 
-                        enable_flattened_cart_items = True, 
-                        attributes_settings = talon_one.models.attributes_settings.AttributesSettings(
-                            mandatory = talon_one.models.attributes_mandatory.AttributesMandatory(
-                                campaigns = [
-                                    '0'
-                                    ], 
-                                coupons = [
-                                    '0'
-                                    ], ), ), 
-                        sandbox = True, 
-                        enable_partial_discounts = False, 
-                        default_discount_additional_cost_per_item_scope = 'price', 
-                        loyalty_programs = [
-                            talon_one.models.loyalty_program.LoyaltyProgram(
-                                id = 56, 
-                                created = '2020-06-10T09:05:27.993483Z', 
-                                title = 'Point collection', 
-                                description = 'Customers collect 10 points per 1$ spent', 
-                                subscribed_applications = [132, 97], 
-                                default_validity = 'unlimited', 
-                                default_pending = 'immediate', 
-                                allow_subledger = False, 
-                                users_per_card_limit = 111, 
-                                account_id = 1, 
-                                name = 'my_program', 
-                                tiers = [{name=Gold, minPoints=300, id=3, created=2021-06-10T09:05:27.993483Z, programID=139}, {name=Silver, minPoints=200, id=2, created=2021-06-10T09:04:59.355258Z, programId=139}, {name=Bronze, minPoints=100, id=1, created=2021-06-10T09:04:39.355258Z, programId=139}], 
-                                timezone = 'Europe/Berlin', 
-                                card_based = True, )
-                            ], )
+                    talon_one.models.ledger_transaction_log_entry_integration_api.LedgerTransactionLogEntryIntegrationAPI(
+                        created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        program_id = 324, 
+                        customer_session_id = '05c2da0d-48fa-4aa1-b629-898f58f1584d', 
+                        type = 'addition', 
+                        name = 'Reward 10% points of a purchase's current total', 
+                        start_date = '2022-01-02T15:04:05Z07:00', 
+                        expiry_date = '2022-01-02T15:04:05Z07:00', 
+                        subledger_id = 'sub-123', 
+                        amount = 10.25, 
+                        id = 123, 
+                        ruleset_id = 11, 
+                        rule_name = 'Add 2 points', )
                     ],
         )
 

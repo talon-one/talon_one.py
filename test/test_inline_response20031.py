@@ -37,29 +37,41 @@ class TestInlineResponse20031(unittest.TestCase):
         if include_optional :
             return InlineResponse20031(
                 total_result_size = 56, 
-                has_more = True, 
                 data = [
-                    talon_one.models.change.Change(
+                    talon_one.models.user.User(
                         id = 6, 
                         created = '2020-06-10T09:05:27.993483Z', 
-                        user_id = 56, 
-                        application_id = 359, 
-                        entity = '/v1/applications/359/campaigns/6727', 
-                        old = talon_one.models.old.old(), 
-                        new = {"applicationId\"":359,"attributes\"":{},"campaignGroups\"":[],"created\"":"2022-07-08T13:04:02.972762328Z","description\"":"","features\"":["referrals","loyalty"],"id":6727}, )
+                        modified = '2021-09-12T10:12:42Z', 
+                        email = 'john.doe@example.com', 
+                        account_id = 3886, 
+                        invite_token = 'Gy9b8w1irmQtEPo5RmbMmSPheL5h4', 
+                        state = 'invited', 
+                        name = 'John Doe', 
+                        policy = {"Role":127}, 
+                        latest_feed_timestamp = '2020-06-01T00:00Z', 
+                        roles = [71], 
+                        application_notification_subscriptions = talon_one.models.application_notification_subscriptions.applicationNotificationSubscriptions(), 
+                        auth_method = 'basic_auth', )
                     ]
             )
         else :
             return InlineResponse20031(
+                total_result_size = 56,
                 data = [
-                    talon_one.models.change.Change(
+                    talon_one.models.user.User(
                         id = 6, 
                         created = '2020-06-10T09:05:27.993483Z', 
-                        user_id = 56, 
-                        application_id = 359, 
-                        entity = '/v1/applications/359/campaigns/6727', 
-                        old = talon_one.models.old.old(), 
-                        new = {"applicationId\"":359,"attributes\"":{},"campaignGroups\"":[],"created\"":"2022-07-08T13:04:02.972762328Z","description\"":"","features\"":["referrals","loyalty"],"id":6727}, )
+                        modified = '2021-09-12T10:12:42Z', 
+                        email = 'john.doe@example.com', 
+                        account_id = 3886, 
+                        invite_token = 'Gy9b8w1irmQtEPo5RmbMmSPheL5h4', 
+                        state = 'invited', 
+                        name = 'John Doe', 
+                        policy = {"Role":127}, 
+                        latest_feed_timestamp = '2020-06-01T00:00Z', 
+                        roles = [71], 
+                        application_notification_subscriptions = talon_one.models.application_notification_subscriptions.applicationNotificationSubscriptions(), 
+                        auth_method = 'basic_auth', )
                     ],
         )
 

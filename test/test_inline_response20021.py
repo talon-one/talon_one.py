@@ -36,16 +36,66 @@ class TestInlineResponse20021(unittest.TestCase):
         # model = talon_one.models.inline_response20021.InlineResponse20021()  # noqa: E501
         if include_optional :
             return InlineResponse20021(
-                total_result_size = 56, 
+                has_more = True, 
                 data = [
-                    '0'
+                    talon_one.models.application_event.ApplicationEvent(
+                        id = 6, 
+                        created = '2020-06-10T09:05:27.993483Z', 
+                        application_id = 322, 
+                        profile_id = 138, 
+                        session_id = 56, 
+                        type = '0', 
+                        attributes = talon_one.models.attributes.attributes(), 
+                        effects = [
+                            None
+                            ], 
+                        rule_failure_reasons = [
+                            talon_one.models.rule_failure_reason.RuleFailureReason(
+                                campaign_id = 56, 
+                                campaign_name = '0', 
+                                ruleset_id = 56, 
+                                coupon_id = 4928, 
+                                coupon_value = '0', 
+                                referral_id = 56, 
+                                referral_value = '0', 
+                                rule_index = 56, 
+                                rule_name = '0', 
+                                condition_index = 56, 
+                                effect_index = 56, 
+                                details = '0', )
+                            ], )
                     ]
             )
         else :
             return InlineResponse20021(
-                total_result_size = 56,
+                has_more = True,
                 data = [
-                    '0'
+                    talon_one.models.application_event.ApplicationEvent(
+                        id = 6, 
+                        created = '2020-06-10T09:05:27.993483Z', 
+                        application_id = 322, 
+                        profile_id = 138, 
+                        session_id = 56, 
+                        type = '0', 
+                        attributes = talon_one.models.attributes.attributes(), 
+                        effects = [
+                            None
+                            ], 
+                        rule_failure_reasons = [
+                            talon_one.models.rule_failure_reason.RuleFailureReason(
+                                campaign_id = 56, 
+                                campaign_name = '0', 
+                                ruleset_id = 56, 
+                                coupon_id = 4928, 
+                                coupon_value = '0', 
+                                referral_id = 56, 
+                                referral_value = '0', 
+                                rule_index = 56, 
+                                rule_name = '0', 
+                                condition_index = 56, 
+                                effect_index = 56, 
+                                details = '0', )
+                            ], )
                     ],
         )
 

@@ -37,29 +37,39 @@ class TestInlineResponse20012(unittest.TestCase):
         if include_optional :
             return InlineResponse20012(
                 has_more = True, 
+                total_result_size = 56, 
                 data = [
-                    talon_one.models.access_log_entry.AccessLogEntry(
-                        uuid = '0', 
-                        status = 56, 
-                        method = '0', 
-                        request_uri = '0', 
-                        time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        request_payload = '0', 
-                        response_payload = '0', )
+                    talon_one.models.collection.Collection(
+                        id = 6, 
+                        created = '2020-06-10T09:05:27.993483Z', 
+                        account_id = 3886, 
+                        modified = '2021-09-12T10:12:42Z', 
+                        description = 'My collection of SKUs', 
+                        subscribed_applications_ids = [1, 2, 3], 
+                        name = 'My collection', 
+                        modified_by = 48, 
+                        created_by = 134, 
+                        application_id = 1, 
+                        campaign_id = 7, 
+                        payload = [KTL-WH-ET-1, KTL-BL-ET-1], )
                     ]
             )
         else :
             return InlineResponse20012(
-                has_more = True,
                 data = [
-                    talon_one.models.access_log_entry.AccessLogEntry(
-                        uuid = '0', 
-                        status = 56, 
-                        method = '0', 
-                        request_uri = '0', 
-                        time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        request_payload = '0', 
-                        response_payload = '0', )
+                    talon_one.models.collection.Collection(
+                        id = 6, 
+                        created = '2020-06-10T09:05:27.993483Z', 
+                        account_id = 3886, 
+                        modified = '2021-09-12T10:12:42Z', 
+                        description = 'My collection of SKUs', 
+                        subscribed_applications_ids = [1, 2, 3], 
+                        name = 'My collection', 
+                        modified_by = 48, 
+                        created_by = 134, 
+                        application_id = 1, 
+                        campaign_id = 7, 
+                        payload = [KTL-WH-ET-1, KTL-BL-ET-1], )
                     ],
         )
 

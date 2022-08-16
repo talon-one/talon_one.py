@@ -171,6 +171,7 @@ from talon_one.models.inline_response20030 import InlineResponse20030
 from talon_one.models.inline_response20031 import InlineResponse20031
 from talon_one.models.inline_response20032 import InlineResponse20032
 from talon_one.models.inline_response20033 import InlineResponse20033
+from talon_one.models.inline_response20034 import InlineResponse20034
 from talon_one.models.inline_response2004 import InlineResponse2004
 from talon_one.models.inline_response2005 import InlineResponse2005
 from talon_one.models.inline_response2006 import InlineResponse2006

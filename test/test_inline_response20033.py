@@ -38,36 +38,26 @@ class TestInlineResponse20033(unittest.TestCase):
             return InlineResponse20033(
                 total_result_size = 56, 
                 data = [
-                    talon_one.models.role.Role(
+                    talon_one.models.export.Export(
                         id = 6, 
                         created = '2020-06-10T09:05:27.993483Z', 
-                        modified = '2021-09-12T10:12:42Z', 
                         account_id = 3886, 
-                        campaign_group_id = 56, 
-                        name = '0', 
-                        description = '0', 
-                        members = [
-                            56
-                            ], 
-                        acl = talon_one.models.acl.acl(), )
+                        user_id = 56, 
+                        entity = 'Coupon', 
+                        filter = talon_one.models.filter.filter(), )
                     ]
             )
         else :
             return InlineResponse20033(
                 total_result_size = 56,
                 data = [
-                    talon_one.models.role.Role(
+                    talon_one.models.export.Export(
                         id = 6, 
                         created = '2020-06-10T09:05:27.993483Z', 
-                        modified = '2021-09-12T10:12:42Z', 
                         account_id = 3886, 
-                        campaign_group_id = 56, 
-                        name = '0', 
-                        description = '0', 
-                        members = [
-                            56
-                            ], 
-                        acl = talon_one.models.acl.acl(), )
+                        user_id = 56, 
+                        entity = 'Coupon', 
+                        filter = talon_one.models.filter.filter(), )
                     ],
         )
 

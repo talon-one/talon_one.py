@@ -38,12 +38,12 @@ class TestInlineResponse20017(unittest.TestCase):
             return InlineResponse20017(
                 has_more = True, 
                 data = [
-                    talon_one.models.customer_profile.CustomerProfile(
-                        id = 6, 
+                    talon_one.models.application_customer.ApplicationCustomer(
+                        id = 56, 
                         created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        integration_id = 'URNGV8294NV', 
+                        integration_id = '0', 
                         attributes = {"Language":"english","ShippingCountry":"DE"}, 
-                        account_id = 31, 
+                        account_id = 56, 
                         closed_sessions = 3, 
                         total_sales = 299.99, 
                         loyalty_memberships = [
@@ -56,19 +56,20 @@ class TestInlineResponse20017(unittest.TestCase):
                                 id = 2, 
                                 name = 'Travel audience', )
                             ], 
-                        last_activity = '2020-02-08T14:15:20Z', )
+                        last_activity = '2020-02-08T14:15:20Z', 
+                        advocate_integration_id = '0', )
                     ]
             )
         else :
             return InlineResponse20017(
                 has_more = True,
                 data = [
-                    talon_one.models.customer_profile.CustomerProfile(
-                        id = 6, 
+                    talon_one.models.application_customer.ApplicationCustomer(
+                        id = 56, 
                         created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        integration_id = 'URNGV8294NV', 
+                        integration_id = '0', 
                         attributes = {"Language":"english","ShippingCountry":"DE"}, 
-                        account_id = 31, 
+                        account_id = 56, 
                         closed_sessions = 3, 
                         total_sales = 299.99, 
                         loyalty_memberships = [
@@ -81,7 +82,8 @@ class TestInlineResponse20017(unittest.TestCase):
                                 id = 2, 
                                 name = 'Travel audience', )
                             ], 
-                        last_activity = '2020-02-08T14:15:20Z', )
+                        last_activity = '2020-02-08T14:15:20Z', 
+                        advocate_integration_id = '0', )
                     ],
         )
 

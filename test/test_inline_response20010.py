@@ -37,17 +37,37 @@ class TestInlineResponse20010(unittest.TestCase):
         if include_optional :
             return InlineResponse20010(
                 has_more = True, 
+                total_result_size = 56, 
                 data = [
-                    talon_one.models.collection_item.CollectionItem(
-                        item = '0', )
+                    talon_one.models.collection_without_payload.CollectionWithoutPayload(
+                        id = 6, 
+                        created = '2020-06-10T09:05:27.993483Z', 
+                        account_id = 3886, 
+                        modified = '2021-09-12T10:12:42Z', 
+                        description = 'My collection of SKUs', 
+                        subscribed_applications_ids = [1, 2, 3], 
+                        name = 'My collection', 
+                        modified_by = 48, 
+                        created_by = 134, 
+                        application_id = 1, 
+                        campaign_id = 7, )
                     ]
             )
         else :
             return InlineResponse20010(
-                has_more = True,
                 data = [
-                    talon_one.models.collection_item.CollectionItem(
-                        item = '0', )
+                    talon_one.models.collection_without_payload.CollectionWithoutPayload(
+                        id = 6, 
+                        created = '2020-06-10T09:05:27.993483Z', 
+                        account_id = 3886, 
+                        modified = '2021-09-12T10:12:42Z', 
+                        description = 'My collection of SKUs', 
+                        subscribed_applications_ids = [1, 2, 3], 
+                        name = 'My collection', 
+                        modified_by = 48, 
+                        created_by = 134, 
+                        application_id = 1, 
+                        campaign_id = 7, )
                     ],
         )
 
