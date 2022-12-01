@@ -55,8 +55,10 @@ class InlineResponse20024(object):
         self._data = None
         self.discriminator = None
 
-        self.has_more = has_more
-        self.total_result_size = total_result_size
+        if has_more is not None:
+            self.has_more = has_more
+        if total_result_size is not None:
+            self.total_result_size = total_result_size
         self.data = data
 
     @property
@@ -77,8 +79,6 @@ class InlineResponse20024(object):
         :param has_more: The has_more of this InlineResponse20024.  # noqa: E501
         :type: bool
         """
-        if self.local_vars_configuration.client_side_validation and has_more is None:  # noqa: E501
-            raise ValueError("Invalid value for `has_more`, must not be `None`")  # noqa: E501
 
         self._has_more = has_more
 
@@ -100,8 +100,6 @@ class InlineResponse20024(object):
         :param total_result_size: The total_result_size of this InlineResponse20024.  # noqa: E501
         :type: int
         """
-        if self.local_vars_configuration.client_side_validation and total_result_size is None:  # noqa: E501
-            raise ValueError("Invalid value for `total_result_size`, must not be `None`")  # noqa: E501
 
         self._total_result_size = total_result_size
 
