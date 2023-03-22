@@ -86,8 +86,16 @@ customer_session = talon_one.NewCustomerSessionV2(
   "PROFILE_ID"
 )
 customer_session.cart_items = [
-    talon_one.CartItem("Red Spring Blouse", "rdbs-1111", 1, 49, "Shirts"),
-    talon_one.CartItem("Denim Trousers", "dtr-2222", 1, 74, "Trousers"),
+    talon_one.CartItem(name="Red Spring Blouse",
+                       sku="rdbs-1111",
+                       quantity=1,
+                       price=49,
+                       category="Shirts"),
+    talon_one.CartItem(name="Denim Trousers",
+                       sku="dtr-2222",
+                       quantity=1,
+                       price=74,
+                       category="Trousers"),
 ]
 customer_session.coupon_codes = [
     "Cool_Stuff"
