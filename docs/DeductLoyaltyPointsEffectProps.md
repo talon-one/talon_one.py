@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **value** | **float** | The amount of points that were deducted. | 
 **transaction_uuid** | **str** | The identifier of this deduction in the loyalty ledger. | 
 **name** | **str** | The name property gets one of the following two values. It can be the loyalty program name or it can represent a reason for the respective deduction of loyalty points. The latter is an optional value defined in a deduction rule.  | 
-**card_identifier** | **str** | The card on which these points were added. | [optional] 
+**card_identifier** | **str** | The alphanumeric identifier of the loyalty card.  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

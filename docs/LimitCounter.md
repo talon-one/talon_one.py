@@ -11,11 +11,11 @@ Name | Type | Description | Notes
 **action** | **str** | The limitable action of the limit counter. | 
 **profile_id** | **int** | The profile ID for which this limit counter is used. | [optional] 
 **profile_integration_id** | **str** | The profile integration ID for which this limit counter is used. | [optional] 
-**coupon_id** | **int** | The coupon ID for which this limit counter is used. | [optional] 
+**coupon_id** | **int** | The internal coupon ID for which this limit counter is used. | [optional] 
 **coupon_value** | **str** | The coupon value for which this limit counter is used. | [optional] 
 **referral_id** | **int** | The referral ID for which this limit counter is used. | [optional] 
 **referral_value** | **str** | The referral value for which this limit counter is used. | [optional] 
-**identifier** | **int** | The arbitrary identifier for which this limit counter is used. | [optional] 
+**identifier** | **str** | The arbitrary identifier for which this limit counter is used. | [optional] 
 **period** | **str** | The time period for which this limit counter is used. | [optional] 
 **limit** | **float** | The highest possible value for this limit counter. | 
 **counter** | **float** | The current value for this limit counter. | 

@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **ruleset_id** | **int** | The ID of the ruleset that was active in the campaign when this effect was triggered. | 
 **rule_index** | **int** | The position of the rule that triggered this effect within the ruleset. | 
 **rule_name** | **str** | The name of the rule that triggered this effect. | 
-**effect_type** | **str** | The type of effect that was triggered. | 
+**effect_type** | **str** | The type of effect that was triggered. See [API effects](https://docs.talon.one/docs/dev/integration-api/api-effects). | 
 **triggered_by_coupon** | **int** | The ID of the coupon that was being evaluated when this effect was triggered. | [optional] 
 **triggered_for_catalog_item** | **int** | The ID of the catalog item that was being evaluated when this effect was triggered. | [optional] 
 

@@ -4,7 +4,7 @@ The properties specific to the \"setDiscountPerAdditionalCost\" effect. This get
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | **str** | The name/description of this discount. | 
+**name** | **str** | The name / description of this discount | 
 **additional_cost_id** | **int** | The ID of the additional cost. | 
 **additional_cost** | **str** | The name of the additional cost. | 
 **value** | **float** | The total monetary value of the discount. | 

@@ -4,8 +4,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **int** | Unique ID for this entity. Not to be confused with the Integration ID, which is set by your integration layer and used in most endpoints. | 
-**created** | **datetime** | The exact moment this entity was created. | 
+**id** | **int** | Internal ID of this entity. | 
+**created** | **datetime** | The time this entity was created. | 
 **application_id** | **int** | The ID of the application that owns this entity. | 
 **version** | **int** | Version of the campaign set. | 
 **set** | [**CampaignPrioritiesV2**](CampaignPrioritiesV2.md) |  | 

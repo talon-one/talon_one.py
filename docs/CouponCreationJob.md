@@ -4,16 +4,17 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **int** | Unique ID for this entity. Not to be confused with the Integration ID, which is set by your integration layer and used in most endpoints. | 
-**created** | **datetime** | The exact moment this entity was created. | 
+**id** | **int** | Internal ID of this entity. | 
+**created** | **datetime** | The time this entity was created. | 
 **campaign_id** | **int** | The ID of the campaign that owns this entity. | 
 **application_id** | **int** | The ID of the application that owns this entity. | 
 **account_id** | **int** | The ID of the account that owns this entity. | 
 **usage_limit** | **int** | The number of times the coupon code can be redeemed. &#x60;0&#x60; means unlimited redemptions but any campaign usage limits will still apply.  | 
-**discount_limit** | **float** | The amount of discounts that can be given with this coupon code.  | [optional] 
+**discount_limit** | **float** | The total discount value that the code can give. Typically used to represent a gift card value.  | [optional] 
+**reservation_limit** | **int** | The number of reservations that can be made with this coupon code.  | [optional] 
 **start_date** | **datetime** | Timestamp at which point the coupon becomes valid. | [optional] 
-**expiry_date** | **datetime** | Expiry date of the coupon. Coupon never expires if this is omitted, zero, or negative. | [optional] 
-**number_of_coupons** | **int** | The number of new coupon codes to generate for the campaign. Must be between 20,001 and 5,000,000. | 
+**expiry_date** | **datetime** | Expiration date of the coupon. Coupon never expires if this is omitted, zero, or negative. | [optional] 
+**number_of_coupons** | **int** | The number of new coupon codes to generate for the campaign. | 
 **coupon_settings** | [**CodeGeneratorSettings**](CodeGeneratorSettings.md) |  | [optional] 
 **attributes** | [**object**](.md) | Arbitrary properties associated with coupons. | 
 **batch_id** | **str** | The batch ID coupons created by this job will bear. | 

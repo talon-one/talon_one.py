@@ -4,10 +4,10 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **int** | Unique ID for this entity. Not to be confused with the Integration ID, which is set by your integration layer and used in most endpoints. | 
-**created** | **datetime** | The exact moment this entity was created. | 
+**id** | **int** | Internal ID of this entity. | 
+**created** | **datetime** | The time this entity was created. | 
 **account_id** | **int** | The ID of the account that owns this entity. | 
-**modified** | **datetime** | The exact moment this entity was last modified. | 
+**modified** | **datetime** | The time this entity was last modified. | 
 **description** | **str** | A short description of the purpose of this collection. | [optional] 
 **name** | **str** | The name of this collection. | 
 **modified_by** | **int** | ID of the user who last updated this effect if available. | [optional] 

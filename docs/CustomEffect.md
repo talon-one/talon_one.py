@@ -4,11 +4,12 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **int** | Unique ID for this entity. Not to be confused with the Integration ID, which is set by your integration layer and used in most endpoints. | 
-**created** | **datetime** | The exact moment this entity was created. | 
+**id** | **int** | Internal ID of this entity. | 
+**created** | **datetime** | The time this entity was created. | 
 **account_id** | **int** | The ID of the account that owns this entity. | 
-**modified** | **datetime** | The exact moment this entity was last modified. | 
-**application_ids** | **list[int]** | The IDs of the applications that are related to this entity. | 
+**modified** | **datetime** | The time this entity was last modified. | 
+**application_ids** | **list[int]** | The IDs of the Applications that are related to this entity. | 
+**is_per_item** | **bool** | Indicates if this effect is per item or not. | [optional] 
 **name** | **str** | The name of this effect. | 
 **title** | **str** | The title of this effect. | 
 **payload** | **str** | The JSON payload of this effect. | 
