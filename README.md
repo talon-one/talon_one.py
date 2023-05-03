@@ -69,7 +69,7 @@ from pprint import pprint
 
 # Create configuration with your host destination and authorization using api_key_v1
 configuration = talon_one.Configuration(
-    host = "https://mycompany.talon.one",
+    host = "https://yourbaseurl.talon.one",
     api_key_prefix = {
         "Authorization": "ApiKey-v1"
     },
@@ -139,7 +139,7 @@ except ApiException as e:
 ```python
 # Create configuration with your host destination and authorization using management_key
 configuration = talon_one.Configuration(
-    host = "https://mycompany.talon.one"
+    host = "https://yourbaseurl.talon.one"
     api_key_prefix = {
         "Authorization": "ManagementKey-v1"
     },
