@@ -137,23 +137,21 @@ except ApiException as e:
 ### Management API
 
 ```python
-# Create configuration with your host destination
+# Create configuration with your host destination and authorization using management_key
 configuration = talon_one.Configuration(
     host = "https://mycompany.talon.one"
+    api_key_prefix = {
+        "Authorization": "ManagementKey-v1"
+    },
+    api_key = {
+        "Authorization": "2f0dce055da01ae595005d7d79154bae7448d319d5fc7c5b2951fadd6ba1ea07"
+    }
 )
 
 # Management API example to load application with id 7
 management_api = talon_one.ManagementApi(talon_one.ApiClient(configuration))
 
 try:
-    # Acquire session token
-    login_params = talon_one.LoginParams("admin@talon.one", "Password!@@")
-    session = management_api.create_session(login_params)
-
-    # Save token in the configuration for future management API calls
-    configuration.api_key["Authorization"] = session.token
-    configuration.api_key_prefix["Authorization"] = "Bearer"
-
     # Calling get_application function with the desired id (7)
     application = management_api.get_application(7)
     pprint(application)
