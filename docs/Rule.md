@@ -3,6 +3,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**id** | **str** | A unique identifier for the rule. | [optional] 
+**parent_id** | **str** | The ID of the rule that was copied to create this rule. | [optional] 
 **title** | **str** | A short description of the rule. | 
 **description** | **str** | A longer, more detailed description of the rule. | [optional] 
 **bindings** | [**list[Binding]**](Binding.md) | An array that provides objects with variable names (name) and talang expressions to whose result they are bound (expression) during rule evaluation. The order of the evaluation is decided by the position in the array. | [optional] 

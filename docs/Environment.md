@@ -4,8 +4,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **int** | Unique ID for this entity. Not to be confused with the Integration ID, which is set by your integration layer and used in most endpoints. | 
-**created** | **datetime** | The exact moment this entity was created. | 
+**id** | **int** | Internal ID of this entity. | 
+**created** | **datetime** | The time this entity was created. | 
 **application_id** | **int** | The ID of the application that owns this entity. | 
 **slots** | [**list[SlotDef]**](SlotDef.md) | The slots defined for this application. | 
 **functions** | [**list[FunctionDef]**](FunctionDef.md) | The functions defined for this application. | 

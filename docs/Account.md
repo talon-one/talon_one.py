@@ -4,9 +4,9 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **int** | Unique ID for this entity. Not to be confused with the Integration ID, which is set by your integration layer and used in most endpoints. | 
-**created** | **datetime** | The exact moment this entity was created. | 
-**modified** | **datetime** | The exact moment this entity was last modified. | 
+**id** | **int** | Internal ID of this entity. | 
+**created** | **datetime** | The time this entity was created. | 
+**modified** | **datetime** | The time this entity was last modified. | 
 **company_name** | **str** |  | 
 **domain_name** | **str** | Subdomain Name for yourcompany.talon.one. | 
 **state** | **str** | State of the account (active, deactivated). | 

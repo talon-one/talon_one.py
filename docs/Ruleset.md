@@ -4,10 +4,11 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **int** | Unique ID for this entity. Not to be confused with the Integration ID, which is set by your integration layer and used in most endpoints. | 
-**created** | **datetime** | The exact moment this entity was created. | 
-**user_id** | **int** | The ID of the account that owns this entity. | 
+**id** | **int** | Internal ID of this entity. | 
+**created** | **datetime** | The time this entity was created. | 
+**user_id** | **int** | The ID of the user associated with this entity. | 
 **rules** | [**list[Rule]**](Rule.md) | Set of rules to apply. | 
+**strikethrough_rules** | [**list[Rule]**](Rule.md) | Set of rules to apply for strikethrough. | [optional] 
 **bindings** | [**list[Binding]**](Binding.md) | An array that provides objects with variable names (name) and talang expressions to whose result they are bound (expression) during rule evaluation. The order of the evaluation is decided by the position in the array. | 
 **rb_version** | **str** | The version of the rulebuilder used to create this ruleset. | [optional] 
 **activate** | **bool** | Indicates whether this created ruleset should be activated for the campaign that owns it. | [optional] 
