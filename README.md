@@ -135,7 +135,7 @@ except ApiException as e:
 ```python
 # Create configuration with your host destination and authorization using management_key
 configuration = talon_one.Configuration(
-    host = "https://yourbaseurl.talon.one"
+    host = "https://yourbaseurl.talon.one",
     api_key_prefix = {
         "Authorization": "ManagementKey-v1"
     },
