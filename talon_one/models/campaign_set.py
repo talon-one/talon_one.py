@@ -33,94 +33,40 @@ class CampaignSet(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'id': 'int',
-        'created': 'datetime',
         'application_id': 'int',
+        'id': 'int',
         'version': 'int',
         'set': 'CampaignSetBranchNode',
         'updated_by': 'str'
     }
 
     attribute_map = {
-        'id': 'id',
-        'created': 'created',
         'application_id': 'applicationId',
+        'id': 'id',
         'version': 'version',
         'set': 'set',
         'updated_by': 'updatedBy'
     }
 
-    def __init__(self, id=None, created=None, application_id=None, version=None, set=None, updated_by=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, application_id=None, id=None, version=None, set=None, updated_by=None, local_vars_configuration=None):  # noqa: E501
         """CampaignSet - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
-        self._id = None
-        self._created = None
         self._application_id = None
+        self._id = None
         self._version = None
         self._set = None
         self._updated_by = None
         self.discriminator = None
 
-        self.id = id
-        self.created = created
         self.application_id = application_id
+        self.id = id
         self.version = version
         self.set = set
         if updated_by is not None:
             self.updated_by = updated_by
-
-    @property
-    def id(self):
-        """Gets the id of this CampaignSet.  # noqa: E501
-
-        Internal ID of this entity.  # noqa: E501
-
-        :return: The id of this CampaignSet.  # noqa: E501
-        :rtype: int
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """Sets the id of this CampaignSet.
-
-        Internal ID of this entity.  # noqa: E501
-
-        :param id: The id of this CampaignSet.  # noqa: E501
-        :type: int
-        """
-        if self.local_vars_configuration.client_side_validation and id is None:  # noqa: E501
-            raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
-
-        self._id = id
-
-    @property
-    def created(self):
-        """Gets the created of this CampaignSet.  # noqa: E501
-
-        The time this entity was created.  # noqa: E501
-
-        :return: The created of this CampaignSet.  # noqa: E501
-        :rtype: datetime
-        """
-        return self._created
-
-    @created.setter
-    def created(self, created):
-        """Sets the created of this CampaignSet.
-
-        The time this entity was created.  # noqa: E501
-
-        :param created: The created of this CampaignSet.  # noqa: E501
-        :type: datetime
-        """
-        if self.local_vars_configuration.client_side_validation and created is None:  # noqa: E501
-            raise ValueError("Invalid value for `created`, must not be `None`")  # noqa: E501
-
-        self._created = created
 
     @property
     def application_id(self):
@@ -146,6 +92,31 @@ class CampaignSet(object):
             raise ValueError("Invalid value for `application_id`, must not be `None`")  # noqa: E501
 
         self._application_id = application_id
+
+    @property
+    def id(self):
+        """Gets the id of this CampaignSet.  # noqa: E501
+
+        Internal ID of this entity.  # noqa: E501
+
+        :return: The id of this CampaignSet.  # noqa: E501
+        :rtype: int
+        """
+        return self._id
+
+    @id.setter
+    def id(self, id):
+        """Sets the id of this CampaignSet.
+
+        Internal ID of this entity.  # noqa: E501
+
+        :param id: The id of this CampaignSet.  # noqa: E501
+        :type: int
+        """
+        if self.local_vars_configuration.client_side_validation and id is None:  # noqa: E501
+            raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
+
+        self._id = id
 
     @property
     def version(self):

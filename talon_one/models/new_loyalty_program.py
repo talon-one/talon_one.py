@@ -41,6 +41,10 @@ class NewLoyaltyProgram(object):
         'allow_subledger': 'bool',
         'users_per_card_limit': 'int',
         'sandbox': 'bool',
+        'tiers_expiration_policy': 'str',
+        'tiers_expire_in': 'str',
+        'tiers_downgrade_policy': 'str',
+        'program_join_policy': 'str',
         'name': 'str',
         'tiers': 'list[NewLoyaltyTier]',
         'timezone': 'str',
@@ -56,13 +60,17 @@ class NewLoyaltyProgram(object):
         'allow_subledger': 'allowSubledger',
         'users_per_card_limit': 'usersPerCardLimit',
         'sandbox': 'sandbox',
+        'tiers_expiration_policy': 'tiersExpirationPolicy',
+        'tiers_expire_in': 'tiersExpireIn',
+        'tiers_downgrade_policy': 'tiersDowngradePolicy',
+        'program_join_policy': 'programJoinPolicy',
         'name': 'name',
         'tiers': 'tiers',
         'timezone': 'timezone',
         'card_based': 'cardBased'
     }
 
-    def __init__(self, title=None, description=None, subscribed_applications=None, default_validity=None, default_pending=None, allow_subledger=None, users_per_card_limit=None, sandbox=None, name=None, tiers=None, timezone=None, card_based=False, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, title=None, description=None, subscribed_applications=None, default_validity=None, default_pending=None, allow_subledger=None, users_per_card_limit=None, sandbox=None, tiers_expiration_policy=None, tiers_expire_in=None, tiers_downgrade_policy=None, program_join_policy=None, name=None, tiers=None, timezone=None, card_based=False, local_vars_configuration=None):  # noqa: E501
         """NewLoyaltyProgram - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -76,6 +84,10 @@ class NewLoyaltyProgram(object):
         self._allow_subledger = None
         self._users_per_card_limit = None
         self._sandbox = None
+        self._tiers_expiration_policy = None
+        self._tiers_expire_in = None
+        self._tiers_downgrade_policy = None
+        self._program_join_policy = None
         self._name = None
         self._tiers = None
         self._timezone = None
@@ -93,6 +105,14 @@ class NewLoyaltyProgram(object):
         if users_per_card_limit is not None:
             self.users_per_card_limit = users_per_card_limit
         self.sandbox = sandbox
+        if tiers_expiration_policy is not None:
+            self.tiers_expiration_policy = tiers_expiration_policy
+        if tiers_expire_in is not None:
+            self.tiers_expire_in = tiers_expire_in
+        if tiers_downgrade_policy is not None:
+            self.tiers_downgrade_policy = tiers_downgrade_policy
+        if program_join_policy is not None:
+            self.program_join_policy = program_join_policy
         self.name = name
         if tiers is not None:
             self.tiers = tiers
@@ -295,6 +315,116 @@ class NewLoyaltyProgram(object):
             raise ValueError("Invalid value for `sandbox`, must not be `None`")  # noqa: E501
 
         self._sandbox = sandbox
+
+    @property
+    def tiers_expiration_policy(self):
+        """Gets the tiers_expiration_policy of this NewLoyaltyProgram.  # noqa: E501
+
+        The policy that defines which date is used to calculate the expiration date of a customer's current tier.  - `tier_start_date`: The tier expiration date is calculated based on when the customer joined the current tier.  - `program_join_date`: The tier expiration date is calculated based on when the customer joined the loyalty program.   # noqa: E501
+
+        :return: The tiers_expiration_policy of this NewLoyaltyProgram.  # noqa: E501
+        :rtype: str
+        """
+        return self._tiers_expiration_policy
+
+    @tiers_expiration_policy.setter
+    def tiers_expiration_policy(self, tiers_expiration_policy):
+        """Sets the tiers_expiration_policy of this NewLoyaltyProgram.
+
+        The policy that defines which date is used to calculate the expiration date of a customer's current tier.  - `tier_start_date`: The tier expiration date is calculated based on when the customer joined the current tier.  - `program_join_date`: The tier expiration date is calculated based on when the customer joined the loyalty program.   # noqa: E501
+
+        :param tiers_expiration_policy: The tiers_expiration_policy of this NewLoyaltyProgram.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["tier_start_date", "program_join_date"]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and tiers_expiration_policy not in allowed_values:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `tiers_expiration_policy` ({0}), must be one of {1}"  # noqa: E501
+                .format(tiers_expiration_policy, allowed_values)
+            )
+
+        self._tiers_expiration_policy = tiers_expiration_policy
+
+    @property
+    def tiers_expire_in(self):
+        """Gets the tiers_expire_in of this NewLoyaltyProgram.  # noqa: E501
+
+        The amount of time after which the tier expires.  The time format is an **integer** followed by one letter indicating the time unit. Examples: `30s`, `40m`, `1h`, `5D`, `7W`, `10M`, `15Y`.  Available units:  - `s`: seconds - `m`: minutes - `h`: hours - `D`: days - `W`: weeks - `M`: months - `Y`: years  You can round certain units up or down: - `_D` for rounding down days only. Signifies the start of the day. - `_U` for rounding up days, weeks, months and years. Signifies the end of the day, week, month or year.   # noqa: E501
+
+        :return: The tiers_expire_in of this NewLoyaltyProgram.  # noqa: E501
+        :rtype: str
+        """
+        return self._tiers_expire_in
+
+    @tiers_expire_in.setter
+    def tiers_expire_in(self, tiers_expire_in):
+        """Sets the tiers_expire_in of this NewLoyaltyProgram.
+
+        The amount of time after which the tier expires.  The time format is an **integer** followed by one letter indicating the time unit. Examples: `30s`, `40m`, `1h`, `5D`, `7W`, `10M`, `15Y`.  Available units:  - `s`: seconds - `m`: minutes - `h`: hours - `D`: days - `W`: weeks - `M`: months - `Y`: years  You can round certain units up or down: - `_D` for rounding down days only. Signifies the start of the day. - `_U` for rounding up days, weeks, months and years. Signifies the end of the day, week, month or year.   # noqa: E501
+
+        :param tiers_expire_in: The tiers_expire_in of this NewLoyaltyProgram.  # noqa: E501
+        :type: str
+        """
+
+        self._tiers_expire_in = tiers_expire_in
+
+    @property
+    def tiers_downgrade_policy(self):
+        """Gets the tiers_downgrade_policy of this NewLoyaltyProgram.  # noqa: E501
+
+        Customers's tier downgrade policy.  - `one_down`: Once the tier expires and if the user doesn't have enough points to stay in the tier, the user is downgraded one tier down.  - `balance_based`: Once the tier expires, the user's tier is evaluated based on the amount of active points the user has at this instant.   # noqa: E501
+
+        :return: The tiers_downgrade_policy of this NewLoyaltyProgram.  # noqa: E501
+        :rtype: str
+        """
+        return self._tiers_downgrade_policy
+
+    @tiers_downgrade_policy.setter
+    def tiers_downgrade_policy(self, tiers_downgrade_policy):
+        """Sets the tiers_downgrade_policy of this NewLoyaltyProgram.
+
+        Customers's tier downgrade policy.  - `one_down`: Once the tier expires and if the user doesn't have enough points to stay in the tier, the user is downgraded one tier down.  - `balance_based`: Once the tier expires, the user's tier is evaluated based on the amount of active points the user has at this instant.   # noqa: E501
+
+        :param tiers_downgrade_policy: The tiers_downgrade_policy of this NewLoyaltyProgram.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["one_down", "balance_based"]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and tiers_downgrade_policy not in allowed_values:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `tiers_downgrade_policy` ({0}), must be one of {1}"  # noqa: E501
+                .format(tiers_downgrade_policy, allowed_values)
+            )
+
+        self._tiers_downgrade_policy = tiers_downgrade_policy
+
+    @property
+    def program_join_policy(self):
+        """Gets the program_join_policy of this NewLoyaltyProgram.  # noqa: E501
+
+        The policy that defines when the customer joins the loyalty program.   - `not_join`: The customer does not join the loyalty program but can still earn and spend loyalty points.       **Note**: The customer does not have a program join date.   - `points_activated`: The customer joins the loyalty program only when their earned loyalty points become active for the first time.   - `points_earned`: The customer joins the loyalty program when they earn loyalty points for the first time.   # noqa: E501
+
+        :return: The program_join_policy of this NewLoyaltyProgram.  # noqa: E501
+        :rtype: str
+        """
+        return self._program_join_policy
+
+    @program_join_policy.setter
+    def program_join_policy(self, program_join_policy):
+        """Sets the program_join_policy of this NewLoyaltyProgram.
+
+        The policy that defines when the customer joins the loyalty program.   - `not_join`: The customer does not join the loyalty program but can still earn and spend loyalty points.       **Note**: The customer does not have a program join date.   - `points_activated`: The customer joins the loyalty program only when their earned loyalty points become active for the first time.   - `points_earned`: The customer joins the loyalty program when they earn loyalty points for the first time.   # noqa: E501
+
+        :param program_join_policy: The program_join_policy of this NewLoyaltyProgram.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["not_join", "points_activated", "points_earned"]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and program_join_policy not in allowed_values:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `program_join_policy` ({0}), must be one of {1}"  # noqa: E501
+                .format(program_join_policy, allowed_values)
+            )
+
+        self._program_join_policy = program_join_policy
 
     @property
     def name(self):

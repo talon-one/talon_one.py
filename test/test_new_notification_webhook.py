@@ -37,12 +37,17 @@ class TestNewNotificationWebhook(unittest.TestCase):
         if include_optional :
             return NewNotificationWebhook(
                 url = 'www.my-company.com/my-endpoint-name', 
-                headers = content-type: application/json
+                headers = [
+                    'content-type: application/json'
+                    ], 
+                enabled = True
             )
         else :
             return NewNotificationWebhook(
                 url = 'www.my-company.com/my-endpoint-name',
-                headers = content-type: application/json,
+                headers = [
+                    'content-type: application/json'
+                    ],
         )
 
     def testNewNotificationWebhook(self):

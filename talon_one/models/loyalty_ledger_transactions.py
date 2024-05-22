@@ -61,7 +61,7 @@ class LoyaltyLedgerTransactions(object):
     def has_more(self):
         """Gets the has_more of this LoyaltyLedgerTransactions.  # noqa: E501
 
-        true means there is more data in the source collection to request.  # noqa: E501
+        If `true`, it means that there is more data to request in the source collection.  # noqa: E501
 
         :return: The has_more of this LoyaltyLedgerTransactions.  # noqa: E501
         :rtype: bool
@@ -72,7 +72,7 @@ class LoyaltyLedgerTransactions(object):
     def has_more(self, has_more):
         """Sets the has_more of this LoyaltyLedgerTransactions.
 
-        true means there is more data in the source collection to request.  # noqa: E501
+        If `true`, it means that there is more data to request in the source collection.  # noqa: E501
 
         :param has_more: The has_more of this LoyaltyLedgerTransactions.  # noqa: E501
         :type: bool

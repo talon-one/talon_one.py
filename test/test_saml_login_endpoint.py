@@ -36,11 +36,13 @@ class TestSamlLoginEndpoint(unittest.TestCase):
         # model = talon_one.models.saml_login_endpoint.SamlLoginEndpoint()  # noqa: E501
         if include_optional :
             return SamlLoginEndpoint(
+                id = 2, 
                 name = '0', 
                 login_url = '0'
             )
         else :
             return SamlLoginEndpoint(
+                id = 2,
                 name = '0',
                 login_url = '0',
         )

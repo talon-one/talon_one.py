@@ -40,6 +40,7 @@ class CartItem(object):
         'remaining_quantity': 'int',
         'price': 'float',
         'category': 'str',
+        'product': 'Product',
         'weight': 'float',
         'height': 'float',
         'width': 'float',
@@ -58,6 +59,7 @@ class CartItem(object):
         'remaining_quantity': 'remainingQuantity',
         'price': 'price',
         'category': 'category',
+        'product': 'product',
         'weight': 'weight',
         'height': 'height',
         'width': 'width',
@@ -68,7 +70,7 @@ class CartItem(object):
         'catalog_item_id': 'catalogItemID'
     }
 
-    def __init__(self, name=None, sku=None, quantity=None, returned_quantity=None, remaining_quantity=None, price=None, category=None, weight=None, height=None, width=None, length=None, position=None, attributes=None, additional_costs=None, catalog_item_id=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, name=None, sku=None, quantity=None, returned_quantity=None, remaining_quantity=None, price=None, category=None, product=None, weight=None, height=None, width=None, length=None, position=None, attributes=None, additional_costs=None, catalog_item_id=None, local_vars_configuration=None):  # noqa: E501
         """CartItem - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -81,6 +83,7 @@ class CartItem(object):
         self._remaining_quantity = None
         self._price = None
         self._category = None
+        self._product = None
         self._weight = None
         self._height = None
         self._width = None
@@ -103,6 +106,8 @@ class CartItem(object):
             self.price = price
         if category is not None:
             self.category = category
+        if product is not None:
+            self.product = product
         if weight is not None:
             self.weight = weight
         if height is not None:
@@ -175,7 +180,7 @@ class CartItem(object):
     def quantity(self):
         """Gets the quantity of this CartItem.  # noqa: E501
 
-        Quantity of item. **Important:** If you enabled [cart item flattening](https://docs.talon.one/docs/product/campaigns/campaign-evaluation#flattening), the quantity is always one and the same cart item might receive multiple per-item discounts. Ensure you can process multiple discounts on one cart item correctly.   # noqa: E501
+        Number of units of this item. Due to [cart item flattening](https://docs.talon.one/docs/product/rules/understanding-cart-item-flattening), if you provide a quantity greater than 1, the item will be split in as many items as the provided quantity. This will impact the number of **per-item** effects triggered from your campaigns.   # noqa: E501
 
         :return: The quantity of this CartItem.  # noqa: E501
         :rtype: int
@@ -186,7 +191,7 @@ class CartItem(object):
     def quantity(self, quantity):
         """Sets the quantity of this CartItem.
 
-        Quantity of item. **Important:** If you enabled [cart item flattening](https://docs.talon.one/docs/product/campaigns/campaign-evaluation#flattening), the quantity is always one and the same cart item might receive multiple per-item discounts. Ensure you can process multiple discounts on one cart item correctly.   # noqa: E501
+        Number of units of this item. Due to [cart item flattening](https://docs.talon.one/docs/product/rules/understanding-cart-item-flattening), if you provide a quantity greater than 1, the item will be split in as many items as the provided quantity. This will impact the number of **per-item** effects triggered from your campaigns.   # noqa: E501
 
         :param quantity: The quantity of this CartItem.  # noqa: E501
         :type: int
@@ -290,6 +295,27 @@ class CartItem(object):
         """
 
         self._category = category
+
+    @property
+    def product(self):
+        """Gets the product of this CartItem.  # noqa: E501
+
+
+        :return: The product of this CartItem.  # noqa: E501
+        :rtype: Product
+        """
+        return self._product
+
+    @product.setter
+    def product(self, product):
+        """Sets the product of this CartItem.
+
+
+        :param product: The product of this CartItem.  # noqa: E501
+        :type: Product
+        """
+
+        self._product = product
 
     @property
     def weight(self):
@@ -456,7 +482,7 @@ class CartItem(object):
     def catalog_item_id(self):
         """Gets the catalog_item_id of this CartItem.  # noqa: E501
 
-        The [catalog item ID](https://docs.talon.one/docs/product/account/dev-tools/managing-cart-item-catalogs/#synchronizing-cart-item-catalogs).  # noqa: E501
+        The [catalog item ID](https://docs.talon.one/docs/product/account/dev-tools/managing-cart-item-catalogs/#synchronizing-a-cart-item-catalog).  # noqa: E501
 
         :return: The catalog_item_id of this CartItem.  # noqa: E501
         :rtype: int
@@ -467,7 +493,7 @@ class CartItem(object):
     def catalog_item_id(self, catalog_item_id):
         """Sets the catalog_item_id of this CartItem.
 
-        The [catalog item ID](https://docs.talon.one/docs/product/account/dev-tools/managing-cart-item-catalogs/#synchronizing-cart-item-catalogs).  # noqa: E501
+        The [catalog item ID](https://docs.talon.one/docs/product/account/dev-tools/managing-cart-item-catalogs/#synchronizing-a-cart-item-catalog).  # noqa: E501
 
         :param catalog_item_id: The catalog_item_id of this CartItem.  # noqa: E501
         :type: int

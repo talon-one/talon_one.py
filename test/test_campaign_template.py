@@ -80,6 +80,7 @@ class TestCampaignTemplate(unittest.TestCase):
                         description = 'My collection of SKUs', )
                     ], 
                 default_campaign_group_id = 42, 
+                campaign_type = 'advanced', 
                 updated = '2022-08-24T14:15:22Z', 
                 updated_by = 'Jane Doe', 
                 valid_application_ids = [1, 2, 3]
@@ -97,6 +98,7 @@ class TestCampaignTemplate(unittest.TestCase):
                 applications_ids = [
                     56
                     ],
+                campaign_type = 'advanced',
                 valid_application_ids = [1, 2, 3],
         )
 

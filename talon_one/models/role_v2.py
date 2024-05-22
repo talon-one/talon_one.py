@@ -33,44 +33,155 @@ class RoleV2(object):
                             and the value is json key in definition.
     """
     openapi_types = {
+        'id': 'int',
+        'created': 'datetime',
+        'modified': 'datetime',
+        'account_id': 'int',
         'name': 'str',
         'description': 'str',
-        'is_admin': 'bool',
         'permissions': 'RoleV2Permissions',
         'members': 'list[int]'
     }
 
     attribute_map = {
+        'id': 'id',
+        'created': 'created',
+        'modified': 'modified',
+        'account_id': 'accountId',
         'name': 'name',
         'description': 'description',
-        'is_admin': 'isAdmin',
         'permissions': 'permissions',
         'members': 'members'
     }
 
-    def __init__(self, name=None, description=None, is_admin=None, permissions=None, members=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, created=None, modified=None, account_id=None, name=None, description=None, permissions=None, members=None, local_vars_configuration=None):  # noqa: E501
         """RoleV2 - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
+        self._id = None
+        self._created = None
+        self._modified = None
+        self._account_id = None
         self._name = None
         self._description = None
-        self._is_admin = None
         self._permissions = None
         self._members = None
         self.discriminator = None
 
+        self.id = id
+        self.created = created
+        self.modified = modified
+        self.account_id = account_id
         if name is not None:
             self.name = name
         if description is not None:
             self.description = description
-        if is_admin is not None:
-            self.is_admin = is_admin
         if permissions is not None:
             self.permissions = permissions
         if members is not None:
             self.members = members
+
+    @property
+    def id(self):
+        """Gets the id of this RoleV2.  # noqa: E501
+
+        Internal ID of this entity.  # noqa: E501
+
+        :return: The id of this RoleV2.  # noqa: E501
+        :rtype: int
+        """
+        return self._id
+
+    @id.setter
+    def id(self, id):
+        """Sets the id of this RoleV2.
+
+        Internal ID of this entity.  # noqa: E501
+
+        :param id: The id of this RoleV2.  # noqa: E501
+        :type: int
+        """
+        if self.local_vars_configuration.client_side_validation and id is None:  # noqa: E501
+            raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
+
+        self._id = id
+
+    @property
+    def created(self):
+        """Gets the created of this RoleV2.  # noqa: E501
+
+        The time this entity was created.  # noqa: E501
+
+        :return: The created of this RoleV2.  # noqa: E501
+        :rtype: datetime
+        """
+        return self._created
+
+    @created.setter
+    def created(self, created):
+        """Sets the created of this RoleV2.
+
+        The time this entity was created.  # noqa: E501
+
+        :param created: The created of this RoleV2.  # noqa: E501
+        :type: datetime
+        """
+        if self.local_vars_configuration.client_side_validation and created is None:  # noqa: E501
+            raise ValueError("Invalid value for `created`, must not be `None`")  # noqa: E501
+
+        self._created = created
+
+    @property
+    def modified(self):
+        """Gets the modified of this RoleV2.  # noqa: E501
+
+        The time this entity was last modified.  # noqa: E501
+
+        :return: The modified of this RoleV2.  # noqa: E501
+        :rtype: datetime
+        """
+        return self._modified
+
+    @modified.setter
+    def modified(self, modified):
+        """Sets the modified of this RoleV2.
+
+        The time this entity was last modified.  # noqa: E501
+
+        :param modified: The modified of this RoleV2.  # noqa: E501
+        :type: datetime
+        """
+        if self.local_vars_configuration.client_side_validation and modified is None:  # noqa: E501
+            raise ValueError("Invalid value for `modified`, must not be `None`")  # noqa: E501
+
+        self._modified = modified
+
+    @property
+    def account_id(self):
+        """Gets the account_id of this RoleV2.  # noqa: E501
+
+        The ID of the account that owns this entity.  # noqa: E501
+
+        :return: The account_id of this RoleV2.  # noqa: E501
+        :rtype: int
+        """
+        return self._account_id
+
+    @account_id.setter
+    def account_id(self, account_id):
+        """Sets the account_id of this RoleV2.
+
+        The ID of the account that owns this entity.  # noqa: E501
+
+        :param account_id: The account_id of this RoleV2.  # noqa: E501
+        :type: int
+        """
+        if self.local_vars_configuration.client_side_validation and account_id is None:  # noqa: E501
+            raise ValueError("Invalid value for `account_id`, must not be `None`")  # noqa: E501
+
+        self._account_id = account_id
 
     @property
     def name(self):
@@ -119,29 +230,6 @@ class RoleV2(object):
         self._description = description
 
     @property
-    def is_admin(self):
-        """Gets the is_admin of this RoleV2.  # noqa: E501
-
-        Indicates whether the role grants admin permissions.  # noqa: E501
-
-        :return: The is_admin of this RoleV2.  # noqa: E501
-        :rtype: bool
-        """
-        return self._is_admin
-
-    @is_admin.setter
-    def is_admin(self, is_admin):
-        """Sets the is_admin of this RoleV2.
-
-        Indicates whether the role grants admin permissions.  # noqa: E501
-
-        :param is_admin: The is_admin of this RoleV2.  # noqa: E501
-        :type: bool
-        """
-
-        self._is_admin = is_admin
-
-    @property
     def permissions(self):
         """Gets the permissions of this RoleV2.  # noqa: E501
 
@@ -166,7 +254,7 @@ class RoleV2(object):
     def members(self):
         """Gets the members of this RoleV2.  # noqa: E501
 
-        An array of user identifiers.  # noqa: E501
+        A list of user IDs the role is assigned to.  # noqa: E501
 
         :return: The members of this RoleV2.  # noqa: E501
         :rtype: list[int]
@@ -177,7 +265,7 @@ class RoleV2(object):
     def members(self, members):
         """Sets the members of this RoleV2.
 
-        An array of user identifiers.  # noqa: E501
+        A list of user IDs the role is assigned to.  # noqa: E501
 
         :param members: The members of this RoleV2.  # noqa: E501
         :type: list[int]

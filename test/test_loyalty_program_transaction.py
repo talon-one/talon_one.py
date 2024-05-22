@@ -38,6 +38,7 @@ class TestLoyaltyProgramTransaction(unittest.TestCase):
             return LoyaltyProgramTransaction(
                 id = 123, 
                 program_id = 324, 
+                campaign_id = 324, 
                 created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                 type = 'addition', 
                 amount = 10.25, 

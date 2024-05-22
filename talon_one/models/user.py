@@ -38,14 +38,17 @@ class User(object):
         'modified': 'datetime',
         'email': 'str',
         'account_id': 'int',
-        'invite_token': 'str',
-        'state': 'str',
         'name': 'str',
+        'state': 'str',
+        'invite_token': 'str',
+        'is_admin': 'bool',
         'policy': 'object',
-        'latest_feed_timestamp': 'datetime',
         'roles': 'list[int]',
+        'auth_method': 'str',
         'application_notification_subscriptions': 'object',
-        'auth_method': 'str'
+        'last_signed_in': 'datetime',
+        'last_accessed': 'datetime',
+        'latest_feed_timestamp': 'datetime'
     }
 
     attribute_map = {
@@ -54,17 +57,20 @@ class User(object):
         'modified': 'modified',
         'email': 'email',
         'account_id': 'accountId',
-        'invite_token': 'inviteToken',
-        'state': 'state',
         'name': 'name',
+        'state': 'state',
+        'invite_token': 'inviteToken',
+        'is_admin': 'isAdmin',
         'policy': 'policy',
-        'latest_feed_timestamp': 'latestFeedTimestamp',
         'roles': 'roles',
+        'auth_method': 'authMethod',
         'application_notification_subscriptions': 'applicationNotificationSubscriptions',
-        'auth_method': 'authMethod'
+        'last_signed_in': 'lastSignedIn',
+        'last_accessed': 'lastAccessed',
+        'latest_feed_timestamp': 'latestFeedTimestamp'
     }
 
-    def __init__(self, id=None, created=None, modified=None, email=None, account_id=None, invite_token=None, state=None, name=None, policy=None, latest_feed_timestamp=None, roles=None, application_notification_subscriptions=None, auth_method=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, created=None, modified=None, email=None, account_id=None, name=None, state=None, invite_token=None, is_admin=None, policy=None, roles=None, auth_method=None, application_notification_subscriptions=None, last_signed_in=None, last_accessed=None, latest_feed_timestamp=None, local_vars_configuration=None):  # noqa: E501
         """User - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -75,14 +81,17 @@ class User(object):
         self._modified = None
         self._email = None
         self._account_id = None
-        self._invite_token = None
-        self._state = None
         self._name = None
+        self._state = None
+        self._invite_token = None
+        self._is_admin = None
         self._policy = None
-        self._latest_feed_timestamp = None
         self._roles = None
-        self._application_notification_subscriptions = None
         self._auth_method = None
+        self._application_notification_subscriptions = None
+        self._last_signed_in = None
+        self._last_accessed = None
+        self._latest_feed_timestamp = None
         self.discriminator = None
 
         self.id = id
@@ -90,18 +99,24 @@ class User(object):
         self.modified = modified
         self.email = email
         self.account_id = account_id
-        self.invite_token = invite_token
-        self.state = state
         self.name = name
+        self.state = state
+        self.invite_token = invite_token
+        if is_admin is not None:
+            self.is_admin = is_admin
         self.policy = policy
-        if latest_feed_timestamp is not None:
-            self.latest_feed_timestamp = latest_feed_timestamp
         if roles is not None:
             self.roles = roles
-        if application_notification_subscriptions is not None:
-            self.application_notification_subscriptions = application_notification_subscriptions
         if auth_method is not None:
             self.auth_method = auth_method
+        if application_notification_subscriptions is not None:
+            self.application_notification_subscriptions = application_notification_subscriptions
+        if last_signed_in is not None:
+            self.last_signed_in = last_signed_in
+        if last_accessed is not None:
+            self.last_accessed = last_accessed
+        if latest_feed_timestamp is not None:
+            self.latest_feed_timestamp = latest_feed_timestamp
 
     @property
     def id(self):
@@ -182,7 +197,7 @@ class User(object):
     def email(self):
         """Gets the email of this User.  # noqa: E501
 
-        The email address associated with your account.  # noqa: E501
+        The email address associated with the user profile.  # noqa: E501
 
         :return: The email of this User.  # noqa: E501
         :rtype: str
@@ -193,7 +208,7 @@ class User(object):
     def email(self, email):
         """Sets the email of this User.
 
-        The email address associated with your account.  # noqa: E501
+        The email address associated with the user profile.  # noqa: E501
 
         :param email: The email of this User.  # noqa: E501
         :type: str
@@ -229,35 +244,35 @@ class User(object):
         self._account_id = account_id
 
     @property
-    def invite_token(self):
-        """Gets the invite_token of this User.  # noqa: E501
+    def name(self):
+        """Gets the name of this User.  # noqa: E501
 
-        Invite token, empty if the user as already accepted their invite.  # noqa: E501
+        Name of the user.  # noqa: E501
 
-        :return: The invite_token of this User.  # noqa: E501
+        :return: The name of this User.  # noqa: E501
         :rtype: str
         """
-        return self._invite_token
+        return self._name
 
-    @invite_token.setter
-    def invite_token(self, invite_token):
-        """Sets the invite_token of this User.
+    @name.setter
+    def name(self, name):
+        """Sets the name of this User.
 
-        Invite token, empty if the user as already accepted their invite.  # noqa: E501
+        Name of the user.  # noqa: E501
 
-        :param invite_token: The invite_token of this User.  # noqa: E501
+        :param name: The name of this User.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and invite_token is None:  # noqa: E501
-            raise ValueError("Invalid value for `invite_token`, must not be `None`")  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and name is None:  # noqa: E501
+            raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
 
-        self._invite_token = invite_token
+        self._name = name
 
     @property
     def state(self):
         """Gets the state of this User.  # noqa: E501
 
-        Current user state.  # noqa: E501
+        State of the user.  # noqa: E501
 
         :return: The state of this User.  # noqa: E501
         :rtype: str
@@ -268,7 +283,7 @@ class User(object):
     def state(self, state):
         """Sets the state of this User.
 
-        Current user state.  # noqa: E501
+        State of the user.  # noqa: E501
 
         :param state: The state of this User.  # noqa: E501
         :type: str
@@ -285,35 +300,58 @@ class User(object):
         self._state = state
 
     @property
-    def name(self):
-        """Gets the name of this User.  # noqa: E501
+    def invite_token(self):
+        """Gets the invite_token of this User.  # noqa: E501
 
-        Full name  # noqa: E501
+        Invitation token of the user.  **Note**: If the user has already accepted their invitation, this is `null`.   # noqa: E501
 
-        :return: The name of this User.  # noqa: E501
+        :return: The invite_token of this User.  # noqa: E501
         :rtype: str
         """
-        return self._name
+        return self._invite_token
 
-    @name.setter
-    def name(self, name):
-        """Sets the name of this User.
+    @invite_token.setter
+    def invite_token(self, invite_token):
+        """Sets the invite_token of this User.
 
-        Full name  # noqa: E501
+        Invitation token of the user.  **Note**: If the user has already accepted their invitation, this is `null`.   # noqa: E501
 
-        :param name: The name of this User.  # noqa: E501
+        :param invite_token: The invite_token of this User.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and name is None:  # noqa: E501
-            raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and invite_token is None:  # noqa: E501
+            raise ValueError("Invalid value for `invite_token`, must not be `None`")  # noqa: E501
 
-        self._name = name
+        self._invite_token = invite_token
+
+    @property
+    def is_admin(self):
+        """Gets the is_admin of this User.  # noqa: E501
+
+        Indicates whether the user is an `admin`.  # noqa: E501
+
+        :return: The is_admin of this User.  # noqa: E501
+        :rtype: bool
+        """
+        return self._is_admin
+
+    @is_admin.setter
+    def is_admin(self, is_admin):
+        """Sets the is_admin of this User.
+
+        Indicates whether the user is an `admin`.  # noqa: E501
+
+        :param is_admin: The is_admin of this User.  # noqa: E501
+        :type: bool
+        """
+
+        self._is_admin = is_admin
 
     @property
     def policy(self):
         """Gets the policy of this User.  # noqa: E501
 
-        User ACL Policy  # noqa: E501
+        Access level of the user.  # noqa: E501
 
         :return: The policy of this User.  # noqa: E501
         :rtype: object
@@ -324,7 +362,7 @@ class User(object):
     def policy(self, policy):
         """Sets the policy of this User.
 
-        User ACL Policy  # noqa: E501
+        Access level of the user.  # noqa: E501
 
         :param policy: The policy of this User.  # noqa: E501
         :type: object
@@ -335,33 +373,10 @@ class User(object):
         self._policy = policy
 
     @property
-    def latest_feed_timestamp(self):
-        """Gets the latest_feed_timestamp of this User.  # noqa: E501
-
-        Latest timestamp the user has been notified for feed.  # noqa: E501
-
-        :return: The latest_feed_timestamp of this User.  # noqa: E501
-        :rtype: datetime
-        """
-        return self._latest_feed_timestamp
-
-    @latest_feed_timestamp.setter
-    def latest_feed_timestamp(self, latest_feed_timestamp):
-        """Sets the latest_feed_timestamp of this User.
-
-        Latest timestamp the user has been notified for feed.  # noqa: E501
-
-        :param latest_feed_timestamp: The latest_feed_timestamp of this User.  # noqa: E501
-        :type: datetime
-        """
-
-        self._latest_feed_timestamp = latest_feed_timestamp
-
-    @property
     def roles(self):
         """Gets the roles of this User.  # noqa: E501
 
-        Contains a list of all roles the user is a member of.  # noqa: E501
+        A list of the IDs of the roles assigned to the user.  # noqa: E501
 
         :return: The roles of this User.  # noqa: E501
         :rtype: list[int]
@@ -372,7 +387,7 @@ class User(object):
     def roles(self, roles):
         """Sets the roles of this User.
 
-        Contains a list of all roles the user is a member of.  # noqa: E501
+        A list of the IDs of the roles assigned to the user.  # noqa: E501
 
         :param roles: The roles of this User.  # noqa: E501
         :type: list[int]
@@ -381,31 +396,10 @@ class User(object):
         self._roles = roles
 
     @property
-    def application_notification_subscriptions(self):
-        """Gets the application_notification_subscriptions of this User.  # noqa: E501
-
-
-        :return: The application_notification_subscriptions of this User.  # noqa: E501
-        :rtype: object
-        """
-        return self._application_notification_subscriptions
-
-    @application_notification_subscriptions.setter
-    def application_notification_subscriptions(self, application_notification_subscriptions):
-        """Sets the application_notification_subscriptions of this User.
-
-
-        :param application_notification_subscriptions: The application_notification_subscriptions of this User.  # noqa: E501
-        :type: object
-        """
-
-        self._application_notification_subscriptions = application_notification_subscriptions
-
-    @property
     def auth_method(self):
         """Gets the auth_method of this User.  # noqa: E501
 
-        The Authentication method for this user.  # noqa: E501
+        Authentication method for this user.  # noqa: E501
 
         :return: The auth_method of this User.  # noqa: E501
         :rtype: str
@@ -416,13 +410,105 @@ class User(object):
     def auth_method(self, auth_method):
         """Sets the auth_method of this User.
 
-        The Authentication method for this user.  # noqa: E501
+        Authentication method for this user.  # noqa: E501
 
         :param auth_method: The auth_method of this User.  # noqa: E501
         :type: str
         """
 
         self._auth_method = auth_method
+
+    @property
+    def application_notification_subscriptions(self):
+        """Gets the application_notification_subscriptions of this User.  # noqa: E501
+
+        Application notifications that the user is subscribed to.  # noqa: E501
+
+        :return: The application_notification_subscriptions of this User.  # noqa: E501
+        :rtype: object
+        """
+        return self._application_notification_subscriptions
+
+    @application_notification_subscriptions.setter
+    def application_notification_subscriptions(self, application_notification_subscriptions):
+        """Sets the application_notification_subscriptions of this User.
+
+        Application notifications that the user is subscribed to.  # noqa: E501
+
+        :param application_notification_subscriptions: The application_notification_subscriptions of this User.  # noqa: E501
+        :type: object
+        """
+
+        self._application_notification_subscriptions = application_notification_subscriptions
+
+    @property
+    def last_signed_in(self):
+        """Gets the last_signed_in of this User.  # noqa: E501
+
+        Timestamp when the user last signed in to Talon.One.  # noqa: E501
+
+        :return: The last_signed_in of this User.  # noqa: E501
+        :rtype: datetime
+        """
+        return self._last_signed_in
+
+    @last_signed_in.setter
+    def last_signed_in(self, last_signed_in):
+        """Sets the last_signed_in of this User.
+
+        Timestamp when the user last signed in to Talon.One.  # noqa: E501
+
+        :param last_signed_in: The last_signed_in of this User.  # noqa: E501
+        :type: datetime
+        """
+
+        self._last_signed_in = last_signed_in
+
+    @property
+    def last_accessed(self):
+        """Gets the last_accessed of this User.  # noqa: E501
+
+        Timestamp of the user's last activity after signing in to Talon.One.  # noqa: E501
+
+        :return: The last_accessed of this User.  # noqa: E501
+        :rtype: datetime
+        """
+        return self._last_accessed
+
+    @last_accessed.setter
+    def last_accessed(self, last_accessed):
+        """Sets the last_accessed of this User.
+
+        Timestamp of the user's last activity after signing in to Talon.One.  # noqa: E501
+
+        :param last_accessed: The last_accessed of this User.  # noqa: E501
+        :type: datetime
+        """
+
+        self._last_accessed = last_accessed
+
+    @property
+    def latest_feed_timestamp(self):
+        """Gets the latest_feed_timestamp of this User.  # noqa: E501
+
+        Timestamp when the user was notified for feed.  # noqa: E501
+
+        :return: The latest_feed_timestamp of this User.  # noqa: E501
+        :rtype: datetime
+        """
+        return self._latest_feed_timestamp
+
+    @latest_feed_timestamp.setter
+    def latest_feed_timestamp(self, latest_feed_timestamp):
+        """Sets the latest_feed_timestamp of this User.
+
+        Timestamp when the user was notified for feed.  # noqa: E501
+
+        :param latest_feed_timestamp: The latest_feed_timestamp of this User.  # noqa: E501
+        :type: datetime
+        """
+
+        self._latest_feed_timestamp = latest_feed_timestamp
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -35,16 +35,20 @@ class CreateApplicationAPIKey(object):
     openapi_types = {
         'title': 'str',
         'expires': 'datetime',
-        'platform': 'str'
+        'platform': 'str',
+        'type': 'str',
+        'time_offset': 'int'
     }
 
     attribute_map = {
         'title': 'title',
         'expires': 'expires',
-        'platform': 'platform'
+        'platform': 'platform',
+        'type': 'type',
+        'time_offset': 'timeOffset'
     }
 
-    def __init__(self, title=None, expires=None, platform=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, title=None, expires=None, platform=None, type=None, time_offset=None, local_vars_configuration=None):  # noqa: E501
         """CreateApplicationAPIKey - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -53,18 +57,24 @@ class CreateApplicationAPIKey(object):
         self._title = None
         self._expires = None
         self._platform = None
+        self._type = None
+        self._time_offset = None
         self.discriminator = None
 
         self.title = title
         self.expires = expires
         if platform is not None:
             self.platform = platform
+        if type is not None:
+            self.type = type
+        if time_offset is not None:
+            self.time_offset = time_offset
 
     @property
     def title(self):
         """Gets the title of this CreateApplicationAPIKey.  # noqa: E501
 
-        Title for API Key.  # noqa: E501
+        Title of the API key.  # noqa: E501
 
         :return: The title of this CreateApplicationAPIKey.  # noqa: E501
         :rtype: str
@@ -75,7 +85,7 @@ class CreateApplicationAPIKey(object):
     def title(self, title):
         """Sets the title of this CreateApplicationAPIKey.
 
-        Title for API Key.  # noqa: E501
+        Title of the API key.  # noqa: E501
 
         :param title: The title of this CreateApplicationAPIKey.  # noqa: E501
         :type: str
@@ -89,7 +99,7 @@ class CreateApplicationAPIKey(object):
     def expires(self):
         """Gets the expires of this CreateApplicationAPIKey.  # noqa: E501
 
-        The date the API key expired.  # noqa: E501
+        The date the API key expires.  # noqa: E501
 
         :return: The expires of this CreateApplicationAPIKey.  # noqa: E501
         :rtype: datetime
@@ -100,7 +110,7 @@ class CreateApplicationAPIKey(object):
     def expires(self, expires):
         """Sets the expires of this CreateApplicationAPIKey.
 
-        The date the API key expired.  # noqa: E501
+        The date the API key expires.  # noqa: E501
 
         :param expires: The expires of this CreateApplicationAPIKey.  # noqa: E501
         :type: datetime
@@ -130,7 +140,7 @@ class CreateApplicationAPIKey(object):
         :param platform: The platform of this CreateApplicationAPIKey.  # noqa: E501
         :type: str
         """
-        allowed_values = ["none", "segment", "braze", "mparticle", "selligent", "iterable", "customer_engagement", "customer_data", "salesforce"]  # noqa: E501
+        allowed_values = ["none", "segment", "braze", "mparticle", "selligent", "iterable", "customer_engagement", "customer_data", "salesforce", "emarsys"]  # noqa: E501
         if self.local_vars_configuration.client_side_validation and platform not in allowed_values:  # noqa: E501
             raise ValueError(
                 "Invalid value for `platform` ({0}), must be one of {1}"  # noqa: E501
@@ -138,6 +148,58 @@ class CreateApplicationAPIKey(object):
             )
 
         self._platform = platform
+
+    @property
+    def type(self):
+        """Gets the type of this CreateApplicationAPIKey.  # noqa: E501
+
+        The API key type. Can be empty or `staging`.  Staging API keys can only be used for dry requests with the [Update customer session](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint, [Update customer profile](https://docs.talon.one/integration-api#tag/Customer-profiles/operation/updateCustomerProfileV2) endpoint, and [Track event](https://docs.talon.one/integration-api#tag/Events/operation/trackEventV2) endpoint.  When using the _Update customer profile_ endpoint with a staging API key, the query parameter `runRuleEngine` must be `true`.   # noqa: E501
+
+        :return: The type of this CreateApplicationAPIKey.  # noqa: E501
+        :rtype: str
+        """
+        return self._type
+
+    @type.setter
+    def type(self, type):
+        """Sets the type of this CreateApplicationAPIKey.
+
+        The API key type. Can be empty or `staging`.  Staging API keys can only be used for dry requests with the [Update customer session](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint, [Update customer profile](https://docs.talon.one/integration-api#tag/Customer-profiles/operation/updateCustomerProfileV2) endpoint, and [Track event](https://docs.talon.one/integration-api#tag/Events/operation/trackEventV2) endpoint.  When using the _Update customer profile_ endpoint with a staging API key, the query parameter `runRuleEngine` must be `true`.   # noqa: E501
+
+        :param type: The type of this CreateApplicationAPIKey.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["staging"]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and type not in allowed_values:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `type` ({0}), must be one of {1}"  # noqa: E501
+                .format(type, allowed_values)
+            )
+
+        self._type = type
+
+    @property
+    def time_offset(self):
+        """Gets the time_offset of this CreateApplicationAPIKey.  # noqa: E501
+
+        A time offset in nanoseconds associated with the API key. When making a request using the API key, rule evaluation is based on a date that is calculated by adding the offset to the current date.   # noqa: E501
+
+        :return: The time_offset of this CreateApplicationAPIKey.  # noqa: E501
+        :rtype: int
+        """
+        return self._time_offset
+
+    @time_offset.setter
+    def time_offset(self, time_offset):
+        """Sets the time_offset of this CreateApplicationAPIKey.
+
+        A time offset in nanoseconds associated with the API key. When making a request using the API key, rule evaluation is based on a date that is calculated by adding the offset to the current date.   # noqa: E501
+
+        :param time_offset: The time_offset of this CreateApplicationAPIKey.  # noqa: E501
+        :type: int
+        """
+
+        self._time_offset = time_offset
 
     def to_dict(self):
         """Returns the model properties as a dict"""

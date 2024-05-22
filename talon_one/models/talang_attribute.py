@@ -107,7 +107,7 @@ class TalangAttribute(object):
         :param entity: The entity of this TalangAttribute.  # noqa: E501
         :type: str
         """
-        allowed_values = ["AdvocateProfile", "Account", "Application", "AwardedGiveaway", "Bundle", "Campaign", "CartItem", "Coupon", "CustomerProfile", "CustomerSession", "Event", "Item", "Loyalty", "Profile", "Giveaway", "Referral", "Session"]  # noqa: E501
+        allowed_values = ["AdvocateProfile", "Account", "Application", "AwardedGiveaway", "Bundle", "Campaign", "CartItem", "Coupon", "CustomerProfile", "CustomerSession", "Event", "Item", "Loyalty", "Profile", "Giveaway", "Referral", "Session", "Store", "Achievements"]  # noqa: E501
         if self.local_vars_configuration.client_side_validation and entity not in allowed_values:  # noqa: E501
             raise ValueError(
                 "Invalid value for `entity` ({0}), must be one of {1}"  # noqa: E501

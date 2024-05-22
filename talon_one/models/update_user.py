@@ -34,39 +34,44 @@ class UpdateUser(object):
     """
     openapi_types = {
         'name': 'str',
-        'policy': 'str',
         'state': 'str',
+        'is_admin': 'bool',
+        'policy': 'str',
         'roles': 'list[int]',
         'application_notification_subscriptions': 'object'
     }
 
     attribute_map = {
         'name': 'name',
-        'policy': 'policy',
         'state': 'state',
+        'is_admin': 'isAdmin',
+        'policy': 'policy',
         'roles': 'roles',
         'application_notification_subscriptions': 'applicationNotificationSubscriptions'
     }
 
-    def __init__(self, name=None, policy=None, state=None, roles=None, application_notification_subscriptions=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, name=None, state=None, is_admin=None, policy=None, roles=None, application_notification_subscriptions=None, local_vars_configuration=None):  # noqa: E501
         """UpdateUser - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._name = None
-        self._policy = None
         self._state = None
+        self._is_admin = None
+        self._policy = None
         self._roles = None
         self._application_notification_subscriptions = None
         self.discriminator = None
 
         if name is not None:
             self.name = name
-        if policy is not None:
-            self.policy = policy
         if state is not None:
             self.state = state
+        if is_admin is not None:
+            self.is_admin = is_admin
+        if policy is not None:
+            self.policy = policy
         if roles is not None:
             self.roles = roles
         if application_notification_subscriptions is not None:
@@ -76,7 +81,7 @@ class UpdateUser(object):
     def name(self):
         """Gets the name of this UpdateUser.  # noqa: E501
 
-        The user name.  # noqa: E501
+        Name of the user.  # noqa: E501
 
         :return: The name of this UpdateUser.  # noqa: E501
         :rtype: str
@@ -87,7 +92,7 @@ class UpdateUser(object):
     def name(self, name):
         """Sets the name of this UpdateUser.
 
-        The user name.  # noqa: E501
+        Name of the user.  # noqa: E501
 
         :param name: The name of this UpdateUser.  # noqa: E501
         :type: str
@@ -96,33 +101,10 @@ class UpdateUser(object):
         self._name = name
 
     @property
-    def policy(self):
-        """Gets the policy of this UpdateUser.  # noqa: E501
-
-        The `Access Control List` json defining the role of the user. This represents the access control on the user level.  # noqa: E501
-
-        :return: The policy of this UpdateUser.  # noqa: E501
-        :rtype: str
-        """
-        return self._policy
-
-    @policy.setter
-    def policy(self, policy):
-        """Sets the policy of this UpdateUser.
-
-        The `Access Control List` json defining the role of the user. This represents the access control on the user level.  # noqa: E501
-
-        :param policy: The policy of this UpdateUser.  # noqa: E501
-        :type: str
-        """
-
-        self._policy = policy
-
-    @property
     def state(self):
         """Gets the state of this UpdateUser.  # noqa: E501
 
-        New state (\"deactivated\" or \"active\") for the user. Only usable by admins for the user.  # noqa: E501
+        The state of the user.   - `deactivated`: The user has been deactivated.   - `active`: The user is active.  **Note**: Only `admin` users can update the state of another user.   # noqa: E501
 
         :return: The state of this UpdateUser.  # noqa: E501
         :rtype: str
@@ -133,7 +115,7 @@ class UpdateUser(object):
     def state(self, state):
         """Sets the state of this UpdateUser.
 
-        New state (\"deactivated\" or \"active\") for the user. Only usable by admins for the user.  # noqa: E501
+        The state of the user.   - `deactivated`: The user has been deactivated.   - `active`: The user is active.  **Note**: Only `admin` users can update the state of another user.   # noqa: E501
 
         :param state: The state of this UpdateUser.  # noqa: E501
         :type: str
@@ -148,10 +130,56 @@ class UpdateUser(object):
         self._state = state
 
     @property
+    def is_admin(self):
+        """Gets the is_admin of this UpdateUser.  # noqa: E501
+
+        Indicates whether the user is an `admin`.  # noqa: E501
+
+        :return: The is_admin of this UpdateUser.  # noqa: E501
+        :rtype: bool
+        """
+        return self._is_admin
+
+    @is_admin.setter
+    def is_admin(self, is_admin):
+        """Sets the is_admin of this UpdateUser.
+
+        Indicates whether the user is an `admin`.  # noqa: E501
+
+        :param is_admin: The is_admin of this UpdateUser.  # noqa: E501
+        :type: bool
+        """
+
+        self._is_admin = is_admin
+
+    @property
+    def policy(self):
+        """Gets the policy of this UpdateUser.  # noqa: E501
+
+        Indicates the access level of the user.  # noqa: E501
+
+        :return: The policy of this UpdateUser.  # noqa: E501
+        :rtype: str
+        """
+        return self._policy
+
+    @policy.setter
+    def policy(self, policy):
+        """Sets the policy of this UpdateUser.
+
+        Indicates the access level of the user.  # noqa: E501
+
+        :param policy: The policy of this UpdateUser.  # noqa: E501
+        :type: str
+        """
+
+        self._policy = policy
+
+    @property
     def roles(self):
         """Gets the roles of this UpdateUser.  # noqa: E501
 
-        List of roles to assign to the user.  # noqa: E501
+        A list of the IDs of the roles assigned to the user.  **Note**: Use the [List roles](https://docs.talon.one/management-api#tag/Roles/operation/getAllRoles) endpoint to find the ID of a role.   # noqa: E501
 
         :return: The roles of this UpdateUser.  # noqa: E501
         :rtype: list[int]
@@ -162,7 +190,7 @@ class UpdateUser(object):
     def roles(self, roles):
         """Sets the roles of this UpdateUser.
 
-        List of roles to assign to the user.  # noqa: E501
+        A list of the IDs of the roles assigned to the user.  **Note**: Use the [List roles](https://docs.talon.one/management-api#tag/Roles/operation/getAllRoles) endpoint to find the ID of a role.   # noqa: E501
 
         :param roles: The roles of this UpdateUser.  # noqa: E501
         :type: list[int]
@@ -174,6 +202,7 @@ class UpdateUser(object):
     def application_notification_subscriptions(self):
         """Gets the application_notification_subscriptions of this UpdateUser.  # noqa: E501
 
+        Application notifications that the user is subscribed to.  # noqa: E501
 
         :return: The application_notification_subscriptions of this UpdateUser.  # noqa: E501
         :rtype: object
@@ -184,6 +213,7 @@ class UpdateUser(object):
     def application_notification_subscriptions(self, application_notification_subscriptions):
         """Sets the application_notification_subscriptions of this UpdateUser.
 
+        Application notifications that the user is subscribed to.  # noqa: E501
 
         :param application_notification_subscriptions: The application_notification_subscriptions of this UpdateUser.  # noqa: E501
         :type: object

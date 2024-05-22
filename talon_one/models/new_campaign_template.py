@@ -46,7 +46,8 @@ class NewCampaignTemplate(object):
         'limits': 'list[TemplateLimitConfig]',
         'template_params': 'list[CampaignTemplateParams]',
         'campaign_collections': 'list[CampaignTemplateCollection]',
-        'default_campaign_group_id': 'int'
+        'default_campaign_group_id': 'int',
+        'campaign_type': 'str'
     }
 
     attribute_map = {
@@ -63,10 +64,11 @@ class NewCampaignTemplate(object):
         'limits': 'limits',
         'template_params': 'templateParams',
         'campaign_collections': 'campaignCollections',
-        'default_campaign_group_id': 'defaultCampaignGroupId'
+        'default_campaign_group_id': 'defaultCampaignGroupId',
+        'campaign_type': 'campaignType'
     }
 
-    def __init__(self, name=None, description=None, instructions=None, campaign_attributes=None, coupon_attributes=None, state=None, tags=None, features=None, coupon_settings=None, referral_settings=None, limits=None, template_params=None, campaign_collections=None, default_campaign_group_id=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, name=None, description=None, instructions=None, campaign_attributes=None, coupon_attributes=None, state=None, tags=None, features=None, coupon_settings=None, referral_settings=None, limits=None, template_params=None, campaign_collections=None, default_campaign_group_id=None, campaign_type='advanced', local_vars_configuration=None):  # noqa: E501
         """NewCampaignTemplate - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -86,6 +88,7 @@ class NewCampaignTemplate(object):
         self._template_params = None
         self._campaign_collections = None
         self._default_campaign_group_id = None
+        self._campaign_type = None
         self.discriminator = None
 
         self.name = name
@@ -112,6 +115,7 @@ class NewCampaignTemplate(object):
             self.campaign_collections = campaign_collections
         if default_campaign_group_id is not None:
             self.default_campaign_group_id = default_campaign_group_id
+        self.campaign_type = campaign_type
 
     @property
     def name(self):
@@ -311,7 +315,7 @@ class NewCampaignTemplate(object):
         :param features: The features of this NewCampaignTemplate.  # noqa: E501
         :type: list[str]
         """
-        allowed_values = ["coupons", "referrals", "loyalty", "giveaways", "strikethrough"]  # noqa: E501
+        allowed_values = ["coupons", "referrals", "loyalty", "giveaways", "strikethrough", "achievements"]  # noqa: E501
         if (self.local_vars_configuration.client_side_validation and
                 not set(features).issubset(set(allowed_values))):  # noqa: E501
             raise ValueError(
@@ -455,6 +459,37 @@ class NewCampaignTemplate(object):
         """
 
         self._default_campaign_group_id = default_campaign_group_id
+
+    @property
+    def campaign_type(self):
+        """Gets the campaign_type of this NewCampaignTemplate.  # noqa: E501
+
+        The campaign type. Possible type values:   - `cartItem`: Type of campaign that can apply effects only to cart items.   - `advanced`: Type of campaign that can apply effects to customer sessions and cart items.   # noqa: E501
+
+        :return: The campaign_type of this NewCampaignTemplate.  # noqa: E501
+        :rtype: str
+        """
+        return self._campaign_type
+
+    @campaign_type.setter
+    def campaign_type(self, campaign_type):
+        """Sets the campaign_type of this NewCampaignTemplate.
+
+        The campaign type. Possible type values:   - `cartItem`: Type of campaign that can apply effects only to cart items.   - `advanced`: Type of campaign that can apply effects to customer sessions and cart items.   # noqa: E501
+
+        :param campaign_type: The campaign_type of this NewCampaignTemplate.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and campaign_type is None:  # noqa: E501
+            raise ValueError("Invalid value for `campaign_type`, must not be `None`")  # noqa: E501
+        allowed_values = ["cartItem", "advanced"]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and campaign_type not in allowed_values:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `campaign_type` ({0}), must be one of {1}"  # noqa: E501
+                .format(campaign_type, allowed_values)
+            )
+
+        self._campaign_type = campaign_type
 
     def to_dict(self):
         """Returns the model properties as a dict"""

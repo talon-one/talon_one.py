@@ -38,7 +38,8 @@ class TestRoleV2ApplicationDetails(unittest.TestCase):
             return RoleV2ApplicationDetails(
                 application = '0', 
                 campaign = '0', 
-                draft_campaign = '0'
+                draft_campaign = '0', 
+                tools = 'Tools permission set'
             )
         else :
             return RoleV2ApplicationDetails(

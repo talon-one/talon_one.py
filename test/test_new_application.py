@@ -49,8 +49,6 @@ class TestNewApplication(unittest.TestCase):
                         period = 'yearly', 
                         entities = [Coupon], )
                     ], 
-                campaign_priority = 'universal', 
-                exclusive_campaigns_strategy = 'listOrder', 
                 default_discount_scope = 'sessionTotal', 
                 enable_cascading_discounts = True, 
                 enable_flattened_cart_items = True, 

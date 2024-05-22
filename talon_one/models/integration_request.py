@@ -83,7 +83,7 @@ class IntegrationRequest(object):
     def response_content(self):
         """Gets the response_content of this IntegrationRequest.  # noqa: E501
 
-        Extends the response with the chosen data entities. Use this property to get as much data as you need in one _Update customer session_ request instead of sending extra requests to other endpoints.   # noqa: E501
+        Extends the response with the chosen data entities. Use this property to get as much data as you need in one _Update customer session_ request instead of sending extra requests to other endpoints.  **Note:** To retrieve loyalty card details, your request must include a loyalty card ID.   # noqa: E501
 
         :return: The response_content of this IntegrationRequest.  # noqa: E501
         :rtype: list[str]
@@ -94,7 +94,7 @@ class IntegrationRequest(object):
     def response_content(self, response_content):
         """Sets the response_content of this IntegrationRequest.
 
-        Extends the response with the chosen data entities. Use this property to get as much data as you need in one _Update customer session_ request instead of sending extra requests to other endpoints.   # noqa: E501
+        Extends the response with the chosen data entities. Use this property to get as much data as you need in one _Update customer session_ request instead of sending extra requests to other endpoints.  **Note:** To retrieve loyalty card details, your request must include a loyalty card ID.   # noqa: E501
 
         :param response_content: The response_content of this IntegrationRequest.  # noqa: E501
         :type: list[str]

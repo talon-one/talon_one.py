@@ -58,7 +58,10 @@ class TestNewCampaign(unittest.TestCase):
                         period = 'yearly', 
                         entities = [Coupon], )
                     ], 
-                campaign_groups = [1, 3]
+                campaign_groups = [1, 3], 
+                type = 'advanced', 
+                linked_store_ids = [1, 2, 3], 
+                evaluation_group_id = 2
             )
         else :
             return NewCampaign(

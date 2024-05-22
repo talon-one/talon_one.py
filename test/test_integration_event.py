@@ -37,6 +37,7 @@ class TestIntegrationEvent(unittest.TestCase):
         if include_optional :
             return IntegrationEvent(
                 profile_id = 'URNGV8294NV', 
+                store_integration_id = 'STORE-001', 
                 type = 'pageViewed', 
                 attributes = {"myAttribute":"myValue"}
             )

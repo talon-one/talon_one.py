@@ -36,6 +36,7 @@ class LoyaltyProgramLedgers(object):
         'id': 'int',
         'title': 'str',
         'name': 'str',
+        'join_date': 'datetime',
         'ledger': 'LedgerInfo',
         'sub_ledgers': 'dict(str, LedgerInfo)'
     }
@@ -44,11 +45,12 @@ class LoyaltyProgramLedgers(object):
         'id': 'id',
         'title': 'title',
         'name': 'name',
+        'join_date': 'joinDate',
         'ledger': 'ledger',
         'sub_ledgers': 'subLedgers'
     }
 
-    def __init__(self, id=None, title=None, name=None, ledger=None, sub_ledgers=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, title=None, name=None, join_date=None, ledger=None, sub_ledgers=None, local_vars_configuration=None):  # noqa: E501
         """LoyaltyProgramLedgers - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -57,6 +59,7 @@ class LoyaltyProgramLedgers(object):
         self._id = None
         self._title = None
         self._name = None
+        self._join_date = None
         self._ledger = None
         self._sub_ledgers = None
         self.discriminator = None
@@ -64,6 +67,8 @@ class LoyaltyProgramLedgers(object):
         self.id = id
         self.title = title
         self.name = name
+        if join_date is not None:
+            self.join_date = join_date
         self.ledger = ledger
         if sub_ledgers is not None:
             self.sub_ledgers = sub_ledgers
@@ -142,6 +147,29 @@ class LoyaltyProgramLedgers(object):
             raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
 
         self._name = name
+
+    @property
+    def join_date(self):
+        """Gets the join_date of this LoyaltyProgramLedgers.  # noqa: E501
+
+        The date on which the customer joined the loyalty program in RFC3339.  **Note**: This is in the loyalty program's time zone.   # noqa: E501
+
+        :return: The join_date of this LoyaltyProgramLedgers.  # noqa: E501
+        :rtype: datetime
+        """
+        return self._join_date
+
+    @join_date.setter
+    def join_date(self, join_date):
+        """Sets the join_date of this LoyaltyProgramLedgers.
+
+        The date on which the customer joined the loyalty program in RFC3339.  **Note**: This is in the loyalty program's time zone.   # noqa: E501
+
+        :param join_date: The join_date of this LoyaltyProgramLedgers.  # noqa: E501
+        :type: datetime
+        """
+
+        self._join_date = join_date
 
     @property
     def ledger(self):

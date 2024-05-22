@@ -36,9 +36,8 @@ class TestCampaignSet(unittest.TestCase):
         # model = talon_one.models.campaign_set.CampaignSet()  # noqa: E501
         if include_optional :
             return CampaignSet(
-                id = 6, 
-                created = '2020-06-10T09:05:27.993483Z', 
                 application_id = 322, 
+                id = 6, 
                 version = 3, 
                 set = talon_one.models.campaign_set_branch_node.CampaignSetBranchNode(
                     type = 'SET', 
@@ -47,14 +46,18 @@ class TestCampaignSet(unittest.TestCase):
                     elements = [
                         talon_one.models.campaign_set_node.CampaignSetNode(
                             type = 'type', )
-                        ], ), 
+                        ], 
+                    group_id = 56, 
+                    locked = True, 
+                    description = '0', 
+                    evaluation_mode = 'stackable', 
+                    evaluation_scope = 'cartItem', ), 
                 updated_by = 'Jane Doe'
             )
         else :
             return CampaignSet(
-                id = 6,
-                created = '2020-06-10T09:05:27.993483Z',
                 application_id = 322,
+                id = 6,
                 version = 3,
                 set = talon_one.models.campaign_set_branch_node.CampaignSetBranchNode(
                     type = 'SET', 
@@ -63,7 +66,12 @@ class TestCampaignSet(unittest.TestCase):
                     elements = [
                         talon_one.models.campaign_set_node.CampaignSetNode(
                             type = 'type', )
-                        ], ),
+                        ], 
+                    group_id = 56, 
+                    locked = True, 
+                    description = '0', 
+                    evaluation_mode = 'stackable', 
+                    evaluation_scope = 'cartItem', ),
         )
 
     def testCampaignSet(self):

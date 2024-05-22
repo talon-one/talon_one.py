@@ -39,7 +39,8 @@ class CatalogItem(object):
         'price': 'float',
         'catalogid': 'int',
         'version': 'int',
-        'attributes': 'list[ItemAttribute]'
+        'attributes': 'list[ItemAttribute]',
+        'product': 'Product'
     }
 
     attribute_map = {
@@ -49,10 +50,11 @@ class CatalogItem(object):
         'price': 'price',
         'catalogid': 'catalogid',
         'version': 'version',
-        'attributes': 'attributes'
+        'attributes': 'attributes',
+        'product': 'product'
     }
 
-    def __init__(self, id=None, created=None, sku=None, price=None, catalogid=None, version=None, attributes=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, created=None, sku=None, price=None, catalogid=None, version=None, attributes=None, product=None, local_vars_configuration=None):  # noqa: E501
         """CatalogItem - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -65,6 +67,7 @@ class CatalogItem(object):
         self._catalogid = None
         self._version = None
         self._attributes = None
+        self._product = None
         self.discriminator = None
 
         self.id = id
@@ -76,6 +79,8 @@ class CatalogItem(object):
         self.version = version
         if attributes is not None:
             self.attributes = attributes
+        if product is not None:
+            self.product = product
 
     @property
     def id(self):
@@ -248,6 +253,27 @@ class CatalogItem(object):
         """
 
         self._attributes = attributes
+
+    @property
+    def product(self):
+        """Gets the product of this CatalogItem.  # noqa: E501
+
+
+        :return: The product of this CatalogItem.  # noqa: E501
+        :rtype: Product
+        """
+        return self._product
+
+    @product.setter
+    def product(self, product):
+        """Sets the product of this CatalogItem.
+
+
+        :param product: The product of this CatalogItem.  # noqa: E501
+        :type: Product
+        """
+
+        self._product = product
 
     def to_dict(self):
         """Returns the model properties as a dict"""

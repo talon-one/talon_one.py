@@ -64,6 +64,14 @@ class TestCampaignStateChangedNotification(unittest.TestCase):
                             entities = [Coupon], )
                         ], 
                     campaign_groups = [1, 3], 
+                    type = 'advanced', 
+                    linked_store_ids = [1, 2, 3], 
+                    budgets = [
+                        talon_one.models.campaign_budget.CampaignBudget(
+                            action = 'createCoupon', 
+                            limit = 1000.0, 
+                            counter = 42.0, )
+                        ], 
                     coupon_redemption_count = 163, 
                     referral_redemption_count = 3, 
                     discount_count = 288.0, 
@@ -83,7 +91,8 @@ class TestCampaignStateChangedNotification(unittest.TestCase):
                     updated = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                     created_by = 'John Doe', 
                     updated_by = 'Jane Doe', 
-                    template_id = 3, ), 
+                    template_id = 3, 
+                    frontend_state = 'running', ), 
                 old_state = 'disabled', 
                 new_state = 'running', 
                 ruleset = talon_one.models.ruleset.Ruleset(
@@ -154,6 +163,14 @@ class TestCampaignStateChangedNotification(unittest.TestCase):
                             entities = [Coupon], )
                         ], 
                     campaign_groups = [1, 3], 
+                    type = 'advanced', 
+                    linked_store_ids = [1, 2, 3], 
+                    budgets = [
+                        talon_one.models.campaign_budget.CampaignBudget(
+                            action = 'createCoupon', 
+                            limit = 1000.0, 
+                            counter = 42.0, )
+                        ], 
                     coupon_redemption_count = 163, 
                     referral_redemption_count = 3, 
                     discount_count = 288.0, 
@@ -173,7 +190,8 @@ class TestCampaignStateChangedNotification(unittest.TestCase):
                     updated = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                     created_by = 'John Doe', 
                     updated_by = 'Jane Doe', 
-                    template_id = 3, ),
+                    template_id = 3, 
+                    frontend_state = 'running', ),
                 old_state = 'disabled',
                 new_state = 'running',
         )

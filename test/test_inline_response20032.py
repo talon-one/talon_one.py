@@ -36,32 +36,53 @@ class TestInlineResponse20032(unittest.TestCase):
         # model = talon_one.models.inline_response20032.InlineResponse20032()  # noqa: E501
         if include_optional :
             return InlineResponse20032(
-                total_result_size = 1, 
+                has_more = True, 
                 data = [
-                    talon_one.models.account_additional_cost.AccountAdditionalCost(
+                    talon_one.models.customer_profile.CustomerProfile(
                         id = 6, 
-                        created = '2020-06-10T09:05:27.993483Z', 
-                        account_id = 3886, 
-                        name = 'shippingFee', 
-                        title = 'Shipping fee', 
-                        description = 'A shipping fee', 
-                        subscribed_applications_ids = [3, 13], 
-                        type = 'session', )
+                        created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        integration_id = 'URNGV8294NV', 
+                        attributes = {"Language":"english","ShippingCountry":"DE"}, 
+                        account_id = 31, 
+                        closed_sessions = 3, 
+                        total_sales = 299.99, 
+                        loyalty_memberships = [
+                            talon_one.models.loyalty_membership.LoyaltyMembership(
+                                joined = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                                loyalty_program_id = 323414846, )
+                            ], 
+                        audience_memberships = [
+                            talon_one.models.audience_membership.AudienceMembership(
+                                id = 2, 
+                                name = 'Travel audience', )
+                            ], 
+                        last_activity = '2020-02-08T14:15:20Z', 
+                        sandbox = False, )
                     ]
             )
         else :
             return InlineResponse20032(
-                total_result_size = 1,
                 data = [
-                    talon_one.models.account_additional_cost.AccountAdditionalCost(
+                    talon_one.models.customer_profile.CustomerProfile(
                         id = 6, 
-                        created = '2020-06-10T09:05:27.993483Z', 
-                        account_id = 3886, 
-                        name = 'shippingFee', 
-                        title = 'Shipping fee', 
-                        description = 'A shipping fee', 
-                        subscribed_applications_ids = [3, 13], 
-                        type = 'session', )
+                        created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        integration_id = 'URNGV8294NV', 
+                        attributes = {"Language":"english","ShippingCountry":"DE"}, 
+                        account_id = 31, 
+                        closed_sessions = 3, 
+                        total_sales = 299.99, 
+                        loyalty_memberships = [
+                            talon_one.models.loyalty_membership.LoyaltyMembership(
+                                joined = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                                loyalty_program_id = 323414846, )
+                            ], 
+                        audience_memberships = [
+                            talon_one.models.audience_membership.AudienceMembership(
+                                id = 2, 
+                                name = 'Travel audience', )
+                            ], 
+                        last_activity = '2020-02-08T14:15:20Z', 
+                        sandbox = False, )
                     ],
         )
 

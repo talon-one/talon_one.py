@@ -55,7 +55,7 @@ class ApplicationNotification(object):
     def event(self):
         """Gets the event of this ApplicationNotification.  # noqa: E501
 
-        Event type. It can be one of the following: ['campaign_priorities_changed']   # noqa: E501
+        Event type. It can be one of the following: ['campaign_evaluation_tree_changed']   # noqa: E501
 
         :return: The event of this ApplicationNotification.  # noqa: E501
         :rtype: str
@@ -66,7 +66,7 @@ class ApplicationNotification(object):
     def event(self, event):
         """Sets the event of this ApplicationNotification.
 
-        Event type. It can be one of the following: ['campaign_priorities_changed']   # noqa: E501
+        Event type. It can be one of the following: ['campaign_evaluation_tree_changed']   # noqa: E501
 
         :param event: The event of this ApplicationNotification.  # noqa: E501
         :type: str

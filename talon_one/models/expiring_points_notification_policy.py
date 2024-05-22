@@ -34,15 +34,17 @@ class ExpiringPointsNotificationPolicy(object):
     """
     openapi_types = {
         'name': 'str',
-        'triggers': 'list[ExpiringPointsNotificationTrigger]'
+        'triggers': 'list[ExpiringPointsNotificationTrigger]',
+        'batching_enabled': 'bool'
     }
 
     attribute_map = {
         'name': 'name',
-        'triggers': 'triggers'
+        'triggers': 'triggers',
+        'batching_enabled': 'batchingEnabled'
     }
 
-    def __init__(self, name=None, triggers=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, name=None, triggers=None, batching_enabled=True, local_vars_configuration=None):  # noqa: E501
         """ExpiringPointsNotificationPolicy - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -50,10 +52,13 @@ class ExpiringPointsNotificationPolicy(object):
 
         self._name = None
         self._triggers = None
+        self._batching_enabled = None
         self.discriminator = None
 
         self.name = name
         self.triggers = triggers
+        if batching_enabled is not None:
+            self.batching_enabled = batching_enabled
 
     @property
     def name(self):
@@ -105,6 +110,29 @@ class ExpiringPointsNotificationPolicy(object):
             raise ValueError("Invalid value for `triggers`, must not be `None`")  # noqa: E501
 
         self._triggers = triggers
+
+    @property
+    def batching_enabled(self):
+        """Gets the batching_enabled of this ExpiringPointsNotificationPolicy.  # noqa: E501
+
+        Indicates whether batching is activated.  # noqa: E501
+
+        :return: The batching_enabled of this ExpiringPointsNotificationPolicy.  # noqa: E501
+        :rtype: bool
+        """
+        return self._batching_enabled
+
+    @batching_enabled.setter
+    def batching_enabled(self, batching_enabled):
+        """Sets the batching_enabled of this ExpiringPointsNotificationPolicy.
+
+        Indicates whether batching is activated.  # noqa: E501
+
+        :param batching_enabled: The batching_enabled of this ExpiringPointsNotificationPolicy.  # noqa: E501
+        :type: bool
+        """
+
+        self._batching_enabled = batching_enabled
 
     def to_dict(self):
         """Returns the model properties as a dict"""

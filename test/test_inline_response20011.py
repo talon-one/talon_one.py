@@ -38,44 +38,30 @@ class TestInlineResponse20011(unittest.TestCase):
             return InlineResponse20011(
                 total_result_size = 1, 
                 data = [
-                    talon_one.models.loyalty_program.LoyaltyProgram(
-                        id = 56, 
+                    talon_one.models.campaign_group.CampaignGroup(
+                        id = 6, 
                         created = '2020-06-10T09:05:27.993483Z', 
-                        title = 'Point collection', 
-                        description = 'Customers collect 10 points per 1$ spent', 
-                        subscribed_applications = [132, 97], 
-                        default_validity = '2W_U', 
-                        default_pending = 'immediate', 
-                        allow_subledger = False, 
-                        users_per_card_limit = 111, 
-                        sandbox = True, 
-                        account_id = 1, 
-                        name = 'my_program', 
-                        tiers = [{name=Gold, minPoints=300, id=3, created=2021-06-10T09:05:27.993483Z, programID=139}, {name=Silver, minPoints=200, id=2, created=2021-06-10T09:04:59.355258Z, programId=139}, {name=Bronze, minPoints=100, id=1, created=2021-06-10T09:04:39.355258Z, programId=139}], 
-                        timezone = 'Europe/Berlin', 
-                        card_based = True, )
+                        modified = '2021-09-12T10:12:42Z', 
+                        account_id = 3886, 
+                        name = 'Europe access group', 
+                        description = 'A group that gives access to all the campaigns for the Europe market.', 
+                        subscribed_applications_ids = [1, 2, 3], 
+                        campaign_ids = [4, 6, 8], )
                     ]
             )
         else :
             return InlineResponse20011(
                 total_result_size = 1,
                 data = [
-                    talon_one.models.loyalty_program.LoyaltyProgram(
-                        id = 56, 
+                    talon_one.models.campaign_group.CampaignGroup(
+                        id = 6, 
                         created = '2020-06-10T09:05:27.993483Z', 
-                        title = 'Point collection', 
-                        description = 'Customers collect 10 points per 1$ spent', 
-                        subscribed_applications = [132, 97], 
-                        default_validity = '2W_U', 
-                        default_pending = 'immediate', 
-                        allow_subledger = False, 
-                        users_per_card_limit = 111, 
-                        sandbox = True, 
-                        account_id = 1, 
-                        name = 'my_program', 
-                        tiers = [{name=Gold, minPoints=300, id=3, created=2021-06-10T09:05:27.993483Z, programID=139}, {name=Silver, minPoints=200, id=2, created=2021-06-10T09:04:59.355258Z, programId=139}, {name=Bronze, minPoints=100, id=1, created=2021-06-10T09:04:39.355258Z, programId=139}], 
-                        timezone = 'Europe/Berlin', 
-                        card_based = True, )
+                        modified = '2021-09-12T10:12:42Z', 
+                        account_id = 3886, 
+                        name = 'Europe access group', 
+                        description = 'A group that gives access to all the campaigns for the Europe market.', 
+                        subscribed_applications_ids = [1, 2, 3], 
+                        campaign_ids = [4, 6, 8], )
                     ],
         )
 

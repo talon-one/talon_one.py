@@ -5,6 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** | ID of the loyalty ledger transaction. | 
 **program_id** | **int** | ID of the loyalty program. | 
+**campaign_id** | **int** | ID of the campaign. | [optional] 
 **created** | **datetime** | Date and time the loyalty transaction occurred. | 
 **type** | **str** | Type of transaction. Possible values:   - &#x60;addition&#x60;: Signifies added points.   - &#x60;subtraction&#x60;: Signifies deducted points.  | 
 **amount** | **float** | Amount of loyalty points added or deducted in the transaction. | 
@@ -16,8 +17,8 @@ Name | Type | Description | Notes
 **subledger_id** | **str** | ID of the subledger. | 
 **customer_session_id** | **str** | ID of the customer session where the transaction occurred. | [optional] 
 **import_id** | **int** | ID of the import where the transaction occurred. | [optional] 
-**user_id** | **int** | ID of the user who manually added or deducted points. Applies only for manual transactions. | [optional] 
-**user_email** | **str** | The email of the user who manually added or deducted points. Applies only for manual transactions. | [optional] 
+**user_id** | **int** | ID of the user who manually added or deducted points. Applies only to manual transactions. | [optional] 
+**user_email** | **str** | The email of the Campaign Manager account that manually added or deducted points. Applies only to manual transactions. | [optional] 
 **ruleset_id** | **int** | ID of the ruleset containing the rule that triggered the effect. Applies only for transactions that resulted from a customer session. | [optional] 
 **rule_name** | **str** | Name of the rule that triggered the effect. Applies only for transactions that resulted from a customer session. | [optional] 
 

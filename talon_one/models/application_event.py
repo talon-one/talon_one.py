@@ -37,6 +37,8 @@ class ApplicationEvent(object):
         'created': 'datetime',
         'application_id': 'int',
         'profile_id': 'int',
+        'store_id': 'int',
+        'store_integration_id': 'str',
         'session_id': 'int',
         'type': 'str',
         'attributes': 'object',
@@ -49,6 +51,8 @@ class ApplicationEvent(object):
         'created': 'created',
         'application_id': 'applicationId',
         'profile_id': 'profileId',
+        'store_id': 'storeId',
+        'store_integration_id': 'storeIntegrationId',
         'session_id': 'sessionId',
         'type': 'type',
         'attributes': 'attributes',
@@ -56,7 +60,7 @@ class ApplicationEvent(object):
         'rule_failure_reasons': 'ruleFailureReasons'
     }
 
-    def __init__(self, id=None, created=None, application_id=None, profile_id=None, session_id=None, type=None, attributes=None, effects=None, rule_failure_reasons=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, created=None, application_id=None, profile_id=None, store_id=None, store_integration_id=None, session_id=None, type=None, attributes=None, effects=None, rule_failure_reasons=None, local_vars_configuration=None):  # noqa: E501
         """ApplicationEvent - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -66,6 +70,8 @@ class ApplicationEvent(object):
         self._created = None
         self._application_id = None
         self._profile_id = None
+        self._store_id = None
+        self._store_integration_id = None
         self._session_id = None
         self._type = None
         self._attributes = None
@@ -78,6 +84,10 @@ class ApplicationEvent(object):
         self.application_id = application_id
         if profile_id is not None:
             self.profile_id = profile_id
+        if store_id is not None:
+            self.store_id = store_id
+        if store_integration_id is not None:
+            self.store_integration_id = store_integration_id
         if session_id is not None:
             self.session_id = session_id
         self.type = type
@@ -183,6 +193,58 @@ class ApplicationEvent(object):
         """
 
         self._profile_id = profile_id
+
+    @property
+    def store_id(self):
+        """Gets the store_id of this ApplicationEvent.  # noqa: E501
+
+        The ID of the store.  # noqa: E501
+
+        :return: The store_id of this ApplicationEvent.  # noqa: E501
+        :rtype: int
+        """
+        return self._store_id
+
+    @store_id.setter
+    def store_id(self, store_id):
+        """Sets the store_id of this ApplicationEvent.
+
+        The ID of the store.  # noqa: E501
+
+        :param store_id: The store_id of this ApplicationEvent.  # noqa: E501
+        :type: int
+        """
+
+        self._store_id = store_id
+
+    @property
+    def store_integration_id(self):
+        """Gets the store_integration_id of this ApplicationEvent.  # noqa: E501
+
+        The integration ID of the store. You choose this ID when you create a store.  # noqa: E501
+
+        :return: The store_integration_id of this ApplicationEvent.  # noqa: E501
+        :rtype: str
+        """
+        return self._store_integration_id
+
+    @store_integration_id.setter
+    def store_integration_id(self, store_integration_id):
+        """Sets the store_integration_id of this ApplicationEvent.
+
+        The integration ID of the store. You choose this ID when you create a store.  # noqa: E501
+
+        :param store_integration_id: The store_integration_id of this ApplicationEvent.  # noqa: E501
+        :type: str
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                store_integration_id is not None and len(store_integration_id) > 1000):
+            raise ValueError("Invalid value for `store_integration_id`, length must be less than or equal to `1000`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                store_integration_id is not None and len(store_integration_id) < 1):
+            raise ValueError("Invalid value for `store_integration_id`, length must be greater than or equal to `1`")  # noqa: E501
+
+        self._store_integration_id = store_integration_id
 
     @property
     def session_id(self):

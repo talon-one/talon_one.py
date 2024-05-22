@@ -53,6 +53,8 @@ class TestIntegrationState(unittest.TestCase):
                             remaining_quantity = 1, 
                             price = 99.99, 
                             category = 'shoes', 
+                            product = talon_one.models.product.Product(
+                                name = 'sample_product', ), 
                             weight = 1130.0, 
                             height = 1.337, 
                             width = 1.337, 
@@ -95,6 +97,7 @@ class TestIntegrationState(unittest.TestCase):
                     created = '2020-06-10T09:05:27.993483Z', 
                     application_id = 322, 
                     profile_id = 'URNGV8294NV', 
+                    store_integration_id = 'STORE-001', 
                     type = 'pageViewed', 
                     attributes = {"myAttribute":"myValue"}, 
                     session_id = '175KJPS947296', 
@@ -149,7 +152,9 @@ class TestIntegrationState(unittest.TestCase):
                                 tentative_pending_balance = 20.0, 
                                 current_tier = talon_one.models.tier.Tier(
                                     id = 11, 
-                                    name = 'bronze', ), 
+                                    name = 'bronze', 
+                                    expiry_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                                    downgrade_policy = 'one_down', ), 
                                 points_to_next_tier = 20.0, ), 
                             subledgers = {
                                 'key' : talon_one.models.ledger_info.LedgerInfo(
@@ -170,6 +175,7 @@ class TestIntegrationState(unittest.TestCase):
                             id = 5, 
                             title = 'My loyalty program', 
                             name = 'program1', 
+                            join_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                             ledger = talon_one.models.ledger_info.LedgerInfo(
                                 current_balance = 100.0, 
                                 pending_balance = 10.0, 
@@ -216,7 +222,8 @@ class TestIntegrationState(unittest.TestCase):
                     import_id = 4, 
                     reservation = False, 
                     batch_id = '32535-43255', 
-                    is_reservation_mandatory = False, )
+                    is_reservation_mandatory = False, 
+                    implicitly_reserved = False, )
             )
         else :
             return IntegrationState(
@@ -237,6 +244,8 @@ class TestIntegrationState(unittest.TestCase):
                             remaining_quantity = 1, 
                             price = 99.99, 
                             category = 'shoes', 
+                            product = talon_one.models.product.Product(
+                                name = 'sample_product', ), 
                             weight = 1130.0, 
                             height = 1.337, 
                             width = 1.337, 
@@ -279,6 +288,7 @@ class TestIntegrationState(unittest.TestCase):
                     created = '2020-06-10T09:05:27.993483Z', 
                     application_id = 322, 
                     profile_id = 'URNGV8294NV', 
+                    store_integration_id = 'STORE-001', 
                     type = 'pageViewed', 
                     attributes = {"myAttribute":"myValue"}, 
                     session_id = '175KJPS947296', 

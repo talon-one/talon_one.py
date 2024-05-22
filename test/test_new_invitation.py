@@ -38,15 +38,15 @@ class TestNewInvitation(unittest.TestCase):
             return NewInvitation(
                 name = 'John Doe', 
                 email = 'john.doe@example.com', 
-                acl = '{"Role":0}', 
+                is_admin = False, 
                 roles = [
                     56
-                    ]
+                    ], 
+                acl = '0'
             )
         else :
             return NewInvitation(
                 email = 'john.doe@example.com',
-                acl = '{"Role":0}',
         )
 
     def testNewInvitation(self):

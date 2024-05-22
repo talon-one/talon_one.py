@@ -42,7 +42,6 @@ class TestFuncArgDef(unittest.TestCase):
         else :
             return FuncArgDef(
                 type = 'string',
-                description = '0',
         )
 
     def testFuncArgDef(self):

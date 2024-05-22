@@ -79,7 +79,9 @@ class TestCustomerInventory(unittest.TestCase):
                                 tentative_pending_balance = 20.0, 
                                 current_tier = talon_one.models.tier.Tier(
                                     id = 11, 
-                                    name = 'bronze', ), 
+                                    name = 'bronze', 
+                                    expiry_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                                    downgrade_policy = 'one_down', ), 
                                 points_to_next_tier = 20.0, ), 
                             subledgers = {
                                 'key' : talon_one.models.ledger_info.LedgerInfo(
@@ -100,6 +102,7 @@ class TestCustomerInventory(unittest.TestCase):
                             id = 5, 
                             title = 'My loyalty program', 
                             name = 'program1', 
+                            join_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                             ledger = talon_one.models.ledger_info.LedgerInfo(
                                 current_balance = 100.0, 
                                 pending_balance = 10.0, 
@@ -167,6 +170,7 @@ class TestCustomerInventory(unittest.TestCase):
                         reservation = False, 
                         batch_id = '32535-43255', 
                         is_reservation_mandatory = False, 
+                        implicitly_reserved = False, 
                         profile_redemption_count = 5, 
                         state = 'active', )
                     ], 
@@ -183,6 +187,19 @@ class TestCustomerInventory(unittest.TestCase):
                         import_id = 4, 
                         profile_integration_id = 'R195412', 
                         profile_id = 1, )
+                    ], 
+                achievements = [
+                    talon_one.models.achievement_progress.AchievementProgress(
+                        achievement_id = 3, 
+                        name = 'FreeCoffee10Orders', 
+                        title = '50% off on 50th purchase.', 
+                        campaign_id = 3, 
+                        status = 'completed', 
+                        target = 10.0, 
+                        progress = 10.0, 
+                        start_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        completion_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        end_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), )
                     ]
             )
         else :

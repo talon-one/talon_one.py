@@ -59,7 +59,7 @@ class RoleAssign(object):
     def users(self):
         """Gets the users of this RoleAssign.  # noqa: E501
 
-        An array of userIDs.  # noqa: E501
+        An array of user IDs.  # noqa: E501
 
         :return: The users of this RoleAssign.  # noqa: E501
         :rtype: list[int]
@@ -70,7 +70,7 @@ class RoleAssign(object):
     def users(self, users):
         """Sets the users of this RoleAssign.
 
-        An array of userIDs.  # noqa: E501
+        An array of user IDs.  # noqa: E501
 
         :param users: The users of this RoleAssign.  # noqa: E501
         :type: list[int]
@@ -84,7 +84,7 @@ class RoleAssign(object):
     def roles(self):
         """Gets the roles of this RoleAssign.  # noqa: E501
 
-        An array of roleIDs.  # noqa: E501
+        An array of role IDs.  # noqa: E501
 
         :return: The roles of this RoleAssign.  # noqa: E501
         :rtype: list[int]
@@ -95,7 +95,7 @@ class RoleAssign(object):
     def roles(self, roles):
         """Sets the roles of this RoleAssign.
 
-        An array of roleIDs.  # noqa: E501
+        An array of role IDs.  # noqa: E501
 
         :param roles: The roles of this RoleAssign.  # noqa: E501
         :type: list[int]

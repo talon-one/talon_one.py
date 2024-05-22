@@ -8,6 +8,8 @@ Name | Type | Description | Notes
 **created** | **datetime** | The time this entity was created. | 
 **application_id** | **int** | The ID of the application that owns this entity. | 
 **profile_id** | **int** | The globally unique Talon.One ID of the customer that created this entity. | [optional] 
+**store_id** | **int** | The ID of the store. | [optional] 
+**store_integration_id** | **str** | The integration ID of the store. You choose this ID when you create a store. | [optional] 
 **session_id** | **int** | The globally unique Talon.One ID of the session that contains this event. | [optional] 
 **type** | **str** | A string representing the event. Must not be a reserved event name. | 
 **attributes** | [**object**](.md) | Additional JSON serialized data associated with the event. | 

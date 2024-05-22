@@ -37,7 +37,8 @@ class CustomerInventory(object):
         'loyalty': 'Loyalty',
         'referrals': 'list[InventoryReferral]',
         'coupons': 'list[InventoryCoupon]',
-        'giveaways': 'list[Giveaway]'
+        'giveaways': 'list[Giveaway]',
+        'achievements': 'list[AchievementProgress]'
     }
 
     attribute_map = {
@@ -45,10 +46,11 @@ class CustomerInventory(object):
         'loyalty': 'loyalty',
         'referrals': 'referrals',
         'coupons': 'coupons',
-        'giveaways': 'giveaways'
+        'giveaways': 'giveaways',
+        'achievements': 'achievements'
     }
 
-    def __init__(self, profile=None, loyalty=None, referrals=None, coupons=None, giveaways=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, profile=None, loyalty=None, referrals=None, coupons=None, giveaways=None, achievements=None, local_vars_configuration=None):  # noqa: E501
         """CustomerInventory - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -59,6 +61,7 @@ class CustomerInventory(object):
         self._referrals = None
         self._coupons = None
         self._giveaways = None
+        self._achievements = None
         self.discriminator = None
 
         if profile is not None:
@@ -71,6 +74,8 @@ class CustomerInventory(object):
             self.coupons = coupons
         if giveaways is not None:
             self.giveaways = giveaways
+        if achievements is not None:
+            self.achievements = achievements
 
     @property
     def profile(self):
@@ -178,6 +183,27 @@ class CustomerInventory(object):
         """
 
         self._giveaways = giveaways
+
+    @property
+    def achievements(self):
+        """Gets the achievements of this CustomerInventory.  # noqa: E501
+
+
+        :return: The achievements of this CustomerInventory.  # noqa: E501
+        :rtype: list[AchievementProgress]
+        """
+        return self._achievements
+
+    @achievements.setter
+    def achievements(self, achievements):
+        """Sets the achievements of this CustomerInventory.
+
+
+        :param achievements: The achievements of this CustomerInventory.  # noqa: E501
+        :type: list[AchievementProgress]
+        """
+
+        self._achievements = achievements
 
     def to_dict(self):
         """Returns the model properties as a dict"""

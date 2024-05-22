@@ -44,7 +44,9 @@ class TestLedgerInfo(unittest.TestCase):
                 tentative_pending_balance = 20.0, 
                 current_tier = talon_one.models.tier.Tier(
                     id = 11, 
-                    name = 'bronze', ), 
+                    name = 'bronze', 
+                    expiry_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                    downgrade_policy = 'one_down', ), 
                 points_to_next_tier = 20.0
             )
         else :

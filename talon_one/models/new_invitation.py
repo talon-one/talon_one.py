@@ -35,18 +35,20 @@ class NewInvitation(object):
     openapi_types = {
         'name': 'str',
         'email': 'str',
-        'acl': 'str',
-        'roles': 'list[int]'
+        'is_admin': 'bool',
+        'roles': 'list[int]',
+        'acl': 'str'
     }
 
     attribute_map = {
         'name': 'name',
         'email': 'email',
-        'acl': 'acl',
-        'roles': 'roles'
+        'is_admin': 'isAdmin',
+        'roles': 'roles',
+        'acl': 'acl'
     }
 
-    def __init__(self, name=None, email=None, acl=None, roles=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, name=None, email=None, is_admin=None, roles=None, acl=None, local_vars_configuration=None):  # noqa: E501
         """NewInvitation - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -54,22 +56,26 @@ class NewInvitation(object):
 
         self._name = None
         self._email = None
-        self._acl = None
+        self._is_admin = None
         self._roles = None
+        self._acl = None
         self.discriminator = None
 
         if name is not None:
             self.name = name
         self.email = email
-        self.acl = acl
+        if is_admin is not None:
+            self.is_admin = is_admin
         if roles is not None:
             self.roles = roles
+        if acl is not None:
+            self.acl = acl
 
     @property
     def name(self):
         """Gets the name of this NewInvitation.  # noqa: E501
 
-        Name of the user being invited.  # noqa: E501
+        Name of the user.  # noqa: E501
 
         :return: The name of this NewInvitation.  # noqa: E501
         :rtype: str
@@ -80,7 +86,7 @@ class NewInvitation(object):
     def name(self, name):
         """Sets the name of this NewInvitation.
 
-        Name of the user being invited.  # noqa: E501
+        Name of the user.  # noqa: E501
 
         :param name: The name of this NewInvitation.  # noqa: E501
         :type: str
@@ -92,6 +98,7 @@ class NewInvitation(object):
     def email(self):
         """Gets the email of this NewInvitation.  # noqa: E501
 
+        Email address of the user.  # noqa: E501
 
         :return: The email of this NewInvitation.  # noqa: E501
         :rtype: str
@@ -102,6 +109,7 @@ class NewInvitation(object):
     def email(self, email):
         """Sets the email of this NewInvitation.
 
+        Email address of the user.  # noqa: E501
 
         :param email: The email of this NewInvitation.  # noqa: E501
         :type: str
@@ -112,35 +120,33 @@ class NewInvitation(object):
         self._email = email
 
     @property
-    def acl(self):
-        """Gets the acl of this NewInvitation.  # noqa: E501
+    def is_admin(self):
+        """Gets the is_admin of this NewInvitation.  # noqa: E501
 
-        The `Access Control List` json defining the role of the user.  This represents the access control on the user level. Use one of the following: - normal user: `{\"Role\": 0}` - admin: `{\"Role\": 127}`   # noqa: E501
+        Indicates whether the user is an `admin`.  # noqa: E501
 
-        :return: The acl of this NewInvitation.  # noqa: E501
-        :rtype: str
+        :return: The is_admin of this NewInvitation.  # noqa: E501
+        :rtype: bool
         """
-        return self._acl
+        return self._is_admin
 
-    @acl.setter
-    def acl(self, acl):
-        """Sets the acl of this NewInvitation.
+    @is_admin.setter
+    def is_admin(self, is_admin):
+        """Sets the is_admin of this NewInvitation.
 
-        The `Access Control List` json defining the role of the user.  This represents the access control on the user level. Use one of the following: - normal user: `{\"Role\": 0}` - admin: `{\"Role\": 127}`   # noqa: E501
+        Indicates whether the user is an `admin`.  # noqa: E501
 
-        :param acl: The acl of this NewInvitation.  # noqa: E501
-        :type: str
+        :param is_admin: The is_admin of this NewInvitation.  # noqa: E501
+        :type: bool
         """
-        if self.local_vars_configuration.client_side_validation and acl is None:  # noqa: E501
-            raise ValueError("Invalid value for `acl`, must not be `None`")  # noqa: E501
 
-        self._acl = acl
+        self._is_admin = is_admin
 
     @property
     def roles(self):
         """Gets the roles of this NewInvitation.  # noqa: E501
 
-        An array of roleIDs to assign the new user to.  # noqa: E501
+        A list of the IDs of the roles assigned to the user.  # noqa: E501
 
         :return: The roles of this NewInvitation.  # noqa: E501
         :rtype: list[int]
@@ -151,13 +157,36 @@ class NewInvitation(object):
     def roles(self, roles):
         """Sets the roles of this NewInvitation.
 
-        An array of roleIDs to assign the new user to.  # noqa: E501
+        A list of the IDs of the roles assigned to the user.  # noqa: E501
 
         :param roles: The roles of this NewInvitation.  # noqa: E501
         :type: list[int]
         """
 
         self._roles = roles
+
+    @property
+    def acl(self):
+        """Gets the acl of this NewInvitation.  # noqa: E501
+
+        Indicates the access level of the user.  # noqa: E501
+
+        :return: The acl of this NewInvitation.  # noqa: E501
+        :rtype: str
+        """
+        return self._acl
+
+    @acl.setter
+    def acl(self, acl):
+        """Sets the acl of this NewInvitation.
+
+        Indicates the access level of the user.  # noqa: E501
+
+        :param acl: The acl of this NewInvitation.  # noqa: E501
+        :type: str
+        """
+
+        self._acl = acl
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -45,7 +45,12 @@ class TestNewCampaignSet(unittest.TestCase):
                     elements = [
                         talon_one.models.campaign_set_node.CampaignSetNode(
                             type = 'type', )
-                        ], )
+                        ], 
+                    group_id = 56, 
+                    locked = True, 
+                    description = '0', 
+                    evaluation_mode = 'stackable', 
+                    evaluation_scope = 'cartItem', )
             )
         else :
             return NewCampaignSet(
@@ -58,7 +63,12 @@ class TestNewCampaignSet(unittest.TestCase):
                     elements = [
                         talon_one.models.campaign_set_node.CampaignSetNode(
                             type = 'type', )
-                        ], ),
+                        ], 
+                    group_id = 56, 
+                    locked = True, 
+                    description = '0', 
+                    evaluation_mode = 'stackable', 
+                    evaluation_scope = 'cartItem', ),
         )
 
     def testNewCampaignSet(self):

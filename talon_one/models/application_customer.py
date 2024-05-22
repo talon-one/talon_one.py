@@ -327,7 +327,7 @@ class ApplicationCustomer(object):
     def last_activity(self):
         """Gets the last_activity of this ApplicationCustomer.  # noqa: E501
 
-        Timestamp of the most recent event received from this customer. This field is updated on calls that trigger the rule-engine and that are not [dry requests](https://docs.talon.one/docs/dev/integration-api/dry-requests/#overlay).  For example, [reserving a coupon](https://docs.talon.one/integration-api#operation/createCouponReservation) for a customer doesn't impact this field.   # noqa: E501
+        Timestamp of the most recent event received from this customer. This field is updated on calls that trigger the Rule Engine and that are not [dry requests](https://docs.talon.one/docs/dev/integration-api/dry-requests/#overlay).  For example, [reserving a coupon](https://docs.talon.one/integration-api#operation/createCouponReservation) for a customer doesn't impact this field.   # noqa: E501
 
         :return: The last_activity of this ApplicationCustomer.  # noqa: E501
         :rtype: datetime
@@ -338,7 +338,7 @@ class ApplicationCustomer(object):
     def last_activity(self, last_activity):
         """Sets the last_activity of this ApplicationCustomer.
 
-        Timestamp of the most recent event received from this customer. This field is updated on calls that trigger the rule-engine and that are not [dry requests](https://docs.talon.one/docs/dev/integration-api/dry-requests/#overlay).  For example, [reserving a coupon](https://docs.talon.one/integration-api#operation/createCouponReservation) for a customer doesn't impact this field.   # noqa: E501
+        Timestamp of the most recent event received from this customer. This field is updated on calls that trigger the Rule Engine and that are not [dry requests](https://docs.talon.one/docs/dev/integration-api/dry-requests/#overlay).  For example, [reserving a coupon](https://docs.talon.one/integration-api#operation/createCouponReservation) for a customer doesn't impact this field.   # noqa: E501
 
         :param last_activity: The last_activity of this ApplicationCustomer.  # noqa: E501
         :type: datetime
@@ -352,7 +352,7 @@ class ApplicationCustomer(object):
     def sandbox(self):
         """Gets the sandbox of this ApplicationCustomer.  # noqa: E501
 
-        Shows whether the customer is part of a sandbox or live Application. See the [docs](https://docs.talon.one/docs/product/applications/overview#application-environments).   # noqa: E501
+        An indicator of whether the customer is part of a sandbox or live Application. See the [docs](https://docs.talon.one/docs/product/applications/overview#application-environments).   # noqa: E501
 
         :return: The sandbox of this ApplicationCustomer.  # noqa: E501
         :rtype: bool
@@ -363,7 +363,7 @@ class ApplicationCustomer(object):
     def sandbox(self, sandbox):
         """Sets the sandbox of this ApplicationCustomer.
 
-        Shows whether the customer is part of a sandbox or live Application. See the [docs](https://docs.talon.one/docs/product/applications/overview#application-environments).   # noqa: E501
+        An indicator of whether the customer is part of a sandbox or live Application. See the [docs](https://docs.talon.one/docs/product/applications/overview#application-environments).   # noqa: E501
 
         :param sandbox: The sandbox of this ApplicationCustomer.  # noqa: E501
         :type: bool

@@ -54,7 +54,8 @@ class TestAccountAnalytics(unittest.TestCase):
                 custom_attributes = 18, 
                 webhooks = 2, 
                 loyalty_programs = 5, 
-                live_loyalty_programs = 5
+                live_loyalty_programs = 5, 
+                last_updated_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f')
             )
         else :
             return AccountAnalytics(
@@ -77,6 +78,7 @@ class TestAccountAnalytics(unittest.TestCase):
                 webhooks = 2,
                 loyalty_programs = 5,
                 live_loyalty_programs = 5,
+                last_updated_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
         )
 
     def testAccountAnalytics(self):

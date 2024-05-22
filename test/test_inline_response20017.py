@@ -39,7 +39,7 @@ class TestInlineResponse20017(unittest.TestCase):
                 has_more = True, 
                 total_result_size = 1, 
                 data = [
-                    talon_one.models.collection.Collection(
+                    talon_one.models.collection_without_payload.CollectionWithoutPayload(
                         id = 6, 
                         created = '2020-06-10T09:05:27.993483Z', 
                         account_id = 3886, 
@@ -50,14 +50,13 @@ class TestInlineResponse20017(unittest.TestCase):
                         modified_by = 48, 
                         created_by = 134, 
                         application_id = 1, 
-                        campaign_id = 7, 
-                        payload = [KTL-WH-ET-1, KTL-BL-ET-1], )
+                        campaign_id = 7, )
                     ]
             )
         else :
             return InlineResponse20017(
                 data = [
-                    talon_one.models.collection.Collection(
+                    talon_one.models.collection_without_payload.CollectionWithoutPayload(
                         id = 6, 
                         created = '2020-06-10T09:05:27.993483Z', 
                         account_id = 3886, 
@@ -68,8 +67,7 @@ class TestInlineResponse20017(unittest.TestCase):
                         modified_by = 48, 
                         created_by = 134, 
                         application_id = 1, 
-                        campaign_id = 7, 
-                        payload = [KTL-WH-ET-1, KTL-BL-ET-1], )
+                        campaign_id = 7, )
                     ],
         )
 

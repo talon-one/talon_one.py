@@ -37,12 +37,14 @@ class TestAccountDashboardStatisticCampaigns(unittest.TestCase):
         if include_optional :
             return AccountDashboardStatisticCampaigns(
                 live = 56, 
-                ending_soon = 56
+                ending_soon = 56, 
+                low_on_budget = 56
             )
         else :
             return AccountDashboardStatisticCampaigns(
                 live = 56,
                 ending_soon = 56,
+                low_on_budget = 56,
         )
 
     def testAccountDashboardStatisticCampaigns(self):

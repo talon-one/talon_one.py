@@ -36,17 +36,27 @@ class CampaignSetBranchNode(object):
         'type': 'str',
         'name': 'str',
         'operator': 'str',
-        'elements': 'list[CampaignSetNode]'
+        'elements': 'list[CampaignSetNode]',
+        'group_id': 'int',
+        'locked': 'bool',
+        'description': 'str',
+        'evaluation_mode': 'str',
+        'evaluation_scope': 'str'
     }
 
     attribute_map = {
         'type': 'type',
         'name': 'name',
         'operator': 'operator',
-        'elements': 'elements'
+        'elements': 'elements',
+        'group_id': 'groupId',
+        'locked': 'locked',
+        'description': 'description',
+        'evaluation_mode': 'evaluationMode',
+        'evaluation_scope': 'evaluationScope'
     }
 
-    def __init__(self, type=None, name=None, operator=None, elements=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, type=None, name=None, operator=None, elements=None, group_id=None, locked=None, description=None, evaluation_mode=None, evaluation_scope=None, local_vars_configuration=None):  # noqa: E501
         """CampaignSetBranchNode - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -56,12 +66,23 @@ class CampaignSetBranchNode(object):
         self._name = None
         self._operator = None
         self._elements = None
+        self._group_id = None
+        self._locked = None
+        self._description = None
+        self._evaluation_mode = None
+        self._evaluation_scope = None
         self.discriminator = None
 
         self.type = type
         self.name = name
         self.operator = operator
         self.elements = elements
+        self.group_id = group_id
+        self.locked = locked
+        if description is not None:
+            self.description = description
+        self.evaluation_mode = evaluation_mode
+        self.evaluation_scope = evaluation_scope
 
     @property
     def type(self):
@@ -98,7 +119,7 @@ class CampaignSetBranchNode(object):
     def name(self):
         """Gets the name of this CampaignSetBranchNode.  # noqa: E501
 
-        Name of the set  # noqa: E501
+        Name of the set.  # noqa: E501
 
         :return: The name of this CampaignSetBranchNode.  # noqa: E501
         :rtype: str
@@ -109,7 +130,7 @@ class CampaignSetBranchNode(object):
     def name(self, name):
         """Sets the name of this CampaignSetBranchNode.
 
-        Name of the set  # noqa: E501
+        Name of the set.  # noqa: E501
 
         :param name: The name of this CampaignSetBranchNode.  # noqa: E501
         :type: str
@@ -123,7 +144,7 @@ class CampaignSetBranchNode(object):
     def operator(self):
         """Gets the operator of this CampaignSetBranchNode.  # noqa: E501
 
-        How does the set operates on its elements.  # noqa: E501
+        An indicator of how the set operates on its elements.  # noqa: E501
 
         :return: The operator of this CampaignSetBranchNode.  # noqa: E501
         :rtype: str
@@ -134,7 +155,7 @@ class CampaignSetBranchNode(object):
     def operator(self, operator):
         """Sets the operator of this CampaignSetBranchNode.
 
-        How does the set operates on its elements.  # noqa: E501
+        An indicator of how the set operates on its elements.  # noqa: E501
 
         :param operator: The operator of this CampaignSetBranchNode.  # noqa: E501
         :type: str
@@ -174,6 +195,141 @@ class CampaignSetBranchNode(object):
             raise ValueError("Invalid value for `elements`, must not be `None`")  # noqa: E501
 
         self._elements = elements
+
+    @property
+    def group_id(self):
+        """Gets the group_id of this CampaignSetBranchNode.  # noqa: E501
+
+        The ID of the campaign set.  # noqa: E501
+
+        :return: The group_id of this CampaignSetBranchNode.  # noqa: E501
+        :rtype: int
+        """
+        return self._group_id
+
+    @group_id.setter
+    def group_id(self, group_id):
+        """Sets the group_id of this CampaignSetBranchNode.
+
+        The ID of the campaign set.  # noqa: E501
+
+        :param group_id: The group_id of this CampaignSetBranchNode.  # noqa: E501
+        :type: int
+        """
+        if self.local_vars_configuration.client_side_validation and group_id is None:  # noqa: E501
+            raise ValueError("Invalid value for `group_id`, must not be `None`")  # noqa: E501
+
+        self._group_id = group_id
+
+    @property
+    def locked(self):
+        """Gets the locked of this CampaignSetBranchNode.  # noqa: E501
+
+        An indicator of whether the campaign set is locked for modification.  # noqa: E501
+
+        :return: The locked of this CampaignSetBranchNode.  # noqa: E501
+        :rtype: bool
+        """
+        return self._locked
+
+    @locked.setter
+    def locked(self, locked):
+        """Sets the locked of this CampaignSetBranchNode.
+
+        An indicator of whether the campaign set is locked for modification.  # noqa: E501
+
+        :param locked: The locked of this CampaignSetBranchNode.  # noqa: E501
+        :type: bool
+        """
+        if self.local_vars_configuration.client_side_validation and locked is None:  # noqa: E501
+            raise ValueError("Invalid value for `locked`, must not be `None`")  # noqa: E501
+
+        self._locked = locked
+
+    @property
+    def description(self):
+        """Gets the description of this CampaignSetBranchNode.  # noqa: E501
+
+        A description of the campaign set.  # noqa: E501
+
+        :return: The description of this CampaignSetBranchNode.  # noqa: E501
+        :rtype: str
+        """
+        return self._description
+
+    @description.setter
+    def description(self, description):
+        """Sets the description of this CampaignSetBranchNode.
+
+        A description of the campaign set.  # noqa: E501
+
+        :param description: The description of this CampaignSetBranchNode.  # noqa: E501
+        :type: str
+        """
+
+        self._description = description
+
+    @property
+    def evaluation_mode(self):
+        """Gets the evaluation_mode of this CampaignSetBranchNode.  # noqa: E501
+
+        The mode by which campaigns in the campaign evaluation group are evaluated.  # noqa: E501
+
+        :return: The evaluation_mode of this CampaignSetBranchNode.  # noqa: E501
+        :rtype: str
+        """
+        return self._evaluation_mode
+
+    @evaluation_mode.setter
+    def evaluation_mode(self, evaluation_mode):
+        """Sets the evaluation_mode of this CampaignSetBranchNode.
+
+        The mode by which campaigns in the campaign evaluation group are evaluated.  # noqa: E501
+
+        :param evaluation_mode: The evaluation_mode of this CampaignSetBranchNode.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and evaluation_mode is None:  # noqa: E501
+            raise ValueError("Invalid value for `evaluation_mode`, must not be `None`")  # noqa: E501
+        allowed_values = ["stackable", "listOrder", "lowestDiscount", "highestDiscount"]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and evaluation_mode not in allowed_values:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `evaluation_mode` ({0}), must be one of {1}"  # noqa: E501
+                .format(evaluation_mode, allowed_values)
+            )
+
+        self._evaluation_mode = evaluation_mode
+
+    @property
+    def evaluation_scope(self):
+        """Gets the evaluation_scope of this CampaignSetBranchNode.  # noqa: E501
+
+        The evaluation scope of the campaign evaluation group.  # noqa: E501
+
+        :return: The evaluation_scope of this CampaignSetBranchNode.  # noqa: E501
+        :rtype: str
+        """
+        return self._evaluation_scope
+
+    @evaluation_scope.setter
+    def evaluation_scope(self, evaluation_scope):
+        """Sets the evaluation_scope of this CampaignSetBranchNode.
+
+        The evaluation scope of the campaign evaluation group.  # noqa: E501
+
+        :param evaluation_scope: The evaluation_scope of this CampaignSetBranchNode.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and evaluation_scope is None:  # noqa: E501
+            raise ValueError("Invalid value for `evaluation_scope`, must not be `None`")  # noqa: E501
+        allowed_values = ["cartItem", "session"]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and evaluation_scope not in allowed_values:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `evaluation_scope` ({0}), must be one of {1}"  # noqa: E501
+                .format(evaluation_scope, allowed_values)
+            )
+
+        self._evaluation_scope = evaluation_scope
 
     def to_dict(self):
         """Returns the model properties as a dict"""

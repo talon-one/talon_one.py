@@ -37,6 +37,7 @@ class TestInlineResponse20024(unittest.TestCase):
         if include_optional :
             return InlineResponse20024(
                 has_more = True, 
+                total_result_size = 56, 
                 data = [
                     talon_one.models.customer_profile.CustomerProfile(
                         id = 6, 
@@ -62,7 +63,6 @@ class TestInlineResponse20024(unittest.TestCase):
             )
         else :
             return InlineResponse20024(
-                has_more = True,
                 data = [
                     talon_one.models.customer_profile.CustomerProfile(
                         id = 6, 

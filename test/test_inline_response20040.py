@@ -38,32 +38,24 @@ class TestInlineResponse20040(unittest.TestCase):
             return InlineResponse20040(
                 total_result_size = 1, 
                 data = [
-                    talon_one.models.role.Role(
+                    talon_one.models.event_type.EventType(
                         id = 6, 
                         created = '2020-06-10T09:05:27.993483Z', 
-                        modified = '2021-09-12T10:12:42Z', 
-                        account_id = 3886, 
-                        campaign_group_id = 3, 
-                        name = 'Campaign Reviewer', 
-                        description = 'Reviews the campaigns', 
-                        members = [48, 562, 475, 18], 
-                        acl = {"Role":127}, )
+                        title = 'Survey Completed', 
+                        name = 'surveyCompleted', 
+                        description = 'The survey was submitted by the customer.', )
                     ]
             )
         else :
             return InlineResponse20040(
                 total_result_size = 1,
                 data = [
-                    talon_one.models.role.Role(
+                    talon_one.models.event_type.EventType(
                         id = 6, 
                         created = '2020-06-10T09:05:27.993483Z', 
-                        modified = '2021-09-12T10:12:42Z', 
-                        account_id = 3886, 
-                        campaign_group_id = 3, 
-                        name = 'Campaign Reviewer', 
-                        description = 'Reviews the campaigns', 
-                        members = [48, 562, 475, 18], 
-                        acl = {"Role":127}, )
+                        title = 'Survey Completed', 
+                        name = 'surveyCompleted', 
+                        description = 'The survey was submitted by the customer.', )
                     ],
         )
 

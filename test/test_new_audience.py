@@ -38,7 +38,7 @@ class TestNewAudience(unittest.TestCase):
             return NewAudience(
                 name = 'Travel audience', 
                 sandbox = True, 
-                description = 'Travel audience 18-25', 
+                description = 'Travel audience 18-27', 
                 integration = 'mparticle', 
                 integration_id = '382370BKDB946', 
                 created_in3rd_party = False, 

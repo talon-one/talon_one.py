@@ -73,7 +73,8 @@ class TestNewCampaignTemplate(unittest.TestCase):
                         name = 'My collection', 
                         description = 'My collection of SKUs', )
                     ], 
-                default_campaign_group_id = 42
+                default_campaign_group_id = 42, 
+                campaign_type = 'advanced'
             )
         else :
             return NewCampaignTemplate(
@@ -81,6 +82,7 @@ class TestNewCampaignTemplate(unittest.TestCase):
                 description = '0',
                 instructions = '0',
                 state = 'draft',
+                campaign_type = 'advanced',
         )
 
     def testNewCampaignTemplate(self):

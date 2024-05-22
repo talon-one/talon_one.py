@@ -36,6 +36,7 @@ class AddItemCatalogAction(object):
         'sku': 'str',
         'price': 'float',
         'attributes': 'object',
+        'product': 'Product',
         'replace_if_exists': 'bool'
     }
 
@@ -43,10 +44,11 @@ class AddItemCatalogAction(object):
         'sku': 'sku',
         'price': 'price',
         'attributes': 'attributes',
+        'product': 'product',
         'replace_if_exists': 'replaceIfExists'
     }
 
-    def __init__(self, sku=None, price=None, attributes=None, replace_if_exists=False, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, sku=None, price=None, attributes=None, product=None, replace_if_exists=False, local_vars_configuration=None):  # noqa: E501
         """AddItemCatalogAction - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -55,6 +57,7 @@ class AddItemCatalogAction(object):
         self._sku = None
         self._price = None
         self._attributes = None
+        self._product = None
         self._replace_if_exists = None
         self.discriminator = None
 
@@ -63,6 +66,8 @@ class AddItemCatalogAction(object):
             self.price = price
         if attributes is not None:
             self.attributes = attributes
+        if product is not None:
+            self.product = product
         if replace_if_exists is not None:
             self.replace_if_exists = replace_if_exists
 
@@ -138,10 +143,31 @@ class AddItemCatalogAction(object):
         self._attributes = attributes
 
     @property
+    def product(self):
+        """Gets the product of this AddItemCatalogAction.  # noqa: E501
+
+
+        :return: The product of this AddItemCatalogAction.  # noqa: E501
+        :rtype: Product
+        """
+        return self._product
+
+    @product.setter
+    def product(self, product):
+        """Sets the product of this AddItemCatalogAction.
+
+
+        :param product: The product of this AddItemCatalogAction.  # noqa: E501
+        :type: Product
+        """
+
+        self._product = product
+
+    @property
     def replace_if_exists(self):
         """Gets the replace_if_exists of this AddItemCatalogAction.  # noqa: E501
 
-        Indicates whether to replace the attributes of the item if the same SKU exists.  # noqa: E501
+        Indicates whether to replace the attributes of the item if the same SKU exists.  **Note**: When set to `true`:   - If you do not provide a new `price` value, the existing `price` value is retained.   - If you do not provide a new `product` value, the `product` value is set to `null`.   # noqa: E501
 
         :return: The replace_if_exists of this AddItemCatalogAction.  # noqa: E501
         :rtype: bool
@@ -152,7 +178,7 @@ class AddItemCatalogAction(object):
     def replace_if_exists(self, replace_if_exists):
         """Sets the replace_if_exists of this AddItemCatalogAction.
 
-        Indicates whether to replace the attributes of the item if the same SKU exists.  # noqa: E501
+        Indicates whether to replace the attributes of the item if the same SKU exists.  **Note**: When set to `true`:   - If you do not provide a new `price` value, the existing `price` value is retained.   - If you do not provide a new `product` value, the `product` value is set to `null`.   # noqa: E501
 
         :param replace_if_exists: The replace_if_exists of this AddItemCatalogAction.  # noqa: E501
         :type: bool

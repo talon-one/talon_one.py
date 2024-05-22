@@ -40,6 +40,8 @@ class TestApplicationEvent(unittest.TestCase):
                 created = '2020-06-10T09:05:27.993483Z', 
                 application_id = 322, 
                 profile_id = 138, 
+                store_id = 56, 
+                store_integration_id = 'STORE-001', 
                 session_id = 56, 
                 type = '0', 
                 attributes = None, 
@@ -52,6 +54,7 @@ class TestApplicationEvent(unittest.TestCase):
                         effect_type = 'rejectCoupon', 
                         triggered_by_coupon = 4928, 
                         triggered_for_catalog_item = 786, 
+                        condition_index = 786, 
                         props = talon_one.models.effect_props.EffectProps(), )
                     ], 
                 rule_failure_reasons = [
@@ -86,6 +89,7 @@ class TestApplicationEvent(unittest.TestCase):
                         effect_type = 'rejectCoupon', 
                         triggered_by_coupon = 4928, 
                         triggered_for_catalog_item = 786, 
+                        condition_index = 786, 
                         props = talon_one.models.effect_props.EffectProps(), )
                     ],
         )

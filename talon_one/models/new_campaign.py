@@ -45,7 +45,10 @@ class NewCampaign(object):
         'coupon_settings': 'CodeGeneratorSettings',
         'referral_settings': 'CodeGeneratorSettings',
         'limits': 'list[LimitConfig]',
-        'campaign_groups': 'list[int]'
+        'campaign_groups': 'list[int]',
+        'type': 'str',
+        'linked_store_ids': 'list[int]',
+        'evaluation_group_id': 'int'
     }
 
     attribute_map = {
@@ -61,10 +64,13 @@ class NewCampaign(object):
         'coupon_settings': 'couponSettings',
         'referral_settings': 'referralSettings',
         'limits': 'limits',
-        'campaign_groups': 'campaignGroups'
+        'campaign_groups': 'campaignGroups',
+        'type': 'type',
+        'linked_store_ids': 'linkedStoreIds',
+        'evaluation_group_id': 'evaluationGroupId'
     }
 
-    def __init__(self, name=None, description=None, start_time=None, end_time=None, attributes=None, state='enabled', active_ruleset_id=None, tags=None, features=None, coupon_settings=None, referral_settings=None, limits=None, campaign_groups=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, name=None, description=None, start_time=None, end_time=None, attributes=None, state='enabled', active_ruleset_id=None, tags=None, features=None, coupon_settings=None, referral_settings=None, limits=None, campaign_groups=None, type='advanced', linked_store_ids=None, evaluation_group_id=None, local_vars_configuration=None):  # noqa: E501
         """NewCampaign - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -83,6 +89,9 @@ class NewCampaign(object):
         self._referral_settings = None
         self._limits = None
         self._campaign_groups = None
+        self._type = None
+        self._linked_store_ids = None
+        self._evaluation_group_id = None
         self.discriminator = None
 
         self.name = name
@@ -106,6 +115,12 @@ class NewCampaign(object):
         self.limits = limits
         if campaign_groups is not None:
             self.campaign_groups = campaign_groups
+        if type is not None:
+            self.type = type
+        if linked_store_ids is not None:
+            self.linked_store_ids = linked_store_ids
+        if evaluation_group_id is not None:
+            self.evaluation_group_id = evaluation_group_id
 
     @property
     def name(self):
@@ -185,7 +200,7 @@ class NewCampaign(object):
     def end_time(self):
         """Gets the end_time of this NewCampaign.  # noqa: E501
 
-        Timestamp the campaign will become inactive.  # noqa: E501
+        Timestamp when the campaign will become inactive.  # noqa: E501
 
         :return: The end_time of this NewCampaign.  # noqa: E501
         :rtype: datetime
@@ -196,7 +211,7 @@ class NewCampaign(object):
     def end_time(self, end_time):
         """Sets the end_time of this NewCampaign.
 
-        Timestamp the campaign will become inactive.  # noqa: E501
+        Timestamp when the campaign will become inactive.  # noqa: E501
 
         :param end_time: The end_time of this NewCampaign.  # noqa: E501
         :type: datetime
@@ -328,7 +343,7 @@ class NewCampaign(object):
         """
         if self.local_vars_configuration.client_side_validation and features is None:  # noqa: E501
             raise ValueError("Invalid value for `features`, must not be `None`")  # noqa: E501
-        allowed_values = ["coupons", "referrals", "loyalty", "giveaways", "strikethrough"]  # noqa: E501
+        allowed_values = ["coupons", "referrals", "loyalty", "giveaways", "strikethrough", "achievements"]  # noqa: E501
         if (self.local_vars_configuration.client_side_validation and
                 not set(features).issubset(set(allowed_values))):  # noqa: E501
             raise ValueError(
@@ -428,6 +443,81 @@ class NewCampaign(object):
         """
 
         self._campaign_groups = campaign_groups
+
+    @property
+    def type(self):
+        """Gets the type of this NewCampaign.  # noqa: E501
+
+        The campaign type. Possible type values:   - `cartItem`: Type of campaign that can apply effects only to cart items.   - `advanced`: Type of campaign that can apply effects to customer sessions and cart items.   # noqa: E501
+
+        :return: The type of this NewCampaign.  # noqa: E501
+        :rtype: str
+        """
+        return self._type
+
+    @type.setter
+    def type(self, type):
+        """Sets the type of this NewCampaign.
+
+        The campaign type. Possible type values:   - `cartItem`: Type of campaign that can apply effects only to cart items.   - `advanced`: Type of campaign that can apply effects to customer sessions and cart items.   # noqa: E501
+
+        :param type: The type of this NewCampaign.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["cartItem", "advanced"]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and type not in allowed_values:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `type` ({0}), must be one of {1}"  # noqa: E501
+                .format(type, allowed_values)
+            )
+
+        self._type = type
+
+    @property
+    def linked_store_ids(self):
+        """Gets the linked_store_ids of this NewCampaign.  # noqa: E501
+
+        A list of store IDs that you want to link to the campaign.  **Note:** Campaigns with linked store IDs will only be evaluated when there is a [customer session update](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) that references a linked store.   # noqa: E501
+
+        :return: The linked_store_ids of this NewCampaign.  # noqa: E501
+        :rtype: list[int]
+        """
+        return self._linked_store_ids
+
+    @linked_store_ids.setter
+    def linked_store_ids(self, linked_store_ids):
+        """Sets the linked_store_ids of this NewCampaign.
+
+        A list of store IDs that you want to link to the campaign.  **Note:** Campaigns with linked store IDs will only be evaluated when there is a [customer session update](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) that references a linked store.   # noqa: E501
+
+        :param linked_store_ids: The linked_store_ids of this NewCampaign.  # noqa: E501
+        :type: list[int]
+        """
+
+        self._linked_store_ids = linked_store_ids
+
+    @property
+    def evaluation_group_id(self):
+        """Gets the evaluation_group_id of this NewCampaign.  # noqa: E501
+
+        The ID of the campaign evaluation group the campaign belongs to.  # noqa: E501
+
+        :return: The evaluation_group_id of this NewCampaign.  # noqa: E501
+        :rtype: int
+        """
+        return self._evaluation_group_id
+
+    @evaluation_group_id.setter
+    def evaluation_group_id(self, evaluation_group_id):
+        """Sets the evaluation_group_id of this NewCampaign.
+
+        The ID of the campaign evaluation group the campaign belongs to.  # noqa: E501
+
+        :param evaluation_group_id: The evaluation_group_id of this NewCampaign.  # noqa: E501
+        :type: int
+        """
+
+        self._evaluation_group_id = evaluation_group_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

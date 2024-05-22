@@ -70,7 +70,7 @@ class NewCampaignGroup(object):
     def name(self):
         """Gets the name of this NewCampaignGroup.  # noqa: E501
 
-        The name of this campaign group.  # noqa: E501
+        The name of the campaign access group.  # noqa: E501
 
         :return: The name of this NewCampaignGroup.  # noqa: E501
         :rtype: str
@@ -81,7 +81,7 @@ class NewCampaignGroup(object):
     def name(self, name):
         """Sets the name of this NewCampaignGroup.
 
-        The name of this campaign group.  # noqa: E501
+        The name of the campaign access group.  # noqa: E501
 
         :param name: The name of this NewCampaignGroup.  # noqa: E501
         :type: str
@@ -98,7 +98,7 @@ class NewCampaignGroup(object):
     def description(self):
         """Gets the description of this NewCampaignGroup.  # noqa: E501
 
-        A longer description of the campaign group.  # noqa: E501
+        A longer description of the campaign access group.  # noqa: E501
 
         :return: The description of this NewCampaignGroup.  # noqa: E501
         :rtype: str
@@ -109,7 +109,7 @@ class NewCampaignGroup(object):
     def description(self, description):
         """Sets the description of this NewCampaignGroup.
 
-        A longer description of the campaign group.  # noqa: E501
+        A longer description of the campaign access group.  # noqa: E501
 
         :param description: The description of this NewCampaignGroup.  # noqa: E501
         :type: str
@@ -121,7 +121,7 @@ class NewCampaignGroup(object):
     def subscribed_applications_ids(self):
         """Gets the subscribed_applications_ids of this NewCampaignGroup.  # noqa: E501
 
-        A list of the IDs of the applications that this campaign group is enabled for.  # noqa: E501
+        A list of IDs of the Applications that this campaign access group is enabled for.  # noqa: E501
 
         :return: The subscribed_applications_ids of this NewCampaignGroup.  # noqa: E501
         :rtype: list[int]
@@ -132,7 +132,7 @@ class NewCampaignGroup(object):
     def subscribed_applications_ids(self, subscribed_applications_ids):
         """Sets the subscribed_applications_ids of this NewCampaignGroup.
 
-        A list of the IDs of the applications that this campaign group is enabled for.  # noqa: E501
+        A list of IDs of the Applications that this campaign access group is enabled for.  # noqa: E501
 
         :param subscribed_applications_ids: The subscribed_applications_ids of this NewCampaignGroup.  # noqa: E501
         :type: list[int]
@@ -144,7 +144,7 @@ class NewCampaignGroup(object):
     def campaign_ids(self):
         """Gets the campaign_ids of this NewCampaignGroup.  # noqa: E501
 
-        A list of the IDs of the campaigns that this campaign group owns.  # noqa: E501
+        A list of IDs of the campaigns that are part of the campaign access group.  # noqa: E501
 
         :return: The campaign_ids of this NewCampaignGroup.  # noqa: E501
         :rtype: list[int]
@@ -155,7 +155,7 @@ class NewCampaignGroup(object):
     def campaign_ids(self, campaign_ids):
         """Sets the campaign_ids of this NewCampaignGroup.
 
-        A list of the IDs of the campaigns that this campaign group owns.  # noqa: E501
+        A list of IDs of the campaigns that are part of the campaign access group.  # noqa: E501
 
         :param campaign_ids: The campaign_ids of this NewCampaignGroup.  # noqa: E501
         :type: list[int]

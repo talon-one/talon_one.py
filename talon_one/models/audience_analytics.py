@@ -84,7 +84,7 @@ class AudienceAnalytics(object):
     def members_count(self):
         """Gets the members_count of this AudienceAnalytics.  # noqa: E501
 
-        The count of members under a single audience.  # noqa: E501
+        The member count of the audience.  # noqa: E501
 
         :return: The members_count of this AudienceAnalytics.  # noqa: E501
         :rtype: int
@@ -95,7 +95,7 @@ class AudienceAnalytics(object):
     def members_count(self, members_count):
         """Sets the members_count of this AudienceAnalytics.
 
-        The count of members under a single audience.  # noqa: E501
+        The member count of the audience.  # noqa: E501
 
         :param members_count: The members_count of this AudienceAnalytics.  # noqa: E501
         :type: int

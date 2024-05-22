@@ -39,13 +39,18 @@ class TestBaseNotifications(unittest.TestCase):
                 data = [
                     talon_one.models.base_notification.BaseNotification(
                         policy = talon_one.models.base_notification_policy.BaseNotificationPolicy(), 
+                        enabled = True, 
                         webhook = talon_one.models.base_notification_webhook.BaseNotificationWebhook(
                             id = 6, 
                             created = '2020-06-10T09:05:27.993483Z', 
                             modified = '2021-09-12T10:12:42Z', 
                             url = 'www.my-company.com/my-endpoint-name', 
-                            headers = content-type: application/json, ), 
-                        id = 6, )
+                            headers = [
+                                'content-type: application/json'
+                                ], 
+                            enabled = True, ), 
+                        id = 6, 
+                        type = 'loyalty_added_deducted_points', )
                     ]
             )
         else :

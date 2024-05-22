@@ -35,16 +35,16 @@ class CampaignCreatedNotification(object):
     openapi_types = {
         'campaign': 'Campaign',
         'ruleset': 'Ruleset',
-        'priority': 'PriorityPosition'
+        'evaluation_position': 'CampaignEvaluationPosition'
     }
 
     attribute_map = {
         'campaign': 'campaign',
         'ruleset': 'ruleset',
-        'priority': 'priority'
+        'evaluation_position': 'evaluationPosition'
     }
 
-    def __init__(self, campaign=None, ruleset=None, priority=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, campaign=None, ruleset=None, evaluation_position=None, local_vars_configuration=None):  # noqa: E501
         """CampaignCreatedNotification - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -52,13 +52,13 @@ class CampaignCreatedNotification(object):
 
         self._campaign = None
         self._ruleset = None
-        self._priority = None
+        self._evaluation_position = None
         self.discriminator = None
 
         self.campaign = campaign
         if ruleset is not None:
             self.ruleset = ruleset
-        self.priority = priority
+        self.evaluation_position = evaluation_position
 
     @property
     def campaign(self):
@@ -105,27 +105,27 @@ class CampaignCreatedNotification(object):
         self._ruleset = ruleset
 
     @property
-    def priority(self):
-        """Gets the priority of this CampaignCreatedNotification.  # noqa: E501
+    def evaluation_position(self):
+        """Gets the evaluation_position of this CampaignCreatedNotification.  # noqa: E501
 
 
-        :return: The priority of this CampaignCreatedNotification.  # noqa: E501
-        :rtype: PriorityPosition
+        :return: The evaluation_position of this CampaignCreatedNotification.  # noqa: E501
+        :rtype: CampaignEvaluationPosition
         """
-        return self._priority
+        return self._evaluation_position
 
-    @priority.setter
-    def priority(self, priority):
-        """Sets the priority of this CampaignCreatedNotification.
+    @evaluation_position.setter
+    def evaluation_position(self, evaluation_position):
+        """Sets the evaluation_position of this CampaignCreatedNotification.
 
 
-        :param priority: The priority of this CampaignCreatedNotification.  # noqa: E501
-        :type: PriorityPosition
+        :param evaluation_position: The evaluation_position of this CampaignCreatedNotification.  # noqa: E501
+        :type: CampaignEvaluationPosition
         """
-        if self.local_vars_configuration.client_side_validation and priority is None:  # noqa: E501
-            raise ValueError("Invalid value for `priority`, must not be `None`")  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and evaluation_position is None:  # noqa: E501
+            raise ValueError("Invalid value for `evaluation_position`, must not be `None`")  # noqa: E501
 
-        self._priority = priority
+        self._evaluation_position = evaluation_position
 
     def to_dict(self):
         """Returns the model properties as a dict"""

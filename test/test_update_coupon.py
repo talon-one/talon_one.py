@@ -50,7 +50,8 @@ class TestUpdateCoupon(unittest.TestCase):
                     ], 
                 recipient_integration_id = 'URNGV8294NV', 
                 attributes = None, 
-                is_reservation_mandatory = False
+                is_reservation_mandatory = False, 
+                implicitly_reserved = False
             )
         else :
             return UpdateCoupon(

@@ -36,16 +36,17 @@ class TestExpiringPointsNotificationPolicy(unittest.TestCase):
         # model = talon_one.models.expiring_points_notification_policy.ExpiringPointsNotificationPolicy()  # noqa: E501
         if include_optional :
             return ExpiringPointsNotificationPolicy(
-                name = 'notification to google.', 
+                name = 'Notification to Google', 
                 triggers = [
                     talon_one.models.expiring_points_notification_trigger.ExpiringPointsNotificationTrigger(
                         amount = 1, 
                         period = 'w', )
-                    ]
+                    ], 
+                batching_enabled = True
             )
         else :
             return ExpiringPointsNotificationPolicy(
-                name = 'notification to google.',
+                name = 'Notification to Google',
                 triggers = [
                     talon_one.models.expiring_points_notification_trigger.ExpiringPointsNotificationTrigger(
                         amount = 1, 

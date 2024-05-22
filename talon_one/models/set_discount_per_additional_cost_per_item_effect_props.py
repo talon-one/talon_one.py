@@ -181,7 +181,7 @@ class SetDiscountPerAdditionalCostPerItemEffectProps(object):
     def sub_position(self):
         """Gets the sub_position of this SetDiscountPerAdditionalCostPerItemEffectProps.  # noqa: E501
 
-        Only used when [cart item flattening](https://docs.talon.one/docs/product/campaigns/campaign-evaluation#flattening) is enabled. Indicates which item the discount applies to for cart items with `quantity` > 1.   # noqa: E501
+        For cart items with `quantity` > 1, the sub position indicates which item the discount applies to.   # noqa: E501
 
         :return: The sub_position of this SetDiscountPerAdditionalCostPerItemEffectProps.  # noqa: E501
         :rtype: float
@@ -192,7 +192,7 @@ class SetDiscountPerAdditionalCostPerItemEffectProps(object):
     def sub_position(self, sub_position):
         """Sets the sub_position of this SetDiscountPerAdditionalCostPerItemEffectProps.
 
-        Only used when [cart item flattening](https://docs.talon.one/docs/product/campaigns/campaign-evaluation#flattening) is enabled. Indicates which item the discount applies to for cart items with `quantity` > 1.   # noqa: E501
+        For cart items with `quantity` > 1, the sub position indicates which item the discount applies to.   # noqa: E501
 
         :param sub_position: The sub_position of this SetDiscountPerAdditionalCostPerItemEffectProps.  # noqa: E501
         :type: float

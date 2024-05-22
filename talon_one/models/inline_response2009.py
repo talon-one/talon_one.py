@@ -34,7 +34,7 @@ class InlineResponse2009(object):
     """
     openapi_types = {
         'has_more': 'bool',
-        'data': 'list[Referral]'
+        'data': 'list[Coupon]'
     }
 
     attribute_map = {
@@ -84,7 +84,7 @@ class InlineResponse2009(object):
 
 
         :return: The data of this InlineResponse2009.  # noqa: E501
-        :rtype: list[Referral]
+        :rtype: list[Coupon]
         """
         return self._data
 
@@ -94,7 +94,7 @@ class InlineResponse2009(object):
 
 
         :param data: The data of this InlineResponse2009.  # noqa: E501
-        :type: list[Referral]
+        :type: list[Coupon]
         """
         if self.local_vars_configuration.client_side_validation and data is None:  # noqa: E501
             raise ValueError("Invalid value for `data`, must not be `None`")  # noqa: E501

@@ -63,6 +63,7 @@ class TestInventoryCoupon(unittest.TestCase):
                 reservation = False, 
                 batch_id = '32535-43255', 
                 is_reservation_mandatory = False, 
+                implicitly_reserved = False, 
                 profile_redemption_count = 5, 
                 state = 'active'
             )

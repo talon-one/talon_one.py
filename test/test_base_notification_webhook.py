@@ -40,7 +40,10 @@ class TestBaseNotificationWebhook(unittest.TestCase):
                 created = '2020-06-10T09:05:27.993483Z', 
                 modified = '2021-09-12T10:12:42Z', 
                 url = 'www.my-company.com/my-endpoint-name', 
-                headers = content-type: application/json
+                headers = [
+                    'content-type: application/json'
+                    ], 
+                enabled = True
             )
         else :
             return BaseNotificationWebhook(
@@ -48,7 +51,9 @@ class TestBaseNotificationWebhook(unittest.TestCase):
                 created = '2020-06-10T09:05:27.993483Z',
                 modified = '2021-09-12T10:12:42Z',
                 url = 'www.my-company.com/my-endpoint-name',
-                headers = content-type: application/json,
+                headers = [
+                    'content-type: application/json'
+                    ],
         )
 
     def testBaseNotificationWebhook(self):

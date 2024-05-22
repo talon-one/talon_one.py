@@ -46,7 +46,6 @@ class TestTemplateArgDef(unittest.TestCase):
         else :
             return TemplateArgDef(
                 type = 'string',
-                description = '0',
                 title = '0',
                 ui = talon_one.models.ui.ui(),
         )

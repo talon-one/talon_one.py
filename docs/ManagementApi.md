@@ -8,41 +8,53 @@ Method | HTTP request | Description
 [**add_loyalty_points**](ManagementApi.md#add_loyalty_points) | **PUT** /v1/loyalty_programs/{loyaltyProgramId}/profile/{integrationId}/add_points | Add points to customer profile
 [**copy_campaign_to_applications**](ManagementApi.md#copy_campaign_to_applications) | **POST** /v1/applications/{applicationId}/campaigns/{campaignId}/copy | Copy the campaign into the specified Application
 [**create_account_collection**](ManagementApi.md#create_account_collection) | **POST** /v1/collections | Create account-level collection
+[**create_achievement**](ManagementApi.md#create_achievement) | **POST** /v1/applications/{applicationId}/campaigns/{campaignId}/achievements | Create achievement
 [**create_additional_cost**](ManagementApi.md#create_additional_cost) | **POST** /v1/additional_costs | Create additional cost
 [**create_attribute**](ManagementApi.md#create_attribute) | **POST** /v1/attributes | Create custom attribute
 [**create_campaign_from_template**](ManagementApi.md#create_campaign_from_template) | **POST** /v1/applications/{applicationId}/create_campaign_from_template | Create campaign from campaign template
-[**create_collection**](ManagementApi.md#create_collection) | **POST** /v1/applications/{applicationId}/campaigns/{campaignId}/collections | Create collection
+[**create_collection**](ManagementApi.md#create_collection) | **POST** /v1/applications/{applicationId}/campaigns/{campaignId}/collections | Create campaign-level collection
 [**create_coupons**](ManagementApi.md#create_coupons) | **POST** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons | Create coupons
 [**create_coupons_async**](ManagementApi.md#create_coupons_async) | **POST** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons_async | Create coupons asynchronously
 [**create_coupons_for_multiple_recipients**](ManagementApi.md#create_coupons_for_multiple_recipients) | **POST** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons_with_recipients | Create coupons for multiple recipients
-[**create_notification_webhook**](ManagementApi.md#create_notification_webhook) | **POST** /v1/applications/{applicationId}/notification_webhooks | Create notification about campaign-related changes
+[**create_invite_email**](ManagementApi.md#create_invite_email) | **POST** /v1/invite_emails | Resend invitation email
+[**create_invite_v2**](ManagementApi.md#create_invite_v2) | **POST** /v2/invites | Invite user
 [**create_password_recovery_email**](ManagementApi.md#create_password_recovery_email) | **POST** /v1/password_recovery_emails | Request a password reset
 [**create_session**](ManagementApi.md#create_session) | **POST** /v1/sessions | Create session
+[**create_store**](ManagementApi.md#create_store) | **POST** /v1/applications/{applicationId}/stores | Create store
+[**deactivate_user_by_email**](ManagementApi.md#deactivate_user_by_email) | **POST** /v1/users/deactivate | Deactivate user by email address
 [**deduct_loyalty_card_points**](ManagementApi.md#deduct_loyalty_card_points) | **PUT** /v1/loyalty_programs/{loyaltyProgramId}/cards/{loyaltyCardId}/deduct_points | Deduct points from card
 [**delete_account_collection**](ManagementApi.md#delete_account_collection) | **DELETE** /v1/collections/{collectionId} | Delete account-level collection
+[**delete_achievement**](ManagementApi.md#delete_achievement) | **DELETE** /v1/applications/{applicationId}/campaigns/{campaignId}/achievements/{achievementId} | Delete achievement
 [**delete_campaign**](ManagementApi.md#delete_campaign) | **DELETE** /v1/applications/{applicationId}/campaigns/{campaignId} | Delete campaign
-[**delete_collection**](ManagementApi.md#delete_collection) | **DELETE** /v1/applications/{applicationId}/campaigns/{campaignId}/collections/{collectionId} | Delete collection
+[**delete_collection**](ManagementApi.md#delete_collection) | **DELETE** /v1/applications/{applicationId}/campaigns/{campaignId}/collections/{collectionId} | Delete campaign-level collection
 [**delete_coupon**](ManagementApi.md#delete_coupon) | **DELETE** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons/{couponId} | Delete coupon
 [**delete_coupons**](ManagementApi.md#delete_coupons) | **DELETE** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons | Delete coupons
 [**delete_loyalty_card**](ManagementApi.md#delete_loyalty_card) | **DELETE** /v1/loyalty_programs/{loyaltyProgramId}/cards/{loyaltyCardId} | Delete loyalty card
-[**delete_notification_webhook**](ManagementApi.md#delete_notification_webhook) | **DELETE** /v1/applications/{applicationId}/notification_webhooks/{notificationWebhookId} | Delete notification about campaign-related changes
 [**delete_referral**](ManagementApi.md#delete_referral) | **DELETE** /v1/applications/{applicationId}/campaigns/{campaignId}/referrals/{referralId} | Delete referral
+[**delete_store**](ManagementApi.md#delete_store) | **DELETE** /v1/applications/{applicationId}/stores/{storeId} | Delete store
+[**delete_user**](ManagementApi.md#delete_user) | **DELETE** /v1/users/{userId} | Delete user
+[**delete_user_by_email**](ManagementApi.md#delete_user_by_email) | **POST** /v1/users/delete | Delete user by email address
 [**destroy_session**](ManagementApi.md#destroy_session) | **DELETE** /v1/sessions | Destroy session
 [**export_account_collection_items**](ManagementApi.md#export_account_collection_items) | **GET** /v1/collections/{collectionId}/export | Export account-level collection&#39;s items
-[**export_collection_items**](ManagementApi.md#export_collection_items) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/collections/{collectionId}/export | Export a collection&#39;s items
+[**export_achievements**](ManagementApi.md#export_achievements) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/achievements/{achievementId}/export | Export achievement customer data
+[**export_audiences_memberships**](ManagementApi.md#export_audiences_memberships) | **GET** /v1/audiences/{audienceId}/memberships/export | Export audience members
+[**export_collection_items**](ManagementApi.md#export_collection_items) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/collections/{collectionId}/export | Export campaign-level collection&#39;s items
 [**export_coupons**](ManagementApi.md#export_coupons) | **GET** /v1/applications/{applicationId}/export_coupons | Export coupons
 [**export_customer_sessions**](ManagementApi.md#export_customer_sessions) | **GET** /v1/applications/{applicationId}/export_customer_sessions | Export customer sessions
+[**export_customers_tiers**](ManagementApi.md#export_customers_tiers) | **GET** /v1/loyalty_programs/{loyaltyProgramId}/export_customers_tiers | Export customers&#39; tier data
 [**export_effects**](ManagementApi.md#export_effects) | **GET** /v1/applications/{applicationId}/export_effects | Export triggered effects
 [**export_loyalty_balance**](ManagementApi.md#export_loyalty_balance) | **GET** /v1/loyalty_programs/{loyaltyProgramId}/export_customer_balance | Export customer loyalty balance to CSV
 [**export_loyalty_balances**](ManagementApi.md#export_loyalty_balances) | **GET** /v1/loyalty_programs/{loyaltyProgramId}/export_customer_balances | Export customer loyalty balances
 [**export_loyalty_card_balances**](ManagementApi.md#export_loyalty_card_balances) | **GET** /v1/loyalty_programs/{loyaltyProgramId}/export_card_balances | Export all card transaction logs
 [**export_loyalty_card_ledger**](ManagementApi.md#export_loyalty_card_ledger) | **GET** /v1/loyalty_programs/{loyaltyProgramId}/cards/{loyaltyCardId}/export_log | Export card&#39;s ledger log
 [**export_loyalty_ledger**](ManagementApi.md#export_loyalty_ledger) | **GET** /v1/loyalty_programs/{loyaltyProgramId}/profile/{integrationId}/export_log | Export customer&#39;s transaction logs
+[**export_pool_giveaways**](ManagementApi.md#export_pool_giveaways) | **GET** /v1/giveaways/pools/{poolId}/export | Export giveaway codes of a giveaway pool
 [**export_referrals**](ManagementApi.md#export_referrals) | **GET** /v1/applications/{applicationId}/export_referrals | Export referrals
 [**get_access_logs_without_total_count**](ManagementApi.md#get_access_logs_without_total_count) | **GET** /v1/applications/{applicationId}/access_logs/no_total | Get access logs for Application
 [**get_account**](ManagementApi.md#get_account) | **GET** /v1/accounts/{accountId} | Get account details
 [**get_account_analytics**](ManagementApi.md#get_account_analytics) | **GET** /v1/accounts/{accountId}/analytics | Get account analytics
 [**get_account_collection**](ManagementApi.md#get_account_collection) | **GET** /v1/collections/{collectionId} | Get account-level collection
+[**get_achievement**](ManagementApi.md#get_achievement) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/achievements/{achievementId} | Get achievement
 [**get_additional_cost**](ManagementApi.md#get_additional_cost) | **GET** /v1/additional_costs/{additionalCostId} | Get additional cost
 [**get_additional_costs**](ManagementApi.md#get_additional_costs) | **GET** /v1/additional_costs | List additional costs
 [**get_all_access_logs**](ManagementApi.md#get_all_access_logs) | **GET** /v1/access_logs | List access logs
@@ -60,20 +72,25 @@ Method | HTTP request | Description
 [**get_applications**](ManagementApi.md#get_applications) | **GET** /v1/applications | List Applications
 [**get_attribute**](ManagementApi.md#get_attribute) | **GET** /v1/attributes/{attributeId} | Get custom attribute
 [**get_attributes**](ManagementApi.md#get_attributes) | **GET** /v1/attributes | List custom attributes
+[**get_audience_memberships**](ManagementApi.md#get_audience_memberships) | **GET** /v1/audiences/{audienceId}/memberships | List audience members
 [**get_audiences**](ManagementApi.md#get_audiences) | **GET** /v1/audiences | List audiences
+[**get_audiences_analytics**](ManagementApi.md#get_audiences_analytics) | **GET** /v1/audiences/analytics | List audience analytics
 [**get_campaign**](ManagementApi.md#get_campaign) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId} | Get campaign
 [**get_campaign_analytics**](ManagementApi.md#get_campaign_analytics) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/analytics | Get analytics of campaigns
 [**get_campaign_by_attributes**](ManagementApi.md#get_campaign_by_attributes) | **POST** /v1/applications/{applicationId}/campaigns_search | List campaigns that match the given attributes
+[**get_campaign_group**](ManagementApi.md#get_campaign_group) | **GET** /v1/campaign_groups/{campaignGroupId} | Get campaign access group
+[**get_campaign_groups**](ManagementApi.md#get_campaign_groups) | **GET** /v1/campaign_groups | List campaign access groups
 [**get_campaign_templates**](ManagementApi.md#get_campaign_templates) | **GET** /v1/campaign_templates | List campaign templates
 [**get_campaigns**](ManagementApi.md#get_campaigns) | **GET** /v1/applications/{applicationId}/campaigns | List campaigns
 [**get_changes**](ManagementApi.md#get_changes) | **GET** /v1/changes | Get audit logs for an account
-[**get_collection**](ManagementApi.md#get_collection) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/collections/{collectionId} | Get collection
+[**get_collection**](ManagementApi.md#get_collection) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/collections/{collectionId} | Get campaign-level collection
 [**get_collection_items**](ManagementApi.md#get_collection_items) | **GET** /v1/collections/{collectionId}/items | Get collection items
 [**get_coupons_without_total_count**](ManagementApi.md#get_coupons_without_total_count) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons/no_total | List coupons
 [**get_customer_activity_report**](ManagementApi.md#get_customer_activity_report) | **GET** /v1/applications/{applicationId}/customer_activity_reports/{customerId} | Get customer&#39;s activity report
 [**get_customer_activity_reports_without_total_count**](ManagementApi.md#get_customer_activity_reports_without_total_count) | **GET** /v1/applications/{applicationId}/customer_activity_reports/no_total | Get Activity Reports for Application Customers
 [**get_customer_analytics**](ManagementApi.md#get_customer_analytics) | **GET** /v1/applications/{applicationId}/customers/{customerId}/analytics | Get customer&#39;s analytics report
 [**get_customer_profile**](ManagementApi.md#get_customer_profile) | **GET** /v1/customers/{customerId} | Get customer profile
+[**get_customer_profile_achievement_progress**](ManagementApi.md#get_customer_profile_achievement_progress) | **GET** /v1/applications/{applicationId}/achievement_progress/{integrationId} | List customer achievements
 [**get_customer_profiles**](ManagementApi.md#get_customer_profiles) | **GET** /v1/customers/no_total | List customer profiles
 [**get_customers_by_attributes**](ManagementApi.md#get_customers_by_attributes) | **POST** /v1/customer_search/no_total | List customer profiles matching the given attributes
 [**get_event_types**](ManagementApi.md#get_event_types) | **GET** /v1/event_types | List event types
@@ -86,46 +103,55 @@ Method | HTTP request | Description
 [**get_loyalty_program_transactions**](ManagementApi.md#get_loyalty_program_transactions) | **GET** /v1/loyalty_programs/{loyaltyProgramId}/transactions | List loyalty program transactions
 [**get_loyalty_programs**](ManagementApi.md#get_loyalty_programs) | **GET** /v1/loyalty_programs | List loyalty programs
 [**get_loyalty_statistics**](ManagementApi.md#get_loyalty_statistics) | **GET** /v1/loyalty_programs/{loyaltyProgramId}/statistics | Get loyalty program statistics
-[**get_notification_webhook**](ManagementApi.md#get_notification_webhook) | **GET** /v1/applications/{applicationId}/notification_webhooks/{notificationWebhookId} | Get notification about campaign-related changes
-[**get_notification_webhooks**](ManagementApi.md#get_notification_webhooks) | **GET** /v1/applications/{applicationId}/notification_webhooks | List notifications about campaign-related changes
 [**get_referrals_without_total_count**](ManagementApi.md#get_referrals_without_total_count) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/referrals/no_total | List referrals
 [**get_role**](ManagementApi.md#get_role) | **GET** /v1/roles/{roleId} | Get role
 [**get_ruleset**](ManagementApi.md#get_ruleset) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/rulesets/{rulesetId} | Get ruleset
 [**get_rulesets**](ManagementApi.md#get_rulesets) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/rulesets | List campaign rulesets
+[**get_store**](ManagementApi.md#get_store) | **GET** /v1/applications/{applicationId}/stores/{storeId} | Get store
 [**get_user**](ManagementApi.md#get_user) | **GET** /v1/users/{userId} | Get user
 [**get_users**](ManagementApi.md#get_users) | **GET** /v1/users | List users in account
 [**get_webhook**](ManagementApi.md#get_webhook) | **GET** /v1/webhooks/{webhookId} | Get webhook
 [**get_webhook_activation_logs**](ManagementApi.md#get_webhook_activation_logs) | **GET** /v1/webhook_activation_logs | List webhook activation log entries
 [**get_webhook_logs**](ManagementApi.md#get_webhook_logs) | **GET** /v1/webhook_logs | List webhook log entries
 [**get_webhooks**](ManagementApi.md#get_webhooks) | **GET** /v1/webhooks | List webhooks
-[**import_account_collection**](ManagementApi.md#import_account_collection) | **POST** /v1/collections/{collectionId}/import | Import data in existing account-level collection
+[**import_account_collection**](ManagementApi.md#import_account_collection) | **POST** /v1/collections/{collectionId}/import | Import data into existing account-level collection
 [**import_allowed_list**](ManagementApi.md#import_allowed_list) | **POST** /v1/attributes/{attributeId}/allowed_list/import | Import allowed values for attribute
-[**import_collection**](ManagementApi.md#import_collection) | **POST** /v1/applications/{applicationId}/campaigns/{campaignId}/collections/{collectionId}/import | Import data in existing collection
+[**import_audiences_memberships**](ManagementApi.md#import_audiences_memberships) | **POST** /v1/audiences/{audienceId}/memberships/import | Import audience members
+[**import_collection**](ManagementApi.md#import_collection) | **POST** /v1/applications/{applicationId}/campaigns/{campaignId}/collections/{collectionId}/import | Import data into existing campaign-level collection
 [**import_coupons**](ManagementApi.md#import_coupons) | **POST** /v1/applications/{applicationId}/campaigns/{campaignId}/import_coupons | Import coupons
 [**import_loyalty_cards**](ManagementApi.md#import_loyalty_cards) | **POST** /v1/loyalty_programs/{loyaltyProgramId}/import_cards | Import loyalty cards
+[**import_loyalty_customers_tiers**](ManagementApi.md#import_loyalty_customers_tiers) | **POST** /v1/loyalty_programs/{loyaltyProgramId}/import_customers_tiers | Import customers into loyalty tiers
 [**import_loyalty_points**](ManagementApi.md#import_loyalty_points) | **POST** /v1/loyalty_programs/{loyaltyProgramId}/import_points | Import loyalty points
 [**import_pool_giveaways**](ManagementApi.md#import_pool_giveaways) | **POST** /v1/giveaways/pools/{poolId}/import | Import giveaway codes into a giveaway pool
 [**import_referrals**](ManagementApi.md#import_referrals) | **POST** /v1/applications/{applicationId}/campaigns/{campaignId}/import_referrals | Import referrals
 [**list_account_collections**](ManagementApi.md#list_account_collections) | **GET** /v1/collections | List collections in account
-[**list_collections**](ManagementApi.md#list_collections) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/collections | List collections
-[**list_collections_in_application**](ManagementApi.md#list_collections_in_application) | **GET** /v1/applications/{applicationId}/collections | List collections in application
+[**list_achievements**](ManagementApi.md#list_achievements) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/achievements | List achievements
+[**list_catalog_items**](ManagementApi.md#list_catalog_items) | **GET** /v1/catalogs/{catalogId}/items | List items in a catalog
+[**list_collections**](ManagementApi.md#list_collections) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/collections | List collections in campaign
+[**list_collections_in_application**](ManagementApi.md#list_collections_in_application) | **GET** /v1/applications/{applicationId}/collections | List collections in Application
+[**list_stores**](ManagementApi.md#list_stores) | **GET** /v1/applications/{applicationId}/stores | List stores
+[**notification_activation**](ManagementApi.md#notification_activation) | **PUT** /v1/notifications/{notificationId}/activation | Activate or deactivate notification
 [**post_added_deducted_points_notification**](ManagementApi.md#post_added_deducted_points_notification) | **POST** /v1/loyalty_programs/{loyaltyProgramId}/notifications/added_deducted_points | Create notification about added or deducted loyalty points
-[**post_catalogs_strikethrough_notification**](ManagementApi.md#post_catalogs_strikethrough_notification) | **POST** /v1/catalogs/{applicationId}/notifications/strikethrough | Create strikethrough notification
+[**post_catalogs_strikethrough_notification**](ManagementApi.md#post_catalogs_strikethrough_notification) | **POST** /v1/applications/{applicationId}/catalogs/notifications/strikethrough | Create strikethrough notification
+[**post_pending_points_notification**](ManagementApi.md#post_pending_points_notification) | **POST** /v1/loyalty_programs/{loyaltyProgramId}/notifications/pending_points | Create notification about pending loyalty points
 [**remove_loyalty_points**](ManagementApi.md#remove_loyalty_points) | **PUT** /v1/loyalty_programs/{loyaltyProgramId}/profile/{integrationId}/deduct_points | Deduct points from customer profile
 [**reset_password**](ManagementApi.md#reset_password) | **POST** /v1/reset_password | Reset password
 [**search_coupons_advanced_application_wide_without_total_count**](ManagementApi.md#search_coupons_advanced_application_wide_without_total_count) | **POST** /v1/applications/{applicationId}/coupons_search_advanced/no_total | List coupons that match the given attributes (without total count)
 [**search_coupons_advanced_without_total_count**](ManagementApi.md#search_coupons_advanced_without_total_count) | **POST** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons_search_advanced/no_total | List coupons that match the given attributes in campaign (without total count)
 [**transfer_loyalty_card**](ManagementApi.md#transfer_loyalty_card) | **PUT** /v1/loyalty_programs/{loyaltyProgramId}/cards/{loyaltyCardId}/transfer | Transfer card data
 [**update_account_collection**](ManagementApi.md#update_account_collection) | **PUT** /v1/collections/{collectionId} | Update account-level collection
+[**update_achievement**](ManagementApi.md#update_achievement) | **PUT** /v1/applications/{applicationId}/campaigns/{campaignId}/achievements/{achievementId} | Update achievement
 [**update_additional_cost**](ManagementApi.md#update_additional_cost) | **PUT** /v1/additional_costs/{additionalCostId} | Update additional cost
 [**update_attribute**](ManagementApi.md#update_attribute) | **PUT** /v1/attributes/{attributeId} | Update custom attribute
 [**update_campaign**](ManagementApi.md#update_campaign) | **PUT** /v1/applications/{applicationId}/campaigns/{campaignId} | Update campaign
-[**update_collection**](ManagementApi.md#update_collection) | **PUT** /v1/applications/{applicationId}/campaigns/{campaignId}/collections/{collectionId} | Update collection description
+[**update_collection**](ManagementApi.md#update_collection) | **PUT** /v1/applications/{applicationId}/campaigns/{campaignId}/collections/{collectionId} | Update campaign-level collection&#39;s description
 [**update_coupon**](ManagementApi.md#update_coupon) | **PUT** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons/{couponId} | Update coupon
 [**update_coupon_batch**](ManagementApi.md#update_coupon_batch) | **PUT** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons | Update coupons
 [**update_loyalty_card**](ManagementApi.md#update_loyalty_card) | **PUT** /v1/loyalty_programs/{loyaltyProgramId}/cards/{loyaltyCardId} | Update loyalty card status
-[**update_notification_webhook**](ManagementApi.md#update_notification_webhook) | **PUT** /v1/applications/{applicationId}/notification_webhooks/{notificationWebhookId} | Update notification about campaign-related changes
 [**update_referral**](ManagementApi.md#update_referral) | **PUT** /v1/applications/{applicationId}/campaigns/{campaignId}/referrals/{referralId} | Update referral
+[**update_role_v2**](ManagementApi.md#update_role_v2) | **PUT** /v2/roles/{roleId} | Update role
+[**update_store**](ManagementApi.md#update_store) | **PUT** /v1/applications/{applicationId}/stores/{storeId} | Update store
+[**update_user**](ManagementApi.md#update_user) | **PUT** /v1/users/{userId} | Update user
 
 
 # **add_loyalty_card_points**
@@ -421,7 +447,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **copy_campaign_to_applications**
-> InlineResponse2004 copy_campaign_to_applications(application_id, campaign_id, body)
+> InlineResponse2006 copy_campaign_to_applications(application_id, campaign_id, body)
 
 Copy the campaign into the specified Application
 
@@ -547,7 +573,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2004**](InlineResponse2004.md)
+[**InlineResponse2006**](InlineResponse2006.md)
 
 ### Authorization
 
@@ -570,7 +596,7 @@ Name | Type | Description  | Notes
 
 Create account-level collection
 
-Create account-level collection.
+Create an account-level collection.
 
 ### Example
 
@@ -703,7 +729,155 @@ Name | Type | Description  | Notes
 **201** | Created |  -  |
 **400** | Bad request |  -  |
 **401** | Unauthorized |  -  |
-**409** | Conflict. A Collection with this name already exists. |  -  |
+**409** | Conflict. A collection with this name already exists. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **create_achievement**
+> Achievement create_achievement(application_id, campaign_id, body)
+
+Create achievement
+
+Create a new achievement in a specific campaign.
+
+### Example
+
+* Api Key Authentication (management_key):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
+campaign_id = 56 # int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
+body = talon_one.CreateAchievement() # CreateAchievement | body
+
+    try:
+        # Create achievement
+        api_response = api_instance.create_achievement(application_id, campaign_id, body)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->create_achievement: %s\n" % e)
+```
+
+* Api Key Authentication (manager_auth):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
+campaign_id = 56 # int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
+body = talon_one.CreateAchievement() # CreateAchievement | body
+
+    try:
+        # Create achievement
+        api_response = api_instance.create_achievement(application_id, campaign_id, body)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->create_achievement: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **application_id** | **int**| The ID of the Application. It is displayed in your Talon.One deployment URL. | 
+ **campaign_id** | **int**| The ID of the campaign. It is displayed in your Talon.One deployment URL. | 
+ **body** | [**CreateAchievement**](CreateAchievement.md)| body | 
+
+### Return type
+
+[**Achievement**](Achievement.md)
+
+### Authorization
+
+[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | Created |  -  |
+**400** | Bad request |  -  |
+**401** | Unauthorized |  -  |
+**409** | Conflict. An achievement with this name or title already exists. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1130,9 +1304,9 @@ Name | Type | Description  | Notes
 # **create_collection**
 > Collection create_collection(application_id, campaign_id, body)
 
-Create collection
+Create campaign-level collection
 
-Create a collection.
+Create a campaign-level collection in a given campaign.
 
 ### Example
 
@@ -1183,7 +1357,7 @@ campaign_id = 56 # int | The ID of the campaign. It is displayed in your Talon.O
 body = talon_one.NewCampaignCollection() # NewCampaignCollection | body
 
     try:
-        # Create collection
+        # Create campaign-level collection
         api_response = api_instance.create_collection(application_id, campaign_id, body)
         pprint(api_response)
     except ApiException as e:
@@ -1237,7 +1411,7 @@ campaign_id = 56 # int | The ID of the campaign. It is displayed in your Talon.O
 body = talon_one.NewCampaignCollection() # NewCampaignCollection | body
 
     try:
-        # Create collection
+        # Create campaign-level collection
         api_response = api_instance.create_collection(application_id, campaign_id, body)
         pprint(api_response)
     except ApiException as e:
@@ -1273,7 +1447,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_coupons**
-> InlineResponse2007 create_coupons(application_id, campaign_id, body, silent=silent)
+> InlineResponse2008 create_coupons(application_id, campaign_id, body, silent=silent)
 
 Create coupons
 
@@ -1402,7 +1576,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2007**](InlineResponse2007.md)
+[**InlineResponse2008**](InlineResponse2008.md)
 
 ### Authorization
 
@@ -1567,7 +1741,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_coupons_for_multiple_recipients**
-> InlineResponse2007 create_coupons_for_multiple_recipients(application_id, campaign_id, body, silent=silent)
+> InlineResponse2008 create_coupons_for_multiple_recipients(application_id, campaign_id, body, silent=silent)
 
 Create coupons for multiple recipients
 
@@ -1696,7 +1870,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2007**](InlineResponse2007.md)
+[**InlineResponse2008**](InlineResponse2008.md)
 
 ### Authorization
 
@@ -1715,12 +1889,12 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **create_notification_webhook**
-> NotificationWebhook create_notification_webhook(application_id, body)
+# **create_invite_email**
+> NewInviteEmail create_invite_email(body)
 
-Create notification about campaign-related changes
+Resend invitation email
 
-Create a [notification about campaign-related changes](https://docs.talon.one/docs/product/applications/outbound-notifications).  A notification about campaign-related changes is different from regular webhooks in that it is Application-scoped and has a predefined payload. [Regular webhooks](https://docs.talon.one/docs/dev/getting-started/webhooks) have user-definable payloads.  **Tip:**  - You can create these notifications using the Campaign Manager. See [Managing notifications](https://docs.talon.one/docs/product/applications/outbound-notifications). - You can review the payload you will receive in the [specs](https://docs.talon.one/outbound-notifications#/paths/campaign_created/post). 
+Resend an email invitation to an existing user.  **Note:** The invitation token is valid for 24 hours after the email has been sent. 
 
 ### Example
 
@@ -1766,15 +1940,14 @@ configuration = talon_one.Configuration(
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
-    application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
-body = talon_one.NewNotificationWebhook() # NewNotificationWebhook | body
+    body = talon_one.NewInviteEmail() # NewInviteEmail | body
 
     try:
-        # Create notification about campaign-related changes
-        api_response = api_instance.create_notification_webhook(application_id, body)
+        # Resend invitation email
+        api_response = api_instance.create_invite_email(body)
         pprint(api_response)
     except ApiException as e:
-        print("Exception when calling ManagementApi->create_notification_webhook: %s\n" % e)
+        print("Exception when calling ManagementApi->create_invite_email: %s\n" % e)
 ```
 
 * Api Key Authentication (manager_auth):
@@ -1819,27 +1992,164 @@ configuration = talon_one.Configuration(
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
-    application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
-body = talon_one.NewNotificationWebhook() # NewNotificationWebhook | body
+    body = talon_one.NewInviteEmail() # NewInviteEmail | body
 
     try:
-        # Create notification about campaign-related changes
-        api_response = api_instance.create_notification_webhook(application_id, body)
+        # Resend invitation email
+        api_response = api_instance.create_invite_email(body)
         pprint(api_response)
     except ApiException as e:
-        print("Exception when calling ManagementApi->create_notification_webhook: %s\n" % e)
+        print("Exception when calling ManagementApi->create_invite_email: %s\n" % e)
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **application_id** | **int**| The ID of the Application. It is displayed in your Talon.One deployment URL. | 
- **body** | [**NewNotificationWebhook**](NewNotificationWebhook.md)| body | 
+ **body** | [**NewInviteEmail**](NewInviteEmail.md)| body | 
 
 ### Return type
 
-[**NotificationWebhook**](NotificationWebhook.md)
+[**NewInviteEmail**](NewInviteEmail.md)
+
+### Authorization
+
+[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | Created |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **create_invite_v2**
+> User create_invite_v2(body)
+
+Invite user
+
+Create a new user in the account and send an invitation to their email address.  **Note**: The invitation token is valid for 24 hours after the email has been sent. You can resend an invitation to a user with the [Resend invitation email](https://docs.talon.one/management-api#tag/Accounts-and-users/operation/createInviteEmail) endpoint. 
+
+### Example
+
+* Api Key Authentication (management_key):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    body = talon_one.NewInvitation() # NewInvitation | body
+
+    try:
+        # Invite user
+        api_response = api_instance.create_invite_v2(body)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->create_invite_v2: %s\n" % e)
+```
+
+* Api Key Authentication (manager_auth):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    body = talon_one.NewInvitation() # NewInvitation | body
+
+    try:
+        # Invite user
+        api_response = api_instance.create_invite_v2(body)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->create_invite_v2: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**NewInvitation**](NewInvitation.md)| body | 
+
+### Return type
+
+[**User**](User.md)
 
 ### Authorization
 
@@ -2135,6 +2445,287 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **create_store**
+> Store create_store(application_id, body)
+
+Create store
+
+Create a new store in a specific Application.
+
+### Example
+
+* Api Key Authentication (management_key):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
+body = talon_one.NewStore() # NewStore | body
+
+    try:
+        # Create store
+        api_response = api_instance.create_store(application_id, body)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->create_store: %s\n" % e)
+```
+
+* Api Key Authentication (manager_auth):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
+body = talon_one.NewStore() # NewStore | body
+
+    try:
+        # Create store
+        api_response = api_instance.create_store(application_id, body)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->create_store: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **application_id** | **int**| The ID of the Application. It is displayed in your Talon.One deployment URL. | 
+ **body** | [**NewStore**](NewStore.md)| body | 
+
+### Return type
+
+[**Store**](Store.md)
+
+### Authorization
+
+[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | Created |  -  |
+**400** | Bad request |  -  |
+**409** | Conflict. A store with this integration ID already exists for this application. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **deactivate_user_by_email**
+> deactivate_user_by_email(body)
+
+Deactivate user by email address
+
+Deactivate a specific user by their email address. 
+
+### Example
+
+* Api Key Authentication (management_key):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    body = talon_one.DeactivateUserRequest() # DeactivateUserRequest | body
+
+    try:
+        # Deactivate user by email address
+        api_instance.deactivate_user_by_email(body)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->deactivate_user_by_email: %s\n" % e)
+```
+
+* Api Key Authentication (manager_auth):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    body = talon_one.DeactivateUserRequest() # DeactivateUserRequest | body
+
+    try:
+        # Deactivate user by email address
+        api_instance.deactivate_user_by_email(body)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->deactivate_user_by_email: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**DeactivateUserRequest**](DeactivateUserRequest.md)| body | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | No Content |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **deduct_loyalty_card_points**
 > deduct_loyalty_card_points(loyalty_program_id, loyalty_card_id, body)
 
@@ -2286,7 +2877,7 @@ void (empty response body)
 
 Delete account-level collection
 
-Delete the given account-level collection.
+Delete a given account-level collection.
 
 ### Example
 
@@ -2332,7 +2923,7 @@ configuration = talon_one.Configuration(
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
-    collection_id = 56 # int | The ID of the collection. You can get it with the [List collection in account](#operation/listCollectionsInApplication) endpoint.
+    collection_id = 56 # int | The ID of the collection. You can get it with the [List collections in account](#operation/listAccountCollections) endpoint.
 
     try:
         # Delete account-level collection
@@ -2383,7 +2974,7 @@ configuration = talon_one.Configuration(
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
-    collection_id = 56 # int | The ID of the collection. You can get it with the [List collection in account](#operation/listCollectionsInApplication) endpoint.
+    collection_id = 56 # int | The ID of the collection. You can get it with the [List collections in account](#operation/listAccountCollections) endpoint.
 
     try:
         # Delete account-level collection
@@ -2396,7 +2987,7 @@ with talon_one.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **collection_id** | **int**| The ID of the collection. You can get it with the [List collection in account](#operation/listCollectionsInApplication) endpoint. | 
+ **collection_id** | **int**| The ID of the collection. You can get it with the [List collections in account](#operation/listAccountCollections) endpoint. | 
 
 ### Return type
 
@@ -2415,6 +3006,151 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | No Content |  -  |
+**404** | Not found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **delete_achievement**
+> delete_achievement(application_id, campaign_id, achievement_id)
+
+Delete achievement
+
+Delete the specified achievement.
+
+### Example
+
+* Api Key Authentication (management_key):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
+campaign_id = 56 # int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
+achievement_id = 56 # int | The ID of the achievement. You can get this ID with the [List achievement](https://docs.talon.one/management-api#tag/Achievements/operation/listAchievements) endpoint.
+
+    try:
+        # Delete achievement
+        api_instance.delete_achievement(application_id, campaign_id, achievement_id)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->delete_achievement: %s\n" % e)
+```
+
+* Api Key Authentication (manager_auth):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
+campaign_id = 56 # int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
+achievement_id = 56 # int | The ID of the achievement. You can get this ID with the [List achievement](https://docs.talon.one/management-api#tag/Achievements/operation/listAchievements) endpoint.
+
+    try:
+        # Delete achievement
+        api_instance.delete_achievement(application_id, campaign_id, achievement_id)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->delete_achievement: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **application_id** | **int**| The ID of the Application. It is displayed in your Talon.One deployment URL. | 
+ **campaign_id** | **int**| The ID of the campaign. It is displayed in your Talon.One deployment URL. | 
+ **achievement_id** | **int**| The ID of the achievement. You can get this ID with the [List achievement](https://docs.talon.one/management-api#tag/Achievements/operation/listAchievements) endpoint. | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | No Content |  -  |
+**401** | Unauthorized |  -  |
 **404** | Not found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -2562,9 +3298,9 @@ void (empty response body)
 # **delete_collection**
 > delete_collection(application_id, campaign_id, collection_id)
 
-Delete collection
+Delete campaign-level collection
 
-Delete the given collection.
+Delete a given campaign-level collection.
 
 ### Example
 
@@ -2612,10 +3348,10 @@ with talon_one.ApiClient(configuration) as api_client:
     api_instance = talon_one.ManagementApi(api_client)
     application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
 campaign_id = 56 # int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
-collection_id = 56 # int | The ID of the collection. You can get it with the [List collection in account](#operation/listCollectionsInApplication) endpoint.
+collection_id = 56 # int | The ID of the collection. You can get it with the [List collections in Application](#operation/listCollectionsInApplication) endpoint.
 
     try:
-        # Delete collection
+        # Delete campaign-level collection
         api_instance.delete_collection(application_id, campaign_id, collection_id)
     except ApiException as e:
         print("Exception when calling ManagementApi->delete_collection: %s\n" % e)
@@ -2665,10 +3401,10 @@ with talon_one.ApiClient(configuration) as api_client:
     api_instance = talon_one.ManagementApi(api_client)
     application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
 campaign_id = 56 # int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
-collection_id = 56 # int | The ID of the collection. You can get it with the [List collection in account](#operation/listCollectionsInApplication) endpoint.
+collection_id = 56 # int | The ID of the collection. You can get it with the [List collections in Application](#operation/listCollectionsInApplication) endpoint.
 
     try:
-        # Delete collection
+        # Delete campaign-level collection
         api_instance.delete_collection(application_id, campaign_id, collection_id)
     except ApiException as e:
         print("Exception when calling ManagementApi->delete_collection: %s\n" % e)
@@ -2680,7 +3416,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **application_id** | **int**| The ID of the Application. It is displayed in your Talon.One deployment URL. | 
  **campaign_id** | **int**| The ID of the campaign. It is displayed in your Talon.One deployment URL. | 
- **collection_id** | **int**| The ID of the collection. You can get it with the [List collection in account](#operation/listCollectionsInApplication) endpoint. | 
+ **collection_id** | **int**| The ID of the collection. You can get it with the [List collections in Application](#operation/listCollectionsInApplication) endpoint. | 
 
 ### Return type
 
@@ -2900,12 +3636,12 @@ with talon_one.ApiClient(configuration) as api_client:
     application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
 campaign_id = 56 # int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
 value = 'value_example' # str | Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
-created_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
-created_after = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
-starts_after = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
-starts_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
-expires_after = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
-expires_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
+created_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
+created_after = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
+starts_after = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
+starts_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
+expires_after = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
+expires_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
 valid = 'valid_example' # str | - `expired`: Matches coupons in which the expiration date is set and in the past. - `validNow`: Matches coupons in which start date is null or in the past and expiration date is null or in the future. - `validFuture`: Matches coupons in which start date is set and in the future.  (optional)
 batch_id = 'batch_id_example' # str | Filter results by batches of coupons (optional)
 usable = 'usable_example' # str | - `true`: only coupons where `usageCounter < usageLimit` will be returned. - `false`: only coupons where `usageCounter >= usageLimit` will be returned.  (optional)
@@ -2965,12 +3701,12 @@ with talon_one.ApiClient(configuration) as api_client:
     application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
 campaign_id = 56 # int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
 value = 'value_example' # str | Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
-created_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
-created_after = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
-starts_after = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
-starts_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
-expires_after = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
-expires_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
+created_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
+created_after = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
+starts_after = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
+starts_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
+expires_after = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
+expires_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
 valid = 'valid_example' # str | - `expired`: Matches coupons in which the expiration date is set and in the past. - `validNow`: Matches coupons in which start date is null or in the past and expiration date is null or in the future. - `validFuture`: Matches coupons in which start date is set and in the future.  (optional)
 batch_id = 'batch_id_example' # str | Filter results by batches of coupons (optional)
 usable = 'usable_example' # str | - `true`: only coupons where `usageCounter < usageLimit` will be returned. - `false`: only coupons where `usageCounter >= usageLimit` will be returned.  (optional)
@@ -2992,12 +3728,12 @@ Name | Type | Description  | Notes
  **application_id** | **int**| The ID of the Application. It is displayed in your Talon.One deployment URL. | 
  **campaign_id** | **int**| The ID of the campaign. It is displayed in your Talon.One deployment URL. | 
  **value** | **str**| Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. | [optional] 
- **created_before** | **datetime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. | [optional] 
- **created_after** | **datetime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. | [optional] 
- **starts_after** | **datetime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. | [optional] 
- **starts_before** | **datetime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. | [optional] 
- **expires_after** | **datetime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. | [optional] 
- **expires_before** | **datetime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. | [optional] 
+ **created_before** | **datetime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. | [optional] 
+ **created_after** | **datetime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. | [optional] 
+ **starts_after** | **datetime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. | [optional] 
+ **starts_before** | **datetime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. | [optional] 
+ **expires_after** | **datetime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. | [optional] 
+ **expires_before** | **datetime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. | [optional] 
  **valid** | **str**| - &#x60;expired&#x60;: Matches coupons in which the expiration date is set and in the past. - &#x60;validNow&#x60;: Matches coupons in which start date is null or in the past and expiration date is null or in the future. - &#x60;validFuture&#x60;: Matches coupons in which start date is set and in the future.  | [optional] 
  **batch_id** | **str**| Filter results by batches of coupons | [optional] 
  **usable** | **str**| - &#x60;true&#x60;: only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned. - &#x60;false&#x60;: only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60; will be returned.  | [optional] 
@@ -3167,146 +3903,6 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **delete_notification_webhook**
-> delete_notification_webhook(application_id, notification_webhook_id)
-
-Delete notification about campaign-related changes
-
-Remove the given existing [notification about campaign-related changes](https://docs.talon.one/docs/product/applications/outbound-notifications). 
-
-### Example
-
-* Api Key Authentication (management_key):
-```python
-from __future__ import print_function
-import time
-import talon_one
-from talon_one.rest import ApiException
-from pprint import pprint
-# Defining the host is optional and defaults to https://yourbaseurl.talon.one
-# See configuration.py for a list of all supported configuration parameters.
-configuration = talon_one.Configuration(
-    host = "https://yourbaseurl.talon.one"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: management_key
-configuration = talon_one.Configuration(
-    host = "https://yourbaseurl.talon.one",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
-)
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
-
-# Configure API key authorization: manager_auth
-configuration = talon_one.Configuration(
-    host = "https://yourbaseurl.talon.one",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
-)
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with talon_one.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = talon_one.ManagementApi(api_client)
-    application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
-notification_webhook_id = 56 # int | The ID of the webhook. Get it with the appropriate _List notifications_ endpoint.
-
-    try:
-        # Delete notification about campaign-related changes
-        api_instance.delete_notification_webhook(application_id, notification_webhook_id)
-    except ApiException as e:
-        print("Exception when calling ManagementApi->delete_notification_webhook: %s\n" % e)
-```
-
-* Api Key Authentication (manager_auth):
-```python
-from __future__ import print_function
-import time
-import talon_one
-from talon_one.rest import ApiException
-from pprint import pprint
-# Defining the host is optional and defaults to https://yourbaseurl.talon.one
-# See configuration.py for a list of all supported configuration parameters.
-configuration = talon_one.Configuration(
-    host = "https://yourbaseurl.talon.one"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: management_key
-configuration = talon_one.Configuration(
-    host = "https://yourbaseurl.talon.one",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
-)
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
-
-# Configure API key authorization: manager_auth
-configuration = talon_one.Configuration(
-    host = "https://yourbaseurl.talon.one",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
-)
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with talon_one.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = talon_one.ManagementApi(api_client)
-    application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
-notification_webhook_id = 56 # int | The ID of the webhook. Get it with the appropriate _List notifications_ endpoint.
-
-    try:
-        # Delete notification about campaign-related changes
-        api_instance.delete_notification_webhook(application_id, notification_webhook_id)
-    except ApiException as e:
-        print("Exception when calling ManagementApi->delete_notification_webhook: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **application_id** | **int**| The ID of the Application. It is displayed in your Talon.One deployment URL. | 
- **notification_webhook_id** | **int**| The ID of the webhook. Get it with the appropriate _List notifications_ endpoint. | 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: Not defined
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**204** | No Content |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **delete_referral**
 > delete_referral(application_id, campaign_id, referral_id)
 
@@ -3441,6 +4037,421 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | No Content |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **delete_store**
+> delete_store(application_id, store_id)
+
+Delete store
+
+Delete the specified store.
+
+### Example
+
+* Api Key Authentication (management_key):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
+store_id = 'store_id_example' # str | The ID of the store. You can get this ID with the [List stores](#tag/Stores/operation/listStores) endpoint. 
+
+    try:
+        # Delete store
+        api_instance.delete_store(application_id, store_id)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->delete_store: %s\n" % e)
+```
+
+* Api Key Authentication (manager_auth):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
+store_id = 'store_id_example' # str | The ID of the store. You can get this ID with the [List stores](#tag/Stores/operation/listStores) endpoint. 
+
+    try:
+        # Delete store
+        api_instance.delete_store(application_id, store_id)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->delete_store: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **application_id** | **int**| The ID of the Application. It is displayed in your Talon.One deployment URL. | 
+ **store_id** | **str**| The ID of the store. You can get this ID with the [List stores](#tag/Stores/operation/listStores) endpoint.  | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | No Content |  -  |
+**404** | Not found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **delete_user**
+> delete_user(user_id)
+
+Delete user
+
+Delete a specific user.
+
+### Example
+
+* Api Key Authentication (management_key):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    user_id = 56 # int | The ID of the user.
+
+    try:
+        # Delete user
+        api_instance.delete_user(user_id)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->delete_user: %s\n" % e)
+```
+
+* Api Key Authentication (manager_auth):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    user_id = 56 # int | The ID of the user.
+
+    try:
+        # Delete user
+        api_instance.delete_user(user_id)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->delete_user: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **user_id** | **int**| The ID of the user. | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | No Content |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **delete_user_by_email**
+> delete_user_by_email(body)
+
+Delete user by email address
+
+Delete a specific user by their email address. 
+
+### Example
+
+* Api Key Authentication (management_key):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    body = talon_one.DeleteUserRequest() # DeleteUserRequest | body
+
+    try:
+        # Delete user by email address
+        api_instance.delete_user_by_email(body)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->delete_user_by_email: %s\n" % e)
+```
+
+* Api Key Authentication (manager_auth):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    body = talon_one.DeleteUserRequest() # DeleteUserRequest | body
+
+    try:
+        # Delete user by email address
+        api_instance.delete_user_by_email(body)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->delete_user_by_email: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**DeleteUserRequest**](DeleteUserRequest.md)| body | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: Not defined
 
 ### HTTP response details
@@ -3587,7 +4598,7 @@ void (empty response body)
 
 Export account-level collection's items
 
-Download a CSV file containing items from an account-level collection.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/). 
+Download a CSV file containing items from a given account-level collection.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/). 
 
 ### Example
 
@@ -3633,7 +4644,7 @@ configuration = talon_one.Configuration(
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
-    collection_id = 56 # int | The ID of the collection. You can get it with the [List collection in account](#operation/listCollectionsInApplication) endpoint.
+    collection_id = 56 # int | The ID of the collection. You can get it with the [List collections in account](#operation/listAccountCollections) endpoint.
 
     try:
         # Export account-level collection's items
@@ -3685,7 +4696,7 @@ configuration = talon_one.Configuration(
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
-    collection_id = 56 # int | The ID of the collection. You can get it with the [List collection in account](#operation/listCollectionsInApplication) endpoint.
+    collection_id = 56 # int | The ID of the collection. You can get it with the [List collections in account](#operation/listAccountCollections) endpoint.
 
     try:
         # Export account-level collection's items
@@ -3699,7 +4710,7 @@ with talon_one.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **collection_id** | **int**| The ID of the collection. You can get it with the [List collection in account](#operation/listCollectionsInApplication) endpoint. | 
+ **collection_id** | **int**| The ID of the collection. You can get it with the [List collections in account](#operation/listAccountCollections) endpoint. | 
 
 ### Return type
 
@@ -3723,12 +4734,12 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **export_collection_items**
-> str export_collection_items(application_id, campaign_id, collection_id)
+# **export_achievements**
+> str export_achievements(application_id, campaign_id, achievement_id)
 
-Export a collection's items
+Export achievement customer data
 
-Download a CSV file containing a collection's items.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/). 
+Download a CSV file containing a list of all the customers who have participated in and are currently participating in the given achievement.  The CSV file contains the following columns: - `profileIntegrationID`: The integration ID of the customer profile participating in the achievement. - `title`: The display name of the achievement in the Campaign Manager. - `target`: The required number of actions or the transactional milestone to complete the achievement. - `progress`: The current progress of the customer in the achievement. - `status`: The status of the achievement. Can be one of: ['inprogress', 'completed', 'expired']. - `startDate`: The date on which the customer profile started the achievement in RFC3339. - `endDate`: The date on which the achievement ends and resets for the customer profile in RFC3339. - `completionDate`: The date on which the customer profile completed the achievement in RFC3339. 
 
 ### Example
 
@@ -3776,10 +4787,300 @@ with talon_one.ApiClient(configuration) as api_client:
     api_instance = talon_one.ManagementApi(api_client)
     application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
 campaign_id = 56 # int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
-collection_id = 56 # int | The ID of the collection. You can get it with the [List collection in account](#operation/listCollectionsInApplication) endpoint.
+achievement_id = 56 # int | The ID of the achievement. You can get this ID with the [List achievement](https://docs.talon.one/management-api#tag/Achievements/operation/listAchievements) endpoint.
 
     try:
-        # Export a collection's items
+        # Export achievement customer data
+        api_response = api_instance.export_achievements(application_id, campaign_id, achievement_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->export_achievements: %s\n" % e)
+```
+
+* Api Key Authentication (manager_auth):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
+campaign_id = 56 # int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
+achievement_id = 56 # int | The ID of the achievement. You can get this ID with the [List achievement](https://docs.talon.one/management-api#tag/Achievements/operation/listAchievements) endpoint.
+
+    try:
+        # Export achievement customer data
+        api_response = api_instance.export_achievements(application_id, campaign_id, achievement_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->export_achievements: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **application_id** | **int**| The ID of the Application. It is displayed in your Talon.One deployment URL. | 
+ **campaign_id** | **int**| The ID of the campaign. It is displayed in your Talon.One deployment URL. | 
+ **achievement_id** | **int**| The ID of the achievement. You can get this ID with the [List achievement](https://docs.talon.one/management-api#tag/Achievements/operation/listAchievements) endpoint. | 
+
+### Return type
+
+**str**
+
+### Authorization
+
+[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/csv
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Bad request |  -  |
+**401** | Unauthorized |  -  |
+**404** | Not found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **export_audiences_memberships**
+> str export_audiences_memberships(audience_id)
+
+Export audience members
+
+Download a CSV file containing the integration IDs of the members of an audience.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The file contains the following column: - `profileintegrationid`: The integration ID of the customer profile. 
+
+### Example
+
+* Api Key Authentication (management_key):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    audience_id = 56 # int | The ID of the audience.
+
+    try:
+        # Export audience members
+        api_response = api_instance.export_audiences_memberships(audience_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->export_audiences_memberships: %s\n" % e)
+```
+
+* Api Key Authentication (manager_auth):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    audience_id = 56 # int | The ID of the audience.
+
+    try:
+        # Export audience members
+        api_response = api_instance.export_audiences_memberships(audience_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->export_audiences_memberships: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **audience_id** | **int**| The ID of the audience. | 
+
+### Return type
+
+**str**
+
+### Authorization
+
+[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/csv
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Bad request |  -  |
+**401** | Unauthorized - Invalid API key |  -  |
+**404** | Not found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **export_collection_items**
+> str export_collection_items(application_id, campaign_id, collection_id)
+
+Export campaign-level collection's items
+
+Download a CSV file containing items from a given campaign-level collection.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/). 
+
+### Example
+
+* Api Key Authentication (management_key):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
+campaign_id = 56 # int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
+collection_id = 56 # int | The ID of the collection. You can get it with the [List collections in Application](#operation/listCollectionsInApplication) endpoint.
+
+    try:
+        # Export campaign-level collection's items
         api_response = api_instance.export_collection_items(application_id, campaign_id, collection_id)
         pprint(api_response)
     except ApiException as e:
@@ -3830,10 +5131,10 @@ with talon_one.ApiClient(configuration) as api_client:
     api_instance = talon_one.ManagementApi(api_client)
     application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
 campaign_id = 56 # int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
-collection_id = 56 # int | The ID of the collection. You can get it with the [List collection in account](#operation/listCollectionsInApplication) endpoint.
+collection_id = 56 # int | The ID of the collection. You can get it with the [List collections in Application](#operation/listCollectionsInApplication) endpoint.
 
     try:
-        # Export a collection's items
+        # Export campaign-level collection's items
         api_response = api_instance.export_collection_items(application_id, campaign_id, collection_id)
         pprint(api_response)
     except ApiException as e:
@@ -3846,7 +5147,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **application_id** | **int**| The ID of the Application. It is displayed in your Talon.One deployment URL. | 
  **campaign_id** | **int**| The ID of the campaign. It is displayed in your Talon.One deployment URL. | 
- **collection_id** | **int**| The ID of the collection. You can get it with the [List collection in account](#operation/listCollectionsInApplication) endpoint. | 
+ **collection_id** | **int**| The ID of the collection. You can get it with the [List collections in Application](#operation/listCollectionsInApplication) endpoint. | 
 
 ### Return type
 
@@ -3871,11 +5172,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **export_coupons**
-> str export_coupons(application_id, campaign_id=campaign_id, sort=sort, value=value, created_before=created_before, created_after=created_after, valid=valid, usable=usable, referral_id=referral_id, recipient_integration_id=recipient_integration_id, batch_id=batch_id, exact_match=exact_match, date_format=date_format, campaign_state=campaign_state)
+> str export_coupons(application_id, campaign_id=campaign_id, sort=sort, value=value, created_before=created_before, created_after=created_after, valid=valid, usable=usable, referral_id=referral_id, recipient_integration_id=recipient_integration_id, batch_id=batch_id, exact_match=exact_match, date_format=date_format, campaign_state=campaign_state, values_only=values_only)
 
 Export coupons
 
-Download a CSV file containing the coupons that match the given properties.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The CSV file contains the following columns:  - `accountid`: The ID of your deployment. - `applicationid`: The ID of the Application this coupon is related to. - `attributes`: A json object describing _custom_ referral attribute names and their values. - `batchid`: The ID of the batch this coupon is part of. - `campaignid`: The ID of the campaign this coupon is related to. - `counter`: The number of times this coupon has been redeemed. - `created`: The creation date of the coupon code. - `deleted`: Whether the coupon code is deleted. - `deleted_changelogid`: The ID of the delete event in the logs. - `discount_counter`: The amount of discount given by this coupon. - `discount_limitval`: The maximum discount amount that can be given be this coupon. - `expirydate`: The end date in RFC3339 of the code redemption period. - `id`: The internal ID of the coupon code. - `importid`: The ID of the import job that created this coupon. - `is_reservation_mandatory`: Whether this coupon requires a reservation to be redeemed. - `limits`: The limits set on this coupon. - `limitval`: The maximum number of redemptions of this code. - `recipientintegrationid`: The integration ID of the customer considered as recipient of the coupon.   Only the customer with this integration ID can redeem the corresponding coupon code.   Learn about [coupon reservation](https://docs.talon.one/docs/product/rules/effects/using-effects#reserving-a-coupon-code). - `referralid`: The ID of the referral code that triggered the creation of this coupon (create coupon effect). - `reservation`: Whether the coupon is reserved. - `reservation_counter`: How many times this coupon has been reserved. - `reservation_limitval`: The maximum of number of reservations this coupon can have. - `startdate`: The start date in RFC3339 of the code redemption period. - `value`: The coupon code. 
+Download a CSV file containing the coupons that match the given properties.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The CSV file can contain the following columns:  - `accountid`: The ID of your deployment. - `applicationid`: The ID of the Application this coupon is related to. - `attributes`: A json object describing _custom_ referral attribute names and their values. - `batchid`: The ID of the batch this coupon is part of. - `campaignid`: The ID of the campaign this coupon is related to. - `counter`: The number of times this coupon has been redeemed. - `created`: The creation date of the coupon code. - `deleted`: Whether the coupon code is deleted. - `deleted_changelogid`: The ID of the delete event in the logs. - `discount_counter`: The amount of discount given by this coupon. - `discount_limitval`: The maximum discount amount that can be given be this coupon. - `expirydate`: The end date in RFC3339 of the code redemption period. - `id`: The internal ID of the coupon code. - `importid`: The ID of the import job that created this coupon. - `is_reservation_mandatory`: Whether this coupon requires a reservation to be redeemed. - `limits`: The limits set on this coupon. - `limitval`: The maximum number of redemptions of this code. - `recipientintegrationid`: The integration ID of the customer considered as recipient of the coupon.   Only the customer with this integration ID can redeem the corresponding coupon code.   Learn about [coupon reservation](https://docs.talon.one/docs/product/rules/effects/using-effects#reserving-a-coupon-code). - `referralid`: The ID of the referral code that triggered the creation of this coupon (create coupon effect). - `reservation`: Whether the coupon is reserved. - `reservation_counter`: How many times this coupon has been reserved. - `reservation_limitval`: The maximum of number of reservations this coupon can have. - `startdate`: The start date in RFC3339 of the code redemption period. - `value`: The coupon code. 
 
 ### Example
 
@@ -3925,20 +5226,21 @@ with talon_one.ApiClient(configuration) as api_client:
 campaign_id = 3.4 # float | Filter results by campaign. (optional)
 sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
 value = 'value_example' # str | Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
-created_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
-created_after = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
+created_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
+created_after = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
 valid = 'valid_example' # str | Either \"expired\", \"validNow\", or \"validFuture\". The first option matches coupons in which the expiration date is set and in the past. The second matches coupons in which start date is null or in the past and expiration date is null or in the future, the third matches coupons in which start date is set and in the future.  (optional)
 usable = 'usable_example' # str | Either \"true\" or \"false\". If \"true\", only coupons where `usageCounter < usageLimit` will be returned, \"false\" will return only coupons where `usageCounter >= usageLimit`.  (optional)
 referral_id = 56 # int | Filter the results by matching them with the ID of a referral. This filter shows the coupons created by redeeming a referral code. (optional)
-recipient_integration_id = 'recipient_integration_id_example' # str | Filter results by match with a profile id specified in the coupon's RecipientIntegrationId field (optional)
+recipient_integration_id = 'recipient_integration_id_example' # str | Filter results by match with a profile id specified in the coupon's RecipientIntegrationId field. (optional)
 batch_id = 'batch_id_example' # str | Filter results by batches of coupons (optional)
-exact_match = False # bool | Filter results to an exact case-insensitive matching against the coupon code (optional) (default to False)
+exact_match = False # bool | Filter results to an exact case-insensitive matching against the coupon code. (optional) (default to False)
 date_format = 'date_format_example' # str | Determines the format of dates in the export document. (optional)
 campaign_state = 'campaign_state_example' # str | Filter results by the state of the campaign.  - `enabled`: Campaigns that are scheduled, running (activated), or expired. - `running`: Campaigns that are running (activated). - `disabled`: Campaigns that are disabled. - `expired`: Campaigns that are expired. - `archived`: Campaigns that are archived. - `draft`: Campaigns that are drafts.  (optional)
+values_only = False # bool | Filter results to only return the coupon codes (`value` column) without the associated coupon data. (optional) (default to False)
 
     try:
         # Export coupons
-        api_response = api_instance.export_coupons(application_id, campaign_id=campaign_id, sort=sort, value=value, created_before=created_before, created_after=created_after, valid=valid, usable=usable, referral_id=referral_id, recipient_integration_id=recipient_integration_id, batch_id=batch_id, exact_match=exact_match, date_format=date_format, campaign_state=campaign_state)
+        api_response = api_instance.export_coupons(application_id, campaign_id=campaign_id, sort=sort, value=value, created_before=created_before, created_after=created_after, valid=valid, usable=usable, referral_id=referral_id, recipient_integration_id=recipient_integration_id, batch_id=batch_id, exact_match=exact_match, date_format=date_format, campaign_state=campaign_state, values_only=values_only)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling ManagementApi->export_coupons: %s\n" % e)
@@ -3990,20 +5292,21 @@ with talon_one.ApiClient(configuration) as api_client:
 campaign_id = 3.4 # float | Filter results by campaign. (optional)
 sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
 value = 'value_example' # str | Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
-created_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
-created_after = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
+created_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
+created_after = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
 valid = 'valid_example' # str | Either \"expired\", \"validNow\", or \"validFuture\". The first option matches coupons in which the expiration date is set and in the past. The second matches coupons in which start date is null or in the past and expiration date is null or in the future, the third matches coupons in which start date is set and in the future.  (optional)
 usable = 'usable_example' # str | Either \"true\" or \"false\". If \"true\", only coupons where `usageCounter < usageLimit` will be returned, \"false\" will return only coupons where `usageCounter >= usageLimit`.  (optional)
 referral_id = 56 # int | Filter the results by matching them with the ID of a referral. This filter shows the coupons created by redeeming a referral code. (optional)
-recipient_integration_id = 'recipient_integration_id_example' # str | Filter results by match with a profile id specified in the coupon's RecipientIntegrationId field (optional)
+recipient_integration_id = 'recipient_integration_id_example' # str | Filter results by match with a profile id specified in the coupon's RecipientIntegrationId field. (optional)
 batch_id = 'batch_id_example' # str | Filter results by batches of coupons (optional)
-exact_match = False # bool | Filter results to an exact case-insensitive matching against the coupon code (optional) (default to False)
+exact_match = False # bool | Filter results to an exact case-insensitive matching against the coupon code. (optional) (default to False)
 date_format = 'date_format_example' # str | Determines the format of dates in the export document. (optional)
 campaign_state = 'campaign_state_example' # str | Filter results by the state of the campaign.  - `enabled`: Campaigns that are scheduled, running (activated), or expired. - `running`: Campaigns that are running (activated). - `disabled`: Campaigns that are disabled. - `expired`: Campaigns that are expired. - `archived`: Campaigns that are archived. - `draft`: Campaigns that are drafts.  (optional)
+values_only = False # bool | Filter results to only return the coupon codes (`value` column) without the associated coupon data. (optional) (default to False)
 
     try:
         # Export coupons
-        api_response = api_instance.export_coupons(application_id, campaign_id=campaign_id, sort=sort, value=value, created_before=created_before, created_after=created_after, valid=valid, usable=usable, referral_id=referral_id, recipient_integration_id=recipient_integration_id, batch_id=batch_id, exact_match=exact_match, date_format=date_format, campaign_state=campaign_state)
+        api_response = api_instance.export_coupons(application_id, campaign_id=campaign_id, sort=sort, value=value, created_before=created_before, created_after=created_after, valid=valid, usable=usable, referral_id=referral_id, recipient_integration_id=recipient_integration_id, batch_id=batch_id, exact_match=exact_match, date_format=date_format, campaign_state=campaign_state, values_only=values_only)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling ManagementApi->export_coupons: %s\n" % e)
@@ -4017,16 +5320,17 @@ Name | Type | Description  | Notes
  **campaign_id** | **float**| Filter results by campaign. | [optional] 
  **sort** | **str**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  | [optional] 
  **value** | **str**| Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. | [optional] 
- **created_before** | **datetime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. | [optional] 
- **created_after** | **datetime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. | [optional] 
+ **created_before** | **datetime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. | [optional] 
+ **created_after** | **datetime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. | [optional] 
  **valid** | **str**| Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiration date is set and in the past. The second matches coupons in which start date is null or in the past and expiration date is null or in the future, the third matches coupons in which start date is set and in the future.  | [optional] 
  **usable** | **str**| Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  | [optional] 
  **referral_id** | **int**| Filter the results by matching them with the ID of a referral. This filter shows the coupons created by redeeming a referral code. | [optional] 
- **recipient_integration_id** | **str**| Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field | [optional] 
+ **recipient_integration_id** | **str**| Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field. | [optional] 
  **batch_id** | **str**| Filter results by batches of coupons | [optional] 
- **exact_match** | **bool**| Filter results to an exact case-insensitive matching against the coupon code | [optional] [default to False]
+ **exact_match** | **bool**| Filter results to an exact case-insensitive matching against the coupon code. | [optional] [default to False]
  **date_format** | **str**| Determines the format of dates in the export document. | [optional] 
  **campaign_state** | **str**| Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Campaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived. - &#x60;draft&#x60;: Campaigns that are drafts.  | [optional] 
+ **values_only** | **bool**| Filter results to only return the coupon codes (&#x60;value&#x60; column) without the associated coupon data. | [optional] [default to False]
 
 ### Return type
 
@@ -4053,7 +5357,7 @@ Name | Type | Description  | Notes
 
 Export customer sessions
 
-Download a CSV file containing the customer sessions that match the request.  **Important:** Archived sessions cannot be exported. See the [retention policy](https://docs.talon.one/docs/product/server-infrastructure-and-data-retention#data-retention-policy).  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  - `id`: The internal ID of the session. - `firstsession`: Whether this is a first session. - `integrationid`: The integration ID of the session. - `applicationid`: The ID of the Application. - `profileid`: The internal ID of the customer profile. - `profileintegrationid`: The integration ID of the customer profile. - `created`: The timestamp when the session was created. - `state`: The [state](https://docs.talon.one/docs/dev/concepts/entities#customer-session-states) of the session. - `cartitems`: The cart items in the session. - `discounts`: The discounts in the session. - `total`: The total value of the session. - `attributes`: The attributes set in the session. - `closedat`: Timestamp when the session was closed. - `cancelledat`: Timestamp when the session was cancelled. - `referral`: The referral code in the session. - `identifiers`: The identifiers in the session. - `additional_costs`: The [additional costs](https://docs.talon.one/docs/product/account/dev-tools/managing-additional-costs) in the session. - `updated`: Timestamp of the last session update. - `coupons`: Coupon codes in the session. 
+Download a CSV file containing the customer sessions that match the request.  **Important:** Archived sessions cannot be exported. See the [retention policy](https://docs.talon.one/docs/product/server-infrastructure-and-data-retention#data-retention-policy).  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  - `id`: The internal ID of the session. - `firstsession`: Whether this is a first session. - `integrationid`: The integration ID of the session. - `applicationid`: The ID of the Application. - `profileid`: The internal ID of the customer profile. - `profileintegrationid`: The integration ID of the customer profile. - `created`: The timestamp when the session was created. - `state`: The [state](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions#customer-session-states) of the session. - `cartitems`: The cart items in the session. - `discounts`: The discounts in the session. - `total`: The total value of cart items and additional costs in the session, before any discounts are applied. - `attributes`: The attributes set in the session. - `closedat`: Timestamp when the session was closed. - `cancelledat`: Timestamp when the session was cancelled. - `referral`: The referral code in the session. - `identifiers`: The identifiers in the session. - `additional_costs`: The [additional costs](https://docs.talon.one/docs/product/account/dev-tools/managing-additional-costs) in the session. - `updated`: Timestamp of the last session update. - `store_integration_id`: The integration ID of the store. - `coupons`: Coupon codes in the session. 
 
 ### Example
 
@@ -4202,12 +5506,157 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **export_customers_tiers**
+> str export_customers_tiers(loyalty_program_id, subledger_ids=subledger_ids, tier_names=tier_names)
+
+Export customers' tier data
+
+Download a CSV file containing the tier information for customers of the specified loyalty program.  The generated file contains the following columns:  - `programid`: The identifier of the loyalty program. It is displayed in your Talon.One deployment URL. - `subledgerid`: The ID of the subledger associated with the loyalty program. This column is empty if the loyalty program has no subledger. In this case, refer to the export file name to get the ID of the loyalty program. - `customerprofileid`: The ID used to integrate customer profiles with the loyalty program. - `tiername`: The name of the tier. - `startdate`: The tier start date in RFC3339. - `expirydate`: The tier expiry date in RFC3339.  You can filter the results by providing the following optional input parameters:  - `subledgerId` (optional): Filter results by subledger ID. If no value is provided, all subledger data for the specified loyalty program will be exported. - `tierName` (optional): Filter results by tier name. If no value is provided, all tier data for the specified loyalty program will be exported. 
+
+### Example
+
+* Api Key Authentication (management_key):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    loyalty_program_id = 'loyalty_program_id_example' # str | The identifier for the loyalty program.
+subledger_ids = ['subledger_ids_example'] # list[str] | An array of subledgers IDs to filter the export by. (optional)
+tier_names = ['tier_names_example'] # list[str] | An array of tier names to filter the export by. (optional)
+
+    try:
+        # Export customers' tier data
+        api_response = api_instance.export_customers_tiers(loyalty_program_id, subledger_ids=subledger_ids, tier_names=tier_names)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->export_customers_tiers: %s\n" % e)
+```
+
+* Api Key Authentication (manager_auth):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    loyalty_program_id = 'loyalty_program_id_example' # str | The identifier for the loyalty program.
+subledger_ids = ['subledger_ids_example'] # list[str] | An array of subledgers IDs to filter the export by. (optional)
+tier_names = ['tier_names_example'] # list[str] | An array of tier names to filter the export by. (optional)
+
+    try:
+        # Export customers' tier data
+        api_response = api_instance.export_customers_tiers(loyalty_program_id, subledger_ids=subledger_ids, tier_names=tier_names)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->export_customers_tiers: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **loyalty_program_id** | **str**| The identifier for the loyalty program. | 
+ **subledger_ids** | [**list[str]**](str.md)| An array of subledgers IDs to filter the export by. | [optional] 
+ **tier_names** | [**list[str]**](str.md)| An array of tier names to filter the export by. | [optional] 
+
+### Return type
+
+**str**
+
+### Authorization
+
+[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/csv
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **export_effects**
 > str export_effects(application_id, campaign_id=campaign_id, created_before=created_before, created_after=created_after, date_format=date_format)
 
 Export triggered effects
 
-Download a CSV file containing the triggered effects that match the given attributes.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The generated file can contain the following columns:  - `applicationid`: The ID of the Application. - `campaignid`: The ID of the campaign. - `couponid`: The ID of the coupon, when applicable to the effect. - `created`: The timestamp of the effect. - `event_type`: The name of the event. See the [docs](https://docs.talon.one/docs/dev/concepts/events). - `eventid`: The internal ID of the effect. - `name`: The effect name. See the [docs](https://docs.talon.one/docs/dev/integration-api/api-effects). - `profileintegrationid`: The ID of the customer profile, when applicable. - `props`: The [properties](https://docs.talon.one/docs/dev/integration-api/api-effects) of the effect. - `ruleindex`: The index of the rule. - `rulesetid`: The ID of the rule set. - `sessionid`: The internal ID of the session that triggered the effect. - `profileid`: The internal ID of the customer profile. - `sessionintegrationid`: The integration ID of the session. - `total_revenue`: The total revenue. 
+Download a CSV file containing the triggered effects that match the given attributes.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The generated file can contain the following columns:  - `applicationid`: The ID of the Application. - `campaignid`: The ID of the campaign. - `couponid`: The ID of the coupon, when applicable to the effect. - `created`: The timestamp of the effect. - `event_type`: The name of the event. See the [docs](https://docs.talon.one/docs/dev/concepts/entities/events). - `eventid`: The internal ID of the effect. - `name`: The effect name. See the [docs](https://docs.talon.one/docs/dev/integration-api/api-effects). - `profileintegrationid`: The ID of the customer profile, when applicable. - `props`: The [properties](https://docs.talon.one/docs/dev/integration-api/api-effects) of the effect. - `ruleindex`: The index of the rule. - `rulesetid`: The ID of the rule set. - `sessionid`: The internal ID of the session that triggered the effect. - `profileid`: The internal ID of the customer profile. - `sessionintegrationid`: The integration ID of the session. - `total_revenue`: The total revenue. - `store_integration_id`: The integration ID of the store. You choose this ID when you create a store. 
 
 ### Example
 
@@ -4255,8 +5704,8 @@ with talon_one.ApiClient(configuration) as api_client:
     api_instance = talon_one.ManagementApi(api_client)
     application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
 campaign_id = 3.4 # float | Filter results by campaign. (optional)
-created_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
-created_after = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
+created_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
+created_after = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
 date_format = 'date_format_example' # str | Determines the format of dates in the export document. (optional)
 
     try:
@@ -4311,8 +5760,8 @@ with talon_one.ApiClient(configuration) as api_client:
     api_instance = talon_one.ManagementApi(api_client)
     application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
 campaign_id = 3.4 # float | Filter results by campaign. (optional)
-created_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
-created_after = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
+created_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
+created_after = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
 date_format = 'date_format_example' # str | Determines the format of dates in the export document. (optional)
 
     try:
@@ -4329,8 +5778,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **application_id** | **int**| The ID of the Application. It is displayed in your Talon.One deployment URL. | 
  **campaign_id** | **float**| Filter results by campaign. | [optional] 
- **created_before** | **datetime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. | [optional] 
- **created_after** | **datetime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. | [optional] 
+ **created_before** | **datetime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. | [optional] 
+ **created_after** | **datetime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. | [optional] 
  **date_format** | **str**| Determines the format of dates in the export document. | [optional] 
 
 ### Return type
@@ -4405,7 +5854,7 @@ with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
     loyalty_program_id = 'loyalty_program_id_example' # str | The identifier for the loyalty program.
-end_date = '2013-10-20T19:20:30+01:00' # datetime | Used to return balances only for entries older than this timestamp. The expired, active, and pending points are relative to this timestamp.  **Note:** It must be an RFC3339 timestamp string.  (optional)
+end_date = '2013-10-20T19:20:30+01:00' # datetime | Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.  (optional)
 
     try:
         # Export customer loyalty balance to CSV
@@ -4458,7 +5907,7 @@ with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
     loyalty_program_id = 'loyalty_program_id_example' # str | The identifier for the loyalty program.
-end_date = '2013-10-20T19:20:30+01:00' # datetime | Used to return balances only for entries older than this timestamp. The expired, active, and pending points are relative to this timestamp.  **Note:** It must be an RFC3339 timestamp string.  (optional)
+end_date = '2013-10-20T19:20:30+01:00' # datetime | Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.  (optional)
 
     try:
         # Export customer loyalty balance to CSV
@@ -4473,7 +5922,7 @@ end_date = '2013-10-20T19:20:30+01:00' # datetime | Used to return balances only
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **loyalty_program_id** | **str**| The identifier for the loyalty program. | 
- **end_date** | **datetime**| Used to return balances only for entries older than this timestamp. The expired, active, and pending points are relative to this timestamp.  **Note:** It must be an RFC3339 timestamp string.  | [optional] 
+ **end_date** | **datetime**| Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  | [optional] 
 
 ### Return type
 
@@ -4549,7 +5998,7 @@ with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
     loyalty_program_id = 'loyalty_program_id_example' # str | The identifier for the loyalty program.
-end_date = '2013-10-20T19:20:30+01:00' # datetime | Used to return balances only for entries older than this timestamp. The expired, active, and pending points are relative to this timestamp.  **Note:** It must be an RFC3339 timestamp string.  (optional)
+end_date = '2013-10-20T19:20:30+01:00' # datetime | Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.  (optional)
 
     try:
         # Export customer loyalty balances
@@ -4602,7 +6051,7 @@ with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
     loyalty_program_id = 'loyalty_program_id_example' # str | The identifier for the loyalty program.
-end_date = '2013-10-20T19:20:30+01:00' # datetime | Used to return balances only for entries older than this timestamp. The expired, active, and pending points are relative to this timestamp.  **Note:** It must be an RFC3339 timestamp string.  (optional)
+end_date = '2013-10-20T19:20:30+01:00' # datetime | Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.  (optional)
 
     try:
         # Export customer loyalty balances
@@ -4617,7 +6066,7 @@ end_date = '2013-10-20T19:20:30+01:00' # datetime | Used to return balances only
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **loyalty_program_id** | **str**| The identifier for the loyalty program. | 
- **end_date** | **datetime**| Used to return balances only for entries older than this timestamp. The expired, active, and pending points are relative to this timestamp.  **Note:** It must be an RFC3339 timestamp string.  | [optional] 
+ **end_date** | **datetime**| Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  | [optional] 
 
 ### Return type
 
@@ -4693,7 +6142,7 @@ with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
     loyalty_program_id = 56 # int | Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. 
-end_date = '2013-10-20T19:20:30+01:00' # datetime | Used to return balances only for entries older than this timestamp. The expired, active, and pending points are relative to this timestamp.  **Note:** It must be an RFC3339 timestamp string.  (optional)
+end_date = '2013-10-20T19:20:30+01:00' # datetime | Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.  (optional)
 
     try:
         # Export all card transaction logs
@@ -4746,7 +6195,7 @@ with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
     loyalty_program_id = 56 # int | Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. 
-end_date = '2013-10-20T19:20:30+01:00' # datetime | Used to return balances only for entries older than this timestamp. The expired, active, and pending points are relative to this timestamp.  **Note:** It must be an RFC3339 timestamp string.  (optional)
+end_date = '2013-10-20T19:20:30+01:00' # datetime | Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.  (optional)
 
     try:
         # Export all card transaction logs
@@ -4761,7 +6210,7 @@ end_date = '2013-10-20T19:20:30+01:00' # datetime | Used to return balances only
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **loyalty_program_id** | **int**| Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  | 
- **end_date** | **datetime**| Used to return balances only for entries older than this timestamp. The expired, active, and pending points are relative to this timestamp.  **Note:** It must be an RFC3339 timestamp string.  | [optional] 
+ **end_date** | **datetime**| Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  | [optional] 
 
 ### Return type
 
@@ -4838,8 +6287,8 @@ with talon_one.ApiClient(configuration) as api_client:
     api_instance = talon_one.ManagementApi(api_client)
     loyalty_program_id = 56 # int | Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. 
 loyalty_card_id = 'loyalty_card_id_example' # str | Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint. 
-range_start = '2013-10-20T19:20:30+01:00' # datetime | Only return results from after this timestamp. This must be an RFC3339 timestamp string.
-range_end = '2013-10-20T19:20:30+01:00' # datetime | Only return results from before this timestamp. This must be an RFC3339 timestamp string.
+range_start = '2013-10-20T19:20:30+01:00' # datetime | Only return results from after this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
+range_end = '2013-10-20T19:20:30+01:00' # datetime | Only return results from before this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
 date_format = 'date_format_example' # str | Determines the format of dates in the export document. (optional)
 
     try:
@@ -4894,8 +6343,8 @@ with talon_one.ApiClient(configuration) as api_client:
     api_instance = talon_one.ManagementApi(api_client)
     loyalty_program_id = 56 # int | Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. 
 loyalty_card_id = 'loyalty_card_id_example' # str | Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint. 
-range_start = '2013-10-20T19:20:30+01:00' # datetime | Only return results from after this timestamp. This must be an RFC3339 timestamp string.
-range_end = '2013-10-20T19:20:30+01:00' # datetime | Only return results from before this timestamp. This must be an RFC3339 timestamp string.
+range_start = '2013-10-20T19:20:30+01:00' # datetime | Only return results from after this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
+range_end = '2013-10-20T19:20:30+01:00' # datetime | Only return results from before this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
 date_format = 'date_format_example' # str | Determines the format of dates in the export document. (optional)
 
     try:
@@ -4912,8 +6361,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **loyalty_program_id** | **int**| Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  | 
  **loyalty_card_id** | **str**| Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint.  | 
- **range_start** | **datetime**| Only return results from after this timestamp. This must be an RFC3339 timestamp string. | 
- **range_end** | **datetime**| Only return results from before this timestamp. This must be an RFC3339 timestamp string. | 
+ **range_start** | **datetime**| Only return results from after this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  | 
+ **range_end** | **datetime**| Only return results from before this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  | 
  **date_format** | **str**| Determines the format of dates in the export document. | [optional] 
 
 ### Return type
@@ -4943,7 +6392,7 @@ Name | Type | Description  | Notes
 
 Export customer's transaction logs
 
-Download a CSV file containing a customer's transaction logs in the loyalty program.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The generated file can contain the following columns:  - `customerprofileid`: The ID of the profile. - `customersessionid`: The ID of the customer session. - `rulesetid`: The ID of the rule set. - `rulename`: The name of the rule. - `programid`: The ID of the loyalty program. - `type`: The type of the loyalty program. - `name`: The name of the loyalty program. - `subledgerid`: The ID of the subledger, when applicable. - `startdate`: The start date of the program. - `expirydate`: The expiration date of the program. - `id`: The ID of the transaction. - `created`: The timestamp of the creation of the loyalty program. - `amount`: The number of points in that transaction. - `archived`: Whether the session related to the transaction is archived. 
+Download a CSV file containing a customer's transaction logs in the loyalty program.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The generated file can contain the following columns:  - `customerprofileid`: The ID of the profile. - `customersessionid`: The ID of the customer session. - `rulesetid`: The ID of the rule set. - `rulename`: The name of the rule. - `programid`: The ID of the loyalty program. - `type`: The type of the loyalty program. - `name`: The name of the loyalty program. - `subledgerid`: The ID of the subledger, when applicable. - `startdate`: The start date of the program. - `expirydate`: The expiration date of the program. - `id`: The ID of the transaction. - `created`: The timestamp of the creation of the loyalty program. - `amount`: The number of points in that transaction. - `archived`: Whether the session related to the transaction is archived. - `campaignid`: The ID of the campaign. 
 
 ### Example
 
@@ -4989,8 +6438,8 @@ configuration = talon_one.Configuration(
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
-    range_start = '2013-10-20T19:20:30+01:00' # datetime | Only return results from after this timestamp. This must be an RFC3339 timestamp string.
-range_end = '2013-10-20T19:20:30+01:00' # datetime | Only return results from before this timestamp. This must be an RFC3339 timestamp string.
+    range_start = '2013-10-20T19:20:30+01:00' # datetime | Only return results from after this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
+range_end = '2013-10-20T19:20:30+01:00' # datetime | Only return results from before this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
 loyalty_program_id = 'loyalty_program_id_example' # str | The identifier for the loyalty program.
 integration_id = 'integration_id_example' # str | The identifier of the profile.
 date_format = 'date_format_example' # str | Determines the format of dates in the export document. (optional)
@@ -5045,8 +6494,8 @@ configuration = talon_one.Configuration(
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
-    range_start = '2013-10-20T19:20:30+01:00' # datetime | Only return results from after this timestamp. This must be an RFC3339 timestamp string.
-range_end = '2013-10-20T19:20:30+01:00' # datetime | Only return results from before this timestamp. This must be an RFC3339 timestamp string.
+    range_start = '2013-10-20T19:20:30+01:00' # datetime | Only return results from after this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
+range_end = '2013-10-20T19:20:30+01:00' # datetime | Only return results from before this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
 loyalty_program_id = 'loyalty_program_id_example' # str | The identifier for the loyalty program.
 integration_id = 'integration_id_example' # str | The identifier of the profile.
 date_format = 'date_format_example' # str | Determines the format of dates in the export document. (optional)
@@ -5063,8 +6512,8 @@ date_format = 'date_format_example' # str | Determines the format of dates in th
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **range_start** | **datetime**| Only return results from after this timestamp. This must be an RFC3339 timestamp string. | 
- **range_end** | **datetime**| Only return results from before this timestamp. This must be an RFC3339 timestamp string. | 
+ **range_start** | **datetime**| Only return results from after this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  | 
+ **range_end** | **datetime**| Only return results from before this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  | 
  **loyalty_program_id** | **str**| The identifier for the loyalty program. | 
  **integration_id** | **str**| The identifier of the profile. | 
  **date_format** | **str**| Determines the format of dates in the export document. | [optional] 
@@ -5086,6 +6535,152 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **export_pool_giveaways**
+> str export_pool_giveaways(pool_id, created_before=created_before, created_after=created_after)
+
+Export giveaway codes of a giveaway pool
+
+Download a CSV file containing the giveaway codes of a specific giveaway pool.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The CSV file contains the following columns:  - `id`: The internal ID of the giveaway. - `poolid`: The internal ID of the giveaway pool. - `code`: The giveaway code. - `startdate`: The validity start date in RFC3339 of the giveaway (can be empty). - `enddate`: The validity end date in RFC3339 of the giveaway (can be empty). - `attributes`: Any custom attributes associated with the giveaway code (can be empty). - `used`: An indication of whether the giveaway is already awarded. - `importid`: The ID of the import which created the giveaway. - `created`: The creation time of the giveaway code. - `profileintegrationid`: The third-party integration ID of the customer profile that was awarded the giveaway. Can be empty if the giveaway was not awarded. - `profileid`: The internal ID of the customer profile that was awarded the giveaway. Can be empty if the giveaway was not awarded or an internal ID does not exist. 
+
+### Example
+
+* Api Key Authentication (management_key):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    pool_id = 56 # int | The ID of the pool. You can find it in the Campaign Manager, in the **Giveaways** section.
+created_before = '2013-10-20T19:20:30+01:00' # datetime | Timestamp that filters the results to only contain giveaways created before this date. Must be an RFC3339 timestamp string. (optional)
+created_after = '2013-10-20T19:20:30+01:00' # datetime | Timestamp that filters the results to only contain giveaways created after this date. Must be an RFC3339 timestamp string. (optional)
+
+    try:
+        # Export giveaway codes of a giveaway pool
+        api_response = api_instance.export_pool_giveaways(pool_id, created_before=created_before, created_after=created_after)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->export_pool_giveaways: %s\n" % e)
+```
+
+* Api Key Authentication (manager_auth):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    pool_id = 56 # int | The ID of the pool. You can find it in the Campaign Manager, in the **Giveaways** section.
+created_before = '2013-10-20T19:20:30+01:00' # datetime | Timestamp that filters the results to only contain giveaways created before this date. Must be an RFC3339 timestamp string. (optional)
+created_after = '2013-10-20T19:20:30+01:00' # datetime | Timestamp that filters the results to only contain giveaways created after this date. Must be an RFC3339 timestamp string. (optional)
+
+    try:
+        # Export giveaway codes of a giveaway pool
+        api_response = api_instance.export_pool_giveaways(pool_id, created_before=created_before, created_after=created_after)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->export_pool_giveaways: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pool_id** | **int**| The ID of the pool. You can find it in the Campaign Manager, in the **Giveaways** section. | 
+ **created_before** | **datetime**| Timestamp that filters the results to only contain giveaways created before this date. Must be an RFC3339 timestamp string. | [optional] 
+ **created_after** | **datetime**| Timestamp that filters the results to only contain giveaways created after this date. Must be an RFC3339 timestamp string. | [optional] 
+
+### Return type
+
+**str**
+
+### Authorization
+
+[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/csv
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Bad request |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -5142,8 +6737,8 @@ with talon_one.ApiClient(configuration) as api_client:
     api_instance = talon_one.ManagementApi(api_client)
     application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
 campaign_id = 3.4 # float | Filter results by campaign. (optional)
-created_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
-created_after = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
+created_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
+created_after = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
 valid = 'valid_example' # str | - `expired`: Matches referrals in which the expiration date is set and in the past. - `validNow`: Matches referrals in which start date is null or in the past and expiration date is null or in the future. - `validFuture`: Matches referrals in which start date is set and in the future.  (optional)
 usable = 'usable_example' # str | - `true`, only referrals where `usageCounter < usageLimit` will be returned. - `false`, only referrals where `usageCounter >= usageLimit` will be returned.  (optional)
 batch_id = 'batch_id_example' # str | Filter results by batches of referrals (optional)
@@ -5201,8 +6796,8 @@ with talon_one.ApiClient(configuration) as api_client:
     api_instance = talon_one.ManagementApi(api_client)
     application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
 campaign_id = 3.4 # float | Filter results by campaign. (optional)
-created_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
-created_after = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
+created_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
+created_after = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
 valid = 'valid_example' # str | - `expired`: Matches referrals in which the expiration date is set and in the past. - `validNow`: Matches referrals in which start date is null or in the past and expiration date is null or in the future. - `validFuture`: Matches referrals in which start date is set and in the future.  (optional)
 usable = 'usable_example' # str | - `true`, only referrals where `usageCounter < usageLimit` will be returned. - `false`, only referrals where `usageCounter >= usageLimit` will be returned.  (optional)
 batch_id = 'batch_id_example' # str | Filter results by batches of referrals (optional)
@@ -5222,8 +6817,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **application_id** | **int**| The ID of the Application. It is displayed in your Talon.One deployment URL. | 
  **campaign_id** | **float**| Filter results by campaign. | [optional] 
- **created_before** | **datetime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. | [optional] 
- **created_after** | **datetime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. | [optional] 
+ **created_before** | **datetime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. | [optional] 
+ **created_after** | **datetime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. | [optional] 
  **valid** | **str**| - &#x60;expired&#x60;: Matches referrals in which the expiration date is set and in the past. - &#x60;validNow&#x60;: Matches referrals in which start date is null or in the past and expiration date is null or in the future. - &#x60;validFuture&#x60;: Matches referrals in which start date is set and in the future.  | [optional] 
  **usable** | **str**| - &#x60;true&#x60;, only referrals where &#x60;usageCounter &lt; usageLimit&#x60; will be returned. - &#x60;false&#x60;, only referrals where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60; will be returned.  | [optional] 
  **batch_id** | **str**| Filter results by batches of referrals | [optional] 
@@ -5250,7 +6845,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_access_logs_without_total_count**
-> InlineResponse20018 get_access_logs_without_total_count(application_id, range_start, range_end, path=path, method=method, status=status, page_size=page_size, skip=skip, sort=sort)
+> InlineResponse20019 get_access_logs_without_total_count(application_id, range_start, range_end, path=path, method=method, status=status, page_size=page_size, skip=skip, sort=sort)
 
 Get access logs for Application
 
@@ -5301,13 +6896,13 @@ with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
     application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
-range_start = '2013-10-20T19:20:30+01:00' # datetime | Only return results from after this timestamp. This must be an RFC3339 timestamp string.
-range_end = '2013-10-20T19:20:30+01:00' # datetime | Only return results from before this timestamp. This must be an RFC3339 timestamp string.
+range_start = '2013-10-20T19:20:30+01:00' # datetime | Only return results from after this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
+range_end = '2013-10-20T19:20:30+01:00' # datetime | Only return results from before this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
 path = 'path_example' # str | Only return results where the request path matches the given regular expression. (optional)
 method = 'method_example' # str | Only return results where the request method matches the given regular expression. (optional)
 status = 'status_example' # str | Filter results by HTTP status codes. (optional)
-page_size = 1000 # int | The number of items in this response. (optional) (default to 1000)
-skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
+page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
 sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
 
     try:
@@ -5361,13 +6956,13 @@ with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
     application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
-range_start = '2013-10-20T19:20:30+01:00' # datetime | Only return results from after this timestamp. This must be an RFC3339 timestamp string.
-range_end = '2013-10-20T19:20:30+01:00' # datetime | Only return results from before this timestamp. This must be an RFC3339 timestamp string.
+range_start = '2013-10-20T19:20:30+01:00' # datetime | Only return results from after this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
+range_end = '2013-10-20T19:20:30+01:00' # datetime | Only return results from before this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
 path = 'path_example' # str | Only return results where the request path matches the given regular expression. (optional)
 method = 'method_example' # str | Only return results where the request method matches the given regular expression. (optional)
 status = 'status_example' # str | Filter results by HTTP status codes. (optional)
-page_size = 1000 # int | The number of items in this response. (optional) (default to 1000)
-skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
+page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
 sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
 
     try:
@@ -5383,18 +6978,18 @@ sort = 'sort_example' # str | The field by which results should be sorted. By de
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **application_id** | **int**| The ID of the Application. It is displayed in your Talon.One deployment URL. | 
- **range_start** | **datetime**| Only return results from after this timestamp. This must be an RFC3339 timestamp string. | 
- **range_end** | **datetime**| Only return results from before this timestamp. This must be an RFC3339 timestamp string. | 
+ **range_start** | **datetime**| Only return results from after this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  | 
+ **range_end** | **datetime**| Only return results from before this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  | 
  **path** | **str**| Only return results where the request path matches the given regular expression. | [optional] 
  **method** | **str**| Only return results where the request method matches the given regular expression. | [optional] 
  **status** | **str**| Filter results by HTTP status codes. | [optional] 
- **page_size** | **int**| The number of items in this response. | [optional] [default to 1000]
- **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional] 
+ **page_size** | **int**| The number of items in the response. | [optional] [default to 1000]
+ **skip** | **int**| The number of items to skip when paging through large result sets. | [optional] 
  **sort** | **str**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  | [optional] 
 
 ### Return type
 
-[**InlineResponse20018**](InlineResponse20018.md)
+[**InlineResponse20019**](InlineResponse20019.md)
 
 ### Authorization
 
@@ -5741,7 +7336,7 @@ configuration = talon_one.Configuration(
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
-    collection_id = 56 # int | The ID of the collection. You can get it with the [List collection in account](#operation/listCollectionsInApplication) endpoint.
+    collection_id = 56 # int | The ID of the collection. You can get it with the [List collections in account](#operation/listAccountCollections) endpoint.
 
     try:
         # Get account-level collection
@@ -5793,7 +7388,7 @@ configuration = talon_one.Configuration(
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
-    collection_id = 56 # int | The ID of the collection. You can get it with the [List collection in account](#operation/listCollectionsInApplication) endpoint.
+    collection_id = 56 # int | The ID of the collection. You can get it with the [List collections in account](#operation/listAccountCollections) endpoint.
 
     try:
         # Get account-level collection
@@ -5807,7 +7402,7 @@ with talon_one.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **collection_id** | **int**| The ID of the collection. You can get it with the [List collection in account](#operation/listCollectionsInApplication) endpoint. | 
+ **collection_id** | **int**| The ID of the collection. You can get it with the [List collections in account](#operation/listAccountCollections) endpoint. | 
 
 ### Return type
 
@@ -5826,6 +7421,153 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
+**404** | Not found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_achievement**
+> Achievement get_achievement(application_id, campaign_id, achievement_id)
+
+Get achievement
+
+Get the details of a specific achievement.
+
+### Example
+
+* Api Key Authentication (management_key):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
+campaign_id = 56 # int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
+achievement_id = 56 # int | The ID of the achievement. You can get this ID with the [List achievement](https://docs.talon.one/management-api#tag/Achievements/operation/listAchievements) endpoint.
+
+    try:
+        # Get achievement
+        api_response = api_instance.get_achievement(application_id, campaign_id, achievement_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_achievement: %s\n" % e)
+```
+
+* Api Key Authentication (manager_auth):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
+campaign_id = 56 # int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
+achievement_id = 56 # int | The ID of the achievement. You can get this ID with the [List achievement](https://docs.talon.one/management-api#tag/Achievements/operation/listAchievements) endpoint.
+
+    try:
+        # Get achievement
+        api_response = api_instance.get_achievement(application_id, campaign_id, achievement_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_achievement: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **application_id** | **int**| The ID of the Application. It is displayed in your Talon.One deployment URL. | 
+ **campaign_id** | **int**| The ID of the campaign. It is displayed in your Talon.One deployment URL. | 
+ **achievement_id** | **int**| The ID of the achievement. You can get this ID with the [List achievement](https://docs.talon.one/management-api#tag/Achievements/operation/listAchievements) endpoint. | 
+
+### Return type
+
+[**Achievement**](Achievement.md)
+
+### Authorization
+
+[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**401** | Unauthorized |  -  |
 **404** | Not found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -5970,7 +7712,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_additional_costs**
-> InlineResponse20032 get_additional_costs(page_size=page_size, skip=skip, sort=sort)
+> InlineResponse20036 get_additional_costs(page_size=page_size, skip=skip, sort=sort)
 
 List additional costs
 
@@ -6020,8 +7762,8 @@ configuration = talon_one.Configuration(
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
-    page_size = 1000 # int | The number of items in this response. (optional) (default to 1000)
-skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
+    page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
 sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
 
     try:
@@ -6074,8 +7816,8 @@ configuration = talon_one.Configuration(
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
-    page_size = 1000 # int | The number of items in this response. (optional) (default to 1000)
-skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
+    page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
 sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
 
     try:
@@ -6090,13 +7832,13 @@ sort = 'sort_example' # str | The field by which results should be sorted. By de
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **page_size** | **int**| The number of items in this response. | [optional] [default to 1000]
- **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional] 
+ **page_size** | **int**| The number of items in the response. | [optional] [default to 1000]
+ **skip** | **int**| The number of items to skip when paging through large result sets. | [optional] 
  **sort** | **str**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  | [optional] 
 
 ### Return type
 
-[**InlineResponse20032**](InlineResponse20032.md)
+[**InlineResponse20036**](InlineResponse20036.md)
 
 ### Authorization
 
@@ -6115,7 +7857,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_all_access_logs**
-> InlineResponse20019 get_all_access_logs(range_start, range_end, path=path, method=method, status=status, page_size=page_size, skip=skip, sort=sort)
+> InlineResponse20020 get_all_access_logs(range_start=range_start, range_end=range_end, path=path, method=method, status=status, page_size=page_size, skip=skip, sort=sort)
 
 List access logs
 
@@ -6165,18 +7907,18 @@ configuration = talon_one.Configuration(
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
-    range_start = '2013-10-20T19:20:30+01:00' # datetime | Only return results from after this timestamp. This must be an RFC3339 timestamp string.
-range_end = '2013-10-20T19:20:30+01:00' # datetime | Only return results from before this timestamp. This must be an RFC3339 timestamp string.
+    range_start = '2013-10-20T19:20:30+01:00' # datetime | Only return results from after this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.  (optional)
+range_end = '2013-10-20T19:20:30+01:00' # datetime | Only return results from before this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.  (optional)
 path = 'path_example' # str | Only return results where the request path matches the given regular expression. (optional)
 method = 'method_example' # str | Only return results where the request method matches the given regular expression. (optional)
 status = 'status_example' # str | Filter results by HTTP status codes. (optional)
-page_size = 1000 # int | The number of items in this response. (optional) (default to 1000)
-skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
+page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
 sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
 
     try:
         # List access logs
-        api_response = api_instance.get_all_access_logs(range_start, range_end, path=path, method=method, status=status, page_size=page_size, skip=skip, sort=sort)
+        api_response = api_instance.get_all_access_logs(range_start=range_start, range_end=range_end, path=path, method=method, status=status, page_size=page_size, skip=skip, sort=sort)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling ManagementApi->get_all_access_logs: %s\n" % e)
@@ -6224,18 +7966,18 @@ configuration = talon_one.Configuration(
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
-    range_start = '2013-10-20T19:20:30+01:00' # datetime | Only return results from after this timestamp. This must be an RFC3339 timestamp string.
-range_end = '2013-10-20T19:20:30+01:00' # datetime | Only return results from before this timestamp. This must be an RFC3339 timestamp string.
+    range_start = '2013-10-20T19:20:30+01:00' # datetime | Only return results from after this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.  (optional)
+range_end = '2013-10-20T19:20:30+01:00' # datetime | Only return results from before this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.  (optional)
 path = 'path_example' # str | Only return results where the request path matches the given regular expression. (optional)
 method = 'method_example' # str | Only return results where the request method matches the given regular expression. (optional)
 status = 'status_example' # str | Filter results by HTTP status codes. (optional)
-page_size = 1000 # int | The number of items in this response. (optional) (default to 1000)
-skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
+page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
 sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
 
     try:
         # List access logs
-        api_response = api_instance.get_all_access_logs(range_start, range_end, path=path, method=method, status=status, page_size=page_size, skip=skip, sort=sort)
+        api_response = api_instance.get_all_access_logs(range_start=range_start, range_end=range_end, path=path, method=method, status=status, page_size=page_size, skip=skip, sort=sort)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling ManagementApi->get_all_access_logs: %s\n" % e)
@@ -6245,18 +7987,18 @@ sort = 'sort_example' # str | The field by which results should be sorted. By de
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **range_start** | **datetime**| Only return results from after this timestamp. This must be an RFC3339 timestamp string. | 
- **range_end** | **datetime**| Only return results from before this timestamp. This must be an RFC3339 timestamp string. | 
+ **range_start** | **datetime**| Only return results from after this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  | [optional] 
+ **range_end** | **datetime**| Only return results from before this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  | [optional] 
  **path** | **str**| Only return results where the request path matches the given regular expression. | [optional] 
  **method** | **str**| Only return results where the request method matches the given regular expression. | [optional] 
  **status** | **str**| Filter results by HTTP status codes. | [optional] 
- **page_size** | **int**| The number of items in this response. | [optional] [default to 1000]
- **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional] 
+ **page_size** | **int**| The number of items in the response. | [optional] [default to 1000]
+ **skip** | **int**| The number of items to skip when paging through large result sets. | [optional] 
  **sort** | **str**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  | [optional] 
 
 ### Return type
 
-[**InlineResponse20019**](InlineResponse20019.md)
+[**InlineResponse20020**](InlineResponse20020.md)
 
 ### Authorization
 
@@ -6275,7 +8017,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_all_roles**
-> InlineResponse20040 get_all_roles()
+> InlineResponse20044 get_all_roles()
 
 List roles
 
@@ -6390,7 +8132,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**InlineResponse20040**](InlineResponse20040.md)
+[**InlineResponse20044**](InlineResponse20044.md)
 
 ### Authorization
 
@@ -6829,7 +8571,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_application_customer_friends**
-> InlineResponse20030 get_application_customer_friends(application_id, integration_id, page_size=page_size, skip=skip, sort=sort, with_total_result_size=with_total_result_size)
+> InlineResponse20033 get_application_customer_friends(application_id, integration_id, page_size=page_size, skip=skip, sort=sort, with_total_result_size=with_total_result_size)
 
 List friends referred by customer profile
 
@@ -6881,8 +8623,8 @@ with talon_one.ApiClient(configuration) as api_client:
     api_instance = talon_one.ManagementApi(api_client)
     application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
 integration_id = 'integration_id_example' # str | The Integration ID of the Advocate's Profile.
-page_size = 1000 # int | The number of items in this response. (optional) (default to 1000)
-skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
+page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
 sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
 with_total_result_size = True # bool | When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When `true`: `hasMore` is true when there is a next page. `totalResultSize` is always zero. - When `false`: `hasMore` is always false. `totalResultSize` contains the total number of results for this query.  (optional)
 
@@ -6938,8 +8680,8 @@ with talon_one.ApiClient(configuration) as api_client:
     api_instance = talon_one.ManagementApi(api_client)
     application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
 integration_id = 'integration_id_example' # str | The Integration ID of the Advocate's Profile.
-page_size = 1000 # int | The number of items in this response. (optional) (default to 1000)
-skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
+page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
 sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
 with_total_result_size = True # bool | When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When `true`: `hasMore` is true when there is a next page. `totalResultSize` is always zero. - When `false`: `hasMore` is always false. `totalResultSize` contains the total number of results for this query.  (optional)
 
@@ -6957,14 +8699,14 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **application_id** | **int**| The ID of the Application. It is displayed in your Talon.One deployment URL. | 
  **integration_id** | **str**| The Integration ID of the Advocate&#39;s Profile. | 
- **page_size** | **int**| The number of items in this response. | [optional] [default to 1000]
- **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional] 
+ **page_size** | **int**| The number of items in the response. | [optional] [default to 1000]
+ **skip** | **int**| The number of items to skip when paging through large result sets. | [optional] 
  **sort** | **str**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  | [optional] 
  **with_total_result_size** | **bool**| When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When &#x60;true&#x60;: &#x60;hasMore&#x60; is true when there is a next page. &#x60;totalResultSize&#x60; is always zero. - When &#x60;false&#x60;: &#x60;hasMore&#x60; is always false. &#x60;totalResultSize&#x60; contains the total number of results for this query.  | [optional] 
 
 ### Return type
 
-[**InlineResponse20030**](InlineResponse20030.md)
+[**InlineResponse20033**](InlineResponse20033.md)
 
 ### Authorization
 
@@ -6983,7 +8725,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_application_customers**
-> InlineResponse20021 get_application_customers(application_id, integration_id=integration_id, page_size=page_size, skip=skip, with_total_result_size=with_total_result_size)
+> InlineResponse20022 get_application_customers(application_id, integration_id=integration_id, page_size=page_size, skip=skip, with_total_result_size=with_total_result_size)
 
 List application's customers
 
@@ -7035,8 +8777,8 @@ with talon_one.ApiClient(configuration) as api_client:
     api_instance = talon_one.ManagementApi(api_client)
     application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
 integration_id = 'integration_id_example' # str | Filter results performing an exact matching against the profile integration identifier. (optional)
-page_size = 1000 # int | The number of items in this response. (optional) (default to 1000)
-skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
+page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
 with_total_result_size = True # bool | When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When `true`: `hasMore` is true when there is a next page. `totalResultSize` is always zero. - When `false`: `hasMore` is always false. `totalResultSize` contains the total number of results for this query.  (optional)
 
     try:
@@ -7091,8 +8833,8 @@ with talon_one.ApiClient(configuration) as api_client:
     api_instance = talon_one.ManagementApi(api_client)
     application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
 integration_id = 'integration_id_example' # str | Filter results performing an exact matching against the profile integration identifier. (optional)
-page_size = 1000 # int | The number of items in this response. (optional) (default to 1000)
-skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
+page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
 with_total_result_size = True # bool | When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When `true`: `hasMore` is true when there is a next page. `totalResultSize` is always zero. - When `false`: `hasMore` is always false. `totalResultSize` contains the total number of results for this query.  (optional)
 
     try:
@@ -7109,13 +8851,13 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **application_id** | **int**| The ID of the Application. It is displayed in your Talon.One deployment URL. | 
  **integration_id** | **str**| Filter results performing an exact matching against the profile integration identifier. | [optional] 
- **page_size** | **int**| The number of items in this response. | [optional] [default to 1000]
- **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional] 
+ **page_size** | **int**| The number of items in the response. | [optional] [default to 1000]
+ **skip** | **int**| The number of items to skip when paging through large result sets. | [optional] 
  **with_total_result_size** | **bool**| When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When &#x60;true&#x60;: &#x60;hasMore&#x60; is true when there is a next page. &#x60;totalResultSize&#x60; is always zero. - When &#x60;false&#x60;: &#x60;hasMore&#x60; is always false. &#x60;totalResultSize&#x60; contains the total number of results for this query.  | [optional] 
 
 ### Return type
 
-[**InlineResponse20021**](InlineResponse20021.md)
+[**InlineResponse20022**](InlineResponse20022.md)
 
 ### Authorization
 
@@ -7134,7 +8876,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_application_customers_by_attributes**
-> InlineResponse20022 get_application_customers_by_attributes(application_id, body, page_size=page_size, skip=skip, with_total_result_size=with_total_result_size)
+> InlineResponse20023 get_application_customers_by_attributes(application_id, body, page_size=page_size, skip=skip, with_total_result_size=with_total_result_size)
 
 List application customers matching the given attributes
 
@@ -7186,8 +8928,8 @@ with talon_one.ApiClient(configuration) as api_client:
     api_instance = talon_one.ManagementApi(api_client)
     application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
 body = talon_one.CustomerProfileSearchQuery() # CustomerProfileSearchQuery | body
-page_size = 1000 # int | The number of items in this response. (optional) (default to 1000)
-skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
+page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
 with_total_result_size = True # bool | When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When `true`: `hasMore` is true when there is a next page. `totalResultSize` is always zero. - When `false`: `hasMore` is always false. `totalResultSize` contains the total number of results for this query.  (optional)
 
     try:
@@ -7242,8 +8984,8 @@ with talon_one.ApiClient(configuration) as api_client:
     api_instance = talon_one.ManagementApi(api_client)
     application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
 body = talon_one.CustomerProfileSearchQuery() # CustomerProfileSearchQuery | body
-page_size = 1000 # int | The number of items in this response. (optional) (default to 1000)
-skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
+page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
 with_total_result_size = True # bool | When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When `true`: `hasMore` is true when there is a next page. `totalResultSize` is always zero. - When `false`: `hasMore` is always false. `totalResultSize` contains the total number of results for this query.  (optional)
 
     try:
@@ -7260,13 +9002,13 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **application_id** | **int**| The ID of the Application. It is displayed in your Talon.One deployment URL. | 
  **body** | [**CustomerProfileSearchQuery**](CustomerProfileSearchQuery.md)| body | 
- **page_size** | **int**| The number of items in this response. | [optional] [default to 1000]
- **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional] 
+ **page_size** | **int**| The number of items in the response. | [optional] [default to 1000]
+ **skip** | **int**| The number of items to skip when paging through large result sets. | [optional] 
  **with_total_result_size** | **bool**| When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When &#x60;true&#x60;: &#x60;hasMore&#x60; is true when there is a next page. &#x60;totalResultSize&#x60; is always zero. - When &#x60;false&#x60;: &#x60;hasMore&#x60; is always false. &#x60;totalResultSize&#x60; contains the total number of results for this query.  | [optional] 
 
 ### Return type
 
-[**InlineResponse20022**](InlineResponse20022.md)
+[**InlineResponse20023**](InlineResponse20023.md)
 
 ### Authorization
 
@@ -7285,11 +9027,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_application_event_types**
-> InlineResponse20028 get_application_event_types(application_id, page_size=page_size, skip=skip, sort=sort)
+> InlineResponse20029 get_application_event_types(application_id, page_size=page_size, skip=skip, sort=sort)
 
 List Applications event types
 
-Get all of the distinct values of the Event `type` property for events recorded in the application.  See also: [Track an event](https://docs.talon.one/integration-api#operation/trackEvent) 
+Get all of the distinct values of the Event `type` property for events recorded in the application.  See also: [Track an event](https://docs.talon.one/integration-api#tag/Events/operation/trackEventV2) 
 
 ### Example
 
@@ -7336,8 +9078,8 @@ with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
     application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
-page_size = 1000 # int | The number of items in this response. (optional) (default to 1000)
-skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
+page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
 sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
 
     try:
@@ -7391,8 +9133,8 @@ with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
     application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
-page_size = 1000 # int | The number of items in this response. (optional) (default to 1000)
-skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
+page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
 sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
 
     try:
@@ -7408,13 +9150,13 @@ sort = 'sort_example' # str | The field by which results should be sorted. By de
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **application_id** | **int**| The ID of the Application. It is displayed in your Talon.One deployment URL. | 
- **page_size** | **int**| The number of items in this response. | [optional] [default to 1000]
- **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional] 
+ **page_size** | **int**| The number of items in the response. | [optional] [default to 1000]
+ **skip** | **int**| The number of items to skip when paging through large result sets. | [optional] 
  **sort** | **str**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  | [optional] 
 
 ### Return type
 
-[**InlineResponse20028**](InlineResponse20028.md)
+[**InlineResponse20029**](InlineResponse20029.md)
 
 ### Authorization
 
@@ -7433,7 +9175,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_application_events_without_total_count**
-> InlineResponse20027 get_application_events_without_total_count(application_id, page_size=page_size, skip=skip, sort=sort, type=type, created_before=created_before, created_after=created_after, session=session, profile=profile, customer_name=customer_name, customer_email=customer_email, coupon_code=coupon_code, referral_code=referral_code, rule_query=rule_query, campaign_query=campaign_query)
+> InlineResponse20028 get_application_events_without_total_count(application_id, page_size=page_size, skip=skip, sort=sort, type=type, created_before=created_before, created_after=created_after, session=session, profile=profile, customer_name=customer_name, customer_email=customer_email, coupon_code=coupon_code, referral_code=referral_code, rule_query=rule_query, campaign_query=campaign_query)
 
 List Applications events
 
@@ -7484,12 +9226,12 @@ with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
     application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
-page_size = 1000 # int | The number of items in this response. (optional) (default to 1000)
-skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
+page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
 sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
 type = 'type_example' # str | Comma-separated list of types by which to filter events. Must be exact match(es). (optional)
-created_before = '2013-10-20T19:20:30+01:00' # datetime | Only return events created before this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)
-created_after = '2013-10-20T19:20:30+01:00' # datetime | Only return events created after this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)
+created_before = '2013-10-20T19:20:30+01:00' # datetime | Only return events created before this date. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
+created_after = '2013-10-20T19:20:30+01:00' # datetime | Only return events created after this date. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
 session = 'session_example' # str | Session integration ID filter for events. Must be exact match. (optional)
 profile = 'profile_example' # str | Profile integration ID filter for events. Must be exact match. (optional)
 customer_name = 'customer_name_example' # str | Customer name filter for events. Will match substrings case-insensitively. (optional)
@@ -7550,12 +9292,12 @@ with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
     application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
-page_size = 1000 # int | The number of items in this response. (optional) (default to 1000)
-skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
+page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
 sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
 type = 'type_example' # str | Comma-separated list of types by which to filter events. Must be exact match(es). (optional)
-created_before = '2013-10-20T19:20:30+01:00' # datetime | Only return events created before this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)
-created_after = '2013-10-20T19:20:30+01:00' # datetime | Only return events created after this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)
+created_before = '2013-10-20T19:20:30+01:00' # datetime | Only return events created before this date. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
+created_after = '2013-10-20T19:20:30+01:00' # datetime | Only return events created after this date. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
 session = 'session_example' # str | Session integration ID filter for events. Must be exact match. (optional)
 profile = 'profile_example' # str | Profile integration ID filter for events. Must be exact match. (optional)
 customer_name = 'customer_name_example' # str | Customer name filter for events. Will match substrings case-insensitively. (optional)
@@ -7578,12 +9320,12 @@ campaign_query = 'campaign_query_example' # str | Campaign name filter for event
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **application_id** | **int**| The ID of the Application. It is displayed in your Talon.One deployment URL. | 
- **page_size** | **int**| The number of items in this response. | [optional] [default to 1000]
- **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional] 
+ **page_size** | **int**| The number of items in the response. | [optional] [default to 1000]
+ **skip** | **int**| The number of items to skip when paging through large result sets. | [optional] 
  **sort** | **str**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  | [optional] 
  **type** | **str**| Comma-separated list of types by which to filter events. Must be exact match(es). | [optional] 
- **created_before** | **datetime**| Only return events created before this date. You can use any timezone. Talon.One will convert to UTC internally. | [optional] 
- **created_after** | **datetime**| Only return events created after this date. You can use any timezone. Talon.One will convert to UTC internally. | [optional] 
+ **created_before** | **datetime**| Only return events created before this date. You can use any time zone setting. Talon.One will convert to UTC internally. | [optional] 
+ **created_after** | **datetime**| Only return events created after this date. You can use any time zone setting. Talon.One will convert to UTC internally. | [optional] 
  **session** | **str**| Session integration ID filter for events. Must be exact match. | [optional] 
  **profile** | **str**| Profile integration ID filter for events. Must be exact match. | [optional] 
  **customer_name** | **str**| Customer name filter for events. Will match substrings case-insensitively. | [optional] 
@@ -7595,7 +9337,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20027**](InlineResponse20027.md)
+[**InlineResponse20028**](InlineResponse20028.md)
 
 ### Authorization
 
@@ -7756,7 +9498,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_application_sessions**
-> InlineResponse20026 get_application_sessions(application_id, page_size=page_size, skip=skip, sort=sort, profile=profile, state=state, created_before=created_before, created_after=created_after, coupon=coupon, referral=referral, integration_id=integration_id)
+> InlineResponse20027 get_application_sessions(application_id, page_size=page_size, skip=skip, sort=sort, profile=profile, state=state, created_before=created_before, created_after=created_after, coupon=coupon, referral=referral, integration_id=integration_id, store_integration_id=store_integration_id)
 
 List Application sessions
 
@@ -7807,20 +9549,21 @@ with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
     application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
-page_size = 1000 # int | The number of items in this response. (optional) (default to 1000)
-skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
+page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
 sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
 profile = 'profile_example' # str | Profile integration ID filter for sessions. Must be exact match. (optional)
 state = 'state_example' # str | Filter by sessions with this state. Must be exact match. (optional)
-created_before = '2013-10-20T19:20:30+01:00' # datetime | Only return events created before this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)
-created_after = '2013-10-20T19:20:30+01:00' # datetime | Only return events created after this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)
+created_before = '2013-10-20T19:20:30+01:00' # datetime | Only return events created before this date. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
+created_after = '2013-10-20T19:20:30+01:00' # datetime | Only return events created after this date. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
 coupon = 'coupon_example' # str | Filter by sessions with this coupon. Must be exact match. (optional)
 referral = 'referral_example' # str | Filter by sessions with this referral. Must be exact match. (optional)
 integration_id = 'integration_id_example' # str | Filter by sessions with this integrationId. Must be exact match. (optional)
+store_integration_id = 'store_integration_id_example' # str | The integration ID of the store. You choose this ID when you create a store. (optional)
 
     try:
         # List Application sessions
-        api_response = api_instance.get_application_sessions(application_id, page_size=page_size, skip=skip, sort=sort, profile=profile, state=state, created_before=created_before, created_after=created_after, coupon=coupon, referral=referral, integration_id=integration_id)
+        api_response = api_instance.get_application_sessions(application_id, page_size=page_size, skip=skip, sort=sort, profile=profile, state=state, created_before=created_before, created_after=created_after, coupon=coupon, referral=referral, integration_id=integration_id, store_integration_id=store_integration_id)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling ManagementApi->get_application_sessions: %s\n" % e)
@@ -7869,20 +9612,21 @@ with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
     application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
-page_size = 1000 # int | The number of items in this response. (optional) (default to 1000)
-skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
+page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
 sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
 profile = 'profile_example' # str | Profile integration ID filter for sessions. Must be exact match. (optional)
 state = 'state_example' # str | Filter by sessions with this state. Must be exact match. (optional)
-created_before = '2013-10-20T19:20:30+01:00' # datetime | Only return events created before this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)
-created_after = '2013-10-20T19:20:30+01:00' # datetime | Only return events created after this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)
+created_before = '2013-10-20T19:20:30+01:00' # datetime | Only return events created before this date. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
+created_after = '2013-10-20T19:20:30+01:00' # datetime | Only return events created after this date. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
 coupon = 'coupon_example' # str | Filter by sessions with this coupon. Must be exact match. (optional)
 referral = 'referral_example' # str | Filter by sessions with this referral. Must be exact match. (optional)
 integration_id = 'integration_id_example' # str | Filter by sessions with this integrationId. Must be exact match. (optional)
+store_integration_id = 'store_integration_id_example' # str | The integration ID of the store. You choose this ID when you create a store. (optional)
 
     try:
         # List Application sessions
-        api_response = api_instance.get_application_sessions(application_id, page_size=page_size, skip=skip, sort=sort, profile=profile, state=state, created_before=created_before, created_after=created_after, coupon=coupon, referral=referral, integration_id=integration_id)
+        api_response = api_instance.get_application_sessions(application_id, page_size=page_size, skip=skip, sort=sort, profile=profile, state=state, created_before=created_before, created_after=created_after, coupon=coupon, referral=referral, integration_id=integration_id, store_integration_id=store_integration_id)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling ManagementApi->get_application_sessions: %s\n" % e)
@@ -7893,20 +9637,21 @@ integration_id = 'integration_id_example' # str | Filter by sessions with this i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **application_id** | **int**| The ID of the Application. It is displayed in your Talon.One deployment URL. | 
- **page_size** | **int**| The number of items in this response. | [optional] [default to 1000]
- **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional] 
+ **page_size** | **int**| The number of items in the response. | [optional] [default to 1000]
+ **skip** | **int**| The number of items to skip when paging through large result sets. | [optional] 
  **sort** | **str**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  | [optional] 
  **profile** | **str**| Profile integration ID filter for sessions. Must be exact match. | [optional] 
  **state** | **str**| Filter by sessions with this state. Must be exact match. | [optional] 
- **created_before** | **datetime**| Only return events created before this date. You can use any timezone. Talon.One will convert to UTC internally. | [optional] 
- **created_after** | **datetime**| Only return events created after this date. You can use any timezone. Talon.One will convert to UTC internally. | [optional] 
+ **created_before** | **datetime**| Only return events created before this date. You can use any time zone setting. Talon.One will convert to UTC internally. | [optional] 
+ **created_after** | **datetime**| Only return events created after this date. You can use any time zone setting. Talon.One will convert to UTC internally. | [optional] 
  **coupon** | **str**| Filter by sessions with this coupon. Must be exact match. | [optional] 
  **referral** | **str**| Filter by sessions with this referral. Must be exact match. | [optional] 
  **integration_id** | **str**| Filter by sessions with this integrationId. Must be exact match. | [optional] 
+ **store_integration_id** | **str**| The integration ID of the store. You choose this ID when you create a store. | [optional] 
 
 ### Return type
 
-[**InlineResponse20026**](InlineResponse20026.md)
+[**InlineResponse20027**](InlineResponse20027.md)
 
 ### Authorization
 
@@ -7925,7 +9670,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_applications**
-> InlineResponse2003 get_applications(page_size=page_size, skip=skip, sort=sort)
+> InlineResponse2005 get_applications(page_size=page_size, skip=skip, sort=sort)
 
 List Applications
 
@@ -7975,8 +9720,8 @@ configuration = talon_one.Configuration(
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
-    page_size = 1000 # int | The number of items in this response. (optional) (default to 1000)
-skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
+    page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
 sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
 
     try:
@@ -8029,8 +9774,8 @@ configuration = talon_one.Configuration(
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
-    page_size = 1000 # int | The number of items in this response. (optional) (default to 1000)
-skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
+    page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
 sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
 
     try:
@@ -8045,13 +9790,13 @@ sort = 'sort_example' # str | The field by which results should be sorted. By de
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **page_size** | **int**| The number of items in this response. | [optional] [default to 1000]
- **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional] 
+ **page_size** | **int**| The number of items in the response. | [optional] [default to 1000]
+ **skip** | **int**| The number of items to skip when paging through large result sets. | [optional] 
  **sort** | **str**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  | [optional] 
 
 ### Return type
 
-[**InlineResponse2003**](InlineResponse2003.md)
+[**InlineResponse2005**](InlineResponse2005.md)
 
 ### Authorization
 
@@ -8209,7 +9954,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_attributes**
-> InlineResponse20031 get_attributes(page_size=page_size, skip=skip, sort=sort, entity=entity)
+> InlineResponse20034 get_attributes(page_size=page_size, skip=skip, sort=sort, entity=entity)
 
 List custom attributes
 
@@ -8259,8 +10004,8 @@ configuration = talon_one.Configuration(
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
-    page_size = 1000 # int | The number of items in this response. (optional) (default to 1000)
-skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
+    page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
 sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
 entity = 'entity_example' # str | Returned attributes will be filtered by supplied entity. (optional)
 
@@ -8314,8 +10059,8 @@ configuration = talon_one.Configuration(
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
-    page_size = 1000 # int | The number of items in this response. (optional) (default to 1000)
-skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
+    page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
 sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
 entity = 'entity_example' # str | Returned attributes will be filtered by supplied entity. (optional)
 
@@ -8331,14 +10076,14 @@ entity = 'entity_example' # str | Returned attributes will be filtered by suppli
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **page_size** | **int**| The number of items in this response. | [optional] [default to 1000]
- **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional] 
+ **page_size** | **int**| The number of items in the response. | [optional] [default to 1000]
+ **skip** | **int**| The number of items to skip when paging through large result sets. | [optional] 
  **sort** | **str**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  | [optional] 
  **entity** | **str**| Returned attributes will be filtered by supplied entity. | [optional] 
 
 ### Return type
 
-[**InlineResponse20031**](InlineResponse20031.md)
+[**InlineResponse20034**](InlineResponse20034.md)
 
 ### Authorization
 
@@ -8356,8 +10101,160 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **get_audience_memberships**
+> InlineResponse20032 get_audience_memberships(audience_id, page_size=page_size, skip=skip, sort=sort, profile_query=profile_query)
+
+List audience members
+
+Get a paginated list of the customer profiles in a given audience.  A maximum of 1000 customer profiles per page is allowed. 
+
+### Example
+
+* Api Key Authentication (management_key):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    audience_id = 56 # int | The ID of the audience.
+page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
+sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
+profile_query = 'profile_query_example' # str | The filter to select a profile. (optional)
+
+    try:
+        # List audience members
+        api_response = api_instance.get_audience_memberships(audience_id, page_size=page_size, skip=skip, sort=sort, profile_query=profile_query)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_audience_memberships: %s\n" % e)
+```
+
+* Api Key Authentication (manager_auth):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    audience_id = 56 # int | The ID of the audience.
+page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
+sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
+profile_query = 'profile_query_example' # str | The filter to select a profile. (optional)
+
+    try:
+        # List audience members
+        api_response = api_instance.get_audience_memberships(audience_id, page_size=page_size, skip=skip, sort=sort, profile_query=profile_query)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_audience_memberships: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **audience_id** | **int**| The ID of the audience. | 
+ **page_size** | **int**| The number of items in the response. | [optional] [default to 1000]
+ **skip** | **int**| The number of items to skip when paging through large result sets. | [optional] 
+ **sort** | **str**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  | [optional] 
+ **profile_query** | **str**| The filter to select a profile. | [optional] 
+
+### Return type
+
+[**InlineResponse20032**](InlineResponse20032.md)
+
+### Authorization
+
+[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**404** | Not found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **get_audiences**
-> InlineResponse20029 get_audiences(page_size=page_size, skip=skip, sort=sort, with_total_result_size=with_total_result_size)
+> InlineResponse20030 get_audiences(page_size=page_size, skip=skip, sort=sort, with_total_result_size=with_total_result_size)
 
 List audiences
 
@@ -8407,8 +10304,8 @@ configuration = talon_one.Configuration(
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
-    page_size = 1000 # int | The number of items in this response. (optional) (default to 1000)
-skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
+    page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
 sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
 with_total_result_size = True # bool | When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When `true`: `hasMore` is true when there is a next page. `totalResultSize` is always zero. - When `false`: `hasMore` is always false. `totalResultSize` contains the total number of results for this query.  (optional)
 
@@ -8462,8 +10359,8 @@ configuration = talon_one.Configuration(
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
-    page_size = 1000 # int | The number of items in this response. (optional) (default to 1000)
-skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
+    page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
 sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
 with_total_result_size = True # bool | When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When `true`: `hasMore` is true when there is a next page. `totalResultSize` is always zero. - When `false`: `hasMore` is always false. `totalResultSize` contains the total number of results for this query.  (optional)
 
@@ -8479,14 +10376,156 @@ with_total_result_size = True # bool | When this flag is set, the result include
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **page_size** | **int**| The number of items in this response. | [optional] [default to 1000]
- **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional] 
+ **page_size** | **int**| The number of items in the response. | [optional] [default to 1000]
+ **skip** | **int**| The number of items to skip when paging through large result sets. | [optional] 
  **sort** | **str**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  | [optional] 
  **with_total_result_size** | **bool**| When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When &#x60;true&#x60;: &#x60;hasMore&#x60; is true when there is a next page. &#x60;totalResultSize&#x60; is always zero. - When &#x60;false&#x60;: &#x60;hasMore&#x60; is always false. &#x60;totalResultSize&#x60; contains the total number of results for this query.  | [optional] 
 
 ### Return type
 
-[**InlineResponse20029**](InlineResponse20029.md)
+[**InlineResponse20030**](InlineResponse20030.md)
+
+### Authorization
+
+[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_audiences_analytics**
+> InlineResponse20031 get_audiences_analytics(audience_ids, sort=sort)
+
+List audience analytics
+
+Get a list of audience IDs and their member count. 
+
+### Example
+
+* Api Key Authentication (management_key):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    audience_ids = 'audience_ids_example' # str | The IDs of one or more audiences, separated by commas, by which to filter results.
+sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
+
+    try:
+        # List audience analytics
+        api_response = api_instance.get_audiences_analytics(audience_ids, sort=sort)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_audiences_analytics: %s\n" % e)
+```
+
+* Api Key Authentication (manager_auth):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    audience_ids = 'audience_ids_example' # str | The IDs of one or more audiences, separated by commas, by which to filter results.
+sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
+
+    try:
+        # List audience analytics
+        api_response = api_instance.get_audiences_analytics(audience_ids, sort=sort)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_audiences_analytics: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **audience_ids** | **str**| The IDs of one or more audiences, separated by commas, by which to filter results. | 
+ **sort** | **str**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  | [optional] 
+
+### Return type
+
+[**InlineResponse20031**](InlineResponse20031.md)
 
 ### Authorization
 
@@ -8647,7 +10686,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_campaign_analytics**
-> InlineResponse20020 get_campaign_analytics(application_id, campaign_id, range_start, range_end, granularity=granularity)
+> InlineResponse20021 get_campaign_analytics(application_id, campaign_id, range_start, range_end, granularity=granularity)
 
 Get analytics of campaigns
 
@@ -8699,8 +10738,8 @@ with talon_one.ApiClient(configuration) as api_client:
     api_instance = talon_one.ManagementApi(api_client)
     application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
 campaign_id = 56 # int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
-range_start = '2013-10-20T19:20:30+01:00' # datetime | Only return results from after this timestamp. This must be an RFC3339 timestamp string.
-range_end = '2013-10-20T19:20:30+01:00' # datetime | Only return results from before this timestamp. This must be an RFC3339 timestamp string.
+range_start = '2013-10-20T19:20:30+01:00' # datetime | Only return results from after this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
+range_end = '2013-10-20T19:20:30+01:00' # datetime | Only return results from before this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
 granularity = 'granularity_example' # str | The time interval between the results in the returned time-series. (optional)
 
     try:
@@ -8755,8 +10794,8 @@ with talon_one.ApiClient(configuration) as api_client:
     api_instance = talon_one.ManagementApi(api_client)
     application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
 campaign_id = 56 # int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
-range_start = '2013-10-20T19:20:30+01:00' # datetime | Only return results from after this timestamp. This must be an RFC3339 timestamp string.
-range_end = '2013-10-20T19:20:30+01:00' # datetime | Only return results from before this timestamp. This must be an RFC3339 timestamp string.
+range_start = '2013-10-20T19:20:30+01:00' # datetime | Only return results from after this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
+range_end = '2013-10-20T19:20:30+01:00' # datetime | Only return results from before this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
 granularity = 'granularity_example' # str | The time interval between the results in the returned time-series. (optional)
 
     try:
@@ -8773,13 +10812,13 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **application_id** | **int**| The ID of the Application. It is displayed in your Talon.One deployment URL. | 
  **campaign_id** | **int**| The ID of the campaign. It is displayed in your Talon.One deployment URL. | 
- **range_start** | **datetime**| Only return results from after this timestamp. This must be an RFC3339 timestamp string. | 
- **range_end** | **datetime**| Only return results from before this timestamp. This must be an RFC3339 timestamp string. | 
+ **range_start** | **datetime**| Only return results from after this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  | 
+ **range_end** | **datetime**| Only return results from before this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  | 
  **granularity** | **str**| The time interval between the results in the returned time-series. | [optional] 
 
 ### Return type
 
-[**InlineResponse20020**](InlineResponse20020.md)
+[**InlineResponse20021**](InlineResponse20021.md)
 
 ### Authorization
 
@@ -8798,7 +10837,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_campaign_by_attributes**
-> InlineResponse2004 get_campaign_by_attributes(application_id, body, page_size=page_size, skip=skip, sort=sort, campaign_state=campaign_state)
+> InlineResponse2006 get_campaign_by_attributes(application_id, body, page_size=page_size, skip=skip, sort=sort, campaign_state=campaign_state)
 
 List campaigns that match the given attributes
 
@@ -8850,8 +10889,8 @@ with talon_one.ApiClient(configuration) as api_client:
     api_instance = talon_one.ManagementApi(api_client)
     application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
 body = talon_one.CampaignSearch() # CampaignSearch | body
-page_size = 1000 # int | The number of items in this response. (optional) (default to 1000)
-skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
+page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
 sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
 campaign_state = 'campaign_state_example' # str | Filter results by the state of the campaign.  - `enabled`: Campaigns that are scheduled, running (activated), or expired. - `running`: Campaigns that are running (activated). - `disabled`: Campaigns that are disabled. - `expired`: Campaigns that are expired. - `archived`: Campaigns that are archived. - `draft`: Campaigns that are drafts.  (optional)
 
@@ -8907,8 +10946,8 @@ with talon_one.ApiClient(configuration) as api_client:
     api_instance = talon_one.ManagementApi(api_client)
     application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
 body = talon_one.CampaignSearch() # CampaignSearch | body
-page_size = 1000 # int | The number of items in this response. (optional) (default to 1000)
-skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
+page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
 sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
 campaign_state = 'campaign_state_example' # str | Filter results by the state of the campaign.  - `enabled`: Campaigns that are scheduled, running (activated), or expired. - `running`: Campaigns that are running (activated). - `disabled`: Campaigns that are disabled. - `expired`: Campaigns that are expired. - `archived`: Campaigns that are archived. - `draft`: Campaigns that are drafts.  (optional)
 
@@ -8926,14 +10965,14 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **application_id** | **int**| The ID of the Application. It is displayed in your Talon.One deployment URL. | 
  **body** | [**CampaignSearch**](CampaignSearch.md)| body | 
- **page_size** | **int**| The number of items in this response. | [optional] [default to 1000]
- **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional] 
+ **page_size** | **int**| The number of items in the response. | [optional] [default to 1000]
+ **skip** | **int**| The number of items to skip when paging through large result sets. | [optional] 
  **sort** | **str**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  | [optional] 
  **campaign_state** | **str**| Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Campaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived. - &#x60;draft&#x60;: Campaigns that are drafts.  | [optional] 
 
 ### Return type
 
-[**InlineResponse2004**](InlineResponse2004.md)
+[**InlineResponse2006**](InlineResponse2006.md)
 
 ### Authorization
 
@@ -8951,8 +10990,292 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **get_campaign_group**
+> CampaignGroup get_campaign_group(campaign_group_id)
+
+Get campaign access group
+
+Get a campaign access group specified by its ID.
+
+### Example
+
+* Api Key Authentication (management_key):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    campaign_group_id = 56 # int | The ID of the campaign access group.
+
+    try:
+        # Get campaign access group
+        api_response = api_instance.get_campaign_group(campaign_group_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_campaign_group: %s\n" % e)
+```
+
+* Api Key Authentication (manager_auth):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    campaign_group_id = 56 # int | The ID of the campaign access group.
+
+    try:
+        # Get campaign access group
+        api_response = api_instance.get_campaign_group(campaign_group_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_campaign_group: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **campaign_group_id** | **int**| The ID of the campaign access group. | 
+
+### Return type
+
+[**CampaignGroup**](CampaignGroup.md)
+
+### Authorization
+
+[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_campaign_groups**
+> InlineResponse20011 get_campaign_groups(page_size=page_size, skip=skip, sort=sort)
+
+List campaign access groups
+
+List the campaign access groups in the current account.
+
+### Example
+
+* Api Key Authentication (management_key):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
+sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
+
+    try:
+        # List campaign access groups
+        api_response = api_instance.get_campaign_groups(page_size=page_size, skip=skip, sort=sort)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_campaign_groups: %s\n" % e)
+```
+
+* Api Key Authentication (manager_auth):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
+sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
+
+    try:
+        # List campaign access groups
+        api_response = api_instance.get_campaign_groups(page_size=page_size, skip=skip, sort=sort)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_campaign_groups: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **page_size** | **int**| The number of items in the response. | [optional] [default to 1000]
+ **skip** | **int**| The number of items to skip when paging through large result sets. | [optional] 
+ **sort** | **str**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  | [optional] 
+
+### Return type
+
+[**InlineResponse20011**](InlineResponse20011.md)
+
+### Authorization
+
+[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **get_campaign_templates**
-> InlineResponse20010 get_campaign_templates(page_size=page_size, skip=skip, sort=sort, state=state, name=name, tags=tags, user_id=user_id)
+> InlineResponse20012 get_campaign_templates(page_size=page_size, skip=skip, sort=sort, state=state, name=name, tags=tags, user_id=user_id)
 
 List campaign templates
 
@@ -9002,8 +11325,8 @@ configuration = talon_one.Configuration(
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
-    page_size = 1000 # int | The number of items in this response. (optional) (default to 1000)
-skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
+    page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
 sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
 state = 'state_example' # str | Filter results by the state of the campaign template. (optional)
 name = 'name_example' # str | Filter results performing case-insensitive matching against the name of the campaign template. (optional)
@@ -9060,8 +11383,8 @@ configuration = talon_one.Configuration(
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
-    page_size = 1000 # int | The number of items in this response. (optional) (default to 1000)
-skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
+    page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
 sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
 state = 'state_example' # str | Filter results by the state of the campaign template. (optional)
 name = 'name_example' # str | Filter results performing case-insensitive matching against the name of the campaign template. (optional)
@@ -9080,8 +11403,8 @@ user_id = 56 # int | Filter results by user ID. (optional)
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **page_size** | **int**| The number of items in this response. | [optional] [default to 1000]
- **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional] 
+ **page_size** | **int**| The number of items in the response. | [optional] [default to 1000]
+ **skip** | **int**| The number of items to skip when paging through large result sets. | [optional] 
  **sort** | **str**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  | [optional] 
  **state** | **str**| Filter results by the state of the campaign template. | [optional] 
  **name** | **str**| Filter results performing case-insensitive matching against the name of the campaign template. | [optional] 
@@ -9090,7 +11413,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20010**](InlineResponse20010.md)
+[**InlineResponse20012**](InlineResponse20012.md)
 
 ### Authorization
 
@@ -9109,7 +11432,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_campaigns**
-> InlineResponse2004 get_campaigns(application_id, page_size=page_size, skip=skip, sort=sort, campaign_state=campaign_state, name=name, tags=tags, created_before=created_before, created_after=created_after, campaign_group_id=campaign_group_id, template_id=template_id)
+> InlineResponse2006 get_campaigns(application_id, page_size=page_size, skip=skip, sort=sort, campaign_state=campaign_state, name=name, tags=tags, created_before=created_before, created_after=created_after, campaign_group_id=campaign_group_id, template_id=template_id, store_id=store_id)
 
 List campaigns
 
@@ -9160,20 +11483,21 @@ with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
     application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
-page_size = 1000 # int | The number of items in this response. (optional) (default to 1000)
-skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
+page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
 sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
 campaign_state = 'campaign_state_example' # str | Filter results by the state of the campaign.  - `enabled`: Campaigns that are scheduled, running (activated), or expired. - `running`: Campaigns that are running (activated). - `disabled`: Campaigns that are disabled. - `expired`: Campaigns that are expired. - `archived`: Campaigns that are archived. - `draft`: Campaigns that are drafts.  (optional)
 name = 'name_example' # str | Filter results performing case-insensitive matching against the name of the campaign. (optional)
 tags = 'tags_example' # str | Filter results performing case-insensitive matching against the tags of the campaign. When used in conjunction with the \"name\" query parameter, a logical OR will be performed to search both tags and name for the provided values  (optional)
-created_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
-created_after = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
-campaign_group_id = 56 # int | Filter results to campaigns owned by the specified campaign group ID. (optional)
+created_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
+created_after = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
+campaign_group_id = 56 # int | Filter results to campaigns owned by the specified campaign access group ID. (optional)
 template_id = 56 # int | The ID of the Campaign Template this Campaign was created from. (optional)
+store_id = 56 # int | Filter results to campaigns linked to the specified store ID. (optional)
 
     try:
         # List campaigns
-        api_response = api_instance.get_campaigns(application_id, page_size=page_size, skip=skip, sort=sort, campaign_state=campaign_state, name=name, tags=tags, created_before=created_before, created_after=created_after, campaign_group_id=campaign_group_id, template_id=template_id)
+        api_response = api_instance.get_campaigns(application_id, page_size=page_size, skip=skip, sort=sort, campaign_state=campaign_state, name=name, tags=tags, created_before=created_before, created_after=created_after, campaign_group_id=campaign_group_id, template_id=template_id, store_id=store_id)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling ManagementApi->get_campaigns: %s\n" % e)
@@ -9222,20 +11546,21 @@ with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
     application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
-page_size = 1000 # int | The number of items in this response. (optional) (default to 1000)
-skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
+page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
 sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
 campaign_state = 'campaign_state_example' # str | Filter results by the state of the campaign.  - `enabled`: Campaigns that are scheduled, running (activated), or expired. - `running`: Campaigns that are running (activated). - `disabled`: Campaigns that are disabled. - `expired`: Campaigns that are expired. - `archived`: Campaigns that are archived. - `draft`: Campaigns that are drafts.  (optional)
 name = 'name_example' # str | Filter results performing case-insensitive matching against the name of the campaign. (optional)
 tags = 'tags_example' # str | Filter results performing case-insensitive matching against the tags of the campaign. When used in conjunction with the \"name\" query parameter, a logical OR will be performed to search both tags and name for the provided values  (optional)
-created_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
-created_after = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
-campaign_group_id = 56 # int | Filter results to campaigns owned by the specified campaign group ID. (optional)
+created_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
+created_after = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
+campaign_group_id = 56 # int | Filter results to campaigns owned by the specified campaign access group ID. (optional)
 template_id = 56 # int | The ID of the Campaign Template this Campaign was created from. (optional)
+store_id = 56 # int | Filter results to campaigns linked to the specified store ID. (optional)
 
     try:
         # List campaigns
-        api_response = api_instance.get_campaigns(application_id, page_size=page_size, skip=skip, sort=sort, campaign_state=campaign_state, name=name, tags=tags, created_before=created_before, created_after=created_after, campaign_group_id=campaign_group_id, template_id=template_id)
+        api_response = api_instance.get_campaigns(application_id, page_size=page_size, skip=skip, sort=sort, campaign_state=campaign_state, name=name, tags=tags, created_before=created_before, created_after=created_after, campaign_group_id=campaign_group_id, template_id=template_id, store_id=store_id)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling ManagementApi->get_campaigns: %s\n" % e)
@@ -9246,20 +11571,21 @@ template_id = 56 # int | The ID of the Campaign Template this Campaign was creat
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **application_id** | **int**| The ID of the Application. It is displayed in your Talon.One deployment URL. | 
- **page_size** | **int**| The number of items in this response. | [optional] [default to 1000]
- **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional] 
+ **page_size** | **int**| The number of items in the response. | [optional] [default to 1000]
+ **skip** | **int**| The number of items to skip when paging through large result sets. | [optional] 
  **sort** | **str**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  | [optional] 
  **campaign_state** | **str**| Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Campaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived. - &#x60;draft&#x60;: Campaigns that are drafts.  | [optional] 
  **name** | **str**| Filter results performing case-insensitive matching against the name of the campaign. | [optional] 
  **tags** | **str**| Filter results performing case-insensitive matching against the tags of the campaign. When used in conjunction with the \&quot;name\&quot; query parameter, a logical OR will be performed to search both tags and name for the provided values  | [optional] 
- **created_before** | **datetime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. | [optional] 
- **created_after** | **datetime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. | [optional] 
- **campaign_group_id** | **int**| Filter results to campaigns owned by the specified campaign group ID. | [optional] 
+ **created_before** | **datetime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. | [optional] 
+ **created_after** | **datetime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. | [optional] 
+ **campaign_group_id** | **int**| Filter results to campaigns owned by the specified campaign access group ID. | [optional] 
  **template_id** | **int**| The ID of the Campaign Template this Campaign was created from. | [optional] 
+ **store_id** | **int**| Filter results to campaigns linked to the specified store ID. | [optional] 
 
 ### Return type
 
-[**InlineResponse2004**](InlineResponse2004.md)
+[**InlineResponse2006**](InlineResponse2006.md)
 
 ### Authorization
 
@@ -9279,7 +11605,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_changes**
-> InlineResponse20038 get_changes(page_size=page_size, skip=skip, sort=sort, application_id=application_id, entity_path=entity_path, user_id=user_id, created_before=created_before, created_after=created_after, with_total_result_size=with_total_result_size, management_key_id=management_key_id, include_old=include_old)
+> InlineResponse20042 get_changes(page_size=page_size, skip=skip, sort=sort, application_id=application_id, entity_path=entity_path, user_id=user_id, created_before=created_before, created_after=created_after, with_total_result_size=with_total_result_size, management_key_id=management_key_id, include_old=include_old)
 
 Get audit logs for an account
 
@@ -9329,14 +11655,14 @@ configuration = talon_one.Configuration(
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
-    page_size = 1000 # int | The number of items in this response. (optional) (default to 1000)
-skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
+    page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
 sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
 application_id = 3.4 # float | Filter results by Application ID. (optional)
 entity_path = 'entity_path_example' # str | Filter results on a case insensitive matching of the url path of the entity (optional)
 user_id = 56 # int | Filter results by user ID. (optional)
-created_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
-created_after = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
+created_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
+created_after = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
 with_total_result_size = True # bool | When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When `true`: `hasMore` is true when there is a next page. `totalResultSize` is always zero. - When `false`: `hasMore` is always false. `totalResultSize` contains the total number of results for this query.  (optional)
 management_key_id = 56 # int | Filter results that match the given management key ID. (optional)
 include_old = True # bool | When this flag is set to false, the state without the change will not be returned. The default value is true. (optional)
@@ -9391,14 +11717,14 @@ configuration = talon_one.Configuration(
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
-    page_size = 1000 # int | The number of items in this response. (optional) (default to 1000)
-skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
+    page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
 sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
 application_id = 3.4 # float | Filter results by Application ID. (optional)
 entity_path = 'entity_path_example' # str | Filter results on a case insensitive matching of the url path of the entity (optional)
 user_id = 56 # int | Filter results by user ID. (optional)
-created_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
-created_after = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
+created_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
+created_after = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
 with_total_result_size = True # bool | When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When `true`: `hasMore` is true when there is a next page. `totalResultSize` is always zero. - When `false`: `hasMore` is always false. `totalResultSize` contains the total number of results for this query.  (optional)
 management_key_id = 56 # int | Filter results that match the given management key ID. (optional)
 include_old = True # bool | When this flag is set to false, the state without the change will not be returned. The default value is true. (optional)
@@ -9415,21 +11741,21 @@ include_old = True # bool | When this flag is set to false, the state without th
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **page_size** | **int**| The number of items in this response. | [optional] [default to 1000]
- **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional] 
+ **page_size** | **int**| The number of items in the response. | [optional] [default to 1000]
+ **skip** | **int**| The number of items to skip when paging through large result sets. | [optional] 
  **sort** | **str**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  | [optional] 
  **application_id** | **float**| Filter results by Application ID. | [optional] 
  **entity_path** | **str**| Filter results on a case insensitive matching of the url path of the entity | [optional] 
  **user_id** | **int**| Filter results by user ID. | [optional] 
- **created_before** | **datetime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. | [optional] 
- **created_after** | **datetime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. | [optional] 
+ **created_before** | **datetime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. | [optional] 
+ **created_after** | **datetime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. | [optional] 
  **with_total_result_size** | **bool**| When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When &#x60;true&#x60;: &#x60;hasMore&#x60; is true when there is a next page. &#x60;totalResultSize&#x60; is always zero. - When &#x60;false&#x60;: &#x60;hasMore&#x60; is always false. &#x60;totalResultSize&#x60; contains the total number of results for this query.  | [optional] 
  **management_key_id** | **int**| Filter results that match the given management key ID. | [optional] 
  **include_old** | **bool**| When this flag is set to false, the state without the change will not be returned. The default value is true. | [optional] 
 
 ### Return type
 
-[**InlineResponse20038**](InlineResponse20038.md)
+[**InlineResponse20042**](InlineResponse20042.md)
 
 ### Authorization
 
@@ -9450,9 +11776,9 @@ Name | Type | Description  | Notes
 # **get_collection**
 > Collection get_collection(application_id, campaign_id, collection_id)
 
-Get collection
+Get campaign-level collection
 
-Retrieve a given collection.
+Retrieve a given campaign-level collection.
 
 ### Example
 
@@ -9500,10 +11826,10 @@ with talon_one.ApiClient(configuration) as api_client:
     api_instance = talon_one.ManagementApi(api_client)
     application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
 campaign_id = 56 # int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
-collection_id = 56 # int | The ID of the collection. You can get it with the [List collection in account](#operation/listCollectionsInApplication) endpoint.
+collection_id = 56 # int | The ID of the collection. You can get it with the [List collections in Application](#operation/listCollectionsInApplication) endpoint.
 
     try:
-        # Get collection
+        # Get campaign-level collection
         api_response = api_instance.get_collection(application_id, campaign_id, collection_id)
         pprint(api_response)
     except ApiException as e:
@@ -9554,10 +11880,10 @@ with talon_one.ApiClient(configuration) as api_client:
     api_instance = talon_one.ManagementApi(api_client)
     application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
 campaign_id = 56 # int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
-collection_id = 56 # int | The ID of the collection. You can get it with the [List collection in account](#operation/listCollectionsInApplication) endpoint.
+collection_id = 56 # int | The ID of the collection. You can get it with the [List collections in Application](#operation/listCollectionsInApplication) endpoint.
 
     try:
-        # Get collection
+        # Get campaign-level collection
         api_response = api_instance.get_collection(application_id, campaign_id, collection_id)
         pprint(api_response)
     except ApiException as e:
@@ -9570,7 +11896,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **application_id** | **int**| The ID of the Application. It is displayed in your Talon.One deployment URL. | 
  **campaign_id** | **int**| The ID of the campaign. It is displayed in your Talon.One deployment URL. | 
- **collection_id** | **int**| The ID of the collection. You can get it with the [List collection in account](#operation/listCollectionsInApplication) endpoint. | 
+ **collection_id** | **int**| The ID of the collection. You can get it with the [List collections in Application](#operation/listCollectionsInApplication) endpoint. | 
 
 ### Return type
 
@@ -9594,11 +11920,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_collection_items**
-> InlineResponse20016 get_collection_items(collection_id, page_size=page_size, skip=skip)
+> InlineResponse20018 get_collection_items(collection_id, page_size=page_size, skip=skip)
 
 Get collection items
 
-Retrieve the items from the given collection.
+Retrieve items from a given collection.  You can retrieve items from both account-level collections and campaign-level collections using this endpoint. 
 
 ### Example
 
@@ -9644,9 +11970,9 @@ configuration = talon_one.Configuration(
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
-    collection_id = 56 # int | The ID of the collection. You can get it with the [List collection in account](#operation/listCollectionsInApplication) endpoint.
-page_size = 1000 # int | The number of items in this response. (optional) (default to 1000)
-skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
+    collection_id = 56 # int | The ID of the collection. You can get it with the [List collections in account](#operation/listAccountCollections) endpoint.
+page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
 
     try:
         # Get collection items
@@ -9698,9 +12024,9 @@ configuration = talon_one.Configuration(
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
-    collection_id = 56 # int | The ID of the collection. You can get it with the [List collection in account](#operation/listCollectionsInApplication) endpoint.
-page_size = 1000 # int | The number of items in this response. (optional) (default to 1000)
-skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
+    collection_id = 56 # int | The ID of the collection. You can get it with the [List collections in account](#operation/listAccountCollections) endpoint.
+page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
 
     try:
         # Get collection items
@@ -9714,13 +12040,13 @@ skip = 56 # int | Skips the given number of items when paging through large resu
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **collection_id** | **int**| The ID of the collection. You can get it with the [List collection in account](#operation/listCollectionsInApplication) endpoint. | 
- **page_size** | **int**| The number of items in this response. | [optional] [default to 1000]
- **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional] 
+ **collection_id** | **int**| The ID of the collection. You can get it with the [List collections in account](#operation/listAccountCollections) endpoint. | 
+ **page_size** | **int**| The number of items in the response. | [optional] [default to 1000]
+ **skip** | **int**| The number of items to skip when paging through large result sets. | [optional] 
 
 ### Return type
 
-[**InlineResponse20016**](InlineResponse20016.md)
+[**InlineResponse20018**](InlineResponse20018.md)
 
 ### Authorization
 
@@ -9740,7 +12066,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_coupons_without_total_count**
-> InlineResponse2008 get_coupons_without_total_count(application_id, campaign_id, page_size=page_size, skip=skip, sort=sort, value=value, created_before=created_before, created_after=created_after, valid=valid, usable=usable, referral_id=referral_id, recipient_integration_id=recipient_integration_id, batch_id=batch_id, exact_match=exact_match)
+> InlineResponse2009 get_coupons_without_total_count(application_id, campaign_id, page_size=page_size, skip=skip, sort=sort, value=value, created_before=created_before, created_after=created_after, valid=valid, usable=usable, referral_id=referral_id, recipient_integration_id=recipient_integration_id, batch_id=batch_id, exact_match=exact_match)
 
 List coupons
 
@@ -9792,12 +12118,12 @@ with talon_one.ApiClient(configuration) as api_client:
     api_instance = talon_one.ManagementApi(api_client)
     application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
 campaign_id = 56 # int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
-page_size = 1000 # int | The number of items in this response. (optional) (default to 1000)
-skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
+page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
 sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
 value = 'value_example' # str | Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
-created_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
-created_after = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
+created_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
+created_after = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
 valid = 'valid_example' # str | Either \"expired\", \"validNow\", or \"validFuture\". The first option matches coupons in which the expiration date is set and in the past. The second matches coupons in which start date is null or in the past and expiration date is null or in the future, the third matches coupons in which start date is set and in the future.  (optional)
 usable = 'usable_example' # str | Either \"true\" or \"false\". If \"true\", only coupons where `usageCounter < usageLimit` will be returned, \"false\" will return only coupons where `usageCounter >= usageLimit`.  (optional)
 referral_id = 56 # int | Filter the results by matching them with the ID of a referral. This filter shows the coupons created by redeeming a referral code. (optional)
@@ -9857,12 +12183,12 @@ with talon_one.ApiClient(configuration) as api_client:
     api_instance = talon_one.ManagementApi(api_client)
     application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
 campaign_id = 56 # int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
-page_size = 1000 # int | The number of items in this response. (optional) (default to 1000)
-skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
+page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
 sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
 value = 'value_example' # str | Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
-created_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
-created_after = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
+created_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
+created_after = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
 valid = 'valid_example' # str | Either \"expired\", \"validNow\", or \"validFuture\". The first option matches coupons in which the expiration date is set and in the past. The second matches coupons in which start date is null or in the past and expiration date is null or in the future, the third matches coupons in which start date is set and in the future.  (optional)
 usable = 'usable_example' # str | Either \"true\" or \"false\". If \"true\", only coupons where `usageCounter < usageLimit` will be returned, \"false\" will return only coupons where `usageCounter >= usageLimit`.  (optional)
 referral_id = 56 # int | Filter the results by matching them with the ID of a referral. This filter shows the coupons created by redeeming a referral code. (optional)
@@ -9884,12 +12210,12 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **application_id** | **int**| The ID of the Application. It is displayed in your Talon.One deployment URL. | 
  **campaign_id** | **int**| The ID of the campaign. It is displayed in your Talon.One deployment URL. | 
- **page_size** | **int**| The number of items in this response. | [optional] [default to 1000]
- **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional] 
+ **page_size** | **int**| The number of items in the response. | [optional] [default to 1000]
+ **skip** | **int**| The number of items to skip when paging through large result sets. | [optional] 
  **sort** | **str**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  | [optional] 
  **value** | **str**| Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. | [optional] 
- **created_before** | **datetime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. | [optional] 
- **created_after** | **datetime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. | [optional] 
+ **created_before** | **datetime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. | [optional] 
+ **created_after** | **datetime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. | [optional] 
  **valid** | **str**| Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiration date is set and in the past. The second matches coupons in which start date is null or in the past and expiration date is null or in the future, the third matches coupons in which start date is set and in the future.  | [optional] 
  **usable** | **str**| Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  | [optional] 
  **referral_id** | **int**| Filter the results by matching them with the ID of a referral. This filter shows the coupons created by redeeming a referral code. | [optional] 
@@ -9899,7 +12225,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2008**](InlineResponse2008.md)
+[**InlineResponse2009**](InlineResponse2009.md)
 
 ### Authorization
 
@@ -9968,12 +12294,12 @@ configuration = talon_one.Configuration(
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
-    range_start = '2013-10-20T19:20:30+01:00' # datetime | Only return results from after this timestamp. This must be an RFC3339 timestamp string.
-range_end = '2013-10-20T19:20:30+01:00' # datetime | Only return results from before this timestamp. This must be an RFC3339 timestamp string.
+    range_start = '2013-10-20T19:20:30+01:00' # datetime | Only return results from after this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
+range_end = '2013-10-20T19:20:30+01:00' # datetime | Only return results from before this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
 application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
 customer_id = 56 # int | The value of the `id` property of a customer profile. Get it with the [List Application's customers](https://docs.talon.one/management-api#operation/getApplicationCustomers) endpoint. 
-page_size = 1000 # int | The number of items in this response. (optional) (default to 1000)
-skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
+page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
 
     try:
         # Get customer's activity report
@@ -10025,12 +12351,12 @@ configuration = talon_one.Configuration(
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
-    range_start = '2013-10-20T19:20:30+01:00' # datetime | Only return results from after this timestamp. This must be an RFC3339 timestamp string.
-range_end = '2013-10-20T19:20:30+01:00' # datetime | Only return results from before this timestamp. This must be an RFC3339 timestamp string.
+    range_start = '2013-10-20T19:20:30+01:00' # datetime | Only return results from after this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
+range_end = '2013-10-20T19:20:30+01:00' # datetime | Only return results from before this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
 application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
 customer_id = 56 # int | The value of the `id` property of a customer profile. Get it with the [List Application's customers](https://docs.talon.one/management-api#operation/getApplicationCustomers) endpoint. 
-page_size = 1000 # int | The number of items in this response. (optional) (default to 1000)
-skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
+page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
 
     try:
         # Get customer's activity report
@@ -10044,12 +12370,12 @@ skip = 56 # int | Skips the given number of items when paging through large resu
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **range_start** | **datetime**| Only return results from after this timestamp. This must be an RFC3339 timestamp string. | 
- **range_end** | **datetime**| Only return results from before this timestamp. This must be an RFC3339 timestamp string. | 
+ **range_start** | **datetime**| Only return results from after this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  | 
+ **range_end** | **datetime**| Only return results from before this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  | 
  **application_id** | **int**| The ID of the Application. It is displayed in your Talon.One deployment URL. | 
  **customer_id** | **int**| The value of the &#x60;id&#x60; property of a customer profile. Get it with the [List Application&#39;s customers](https://docs.talon.one/management-api#operation/getApplicationCustomers) endpoint.  | 
- **page_size** | **int**| The number of items in this response. | [optional] [default to 1000]
- **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional] 
+ **page_size** | **int**| The number of items in the response. | [optional] [default to 1000]
+ **skip** | **int**| The number of items to skip when paging through large result sets. | [optional] 
 
 ### Return type
 
@@ -10072,7 +12398,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_customer_activity_reports_without_total_count**
-> InlineResponse20025 get_customer_activity_reports_without_total_count(range_start, range_end, application_id, page_size=page_size, skip=skip, sort=sort, name=name, integration_id=integration_id, campaign_name=campaign_name, advocate_name=advocate_name)
+> InlineResponse20026 get_customer_activity_reports_without_total_count(range_start, range_end, application_id, page_size=page_size, skip=skip, sort=sort, name=name, integration_id=integration_id, campaign_name=campaign_name, advocate_name=advocate_name)
 
 Get Activity Reports for Application Customers
 
@@ -10122,11 +12448,11 @@ configuration = talon_one.Configuration(
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
-    range_start = '2013-10-20T19:20:30+01:00' # datetime | Only return results from after this timestamp. This must be an RFC3339 timestamp string.
-range_end = '2013-10-20T19:20:30+01:00' # datetime | Only return results from before this timestamp. This must be an RFC3339 timestamp string.
+    range_start = '2013-10-20T19:20:30+01:00' # datetime | Only return results from after this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
+range_end = '2013-10-20T19:20:30+01:00' # datetime | Only return results from before this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
 application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
-page_size = 1000 # int | The number of items in this response. (optional) (default to 1000)
-skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
+page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
 sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
 name = 'name_example' # str | Only return reports matching the customer name (optional)
 integration_id = 'integration_id_example' # str | Filter results performing an exact matching against the profile integration identifier. (optional)
@@ -10183,11 +12509,11 @@ configuration = talon_one.Configuration(
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
-    range_start = '2013-10-20T19:20:30+01:00' # datetime | Only return results from after this timestamp. This must be an RFC3339 timestamp string.
-range_end = '2013-10-20T19:20:30+01:00' # datetime | Only return results from before this timestamp. This must be an RFC3339 timestamp string.
+    range_start = '2013-10-20T19:20:30+01:00' # datetime | Only return results from after this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
+range_end = '2013-10-20T19:20:30+01:00' # datetime | Only return results from before this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
 application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
-page_size = 1000 # int | The number of items in this response. (optional) (default to 1000)
-skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
+page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
 sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
 name = 'name_example' # str | Only return reports matching the customer name (optional)
 integration_id = 'integration_id_example' # str | Filter results performing an exact matching against the profile integration identifier. (optional)
@@ -10206,11 +12532,11 @@ advocate_name = 'advocate_name_example' # str | Only return reports matching the
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **range_start** | **datetime**| Only return results from after this timestamp. This must be an RFC3339 timestamp string. | 
- **range_end** | **datetime**| Only return results from before this timestamp. This must be an RFC3339 timestamp string. | 
+ **range_start** | **datetime**| Only return results from after this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  | 
+ **range_end** | **datetime**| Only return results from before this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  | 
  **application_id** | **int**| The ID of the Application. It is displayed in your Talon.One deployment URL. | 
- **page_size** | **int**| The number of items in this response. | [optional] [default to 1000]
- **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional] 
+ **page_size** | **int**| The number of items in the response. | [optional] [default to 1000]
+ **skip** | **int**| The number of items to skip when paging through large result sets. | [optional] 
  **sort** | **str**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  | [optional] 
  **name** | **str**| Only return reports matching the customer name | [optional] 
  **integration_id** | **str**| Filter results performing an exact matching against the profile integration identifier. | [optional] 
@@ -10219,7 +12545,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20025**](InlineResponse20025.md)
+[**InlineResponse20026**](InlineResponse20026.md)
 
 ### Authorization
 
@@ -10290,8 +12616,8 @@ with talon_one.ApiClient(configuration) as api_client:
     api_instance = talon_one.ManagementApi(api_client)
     application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
 customer_id = 56 # int | The value of the `id` property of a customer profile. Get it with the [List Application's customers](https://docs.talon.one/management-api#operation/getApplicationCustomers) endpoint. 
-page_size = 1000 # int | The number of items in this response. (optional) (default to 1000)
-skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
+page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
 sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
 
     try:
@@ -10346,8 +12672,8 @@ with talon_one.ApiClient(configuration) as api_client:
     api_instance = talon_one.ManagementApi(api_client)
     application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
 customer_id = 56 # int | The value of the `id` property of a customer profile. Get it with the [List Application's customers](https://docs.talon.one/management-api#operation/getApplicationCustomers) endpoint. 
-page_size = 1000 # int | The number of items in this response. (optional) (default to 1000)
-skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
+page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
 sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
 
     try:
@@ -10364,8 +12690,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **application_id** | **int**| The ID of the Application. It is displayed in your Talon.One deployment URL. | 
  **customer_id** | **int**| The value of the &#x60;id&#x60; property of a customer profile. Get it with the [List Application&#39;s customers](https://docs.talon.one/management-api#operation/getApplicationCustomers) endpoint.  | 
- **page_size** | **int**| The number of items in this response. | [optional] [default to 1000]
- **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional] 
+ **page_size** | **int**| The number of items in the response. | [optional] [default to 1000]
+ **skip** | **int**| The number of items to skip when paging through large result sets. | [optional] 
  **sort** | **str**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  | [optional] 
 
 ### Return type
@@ -10527,8 +12853,164 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **get_customer_profile_achievement_progress**
+> InlineResponse20047 get_customer_profile_achievement_progress(application_id, integration_id, page_size=page_size, skip=skip, achievement_id=achievement_id, title=title)
+
+List customer achievements
+
+For the given customer profile, list all the achievements that match your filter criteria. 
+
+### Example
+
+* Api Key Authentication (management_key):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
+integration_id = 'integration_id_example' # str | The identifier of the profile.
+page_size = 50 # int | The number of items in the response. (optional) (default to 50)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
+achievement_id = 56 # int | The ID of the achievement. You can get this ID with the [List achievement](https://docs.talon.one/management-api#tag/Achievements/operation/listAchievements) endpoint. (optional)
+title = 'title_example' # str | Filter results by the `title` of an achievement. (optional)
+
+    try:
+        # List customer achievements
+        api_response = api_instance.get_customer_profile_achievement_progress(application_id, integration_id, page_size=page_size, skip=skip, achievement_id=achievement_id, title=title)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_customer_profile_achievement_progress: %s\n" % e)
+```
+
+* Api Key Authentication (manager_auth):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
+integration_id = 'integration_id_example' # str | The identifier of the profile.
+page_size = 50 # int | The number of items in the response. (optional) (default to 50)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
+achievement_id = 56 # int | The ID of the achievement. You can get this ID with the [List achievement](https://docs.talon.one/management-api#tag/Achievements/operation/listAchievements) endpoint. (optional)
+title = 'title_example' # str | Filter results by the `title` of an achievement. (optional)
+
+    try:
+        # List customer achievements
+        api_response = api_instance.get_customer_profile_achievement_progress(application_id, integration_id, page_size=page_size, skip=skip, achievement_id=achievement_id, title=title)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_customer_profile_achievement_progress: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **application_id** | **int**| The ID of the Application. It is displayed in your Talon.One deployment URL. | 
+ **integration_id** | **str**| The identifier of the profile. | 
+ **page_size** | **int**| The number of items in the response. | [optional] [default to 50]
+ **skip** | **int**| The number of items to skip when paging through large result sets. | [optional] 
+ **achievement_id** | **int**| The ID of the achievement. You can get this ID with the [List achievement](https://docs.talon.one/management-api#tag/Achievements/operation/listAchievements) endpoint. | [optional] 
+ **title** | **str**| Filter results by the &#x60;title&#x60; of an achievement. | [optional] 
+
+### Return type
+
+[**InlineResponse20047**](InlineResponse20047.md)
+
+### Authorization
+
+[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Bad request |  -  |
+**401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **get_customer_profiles**
-> InlineResponse20024 get_customer_profiles(page_size=page_size, skip=skip, sandbox=sandbox)
+> InlineResponse20025 get_customer_profiles(page_size=page_size, skip=skip, sandbox=sandbox)
 
 List customer profiles
 
@@ -10578,8 +13060,8 @@ configuration = talon_one.Configuration(
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
-    page_size = 1000 # int | The number of items in this response. (optional) (default to 1000)
-skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
+    page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
 sandbox = False # bool | Indicates whether you are pointing to a sandbox or Live customer. (optional) (default to False)
 
     try:
@@ -10632,8 +13114,8 @@ configuration = talon_one.Configuration(
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
-    page_size = 1000 # int | The number of items in this response. (optional) (default to 1000)
-skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
+    page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
 sandbox = False # bool | Indicates whether you are pointing to a sandbox or Live customer. (optional) (default to False)
 
     try:
@@ -10648,13 +13130,13 @@ sandbox = False # bool | Indicates whether you are pointing to a sandbox or Live
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **page_size** | **int**| The number of items in this response. | [optional] [default to 1000]
- **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional] 
+ **page_size** | **int**| The number of items in the response. | [optional] [default to 1000]
+ **skip** | **int**| The number of items to skip when paging through large result sets. | [optional] 
  **sandbox** | **bool**| Indicates whether you are pointing to a sandbox or Live customer. | [optional] [default to False]
 
 ### Return type
 
-[**InlineResponse20024**](InlineResponse20024.md)
+[**InlineResponse20025**](InlineResponse20025.md)
 
 ### Authorization
 
@@ -10673,7 +13155,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_customers_by_attributes**
-> InlineResponse20023 get_customers_by_attributes(body, page_size=page_size, skip=skip, sandbox=sandbox)
+> InlineResponse20024 get_customers_by_attributes(body, page_size=page_size, skip=skip, sandbox=sandbox)
 
 List customer profiles matching the given attributes
 
@@ -10724,8 +13206,8 @@ with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
     body = talon_one.CustomerProfileSearchQuery() # CustomerProfileSearchQuery | body
-page_size = 1000 # int | The number of items in this response. (optional) (default to 1000)
-skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
+page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
 sandbox = False # bool | Indicates whether you are pointing to a sandbox or Live customer. (optional) (default to False)
 
     try:
@@ -10779,8 +13261,8 @@ with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
     body = talon_one.CustomerProfileSearchQuery() # CustomerProfileSearchQuery | body
-page_size = 1000 # int | The number of items in this response. (optional) (default to 1000)
-skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
+page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
 sandbox = False # bool | Indicates whether you are pointing to a sandbox or Live customer. (optional) (default to False)
 
     try:
@@ -10796,13 +13278,13 @@ sandbox = False # bool | Indicates whether you are pointing to a sandbox or Live
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **body** | [**CustomerProfileSearchQuery**](CustomerProfileSearchQuery.md)| body | 
- **page_size** | **int**| The number of items in this response. | [optional] [default to 1000]
- **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional] 
+ **page_size** | **int**| The number of items in the response. | [optional] [default to 1000]
+ **skip** | **int**| The number of items to skip when paging through large result sets. | [optional] 
  **sandbox** | **bool**| Indicates whether you are pointing to a sandbox or Live customer. | [optional] [default to False]
 
 ### Return type
 
-[**InlineResponse20023**](InlineResponse20023.md)
+[**InlineResponse20024**](InlineResponse20024.md)
 
 ### Authorization
 
@@ -10821,7 +13303,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_event_types**
-> InlineResponse20036 get_event_types(name=name, include_old_versions=include_old_versions, page_size=page_size, skip=skip, sort=sort)
+> InlineResponse20040 get_event_types(name=name, include_old_versions=include_old_versions, page_size=page_size, skip=skip, sort=sort)
 
 List event types
 
@@ -10873,8 +13355,8 @@ with talon_one.ApiClient(configuration) as api_client:
     api_instance = talon_one.ManagementApi(api_client)
     name = 'name_example' # str | Filter results to event types with the given name. This parameter implies `includeOldVersions`. (optional)
 include_old_versions = False # bool | Include all versions of every event type. (optional) (default to False)
-page_size = 1000 # int | The number of items in this response. (optional) (default to 1000)
-skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
+page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
 sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
 
     try:
@@ -10929,8 +13411,8 @@ with talon_one.ApiClient(configuration) as api_client:
     api_instance = talon_one.ManagementApi(api_client)
     name = 'name_example' # str | Filter results to event types with the given name. This parameter implies `includeOldVersions`. (optional)
 include_old_versions = False # bool | Include all versions of every event type. (optional) (default to False)
-page_size = 1000 # int | The number of items in this response. (optional) (default to 1000)
-skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
+page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
 sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
 
     try:
@@ -10947,13 +13429,13 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **str**| Filter results to event types with the given name. This parameter implies &#x60;includeOldVersions&#x60;. | [optional] 
  **include_old_versions** | **bool**| Include all versions of every event type. | [optional] [default to False]
- **page_size** | **int**| The number of items in this response. | [optional] [default to 1000]
- **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional] 
+ **page_size** | **int**| The number of items in the response. | [optional] [default to 1000]
+ **skip** | **int**| The number of items to skip when paging through large result sets. | [optional] 
  **sort** | **str**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  | [optional] 
 
 ### Return type
 
-[**InlineResponse20036**](InlineResponse20036.md)
+[**InlineResponse20040**](InlineResponse20040.md)
 
 ### Authorization
 
@@ -10972,7 +13454,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_exports**
-> InlineResponse20039 get_exports(page_size=page_size, skip=skip, application_id=application_id, campaign_id=campaign_id, entity=entity)
+> InlineResponse20043 get_exports(page_size=page_size, skip=skip, application_id=application_id, campaign_id=campaign_id, entity=entity)
 
 Get exports
 
@@ -11022,8 +13504,8 @@ configuration = talon_one.Configuration(
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
-    page_size = 1000 # int | The number of items in this response. (optional) (default to 1000)
-skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
+    page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
 application_id = 3.4 # float | Filter results by Application ID. (optional)
 campaign_id = 56 # int | Filter by the campaign ID on which the limit counters are used. (optional)
 entity = 'entity_example' # str | The name of the entity type that was exported. (optional)
@@ -11078,8 +13560,8 @@ configuration = talon_one.Configuration(
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
-    page_size = 1000 # int | The number of items in this response. (optional) (default to 1000)
-skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
+    page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
 application_id = 3.4 # float | Filter results by Application ID. (optional)
 campaign_id = 56 # int | Filter by the campaign ID on which the limit counters are used. (optional)
 entity = 'entity_example' # str | The name of the entity type that was exported. (optional)
@@ -11096,15 +13578,15 @@ entity = 'entity_example' # str | The name of the entity type that was exported.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **page_size** | **int**| The number of items in this response. | [optional] [default to 1000]
- **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional] 
+ **page_size** | **int**| The number of items in the response. | [optional] [default to 1000]
+ **skip** | **int**| The number of items to skip when paging through large result sets. | [optional] 
  **application_id** | **float**| Filter results by Application ID. | [optional] 
  **campaign_id** | **int**| Filter by the campaign ID on which the limit counters are used. | [optional] 
  **entity** | **str**| The name of the entity type that was exported. | [optional] 
 
 ### Return type
 
-[**InlineResponse20039**](InlineResponse20039.md)
+[**InlineResponse20043**](InlineResponse20043.md)
 
 ### Authorization
 
@@ -11268,11 +13750,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_loyalty_card_transaction_logs**
-> InlineResponse20014 get_loyalty_card_transaction_logs(loyalty_program_id, loyalty_card_id, start_date=start_date, end_date=end_date, page_size=page_size, skip=skip, subledger_id=subledger_id)
+> InlineResponse20016 get_loyalty_card_transaction_logs(loyalty_program_id, loyalty_card_id, start_date=start_date, end_date=end_date, page_size=page_size, skip=skip, subledger_id=subledger_id)
 
 List card's transactions
 
-Retrieve the transaction logs for the given [loyalty card](https://docs.talon.one/docs/product/loyalty-programs/loyalty-cards/loyalty-card-overview) within the specified [card-based loyalty program](https://docs.talon.one/docs/product/loyalty-programs/overview#loyalty-program-types) with filtering options applied. If no filtering options are applied, the last 50 loyalty transactions for the given loyalty card are returned. 
+Retrieve the transaction logs for the given [loyalty card](https://docs.talon.one/docs/product/loyalty-programs/card-based/card-based-overview) within the specified [card-based loyalty program](https://docs.talon.one/docs/product/loyalty-programs/overview#loyalty-program-types) with filtering options applied. If no filtering options are applied, the last 50 loyalty transactions for the given loyalty card are returned. 
 
 ### Example
 
@@ -11320,10 +13802,10 @@ with talon_one.ApiClient(configuration) as api_client:
     api_instance = talon_one.ManagementApi(api_client)
     loyalty_program_id = 56 # int | Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. 
 loyalty_card_id = 'loyalty_card_id_example' # str | Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint. 
-start_date = '2013-10-20T19:20:30+01:00' # datetime | Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:** It must be an RFC3339 timestamp string.  (optional)
-end_date = '2013-10-20T19:20:30+01:00' # datetime | Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:** It must be an RFC3339 timestamp string.  (optional)
-page_size = 1000 # int | The number of items in this response. (optional) (default to 1000)
-skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
+start_date = '2013-10-20T19:20:30+01:00' # datetime | Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.  (optional)
+end_date = '2013-10-20T19:20:30+01:00' # datetime | Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.  (optional)
+page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
 subledger_id = 'subledger_id_example' # str | The ID of the subledger by which we filter the data. (optional)
 
     try:
@@ -11378,10 +13860,10 @@ with talon_one.ApiClient(configuration) as api_client:
     api_instance = talon_one.ManagementApi(api_client)
     loyalty_program_id = 56 # int | Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. 
 loyalty_card_id = 'loyalty_card_id_example' # str | Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint. 
-start_date = '2013-10-20T19:20:30+01:00' # datetime | Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:** It must be an RFC3339 timestamp string.  (optional)
-end_date = '2013-10-20T19:20:30+01:00' # datetime | Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:** It must be an RFC3339 timestamp string.  (optional)
-page_size = 1000 # int | The number of items in this response. (optional) (default to 1000)
-skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
+start_date = '2013-10-20T19:20:30+01:00' # datetime | Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.  (optional)
+end_date = '2013-10-20T19:20:30+01:00' # datetime | Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.  (optional)
+page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
 subledger_id = 'subledger_id_example' # str | The ID of the subledger by which we filter the data. (optional)
 
     try:
@@ -11398,15 +13880,15 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **loyalty_program_id** | **int**| Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  | 
  **loyalty_card_id** | **str**| Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint.  | 
- **start_date** | **datetime**| Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:** It must be an RFC3339 timestamp string.  | [optional] 
- **end_date** | **datetime**| Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:** It must be an RFC3339 timestamp string.  | [optional] 
- **page_size** | **int**| The number of items in this response. | [optional] [default to 1000]
- **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional] 
+ **start_date** | **datetime**| Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  | [optional] 
+ **end_date** | **datetime**| Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  | [optional] 
+ **page_size** | **int**| The number of items in the response. | [optional] [default to 1000]
+ **skip** | **int**| The number of items to skip when paging through large result sets. | [optional] 
  **subledger_id** | **str**| The ID of the subledger by which we filter the data. | [optional] 
 
 ### Return type
 
-[**InlineResponse20014**](InlineResponse20014.md)
+[**InlineResponse20016**](InlineResponse20016.md)
 
 ### Authorization
 
@@ -11427,7 +13909,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_loyalty_cards**
-> InlineResponse20013 get_loyalty_cards(loyalty_program_id, page_size=page_size, skip=skip, sort=sort, identifier=identifier, profile_id=profile_id)
+> InlineResponse20015 get_loyalty_cards(loyalty_program_id, page_size=page_size, skip=skip, sort=sort, identifier=identifier, profile_id=profile_id)
 
 List loyalty cards
 
@@ -11478,8 +13960,8 @@ with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
     loyalty_program_id = 56 # int | Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. 
-page_size = 1000 # int | The number of items in this response. (optional) (default to 1000)
-skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
+page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
 sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
 identifier = 'identifier_example' # str | Optional query parameter to search cards by identifier. (optional)
 profile_id = 56 # int | Filter by the profile ID. (optional)
@@ -11535,8 +14017,8 @@ with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
     loyalty_program_id = 56 # int | Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. 
-page_size = 1000 # int | The number of items in this response. (optional) (default to 1000)
-skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
+page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
 sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
 identifier = 'identifier_example' # str | Optional query parameter to search cards by identifier. (optional)
 profile_id = 56 # int | Filter by the profile ID. (optional)
@@ -11554,15 +14036,15 @@ profile_id = 56 # int | Filter by the profile ID. (optional)
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **loyalty_program_id** | **int**| Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  | 
- **page_size** | **int**| The number of items in this response. | [optional] [default to 1000]
- **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional] 
+ **page_size** | **int**| The number of items in the response. | [optional] [default to 1000]
+ **skip** | **int**| The number of items to skip when paging through large result sets. | [optional] 
  **sort** | **str**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  | [optional] 
  **identifier** | **str**| Optional query parameter to search cards by identifier. | [optional] 
  **profile_id** | **int**| Filter by the profile ID. | [optional] 
 
 ### Return type
 
-[**InlineResponse20013**](InlineResponse20013.md)
+[**InlineResponse20015**](InlineResponse20015.md)
 
 ### Authorization
 
@@ -11775,7 +14257,7 @@ configuration = talon_one.Configuration(
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
-    loyalty_program_id = 56 # int | Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. 
+    loyalty_program_id = 56 # int | Identifier of the loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. 
 
     try:
         # Get loyalty program
@@ -11827,7 +14309,7 @@ configuration = talon_one.Configuration(
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
-    loyalty_program_id = 56 # int | Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. 
+    loyalty_program_id = 56 # int | Identifier of the loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. 
 
     try:
         # Get loyalty program
@@ -11841,7 +14323,7 @@ with talon_one.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **loyalty_program_id** | **int**| Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  | 
+ **loyalty_program_id** | **int**| Identifier of the loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  | 
 
 ### Return type
 
@@ -11864,11 +14346,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_loyalty_program_transactions**
-> InlineResponse20012 get_loyalty_program_transactions(loyalty_program_id, loyalty_transaction_type=loyalty_transaction_type, subledger_id=subledger_id, start_date=start_date, end_date=end_date, page_size=page_size, skip=skip)
+> InlineResponse20014 get_loyalty_program_transactions(loyalty_program_id, loyalty_transaction_type=loyalty_transaction_type, subledger_id=subledger_id, start_date=start_date, end_date=end_date, page_size=page_size, skip=skip)
 
 List loyalty program transactions
 
-Retrieve all loyalty program transaction logs in a given loyalty program with filtering options applied. Manual and imported transactions are also included. If no filters are applied, the last 50 loyalty transactions for the given loyalty program are returned.  **Important:** To get loyalty transaction logs for a given Integration ID in a loyalty program, we recommend using the Integration API's [Get customer's loyalty logs](https://docs.talon.one/integration-api#tag/Loyalty/operation/getLoyaltyProgramProfileTransactions). 
+Retrieve loyalty program transaction logs in a given loyalty program with filtering options applied. Manual and imported transactions are also included. **Note:** If no filters are applied, the last 50 loyalty transactions for the given loyalty program are returned.  **Important:** To get loyalty transaction logs for a given Integration ID in a loyalty program, we recommend using the Integration API's [Get customer's loyalty logs](https://docs.talon.one/integration-api#tag/Loyalty/operation/getLoyaltyProgramProfileTransactions). 
 
 ### Example
 
@@ -11914,13 +14396,13 @@ configuration = talon_one.Configuration(
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
-    loyalty_program_id = 56 # int | Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. 
+    loyalty_program_id = 56 # int | Identifier of the loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. 
 loyalty_transaction_type = 'loyalty_transaction_type_example' # str | Filter results by loyalty transaction type: - `manual`: Loyalty transaction that was done manually. - `session`: Loyalty transaction that resulted from a customer session. - `import`: Loyalty transaction that was imported from a CSV file.  (optional)
 subledger_id = 'subledger_id_example' # str | The ID of the subledger by which we filter the data. (optional)
-start_date = '2013-10-20T19:20:30+01:00' # datetime | Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:** It must be an RFC3339 timestamp string.  (optional)
-end_date = '2013-10-20T19:20:30+01:00' # datetime | Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:** It must be an RFC3339 timestamp string.  (optional)
-page_size = 50 # int | The number of items in this response. (optional) (default to 50)
-skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
+start_date = '2013-10-20T19:20:30+01:00' # datetime | Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.  (optional)
+end_date = '2013-10-20T19:20:30+01:00' # datetime | Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.  (optional)
+page_size = 50 # int | The number of items in the response. (optional) (default to 50)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
 
     try:
         # List loyalty program transactions
@@ -11972,13 +14454,13 @@ configuration = talon_one.Configuration(
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
-    loyalty_program_id = 56 # int | Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. 
+    loyalty_program_id = 56 # int | Identifier of the loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. 
 loyalty_transaction_type = 'loyalty_transaction_type_example' # str | Filter results by loyalty transaction type: - `manual`: Loyalty transaction that was done manually. - `session`: Loyalty transaction that resulted from a customer session. - `import`: Loyalty transaction that was imported from a CSV file.  (optional)
 subledger_id = 'subledger_id_example' # str | The ID of the subledger by which we filter the data. (optional)
-start_date = '2013-10-20T19:20:30+01:00' # datetime | Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:** It must be an RFC3339 timestamp string.  (optional)
-end_date = '2013-10-20T19:20:30+01:00' # datetime | Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:** It must be an RFC3339 timestamp string.  (optional)
-page_size = 50 # int | The number of items in this response. (optional) (default to 50)
-skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
+start_date = '2013-10-20T19:20:30+01:00' # datetime | Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.  (optional)
+end_date = '2013-10-20T19:20:30+01:00' # datetime | Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.  (optional)
+page_size = 50 # int | The number of items in the response. (optional) (default to 50)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
 
     try:
         # List loyalty program transactions
@@ -11992,17 +14474,17 @@ skip = 56 # int | Skips the given number of items when paging through large resu
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **loyalty_program_id** | **int**| Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  | 
+ **loyalty_program_id** | **int**| Identifier of the loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  | 
  **loyalty_transaction_type** | **str**| Filter results by loyalty transaction type: - &#x60;manual&#x60;: Loyalty transaction that was done manually. - &#x60;session&#x60;: Loyalty transaction that resulted from a customer session. - &#x60;import&#x60;: Loyalty transaction that was imported from a CSV file.  | [optional] 
  **subledger_id** | **str**| The ID of the subledger by which we filter the data. | [optional] 
- **start_date** | **datetime**| Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:** It must be an RFC3339 timestamp string.  | [optional] 
- **end_date** | **datetime**| Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:** It must be an RFC3339 timestamp string.  | [optional] 
- **page_size** | **int**| The number of items in this response. | [optional] [default to 50]
- **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional] 
+ **start_date** | **datetime**| Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  | [optional] 
+ **end_date** | **datetime**| Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  | [optional] 
+ **page_size** | **int**| The number of items in the response. | [optional] [default to 50]
+ **skip** | **int**| The number of items to skip when paging through large result sets. | [optional] 
 
 ### Return type
 
-[**InlineResponse20012**](InlineResponse20012.md)
+[**InlineResponse20014**](InlineResponse20014.md)
 
 ### Authorization
 
@@ -12024,7 +14506,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_loyalty_programs**
-> InlineResponse20011 get_loyalty_programs()
+> InlineResponse20013 get_loyalty_programs()
 
 List loyalty programs
 
@@ -12139,7 +14621,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**InlineResponse20011**](InlineResponse20011.md)
+[**InlineResponse20013**](InlineResponse20013.md)
 
 ### Authorization
 
@@ -12158,7 +14640,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_loyalty_statistics**
-> LoyaltyStatistics get_loyalty_statistics(loyalty_program_id)
+> LoyaltyDashboardData get_loyalty_statistics(loyalty_program_id)
 
 Get loyalty program statistics
 
@@ -12208,7 +14690,7 @@ configuration = talon_one.Configuration(
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
-    loyalty_program_id = 56 # int | Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. 
+    loyalty_program_id = 56 # int | Identifier of the loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. 
 
     try:
         # Get loyalty program statistics
@@ -12260,7 +14742,7 @@ configuration = talon_one.Configuration(
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
-    loyalty_program_id = 56 # int | Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. 
+    loyalty_program_id = 56 # int | Identifier of the loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. 
 
     try:
         # Get loyalty program statistics
@@ -12274,292 +14756,11 @@ with talon_one.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **loyalty_program_id** | **int**| Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  | 
+ **loyalty_program_id** | **int**| Identifier of the loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  | 
 
 ### Return type
 
-[**LoyaltyStatistics**](LoyaltyStatistics.md)
-
-### Authorization
-
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | OK |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **get_notification_webhook**
-> NotificationWebhook get_notification_webhook(application_id, notification_webhook_id)
-
-Get notification about campaign-related changes
-
-Return the given [notification about campaign-related changes](https://docs.talon.one/docs/product/applications/outbound-notifications). 
-
-### Example
-
-* Api Key Authentication (management_key):
-```python
-from __future__ import print_function
-import time
-import talon_one
-from talon_one.rest import ApiException
-from pprint import pprint
-# Defining the host is optional and defaults to https://yourbaseurl.talon.one
-# See configuration.py for a list of all supported configuration parameters.
-configuration = talon_one.Configuration(
-    host = "https://yourbaseurl.talon.one"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: management_key
-configuration = talon_one.Configuration(
-    host = "https://yourbaseurl.talon.one",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
-)
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
-
-# Configure API key authorization: manager_auth
-configuration = talon_one.Configuration(
-    host = "https://yourbaseurl.talon.one",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
-)
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with talon_one.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = talon_one.ManagementApi(api_client)
-    application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
-notification_webhook_id = 56 # int | The ID of the webhook. Get it with the appropriate _List notifications_ endpoint.
-
-    try:
-        # Get notification about campaign-related changes
-        api_response = api_instance.get_notification_webhook(application_id, notification_webhook_id)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling ManagementApi->get_notification_webhook: %s\n" % e)
-```
-
-* Api Key Authentication (manager_auth):
-```python
-from __future__ import print_function
-import time
-import talon_one
-from talon_one.rest import ApiException
-from pprint import pprint
-# Defining the host is optional and defaults to https://yourbaseurl.talon.one
-# See configuration.py for a list of all supported configuration parameters.
-configuration = talon_one.Configuration(
-    host = "https://yourbaseurl.talon.one"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: management_key
-configuration = talon_one.Configuration(
-    host = "https://yourbaseurl.talon.one",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
-)
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
-
-# Configure API key authorization: manager_auth
-configuration = talon_one.Configuration(
-    host = "https://yourbaseurl.talon.one",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
-)
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with talon_one.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = talon_one.ManagementApi(api_client)
-    application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
-notification_webhook_id = 56 # int | The ID of the webhook. Get it with the appropriate _List notifications_ endpoint.
-
-    try:
-        # Get notification about campaign-related changes
-        api_response = api_instance.get_notification_webhook(application_id, notification_webhook_id)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling ManagementApi->get_notification_webhook: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **application_id** | **int**| The ID of the Application. It is displayed in your Talon.One deployment URL. | 
- **notification_webhook_id** | **int**| The ID of the webhook. Get it with the appropriate _List notifications_ endpoint. | 
-
-### Return type
-
-[**NotificationWebhook**](NotificationWebhook.md)
-
-### Authorization
-
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | OK |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **get_notification_webhooks**
-> InlineResponse2005 get_notification_webhooks(application_id)
-
-List notifications about campaign-related changes
-
-List all [notifications about campaign-related changes](https://docs.talon.one/docs/product/applications/outbound-notifications) for the given Application. 
-
-### Example
-
-* Api Key Authentication (management_key):
-```python
-from __future__ import print_function
-import time
-import talon_one
-from talon_one.rest import ApiException
-from pprint import pprint
-# Defining the host is optional and defaults to https://yourbaseurl.talon.one
-# See configuration.py for a list of all supported configuration parameters.
-configuration = talon_one.Configuration(
-    host = "https://yourbaseurl.talon.one"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: management_key
-configuration = talon_one.Configuration(
-    host = "https://yourbaseurl.talon.one",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
-)
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
-
-# Configure API key authorization: manager_auth
-configuration = talon_one.Configuration(
-    host = "https://yourbaseurl.talon.one",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
-)
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with talon_one.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = talon_one.ManagementApi(api_client)
-    application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
-
-    try:
-        # List notifications about campaign-related changes
-        api_response = api_instance.get_notification_webhooks(application_id)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling ManagementApi->get_notification_webhooks: %s\n" % e)
-```
-
-* Api Key Authentication (manager_auth):
-```python
-from __future__ import print_function
-import time
-import talon_one
-from talon_one.rest import ApiException
-from pprint import pprint
-# Defining the host is optional and defaults to https://yourbaseurl.talon.one
-# See configuration.py for a list of all supported configuration parameters.
-configuration = talon_one.Configuration(
-    host = "https://yourbaseurl.talon.one"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: management_key
-configuration = talon_one.Configuration(
-    host = "https://yourbaseurl.talon.one",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
-)
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
-
-# Configure API key authorization: manager_auth
-configuration = talon_one.Configuration(
-    host = "https://yourbaseurl.talon.one",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
-)
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with talon_one.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = talon_one.ManagementApi(api_client)
-    application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
-
-    try:
-        # List notifications about campaign-related changes
-        api_response = api_instance.get_notification_webhooks(application_id)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling ManagementApi->get_notification_webhooks: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **application_id** | **int**| The ID of the Application. It is displayed in your Talon.One deployment URL. | 
-
-### Return type
-
-[**InlineResponse2005**](InlineResponse2005.md)
+[**LoyaltyDashboardData**](LoyaltyDashboardData.md)
 
 ### Authorization
 
@@ -12578,7 +14779,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_referrals_without_total_count**
-> InlineResponse2009 get_referrals_without_total_count(application_id, campaign_id, page_size=page_size, skip=skip, sort=sort, code=code, created_before=created_before, created_after=created_after, valid=valid, usable=usable, advocate=advocate)
+> InlineResponse20010 get_referrals_without_total_count(application_id, campaign_id, page_size=page_size, skip=skip, sort=sort, code=code, created_before=created_before, created_after=created_after, valid=valid, usable=usable, advocate=advocate)
 
 List referrals
 
@@ -12630,12 +14831,12 @@ with talon_one.ApiClient(configuration) as api_client:
     api_instance = talon_one.ManagementApi(api_client)
     application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
 campaign_id = 56 # int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
-page_size = 1000 # int | The number of items in this response. (optional) (default to 1000)
-skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
+page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
 sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
 code = 'code_example' # str | Filter results performing case-insensitive matching against the referral code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
-created_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
-created_after = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
+created_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
+created_after = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
 valid = 'valid_example' # str | Either \"expired\", \"validNow\", or \"validFuture\". The first option matches referrals in which the expiration date is set and in the past. The second matches referrals in which start date is null or in the past and expiration date is null or in the future, the third matches referrals in which start date is set and in the future.  (optional)
 usable = 'usable_example' # str | Either \"true\" or \"false\". If \"true\", only referrals where `usageCounter < usageLimit` will be returned, \"false\" will return only referrals where `usageCounter >= usageLimit`.  (optional)
 advocate = 'advocate_example' # str | Filter results by match with a profile id specified in the referral's AdvocateProfileIntegrationId field (optional)
@@ -12692,12 +14893,12 @@ with talon_one.ApiClient(configuration) as api_client:
     api_instance = talon_one.ManagementApi(api_client)
     application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
 campaign_id = 56 # int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
-page_size = 1000 # int | The number of items in this response. (optional) (default to 1000)
-skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
+page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
 sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
 code = 'code_example' # str | Filter results performing case-insensitive matching against the referral code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
-created_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
-created_after = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
+created_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
+created_after = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
 valid = 'valid_example' # str | Either \"expired\", \"validNow\", or \"validFuture\". The first option matches referrals in which the expiration date is set and in the past. The second matches referrals in which start date is null or in the past and expiration date is null or in the future, the third matches referrals in which start date is set and in the future.  (optional)
 usable = 'usable_example' # str | Either \"true\" or \"false\". If \"true\", only referrals where `usageCounter < usageLimit` will be returned, \"false\" will return only referrals where `usageCounter >= usageLimit`.  (optional)
 advocate = 'advocate_example' # str | Filter results by match with a profile id specified in the referral's AdvocateProfileIntegrationId field (optional)
@@ -12716,19 +14917,19 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **application_id** | **int**| The ID of the Application. It is displayed in your Talon.One deployment URL. | 
  **campaign_id** | **int**| The ID of the campaign. It is displayed in your Talon.One deployment URL. | 
- **page_size** | **int**| The number of items in this response. | [optional] [default to 1000]
- **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional] 
+ **page_size** | **int**| The number of items in the response. | [optional] [default to 1000]
+ **skip** | **int**| The number of items to skip when paging through large result sets. | [optional] 
  **sort** | **str**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  | [optional] 
  **code** | **str**| Filter results performing case-insensitive matching against the referral code. Both the code and the query are folded to remove all non-alpha-numeric characters. | [optional] 
- **created_before** | **datetime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. | [optional] 
- **created_after** | **datetime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. | [optional] 
+ **created_before** | **datetime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. | [optional] 
+ **created_after** | **datetime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. | [optional] 
  **valid** | **str**| Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches referrals in which the expiration date is set and in the past. The second matches referrals in which start date is null or in the past and expiration date is null or in the future, the third matches referrals in which start date is set and in the future.  | [optional] 
  **usable** | **str**| Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only referrals where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only referrals where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  | [optional] 
  **advocate** | **str**| Filter results by match with a profile id specified in the referral&#39;s AdvocateProfileIntegrationId field | [optional] 
 
 ### Return type
 
-[**InlineResponse2009**](InlineResponse2009.md)
+[**InlineResponse20010**](InlineResponse20010.md)
 
 ### Authorization
 
@@ -12751,7 +14952,7 @@ Name | Type | Description  | Notes
 
 Get role
 
-Get the details of the specified role. To see all the roles, use [List roles](#operation/getAllRoles). 
+Get the details of a specific role. To see all the roles, use [List roles](#operation/getAllRoles). 
 
 ### Example
 
@@ -12797,7 +14998,7 @@ configuration = talon_one.Configuration(
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
-    role_id = 56 # int | The Id of role. 
+    role_id = 56 # int | ID of role.  **Note**: To find the ID of a role, use the [List roles](https://docs.talon.one/management-api#tag/Roles/operation/getAllRoles) endpoint. 
 
     try:
         # Get role
@@ -12849,7 +15050,7 @@ configuration = talon_one.Configuration(
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
-    role_id = 56 # int | The Id of role. 
+    role_id = 56 # int | ID of role.  **Note**: To find the ID of a role, use the [List roles](https://docs.talon.one/management-api#tag/Roles/operation/getAllRoles) endpoint. 
 
     try:
         # Get role
@@ -12863,7 +15064,7 @@ with talon_one.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **role_id** | **int**| The Id of role.  | 
+ **role_id** | **int**| ID of role.  **Note**: To find the ID of a role, use the [List roles](https://docs.talon.one/management-api#tag/Roles/operation/getAllRoles) endpoint.  | 
 
 ### Return type
 
@@ -13031,7 +15232,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_rulesets**
-> InlineResponse2006 get_rulesets(application_id, campaign_id, page_size=page_size, skip=skip, sort=sort)
+> InlineResponse2007 get_rulesets(application_id, campaign_id, page_size=page_size, skip=skip, sort=sort)
 
 List campaign rulesets
 
@@ -13083,8 +15284,8 @@ with talon_one.ApiClient(configuration) as api_client:
     api_instance = talon_one.ManagementApi(api_client)
     application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
 campaign_id = 56 # int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
-page_size = 1000 # int | The number of items in this response. (optional) (default to 1000)
-skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
+page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
 sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
 
     try:
@@ -13139,8 +15340,8 @@ with talon_one.ApiClient(configuration) as api_client:
     api_instance = talon_one.ManagementApi(api_client)
     application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
 campaign_id = 56 # int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
-page_size = 1000 # int | The number of items in this response. (optional) (default to 1000)
-skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
+page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
 sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
 
     try:
@@ -13157,13 +15358,13 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **application_id** | **int**| The ID of the Application. It is displayed in your Talon.One deployment URL. | 
  **campaign_id** | **int**| The ID of the campaign. It is displayed in your Talon.One deployment URL. | 
- **page_size** | **int**| The number of items in this response. | [optional] [default to 1000]
- **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional] 
+ **page_size** | **int**| The number of items in the response. | [optional] [default to 1000]
+ **skip** | **int**| The number of items to skip when paging through large result sets. | [optional] 
  **sort** | **str**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  | [optional] 
 
 ### Return type
 
-[**InlineResponse2006**](InlineResponse2006.md)
+[**InlineResponse2007**](InlineResponse2007.md)
 
 ### Authorization
 
@@ -13178,6 +15379,149 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_store**
+> Store get_store(application_id, store_id)
+
+Get store
+
+Get store details for a specific store ID.
+
+### Example
+
+* Api Key Authentication (management_key):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
+store_id = 'store_id_example' # str | The ID of the store. You can get this ID with the [List stores](#tag/Stores/operation/listStores) endpoint. 
+
+    try:
+        # Get store
+        api_response = api_instance.get_store(application_id, store_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_store: %s\n" % e)
+```
+
+* Api Key Authentication (manager_auth):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
+store_id = 'store_id_example' # str | The ID of the store. You can get this ID with the [List stores](#tag/Stores/operation/listStores) endpoint. 
+
+    try:
+        # Get store
+        api_response = api_instance.get_store(application_id, store_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_store: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **application_id** | **int**| The ID of the Application. It is displayed in your Talon.One deployment URL. | 
+ **store_id** | **str**| The ID of the store. You can get this ID with the [List stores](#tag/Stores/operation/listStores) endpoint.  | 
+
+### Return type
+
+[**Store**](Store.md)
+
+### Authorization
+
+[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**404** | Not found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -13321,7 +15665,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_users**
-> InlineResponse20037 get_users(page_size=page_size, skip=skip, sort=sort)
+> InlineResponse20041 get_users(page_size=page_size, skip=skip, sort=sort)
 
 List users in account
 
@@ -13371,8 +15715,8 @@ configuration = talon_one.Configuration(
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
-    page_size = 1000 # int | The number of items in this response. (optional) (default to 1000)
-skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
+    page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
 sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
 
     try:
@@ -13425,8 +15769,8 @@ configuration = talon_one.Configuration(
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
-    page_size = 1000 # int | The number of items in this response. (optional) (default to 1000)
-skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
+    page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
 sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
 
     try:
@@ -13441,13 +15785,13 @@ sort = 'sort_example' # str | The field by which results should be sorted. By de
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **page_size** | **int**| The number of items in this response. | [optional] [default to 1000]
- **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional] 
+ **page_size** | **int**| The number of items in the response. | [optional] [default to 1000]
+ **skip** | **int**| The number of items to skip when paging through large result sets. | [optional] 
  **sort** | **str**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  | [optional] 
 
 ### Return type
 
-[**InlineResponse20037**](InlineResponse20037.md)
+[**InlineResponse20041**](InlineResponse20041.md)
 
 ### Authorization
 
@@ -13605,7 +15949,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_webhook_activation_logs**
-> InlineResponse20034 get_webhook_activation_logs(page_size=page_size, skip=skip, sort=sort, integration_request_uuid=integration_request_uuid, webhook_id=webhook_id, application_id=application_id, campaign_id=campaign_id, created_before=created_before, created_after=created_after)
+> InlineResponse20038 get_webhook_activation_logs(page_size=page_size, skip=skip, sort=sort, integration_request_uuid=integration_request_uuid, webhook_id=webhook_id, application_id=application_id, campaign_id=campaign_id, created_before=created_before, created_after=created_after)
 
 List webhook activation log entries
 
@@ -13655,15 +15999,15 @@ configuration = talon_one.Configuration(
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
-    page_size = 1000 # int | The number of items in this response. (optional) (default to 1000)
-skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
+    page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
 sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
 integration_request_uuid = 'integration_request_uuid_example' # str | Filter results by integration request UUID. (optional)
 webhook_id = 3.4 # float | Filter results by Webhook. (optional)
 application_id = 3.4 # float | Filter results by Application ID. (optional)
 campaign_id = 3.4 # float | Filter results by campaign. (optional)
-created_before = '2013-10-20T19:20:30+01:00' # datetime | Only return events created before this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)
-created_after = '2013-10-20T19:20:30+01:00' # datetime | Only return events created after this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)
+created_before = '2013-10-20T19:20:30+01:00' # datetime | Only return events created before this date. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
+created_after = '2013-10-20T19:20:30+01:00' # datetime | Only return events created after this date. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
 
     try:
         # List webhook activation log entries
@@ -13715,15 +16059,15 @@ configuration = talon_one.Configuration(
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
-    page_size = 1000 # int | The number of items in this response. (optional) (default to 1000)
-skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
+    page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
 sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
 integration_request_uuid = 'integration_request_uuid_example' # str | Filter results by integration request UUID. (optional)
 webhook_id = 3.4 # float | Filter results by Webhook. (optional)
 application_id = 3.4 # float | Filter results by Application ID. (optional)
 campaign_id = 3.4 # float | Filter results by campaign. (optional)
-created_before = '2013-10-20T19:20:30+01:00' # datetime | Only return events created before this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)
-created_after = '2013-10-20T19:20:30+01:00' # datetime | Only return events created after this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)
+created_before = '2013-10-20T19:20:30+01:00' # datetime | Only return events created before this date. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
+created_after = '2013-10-20T19:20:30+01:00' # datetime | Only return events created after this date. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
 
     try:
         # List webhook activation log entries
@@ -13737,19 +16081,19 @@ created_after = '2013-10-20T19:20:30+01:00' # datetime | Only return events crea
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **page_size** | **int**| The number of items in this response. | [optional] [default to 1000]
- **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional] 
+ **page_size** | **int**| The number of items in the response. | [optional] [default to 1000]
+ **skip** | **int**| The number of items to skip when paging through large result sets. | [optional] 
  **sort** | **str**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  | [optional] 
  **integration_request_uuid** | **str**| Filter results by integration request UUID. | [optional] 
  **webhook_id** | **float**| Filter results by Webhook. | [optional] 
  **application_id** | **float**| Filter results by Application ID. | [optional] 
  **campaign_id** | **float**| Filter results by campaign. | [optional] 
- **created_before** | **datetime**| Only return events created before this date. You can use any timezone. Talon.One will convert to UTC internally. | [optional] 
- **created_after** | **datetime**| Only return events created after this date. You can use any timezone. Talon.One will convert to UTC internally. | [optional] 
+ **created_before** | **datetime**| Only return events created before this date. You can use any time zone setting. Talon.One will convert to UTC internally. | [optional] 
+ **created_after** | **datetime**| Only return events created after this date. You can use any time zone setting. Talon.One will convert to UTC internally. | [optional] 
 
 ### Return type
 
-[**InlineResponse20034**](InlineResponse20034.md)
+[**InlineResponse20038**](InlineResponse20038.md)
 
 ### Authorization
 
@@ -13768,7 +16112,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_webhook_logs**
-> InlineResponse20035 get_webhook_logs(page_size=page_size, skip=skip, sort=sort, status=status, webhook_id=webhook_id, application_id=application_id, campaign_id=campaign_id, request_uuid=request_uuid, created_before=created_before, created_after=created_after)
+> InlineResponse20039 get_webhook_logs(page_size=page_size, skip=skip, sort=sort, status=status, webhook_id=webhook_id, application_id=application_id, campaign_id=campaign_id, request_uuid=request_uuid, created_before=created_before, created_after=created_after)
 
 List webhook log entries
 
@@ -13818,16 +16162,16 @@ configuration = talon_one.Configuration(
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
-    page_size = 1000 # int | The number of items in this response. (optional) (default to 1000)
-skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
+    page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
 sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
 status = 'status_example' # str | Filter results by HTTP status codes. (optional)
 webhook_id = 3.4 # float | Filter results by Webhook. (optional)
 application_id = 3.4 # float | Filter results by Application ID. (optional)
 campaign_id = 3.4 # float | Filter results by campaign. (optional)
 request_uuid = 'request_uuid_example' # str | Filter results by request UUID. (optional)
-created_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. You can use any timezone. Talon.One will convert to UTC internally. (optional)
-created_after = '2013-10-20T19:20:30+01:00' # datetime | Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. You can use any timezone. Talon.One will convert to UTC internally. (optional)
+created_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
+created_after = '2013-10-20T19:20:30+01:00' # datetime | Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
 
     try:
         # List webhook log entries
@@ -13879,16 +16223,16 @@ configuration = talon_one.Configuration(
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
-    page_size = 1000 # int | The number of items in this response. (optional) (default to 1000)
-skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
+    page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
 sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
 status = 'status_example' # str | Filter results by HTTP status codes. (optional)
 webhook_id = 3.4 # float | Filter results by Webhook. (optional)
 application_id = 3.4 # float | Filter results by Application ID. (optional)
 campaign_id = 3.4 # float | Filter results by campaign. (optional)
 request_uuid = 'request_uuid_example' # str | Filter results by request UUID. (optional)
-created_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. You can use any timezone. Talon.One will convert to UTC internally. (optional)
-created_after = '2013-10-20T19:20:30+01:00' # datetime | Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. You can use any timezone. Talon.One will convert to UTC internally. (optional)
+created_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
+created_after = '2013-10-20T19:20:30+01:00' # datetime | Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
 
     try:
         # List webhook log entries
@@ -13902,20 +16246,20 @@ created_after = '2013-10-20T19:20:30+01:00' # datetime | Filter results where re
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **page_size** | **int**| The number of items in this response. | [optional] [default to 1000]
- **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional] 
+ **page_size** | **int**| The number of items in the response. | [optional] [default to 1000]
+ **skip** | **int**| The number of items to skip when paging through large result sets. | [optional] 
  **sort** | **str**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  | [optional] 
  **status** | **str**| Filter results by HTTP status codes. | [optional] 
  **webhook_id** | **float**| Filter results by Webhook. | [optional] 
  **application_id** | **float**| Filter results by Application ID. | [optional] 
  **campaign_id** | **float**| Filter results by campaign. | [optional] 
  **request_uuid** | **str**| Filter results by request UUID. | [optional] 
- **created_before** | **datetime**| Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. You can use any timezone. Talon.One will convert to UTC internally. | [optional] 
- **created_after** | **datetime**| Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. You can use any timezone. Talon.One will convert to UTC internally. | [optional] 
+ **created_before** | **datetime**| Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally. | [optional] 
+ **created_after** | **datetime**| Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally. | [optional] 
 
 ### Return type
 
-[**InlineResponse20035**](InlineResponse20035.md)
+[**InlineResponse20039**](InlineResponse20039.md)
 
 ### Authorization
 
@@ -13934,7 +16278,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_webhooks**
-> InlineResponse20033 get_webhooks(application_ids=application_ids, sort=sort, page_size=page_size, skip=skip)
+> InlineResponse20037 get_webhooks(application_ids=application_ids, sort=sort, page_size=page_size, skip=skip, creation_type=creation_type, visibility=visibility, outgoing_integrations_type_id=outgoing_integrations_type_id, title=title)
 
 List webhooks
 
@@ -13984,14 +16328,18 @@ configuration = talon_one.Configuration(
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
-    application_ids = 'application_ids_example' # str | Filter by one or more application IDs separated by a comma. (optional)
+    application_ids = 'application_ids_example' # str | Filter by one or more Application IDs, separated by a comma. (optional)
 sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
-page_size = 1000 # int | The number of items in this response. (optional) (default to 1000)
-skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
+page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
+creation_type = 'creation_type_example' # str | Filter results by creation type. (optional)
+visibility = 'visibility_example' # str | Filter results by visibility. (optional)
+outgoing_integrations_type_id = 56 # int | Filter results by outgoing integration type ID. (optional)
+title = 'title_example' # str | Filter results performing case-insensitive matching against the webhook title. (optional)
 
     try:
         # List webhooks
-        api_response = api_instance.get_webhooks(application_ids=application_ids, sort=sort, page_size=page_size, skip=skip)
+        api_response = api_instance.get_webhooks(application_ids=application_ids, sort=sort, page_size=page_size, skip=skip, creation_type=creation_type, visibility=visibility, outgoing_integrations_type_id=outgoing_integrations_type_id, title=title)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling ManagementApi->get_webhooks: %s\n" % e)
@@ -14039,14 +16387,18 @@ configuration = talon_one.Configuration(
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
-    application_ids = 'application_ids_example' # str | Filter by one or more application IDs separated by a comma. (optional)
+    application_ids = 'application_ids_example' # str | Filter by one or more Application IDs, separated by a comma. (optional)
 sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
-page_size = 1000 # int | The number of items in this response. (optional) (default to 1000)
-skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
+page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
+creation_type = 'creation_type_example' # str | Filter results by creation type. (optional)
+visibility = 'visibility_example' # str | Filter results by visibility. (optional)
+outgoing_integrations_type_id = 56 # int | Filter results by outgoing integration type ID. (optional)
+title = 'title_example' # str | Filter results performing case-insensitive matching against the webhook title. (optional)
 
     try:
         # List webhooks
-        api_response = api_instance.get_webhooks(application_ids=application_ids, sort=sort, page_size=page_size, skip=skip)
+        api_response = api_instance.get_webhooks(application_ids=application_ids, sort=sort, page_size=page_size, skip=skip, creation_type=creation_type, visibility=visibility, outgoing_integrations_type_id=outgoing_integrations_type_id, title=title)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling ManagementApi->get_webhooks: %s\n" % e)
@@ -14056,14 +16408,18 @@ skip = 56 # int | Skips the given number of items when paging through large resu
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **application_ids** | **str**| Filter by one or more application IDs separated by a comma. | [optional] 
+ **application_ids** | **str**| Filter by one or more Application IDs, separated by a comma. | [optional] 
  **sort** | **str**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  | [optional] 
- **page_size** | **int**| The number of items in this response. | [optional] [default to 1000]
- **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional] 
+ **page_size** | **int**| The number of items in the response. | [optional] [default to 1000]
+ **skip** | **int**| The number of items to skip when paging through large result sets. | [optional] 
+ **creation_type** | **str**| Filter results by creation type. | [optional] 
+ **visibility** | **str**| Filter results by visibility. | [optional] 
+ **outgoing_integrations_type_id** | **int**| Filter results by outgoing integration type ID. | [optional] 
+ **title** | **str**| Filter results performing case-insensitive matching against the webhook title. | [optional] 
 
 ### Return type
 
-[**InlineResponse20033**](InlineResponse20033.md)
+[**InlineResponse20037**](InlineResponse20037.md)
 
 ### Authorization
 
@@ -14084,7 +16440,7 @@ Name | Type | Description  | Notes
 # **import_account_collection**
 > ModelImport import_account_collection(collection_id, up_file=up_file)
 
-Import data in existing account-level collection
+Import data into existing account-level collection
 
 Upload a CSV file containing the collection of string values that should be attached as payload for collection. The file should be sent as multipart data.  The import **replaces** the initial content of the collection.  The CSV file **must** only contain the following column:  - `item`: the values in your collection.  A collection is limited to 500,000 items.  Example:  ``` item Addidas Nike Asics ```  **Note:** Before sending a request to this endpoint, ensure the data in the CSV to import is different from the data currently stored in the collection. 
 
@@ -14132,11 +16488,11 @@ configuration = talon_one.Configuration(
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
-    collection_id = 56 # int | The ID of the collection. You can get it with the [List collection in account](#operation/listCollectionsInApplication) endpoint.
-up_file = 'up_file_example' # str | The file with the information about the data that should be imported. (optional)
+    collection_id = 56 # int | The ID of the collection. You can get it with the [List collections in account](#operation/listAccountCollections) endpoint.
+up_file = 'up_file_example' # str | The file containing the data that is being imported. (optional)
 
     try:
-        # Import data in existing account-level collection
+        # Import data into existing account-level collection
         api_response = api_instance.import_account_collection(collection_id, up_file=up_file)
         pprint(api_response)
     except ApiException as e:
@@ -14185,11 +16541,11 @@ configuration = talon_one.Configuration(
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
-    collection_id = 56 # int | The ID of the collection. You can get it with the [List collection in account](#operation/listCollectionsInApplication) endpoint.
-up_file = 'up_file_example' # str | The file with the information about the data that should be imported. (optional)
+    collection_id = 56 # int | The ID of the collection. You can get it with the [List collections in account](#operation/listAccountCollections) endpoint.
+up_file = 'up_file_example' # str | The file containing the data that is being imported. (optional)
 
     try:
-        # Import data in existing account-level collection
+        # Import data into existing account-level collection
         api_response = api_instance.import_account_collection(collection_id, up_file=up_file)
         pprint(api_response)
     except ApiException as e:
@@ -14200,8 +16556,8 @@ up_file = 'up_file_example' # str | The file with the information about the data
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **collection_id** | **int**| The ID of the collection. You can get it with the [List collection in account](#operation/listCollectionsInApplication) endpoint. | 
- **up_file** | **str**| The file with the information about the data that should be imported. | [optional] 
+ **collection_id** | **int**| The ID of the collection. You can get it with the [List collections in account](#operation/listAccountCollections) endpoint. | 
+ **up_file** | **str**| The file containing the data that is being imported. | [optional] 
 
 ### Return type
 
@@ -14277,7 +16633,7 @@ with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
     attribute_id = 56 # int | The ID of the attribute. You can find the ID in the Campaign Manager's URL when you display the details of an attribute in **Account** > **Tools** > **Attributes**.
-up_file = 'up_file_example' # str | The file with the information about the data that should be imported. (optional)
+up_file = 'up_file_example' # str | The file containing the data that is being imported. (optional)
 
     try:
         # Import allowed values for attribute
@@ -14330,7 +16686,7 @@ with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
     attribute_id = 56 # int | The ID of the attribute. You can find the ID in the Campaign Manager's URL when you display the details of an attribute in **Account** > **Tools** > **Attributes**.
-up_file = 'up_file_example' # str | The file with the information about the data that should be imported. (optional)
+up_file = 'up_file_example' # str | The file containing the data that is being imported. (optional)
 
     try:
         # Import allowed values for attribute
@@ -14345,7 +16701,152 @@ up_file = 'up_file_example' # str | The file with the information about the data
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **attribute_id** | **int**| The ID of the attribute. You can find the ID in the Campaign Manager&#39;s URL when you display the details of an attribute in **Account** &gt; **Tools** &gt; **Attributes**. | 
- **up_file** | **str**| The file with the information about the data that should be imported. | [optional] 
+ **up_file** | **str**| The file containing the data that is being imported. | [optional] 
+
+### Return type
+
+[**ModelImport**](ModelImport.md)
+
+### Authorization
+
+[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Bad request |  -  |
+**401** | Unauthorized - Invalid API key |  -  |
+**404** | Not found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **import_audiences_memberships**
+> ModelImport import_audiences_memberships(audience_id, up_file=up_file)
+
+Import audience members
+
+Upload a CSV file containing the integration IDs of the members you want to add to an audience.  The file should be sent as multipart data and should contain only the following column (required): - `profileintegrationid`: The integration ID of the customer profile.  The import **replaces** the previous list of audience members.  **Note:** We recommend limiting your file size to 500MB.  Example:  ```text profileintegrationid charles alexa ``` 
+
+### Example
+
+* Api Key Authentication (management_key):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    audience_id = 56 # int | The ID of the audience.
+up_file = 'up_file_example' # str | The file containing the data that is being imported. (optional)
+
+    try:
+        # Import audience members
+        api_response = api_instance.import_audiences_memberships(audience_id, up_file=up_file)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->import_audiences_memberships: %s\n" % e)
+```
+
+* Api Key Authentication (manager_auth):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    audience_id = 56 # int | The ID of the audience.
+up_file = 'up_file_example' # str | The file containing the data that is being imported. (optional)
+
+    try:
+        # Import audience members
+        api_response = api_instance.import_audiences_memberships(audience_id, up_file=up_file)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->import_audiences_memberships: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **audience_id** | **int**| The ID of the audience. | 
+ **up_file** | **str**| The file containing the data that is being imported. | [optional] 
 
 ### Return type
 
@@ -14373,7 +16874,7 @@ Name | Type | Description  | Notes
 # **import_collection**
 > ModelImport import_collection(application_id, campaign_id, collection_id, up_file=up_file)
 
-Import data in existing collection
+Import data into existing campaign-level collection
 
 Upload a CSV file containing the collection of string values that should be attached as payload for collection. The file should be sent as multipart data.  The import **replaces** the initial content of the collection.  The CSV file **must** only contain the following column:  - `item`: the values in your collection.  A collection is limited to 500,000 items.  Example:  ``` item Addidas Nike Asics ```  **Note:** Before sending a request to this endpoint, ensure the data in the CSV to import is different from the data currently stored in the collection. 
 
@@ -14423,11 +16924,11 @@ with talon_one.ApiClient(configuration) as api_client:
     api_instance = talon_one.ManagementApi(api_client)
     application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
 campaign_id = 56 # int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
-collection_id = 56 # int | The ID of the collection. You can get it with the [List collection in account](#operation/listCollectionsInApplication) endpoint.
-up_file = 'up_file_example' # str | The file with the information about the data that should be imported. (optional)
+collection_id = 56 # int | The ID of the collection. You can get it with the [List collections in Application](#operation/listCollectionsInApplication) endpoint.
+up_file = 'up_file_example' # str | The file containing the data that is being imported. (optional)
 
     try:
-        # Import data in existing collection
+        # Import data into existing campaign-level collection
         api_response = api_instance.import_collection(application_id, campaign_id, collection_id, up_file=up_file)
         pprint(api_response)
     except ApiException as e:
@@ -14478,11 +16979,11 @@ with talon_one.ApiClient(configuration) as api_client:
     api_instance = talon_one.ManagementApi(api_client)
     application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
 campaign_id = 56 # int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
-collection_id = 56 # int | The ID of the collection. You can get it with the [List collection in account](#operation/listCollectionsInApplication) endpoint.
-up_file = 'up_file_example' # str | The file with the information about the data that should be imported. (optional)
+collection_id = 56 # int | The ID of the collection. You can get it with the [List collections in Application](#operation/listCollectionsInApplication) endpoint.
+up_file = 'up_file_example' # str | The file containing the data that is being imported. (optional)
 
     try:
-        # Import data in existing collection
+        # Import data into existing campaign-level collection
         api_response = api_instance.import_collection(application_id, campaign_id, collection_id, up_file=up_file)
         pprint(api_response)
     except ApiException as e:
@@ -14495,8 +16996,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **application_id** | **int**| The ID of the Application. It is displayed in your Talon.One deployment URL. | 
  **campaign_id** | **int**| The ID of the campaign. It is displayed in your Talon.One deployment URL. | 
- **collection_id** | **int**| The ID of the collection. You can get it with the [List collection in account](#operation/listCollectionsInApplication) endpoint. | 
- **up_file** | **str**| The file with the information about the data that should be imported. | [optional] 
+ **collection_id** | **int**| The ID of the collection. You can get it with the [List collections in Application](#operation/listCollectionsInApplication) endpoint. | 
+ **up_file** | **str**| The file containing the data that is being imported. | [optional] 
 
 ### Return type
 
@@ -14520,11 +17021,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **import_coupons**
-> ModelImport import_coupons(application_id, campaign_id, up_file=up_file)
+> ModelImport import_coupons(application_id, campaign_id, skip_duplicates=skip_duplicates, up_file=up_file)
 
 Import coupons
 
-Upload a CSV file containing the coupons that should be created. The file should be sent as multipart data.  The CSV file contains the following columns:  - `value` (required): The coupon code. - `expirydate`: The end date in RFC3339 of the code redemption period. - `startdate`: The start date in RFC3339 of the code redemption period. - `recipientintegrationid`: The integration ID of the customer who receives the coupon.   Only the customer with this integration ID can redeem the corresponding coupon code.   Learn about [coupon reservation](https://docs.talon.one/docs/product/rules/effects/using-effects#reserving-a-coupon-code). - `limitval`: The maximum number of redemptions of this code. For unlimited redemptions, use `0`. Defaults to `1` when not provided. - `discountlimit`: The total discount value that the code can give. This is typically used to represent a gift card value. - `attributes`: A json object describing _custom_ referral attribute names and their values. Double the double-quotes in the object.   For example, if you created a [custom attribute](https://docs.talon.one/docs/dev/concepts/attributes#custom-attributes)   called `category` associated to the coupon entity, set it with `\"{\"\"category\"\": \"\"10_off\"\"}\"`.  You can use the time zone of your choice. It is converted to UTC internally by Talon.One.  **Note:** We recommend limiting your file size to 500MB.  **Example:**  ```text \"value\",\"expirydate\",\"startdate\",\"recipientintegrationid\",\"limitval\",\"attributes\",\"discountlimit\" COUP1,2018-07-01T04:00:00Z,2018-05-01T04:00:00Z,cust123,1,\"{\"\"Category\"\": \"\"10_off\"\"}\",2.4 ```  Once imported, you can find the `batchId` in the Campaign Manager or by using [List coupons](#tag/Coupons/operation/getCouponsWithoutTotalCount). 
+Upload a CSV file containing the coupons that should be created. The file should be sent as multipart data.  The CSV file contains the following columns:  - `value` (required): The coupon code. - `expirydate`: The end date in RFC3339 of the code redemption period. - `startdate`: The start date in RFC3339 of the code redemption period. - `recipientintegrationid`: The integration ID of the customer who receives the coupon.   Only the customer with this integration ID can redeem the corresponding coupon code.   Learn about [coupon reservation](https://docs.talon.one/docs/product/rules/effects/using-effects#reserving-a-coupon-code). - `limitval`: The maximum number of redemptions of this code. For unlimited redemptions, use `0`. Defaults to `1` when not provided. - `discountlimit`: The total discount value that the code can give. This is typically used to represent a gift card value. - `attributes`: A JSON object describing _custom_ coupon attribute names and their values, enclosed with double quotation marks.    For example, if you created a [custom attribute](https://docs.talon.one/docs/dev/concepts/attributes#custom-attributes)   called `category` associated with the coupon entity, the object in the CSV file, when opened in a text editor, must be: `\"{\"category\": \"10_off\"}\"`.  You can use the time zone of your choice. It is converted to UTC internally by Talon.One.  **Note:** We recommend limiting your file size to 500MB.  **Example:**  ```text \"value\",\"expirydate\",\"startdate\",\"recipientintegrationid\",\"limitval\",\"attributes\",\"discountlimit\" COUP1,2018-07-01T04:00:00Z,2018-05-01T04:00:00Z,cust123,1,\"{\"\"Category\"\": \"\"10_off\"\"}\",2.4 ```  Once imported, you can find the `batchId` in the Campaign Manager or by using [List coupons](#tag/Coupons/operation/getCouponsWithoutTotalCount). 
 
 ### Example
 
@@ -14572,11 +17073,12 @@ with talon_one.ApiClient(configuration) as api_client:
     api_instance = talon_one.ManagementApi(api_client)
     application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
 campaign_id = 56 # int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
-up_file = 'up_file_example' # str | The file with the information about the data that should be imported. (optional)
+skip_duplicates = True # bool | An indicator of whether to skip duplicate coupon values instead of causing an error. Duplicate values are ignored when `skipDuplicates=true`.  (optional)
+up_file = 'up_file_example' # str | The file containing the data that is being imported. (optional)
 
     try:
         # Import coupons
-        api_response = api_instance.import_coupons(application_id, campaign_id, up_file=up_file)
+        api_response = api_instance.import_coupons(application_id, campaign_id, skip_duplicates=skip_duplicates, up_file=up_file)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling ManagementApi->import_coupons: %s\n" % e)
@@ -14626,11 +17128,12 @@ with talon_one.ApiClient(configuration) as api_client:
     api_instance = talon_one.ManagementApi(api_client)
     application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
 campaign_id = 56 # int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
-up_file = 'up_file_example' # str | The file with the information about the data that should be imported. (optional)
+skip_duplicates = True # bool | An indicator of whether to skip duplicate coupon values instead of causing an error. Duplicate values are ignored when `skipDuplicates=true`.  (optional)
+up_file = 'up_file_example' # str | The file containing the data that is being imported. (optional)
 
     try:
         # Import coupons
-        api_response = api_instance.import_coupons(application_id, campaign_id, up_file=up_file)
+        api_response = api_instance.import_coupons(application_id, campaign_id, skip_duplicates=skip_duplicates, up_file=up_file)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling ManagementApi->import_coupons: %s\n" % e)
@@ -14642,7 +17145,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **application_id** | **int**| The ID of the Application. It is displayed in your Talon.One deployment URL. | 
  **campaign_id** | **int**| The ID of the campaign. It is displayed in your Talon.One deployment URL. | 
- **up_file** | **str**| The file with the information about the data that should be imported. | [optional] 
+ **skip_duplicates** | **bool**| An indicator of whether to skip duplicate coupon values instead of causing an error. Duplicate values are ignored when &#x60;skipDuplicates&#x3D;true&#x60;.  | [optional] 
+ **up_file** | **str**| The file containing the data that is being imported. | [optional] 
 
 ### Return type
 
@@ -14716,7 +17220,7 @@ with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
     loyalty_program_id = 56 # int | Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. 
-up_file = 'up_file_example' # str | The file with the information about the data that should be imported. (optional)
+up_file = 'up_file_example' # str | The file containing the data that is being imported. (optional)
 
     try:
         # Import loyalty cards
@@ -14769,7 +17273,7 @@ with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
     loyalty_program_id = 56 # int | Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. 
-up_file = 'up_file_example' # str | The file with the information about the data that should be imported. (optional)
+up_file = 'up_file_example' # str | The file containing the data that is being imported. (optional)
 
     try:
         # Import loyalty cards
@@ -14784,7 +17288,7 @@ up_file = 'up_file_example' # str | The file with the information about the data
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **loyalty_program_id** | **int**| Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  | 
- **up_file** | **str**| The file with the information about the data that should be imported. | [optional] 
+ **up_file** | **str**| The file containing the data that is being imported. | [optional] 
 
 ### Return type
 
@@ -14808,12 +17312,12 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **import_loyalty_points**
-> ModelImport import_loyalty_points(loyalty_program_id, up_file=up_file)
+# **import_loyalty_customers_tiers**
+> ModelImport import_loyalty_customers_tiers(loyalty_program_id, up_file=up_file)
 
-Import loyalty points
+Import customers into loyalty tiers
 
-Upload a CSV file containing the loyalty points you want to import into a given loyalty program. Send the file as multipart data.  Depending on the loyalty program type, you can import the points into a given customer profile or into a given _active_ loyalty card.  The CSV file contains the following columns:  - `customerprofileid` (optional): For profile-based loyalty programs, the integration ID of the customer profile where the loyalty points are imported. - `identifier` (optional): For card-based loyalty programs, the identifier of the loyalty card where the loyalty points are imported. - `amount`: The amount of points to award to the customer profile. - `startdate`: The earliest date when the points can be redeemed. On this date and until the expiration date, the points are `active`. - `expirydate`: The latest date when the points can be redeemed. After this date, the points are `expired`. - `subledgerid` (optional): The ID of the subledger that should received the points. - `reason` (optional): The reason why these points are awarded.  You can use the time zone of your choice. It is converted to UTC internally by Talon.One.  **Note:** For existing customer profiles and loyalty cards, the imported points are added to any previous active or pending points, depending on the value provided for `startdate`. If `startdate` matches the current date, the imported points are _active_. If it is later, the points are _pending_ until the date provided for `startdate` is reached.  **Note:** We recommend limiting your file size to 500MB.  **Example for profile-based programs:**  ```text customerprofileid,amount,startdate,expirydate,subledgerid,reason URNGV8294NV,100,2009-11-10T23:00:00Z,2009-11-11T23:00:00Z,subledger1,appeasement ```  **Example for card-based programs:**  ```text identifier,amount,startdate,expirydate,subledgerid,reason summer-loyalty-card-0543,100,2009-11-10T23:00:00Z,2009-11-11T23:00:00Z,subledger1,appeasement ``` 
+Upload a CSV file containing existing customers to be assigned to existing tiers. Send the file as multipart data.  **Important:** This endpoint only works with loyalty programs with advanced tiers (with expiration and downgrade policy) feature enabled.  The CSV file should contain the following columns: - `subledgerid` (optional): The ID of the subledger. If this field is empty, the main ledger will be used. - `customerprofileid`: The integration ID of the customer profile to whom the tier should be assigned. - `tiername`: The name of an existing tier to assign to the customer. - `expirydate`: The expiration date of the tier. It should be a future date.  About customer assignment to a tier: - If the customer isn't already in a tier, the customer is assigned to the specified tier during the tier import. - If the customer is already in the tier that's specified in the CSV file, only the expiration date is updated.  **Note:** We recommend not using this endpoint to update the tier of a customer. To update a customer's tier, you can [add](/management-api#tag/Loyalty/operation/addLoyaltyPoints) or [deduct](/management-api#tag/Loyalty/operation/removeLoyaltyPoints) their loyalty points.  You can use the time zone of your choice. It is converted to UTC internally by Talon.One.  **Note:** We recommend limiting your file size to 500MB.  **Example:** ```csv subledgerid,customerprofileid,tiername,expirydate SUB1,alexa,Gold,2024-03-21T07:32:14Z ,george,Silver,2025-04-16T21:12:37Z SUB2,avocado,Bronze,2026-05-03T11:47:01Z ``` 
 
 ### Example
 
@@ -14859,8 +17363,153 @@ configuration = talon_one.Configuration(
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
-    loyalty_program_id = 56 # int | Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. 
-up_file = 'up_file_example' # str | The file with the information about the data that should be imported. (optional)
+    loyalty_program_id = 56 # int | Identifier of the loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. 
+up_file = 'up_file_example' # str | The file containing the data that is being imported. (optional)
+
+    try:
+        # Import customers into loyalty tiers
+        api_response = api_instance.import_loyalty_customers_tiers(loyalty_program_id, up_file=up_file)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->import_loyalty_customers_tiers: %s\n" % e)
+```
+
+* Api Key Authentication (manager_auth):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    loyalty_program_id = 56 # int | Identifier of the loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. 
+up_file = 'up_file_example' # str | The file containing the data that is being imported. (optional)
+
+    try:
+        # Import customers into loyalty tiers
+        api_response = api_instance.import_loyalty_customers_tiers(loyalty_program_id, up_file=up_file)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->import_loyalty_customers_tiers: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **loyalty_program_id** | **int**| Identifier of the loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  | 
+ **up_file** | **str**| The file containing the data that is being imported. | [optional] 
+
+### Return type
+
+[**ModelImport**](ModelImport.md)
+
+### Authorization
+
+[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Bad request |  -  |
+**401** | Unauthorized |  -  |
+**404** | Not found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **import_loyalty_points**
+> ModelImport import_loyalty_points(loyalty_program_id, up_file=up_file)
+
+Import loyalty points
+
+Upload a CSV file containing the loyalty points you want to import into a given loyalty program. Send the file as multipart data.  Depending on the type of loyalty program, you can import points into a given customer profile or loyalty card.  The CSV file contains the following columns:  - `customerprofileid` (optional): For profile-based loyalty programs, the integration ID of the customer profile where the loyalty points are imported. - `identifier` (optional): For card-based loyalty programs, the identifier of the loyalty card where the loyalty points are imported. - `amount`: The amount of points to award to the customer profile. - `startdate` (optional): The earliest date when the points can be redeemed. The points are `active` from this date until the expiration date.    **Note**: It must be an RFC3339 timestamp string or string `immediate`. Empty or missing values are considered `immediate`. - `expirydate` (optional): The latest date when the points can be redeemed. The points are `expired` after this date.    **Note**: It must be an RFC3339 timestamp string or string `unlimited`. Empty or missing values are considered `unlimited`. - `subledgerid` (optional): The ID of the subledger that should received the points. - `reason` (optional): The reason why these points are awarded.  You can use the time zone of your choice. It is converted to UTC internally by Talon.One.  **Note:** For existing customer profiles and loyalty cards, the imported points are added to any previous active or pending points, depending on the value provided for `startdate`. If `startdate` matches the current date, the imported points are _active_. If it is later, the points are _pending_ until the date provided for `startdate` is reached.  **Note:** We recommend limiting your file size to 500MB.  **Example for profile-based programs:**  ```text customerprofileid,amount,startdate,expirydate,subledgerid,reason URNGV8294NV,100,2009-11-10T23:00:00Z,2009-11-11T23:00:00Z,subledger1,appeasement ```  **Example for card-based programs:**  ```text identifier,amount,startdate,expirydate,subledgerid,reason summer-loyalty-card-0543,100,2009-11-10T23:00:00Z,2009-11-11T23:00:00Z,subledger1,appeasement ``` 
+
+### Example
+
+* Api Key Authentication (management_key):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    loyalty_program_id = 56 # int | Identifier of the loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. 
+up_file = 'up_file_example' # str | The file containing the data that is being imported. (optional)
 
     try:
         # Import loyalty points
@@ -14912,8 +17561,8 @@ configuration = talon_one.Configuration(
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
-    loyalty_program_id = 56 # int | Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. 
-up_file = 'up_file_example' # str | The file with the information about the data that should be imported. (optional)
+    loyalty_program_id = 56 # int | Identifier of the loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. 
+up_file = 'up_file_example' # str | The file containing the data that is being imported. (optional)
 
     try:
         # Import loyalty points
@@ -14927,8 +17576,8 @@ up_file = 'up_file_example' # str | The file with the information about the data
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **loyalty_program_id** | **int**| Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  | 
- **up_file** | **str**| The file with the information about the data that should be imported. | [optional] 
+ **loyalty_program_id** | **int**| Identifier of the loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  | 
+ **up_file** | **str**| The file containing the data that is being imported. | [optional] 
 
 ### Return type
 
@@ -14955,7 +17604,7 @@ Name | Type | Description  | Notes
 
 Import giveaway codes into a giveaway pool
 
-Upload a CSV file containing the giveaway codes that should be created. Send the file as multipart data.  The CSV file contains the following columns: - `code` (required): the code of your giveaway, for instance, a gift card redemption code. - `startdate`:  the start date in RFC3339 of the code redemption period. - `enddate`: the last date in RFC3339 of the code redemption period. - `attributes`: A json object describing _custom_ giveaway attribute names and their values. Double the double-quotes in the object.   For example, if you [created a custom attribute](https://docs.talon.one/docs/dev/concepts/attributes#custom-attributes)   called `provider` associated to the giveaway entity, set it with `\"{\"\"provider\"\": \"\"myPartnerCompany\"\"}\"`.  The `startdate` and `enddate` have nothing to do with the _validity_ of the codes. They are only used by the Rule Engine to award the codes or not. You can use the time zone of your choice. It is converted to UTC internally by Talon.One.  **Note:** We recommend limiting your file size to 500MB.  **Example:**  ```text code,startdate,enddate,attributes GIVEAWAY1,2020-11-10T23:00:00Z,2022-11-11T23:00:00Z,\"{\"\"provider\"\": \"\"Amazon\"\"}\" GIVEAWAY2,2020-11-10T23:00:00Z,2022-11-11T23:00:00Z,\"{\"\"provider\"\": \"\"Amazon\"\"}\" GIVEAWAY3,2021-01-10T23:00:00Z,2022-11-11T23:00:00Z,\"{\"\"provider\"\": \"\"Aliexpress\"\"}\" ``` 
+Upload a CSV file containing the giveaway codes that should be created. Send the file as multipart data.  The CSV file contains the following columns: - `code` (required): The code of your giveaway, for instance, a gift card redemption code. - `startdate`:  The start date in RFC3339 of the code redemption period. - `enddate`: The last date in RFC3339 of the code redemption period. - `attributes`: A JSON object describing _custom_ giveaway attribute names and their values, enclosed with double quotation marks.    For example, if you created a [custom attribute](https://docs.talon.one/docs/dev/concepts/attributes#custom-attributes)   called `provider` associated with the giveaway entity, the object in the CSV file, when opened in a text editor, must be: `\"{\"provider\": \"myPartnerCompany\"}\"`.  The `startdate` and `enddate` have nothing to do with the _validity_ of the codes. They are only used by the Rule Engine to award the codes or not. You can use the time zone setting of your choice. The values are converted to UTC internally by Talon.One.  **Note:**  - We recommend limiting your file size to 500MB. - You can import the same code multiple times. Duplicate codes are treated and distributed to customers as unique codes.  **Example:**  ```text code,startdate,enddate,attributes GIVEAWAY1,2020-11-10T23:00:00Z,2022-11-11T23:00:00Z,\"{\"\"provider\"\": \"\"Amazon\"\"}\" GIVEAWAY2,2020-11-10T23:00:00Z,2022-11-11T23:00:00Z,\"{\"\"provider\"\": \"\"Amazon\"\"}\" GIVEAWAY3,2021-01-10T23:00:00Z,2022-11-11T23:00:00Z,\"{\"\"provider\"\": \"\"Aliexpress\"\"}\" ``` 
 
 ### Example
 
@@ -15002,7 +17651,7 @@ with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
     pool_id = 56 # int | The ID of the pool. You can find it in the Campaign Manager, in the **Giveaways** section.
-up_file = 'up_file_example' # str | The file with the information about the data that should be imported. (optional)
+up_file = 'up_file_example' # str | The file containing the data that is being imported. (optional)
 
     try:
         # Import giveaway codes into a giveaway pool
@@ -15055,7 +17704,7 @@ with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
     pool_id = 56 # int | The ID of the pool. You can find it in the Campaign Manager, in the **Giveaways** section.
-up_file = 'up_file_example' # str | The file with the information about the data that should be imported. (optional)
+up_file = 'up_file_example' # str | The file containing the data that is being imported. (optional)
 
     try:
         # Import giveaway codes into a giveaway pool
@@ -15070,7 +17719,7 @@ up_file = 'up_file_example' # str | The file with the information about the data
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **pool_id** | **int**| The ID of the pool. You can find it in the Campaign Manager, in the **Giveaways** section. | 
- **up_file** | **str**| The file with the information about the data that should be imported. | [optional] 
+ **up_file** | **str**| The file containing the data that is being imported. | [optional] 
 
 ### Return type
 
@@ -15097,7 +17746,7 @@ Name | Type | Description  | Notes
 
 Import referrals
 
-Upload a CSV file containing the referrals that should be created. The file should be sent as multipart data.  The CSV file contains the following columns:  - `code` (required): The referral code. - `advocateprofileintegrationid` (required): The profile ID of the advocate. - `startdate`: The start date in RFC3339 of the code redemption period. - `expirydate`: The end date in RFC3339 of the code redemption period. - `limitval`: The maximum number of redemptions of this code. Defaults to `1` when left blank. - `attributes`: A json object describing _custom_ referral attribute names and their values. Double the double-quotes in the object.    For example, if you [created a custom attribute](https://docs.talon.one/docs/dev/concepts/attributes#custom-attributes)   called `category` associated to the referral entity, set it with `\"{\"\"category\"\": \"\"10_off\"\"}\"`.  You can use the time zone of your choice. It is converted to UTC internally by Talon.One.  **Note:** We recommend limiting your file size to 500MB.  **Example:**  ```text code,startdate,expirydate,advocateprofileintegrationid,limitval,attributes REFERRAL_CODE1,2020-11-10T23:00:00Z,2021-11-11T23:00:00Z,integid_4,1,\"{\"\"my_attribute\"\": \"\"10_off\"\"}\" REFERRAL_CODE2,2020-11-10T23:00:00Z,2021-11-11T23:00:00Z,integid1,1,\"{\"\"my_attribute\"\": \"\"20_off\"\"}\" ``` 
+Upload a CSV file containing the referrals that should be created. The file should be sent as multipart data.  The CSV file contains the following columns:  - `code` (required): The referral code. - `advocateprofileintegrationid` (required): The profile ID of the advocate. - `startdate`: The start date in RFC3339 of the code redemption period. - `expirydate`: The end date in RFC3339 of the code redemption period. - `limitval`: The maximum number of redemptions of this code. Defaults to `1` when left blank. - `attributes`: A JSON object describing _custom_ referral attribute names and their values, enclosed with double quotation marks.    For example, if you created a [custom attribute](https://docs.talon.one/docs/dev/concepts/attributes#custom-attributes)   called `category` associated with the referral entity, the object in the CSV file, when opened in a text editor, must be: `\"{\"category\": \"10_off\"}\"`.  You can use the time zone of your choice. It is converted to UTC internally by Talon.One.  **Important:** When you import a CSV file with referrals, a [customer profile](https://docs.talon.one/docs/dev/concepts/entities/customer-profiles) is **not** automatically created for each `advocateprofileintegrationid` column value. Use the [Update customer profile](https://docs.talon.one/integration-api#tag/Customer-profiles/operation/updateCustomerProfileV2) endpoint or the [Update multiple customer profiles](https://docs.talon.one/integration-api#tag/Customer-profiles/operation/updateCustomerProfilesV2) endpoint to create the customer profiles.  **Note:** We recommend limiting your file size to 500MB.  **Example:**  ```text code,startdate,expirydate,advocateprofileintegrationid,limitval,attributes REFERRAL_CODE1,2020-11-10T23:00:00Z,2021-11-11T23:00:00Z,integid_4,1,\"{\"\"my_attribute\"\": \"\"10_off\"\"}\" REFERRAL_CODE2,2020-11-10T23:00:00Z,2021-11-11T23:00:00Z,integid1,1,\"{\"\"my_attribute\"\": \"\"20_off\"\"}\" ``` 
 
 ### Example
 
@@ -15145,7 +17794,7 @@ with talon_one.ApiClient(configuration) as api_client:
     api_instance = talon_one.ManagementApi(api_client)
     application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
 campaign_id = 56 # int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
-up_file = 'up_file_example' # str | The file with the information about the data that should be imported. (optional)
+up_file = 'up_file_example' # str | The file containing the data that is being imported. (optional)
 
     try:
         # Import referrals
@@ -15199,7 +17848,7 @@ with talon_one.ApiClient(configuration) as api_client:
     api_instance = talon_one.ManagementApi(api_client)
     application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
 campaign_id = 56 # int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
-up_file = 'up_file_example' # str | The file with the information about the data that should be imported. (optional)
+up_file = 'up_file_example' # str | The file containing the data that is being imported. (optional)
 
     try:
         # Import referrals
@@ -15215,7 +17864,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **application_id** | **int**| The ID of the Application. It is displayed in your Talon.One deployment URL. | 
  **campaign_id** | **int**| The ID of the campaign. It is displayed in your Talon.One deployment URL. | 
- **up_file** | **str**| The file with the information about the data that should be imported. | [optional] 
+ **up_file** | **str**| The file containing the data that is being imported. | [optional] 
 
 ### Return type
 
@@ -15238,11 +17887,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_account_collections**
-> InlineResponse20015 list_account_collections(page_size=page_size, skip=skip, sort=sort, with_total_result_size=with_total_result_size, name=name)
+> InlineResponse20017 list_account_collections(page_size=page_size, skip=skip, sort=sort, with_total_result_size=with_total_result_size, name=name)
 
 List collections in account
 
-List collections in account.
+List account-level collections in the account.
 
 ### Example
 
@@ -15288,11 +17937,11 @@ configuration = talon_one.Configuration(
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
-    page_size = 1000 # int | The number of items in this response. (optional) (default to 1000)
-skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
+    page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
 sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
 with_total_result_size = True # bool | When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When `true`: `hasMore` is true when there is a next page. `totalResultSize` is always zero. - When `false`: `hasMore` is always false. `totalResultSize` contains the total number of results for this query.  (optional)
-name = 'name_example' # str | Filter by the name of the Collection. (optional)
+name = 'name_example' # str | Filter by collection name. (optional)
 
     try:
         # List collections in account
@@ -15344,11 +17993,11 @@ configuration = talon_one.Configuration(
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
-    page_size = 1000 # int | The number of items in this response. (optional) (default to 1000)
-skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
+    page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
 sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
 with_total_result_size = True # bool | When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When `true`: `hasMore` is true when there is a next page. `totalResultSize` is always zero. - When `false`: `hasMore` is always false. `totalResultSize` contains the total number of results for this query.  (optional)
-name = 'name_example' # str | Filter by the name of the Collection. (optional)
+name = 'name_example' # str | Filter by collection name. (optional)
 
     try:
         # List collections in account
@@ -15362,15 +18011,15 @@ name = 'name_example' # str | Filter by the name of the Collection. (optional)
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **page_size** | **int**| The number of items in this response. | [optional] [default to 1000]
- **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional] 
+ **page_size** | **int**| The number of items in the response. | [optional] [default to 1000]
+ **skip** | **int**| The number of items to skip when paging through large result sets. | [optional] 
  **sort** | **str**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  | [optional] 
  **with_total_result_size** | **bool**| When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When &#x60;true&#x60;: &#x60;hasMore&#x60; is true when there is a next page. &#x60;totalResultSize&#x60; is always zero. - When &#x60;false&#x60;: &#x60;hasMore&#x60; is always false. &#x60;totalResultSize&#x60; contains the total number of results for this query.  | [optional] 
- **name** | **str**| Filter by the name of the Collection. | [optional] 
+ **name** | **str**| Filter by collection name. | [optional] 
 
 ### Return type
 
-[**InlineResponse20015**](InlineResponse20015.md)
+[**InlineResponse20017**](InlineResponse20017.md)
 
 ### Authorization
 
@@ -15391,12 +18040,12 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **list_collections**
-> InlineResponse20017 list_collections(application_id, campaign_id, page_size=page_size, skip=skip, sort=sort, with_total_result_size=with_total_result_size, name=name)
+# **list_achievements**
+> InlineResponse20046 list_achievements(application_id, campaign_id, page_size=page_size, skip=skip, title=title)
 
-List collections
+List achievements
 
-List collections in the campaign.
+List all the achievements for a specific campaign.
 
 ### Example
 
@@ -15444,14 +18093,319 @@ with talon_one.ApiClient(configuration) as api_client:
     api_instance = talon_one.ManagementApi(api_client)
     application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
 campaign_id = 56 # int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
-page_size = 1000 # int | The number of items in this response. (optional) (default to 1000)
-skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
-sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
-with_total_result_size = True # bool | When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When `true`: `hasMore` is true when there is a next page. `totalResultSize` is always zero. - When `false`: `hasMore` is always false. `totalResultSize` contains the total number of results for this query.  (optional)
-name = 'name_example' # str | Filter by the name of the Collection. (optional)
+page_size = 50 # int | The number of items in the response. (optional) (default to 50)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
+title = 'title_example' # str | Filter by the display name for the achievement in the campaign manager.  **Note**: If no `title` is provided, all the achievements from the campaign are returned.  (optional)
 
     try:
-        # List collections
+        # List achievements
+        api_response = api_instance.list_achievements(application_id, campaign_id, page_size=page_size, skip=skip, title=title)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->list_achievements: %s\n" % e)
+```
+
+* Api Key Authentication (manager_auth):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
+campaign_id = 56 # int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
+page_size = 50 # int | The number of items in the response. (optional) (default to 50)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
+title = 'title_example' # str | Filter by the display name for the achievement in the campaign manager.  **Note**: If no `title` is provided, all the achievements from the campaign are returned.  (optional)
+
+    try:
+        # List achievements
+        api_response = api_instance.list_achievements(application_id, campaign_id, page_size=page_size, skip=skip, title=title)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->list_achievements: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **application_id** | **int**| The ID of the Application. It is displayed in your Talon.One deployment URL. | 
+ **campaign_id** | **int**| The ID of the campaign. It is displayed in your Talon.One deployment URL. | 
+ **page_size** | **int**| The number of items in the response. | [optional] [default to 50]
+ **skip** | **int**| The number of items to skip when paging through large result sets. | [optional] 
+ **title** | **str**| Filter by the display name for the achievement in the campaign manager.  **Note**: If no &#x60;title&#x60; is provided, all the achievements from the campaign are returned.  | [optional] 
+
+### Return type
+
+[**InlineResponse20046**](InlineResponse20046.md)
+
+### Authorization
+
+[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **list_catalog_items**
+> InlineResponse20035 list_catalog_items(catalog_id, page_size=page_size, skip=skip, with_total_result_size=with_total_result_size, sku=sku, product_names=product_names)
+
+List items in a catalog
+
+Return a paginated list of cart items in the given catalog. 
+
+### Example
+
+* Api Key Authentication (management_key):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    catalog_id = 56 # int | The ID of the catalog. You can find the ID in the Campaign Manager in **Account** > **Tools** > **Cart item catalogs**.
+page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
+with_total_result_size = True # bool | When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When `true`: `hasMore` is true when there is a next page. `totalResultSize` is always zero. - When `false`: `hasMore` is always false. `totalResultSize` contains the total number of results for this query.  (optional)
+sku = ['sku_example'] # list[str] | Filter results by one or more SKUs. Must be exact match. (optional)
+product_names = ['product_names_example'] # list[str] | Filter results by one or more product names. Must be exact match. (optional)
+
+    try:
+        # List items in a catalog
+        api_response = api_instance.list_catalog_items(catalog_id, page_size=page_size, skip=skip, with_total_result_size=with_total_result_size, sku=sku, product_names=product_names)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->list_catalog_items: %s\n" % e)
+```
+
+* Api Key Authentication (manager_auth):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    catalog_id = 56 # int | The ID of the catalog. You can find the ID in the Campaign Manager in **Account** > **Tools** > **Cart item catalogs**.
+page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
+with_total_result_size = True # bool | When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When `true`: `hasMore` is true when there is a next page. `totalResultSize` is always zero. - When `false`: `hasMore` is always false. `totalResultSize` contains the total number of results for this query.  (optional)
+sku = ['sku_example'] # list[str] | Filter results by one or more SKUs. Must be exact match. (optional)
+product_names = ['product_names_example'] # list[str] | Filter results by one or more product names. Must be exact match. (optional)
+
+    try:
+        # List items in a catalog
+        api_response = api_instance.list_catalog_items(catalog_id, page_size=page_size, skip=skip, with_total_result_size=with_total_result_size, sku=sku, product_names=product_names)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->list_catalog_items: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **catalog_id** | **int**| The ID of the catalog. You can find the ID in the Campaign Manager in **Account** &gt; **Tools** &gt; **Cart item catalogs**. | 
+ **page_size** | **int**| The number of items in the response. | [optional] [default to 1000]
+ **skip** | **int**| The number of items to skip when paging through large result sets. | [optional] 
+ **with_total_result_size** | **bool**| When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When &#x60;true&#x60;: &#x60;hasMore&#x60; is true when there is a next page. &#x60;totalResultSize&#x60; is always zero. - When &#x60;false&#x60;: &#x60;hasMore&#x60; is always false. &#x60;totalResultSize&#x60; contains the total number of results for this query.  | [optional] 
+ **sku** | [**list[str]**](str.md)| Filter results by one or more SKUs. Must be exact match. | [optional] 
+ **product_names** | [**list[str]**](str.md)| Filter results by one or more product names. Must be exact match. | [optional] 
+
+### Return type
+
+[**InlineResponse20035**](InlineResponse20035.md)
+
+### Authorization
+
+[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **list_collections**
+> InlineResponse20017 list_collections(application_id, campaign_id, page_size=page_size, skip=skip, sort=sort, with_total_result_size=with_total_result_size, name=name)
+
+List collections in campaign
+
+List collections in a given campaign.
+
+### Example
+
+* Api Key Authentication (management_key):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
+campaign_id = 56 # int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
+page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
+sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
+with_total_result_size = True # bool | When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When `true`: `hasMore` is true when there is a next page. `totalResultSize` is always zero. - When `false`: `hasMore` is always false. `totalResultSize` contains the total number of results for this query.  (optional)
+name = 'name_example' # str | Filter by collection name. (optional)
+
+    try:
+        # List collections in campaign
         api_response = api_instance.list_collections(application_id, campaign_id, page_size=page_size, skip=skip, sort=sort, with_total_result_size=with_total_result_size, name=name)
         pprint(api_response)
     except ApiException as e:
@@ -15502,14 +18456,14 @@ with talon_one.ApiClient(configuration) as api_client:
     api_instance = talon_one.ManagementApi(api_client)
     application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
 campaign_id = 56 # int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
-page_size = 1000 # int | The number of items in this response. (optional) (default to 1000)
-skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
+page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
 sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
 with_total_result_size = True # bool | When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When `true`: `hasMore` is true when there is a next page. `totalResultSize` is always zero. - When `false`: `hasMore` is always false. `totalResultSize` contains the total number of results for this query.  (optional)
-name = 'name_example' # str | Filter by the name of the Collection. (optional)
+name = 'name_example' # str | Filter by collection name. (optional)
 
     try:
-        # List collections
+        # List collections in campaign
         api_response = api_instance.list_collections(application_id, campaign_id, page_size=page_size, skip=skip, sort=sort, with_total_result_size=with_total_result_size, name=name)
         pprint(api_response)
     except ApiException as e:
@@ -15522,11 +18476,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **application_id** | **int**| The ID of the Application. It is displayed in your Talon.One deployment URL. | 
  **campaign_id** | **int**| The ID of the campaign. It is displayed in your Talon.One deployment URL. | 
- **page_size** | **int**| The number of items in this response. | [optional] [default to 1000]
- **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional] 
+ **page_size** | **int**| The number of items in the response. | [optional] [default to 1000]
+ **skip** | **int**| The number of items to skip when paging through large result sets. | [optional] 
  **sort** | **str**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  | [optional] 
  **with_total_result_size** | **bool**| When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When &#x60;true&#x60;: &#x60;hasMore&#x60; is true when there is a next page. &#x60;totalResultSize&#x60; is always zero. - When &#x60;false&#x60;: &#x60;hasMore&#x60; is always false. &#x60;totalResultSize&#x60; contains the total number of results for this query.  | [optional] 
- **name** | **str**| Filter by the name of the Collection. | [optional] 
+ **name** | **str**| Filter by collection name. | [optional] 
 
 ### Return type
 
@@ -15552,9 +18506,9 @@ Name | Type | Description  | Notes
 # **list_collections_in_application**
 > InlineResponse20017 list_collections_in_application(application_id, page_size=page_size, skip=skip, sort=sort, with_total_result_size=with_total_result_size, name=name)
 
-List collections in application
+List collections in Application
 
-List collections from all campaigns in the Application.
+List campaign-level collections from all campaigns in a given Application.
 
 ### Example
 
@@ -15601,14 +18555,14 @@ with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
     application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
-page_size = 1000 # int | The number of items in this response. (optional) (default to 1000)
-skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
+page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
 sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
 with_total_result_size = True # bool | When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When `true`: `hasMore` is true when there is a next page. `totalResultSize` is always zero. - When `false`: `hasMore` is always false. `totalResultSize` contains the total number of results for this query.  (optional)
-name = 'name_example' # str | Filter by the name of the Collection. (optional)
+name = 'name_example' # str | Filter by collection name. (optional)
 
     try:
-        # List collections in application
+        # List collections in Application
         api_response = api_instance.list_collections_in_application(application_id, page_size=page_size, skip=skip, sort=sort, with_total_result_size=with_total_result_size, name=name)
         pprint(api_response)
     except ApiException as e:
@@ -15658,14 +18612,14 @@ with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
     application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
-page_size = 1000 # int | The number of items in this response. (optional) (default to 1000)
-skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
+page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
 sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
 with_total_result_size = True # bool | When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When `true`: `hasMore` is true when there is a next page. `totalResultSize` is always zero. - When `false`: `hasMore` is always false. `totalResultSize` contains the total number of results for this query.  (optional)
-name = 'name_example' # str | Filter by the name of the Collection. (optional)
+name = 'name_example' # str | Filter by collection name. (optional)
 
     try:
-        # List collections in application
+        # List collections in Application
         api_response = api_instance.list_collections_in_application(application_id, page_size=page_size, skip=skip, sort=sort, with_total_result_size=with_total_result_size, name=name)
         pprint(api_response)
     except ApiException as e:
@@ -15677,11 +18631,11 @@ name = 'name_example' # str | Filter by the name of the Collection. (optional)
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **application_id** | **int**| The ID of the Application. It is displayed in your Talon.One deployment URL. | 
- **page_size** | **int**| The number of items in this response. | [optional] [default to 1000]
- **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional] 
+ **page_size** | **int**| The number of items in the response. | [optional] [default to 1000]
+ **skip** | **int**| The number of items to skip when paging through large result sets. | [optional] 
  **sort** | **str**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  | [optional] 
  **with_total_result_size** | **bool**| When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When &#x60;true&#x60;: &#x60;hasMore&#x60; is true when there is a next page. &#x60;totalResultSize&#x60; is always zero. - When &#x60;false&#x60;: &#x60;hasMore&#x60; is always false. &#x60;totalResultSize&#x60; contains the total number of results for this query.  | [optional] 
- **name** | **str**| Filter by the name of the Collection. | [optional] 
+ **name** | **str**| Filter by collection name. | [optional] 
 
 ### Return type
 
@@ -15704,12 +18658,12 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **post_added_deducted_points_notification**
-> BaseNotification post_added_deducted_points_notification(loyalty_program_id, body)
+# **list_stores**
+> InlineResponse20045 list_stores(application_id, page_size=page_size, skip=skip, sort=sort, with_total_result_size=with_total_result_size, campaign_id=campaign_id, name=name, integration_id=integration_id, query=query)
 
-Create notification about added or deducted loyalty points
+List stores
 
-Create a notification about added or deducted loyalty points in a given profile-based loyalty program. A notification for added or deducted loyalty points is different from regular webhooks in that it is loyalty program-scoped and has a predefined payload.  For more information, see [Managing notifications](https://docs.talon.one/docs/product/loyalty-programs/managing-notifications). 
+List all stores for a specific Application.
 
 ### Example
 
@@ -15755,7 +18709,310 @@ configuration = talon_one.Configuration(
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
-    loyalty_program_id = 56 # int | Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. 
+    application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
+page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
+sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
+with_total_result_size = True # bool | When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When `true`: `hasMore` is true when there is a next page. `totalResultSize` is always zero. - When `false`: `hasMore` is always false. `totalResultSize` contains the total number of results for this query.  (optional)
+campaign_id = 3.4 # float | Filter results by campaign. (optional)
+name = 'name_example' # str | The name of the store. (optional)
+integration_id = 'integration_id_example' # str | The integration ID of the store. (optional)
+query = 'query_example' # str | Filter results by `name` or `integrationId`. (optional)
+
+    try:
+        # List stores
+        api_response = api_instance.list_stores(application_id, page_size=page_size, skip=skip, sort=sort, with_total_result_size=with_total_result_size, campaign_id=campaign_id, name=name, integration_id=integration_id, query=query)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->list_stores: %s\n" % e)
+```
+
+* Api Key Authentication (manager_auth):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
+page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
+sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
+with_total_result_size = True # bool | When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When `true`: `hasMore` is true when there is a next page. `totalResultSize` is always zero. - When `false`: `hasMore` is always false. `totalResultSize` contains the total number of results for this query.  (optional)
+campaign_id = 3.4 # float | Filter results by campaign. (optional)
+name = 'name_example' # str | The name of the store. (optional)
+integration_id = 'integration_id_example' # str | The integration ID of the store. (optional)
+query = 'query_example' # str | Filter results by `name` or `integrationId`. (optional)
+
+    try:
+        # List stores
+        api_response = api_instance.list_stores(application_id, page_size=page_size, skip=skip, sort=sort, with_total_result_size=with_total_result_size, campaign_id=campaign_id, name=name, integration_id=integration_id, query=query)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->list_stores: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **application_id** | **int**| The ID of the Application. It is displayed in your Talon.One deployment URL. | 
+ **page_size** | **int**| The number of items in the response. | [optional] [default to 1000]
+ **skip** | **int**| The number of items to skip when paging through large result sets. | [optional] 
+ **sort** | **str**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  | [optional] 
+ **with_total_result_size** | **bool**| When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When &#x60;true&#x60;: &#x60;hasMore&#x60; is true when there is a next page. &#x60;totalResultSize&#x60; is always zero. - When &#x60;false&#x60;: &#x60;hasMore&#x60; is always false. &#x60;totalResultSize&#x60; contains the total number of results for this query.  | [optional] 
+ **campaign_id** | **float**| Filter results by campaign. | [optional] 
+ **name** | **str**| The name of the store. | [optional] 
+ **integration_id** | **str**| The integration ID of the store. | [optional] 
+ **query** | **str**| Filter results by &#x60;name&#x60; or &#x60;integrationId&#x60;. | [optional] 
+
+### Return type
+
+[**InlineResponse20045**](InlineResponse20045.md)
+
+### Authorization
+
+[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **notification_activation**
+> notification_activation(notification_id, body)
+
+Activate or deactivate notification
+
+Activate or deactivate the given notification. When `enabled` is false, updates will no longer be sent for the given notification. 
+
+### Example
+
+* Api Key Authentication (management_key):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    notification_id = 56 # int | The ID of the notification. Get it with the appropriate _List notifications_ endpoint.
+body = talon_one.NotificationActivation() # NotificationActivation | body
+
+    try:
+        # Activate or deactivate notification
+        api_instance.notification_activation(notification_id, body)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->notification_activation: %s\n" % e)
+```
+
+* Api Key Authentication (manager_auth):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    notification_id = 56 # int | The ID of the notification. Get it with the appropriate _List notifications_ endpoint.
+body = talon_one.NotificationActivation() # NotificationActivation | body
+
+    try:
+        # Activate or deactivate notification
+        api_instance.notification_activation(notification_id, body)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->notification_activation: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **notification_id** | **int**| The ID of the notification. Get it with the appropriate _List notifications_ endpoint. | 
+ **body** | [**NotificationActivation**](NotificationActivation.md)| body | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | No Content |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **post_added_deducted_points_notification**
+> BaseNotification post_added_deducted_points_notification(loyalty_program_id, body)
+
+Create notification about added or deducted loyalty points
+
+Create a notification about added or deducted loyalty points in a given profile-based loyalty program. A notification for added or deducted loyalty points is different from regular webhooks in that it is loyalty program-scoped and has a predefined payload.  For more information, see [Managing loyalty notifications](https://docs.talon.one/docs/product/loyalty-programs/managing-loyalty-notifications). 
+
+### Example
+
+* Api Key Authentication (management_key):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    loyalty_program_id = 56 # int | Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. 
 body = talon_one.NewBaseNotification() # NewBaseNotification | body
 
     try:
@@ -15808,7 +19065,7 @@ configuration = talon_one.Configuration(
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
-    loyalty_program_id = 56 # int | Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. 
+    loyalty_program_id = 56 # int | Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. 
 body = talon_one.NewBaseNotification() # NewBaseNotification | body
 
     try:
@@ -15823,7 +19080,7 @@ body = talon_one.NewBaseNotification() # NewBaseNotification | body
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **loyalty_program_id** | **int**| Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  | 
+ **loyalty_program_id** | **int**| Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  | 
  **body** | [**NewBaseNotification**](NewBaseNotification.md)| body | 
 
 ### Return type
@@ -15994,12 +19251,157 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **post_pending_points_notification**
+> BaseNotification post_pending_points_notification(loyalty_program_id, body)
+
+Create notification about pending loyalty points
+
+Create a notification about pending loyalty points for a given profile-based loyalty program. For more information, see [Managing loyalty notifications](https://docs.talon.one/docs/product/loyalty-programs/managing-loyalty-notifications). 
+
+### Example
+
+* Api Key Authentication (management_key):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    loyalty_program_id = 56 # int | Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. 
+body = talon_one.NewBaseNotification() # NewBaseNotification | body
+
+    try:
+        # Create notification about pending loyalty points
+        api_response = api_instance.post_pending_points_notification(loyalty_program_id, body)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->post_pending_points_notification: %s\n" % e)
+```
+
+* Api Key Authentication (manager_auth):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    loyalty_program_id = 56 # int | Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. 
+body = talon_one.NewBaseNotification() # NewBaseNotification | body
+
+    try:
+        # Create notification about pending loyalty points
+        api_response = api_instance.post_pending_points_notification(loyalty_program_id, body)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->post_pending_points_notification: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **loyalty_program_id** | **int**| Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  | 
+ **body** | [**NewBaseNotification**](NewBaseNotification.md)| body | 
+
+### Return type
+
+[**BaseNotification**](BaseNotification.md)
+
+### Authorization
+
+[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Bad request |  -  |
+**401** | Unauthorized |  -  |
+**404** | Not found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **remove_loyalty_points**
 > remove_loyalty_points(loyalty_program_id, integration_id, body)
 
 Deduct points from customer profile
 
-Deduct points from the specified loyalty program and specified customer profile.  To get the `integrationId` of the profile from a `sessionId`, use the [Update customer session](https://docs.talon.one/integration-api#operation/updateCustomerSessionV2) endpoint. 
+Deduct points from the specified loyalty program and specified customer profile.  **Important:** - Only active points can be deducted. - Only pending points are rolled back when a session is cancelled or reopened.  To get the `integrationId` of the profile from a `sessionId`, use the [Update customer session](https://docs.talon.one/integration-api#operation/updateCustomerSessionV2) endpoint. 
 
 ### Example
 
@@ -16280,11 +19682,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **search_coupons_advanced_application_wide_without_total_count**
-> InlineResponse2008 search_coupons_advanced_application_wide_without_total_count(application_id, body, page_size=page_size, skip=skip, sort=sort, value=value, created_before=created_before, created_after=created_after, valid=valid, usable=usable, referral_id=referral_id, recipient_integration_id=recipient_integration_id, batch_id=batch_id, exact_match=exact_match, campaign_state=campaign_state)
+> InlineResponse2009 search_coupons_advanced_application_wide_without_total_count(application_id, body, page_size=page_size, skip=skip, sort=sort, value=value, created_before=created_before, created_after=created_after, valid=valid, usable=usable, referral_id=referral_id, recipient_integration_id=recipient_integration_id, batch_id=batch_id, exact_match=exact_match, campaign_state=campaign_state)
 
 List coupons that match the given attributes (without total count)
 
-List the coupons whose attributes match the query criteria in all **active** campaigns of the given Application.  The match is successful if all the attributes of the request are found in a coupon, even if the coupon has more attributes that are not present on the request.  **Note:** The total count is not included in the response. 
+List the coupons whose attributes match the query criteria in all the campaigns of the given Application.  The match is successful if all the attributes of the request are found in a coupon, even if the coupon has more attributes that are not present on the request.  **Note:** The total count is not included in the response. 
 
 ### Example
 
@@ -16332,12 +19734,12 @@ with talon_one.ApiClient(configuration) as api_client:
     api_instance = talon_one.ManagementApi(api_client)
     application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
 body = None # object | body
-page_size = 1000 # int | The number of items in this response. (optional) (default to 1000)
-skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
+page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
 sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
 value = 'value_example' # str | Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
-created_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
-created_after = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
+created_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
+created_after = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
 valid = 'valid_example' # str | Either \"expired\", \"validNow\", or \"validFuture\". The first option matches coupons in which the expiration date is set and in the past. The second matches coupons in which start date is null or in the past and expiration date is null or in the future, the third matches coupons in which start date is set and in the future.  (optional)
 usable = 'usable_example' # str | Either \"true\" or \"false\". If \"true\", only coupons where `usageCounter < usageLimit` will be returned, \"false\" will return only coupons where `usageCounter >= usageLimit`.  (optional)
 referral_id = 56 # int | Filter the results by matching them with the ID of a referral. This filter shows the coupons created by redeeming a referral code. (optional)
@@ -16398,12 +19800,12 @@ with talon_one.ApiClient(configuration) as api_client:
     api_instance = talon_one.ManagementApi(api_client)
     application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
 body = None # object | body
-page_size = 1000 # int | The number of items in this response. (optional) (default to 1000)
-skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
+page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
 sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
 value = 'value_example' # str | Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
-created_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
-created_after = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
+created_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
+created_after = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
 valid = 'valid_example' # str | Either \"expired\", \"validNow\", or \"validFuture\". The first option matches coupons in which the expiration date is set and in the past. The second matches coupons in which start date is null or in the past and expiration date is null or in the future, the third matches coupons in which start date is set and in the future.  (optional)
 usable = 'usable_example' # str | Either \"true\" or \"false\". If \"true\", only coupons where `usageCounter < usageLimit` will be returned, \"false\" will return only coupons where `usageCounter >= usageLimit`.  (optional)
 referral_id = 56 # int | Filter the results by matching them with the ID of a referral. This filter shows the coupons created by redeeming a referral code. (optional)
@@ -16426,12 +19828,12 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **application_id** | **int**| The ID of the Application. It is displayed in your Talon.One deployment URL. | 
  **body** | **object**| body | 
- **page_size** | **int**| The number of items in this response. | [optional] [default to 1000]
- **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional] 
+ **page_size** | **int**| The number of items in the response. | [optional] [default to 1000]
+ **skip** | **int**| The number of items to skip when paging through large result sets. | [optional] 
  **sort** | **str**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  | [optional] 
  **value** | **str**| Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. | [optional] 
- **created_before** | **datetime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. | [optional] 
- **created_after** | **datetime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. | [optional] 
+ **created_before** | **datetime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. | [optional] 
+ **created_after** | **datetime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. | [optional] 
  **valid** | **str**| Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiration date is set and in the past. The second matches coupons in which start date is null or in the past and expiration date is null or in the future, the third matches coupons in which start date is set and in the future.  | [optional] 
  **usable** | **str**| Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  | [optional] 
  **referral_id** | **int**| Filter the results by matching them with the ID of a referral. This filter shows the coupons created by redeeming a referral code. | [optional] 
@@ -16442,7 +19844,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2008**](InlineResponse2008.md)
+[**InlineResponse2009**](InlineResponse2009.md)
 
 ### Authorization
 
@@ -16461,7 +19863,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **search_coupons_advanced_without_total_count**
-> InlineResponse2008 search_coupons_advanced_without_total_count(application_id, campaign_id, body, page_size=page_size, skip=skip, sort=sort, value=value, created_before=created_before, created_after=created_after, valid=valid, usable=usable, referral_id=referral_id, recipient_integration_id=recipient_integration_id, exact_match=exact_match, batch_id=batch_id)
+> InlineResponse2009 search_coupons_advanced_without_total_count(application_id, campaign_id, body, page_size=page_size, skip=skip, sort=sort, value=value, created_before=created_before, created_after=created_after, valid=valid, usable=usable, referral_id=referral_id, recipient_integration_id=recipient_integration_id, exact_match=exact_match, batch_id=batch_id)
 
 List coupons that match the given attributes in campaign (without total count)
 
@@ -16514,12 +19916,12 @@ with talon_one.ApiClient(configuration) as api_client:
     application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
 campaign_id = 56 # int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
 body = None # object | body
-page_size = 1000 # int | The number of items in this response. (optional) (default to 1000)
-skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
+page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
 sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
 value = 'value_example' # str | Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
-created_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
-created_after = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
+created_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
+created_after = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
 valid = 'valid_example' # str | Either \"expired\", \"validNow\", or \"validFuture\". The first option matches coupons in which the expiration date is set and in the past. The second matches coupons in which start date is null or in the past and expiration date is null or in the future, the third matches coupons in which start date is set and in the future.  (optional)
 usable = 'usable_example' # str | Either \"true\" or \"false\". If \"true\", only coupons where `usageCounter < usageLimit` will be returned, \"false\" will return only coupons where `usageCounter >= usageLimit`.  (optional)
 referral_id = 56 # int | Filter the results by matching them with the ID of a referral. This filter shows the coupons created by redeeming a referral code. (optional)
@@ -16580,12 +19982,12 @@ with talon_one.ApiClient(configuration) as api_client:
     application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
 campaign_id = 56 # int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
 body = None # object | body
-page_size = 1000 # int | The number of items in this response. (optional) (default to 1000)
-skip = 56 # int | Skips the given number of items when paging through large result sets. (optional)
+page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
 sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
 value = 'value_example' # str | Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
-created_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
-created_after = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)
+created_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
+created_after = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
 valid = 'valid_example' # str | Either \"expired\", \"validNow\", or \"validFuture\". The first option matches coupons in which the expiration date is set and in the past. The second matches coupons in which start date is null or in the past and expiration date is null or in the future, the third matches coupons in which start date is set and in the future.  (optional)
 usable = 'usable_example' # str | Either \"true\" or \"false\". If \"true\", only coupons where `usageCounter < usageLimit` will be returned, \"false\" will return only coupons where `usageCounter >= usageLimit`.  (optional)
 referral_id = 56 # int | Filter the results by matching them with the ID of a referral. This filter shows the coupons created by redeeming a referral code. (optional)
@@ -16608,12 +20010,12 @@ Name | Type | Description  | Notes
  **application_id** | **int**| The ID of the Application. It is displayed in your Talon.One deployment URL. | 
  **campaign_id** | **int**| The ID of the campaign. It is displayed in your Talon.One deployment URL. | 
  **body** | **object**| body | 
- **page_size** | **int**| The number of items in this response. | [optional] [default to 1000]
- **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional] 
+ **page_size** | **int**| The number of items in the response. | [optional] [default to 1000]
+ **skip** | **int**| The number of items to skip when paging through large result sets. | [optional] 
  **sort** | **str**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  | [optional] 
  **value** | **str**| Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. | [optional] 
- **created_before** | **datetime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. | [optional] 
- **created_after** | **datetime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. | [optional] 
+ **created_before** | **datetime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. | [optional] 
+ **created_after** | **datetime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. | [optional] 
  **valid** | **str**| Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiration date is set and in the past. The second matches coupons in which start date is null or in the past and expiration date is null or in the future, the third matches coupons in which start date is set and in the future.  | [optional] 
  **usable** | **str**| Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  | [optional] 
  **referral_id** | **int**| Filter the results by matching them with the ID of a referral. This filter shows the coupons created by redeeming a referral code. | [optional] 
@@ -16623,7 +20025,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2008**](InlineResponse2008.md)
+[**InlineResponse2009**](InlineResponse2009.md)
 
 ### Authorization
 
@@ -16792,7 +20194,7 @@ void (empty response body)
 
 Update account-level collection
 
-Edit the description of the account-level collection and enable or disable the collection in the specified Applications.
+Edit the description of a given account-level collection and enable or disable the collection in the specified Applications.
 
 ### Example
 
@@ -16838,7 +20240,7 @@ configuration = talon_one.Configuration(
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
-    collection_id = 56 # int | The ID of the collection. You can get it with the [List collection in account](#operation/listCollectionsInApplication) endpoint.
+    collection_id = 56 # int | The ID of the collection. You can get it with the [List collections in account](#operation/listAccountCollections) endpoint.
 body = talon_one.UpdateCollection() # UpdateCollection | body
 
     try:
@@ -16891,7 +20293,7 @@ configuration = talon_one.Configuration(
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
-    collection_id = 56 # int | The ID of the collection. You can get it with the [List collection in account](#operation/listCollectionsInApplication) endpoint.
+    collection_id = 56 # int | The ID of the collection. You can get it with the [List collections in account](#operation/listAccountCollections) endpoint.
 body = talon_one.UpdateCollection() # UpdateCollection | body
 
     try:
@@ -16906,7 +20308,7 @@ body = talon_one.UpdateCollection() # UpdateCollection | body
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **collection_id** | **int**| The ID of the collection. You can get it with the [List collection in account](#operation/listCollectionsInApplication) endpoint. | 
+ **collection_id** | **int**| The ID of the collection. You can get it with the [List collections in account](#operation/listAccountCollections) endpoint. | 
  **body** | [**UpdateCollection**](UpdateCollection.md)| body | 
 
 ### Return type
@@ -16928,7 +20330,158 @@ Name | Type | Description  | Notes
 **200** | OK |  -  |
 **400** | Bad request |  -  |
 **401** | Unauthorized |  -  |
-**409** | Conflict. A Collection with this name already exists. |  -  |
+**409** | Conflict. A collection with this name already exists. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **update_achievement**
+> Achievement update_achievement(application_id, campaign_id, achievement_id, body)
+
+Update achievement
+
+Update the details of a specific achievement.
+
+### Example
+
+* Api Key Authentication (management_key):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
+campaign_id = 56 # int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
+achievement_id = 56 # int | The ID of the achievement. You can get this ID with the [List achievement](https://docs.talon.one/management-api#tag/Achievements/operation/listAchievements) endpoint.
+body = talon_one.UpdateAchievement() # UpdateAchievement | body
+
+    try:
+        # Update achievement
+        api_response = api_instance.update_achievement(application_id, campaign_id, achievement_id, body)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->update_achievement: %s\n" % e)
+```
+
+* Api Key Authentication (manager_auth):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
+campaign_id = 56 # int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
+achievement_id = 56 # int | The ID of the achievement. You can get this ID with the [List achievement](https://docs.talon.one/management-api#tag/Achievements/operation/listAchievements) endpoint.
+body = talon_one.UpdateAchievement() # UpdateAchievement | body
+
+    try:
+        # Update achievement
+        api_response = api_instance.update_achievement(application_id, campaign_id, achievement_id, body)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->update_achievement: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **application_id** | **int**| The ID of the Application. It is displayed in your Talon.One deployment URL. | 
+ **campaign_id** | **int**| The ID of the campaign. It is displayed in your Talon.One deployment URL. | 
+ **achievement_id** | **int**| The ID of the achievement. You can get this ID with the [List achievement](https://docs.talon.one/management-api#tag/Achievements/operation/listAchievements) endpoint. | 
+ **body** | [**UpdateAchievement**](UpdateAchievement.md)| body | 
+
+### Return type
+
+[**Achievement**](Achievement.md)
+
+### Authorization
+
+[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Bad request |  -  |
+**401** | Unauthorized |  -  |
+**404** | Not found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -16937,7 +20490,7 @@ Name | Type | Description  | Notes
 
 Update additional cost
 
-Updates an existing additional cost. Once created, the only property of an additional cost that can be changed is the title (human readable description). This restriction is in place to prevent accidentally breaking live integrations. 
+Updates an existing additional cost. Once created, the only property of an additional cost that cannot be changed is the `name` property (or **API name** in the Campaign Manager). This restriction is in place to prevent accidentally breaking live integrations. 
 
 ### Example
 
@@ -17364,9 +20917,9 @@ Name | Type | Description  | Notes
 # **update_collection**
 > Collection update_collection(application_id, campaign_id, collection_id, body)
 
-Update collection description
+Update campaign-level collection's description
 
-Edit the description of the collection.
+Edit the description of a given campaign-level collection.
 
 ### Example
 
@@ -17414,11 +20967,11 @@ with talon_one.ApiClient(configuration) as api_client:
     api_instance = talon_one.ManagementApi(api_client)
     application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
 campaign_id = 56 # int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
-collection_id = 56 # int | The ID of the collection. You can get it with the [List collection in account](#operation/listCollectionsInApplication) endpoint.
+collection_id = 56 # int | The ID of the collection. You can get it with the [List collections in Application](#operation/listCollectionsInApplication) endpoint.
 body = talon_one.UpdateCampaignCollection() # UpdateCampaignCollection | body
 
     try:
-        # Update collection description
+        # Update campaign-level collection's description
         api_response = api_instance.update_collection(application_id, campaign_id, collection_id, body)
         pprint(api_response)
     except ApiException as e:
@@ -17469,11 +21022,11 @@ with talon_one.ApiClient(configuration) as api_client:
     api_instance = talon_one.ManagementApi(api_client)
     application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
 campaign_id = 56 # int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
-collection_id = 56 # int | The ID of the collection. You can get it with the [List collection in account](#operation/listCollectionsInApplication) endpoint.
+collection_id = 56 # int | The ID of the collection. You can get it with the [List collections in Application](#operation/listCollectionsInApplication) endpoint.
 body = talon_one.UpdateCampaignCollection() # UpdateCampaignCollection | body
 
     try:
-        # Update collection description
+        # Update campaign-level collection's description
         api_response = api_instance.update_collection(application_id, campaign_id, collection_id, body)
         pprint(api_response)
     except ApiException as e:
@@ -17486,7 +21039,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **application_id** | **int**| The ID of the Application. It is displayed in your Talon.One deployment URL. | 
  **campaign_id** | **int**| The ID of the campaign. It is displayed in your Talon.One deployment URL. | 
- **collection_id** | **int**| The ID of the collection. You can get it with the [List collection in account](#operation/listCollectionsInApplication) endpoint. | 
+ **collection_id** | **int**| The ID of the collection. You can get it with the [List collections in Application](#operation/listCollectionsInApplication) endpoint. | 
  **body** | [**UpdateCampaignCollection**](UpdateCampaignCollection.md)| body | 
 
 ### Return type
@@ -17663,7 +21216,7 @@ Name | Type | Description  | Notes
 
 Update coupons
 
-Update all coupons, or a specific batch of coupons, in a campaign. You can find the `batchId` in the **Coupons** view of your Application in the Campaign Manager, or you can use [List coupons](#operation/getCouponsWithoutTotalCount).  <div class=\"redoc-section\">   <p class=\"title\">Important</p>    <ul>     <li>Only send sequential requests to this endpoint.</li>     <li>Requests to this endpoint timeout after 30 minutes. If you hit a timeout, reach out to our support team.</li>   </ul>  </div>  To update a specific coupon, use [Update coupon](#operation/updateCoupon). 
+Update all coupons, or a specific batch of coupons in the given campaign. You can find the `batchId` in the **Coupons** view of your Application in the Campaign Manager, or you can use [List coupons](#operation/getCouponsWithoutTotalCount).  <div class=\"redoc-section\">   <p class=\"title\">Important</p>    <ul>     <li>Only send sequential requests to this endpoint.</li>     <li>Requests to this endpoint timeout after 30 minutes. If you hit a timeout, reach out to our support team.</li>   </ul>  </div>  To update a specific coupon, use [Update coupon](#operation/updateCoupon). 
 
 ### Example
 
@@ -17949,151 +21502,6 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **update_notification_webhook**
-> NotificationWebhook update_notification_webhook(application_id, notification_webhook_id, body)
-
-Update notification about campaign-related changes
-
-Update the given [notification about campaign-related changes](https://docs.talon.one/docs/product/applications/outbound-notifications).  **Tip:** You can review the payload you will receive in the [specs](https://docs.talon.one/outbound-notifications#/paths/campaign_edited/post). 
-
-### Example
-
-* Api Key Authentication (management_key):
-```python
-from __future__ import print_function
-import time
-import talon_one
-from talon_one.rest import ApiException
-from pprint import pprint
-# Defining the host is optional and defaults to https://yourbaseurl.talon.one
-# See configuration.py for a list of all supported configuration parameters.
-configuration = talon_one.Configuration(
-    host = "https://yourbaseurl.talon.one"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: management_key
-configuration = talon_one.Configuration(
-    host = "https://yourbaseurl.talon.one",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
-)
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
-
-# Configure API key authorization: manager_auth
-configuration = talon_one.Configuration(
-    host = "https://yourbaseurl.talon.one",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
-)
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with talon_one.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = talon_one.ManagementApi(api_client)
-    application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
-notification_webhook_id = 56 # int | The ID of the webhook. Get it with the appropriate _List notifications_ endpoint.
-body = talon_one.NewNotificationWebhook() # NewNotificationWebhook | body
-
-    try:
-        # Update notification about campaign-related changes
-        api_response = api_instance.update_notification_webhook(application_id, notification_webhook_id, body)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling ManagementApi->update_notification_webhook: %s\n" % e)
-```
-
-* Api Key Authentication (manager_auth):
-```python
-from __future__ import print_function
-import time
-import talon_one
-from talon_one.rest import ApiException
-from pprint import pprint
-# Defining the host is optional and defaults to https://yourbaseurl.talon.one
-# See configuration.py for a list of all supported configuration parameters.
-configuration = talon_one.Configuration(
-    host = "https://yourbaseurl.talon.one"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: management_key
-configuration = talon_one.Configuration(
-    host = "https://yourbaseurl.talon.one",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
-)
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
-
-# Configure API key authorization: manager_auth
-configuration = talon_one.Configuration(
-    host = "https://yourbaseurl.talon.one",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
-)
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with talon_one.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = talon_one.ManagementApi(api_client)
-    application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
-notification_webhook_id = 56 # int | The ID of the webhook. Get it with the appropriate _List notifications_ endpoint.
-body = talon_one.NewNotificationWebhook() # NewNotificationWebhook | body
-
-    try:
-        # Update notification about campaign-related changes
-        api_response = api_instance.update_notification_webhook(application_id, notification_webhook_id, body)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling ManagementApi->update_notification_webhook: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **application_id** | **int**| The ID of the Application. It is displayed in your Talon.One deployment URL. | 
- **notification_webhook_id** | **int**| The ID of the webhook. Get it with the appropriate _List notifications_ endpoint. | 
- **body** | [**NewNotificationWebhook**](NewNotificationWebhook.md)| body | 
-
-### Return type
-
-[**NotificationWebhook**](NotificationWebhook.md)
-
-### Authorization
-
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | OK |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **update_referral**
 > Referral update_referral(application_id, campaign_id, referral_id, body)
 
@@ -18225,6 +21633,437 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**Referral**](Referral.md)
+
+### Authorization
+
+[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **update_role_v2**
+> RoleV2 update_role_v2(role_id, body)
+
+Update role
+
+Update a specific role.
+
+### Example
+
+* Api Key Authentication (management_key):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    role_id = 56 # int | The ID of role. 
+body = talon_one.RoleV2Base() # RoleV2Base | body
+
+    try:
+        # Update role
+        api_response = api_instance.update_role_v2(role_id, body)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->update_role_v2: %s\n" % e)
+```
+
+* Api Key Authentication (manager_auth):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    role_id = 56 # int | The ID of role. 
+body = talon_one.RoleV2Base() # RoleV2Base | body
+
+    try:
+        # Update role
+        api_response = api_instance.update_role_v2(role_id, body)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->update_role_v2: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **role_id** | **int**| The ID of role.  | 
+ **body** | **RoleV2Base**| body | 
+
+### Return type
+
+[**RoleV2**](RoleV2.md)
+
+### Authorization
+
+[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **update_store**
+> Store update_store(application_id, store_id, body)
+
+Update store
+
+Update store details for a specific store ID.
+
+### Example
+
+* Api Key Authentication (management_key):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
+store_id = 'store_id_example' # str | The ID of the store. You can get this ID with the [List stores](#tag/Stores/operation/listStores) endpoint. 
+body = talon_one.NewStore() # NewStore | body
+
+    try:
+        # Update store
+        api_response = api_instance.update_store(application_id, store_id, body)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->update_store: %s\n" % e)
+```
+
+* Api Key Authentication (manager_auth):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
+store_id = 'store_id_example' # str | The ID of the store. You can get this ID with the [List stores](#tag/Stores/operation/listStores) endpoint. 
+body = talon_one.NewStore() # NewStore | body
+
+    try:
+        # Update store
+        api_response = api_instance.update_store(application_id, store_id, body)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->update_store: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **application_id** | **int**| The ID of the Application. It is displayed in your Talon.One deployment URL. | 
+ **store_id** | **str**| The ID of the store. You can get this ID with the [List stores](#tag/Stores/operation/listStores) endpoint.  | 
+ **body** | [**NewStore**](NewStore.md)| body | 
+
+### Return type
+
+[**Store**](Store.md)
+
+### Authorization
+
+[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Bad request |  -  |
+**404** | Not found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **update_user**
+> User update_user(user_id, body)
+
+Update user
+
+Update the details of a specific user.
+
+### Example
+
+* Api Key Authentication (management_key):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    user_id = 56 # int | The ID of the user.
+body = talon_one.UpdateUser() # UpdateUser | body
+
+    try:
+        # Update user
+        api_response = api_instance.update_user(user_id, body)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->update_user: %s\n" % e)
+```
+
+* Api Key Authentication (manager_auth):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    user_id = 56 # int | The ID of the user.
+body = talon_one.UpdateUser() # UpdateUser | body
+
+    try:
+        # Update user
+        api_response = api_instance.update_user(user_id, body)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->update_user: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **user_id** | **int**| The ID of the user. | 
+ **body** | [**UpdateUser**](UpdateUser.md)| body | 
+
+### Return type
+
+[**User**](User.md)
 
 ### Authorization
 

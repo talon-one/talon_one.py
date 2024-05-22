@@ -36,6 +36,7 @@ class PatchItemCatalogAction(object):
         'sku': 'str',
         'price': 'float',
         'attributes': 'object',
+        'product': 'Product',
         'create_if_not_exists': 'bool'
     }
 
@@ -43,10 +44,11 @@ class PatchItemCatalogAction(object):
         'sku': 'sku',
         'price': 'price',
         'attributes': 'attributes',
+        'product': 'product',
         'create_if_not_exists': 'createIfNotExists'
     }
 
-    def __init__(self, sku=None, price=None, attributes=None, create_if_not_exists=False, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, sku=None, price=None, attributes=None, product=None, create_if_not_exists=False, local_vars_configuration=None):  # noqa: E501
         """PatchItemCatalogAction - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -55,6 +57,7 @@ class PatchItemCatalogAction(object):
         self._sku = None
         self._price = None
         self._attributes = None
+        self._product = None
         self._create_if_not_exists = None
         self.discriminator = None
 
@@ -63,6 +66,8 @@ class PatchItemCatalogAction(object):
             self.price = price
         if attributes is not None:
             self.attributes = attributes
+        if product is not None:
+            self.product = product
         if create_if_not_exists is not None:
             self.create_if_not_exists = create_if_not_exists
 
@@ -136,6 +141,27 @@ class PatchItemCatalogAction(object):
         """
 
         self._attributes = attributes
+
+    @property
+    def product(self):
+        """Gets the product of this PatchItemCatalogAction.  # noqa: E501
+
+
+        :return: The product of this PatchItemCatalogAction.  # noqa: E501
+        :rtype: Product
+        """
+        return self._product
+
+    @product.setter
+    def product(self, product):
+        """Sets the product of this PatchItemCatalogAction.
+
+
+        :param product: The product of this PatchItemCatalogAction.  # noqa: E501
+        :type: Product
+        """
+
+        self._product = product
 
     @property
     def create_if_not_exists(self):

@@ -34,26 +34,26 @@ class RoleV2PermissionSet(object):
     """
     openapi_types = {
         'name': 'str',
-        'operation_ids': 'list[str]'
+        'logical_operations': 'list[str]'
     }
 
     attribute_map = {
         'name': 'name',
-        'operation_ids': 'operationIds'
+        'logical_operations': 'logicalOperations'
     }
 
-    def __init__(self, name=None, operation_ids=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, name=None, logical_operations=None, local_vars_configuration=None):  # noqa: E501
         """RoleV2PermissionSet - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._name = None
-        self._operation_ids = None
+        self._logical_operations = None
         self.discriminator = None
 
         self.name = name
-        self.operation_ids = operation_ids
+        self.logical_operations = logical_operations
 
     @property
     def name(self):
@@ -81,27 +81,29 @@ class RoleV2PermissionSet(object):
         self._name = name
 
     @property
-    def operation_ids(self):
-        """Gets the operation_ids of this RoleV2PermissionSet.  # noqa: E501
+    def logical_operations(self):
+        """Gets the logical_operations of this RoleV2PermissionSet.  # noqa: E501
 
+        List of logical operations in the permission set. Each logical operation must be shown under the `x-permission` tag on an endpoint level.   # noqa: E501
 
-        :return: The operation_ids of this RoleV2PermissionSet.  # noqa: E501
+        :return: The logical_operations of this RoleV2PermissionSet.  # noqa: E501
         :rtype: list[str]
         """
-        return self._operation_ids
+        return self._logical_operations
 
-    @operation_ids.setter
-    def operation_ids(self, operation_ids):
-        """Sets the operation_ids of this RoleV2PermissionSet.
+    @logical_operations.setter
+    def logical_operations(self, logical_operations):
+        """Sets the logical_operations of this RoleV2PermissionSet.
 
+        List of logical operations in the permission set. Each logical operation must be shown under the `x-permission` tag on an endpoint level.   # noqa: E501
 
-        :param operation_ids: The operation_ids of this RoleV2PermissionSet.  # noqa: E501
+        :param logical_operations: The logical_operations of this RoleV2PermissionSet.  # noqa: E501
         :type: list[str]
         """
-        if self.local_vars_configuration.client_side_validation and operation_ids is None:  # noqa: E501
-            raise ValueError("Invalid value for `operation_ids`, must not be `None`")  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and logical_operations is None:  # noqa: E501
+            raise ValueError("Invalid value for `logical_operations`, must not be `None`")  # noqa: E501
 
-        self._operation_ids = operation_ids
+        self._logical_operations = logical_operations
 
     def to_dict(self):
         """Returns the model properties as a dict"""

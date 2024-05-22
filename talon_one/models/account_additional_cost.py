@@ -179,8 +179,8 @@ class AccountAdditionalCost(object):
         if self.local_vars_configuration.client_side_validation and name is None:  # noqa: E501
             raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
         if (self.local_vars_configuration.client_side_validation and
-                name is not None and not re.search(r'^[A-Za-z](\w|\s)*$', name)):  # noqa: E501
-            raise ValueError(r"Invalid value for `name`, must be a follow pattern or equal to `/^[A-Za-z](\w|\s)*$/`")  # noqa: E501
+                name is not None and not re.search(r'^[A-Za-z]\w*$', name)):  # noqa: E501
+            raise ValueError(r"Invalid value for `name`, must be a follow pattern or equal to `/^[A-Za-z]\w*$/`")  # noqa: E501
 
         self._name = name
 

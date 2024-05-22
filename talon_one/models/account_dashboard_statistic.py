@@ -37,7 +37,6 @@ class AccountDashboardStatistic(object):
         'discounts': 'list[AccountDashboardStatisticDiscount]',
         'loyalty_points': 'list[AccountDashboardStatisticLoyaltyPoints]',
         'referrals': 'list[AccountDashboardStatisticReferrals]',
-        'api_calls': 'list[AccountDashboardStatisticApiCalls]',
         'campaigns': 'AccountDashboardStatisticCampaigns'
     }
 
@@ -46,11 +45,10 @@ class AccountDashboardStatistic(object):
         'discounts': 'discounts',
         'loyalty_points': 'loyaltyPoints',
         'referrals': 'referrals',
-        'api_calls': 'apiCalls',
         'campaigns': 'campaigns'
     }
 
-    def __init__(self, revenue=None, discounts=None, loyalty_points=None, referrals=None, api_calls=None, campaigns=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, revenue=None, discounts=None, loyalty_points=None, referrals=None, campaigns=None, local_vars_configuration=None):  # noqa: E501
         """AccountDashboardStatistic - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -60,7 +58,6 @@ class AccountDashboardStatistic(object):
         self._discounts = None
         self._loyalty_points = None
         self._referrals = None
-        self._api_calls = None
         self._campaigns = None
         self.discriminator = None
 
@@ -72,8 +69,6 @@ class AccountDashboardStatistic(object):
             self.loyalty_points = loyalty_points
         if referrals is not None:
             self.referrals = referrals
-        if api_calls is not None:
-            self.api_calls = api_calls
         self.campaigns = campaigns
 
     @property
@@ -167,29 +162,6 @@ class AccountDashboardStatistic(object):
         """
 
         self._referrals = referrals
-
-    @property
-    def api_calls(self):
-        """Gets the api_calls of this AccountDashboardStatistic.  # noqa: E501
-
-        Aggregated statistic for the number of account API calls.  # noqa: E501
-
-        :return: The api_calls of this AccountDashboardStatistic.  # noqa: E501
-        :rtype: list[AccountDashboardStatisticApiCalls]
-        """
-        return self._api_calls
-
-    @api_calls.setter
-    def api_calls(self, api_calls):
-        """Sets the api_calls of this AccountDashboardStatistic.
-
-        Aggregated statistic for the number of account API calls.  # noqa: E501
-
-        :param api_calls: The api_calls of this AccountDashboardStatistic.  # noqa: E501
-        :type: list[AccountDashboardStatisticApiCalls]
-        """
-
-        self._api_calls = api_calls
 
     @property
     def campaigns(self):

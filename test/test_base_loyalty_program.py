@@ -43,7 +43,11 @@ class TestBaseLoyaltyProgram(unittest.TestCase):
                 default_pending = 'immediate', 
                 allow_subledger = False, 
                 users_per_card_limit = 111, 
-                sandbox = True
+                sandbox = True, 
+                tiers_expiration_policy = 'tier_start_date', 
+                tiers_expire_in = '27W_U', 
+                tiers_downgrade_policy = 'one_down', 
+                program_join_policy = 'not_join'
             )
         else :
             return BaseLoyaltyProgram(

@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**email** | **str** | The email address associated with your account. | 
+**email** | **str** | The email address associated with the user profile. | 
 **password** | **str** | The password for your account. | 
 **name** | **str** | Your name. | [optional] 
 **invite_token** | **str** |  | 

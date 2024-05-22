@@ -42,7 +42,9 @@ class SetDiscountPerItemEffectProps(object):
         'total_discount': 'float',
         'desired_total_discount': 'float',
         'bundle_index': 'int',
-        'bundle_name': 'str'
+        'bundle_name': 'str',
+        'targeted_item_position': 'float',
+        'targeted_item_sub_position': 'float'
     }
 
     attribute_map = {
@@ -55,10 +57,12 @@ class SetDiscountPerItemEffectProps(object):
         'total_discount': 'totalDiscount',
         'desired_total_discount': 'desiredTotalDiscount',
         'bundle_index': 'bundleIndex',
-        'bundle_name': 'bundleName'
+        'bundle_name': 'bundleName',
+        'targeted_item_position': 'targetedItemPosition',
+        'targeted_item_sub_position': 'targetedItemSubPosition'
     }
 
-    def __init__(self, name=None, value=None, position=None, sub_position=None, desired_value=None, scope=None, total_discount=None, desired_total_discount=None, bundle_index=None, bundle_name=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, name=None, value=None, position=None, sub_position=None, desired_value=None, scope=None, total_discount=None, desired_total_discount=None, bundle_index=None, bundle_name=None, targeted_item_position=None, targeted_item_sub_position=None, local_vars_configuration=None):  # noqa: E501
         """SetDiscountPerItemEffectProps - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -74,6 +78,8 @@ class SetDiscountPerItemEffectProps(object):
         self._desired_total_discount = None
         self._bundle_index = None
         self._bundle_name = None
+        self._targeted_item_position = None
+        self._targeted_item_sub_position = None
         self.discriminator = None
 
         self.name = name
@@ -93,6 +99,10 @@ class SetDiscountPerItemEffectProps(object):
             self.bundle_index = bundle_index
         if bundle_name is not None:
             self.bundle_name = bundle_name
+        if targeted_item_position is not None:
+            self.targeted_item_position = targeted_item_position
+        if targeted_item_sub_position is not None:
+            self.targeted_item_sub_position = targeted_item_sub_position
 
     @property
     def name(self):
@@ -173,7 +183,7 @@ class SetDiscountPerItemEffectProps(object):
     def sub_position(self):
         """Gets the sub_position of this SetDiscountPerItemEffectProps.  # noqa: E501
 
-        Only used when [cart item flattening](https://docs.talon.one/docs/product/campaigns/campaign-evaluation#flattening) is enabled. Indicates which item the discount applies to for cart items with `quantity` > 1.   # noqa: E501
+        For cart items with `quantity` > 1, the sub position indicates which item the discount applies to.   # noqa: E501
 
         :return: The sub_position of this SetDiscountPerItemEffectProps.  # noqa: E501
         :rtype: float
@@ -184,7 +194,7 @@ class SetDiscountPerItemEffectProps(object):
     def sub_position(self, sub_position):
         """Sets the sub_position of this SetDiscountPerItemEffectProps.
 
-        Only used when [cart item flattening](https://docs.talon.one/docs/product/campaigns/campaign-evaluation#flattening) is enabled. Indicates which item the discount applies to for cart items with `quantity` > 1.   # noqa: E501
+        For cart items with `quantity` > 1, the sub position indicates which item the discount applies to.   # noqa: E501
 
         :param sub_position: The sub_position of this SetDiscountPerItemEffectProps.  # noqa: E501
         :type: float
@@ -329,6 +339,52 @@ class SetDiscountPerItemEffectProps(object):
         """
 
         self._bundle_name = bundle_name
+
+    @property
+    def targeted_item_position(self):
+        """Gets the targeted_item_position of this SetDiscountPerItemEffectProps.  # noqa: E501
+
+        The index of the targeted bundle item on which the applied discount is based.  # noqa: E501
+
+        :return: The targeted_item_position of this SetDiscountPerItemEffectProps.  # noqa: E501
+        :rtype: float
+        """
+        return self._targeted_item_position
+
+    @targeted_item_position.setter
+    def targeted_item_position(self, targeted_item_position):
+        """Sets the targeted_item_position of this SetDiscountPerItemEffectProps.
+
+        The index of the targeted bundle item on which the applied discount is based.  # noqa: E501
+
+        :param targeted_item_position: The targeted_item_position of this SetDiscountPerItemEffectProps.  # noqa: E501
+        :type: float
+        """
+
+        self._targeted_item_position = targeted_item_position
+
+    @property
+    def targeted_item_sub_position(self):
+        """Gets the targeted_item_sub_position of this SetDiscountPerItemEffectProps.  # noqa: E501
+
+        The sub-position of the targeted bundle item on which the applied discount is based.   # noqa: E501
+
+        :return: The targeted_item_sub_position of this SetDiscountPerItemEffectProps.  # noqa: E501
+        :rtype: float
+        """
+        return self._targeted_item_sub_position
+
+    @targeted_item_sub_position.setter
+    def targeted_item_sub_position(self, targeted_item_sub_position):
+        """Sets the targeted_item_sub_position of this SetDiscountPerItemEffectProps.
+
+        The sub-position of the targeted bundle item on which the applied discount is based.   # noqa: E501
+
+        :param targeted_item_sub_position: The targeted_item_sub_position of this SetDiscountPerItemEffectProps.  # noqa: E501
+        :type: float
+        """
+
+        self._targeted_item_sub_position = targeted_item_sub_position
 
     def to_dict(self):
         """Returns the model properties as a dict"""

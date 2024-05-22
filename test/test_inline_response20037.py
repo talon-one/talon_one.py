@@ -38,40 +38,50 @@ class TestInlineResponse20037(unittest.TestCase):
             return InlineResponse20037(
                 total_result_size = 1, 
                 data = [
-                    talon_one.models.user.User(
+                    talon_one.models.webhook_with_outgoing_integration_details.WebhookWithOutgoingIntegrationDetails(
                         id = 6, 
                         created = '2020-06-10T09:05:27.993483Z', 
                         modified = '2021-09-12T10:12:42Z', 
-                        email = 'john.doe@example.com', 
-                        account_id = 3886, 
-                        invite_token = 'Gy9b8w1irmQtEPo5RmbMmSPheL5h4', 
-                        state = 'invited', 
-                        name = 'John Doe', 
-                        policy = {"Role":127}, 
-                        latest_feed_timestamp = '2020-06-01T00:00Z', 
-                        roles = [71], 
-                        application_notification_subscriptions = talon_one.models.application_notification_subscriptions.applicationNotificationSubscriptions(), 
-                        auth_method = 'basic_auth', )
+                        application_ids = [
+                            56
+                            ], 
+                        title = 'Send message', 
+                        verb = 'POST', 
+                        url = 'www.my-company.com/my-endpoint-name', 
+                        headers = [{"Authorization": "Basic bmF2ZWVua3VtYXIU="}, {"Content-Type": "application/json"}], 
+                        payload = '{
+	"message": "${message}"
+}', 
+                        params = [], 
+                        enabled = True, 
+                        outgoing_integration_template_id = 1, 
+                        outgoing_integration_type_id = 1, 
+                        outgoing_integration_type_name = 'Braze', )
                     ]
             )
         else :
             return InlineResponse20037(
                 total_result_size = 1,
                 data = [
-                    talon_one.models.user.User(
+                    talon_one.models.webhook_with_outgoing_integration_details.WebhookWithOutgoingIntegrationDetails(
                         id = 6, 
                         created = '2020-06-10T09:05:27.993483Z', 
                         modified = '2021-09-12T10:12:42Z', 
-                        email = 'john.doe@example.com', 
-                        account_id = 3886, 
-                        invite_token = 'Gy9b8w1irmQtEPo5RmbMmSPheL5h4', 
-                        state = 'invited', 
-                        name = 'John Doe', 
-                        policy = {"Role":127}, 
-                        latest_feed_timestamp = '2020-06-01T00:00Z', 
-                        roles = [71], 
-                        application_notification_subscriptions = talon_one.models.application_notification_subscriptions.applicationNotificationSubscriptions(), 
-                        auth_method = 'basic_auth', )
+                        application_ids = [
+                            56
+                            ], 
+                        title = 'Send message', 
+                        verb = 'POST', 
+                        url = 'www.my-company.com/my-endpoint-name', 
+                        headers = [{"Authorization": "Basic bmF2ZWVua3VtYXIU="}, {"Content-Type": "application/json"}], 
+                        payload = '{
+	"message": "${message}"
+}', 
+                        params = [], 
+                        enabled = True, 
+                        outgoing_integration_template_id = 1, 
+                        outgoing_integration_type_id = 1, 
+                        outgoing_integration_type_name = 'Braze', )
                     ],
         )
 

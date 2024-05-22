@@ -59,7 +59,7 @@ class NewPicklist(object):
     def type(self):
         """Gets the type of this NewPicklist.  # noqa: E501
 
-        The type of allowed values in the picklist. If type time is chosen, it must be an RFC3339 timestamp string.  # noqa: E501
+        The type of allowed values in the picklist. If the type `time` is chosen, it must be an RFC3339 timestamp string.  # noqa: E501
 
         :return: The type of this NewPicklist.  # noqa: E501
         :rtype: str
@@ -70,7 +70,7 @@ class NewPicklist(object):
     def type(self, type):
         """Sets the type of this NewPicklist.
 
-        The type of allowed values in the picklist. If type time is chosen, it must be an RFC3339 timestamp string.  # noqa: E501
+        The type of allowed values in the picklist. If the type `time` is chosen, it must be an RFC3339 timestamp string.  # noqa: E501
 
         :param type: The type of this NewPicklist.  # noqa: E501
         :type: str

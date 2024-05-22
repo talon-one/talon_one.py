@@ -38,7 +38,8 @@ class CampaignCopy(object):
         'description': 'str',
         'start_time': 'datetime',
         'end_time': 'datetime',
-        'tags': 'list[str]'
+        'tags': 'list[str]',
+        'evaluation_group_id': 'int'
     }
 
     attribute_map = {
@@ -47,10 +48,11 @@ class CampaignCopy(object):
         'description': 'description',
         'start_time': 'startTime',
         'end_time': 'endTime',
-        'tags': 'tags'
+        'tags': 'tags',
+        'evaluation_group_id': 'evaluationGroupId'
     }
 
-    def __init__(self, name=None, application_ids=None, description=None, start_time=None, end_time=None, tags=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, name=None, application_ids=None, description=None, start_time=None, end_time=None, tags=None, evaluation_group_id=None, local_vars_configuration=None):  # noqa: E501
         """CampaignCopy - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -62,6 +64,7 @@ class CampaignCopy(object):
         self._start_time = None
         self._end_time = None
         self._tags = None
+        self._evaluation_group_id = None
         self.discriminator = None
 
         if name is not None:
@@ -75,6 +78,8 @@ class CampaignCopy(object):
             self.end_time = end_time
         if tags is not None:
             self.tags = tags
+        if evaluation_group_id is not None:
+            self.evaluation_group_id = evaluation_group_id
 
     @property
     def name(self):
@@ -215,6 +220,29 @@ class CampaignCopy(object):
         """
 
         self._tags = tags
+
+    @property
+    def evaluation_group_id(self):
+        """Gets the evaluation_group_id of this CampaignCopy.  # noqa: E501
+
+        The ID of the campaign evaluation group the campaign belongs to.  # noqa: E501
+
+        :return: The evaluation_group_id of this CampaignCopy.  # noqa: E501
+        :rtype: int
+        """
+        return self._evaluation_group_id
+
+    @evaluation_group_id.setter
+    def evaluation_group_id(self, evaluation_group_id):
+        """Sets the evaluation_group_id of this CampaignCopy.
+
+        The ID of the campaign evaluation group the campaign belongs to.  # noqa: E501
+
+        :param evaluation_group_id: The evaluation_group_id of this CampaignCopy.  # noqa: E501
+        :type: int
+        """
+
+        self._evaluation_group_id = evaluation_group_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

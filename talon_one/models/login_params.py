@@ -59,7 +59,7 @@ class LoginParams(object):
     def email(self):
         """Gets the email of this LoginParams.  # noqa: E501
 
-        The email address associated with your account.  # noqa: E501
+        The email address associated with the user profile.  # noqa: E501
 
         :return: The email of this LoginParams.  # noqa: E501
         :rtype: str
@@ -70,7 +70,7 @@ class LoginParams(object):
     def email(self, email):
         """Sets the email of this LoginParams.
 
-        The email address associated with your account.  # noqa: E501
+        The email address associated with the user profile.  # noqa: E501
 
         :param email: The email of this LoginParams.  # noqa: E501
         :type: str

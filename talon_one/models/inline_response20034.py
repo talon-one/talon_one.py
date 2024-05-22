@@ -34,7 +34,7 @@ class InlineResponse20034(object):
     """
     openapi_types = {
         'total_result_size': 'int',
-        'data': 'list[WebhookActivationLogEntry]'
+        'data': 'list[Attribute]'
     }
 
     attribute_map = {
@@ -84,7 +84,7 @@ class InlineResponse20034(object):
 
 
         :return: The data of this InlineResponse20034.  # noqa: E501
-        :rtype: list[WebhookActivationLogEntry]
+        :rtype: list[Attribute]
         """
         return self._data
 
@@ -94,7 +94,7 @@ class InlineResponse20034(object):
 
 
         :param data: The data of this InlineResponse20034.  # noqa: E501
-        :type: list[WebhookActivationLogEntry]
+        :type: list[Attribute]
         """
         if self.local_vars_configuration.client_side_validation and data is None:  # noqa: E501
             raise ValueError("Invalid value for `data`, must not be `None`")  # noqa: E501

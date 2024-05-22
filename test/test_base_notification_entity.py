@@ -36,7 +36,8 @@ class TestBaseNotificationEntity(unittest.TestCase):
         # model = talon_one.models.base_notification_entity.BaseNotificationEntity()  # noqa: E501
         if include_optional :
             return BaseNotificationEntity(
-                policy = None
+                policy = None, 
+                enabled = True
             )
         else :
             return BaseNotificationEntity(

@@ -237,7 +237,7 @@ class RollbackAddedLoyaltyPointsEffectProps(object):
     def cart_item_sub_position(self):
         """Gets the cart_item_sub_position of this RollbackAddedLoyaltyPointsEffectProps.  # noqa: E501
 
-        The sub-position is returned when [cart item flattening](https://docs.talon.one/docs/product/campaigns/campaign-evaluation#flattening) is enabled. It indicates to which item the loyalty points were rolled back, for cart items with `quantity` > 1.   # noqa: E501
+        For cart items with `quantity` > 1, the sub-position indicates to which item the loyalty points were rolled back.   # noqa: E501
 
         :return: The cart_item_sub_position of this RollbackAddedLoyaltyPointsEffectProps.  # noqa: E501
         :rtype: float
@@ -248,7 +248,7 @@ class RollbackAddedLoyaltyPointsEffectProps(object):
     def cart_item_sub_position(self, cart_item_sub_position):
         """Sets the cart_item_sub_position of this RollbackAddedLoyaltyPointsEffectProps.
 
-        The sub-position is returned when [cart item flattening](https://docs.talon.one/docs/product/campaigns/campaign-evaluation#flattening) is enabled. It indicates to which item the loyalty points were rolled back, for cart items with `quantity` > 1.   # noqa: E501
+        For cart items with `quantity` > 1, the sub-position indicates to which item the loyalty points were rolled back.   # noqa: E501
 
         :param cart_item_sub_position: The cart_item_sub_position of this RollbackAddedLoyaltyPointsEffectProps.  # noqa: E501
         :type: float

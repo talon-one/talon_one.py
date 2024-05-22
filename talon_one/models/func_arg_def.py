@@ -53,7 +53,8 @@ class FuncArgDef(object):
         self.discriminator = None
 
         self.type = type
-        self.description = description
+        if description is not None:
+            self.description = description
 
     @property
     def type(self):
@@ -106,8 +107,6 @@ class FuncArgDef(object):
         :param description: The description of this FuncArgDef.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and description is None:  # noqa: E501
-            raise ValueError("Invalid value for `description`, must not be `None`")  # noqa: E501
 
         self._description = description
 

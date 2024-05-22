@@ -53,6 +53,7 @@ class CampaignTemplate(object):
         'applications_ids': 'list[int]',
         'campaign_collections': 'list[CampaignTemplateCollection]',
         'default_campaign_group_id': 'int',
+        'campaign_type': 'str',
         'updated': 'datetime',
         'updated_by': 'str',
         'valid_application_ids': 'list[int]'
@@ -79,12 +80,13 @@ class CampaignTemplate(object):
         'applications_ids': 'applicationsIds',
         'campaign_collections': 'campaignCollections',
         'default_campaign_group_id': 'defaultCampaignGroupId',
+        'campaign_type': 'campaignType',
         'updated': 'updated',
         'updated_by': 'updatedBy',
         'valid_application_ids': 'validApplicationIds'
     }
 
-    def __init__(self, id=None, created=None, account_id=None, user_id=None, name=None, description=None, instructions=None, campaign_attributes=None, coupon_attributes=None, state=None, active_ruleset_id=None, tags=None, features=None, coupon_settings=None, referral_settings=None, limits=None, template_params=None, applications_ids=None, campaign_collections=None, default_campaign_group_id=None, updated=None, updated_by=None, valid_application_ids=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, created=None, account_id=None, user_id=None, name=None, description=None, instructions=None, campaign_attributes=None, coupon_attributes=None, state=None, active_ruleset_id=None, tags=None, features=None, coupon_settings=None, referral_settings=None, limits=None, template_params=None, applications_ids=None, campaign_collections=None, default_campaign_group_id=None, campaign_type='advanced', updated=None, updated_by=None, valid_application_ids=None, local_vars_configuration=None):  # noqa: E501
         """CampaignTemplate - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -110,6 +112,7 @@ class CampaignTemplate(object):
         self._applications_ids = None
         self._campaign_collections = None
         self._default_campaign_group_id = None
+        self._campaign_type = None
         self._updated = None
         self._updated_by = None
         self._valid_application_ids = None
@@ -146,6 +149,7 @@ class CampaignTemplate(object):
             self.campaign_collections = campaign_collections
         if default_campaign_group_id is not None:
             self.default_campaign_group_id = default_campaign_group_id
+        self.campaign_type = campaign_type
         if updated is not None:
             self.updated = updated
         if updated_by is not None:
@@ -473,7 +477,7 @@ class CampaignTemplate(object):
         :param features: The features of this CampaignTemplate.  # noqa: E501
         :type: list[str]
         """
-        allowed_values = ["coupons", "referrals", "loyalty", "giveaways", "strikethrough"]  # noqa: E501
+        allowed_values = ["coupons", "referrals", "loyalty", "giveaways", "strikethrough", "achievements"]  # noqa: E501
         if (self.local_vars_configuration.client_side_validation and
                 not set(features).issubset(set(allowed_values))):  # noqa: E501
             raise ValueError(
@@ -642,6 +646,37 @@ class CampaignTemplate(object):
         """
 
         self._default_campaign_group_id = default_campaign_group_id
+
+    @property
+    def campaign_type(self):
+        """Gets the campaign_type of this CampaignTemplate.  # noqa: E501
+
+        The campaign type. Possible type values:   - `cartItem`: Type of campaign that can apply effects only to cart items.   - `advanced`: Type of campaign that can apply effects to customer sessions and cart items.   # noqa: E501
+
+        :return: The campaign_type of this CampaignTemplate.  # noqa: E501
+        :rtype: str
+        """
+        return self._campaign_type
+
+    @campaign_type.setter
+    def campaign_type(self, campaign_type):
+        """Sets the campaign_type of this CampaignTemplate.
+
+        The campaign type. Possible type values:   - `cartItem`: Type of campaign that can apply effects only to cart items.   - `advanced`: Type of campaign that can apply effects to customer sessions and cart items.   # noqa: E501
+
+        :param campaign_type: The campaign_type of this CampaignTemplate.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and campaign_type is None:  # noqa: E501
+            raise ValueError("Invalid value for `campaign_type`, must not be `None`")  # noqa: E501
+        allowed_values = ["cartItem", "advanced"]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and campaign_type not in allowed_values:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `campaign_type` ({0}), must be one of {1}"  # noqa: E501
+                .format(campaign_type, allowed_values)
+            )
+
+        self._campaign_type = campaign_type
 
     @property
     def updated(self):

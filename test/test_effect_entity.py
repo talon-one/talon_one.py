@@ -42,7 +42,8 @@ class TestEffectEntity(unittest.TestCase):
                 rule_name = 'Give 20% discount', 
                 effect_type = 'rejectCoupon', 
                 triggered_by_coupon = 4928, 
-                triggered_for_catalog_item = 786
+                triggered_for_catalog_item = 786, 
+                condition_index = 786
             )
         else :
             return EffectEntity(

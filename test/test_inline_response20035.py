@@ -36,42 +36,44 @@ class TestInlineResponse20035(unittest.TestCase):
         # model = talon_one.models.inline_response20035.InlineResponse20035()  # noqa: E501
         if include_optional :
             return InlineResponse20035(
+                has_more = True, 
                 total_result_size = 1, 
                 data = [
-                    talon_one.models.webhook_log_entry.WebhookLogEntry(
-                        id = '2', 
-                        integration_request_uuid = '472075793', 
-                        webhook_id = 5, 
-                        application_id = 12, 
-                        url = 'www.my-company.com/my-endpoint-name', 
-                        request = '{
-  mydata: "somevalue"
-}
-', 
-                        response = '0', 
-                        status = 204, 
-                        request_time = '2021-07-20T22:00Z', 
-                        response_time = '2021-07-20T22:00:50Z', )
+                    talon_one.models.catalog_item.CatalogItem(
+                        id = 6, 
+                        created = '2020-06-10T09:05:27.993483Z', 
+                        sku = 'SKU1241028', 
+                        price = 99.99, 
+                        catalogid = 6, 
+                        version = 5, 
+                        attributes = [
+                            talon_one.models.item_attribute.ItemAttribute(
+                                attributeid = 6, 
+                                name = '0', 
+                                value = talon_one.models.value.value(), )
+                            ], 
+                        product = talon_one.models.product.Product(
+                            name = 'sample_product', ), )
                     ]
             )
         else :
             return InlineResponse20035(
-                total_result_size = 1,
                 data = [
-                    talon_one.models.webhook_log_entry.WebhookLogEntry(
-                        id = '2', 
-                        integration_request_uuid = '472075793', 
-                        webhook_id = 5, 
-                        application_id = 12, 
-                        url = 'www.my-company.com/my-endpoint-name', 
-                        request = '{
-  mydata: "somevalue"
-}
-', 
-                        response = '0', 
-                        status = 204, 
-                        request_time = '2021-07-20T22:00Z', 
-                        response_time = '2021-07-20T22:00:50Z', )
+                    talon_one.models.catalog_item.CatalogItem(
+                        id = 6, 
+                        created = '2020-06-10T09:05:27.993483Z', 
+                        sku = 'SKU1241028', 
+                        price = 99.99, 
+                        catalogid = 6, 
+                        version = 5, 
+                        attributes = [
+                            talon_one.models.item_attribute.ItemAttribute(
+                                attributeid = 6, 
+                                name = '0', 
+                                value = talon_one.models.value.value(), )
+                            ], 
+                        product = talon_one.models.product.Product(
+                            name = 'sample_product', ), )
                     ],
         )
 

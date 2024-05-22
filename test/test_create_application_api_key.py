@@ -38,7 +38,9 @@ class TestCreateApplicationAPIKey(unittest.TestCase):
             return CreateApplicationAPIKey(
                 title = 'My generated key', 
                 expires = '2023-08-24T14:00Z', 
-                platform = 'none'
+                platform = 'none', 
+                type = 'staging', 
+                time_offset = 100000
             )
         else :
             return CreateApplicationAPIKey(

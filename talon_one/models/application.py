@@ -44,8 +44,6 @@ class Application(object):
         'case_sensitivity': 'str',
         'attributes': 'object',
         'limits': 'list[LimitConfig]',
-        'campaign_priority': 'str',
-        'exclusive_campaigns_strategy': 'str',
         'default_discount_scope': 'str',
         'enable_cascading_discounts': 'bool',
         'enable_flattened_cart_items': 'bool',
@@ -53,6 +51,7 @@ class Application(object):
         'sandbox': 'bool',
         'enable_partial_discounts': 'bool',
         'default_discount_additional_cost_per_item_scope': 'str',
+        'default_evaluation_group_id': 'int',
         'loyalty_programs': 'list[LoyaltyProgram]'
     }
 
@@ -68,8 +67,6 @@ class Application(object):
         'case_sensitivity': 'caseSensitivity',
         'attributes': 'attributes',
         'limits': 'limits',
-        'campaign_priority': 'campaignPriority',
-        'exclusive_campaigns_strategy': 'exclusiveCampaignsStrategy',
         'default_discount_scope': 'defaultDiscountScope',
         'enable_cascading_discounts': 'enableCascadingDiscounts',
         'enable_flattened_cart_items': 'enableFlattenedCartItems',
@@ -77,10 +74,11 @@ class Application(object):
         'sandbox': 'sandbox',
         'enable_partial_discounts': 'enablePartialDiscounts',
         'default_discount_additional_cost_per_item_scope': 'defaultDiscountAdditionalCostPerItemScope',
+        'default_evaluation_group_id': 'defaultEvaluationGroupId',
         'loyalty_programs': 'loyaltyPrograms'
     }
 
-    def __init__(self, id=None, created=None, modified=None, account_id=None, name=None, description=None, timezone=None, currency=None, case_sensitivity=None, attributes=None, limits=None, campaign_priority='universal', exclusive_campaigns_strategy='listOrder', default_discount_scope=None, enable_cascading_discounts=None, enable_flattened_cart_items=None, attributes_settings=None, sandbox=None, enable_partial_discounts=None, default_discount_additional_cost_per_item_scope=None, loyalty_programs=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, created=None, modified=None, account_id=None, name=None, description=None, timezone=None, currency=None, case_sensitivity=None, attributes=None, limits=None, default_discount_scope=None, enable_cascading_discounts=None, enable_flattened_cart_items=None, attributes_settings=None, sandbox=None, enable_partial_discounts=None, default_discount_additional_cost_per_item_scope=None, default_evaluation_group_id=None, loyalty_programs=None, local_vars_configuration=None):  # noqa: E501
         """Application - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -97,8 +95,6 @@ class Application(object):
         self._case_sensitivity = None
         self._attributes = None
         self._limits = None
-        self._campaign_priority = None
-        self._exclusive_campaigns_strategy = None
         self._default_discount_scope = None
         self._enable_cascading_discounts = None
         self._enable_flattened_cart_items = None
@@ -106,6 +102,7 @@ class Application(object):
         self._sandbox = None
         self._enable_partial_discounts = None
         self._default_discount_additional_cost_per_item_scope = None
+        self._default_evaluation_group_id = None
         self._loyalty_programs = None
         self.discriminator = None
 
@@ -124,10 +121,6 @@ class Application(object):
             self.attributes = attributes
         if limits is not None:
             self.limits = limits
-        if campaign_priority is not None:
-            self.campaign_priority = campaign_priority
-        if exclusive_campaigns_strategy is not None:
-            self.exclusive_campaigns_strategy = exclusive_campaigns_strategy
         if default_discount_scope is not None:
             self.default_discount_scope = default_discount_scope
         if enable_cascading_discounts is not None:
@@ -142,6 +135,8 @@ class Application(object):
             self.enable_partial_discounts = enable_partial_discounts
         if default_discount_additional_cost_per_item_scope is not None:
             self.default_discount_additional_cost_per_item_scope = default_discount_additional_cost_per_item_scope
+        if default_evaluation_group_id is not None:
+            self.default_evaluation_group_id = default_evaluation_group_id
         self.loyalty_programs = loyalty_programs
 
     @property
@@ -427,64 +422,6 @@ class Application(object):
         self._limits = limits
 
     @property
-    def campaign_priority(self):
-        """Gets the campaign_priority of this Application.  # noqa: E501
-
-        Default [priority](https://docs.talon.one/docs/product/applications/setting-up-campaign-priorities) for campaigns created in this Application.   # noqa: E501
-
-        :return: The campaign_priority of this Application.  # noqa: E501
-        :rtype: str
-        """
-        return self._campaign_priority
-
-    @campaign_priority.setter
-    def campaign_priority(self, campaign_priority):
-        """Sets the campaign_priority of this Application.
-
-        Default [priority](https://docs.talon.one/docs/product/applications/setting-up-campaign-priorities) for campaigns created in this Application.   # noqa: E501
-
-        :param campaign_priority: The campaign_priority of this Application.  # noqa: E501
-        :type: str
-        """
-        allowed_values = ["universal", "stackable", "exclusive"]  # noqa: E501
-        if self.local_vars_configuration.client_side_validation and campaign_priority not in allowed_values:  # noqa: E501
-            raise ValueError(
-                "Invalid value for `campaign_priority` ({0}), must be one of {1}"  # noqa: E501
-                .format(campaign_priority, allowed_values)
-            )
-
-        self._campaign_priority = campaign_priority
-
-    @property
-    def exclusive_campaigns_strategy(self):
-        """Gets the exclusive_campaigns_strategy of this Application.  # noqa: E501
-
-        The strategy used when choosing exclusive campaigns for evaluation.  # noqa: E501
-
-        :return: The exclusive_campaigns_strategy of this Application.  # noqa: E501
-        :rtype: str
-        """
-        return self._exclusive_campaigns_strategy
-
-    @exclusive_campaigns_strategy.setter
-    def exclusive_campaigns_strategy(self, exclusive_campaigns_strategy):
-        """Sets the exclusive_campaigns_strategy of this Application.
-
-        The strategy used when choosing exclusive campaigns for evaluation.  # noqa: E501
-
-        :param exclusive_campaigns_strategy: The exclusive_campaigns_strategy of this Application.  # noqa: E501
-        :type: str
-        """
-        allowed_values = ["listOrder", "lowestDiscount", "highestDiscount"]  # noqa: E501
-        if self.local_vars_configuration.client_side_validation and exclusive_campaigns_strategy not in allowed_values:  # noqa: E501
-            raise ValueError(
-                "Invalid value for `exclusive_campaigns_strategy` ({0}), must be one of {1}"  # noqa: E501
-                .format(exclusive_campaigns_strategy, allowed_values)
-            )
-
-        self._exclusive_campaigns_strategy = exclusive_campaigns_strategy
-
-    @property
     def default_discount_scope(self):
         """Gets the default_discount_scope of this Application.  # noqa: E501
 
@@ -540,7 +477,7 @@ class Application(object):
     def enable_flattened_cart_items(self):
         """Gets the enable_flattened_cart_items of this Application.  # noqa: E501
 
-        Indicates if cart items of quantity larger than one should be separated into different items of quantity one. See the [docs](https://docs.talon.one/docs/product/campaigns/campaign-evaluation#flattening).   # noqa: E501
+        Indicates if cart items of quantity larger than one should be separated into different items of quantity one.   # noqa: E501
 
         :return: The enable_flattened_cart_items of this Application.  # noqa: E501
         :rtype: bool
@@ -551,7 +488,7 @@ class Application(object):
     def enable_flattened_cart_items(self, enable_flattened_cart_items):
         """Sets the enable_flattened_cart_items of this Application.
 
-        Indicates if cart items of quantity larger than one should be separated into different items of quantity one. See the [docs](https://docs.talon.one/docs/product/campaigns/campaign-evaluation#flattening).   # noqa: E501
+        Indicates if cart items of quantity larger than one should be separated into different items of quantity one.   # noqa: E501
 
         :param enable_flattened_cart_items: The enable_flattened_cart_items of this Application.  # noqa: E501
         :type: bool
@@ -654,6 +591,29 @@ class Application(object):
             )
 
         self._default_discount_additional_cost_per_item_scope = default_discount_additional_cost_per_item_scope
+
+    @property
+    def default_evaluation_group_id(self):
+        """Gets the default_evaluation_group_id of this Application.  # noqa: E501
+
+        The ID of the default campaign evaluation group to which new campaigns will be added unless a different group is selected when creating the campaign.  # noqa: E501
+
+        :return: The default_evaluation_group_id of this Application.  # noqa: E501
+        :rtype: int
+        """
+        return self._default_evaluation_group_id
+
+    @default_evaluation_group_id.setter
+    def default_evaluation_group_id(self, default_evaluation_group_id):
+        """Sets the default_evaluation_group_id of this Application.
+
+        The ID of the default campaign evaluation group to which new campaigns will be added unless a different group is selected when creating the campaign.  # noqa: E501
+
+        :param default_evaluation_group_id: The default_evaluation_group_id of this Application.  # noqa: E501
+        :type: int
+        """
+
+        self._default_evaluation_group_id = default_evaluation_group_id
 
     @property
     def loyalty_programs(self):

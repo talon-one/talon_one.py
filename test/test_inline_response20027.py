@@ -38,80 +38,85 @@ class TestInlineResponse20027(unittest.TestCase):
             return InlineResponse20027(
                 has_more = True, 
                 data = [
-                    talon_one.models.application_event.ApplicationEvent(
+                    talon_one.models.application_session.ApplicationSession(
                         id = 6, 
-                        created = '2020-06-10T09:05:27.993483Z', 
+                        created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        integration_id = 'URNGV8294NV', 
+                        store_integration_id = 'STORE-001', 
                         application_id = 322, 
                         profile_id = 138, 
-                        session_id = 56, 
-                        type = '0', 
-                        attributes = talon_one.models.attributes.attributes(), 
-                        effects = [
-                            talon_one.models.effect.Effect(
-                                campaign_id = 244, 
-                                ruleset_id = 73, 
-                                rule_index = 2, 
-                                rule_name = 'Give 20% discount', 
-                                effect_type = 'rejectCoupon', 
-                                triggered_by_coupon = 4928, 
-                                triggered_for_catalog_item = 786, 
-                                props = talon_one.models.effect_props.EffectProps(), )
+                        profileintegrationid = '382370BKDB946', 
+                        coupon = 'BKDB946', 
+                        referral = 'BKDB946', 
+                        state = 'closed', 
+                        cart_items = [
+                            talon_one.models.cart_item.CartItem(
+                                name = 'Air Glide', 
+                                sku = 'SKU1241028', 
+                                quantity = 1, 
+                                returned_quantity = 1, 
+                                remaining_quantity = 1, 
+                                price = 99.99, 
+                                category = 'shoes', 
+                                product = talon_one.models.product.Product(
+                                    name = 'sample_product', ), 
+                                weight = 1130.0, 
+                                height = 1.337, 
+                                width = 1.337, 
+                                length = 1.337, 
+                                position = 1.337, 
+                                attributes = {"image":"11.jpeg","material":"leather"}, 
+                                additional_costs = {"shipping":{"price":9}}, 
+                                catalog_item_id = 56, )
                             ], 
-                        rule_failure_reasons = [
-                            talon_one.models.rule_failure_reason.RuleFailureReason(
-                                campaign_id = 56, 
-                                campaign_name = '0', 
-                                ruleset_id = 56, 
-                                coupon_id = 4928, 
-                                coupon_value = '0', 
-                                referral_id = 56, 
-                                referral_value = '0', 
-                                rule_index = 56, 
-                                rule_name = '0', 
-                                condition_index = 56, 
-                                effect_index = 56, 
-                                details = '0', )
-                            ], )
+                        discounts = {
+                            'key' : 1.337
+                            }, 
+                        total_discounts = 100.0, 
+                        total = 200.0, 
+                        attributes = talon_one.models.attributes.attributes(), )
                     ]
             )
         else :
             return InlineResponse20027(
-                has_more = True,
                 data = [
-                    talon_one.models.application_event.ApplicationEvent(
+                    talon_one.models.application_session.ApplicationSession(
                         id = 6, 
-                        created = '2020-06-10T09:05:27.993483Z', 
+                        created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        integration_id = 'URNGV8294NV', 
+                        store_integration_id = 'STORE-001', 
                         application_id = 322, 
                         profile_id = 138, 
-                        session_id = 56, 
-                        type = '0', 
-                        attributes = talon_one.models.attributes.attributes(), 
-                        effects = [
-                            talon_one.models.effect.Effect(
-                                campaign_id = 244, 
-                                ruleset_id = 73, 
-                                rule_index = 2, 
-                                rule_name = 'Give 20% discount', 
-                                effect_type = 'rejectCoupon', 
-                                triggered_by_coupon = 4928, 
-                                triggered_for_catalog_item = 786, 
-                                props = talon_one.models.effect_props.EffectProps(), )
+                        profileintegrationid = '382370BKDB946', 
+                        coupon = 'BKDB946', 
+                        referral = 'BKDB946', 
+                        state = 'closed', 
+                        cart_items = [
+                            talon_one.models.cart_item.CartItem(
+                                name = 'Air Glide', 
+                                sku = 'SKU1241028', 
+                                quantity = 1, 
+                                returned_quantity = 1, 
+                                remaining_quantity = 1, 
+                                price = 99.99, 
+                                category = 'shoes', 
+                                product = talon_one.models.product.Product(
+                                    name = 'sample_product', ), 
+                                weight = 1130.0, 
+                                height = 1.337, 
+                                width = 1.337, 
+                                length = 1.337, 
+                                position = 1.337, 
+                                attributes = {"image":"11.jpeg","material":"leather"}, 
+                                additional_costs = {"shipping":{"price":9}}, 
+                                catalog_item_id = 56, )
                             ], 
-                        rule_failure_reasons = [
-                            talon_one.models.rule_failure_reason.RuleFailureReason(
-                                campaign_id = 56, 
-                                campaign_name = '0', 
-                                ruleset_id = 56, 
-                                coupon_id = 4928, 
-                                coupon_value = '0', 
-                                referral_id = 56, 
-                                referral_value = '0', 
-                                rule_index = 56, 
-                                rule_name = '0', 
-                                condition_index = 56, 
-                                effect_index = 56, 
-                                details = '0', )
-                            ], )
+                        discounts = {
+                            'key' : 1.337
+                            }, 
+                        total_discounts = 100.0, 
+                        total = 200.0, 
+                        attributes = talon_one.models.attributes.attributes(), )
                     ],
         )
 
