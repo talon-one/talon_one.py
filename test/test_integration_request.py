@@ -38,6 +38,7 @@ class TestIntegrationRequest(unittest.TestCase):
             return IntegrationRequest(
                 customer_session = talon_one.models.new_customer_session_v2.NewCustomerSessionV2(
                     profile_id = 'URNGV8294NV', 
+                    store_integration_id = 'STORE-001', 
                     evaluable_campaign_ids = [10, 12], 
                     coupon_codes = [XMAS-20-2021], 
                     referral_code = 'NT2K54D9', 
@@ -52,6 +53,8 @@ class TestIntegrationRequest(unittest.TestCase):
                             remaining_quantity = 1, 
                             price = 99.99, 
                             category = 'shoes', 
+                            product = talon_one.models.product.Product(
+                                name = 'sample_product', ), 
                             weight = 1130.0, 
                             height = 1.337, 
                             width = 1.337, 
@@ -70,6 +73,7 @@ class TestIntegrationRequest(unittest.TestCase):
             return IntegrationRequest(
                 customer_session = talon_one.models.new_customer_session_v2.NewCustomerSessionV2(
                     profile_id = 'URNGV8294NV', 
+                    store_integration_id = 'STORE-001', 
                     evaluable_campaign_ids = [10, 12], 
                     coupon_codes = [XMAS-20-2021], 
                     referral_code = 'NT2K54D9', 
@@ -84,6 +88,8 @@ class TestIntegrationRequest(unittest.TestCase):
                             remaining_quantity = 1, 
                             price = 99.99, 
                             category = 'shoes', 
+                            product = talon_one.models.product.Product(
+                                name = 'sample_product', ), 
                             weight = 1130.0, 
                             height = 1.337, 
                             width = 1.337, 

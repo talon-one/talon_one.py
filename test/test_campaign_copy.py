@@ -41,7 +41,8 @@ class TestCampaignCopy(unittest.TestCase):
                 description = 'Campaign for all summer 2021 promotions', 
                 start_time = '2021-06-01T09:00:27.993483Z', 
                 end_time = '2021-09-10T01:00:00.993483Z', 
-                tags = [Summer, Shoes]
+                tags = [Summer, Shoes], 
+                evaluation_group_id = 2
             )
         else :
             return CampaignCopy(

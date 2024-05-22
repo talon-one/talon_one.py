@@ -38,108 +38,40 @@ class TestInlineResponse20010(unittest.TestCase):
             return InlineResponse20010(
                 has_more = True, 
                 data = [
-                    talon_one.models.campaign_template.CampaignTemplate(
+                    talon_one.models.referral.Referral(
                         id = 6, 
                         created = '2020-06-10T09:05:27.993483Z', 
-                        account_id = 3886, 
-                        user_id = 388, 
-                        name = 'Discount campaign', 
-                        description = 'This is a template for a discount campaign.', 
-                        instructions = 'Use this template for discount campaigns. Set the campaign properties according to the campaign goals, and don't forget to set an end date.', 
-                        campaign_attributes = talon_one.models.campaign_attributes.campaignAttributes(), 
-                        coupon_attributes = talon_one.models.coupon_attributes.couponAttributes(), 
-                        state = 'draft', 
-                        active_ruleset_id = 5, 
-                        tags = [discount], 
-                        features = [
-                            'coupons'
-                            ], 
-                        coupon_settings = talon_one.models.code_generator_settings.CodeGeneratorSettings(
-                            valid_characters = [A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9], 
-                            coupon_pattern = 'SUMMER-####-####', ), 
-                        referral_settings = talon_one.models.code_generator_settings.CodeGeneratorSettings(
-                            valid_characters = [A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9], 
-                            coupon_pattern = 'SUMMER-####-####', ), 
-                        limits = [
-                            talon_one.models.template_limit_config.TemplateLimitConfig(
-                                action = 'createCoupon', 
-                                limit = 1000.0, 
-                                period = 'yearly', 
-                                entities = [Coupon], )
-                            ], 
-                        template_params = [
-                            talon_one.models.campaign_template_params.CampaignTemplateParams(
-                                name = 'discount_value', 
-                                type = 'number', 
-                                description = 'This is a template parameter of type `number`.', 
-                                attribute_id = 42, )
-                            ], 
-                        applications_ids = [
-                            56
-                            ], 
-                        campaign_collections = [
-                            talon_one.models.campaign_template_collection.CampaignTemplateCollection(
-                                name = 'My collection', 
-                                description = 'My collection of SKUs', )
-                            ], 
-                        default_campaign_group_id = 42, 
-                        updated = '2022-08-24T14:15:22Z', 
-                        updated_by = 'Jane Doe', 
-                        valid_application_ids = [1, 2, 3], )
+                        start_date = '2020-11-10T23:00Z', 
+                        expiry_date = '2021-11-10T23:00Z', 
+                        usage_limit = 1, 
+                        campaign_id = 78, 
+                        advocate_profile_integration_id = 'URNGV8294NV', 
+                        friend_profile_integration_id = 'BZGGC2454PA', 
+                        attributes = {"channel":"web"}, 
+                        import_id = 4, 
+                        code = '27G47Y54VH9L', 
+                        usage_counter = 1, 
+                        batch_id = 'tqyrgahe', )
                     ]
             )
         else :
             return InlineResponse20010(
                 has_more = True,
                 data = [
-                    talon_one.models.campaign_template.CampaignTemplate(
+                    talon_one.models.referral.Referral(
                         id = 6, 
                         created = '2020-06-10T09:05:27.993483Z', 
-                        account_id = 3886, 
-                        user_id = 388, 
-                        name = 'Discount campaign', 
-                        description = 'This is a template for a discount campaign.', 
-                        instructions = 'Use this template for discount campaigns. Set the campaign properties according to the campaign goals, and don't forget to set an end date.', 
-                        campaign_attributes = talon_one.models.campaign_attributes.campaignAttributes(), 
-                        coupon_attributes = talon_one.models.coupon_attributes.couponAttributes(), 
-                        state = 'draft', 
-                        active_ruleset_id = 5, 
-                        tags = [discount], 
-                        features = [
-                            'coupons'
-                            ], 
-                        coupon_settings = talon_one.models.code_generator_settings.CodeGeneratorSettings(
-                            valid_characters = [A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9], 
-                            coupon_pattern = 'SUMMER-####-####', ), 
-                        referral_settings = talon_one.models.code_generator_settings.CodeGeneratorSettings(
-                            valid_characters = [A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9], 
-                            coupon_pattern = 'SUMMER-####-####', ), 
-                        limits = [
-                            talon_one.models.template_limit_config.TemplateLimitConfig(
-                                action = 'createCoupon', 
-                                limit = 1000.0, 
-                                period = 'yearly', 
-                                entities = [Coupon], )
-                            ], 
-                        template_params = [
-                            talon_one.models.campaign_template_params.CampaignTemplateParams(
-                                name = 'discount_value', 
-                                type = 'number', 
-                                description = 'This is a template parameter of type `number`.', 
-                                attribute_id = 42, )
-                            ], 
-                        applications_ids = [
-                            56
-                            ], 
-                        campaign_collections = [
-                            talon_one.models.campaign_template_collection.CampaignTemplateCollection(
-                                name = 'My collection', 
-                                description = 'My collection of SKUs', )
-                            ], 
-                        default_campaign_group_id = 42, 
-                        updated = '2022-08-24T14:15:22Z', 
-                        updated_by = 'Jane Doe', 
-                        valid_application_ids = [1, 2, 3], )
+                        start_date = '2020-11-10T23:00Z', 
+                        expiry_date = '2021-11-10T23:00Z', 
+                        usage_limit = 1, 
+                        campaign_id = 78, 
+                        advocate_profile_integration_id = 'URNGV8294NV', 
+                        friend_profile_integration_id = 'BZGGC2454PA', 
+                        attributes = {"channel":"web"}, 
+                        import_id = 4, 
+                        code = '27G47Y54VH9L', 
+                        usage_counter = 1, 
+                        batch_id = 'tqyrgahe', )
                     ],
         )
 

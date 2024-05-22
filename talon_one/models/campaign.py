@@ -50,6 +50,9 @@ class Campaign(object):
         'referral_settings': 'CodeGeneratorSettings',
         'limits': 'list[LimitConfig]',
         'campaign_groups': 'list[int]',
+        'type': 'str',
+        'linked_store_ids': 'list[int]',
+        'budgets': 'list[CampaignBudget]',
         'coupon_redemption_count': 'int',
         'referral_redemption_count': 'int',
         'discount_count': 'float',
@@ -69,7 +72,8 @@ class Campaign(object):
         'updated': 'datetime',
         'created_by': 'str',
         'updated_by': 'str',
-        'template_id': 'int'
+        'template_id': 'int',
+        'frontend_state': 'str'
     }
 
     attribute_map = {
@@ -90,6 +94,9 @@ class Campaign(object):
         'referral_settings': 'referralSettings',
         'limits': 'limits',
         'campaign_groups': 'campaignGroups',
+        'type': 'type',
+        'linked_store_ids': 'linkedStoreIds',
+        'budgets': 'budgets',
         'coupon_redemption_count': 'couponRedemptionCount',
         'referral_redemption_count': 'referralRedemptionCount',
         'discount_count': 'discountCount',
@@ -109,10 +116,11 @@ class Campaign(object):
         'updated': 'updated',
         'created_by': 'createdBy',
         'updated_by': 'updatedBy',
-        'template_id': 'templateId'
+        'template_id': 'templateId',
+        'frontend_state': 'frontendState'
     }
 
-    def __init__(self, id=None, created=None, application_id=None, user_id=None, name=None, description=None, start_time=None, end_time=None, attributes=None, state='enabled', active_ruleset_id=None, tags=None, features=None, coupon_settings=None, referral_settings=None, limits=None, campaign_groups=None, coupon_redemption_count=None, referral_redemption_count=None, discount_count=None, discount_effect_count=None, coupon_creation_count=None, custom_effect_count=None, referral_creation_count=None, add_free_item_effect_count=None, awarded_giveaways_count=None, created_loyalty_points_count=None, created_loyalty_points_effect_count=None, redeemed_loyalty_points_count=None, redeemed_loyalty_points_effect_count=None, call_api_effect_count=None, reservecoupon_effect_count=None, last_activity=None, updated=None, created_by=None, updated_by=None, template_id=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, created=None, application_id=None, user_id=None, name=None, description=None, start_time=None, end_time=None, attributes=None, state='enabled', active_ruleset_id=None, tags=None, features=None, coupon_settings=None, referral_settings=None, limits=None, campaign_groups=None, type='advanced', linked_store_ids=None, budgets=None, coupon_redemption_count=None, referral_redemption_count=None, discount_count=None, discount_effect_count=None, coupon_creation_count=None, custom_effect_count=None, referral_creation_count=None, add_free_item_effect_count=None, awarded_giveaways_count=None, created_loyalty_points_count=None, created_loyalty_points_effect_count=None, redeemed_loyalty_points_count=None, redeemed_loyalty_points_effect_count=None, call_api_effect_count=None, reservecoupon_effect_count=None, last_activity=None, updated=None, created_by=None, updated_by=None, template_id=None, frontend_state=None, local_vars_configuration=None):  # noqa: E501
         """Campaign - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -135,6 +143,9 @@ class Campaign(object):
         self._referral_settings = None
         self._limits = None
         self._campaign_groups = None
+        self._type = None
+        self._linked_store_ids = None
+        self._budgets = None
         self._coupon_redemption_count = None
         self._referral_redemption_count = None
         self._discount_count = None
@@ -155,6 +166,7 @@ class Campaign(object):
         self._created_by = None
         self._updated_by = None
         self._template_id = None
+        self._frontend_state = None
         self.discriminator = None
 
         self.id = id
@@ -181,6 +193,10 @@ class Campaign(object):
         self.limits = limits
         if campaign_groups is not None:
             self.campaign_groups = campaign_groups
+        self.type = type
+        if linked_store_ids is not None:
+            self.linked_store_ids = linked_store_ids
+        self.budgets = budgets
         if coupon_redemption_count is not None:
             self.coupon_redemption_count = coupon_redemption_count
         if referral_redemption_count is not None:
@@ -221,6 +237,7 @@ class Campaign(object):
             self.updated_by = updated_by
         if template_id is not None:
             self.template_id = template_id
+        self.frontend_state = frontend_state
 
     @property
     def id(self):
@@ -402,7 +419,7 @@ class Campaign(object):
     def end_time(self):
         """Gets the end_time of this Campaign.  # noqa: E501
 
-        Timestamp the campaign will become inactive.  # noqa: E501
+        Timestamp when the campaign will become inactive.  # noqa: E501
 
         :return: The end_time of this Campaign.  # noqa: E501
         :rtype: datetime
@@ -413,7 +430,7 @@ class Campaign(object):
     def end_time(self, end_time):
         """Sets the end_time of this Campaign.
 
-        Timestamp the campaign will become inactive.  # noqa: E501
+        Timestamp when the campaign will become inactive.  # noqa: E501
 
         :param end_time: The end_time of this Campaign.  # noqa: E501
         :type: datetime
@@ -545,7 +562,7 @@ class Campaign(object):
         """
         if self.local_vars_configuration.client_side_validation and features is None:  # noqa: E501
             raise ValueError("Invalid value for `features`, must not be `None`")  # noqa: E501
-        allowed_values = ["coupons", "referrals", "loyalty", "giveaways", "strikethrough"]  # noqa: E501
+        allowed_values = ["coupons", "referrals", "loyalty", "giveaways", "strikethrough", "achievements"]  # noqa: E501
         if (self.local_vars_configuration.client_side_validation and
                 not set(features).issubset(set(allowed_values))):  # noqa: E501
             raise ValueError(
@@ -647,10 +664,89 @@ class Campaign(object):
         self._campaign_groups = campaign_groups
 
     @property
+    def type(self):
+        """Gets the type of this Campaign.  # noqa: E501
+
+        The campaign type. Possible type values:   - `cartItem`: Type of campaign that can apply effects only to cart items.   - `advanced`: Type of campaign that can apply effects to customer sessions and cart items.   # noqa: E501
+
+        :return: The type of this Campaign.  # noqa: E501
+        :rtype: str
+        """
+        return self._type
+
+    @type.setter
+    def type(self, type):
+        """Sets the type of this Campaign.
+
+        The campaign type. Possible type values:   - `cartItem`: Type of campaign that can apply effects only to cart items.   - `advanced`: Type of campaign that can apply effects to customer sessions and cart items.   # noqa: E501
+
+        :param type: The type of this Campaign.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and type is None:  # noqa: E501
+            raise ValueError("Invalid value for `type`, must not be `None`")  # noqa: E501
+        allowed_values = ["cartItem", "advanced"]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and type not in allowed_values:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `type` ({0}), must be one of {1}"  # noqa: E501
+                .format(type, allowed_values)
+            )
+
+        self._type = type
+
+    @property
+    def linked_store_ids(self):
+        """Gets the linked_store_ids of this Campaign.  # noqa: E501
+
+        A list of store IDs that you want to link to the campaign.  **Note:** Campaigns with linked store IDs will only be evaluated when there is a [customer session update](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) that references a linked store.   # noqa: E501
+
+        :return: The linked_store_ids of this Campaign.  # noqa: E501
+        :rtype: list[int]
+        """
+        return self._linked_store_ids
+
+    @linked_store_ids.setter
+    def linked_store_ids(self, linked_store_ids):
+        """Sets the linked_store_ids of this Campaign.
+
+        A list of store IDs that you want to link to the campaign.  **Note:** Campaigns with linked store IDs will only be evaluated when there is a [customer session update](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) that references a linked store.   # noqa: E501
+
+        :param linked_store_ids: The linked_store_ids of this Campaign.  # noqa: E501
+        :type: list[int]
+        """
+
+        self._linked_store_ids = linked_store_ids
+
+    @property
+    def budgets(self):
+        """Gets the budgets of this Campaign.  # noqa: E501
+
+        A list of all the budgets that are defined by this campaign and their usage.  **Note:** Budgets that are not defined do not appear in this list and their usage is not counted until they are defined.   # noqa: E501
+
+        :return: The budgets of this Campaign.  # noqa: E501
+        :rtype: list[CampaignBudget]
+        """
+        return self._budgets
+
+    @budgets.setter
+    def budgets(self, budgets):
+        """Sets the budgets of this Campaign.
+
+        A list of all the budgets that are defined by this campaign and their usage.  **Note:** Budgets that are not defined do not appear in this list and their usage is not counted until they are defined.   # noqa: E501
+
+        :param budgets: The budgets of this Campaign.  # noqa: E501
+        :type: list[CampaignBudget]
+        """
+        if self.local_vars_configuration.client_side_validation and budgets is None:  # noqa: E501
+            raise ValueError("Invalid value for `budgets`, must not be `None`")  # noqa: E501
+
+        self._budgets = budgets
+
+    @property
     def coupon_redemption_count(self):
         """Gets the coupon_redemption_count of this Campaign.  # noqa: E501
 
-        Number of coupons redeemed in the campaign.  # noqa: E501
+        This property is **deprecated**. The count should be available under *budgets* property. Number of coupons redeemed in the campaign.   # noqa: E501
 
         :return: The coupon_redemption_count of this Campaign.  # noqa: E501
         :rtype: int
@@ -661,7 +757,7 @@ class Campaign(object):
     def coupon_redemption_count(self, coupon_redemption_count):
         """Sets the coupon_redemption_count of this Campaign.
 
-        Number of coupons redeemed in the campaign.  # noqa: E501
+        This property is **deprecated**. The count should be available under *budgets* property. Number of coupons redeemed in the campaign.   # noqa: E501
 
         :param coupon_redemption_count: The coupon_redemption_count of this Campaign.  # noqa: E501
         :type: int
@@ -673,7 +769,7 @@ class Campaign(object):
     def referral_redemption_count(self):
         """Gets the referral_redemption_count of this Campaign.  # noqa: E501
 
-        Number of referral codes redeemed in the campaign.  # noqa: E501
+        This property is **deprecated**. The count should be available under *budgets* property. Number of referral codes redeemed in the campaign.   # noqa: E501
 
         :return: The referral_redemption_count of this Campaign.  # noqa: E501
         :rtype: int
@@ -684,7 +780,7 @@ class Campaign(object):
     def referral_redemption_count(self, referral_redemption_count):
         """Sets the referral_redemption_count of this Campaign.
 
-        Number of referral codes redeemed in the campaign.  # noqa: E501
+        This property is **deprecated**. The count should be available under *budgets* property. Number of referral codes redeemed in the campaign.   # noqa: E501
 
         :param referral_redemption_count: The referral_redemption_count of this Campaign.  # noqa: E501
         :type: int
@@ -696,7 +792,7 @@ class Campaign(object):
     def discount_count(self):
         """Gets the discount_count of this Campaign.  # noqa: E501
 
-        Total amount of discounts redeemed in the campaign.  # noqa: E501
+        This property is **deprecated**. The count should be available under *budgets* property. Total amount of discounts redeemed in the campaign.   # noqa: E501
 
         :return: The discount_count of this Campaign.  # noqa: E501
         :rtype: float
@@ -707,7 +803,7 @@ class Campaign(object):
     def discount_count(self, discount_count):
         """Sets the discount_count of this Campaign.
 
-        Total amount of discounts redeemed in the campaign.  # noqa: E501
+        This property is **deprecated**. The count should be available under *budgets* property. Total amount of discounts redeemed in the campaign.   # noqa: E501
 
         :param discount_count: The discount_count of this Campaign.  # noqa: E501
         :type: float
@@ -719,7 +815,7 @@ class Campaign(object):
     def discount_effect_count(self):
         """Gets the discount_effect_count of this Campaign.  # noqa: E501
 
-        Total number of times discounts were redeemed in this campaign.  # noqa: E501
+        This property is **deprecated**. The count should be available under *budgets* property. Total number of times discounts were redeemed in this campaign.   # noqa: E501
 
         :return: The discount_effect_count of this Campaign.  # noqa: E501
         :rtype: int
@@ -730,7 +826,7 @@ class Campaign(object):
     def discount_effect_count(self, discount_effect_count):
         """Sets the discount_effect_count of this Campaign.
 
-        Total number of times discounts were redeemed in this campaign.  # noqa: E501
+        This property is **deprecated**. The count should be available under *budgets* property. Total number of times discounts were redeemed in this campaign.   # noqa: E501
 
         :param discount_effect_count: The discount_effect_count of this Campaign.  # noqa: E501
         :type: int
@@ -742,7 +838,7 @@ class Campaign(object):
     def coupon_creation_count(self):
         """Gets the coupon_creation_count of this Campaign.  # noqa: E501
 
-        Total number of coupons created by rules in this campaign.  # noqa: E501
+        This property is **deprecated**. The count should be available under *budgets* property. Total number of coupons created by rules in this campaign.   # noqa: E501
 
         :return: The coupon_creation_count of this Campaign.  # noqa: E501
         :rtype: int
@@ -753,7 +849,7 @@ class Campaign(object):
     def coupon_creation_count(self, coupon_creation_count):
         """Sets the coupon_creation_count of this Campaign.
 
-        Total number of coupons created by rules in this campaign.  # noqa: E501
+        This property is **deprecated**. The count should be available under *budgets* property. Total number of coupons created by rules in this campaign.   # noqa: E501
 
         :param coupon_creation_count: The coupon_creation_count of this Campaign.  # noqa: E501
         :type: int
@@ -765,7 +861,7 @@ class Campaign(object):
     def custom_effect_count(self):
         """Gets the custom_effect_count of this Campaign.  # noqa: E501
 
-        Total number of custom effects triggered by rules in this campaign.  # noqa: E501
+        This property is **deprecated**. The count should be available under *budgets* property. Total number of custom effects triggered by rules in this campaign.   # noqa: E501
 
         :return: The custom_effect_count of this Campaign.  # noqa: E501
         :rtype: int
@@ -776,7 +872,7 @@ class Campaign(object):
     def custom_effect_count(self, custom_effect_count):
         """Sets the custom_effect_count of this Campaign.
 
-        Total number of custom effects triggered by rules in this campaign.  # noqa: E501
+        This property is **deprecated**. The count should be available under *budgets* property. Total number of custom effects triggered by rules in this campaign.   # noqa: E501
 
         :param custom_effect_count: The custom_effect_count of this Campaign.  # noqa: E501
         :type: int
@@ -788,7 +884,7 @@ class Campaign(object):
     def referral_creation_count(self):
         """Gets the referral_creation_count of this Campaign.  # noqa: E501
 
-        Total number of referrals created by rules in this campaign.  # noqa: E501
+        This property is **deprecated**. The count should be available under *budgets* property. Total number of referrals created by rules in this campaign.   # noqa: E501
 
         :return: The referral_creation_count of this Campaign.  # noqa: E501
         :rtype: int
@@ -799,7 +895,7 @@ class Campaign(object):
     def referral_creation_count(self, referral_creation_count):
         """Sets the referral_creation_count of this Campaign.
 
-        Total number of referrals created by rules in this campaign.  # noqa: E501
+        This property is **deprecated**. The count should be available under *budgets* property. Total number of referrals created by rules in this campaign.   # noqa: E501
 
         :param referral_creation_count: The referral_creation_count of this Campaign.  # noqa: E501
         :type: int
@@ -811,7 +907,7 @@ class Campaign(object):
     def add_free_item_effect_count(self):
         """Gets the add_free_item_effect_count of this Campaign.  # noqa: E501
 
-        Total number of times triggering add free item effext is allowed in this campaign.  # noqa: E501
+        This property is **deprecated**. The count should be available under *budgets* property. Total number of times the [add free item effect](https://docs.talon.one/docs/dev/integration-api/api-effects#addfreeitem) can be triggered in this campaign.   # noqa: E501
 
         :return: The add_free_item_effect_count of this Campaign.  # noqa: E501
         :rtype: int
@@ -822,7 +918,7 @@ class Campaign(object):
     def add_free_item_effect_count(self, add_free_item_effect_count):
         """Sets the add_free_item_effect_count of this Campaign.
 
-        Total number of times triggering add free item effext is allowed in this campaign.  # noqa: E501
+        This property is **deprecated**. The count should be available under *budgets* property. Total number of times the [add free item effect](https://docs.talon.one/docs/dev/integration-api/api-effects#addfreeitem) can be triggered in this campaign.   # noqa: E501
 
         :param add_free_item_effect_count: The add_free_item_effect_count of this Campaign.  # noqa: E501
         :type: int
@@ -834,7 +930,7 @@ class Campaign(object):
     def awarded_giveaways_count(self):
         """Gets the awarded_giveaways_count of this Campaign.  # noqa: E501
 
-        Total number of giveaways awarded by rules in this campaign.  # noqa: E501
+        This property is **deprecated**. The count should be available under *budgets* property. Total number of giveaways awarded by rules in this campaign.   # noqa: E501
 
         :return: The awarded_giveaways_count of this Campaign.  # noqa: E501
         :rtype: int
@@ -845,7 +941,7 @@ class Campaign(object):
     def awarded_giveaways_count(self, awarded_giveaways_count):
         """Sets the awarded_giveaways_count of this Campaign.
 
-        Total number of giveaways awarded by rules in this campaign.  # noqa: E501
+        This property is **deprecated**. The count should be available under *budgets* property. Total number of giveaways awarded by rules in this campaign.   # noqa: E501
 
         :param awarded_giveaways_count: The awarded_giveaways_count of this Campaign.  # noqa: E501
         :type: int
@@ -857,7 +953,7 @@ class Campaign(object):
     def created_loyalty_points_count(self):
         """Gets the created_loyalty_points_count of this Campaign.  # noqa: E501
 
-        Total number of loyalty points created by rules in this campaign.  # noqa: E501
+        This property is **deprecated**. The count should be available under *budgets* property. Total number of loyalty points created by rules in this campaign.   # noqa: E501
 
         :return: The created_loyalty_points_count of this Campaign.  # noqa: E501
         :rtype: float
@@ -868,7 +964,7 @@ class Campaign(object):
     def created_loyalty_points_count(self, created_loyalty_points_count):
         """Sets the created_loyalty_points_count of this Campaign.
 
-        Total number of loyalty points created by rules in this campaign.  # noqa: E501
+        This property is **deprecated**. The count should be available under *budgets* property. Total number of loyalty points created by rules in this campaign.   # noqa: E501
 
         :param created_loyalty_points_count: The created_loyalty_points_count of this Campaign.  # noqa: E501
         :type: float
@@ -880,7 +976,7 @@ class Campaign(object):
     def created_loyalty_points_effect_count(self):
         """Gets the created_loyalty_points_effect_count of this Campaign.  # noqa: E501
 
-        Total number of loyalty point creation effects triggered by rules in this campaign.  # noqa: E501
+        This property is **deprecated**. The count should be available under *budgets* property. Total number of loyalty point creation effects triggered by rules in this campaign.   # noqa: E501
 
         :return: The created_loyalty_points_effect_count of this Campaign.  # noqa: E501
         :rtype: int
@@ -891,7 +987,7 @@ class Campaign(object):
     def created_loyalty_points_effect_count(self, created_loyalty_points_effect_count):
         """Sets the created_loyalty_points_effect_count of this Campaign.
 
-        Total number of loyalty point creation effects triggered by rules in this campaign.  # noqa: E501
+        This property is **deprecated**. The count should be available under *budgets* property. Total number of loyalty point creation effects triggered by rules in this campaign.   # noqa: E501
 
         :param created_loyalty_points_effect_count: The created_loyalty_points_effect_count of this Campaign.  # noqa: E501
         :type: int
@@ -903,7 +999,7 @@ class Campaign(object):
     def redeemed_loyalty_points_count(self):
         """Gets the redeemed_loyalty_points_count of this Campaign.  # noqa: E501
 
-        Total number of loyalty points redeemed by rules in this campaign.  # noqa: E501
+        This property is **deprecated**. The count should be available under *budgets* property. Total number of loyalty points redeemed by rules in this campaign.   # noqa: E501
 
         :return: The redeemed_loyalty_points_count of this Campaign.  # noqa: E501
         :rtype: float
@@ -914,7 +1010,7 @@ class Campaign(object):
     def redeemed_loyalty_points_count(self, redeemed_loyalty_points_count):
         """Sets the redeemed_loyalty_points_count of this Campaign.
 
-        Total number of loyalty points redeemed by rules in this campaign.  # noqa: E501
+        This property is **deprecated**. The count should be available under *budgets* property. Total number of loyalty points redeemed by rules in this campaign.   # noqa: E501
 
         :param redeemed_loyalty_points_count: The redeemed_loyalty_points_count of this Campaign.  # noqa: E501
         :type: float
@@ -926,7 +1022,7 @@ class Campaign(object):
     def redeemed_loyalty_points_effect_count(self):
         """Gets the redeemed_loyalty_points_effect_count of this Campaign.  # noqa: E501
 
-        Total number of loyalty point redemption effects triggered by rules in this campaign.  # noqa: E501
+        This property is **deprecated**. The count should be available under *budgets* property. Total number of loyalty point redemption effects triggered by rules in this campaign.   # noqa: E501
 
         :return: The redeemed_loyalty_points_effect_count of this Campaign.  # noqa: E501
         :rtype: int
@@ -937,7 +1033,7 @@ class Campaign(object):
     def redeemed_loyalty_points_effect_count(self, redeemed_loyalty_points_effect_count):
         """Sets the redeemed_loyalty_points_effect_count of this Campaign.
 
-        Total number of loyalty point redemption effects triggered by rules in this campaign.  # noqa: E501
+        This property is **deprecated**. The count should be available under *budgets* property. Total number of loyalty point redemption effects triggered by rules in this campaign.   # noqa: E501
 
         :param redeemed_loyalty_points_effect_count: The redeemed_loyalty_points_effect_count of this Campaign.  # noqa: E501
         :type: int
@@ -949,7 +1045,7 @@ class Campaign(object):
     def call_api_effect_count(self):
         """Gets the call_api_effect_count of this Campaign.  # noqa: E501
 
-        Total number of webhook triggered by rules in this campaign.  # noqa: E501
+        This property is **deprecated**. The count should be available under *budgets* property. Total number of webhooks triggered by rules in this campaign.   # noqa: E501
 
         :return: The call_api_effect_count of this Campaign.  # noqa: E501
         :rtype: int
@@ -960,7 +1056,7 @@ class Campaign(object):
     def call_api_effect_count(self, call_api_effect_count):
         """Sets the call_api_effect_count of this Campaign.
 
-        Total number of webhook triggered by rules in this campaign.  # noqa: E501
+        This property is **deprecated**. The count should be available under *budgets* property. Total number of webhooks triggered by rules in this campaign.   # noqa: E501
 
         :param call_api_effect_count: The call_api_effect_count of this Campaign.  # noqa: E501
         :type: int
@@ -972,7 +1068,7 @@ class Campaign(object):
     def reservecoupon_effect_count(self):
         """Gets the reservecoupon_effect_count of this Campaign.  # noqa: E501
 
-        Total number of reserve coupon effects triggered by rules in this campaign.  # noqa: E501
+        This property is **deprecated**. The count should be available under *budgets* property. Total number of reserve coupon effects triggered by rules in this campaign.   # noqa: E501
 
         :return: The reservecoupon_effect_count of this Campaign.  # noqa: E501
         :rtype: int
@@ -983,7 +1079,7 @@ class Campaign(object):
     def reservecoupon_effect_count(self, reservecoupon_effect_count):
         """Sets the reservecoupon_effect_count of this Campaign.
 
-        Total number of reserve coupon effects triggered by rules in this campaign.  # noqa: E501
+        This property is **deprecated**. The count should be available under *budgets* property. Total number of reserve coupon effects triggered by rules in this campaign.   # noqa: E501
 
         :param reservecoupon_effect_count: The reservecoupon_effect_count of this Campaign.  # noqa: E501
         :type: int
@@ -1105,6 +1201,37 @@ class Campaign(object):
         """
 
         self._template_id = template_id
+
+    @property
+    def frontend_state(self):
+        """Gets the frontend_state of this Campaign.  # noqa: E501
+
+        A campaign state described exactly as in the Campaign Manager.  # noqa: E501
+
+        :return: The frontend_state of this Campaign.  # noqa: E501
+        :rtype: str
+        """
+        return self._frontend_state
+
+    @frontend_state.setter
+    def frontend_state(self, frontend_state):
+        """Sets the frontend_state of this Campaign.
+
+        A campaign state described exactly as in the Campaign Manager.  # noqa: E501
+
+        :param frontend_state: The frontend_state of this Campaign.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and frontend_state is None:  # noqa: E501
+            raise ValueError("Invalid value for `frontend_state`, must not be `None`")  # noqa: E501
+        allowed_values = ["expired", "scheduled", "running", "draft"]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and frontend_state not in allowed_values:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `frontend_state` ({0}), must be one of {1}"  # noqa: E501
+                .format(frontend_state, allowed_values)
+            )
+
+        self._frontend_state = frontend_state
 
     def to_dict(self):
         """Returns the model properties as a dict"""

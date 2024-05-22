@@ -34,7 +34,7 @@ class RoleV2Permissions(object):
     """
     openapi_types = {
         'permission_sets': 'list[RoleV2PermissionSet]',
-        'roles': 'RoleV2PermissionsRoles'
+        'roles': 'RoleV2RolesGroup'
     }
 
     attribute_map = {
@@ -61,7 +61,7 @@ class RoleV2Permissions(object):
     def permission_sets(self):
         """Gets the permission_sets of this RoleV2Permissions.  # noqa: E501
 
-        List of grouped operation IDs to use as a reference in the roles section. Each group of operation IDs has a name.  # noqa: E501
+        List of grouped logical operations referenced by roles.  # noqa: E501
 
         :return: The permission_sets of this RoleV2Permissions.  # noqa: E501
         :rtype: list[RoleV2PermissionSet]
@@ -72,7 +72,7 @@ class RoleV2Permissions(object):
     def permission_sets(self, permission_sets):
         """Sets the permission_sets of this RoleV2Permissions.
 
-        List of grouped operation IDs to use as a reference in the roles section. Each group of operation IDs has a name.  # noqa: E501
+        List of grouped logical operations referenced by roles.  # noqa: E501
 
         :param permission_sets: The permission_sets of this RoleV2Permissions.  # noqa: E501
         :type: list[RoleV2PermissionSet]
@@ -86,7 +86,7 @@ class RoleV2Permissions(object):
 
 
         :return: The roles of this RoleV2Permissions.  # noqa: E501
-        :rtype: RoleV2PermissionsRoles
+        :rtype: RoleV2RolesGroup
         """
         return self._roles
 
@@ -96,7 +96,7 @@ class RoleV2Permissions(object):
 
 
         :param roles: The roles of this RoleV2Permissions.  # noqa: E501
-        :type: RoleV2PermissionsRoles
+        :type: RoleV2RolesGroup
         """
 
         self._roles = roles

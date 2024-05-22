@@ -36,13 +36,13 @@ class TestNewInviteEmail(unittest.TestCase):
         # model = talon_one.models.new_invite_email.NewInviteEmail()  # noqa: E501
         if include_optional :
             return NewInviteEmail(
-                email = '0', 
-                token = '0'
+                email = 'john.doe@example.com', 
+                token = 'Gy9b8w1irmQtEPo5RmbMmSPheL5h4'
             )
         else :
             return NewInviteEmail(
-                email = '0',
-                token = '0',
+                email = 'john.doe@example.com',
+                token = 'Gy9b8w1irmQtEPo5RmbMmSPheL5h4',
         )
 
     def testNewInviteEmail(self):

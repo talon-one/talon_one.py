@@ -142,6 +142,7 @@ class OutgoingIntegrationConfiguration(object):
     def policy(self):
         """Gets the policy of this OutgoingIntegrationConfiguration.  # noqa: E501
 
+        The outgoing integration policy specific to each integration type.  # noqa: E501
 
         :return: The policy of this OutgoingIntegrationConfiguration.  # noqa: E501
         :rtype: object
@@ -152,6 +153,7 @@ class OutgoingIntegrationConfiguration(object):
     def policy(self, policy):
         """Sets the policy of this OutgoingIntegrationConfiguration.
 
+        The outgoing integration policy specific to each integration type.  # noqa: E501
 
         :param policy: The policy of this OutgoingIntegrationConfiguration.  # noqa: E501
         :type: object

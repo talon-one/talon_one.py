@@ -36,7 +36,7 @@ class TestInlineResponse2008(unittest.TestCase):
         # model = talon_one.models.inline_response2008.InlineResponse2008()  # noqa: E501
         if include_optional :
             return InlineResponse2008(
-                has_more = True, 
+                total_result_size = 1, 
                 data = [
                     talon_one.models.coupon.Coupon(
                         id = 6, 
@@ -65,12 +65,13 @@ class TestInlineResponse2008(unittest.TestCase):
                         import_id = 4, 
                         reservation = False, 
                         batch_id = '32535-43255', 
-                        is_reservation_mandatory = False, )
+                        is_reservation_mandatory = False, 
+                        implicitly_reserved = False, )
                     ]
             )
         else :
             return InlineResponse2008(
-                has_more = True,
+                total_result_size = 1,
                 data = [
                     talon_one.models.coupon.Coupon(
                         id = 6, 
@@ -99,7 +100,8 @@ class TestInlineResponse2008(unittest.TestCase):
                         import_id = 4, 
                         reservation = False, 
                         batch_id = '32535-43255', 
-                        is_reservation_mandatory = False, )
+                        is_reservation_mandatory = False, 
+                        implicitly_reserved = False, )
                     ],
         )
 

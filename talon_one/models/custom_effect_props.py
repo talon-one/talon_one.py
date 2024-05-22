@@ -156,7 +156,7 @@ class CustomEffectProps(object):
     def cart_item_sub_position(self):
         """Gets the cart_item_sub_position of this CustomEffectProps.  # noqa: E501
 
-        When cart item flattening is enabled, the sub position indicates to which item unit the custom effect is applied, for cart items with quantity > 1.   # noqa: E501
+        For cart items with quantity > 1, the sub position indicates to which item unit the custom effect is applied.   # noqa: E501
 
         :return: The cart_item_sub_position of this CustomEffectProps.  # noqa: E501
         :rtype: float
@@ -167,7 +167,7 @@ class CustomEffectProps(object):
     def cart_item_sub_position(self, cart_item_sub_position):
         """Sets the cart_item_sub_position of this CustomEffectProps.
 
-        When cart item flattening is enabled, the sub position indicates to which item unit the custom effect is applied, for cart items with quantity > 1.   # noqa: E501
+        For cart items with quantity > 1, the sub position indicates to which item unit the custom effect is applied.   # noqa: E501
 
         :param cart_item_sub_position: The cart_item_sub_position of this CustomEffectProps.  # noqa: E501
         :type: float

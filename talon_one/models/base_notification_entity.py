@@ -33,23 +33,28 @@ class BaseNotificationEntity(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'policy': 'object'
+        'policy': 'object',
+        'enabled': 'bool'
     }
 
     attribute_map = {
-        'policy': 'policy'
+        'policy': 'policy',
+        'enabled': 'enabled'
     }
 
-    def __init__(self, policy=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, policy=None, enabled=True, local_vars_configuration=None):  # noqa: E501
         """BaseNotificationEntity - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._policy = None
+        self._enabled = None
         self.discriminator = None
 
         self.policy = policy
+        if enabled is not None:
+            self.enabled = enabled
 
     @property
     def policy(self):
@@ -73,6 +78,29 @@ class BaseNotificationEntity(object):
             raise ValueError("Invalid value for `policy`, must not be `None`")  # noqa: E501
 
         self._policy = policy
+
+    @property
+    def enabled(self):
+        """Gets the enabled of this BaseNotificationEntity.  # noqa: E501
+
+        Indicates whether the notification is activated.  # noqa: E501
+
+        :return: The enabled of this BaseNotificationEntity.  # noqa: E501
+        :rtype: bool
+        """
+        return self._enabled
+
+    @enabled.setter
+    def enabled(self, enabled):
+        """Sets the enabled of this BaseNotificationEntity.
+
+        Indicates whether the notification is activated.  # noqa: E501
+
+        :param enabled: The enabled of this BaseNotificationEntity.  # noqa: E501
+        :type: bool
+        """
+
+        self._enabled = enabled
 
     def to_dict(self):
         """Returns the model properties as a dict"""

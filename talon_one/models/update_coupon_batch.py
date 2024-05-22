@@ -219,7 +219,7 @@ class UpdateCouponBatch(object):
     def attributes(self):
         """Gets the attributes of this UpdateCouponBatch.  # noqa: E501
 
-        Arbitrary properties associated with this item.  # noqa: E501
+        Optional property to set the value of custom coupon attributes. They are defined in the Campaign Manager, see [Managing attributes](https://docs.talon.one/docs/product/account/dev-tools/managing-attributes).  Coupon attributes can also be set to _mandatory_ in your Application [settings](https://docs.talon.one/docs/product/applications/using-attributes#making-attributes-mandatory). If your Application uses mandatory attributes, you must use this property to set their value.   # noqa: E501
 
         :return: The attributes of this UpdateCouponBatch.  # noqa: E501
         :rtype: object
@@ -230,7 +230,7 @@ class UpdateCouponBatch(object):
     def attributes(self, attributes):
         """Sets the attributes of this UpdateCouponBatch.
 
-        Arbitrary properties associated with this item.  # noqa: E501
+        Optional property to set the value of custom coupon attributes. They are defined in the Campaign Manager, see [Managing attributes](https://docs.talon.one/docs/product/account/dev-tools/managing-attributes).  Coupon attributes can also be set to _mandatory_ in your Application [settings](https://docs.talon.one/docs/product/applications/using-attributes#making-attributes-mandatory). If your Application uses mandatory attributes, you must use this property to set their value.   # noqa: E501
 
         :param attributes: The attributes of this UpdateCouponBatch.  # noqa: E501
         :type: object
@@ -242,7 +242,7 @@ class UpdateCouponBatch(object):
     def batch_id(self):
         """Gets the batch_id of this UpdateCouponBatch.  # noqa: E501
 
-        The id of the batch the coupon belongs to.  # noqa: E501
+        The ID of the batch the coupon(s) belong to.  # noqa: E501
 
         :return: The batch_id of this UpdateCouponBatch.  # noqa: E501
         :rtype: str
@@ -253,7 +253,7 @@ class UpdateCouponBatch(object):
     def batch_id(self, batch_id):
         """Sets the batch_id of this UpdateCouponBatch.
 
-        The id of the batch the coupon belongs to.  # noqa: E501
+        The ID of the batch the coupon(s) belong to.  # noqa: E501
 
         :param batch_id: The batch_id of this UpdateCouponBatch.  # noqa: E501
         :type: str

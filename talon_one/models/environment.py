@@ -42,6 +42,7 @@ class Environment(object):
         'variables': 'str',
         'giveaways_pools': 'list[GiveawaysPool]',
         'loyalty_programs': 'list[LoyaltyProgram]',
+        'achievements': 'list[Achievement]',
         'attributes': 'list[Attribute]',
         'additional_costs': 'list[AccountAdditionalCost]',
         'audiences': 'list[Audience]',
@@ -58,13 +59,14 @@ class Environment(object):
         'variables': 'variables',
         'giveaways_pools': 'giveawaysPools',
         'loyalty_programs': 'loyaltyPrograms',
+        'achievements': 'achievements',
         'attributes': 'attributes',
         'additional_costs': 'additionalCosts',
         'audiences': 'audiences',
         'collections': 'collections'
     }
 
-    def __init__(self, id=None, created=None, application_id=None, slots=None, functions=None, templates=None, variables=None, giveaways_pools=None, loyalty_programs=None, attributes=None, additional_costs=None, audiences=None, collections=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, created=None, application_id=None, slots=None, functions=None, templates=None, variables=None, giveaways_pools=None, loyalty_programs=None, achievements=None, attributes=None, additional_costs=None, audiences=None, collections=None, local_vars_configuration=None):  # noqa: E501
         """Environment - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -79,6 +81,7 @@ class Environment(object):
         self._variables = None
         self._giveaways_pools = None
         self._loyalty_programs = None
+        self._achievements = None
         self._attributes = None
         self._additional_costs = None
         self._audiences = None
@@ -96,6 +99,8 @@ class Environment(object):
             self.giveaways_pools = giveaways_pools
         if loyalty_programs is not None:
             self.loyalty_programs = loyalty_programs
+        if achievements is not None:
+            self.achievements = achievements
         if attributes is not None:
             self.attributes = attributes
         if additional_costs is not None:
@@ -325,6 +330,29 @@ class Environment(object):
         """
 
         self._loyalty_programs = loyalty_programs
+
+    @property
+    def achievements(self):
+        """Gets the achievements of this Environment.  # noqa: E501
+
+        The achievements, linked to the campaigns, belonging to the application.  # noqa: E501
+
+        :return: The achievements of this Environment.  # noqa: E501
+        :rtype: list[Achievement]
+        """
+        return self._achievements
+
+    @achievements.setter
+    def achievements(self, achievements):
+        """Sets the achievements of this Environment.
+
+        The achievements, linked to the campaigns, belonging to the application.  # noqa: E501
+
+        :param achievements: The achievements of this Environment.  # noqa: E501
+        :type: list[Achievement]
+        """
+
+        self._achievements = achievements
 
     @property
     def attributes(self):

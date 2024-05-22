@@ -36,46 +36,28 @@ class TestInlineResponse20033(unittest.TestCase):
         # model = talon_one.models.inline_response20033.InlineResponse20033()  # noqa: E501
         if include_optional :
             return InlineResponse20033(
+                has_more = True, 
                 total_result_size = 1, 
                 data = [
-                    talon_one.models.webhook.Webhook(
-                        id = 6, 
-                        created = '2020-06-10T09:05:27.993483Z', 
-                        modified = '2021-09-12T10:12:42Z', 
-                        application_ids = [
-                            56
-                            ], 
-                        title = 'Send message', 
-                        verb = 'POST', 
-                        url = 'www.my-company.com/my-endpoint-name', 
-                        headers = [{"Authorization": "Basic bmF2ZWVua3VtYXIU="}, {"Content-Type": "application/json"}], 
-                        payload = '{
-	"message": "${message}"
-}', 
-                        params = [], 
-                        enabled = True, )
+                    talon_one.models.application_referee.ApplicationReferee(
+                        application_id = 322, 
+                        session_id = '0', 
+                        advocate_integration_id = '0', 
+                        friend_integration_id = '0', 
+                        code = '0', 
+                        created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), )
                     ]
             )
         else :
             return InlineResponse20033(
-                total_result_size = 1,
                 data = [
-                    talon_one.models.webhook.Webhook(
-                        id = 6, 
-                        created = '2020-06-10T09:05:27.993483Z', 
-                        modified = '2021-09-12T10:12:42Z', 
-                        application_ids = [
-                            56
-                            ], 
-                        title = 'Send message', 
-                        verb = 'POST', 
-                        url = 'www.my-company.com/my-endpoint-name', 
-                        headers = [{"Authorization": "Basic bmF2ZWVua3VtYXIU="}, {"Content-Type": "application/json"}], 
-                        payload = '{
-	"message": "${message}"
-}', 
-                        params = [], 
-                        enabled = True, )
+                    talon_one.models.application_referee.ApplicationReferee(
+                        application_id = 322, 
+                        session_id = '0', 
+                        advocate_integration_id = '0', 
+                        friend_integration_id = '0', 
+                        code = '0', 
+                        created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), )
                     ],
         )
 

@@ -51,7 +51,8 @@ class AccountAnalytics(object):
         'custom_attributes': 'int',
         'webhooks': 'int',
         'loyalty_programs': 'int',
-        'live_loyalty_programs': 'int'
+        'live_loyalty_programs': 'int',
+        'last_updated_at': 'datetime'
     }
 
     attribute_map = {
@@ -73,10 +74,11 @@ class AccountAnalytics(object):
         'custom_attributes': 'customAttributes',
         'webhooks': 'webhooks',
         'loyalty_programs': 'loyaltyPrograms',
-        'live_loyalty_programs': 'liveLoyaltyPrograms'
+        'live_loyalty_programs': 'liveLoyaltyPrograms',
+        'last_updated_at': 'lastUpdatedAt'
     }
 
-    def __init__(self, applications=None, live_applications=None, sandbox_applications=None, campaigns=None, active_campaigns=None, live_active_campaigns=None, coupons=None, active_coupons=None, expired_coupons=None, referral_codes=None, active_referral_codes=None, expired_referral_codes=None, active_rules=None, users=None, roles=None, custom_attributes=None, webhooks=None, loyalty_programs=None, live_loyalty_programs=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, applications=None, live_applications=None, sandbox_applications=None, campaigns=None, active_campaigns=None, live_active_campaigns=None, coupons=None, active_coupons=None, expired_coupons=None, referral_codes=None, active_referral_codes=None, expired_referral_codes=None, active_rules=None, users=None, roles=None, custom_attributes=None, webhooks=None, loyalty_programs=None, live_loyalty_programs=None, last_updated_at=None, local_vars_configuration=None):  # noqa: E501
         """AccountAnalytics - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -101,6 +103,7 @@ class AccountAnalytics(object):
         self._webhooks = None
         self._loyalty_programs = None
         self._live_loyalty_programs = None
+        self._last_updated_at = None
         self.discriminator = None
 
         self.applications = applications
@@ -122,6 +125,7 @@ class AccountAnalytics(object):
         self.webhooks = webhooks
         self.loyalty_programs = loyalty_programs
         self.live_loyalty_programs = live_loyalty_programs
+        self.last_updated_at = last_updated_at
 
     @property
     def applications(self):
@@ -597,6 +601,31 @@ class AccountAnalytics(object):
             raise ValueError("Invalid value for `live_loyalty_programs`, must not be `None`")  # noqa: E501
 
         self._live_loyalty_programs = live_loyalty_programs
+
+    @property
+    def last_updated_at(self):
+        """Gets the last_updated_at of this AccountAnalytics.  # noqa: E501
+
+        The point in time when the analytics numbers were updated last.  # noqa: E501
+
+        :return: The last_updated_at of this AccountAnalytics.  # noqa: E501
+        :rtype: datetime
+        """
+        return self._last_updated_at
+
+    @last_updated_at.setter
+    def last_updated_at(self, last_updated_at):
+        """Sets the last_updated_at of this AccountAnalytics.
+
+        The point in time when the analytics numbers were updated last.  # noqa: E501
+
+        :param last_updated_at: The last_updated_at of this AccountAnalytics.  # noqa: E501
+        :type: datetime
+        """
+        if self.local_vars_configuration.client_side_validation and last_updated_at is None:  # noqa: E501
+            raise ValueError("Invalid value for `last_updated_at`, must not be `None`")  # noqa: E501
+
+        self._last_updated_at = last_updated_at
 
     def to_dict(self):
         """Returns the model properties as a dict"""

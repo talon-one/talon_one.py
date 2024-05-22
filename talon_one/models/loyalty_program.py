@@ -43,11 +43,18 @@ class LoyaltyProgram(object):
         'allow_subledger': 'bool',
         'users_per_card_limit': 'int',
         'sandbox': 'bool',
+        'tiers_expiration_policy': 'str',
+        'tiers_expire_in': 'str',
+        'tiers_downgrade_policy': 'str',
+        'program_join_policy': 'str',
         'account_id': 'int',
         'name': 'str',
         'tiers': 'list[LoyaltyTier]',
         'timezone': 'str',
-        'card_based': 'bool'
+        'card_based': 'bool',
+        'can_update_tiers': 'bool',
+        'can_update_join_policy': 'bool',
+        'can_upgrade_to_advanced_tiers': 'bool'
     }
 
     attribute_map = {
@@ -61,14 +68,21 @@ class LoyaltyProgram(object):
         'allow_subledger': 'allowSubledger',
         'users_per_card_limit': 'usersPerCardLimit',
         'sandbox': 'sandbox',
+        'tiers_expiration_policy': 'tiersExpirationPolicy',
+        'tiers_expire_in': 'tiersExpireIn',
+        'tiers_downgrade_policy': 'tiersDowngradePolicy',
+        'program_join_policy': 'programJoinPolicy',
         'account_id': 'accountID',
         'name': 'name',
         'tiers': 'tiers',
         'timezone': 'timezone',
-        'card_based': 'cardBased'
+        'card_based': 'cardBased',
+        'can_update_tiers': 'canUpdateTiers',
+        'can_update_join_policy': 'canUpdateJoinPolicy',
+        'can_upgrade_to_advanced_tiers': 'canUpgradeToAdvancedTiers'
     }
 
-    def __init__(self, id=None, created=None, title=None, description=None, subscribed_applications=None, default_validity=None, default_pending=None, allow_subledger=None, users_per_card_limit=None, sandbox=None, account_id=None, name=None, tiers=None, timezone=None, card_based=False, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, created=None, title=None, description=None, subscribed_applications=None, default_validity=None, default_pending=None, allow_subledger=None, users_per_card_limit=None, sandbox=None, tiers_expiration_policy=None, tiers_expire_in=None, tiers_downgrade_policy=None, program_join_policy=None, account_id=None, name=None, tiers=None, timezone=None, card_based=False, can_update_tiers=False, can_update_join_policy=None, can_upgrade_to_advanced_tiers=False, local_vars_configuration=None):  # noqa: E501
         """LoyaltyProgram - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -84,11 +98,18 @@ class LoyaltyProgram(object):
         self._allow_subledger = None
         self._users_per_card_limit = None
         self._sandbox = None
+        self._tiers_expiration_policy = None
+        self._tiers_expire_in = None
+        self._tiers_downgrade_policy = None
+        self._program_join_policy = None
         self._account_id = None
         self._name = None
         self._tiers = None
         self._timezone = None
         self._card_based = None
+        self._can_update_tiers = None
+        self._can_update_join_policy = None
+        self._can_upgrade_to_advanced_tiers = None
         self.discriminator = None
 
         self.id = id
@@ -102,12 +123,26 @@ class LoyaltyProgram(object):
         if users_per_card_limit is not None:
             self.users_per_card_limit = users_per_card_limit
         self.sandbox = sandbox
+        if tiers_expiration_policy is not None:
+            self.tiers_expiration_policy = tiers_expiration_policy
+        if tiers_expire_in is not None:
+            self.tiers_expire_in = tiers_expire_in
+        if tiers_downgrade_policy is not None:
+            self.tiers_downgrade_policy = tiers_downgrade_policy
+        if program_join_policy is not None:
+            self.program_join_policy = program_join_policy
         self.account_id = account_id
         self.name = name
         if tiers is not None:
             self.tiers = tiers
         self.timezone = timezone
         self.card_based = card_based
+        if can_update_tiers is not None:
+            self.can_update_tiers = can_update_tiers
+        if can_update_join_policy is not None:
+            self.can_update_join_policy = can_update_join_policy
+        if can_upgrade_to_advanced_tiers is not None:
+            self.can_upgrade_to_advanced_tiers = can_upgrade_to_advanced_tiers
 
     @property
     def id(self):
@@ -361,6 +396,116 @@ class LoyaltyProgram(object):
         self._sandbox = sandbox
 
     @property
+    def tiers_expiration_policy(self):
+        """Gets the tiers_expiration_policy of this LoyaltyProgram.  # noqa: E501
+
+        The policy that defines which date is used to calculate the expiration date of a customer's current tier.  - `tier_start_date`: The tier expiration date is calculated based on when the customer joined the current tier.  - `program_join_date`: The tier expiration date is calculated based on when the customer joined the loyalty program.   # noqa: E501
+
+        :return: The tiers_expiration_policy of this LoyaltyProgram.  # noqa: E501
+        :rtype: str
+        """
+        return self._tiers_expiration_policy
+
+    @tiers_expiration_policy.setter
+    def tiers_expiration_policy(self, tiers_expiration_policy):
+        """Sets the tiers_expiration_policy of this LoyaltyProgram.
+
+        The policy that defines which date is used to calculate the expiration date of a customer's current tier.  - `tier_start_date`: The tier expiration date is calculated based on when the customer joined the current tier.  - `program_join_date`: The tier expiration date is calculated based on when the customer joined the loyalty program.   # noqa: E501
+
+        :param tiers_expiration_policy: The tiers_expiration_policy of this LoyaltyProgram.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["tier_start_date", "program_join_date"]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and tiers_expiration_policy not in allowed_values:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `tiers_expiration_policy` ({0}), must be one of {1}"  # noqa: E501
+                .format(tiers_expiration_policy, allowed_values)
+            )
+
+        self._tiers_expiration_policy = tiers_expiration_policy
+
+    @property
+    def tiers_expire_in(self):
+        """Gets the tiers_expire_in of this LoyaltyProgram.  # noqa: E501
+
+        The amount of time after which the tier expires.  The time format is an **integer** followed by one letter indicating the time unit. Examples: `30s`, `40m`, `1h`, `5D`, `7W`, `10M`, `15Y`.  Available units:  - `s`: seconds - `m`: minutes - `h`: hours - `D`: days - `W`: weeks - `M`: months - `Y`: years  You can round certain units up or down: - `_D` for rounding down days only. Signifies the start of the day. - `_U` for rounding up days, weeks, months and years. Signifies the end of the day, week, month or year.   # noqa: E501
+
+        :return: The tiers_expire_in of this LoyaltyProgram.  # noqa: E501
+        :rtype: str
+        """
+        return self._tiers_expire_in
+
+    @tiers_expire_in.setter
+    def tiers_expire_in(self, tiers_expire_in):
+        """Sets the tiers_expire_in of this LoyaltyProgram.
+
+        The amount of time after which the tier expires.  The time format is an **integer** followed by one letter indicating the time unit. Examples: `30s`, `40m`, `1h`, `5D`, `7W`, `10M`, `15Y`.  Available units:  - `s`: seconds - `m`: minutes - `h`: hours - `D`: days - `W`: weeks - `M`: months - `Y`: years  You can round certain units up or down: - `_D` for rounding down days only. Signifies the start of the day. - `_U` for rounding up days, weeks, months and years. Signifies the end of the day, week, month or year.   # noqa: E501
+
+        :param tiers_expire_in: The tiers_expire_in of this LoyaltyProgram.  # noqa: E501
+        :type: str
+        """
+
+        self._tiers_expire_in = tiers_expire_in
+
+    @property
+    def tiers_downgrade_policy(self):
+        """Gets the tiers_downgrade_policy of this LoyaltyProgram.  # noqa: E501
+
+        Customers's tier downgrade policy.  - `one_down`: Once the tier expires and if the user doesn't have enough points to stay in the tier, the user is downgraded one tier down.  - `balance_based`: Once the tier expires, the user's tier is evaluated based on the amount of active points the user has at this instant.   # noqa: E501
+
+        :return: The tiers_downgrade_policy of this LoyaltyProgram.  # noqa: E501
+        :rtype: str
+        """
+        return self._tiers_downgrade_policy
+
+    @tiers_downgrade_policy.setter
+    def tiers_downgrade_policy(self, tiers_downgrade_policy):
+        """Sets the tiers_downgrade_policy of this LoyaltyProgram.
+
+        Customers's tier downgrade policy.  - `one_down`: Once the tier expires and if the user doesn't have enough points to stay in the tier, the user is downgraded one tier down.  - `balance_based`: Once the tier expires, the user's tier is evaluated based on the amount of active points the user has at this instant.   # noqa: E501
+
+        :param tiers_downgrade_policy: The tiers_downgrade_policy of this LoyaltyProgram.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["one_down", "balance_based"]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and tiers_downgrade_policy not in allowed_values:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `tiers_downgrade_policy` ({0}), must be one of {1}"  # noqa: E501
+                .format(tiers_downgrade_policy, allowed_values)
+            )
+
+        self._tiers_downgrade_policy = tiers_downgrade_policy
+
+    @property
+    def program_join_policy(self):
+        """Gets the program_join_policy of this LoyaltyProgram.  # noqa: E501
+
+        The policy that defines when the customer joins the loyalty program.   - `not_join`: The customer does not join the loyalty program but can still earn and spend loyalty points.       **Note**: The customer does not have a program join date.   - `points_activated`: The customer joins the loyalty program only when their earned loyalty points become active for the first time.   - `points_earned`: The customer joins the loyalty program when they earn loyalty points for the first time.   # noqa: E501
+
+        :return: The program_join_policy of this LoyaltyProgram.  # noqa: E501
+        :rtype: str
+        """
+        return self._program_join_policy
+
+    @program_join_policy.setter
+    def program_join_policy(self, program_join_policy):
+        """Sets the program_join_policy of this LoyaltyProgram.
+
+        The policy that defines when the customer joins the loyalty program.   - `not_join`: The customer does not join the loyalty program but can still earn and spend loyalty points.       **Note**: The customer does not have a program join date.   - `points_activated`: The customer joins the loyalty program only when their earned loyalty points become active for the first time.   - `points_earned`: The customer joins the loyalty program when they earn loyalty points for the first time.   # noqa: E501
+
+        :param program_join_policy: The program_join_policy of this LoyaltyProgram.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["not_join", "points_activated", "points_earned"]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and program_join_policy not in allowed_values:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `program_join_policy` ({0}), must be one of {1}"  # noqa: E501
+                .format(program_join_policy, allowed_values)
+            )
+
+        self._program_join_policy = program_join_policy
+
+    @property
     def account_id(self):
         """Gets the account_id of this LoyaltyProgram.  # noqa: E501
 
@@ -485,6 +630,75 @@ class LoyaltyProgram(object):
             raise ValueError("Invalid value for `card_based`, must not be `None`")  # noqa: E501
 
         self._card_based = card_based
+
+    @property
+    def can_update_tiers(self):
+        """Gets the can_update_tiers of this LoyaltyProgram.  # noqa: E501
+
+        `True` if the tier definitions can be updated.   # noqa: E501
+
+        :return: The can_update_tiers of this LoyaltyProgram.  # noqa: E501
+        :rtype: bool
+        """
+        return self._can_update_tiers
+
+    @can_update_tiers.setter
+    def can_update_tiers(self, can_update_tiers):
+        """Sets the can_update_tiers of this LoyaltyProgram.
+
+        `True` if the tier definitions can be updated.   # noqa: E501
+
+        :param can_update_tiers: The can_update_tiers of this LoyaltyProgram.  # noqa: E501
+        :type: bool
+        """
+
+        self._can_update_tiers = can_update_tiers
+
+    @property
+    def can_update_join_policy(self):
+        """Gets the can_update_join_policy of this LoyaltyProgram.  # noqa: E501
+
+        Indicates whether the program join policy can be updated. The join policy can be updated when this value is set to `true`.   # noqa: E501
+
+        :return: The can_update_join_policy of this LoyaltyProgram.  # noqa: E501
+        :rtype: bool
+        """
+        return self._can_update_join_policy
+
+    @can_update_join_policy.setter
+    def can_update_join_policy(self, can_update_join_policy):
+        """Sets the can_update_join_policy of this LoyaltyProgram.
+
+        Indicates whether the program join policy can be updated. The join policy can be updated when this value is set to `true`.   # noqa: E501
+
+        :param can_update_join_policy: The can_update_join_policy of this LoyaltyProgram.  # noqa: E501
+        :type: bool
+        """
+
+        self._can_update_join_policy = can_update_join_policy
+
+    @property
+    def can_upgrade_to_advanced_tiers(self):
+        """Gets the can_upgrade_to_advanced_tiers of this LoyaltyProgram.  # noqa: E501
+
+        `True` if the program can be upgraded to use the `tiersExpireIn` and `tiersDowngradePolicy` properties.   # noqa: E501
+
+        :return: The can_upgrade_to_advanced_tiers of this LoyaltyProgram.  # noqa: E501
+        :rtype: bool
+        """
+        return self._can_upgrade_to_advanced_tiers
+
+    @can_upgrade_to_advanced_tiers.setter
+    def can_upgrade_to_advanced_tiers(self, can_upgrade_to_advanced_tiers):
+        """Sets the can_upgrade_to_advanced_tiers of this LoyaltyProgram.
+
+        `True` if the program can be upgraded to use the `tiersExpireIn` and `tiersDowngradePolicy` properties.   # noqa: E501
+
+        :param can_upgrade_to_advanced_tiers: The can_upgrade_to_advanced_tiers of this LoyaltyProgram.  # noqa: E501
+        :type: bool
+        """
+
+        self._can_upgrade_to_advanced_tiers = can_upgrade_to_advanced_tiers
 
     def to_dict(self):
         """Returns the model properties as a dict"""

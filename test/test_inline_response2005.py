@@ -38,26 +38,128 @@ class TestInlineResponse2005(unittest.TestCase):
             return InlineResponse2005(
                 total_result_size = 1, 
                 data = [
-                    talon_one.models.notification_webhook.NotificationWebhook(
+                    talon_one.models.application.Application(
                         id = 6, 
                         created = '2020-06-10T09:05:27.993483Z', 
                         modified = '2021-09-12T10:12:42Z', 
-                        application_id = 322, 
-                        url = 'www.my-company.com/my-endpoint-name', 
-                        headers = content-type: application/json, )
+                        account_id = 3886, 
+                        name = 'My Application', 
+                        description = 'A test Application', 
+                        timezone = 'Europe/Berlin', 
+                        currency = 'EUR', 
+                        case_sensitivity = 'sensitive', 
+                        attributes = talon_one.models.attributes.attributes(), 
+                        limits = [
+                            talon_one.models.limit_config.LimitConfig(
+                                action = 'createCoupon', 
+                                limit = 1000.0, 
+                                period = 'yearly', 
+                                entities = [Coupon], )
+                            ], 
+                        default_discount_scope = 'sessionTotal', 
+                        enable_cascading_discounts = True, 
+                        enable_flattened_cart_items = True, 
+                        attributes_settings = talon_one.models.attributes_settings.AttributesSettings(
+                            mandatory = talon_one.models.attributes_mandatory.AttributesMandatory(
+                                campaigns = [
+                                    '0'
+                                    ], 
+                                coupons = [
+                                    '0'
+                                    ], ), ), 
+                        sandbox = True, 
+                        enable_partial_discounts = False, 
+                        default_discount_additional_cost_per_item_scope = 'price', 
+                        default_evaluation_group_id = 3, 
+                        loyalty_programs = [
+                            talon_one.models.loyalty_program.LoyaltyProgram(
+                                id = 56, 
+                                created = '2020-06-10T09:05:27.993483Z', 
+                                title = 'Point collection', 
+                                description = 'Customers collect 10 points per 1$ spent', 
+                                subscribed_applications = [132, 97], 
+                                default_validity = '2W_U', 
+                                default_pending = 'immediate', 
+                                allow_subledger = False, 
+                                users_per_card_limit = 111, 
+                                sandbox = True, 
+                                tiers_expiration_policy = 'tier_start_date', 
+                                tiers_expire_in = '27W_U', 
+                                tiers_downgrade_policy = 'one_down', 
+                                program_join_policy = 'not_join', 
+                                account_id = 1, 
+                                name = 'my_program', 
+                                tiers = [{name=Gold, minPoints=300, id=3, created=2021-06-10T09:05:27.993483Z, programID=139}, {name=Silver, minPoints=200, id=2, created=2021-06-10T09:04:59.355258Z, programId=139}, {name=Bronze, minPoints=100, id=1, created=2021-06-10T09:04:39.355258Z, programId=139}], 
+                                timezone = 'Europe/Berlin', 
+                                card_based = True, 
+                                can_update_tiers = True, 
+                                can_update_join_policy = True, 
+                                can_upgrade_to_advanced_tiers = True, )
+                            ], )
                     ]
             )
         else :
             return InlineResponse2005(
                 total_result_size = 1,
                 data = [
-                    talon_one.models.notification_webhook.NotificationWebhook(
+                    talon_one.models.application.Application(
                         id = 6, 
                         created = '2020-06-10T09:05:27.993483Z', 
                         modified = '2021-09-12T10:12:42Z', 
-                        application_id = 322, 
-                        url = 'www.my-company.com/my-endpoint-name', 
-                        headers = content-type: application/json, )
+                        account_id = 3886, 
+                        name = 'My Application', 
+                        description = 'A test Application', 
+                        timezone = 'Europe/Berlin', 
+                        currency = 'EUR', 
+                        case_sensitivity = 'sensitive', 
+                        attributes = talon_one.models.attributes.attributes(), 
+                        limits = [
+                            talon_one.models.limit_config.LimitConfig(
+                                action = 'createCoupon', 
+                                limit = 1000.0, 
+                                period = 'yearly', 
+                                entities = [Coupon], )
+                            ], 
+                        default_discount_scope = 'sessionTotal', 
+                        enable_cascading_discounts = True, 
+                        enable_flattened_cart_items = True, 
+                        attributes_settings = talon_one.models.attributes_settings.AttributesSettings(
+                            mandatory = talon_one.models.attributes_mandatory.AttributesMandatory(
+                                campaigns = [
+                                    '0'
+                                    ], 
+                                coupons = [
+                                    '0'
+                                    ], ), ), 
+                        sandbox = True, 
+                        enable_partial_discounts = False, 
+                        default_discount_additional_cost_per_item_scope = 'price', 
+                        default_evaluation_group_id = 3, 
+                        loyalty_programs = [
+                            talon_one.models.loyalty_program.LoyaltyProgram(
+                                id = 56, 
+                                created = '2020-06-10T09:05:27.993483Z', 
+                                title = 'Point collection', 
+                                description = 'Customers collect 10 points per 1$ spent', 
+                                subscribed_applications = [132, 97], 
+                                default_validity = '2W_U', 
+                                default_pending = 'immediate', 
+                                allow_subledger = False, 
+                                users_per_card_limit = 111, 
+                                sandbox = True, 
+                                tiers_expiration_policy = 'tier_start_date', 
+                                tiers_expire_in = '27W_U', 
+                                tiers_downgrade_policy = 'one_down', 
+                                program_join_policy = 'not_join', 
+                                account_id = 1, 
+                                name = 'my_program', 
+                                tiers = [{name=Gold, minPoints=300, id=3, created=2021-06-10T09:05:27.993483Z, programID=139}, {name=Silver, minPoints=200, id=2, created=2021-06-10T09:04:59.355258Z, programId=139}, {name=Bronze, minPoints=100, id=1, created=2021-06-10T09:04:39.355258Z, programId=139}], 
+                                timezone = 'Europe/Berlin', 
+                                card_based = True, 
+                                can_update_tiers = True, 
+                                can_update_join_policy = True, 
+                                can_upgrade_to_advanced_tiers = True, )
+                            ], )
                     ],
         )
 

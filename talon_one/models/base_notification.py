@@ -34,30 +34,39 @@ class BaseNotification(object):
     """
     openapi_types = {
         'policy': 'object',
+        'enabled': 'bool',
         'webhook': 'BaseNotificationWebhook',
-        'id': 'int'
+        'id': 'int',
+        'type': 'str'
     }
 
     attribute_map = {
         'policy': 'policy',
+        'enabled': 'enabled',
         'webhook': 'webhook',
-        'id': 'id'
+        'id': 'id',
+        'type': 'type'
     }
 
-    def __init__(self, policy=None, webhook=None, id=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, policy=None, enabled=True, webhook=None, id=None, type=None, local_vars_configuration=None):  # noqa: E501
         """BaseNotification - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._policy = None
+        self._enabled = None
         self._webhook = None
         self._id = None
+        self._type = None
         self.discriminator = None
 
         self.policy = policy
+        if enabled is not None:
+            self.enabled = enabled
         self.webhook = webhook
         self.id = id
+        self.type = type
 
     @property
     def policy(self):
@@ -81,6 +90,29 @@ class BaseNotification(object):
             raise ValueError("Invalid value for `policy`, must not be `None`")  # noqa: E501
 
         self._policy = policy
+
+    @property
+    def enabled(self):
+        """Gets the enabled of this BaseNotification.  # noqa: E501
+
+        Indicates whether the notification is activated.  # noqa: E501
+
+        :return: The enabled of this BaseNotification.  # noqa: E501
+        :rtype: bool
+        """
+        return self._enabled
+
+    @enabled.setter
+    def enabled(self, enabled):
+        """Sets the enabled of this BaseNotification.
+
+        Indicates whether the notification is activated.  # noqa: E501
+
+        :param enabled: The enabled of this BaseNotification.  # noqa: E501
+        :type: bool
+        """
+
+        self._enabled = enabled
 
     @property
     def webhook(self):
@@ -132,6 +164,37 @@ class BaseNotification(object):
             raise ValueError("Invalid value for `id`, must be a value greater than or equal to `1`")  # noqa: E501
 
         self._id = id
+
+    @property
+    def type(self):
+        """Gets the type of this BaseNotification.  # noqa: E501
+
+        The notification type.  # noqa: E501
+
+        :return: The type of this BaseNotification.  # noqa: E501
+        :rtype: str
+        """
+        return self._type
+
+    @type.setter
+    def type(self, type):
+        """Sets the type of this BaseNotification.
+
+        The notification type.  # noqa: E501
+
+        :param type: The type of this BaseNotification.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and type is None:  # noqa: E501
+            raise ValueError("Invalid value for `type`, must not be `None`")  # noqa: E501
+        allowed_values = ["campaign", "loyalty_added_deducted_points", "coupon", "expiring_coupons", "expiring_points", "card_expiring_points", "pending_to_active_points", "strikethrough_pricing", "tier_downgrade", "tier_upgrade", "tier_will_downgrade"]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and type not in allowed_values:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `type` ({0}), must be one of {1}"  # noqa: E501
+                .format(type, allowed_values)
+            )
+
+        self._type = type
 
     def to_dict(self):
         """Returns the model properties as a dict"""

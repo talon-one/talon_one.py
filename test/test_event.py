@@ -40,6 +40,7 @@ class TestEvent(unittest.TestCase):
                 created = '2020-06-10T09:05:27.993483Z', 
                 application_id = 322, 
                 profile_id = 'URNGV8294NV', 
+                store_integration_id = 'STORE-001', 
                 type = 'pageViewed', 
                 attributes = {"myAttribute":"myValue"}, 
                 session_id = '175KJPS947296', 

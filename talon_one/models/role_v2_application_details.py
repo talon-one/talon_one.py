@@ -35,16 +35,18 @@ class RoleV2ApplicationDetails(object):
     openapi_types = {
         'application': 'str',
         'campaign': 'str',
-        'draft_campaign': 'str'
+        'draft_campaign': 'str',
+        'tools': 'str'
     }
 
     attribute_map = {
         'application': 'application',
         'campaign': 'campaign',
-        'draft_campaign': 'draftCampaign'
+        'draft_campaign': 'draftCampaign',
+        'tools': 'tools'
     }
 
-    def __init__(self, application=None, campaign=None, draft_campaign=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, application=None, campaign=None, draft_campaign=None, tools=None, local_vars_configuration=None):  # noqa: E501
         """RoleV2ApplicationDetails - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -53,6 +55,7 @@ class RoleV2ApplicationDetails(object):
         self._application = None
         self._campaign = None
         self._draft_campaign = None
+        self._tools = None
         self.discriminator = None
 
         if application is not None:
@@ -61,12 +64,14 @@ class RoleV2ApplicationDetails(object):
             self.campaign = campaign
         if draft_campaign is not None:
             self.draft_campaign = draft_campaign
+        if tools is not None:
+            self.tools = tools
 
     @property
     def application(self):
         """Gets the application of this RoleV2ApplicationDetails.  # noqa: E501
 
-        Name of the Application-level permission set.  # noqa: E501
+        Name of the Application-related permission set for the given Application.  # noqa: E501
 
         :return: The application of this RoleV2ApplicationDetails.  # noqa: E501
         :rtype: str
@@ -77,7 +82,7 @@ class RoleV2ApplicationDetails(object):
     def application(self, application):
         """Sets the application of this RoleV2ApplicationDetails.
 
-        Name of the Application-level permission set.  # noqa: E501
+        Name of the Application-related permission set for the given Application.  # noqa: E501
 
         :param application: The application of this RoleV2ApplicationDetails.  # noqa: E501
         :type: str
@@ -89,7 +94,7 @@ class RoleV2ApplicationDetails(object):
     def campaign(self):
         """Gets the campaign of this RoleV2ApplicationDetails.  # noqa: E501
 
-        Name of the campaign-level permission set.  # noqa: E501
+        Name of the campaign-related permission set for the given Application.  # noqa: E501
 
         :return: The campaign of this RoleV2ApplicationDetails.  # noqa: E501
         :rtype: str
@@ -100,7 +105,7 @@ class RoleV2ApplicationDetails(object):
     def campaign(self, campaign):
         """Sets the campaign of this RoleV2ApplicationDetails.
 
-        Name of the campaign-level permission set.  # noqa: E501
+        Name of the campaign-related permission set for the given Application.  # noqa: E501
 
         :param campaign: The campaign of this RoleV2ApplicationDetails.  # noqa: E501
         :type: str
@@ -112,7 +117,7 @@ class RoleV2ApplicationDetails(object):
     def draft_campaign(self):
         """Gets the draft_campaign of this RoleV2ApplicationDetails.  # noqa: E501
 
-        Name of the draft campaign-level permission set.  # noqa: E501
+        Name of the draft campaign-related permission set for the given Application.  # noqa: E501
 
         :return: The draft_campaign of this RoleV2ApplicationDetails.  # noqa: E501
         :rtype: str
@@ -123,13 +128,36 @@ class RoleV2ApplicationDetails(object):
     def draft_campaign(self, draft_campaign):
         """Sets the draft_campaign of this RoleV2ApplicationDetails.
 
-        Name of the draft campaign-level permission set.  # noqa: E501
+        Name of the draft campaign-related permission set for the given Application.  # noqa: E501
 
         :param draft_campaign: The draft_campaign of this RoleV2ApplicationDetails.  # noqa: E501
         :type: str
         """
 
         self._draft_campaign = draft_campaign
+
+    @property
+    def tools(self):
+        """Gets the tools of this RoleV2ApplicationDetails.  # noqa: E501
+
+        Name of the tools-related permission set.  # noqa: E501
+
+        :return: The tools of this RoleV2ApplicationDetails.  # noqa: E501
+        :rtype: str
+        """
+        return self._tools
+
+    @tools.setter
+    def tools(self, tools):
+        """Sets the tools of this RoleV2ApplicationDetails.
+
+        Name of the tools-related permission set.  # noqa: E501
+
+        :param tools: The tools of this RoleV2ApplicationDetails.  # noqa: E501
+        :type: str
+        """
+
+        self._tools = tools
 
     def to_dict(self):
         """Returns the model properties as a dict"""

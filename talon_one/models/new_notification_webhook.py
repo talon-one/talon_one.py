@@ -34,15 +34,17 @@ class NewNotificationWebhook(object):
     """
     openapi_types = {
         'url': 'str',
-        'headers': 'list[str]'
+        'headers': 'list[str]',
+        'enabled': 'bool'
     }
 
     attribute_map = {
         'url': 'url',
-        'headers': 'headers'
+        'headers': 'headers',
+        'enabled': 'enabled'
     }
 
-    def __init__(self, url=None, headers=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, url=None, headers=None, enabled=True, local_vars_configuration=None):  # noqa: E501
         """NewNotificationWebhook - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -50,10 +52,13 @@ class NewNotificationWebhook(object):
 
         self._url = None
         self._headers = None
+        self._enabled = None
         self.discriminator = None
 
         self.url = url
         self.headers = headers
+        if enabled is not None:
+            self.enabled = enabled
 
     @property
     def url(self):
@@ -104,6 +109,29 @@ class NewNotificationWebhook(object):
             raise ValueError("Invalid value for `headers`, must not be `None`")  # noqa: E501
 
         self._headers = headers
+
+    @property
+    def enabled(self):
+        """Gets the enabled of this NewNotificationWebhook.  # noqa: E501
+
+        Indicates whether the notification is activated.  # noqa: E501
+
+        :return: The enabled of this NewNotificationWebhook.  # noqa: E501
+        :rtype: bool
+        """
+        return self._enabled
+
+    @enabled.setter
+    def enabled(self, enabled):
+        """Sets the enabled of this NewNotificationWebhook.
+
+        Indicates whether the notification is activated.  # noqa: E501
+
+        :param enabled: The enabled of this NewNotificationWebhook.  # noqa: E501
+        :type: bool
+        """
+
+        self._enabled = enabled
 
     def to_dict(self):
         """Returns the model properties as a dict"""

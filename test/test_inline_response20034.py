@@ -38,24 +38,52 @@ class TestInlineResponse20034(unittest.TestCase):
             return InlineResponse20034(
                 total_result_size = 1, 
                 data = [
-                    talon_one.models.webhook_activation_log_entry.WebhookActivationLogEntry(
-                        integration_request_uuid = '6d3699cf-95bd-444a-b62f-80d6e8391dc9', 
-                        webhook_id = 1, 
-                        application_id = 13, 
-                        campaign_id = 86, 
-                        created = '2023-03-21T13:55:08.571144Z', )
+                    talon_one.models.attribute.Attribute(
+                        id = 6, 
+                        created = '2020-06-10T09:05:27.993483Z', 
+                        account_id = 3886, 
+                        entity = 'Event', 
+                        event_type = 'pageViewed', 
+                        name = 'pageViewed', 
+                        title = 'Page view event', 
+                        type = 'string', 
+                        description = 'Event triggered when a customer displays a page.', 
+                        suggestions = [
+                            '0'
+                            ], 
+                        has_allowed_list = False, 
+                        restricted_by_suggestions = False, 
+                        editable = True, 
+                        subscribed_applications_ids = [1, 4, 9], 
+                        subscribed_catalogs_ids = [2, 5], 
+                        allowed_subscriptions = [application, catalog], 
+                        event_type_id = 22, )
                     ]
             )
         else :
             return InlineResponse20034(
                 total_result_size = 1,
                 data = [
-                    talon_one.models.webhook_activation_log_entry.WebhookActivationLogEntry(
-                        integration_request_uuid = '6d3699cf-95bd-444a-b62f-80d6e8391dc9', 
-                        webhook_id = 1, 
-                        application_id = 13, 
-                        campaign_id = 86, 
-                        created = '2023-03-21T13:55:08.571144Z', )
+                    talon_one.models.attribute.Attribute(
+                        id = 6, 
+                        created = '2020-06-10T09:05:27.993483Z', 
+                        account_id = 3886, 
+                        entity = 'Event', 
+                        event_type = 'pageViewed', 
+                        name = 'pageViewed', 
+                        title = 'Page view event', 
+                        type = 'string', 
+                        description = 'Event triggered when a customer displays a page.', 
+                        suggestions = [
+                            '0'
+                            ], 
+                        has_allowed_list = False, 
+                        restricted_by_suggestions = False, 
+                        editable = True, 
+                        subscribed_applications_ids = [1, 4, 9], 
+                        subscribed_catalogs_ids = [2, 5], 
+                        allowed_subscriptions = [application, catalog], 
+                        event_type_id = 22, )
                     ],
         )
 

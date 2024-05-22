@@ -36,26 +36,11 @@ class TestRoleV2Permissions(unittest.TestCase):
         # model = talon_one.models.role_v2_permissions.RoleV2Permissions()  # noqa: E501
         if include_optional :
             return RoleV2Permissions(
-                permission_sets = [
-                    talon_one.models.role_v2_permission_set.RoleV2PermissionSet(
-                        name = '0', 
-                        operation_ids = [
-                            '0'
-                            ], )
-                    ], 
-                roles = talon_one.models.role_v2_permissions_roles.RoleV2Permissions_roles(
-                    applications = {
-                        'key' : talon_one.models.role_v2_application_details.RoleV2ApplicationDetails(
-                            application = '0', 
-                            campaign = '0', 
-                            draft_campaign = '0', )
-                        }, 
-                    loyalty_programs = {
-                        'key' : '0'
-                        }, 
-                    campaign_access_groups = {
-                        'key' : '0'
-                        }, )
+                permission_sets = [{name=Application permission set, logicalOperations=[getApplicationOperations, editApplicationOperations]}, {name=Campaign manager permission set, logicalOperations=[getCampaignOperations, createCampaignOperations, updateCampaignOperations]}, {name=Campaign read-only permission set, logicalOperations=[getCampaignOperations]}, {name=Loyalty program read-only permission set, logicalOperations=[getLoyaltyProgramOperations]}, {name=Campaign access group manager permission set, logicalOperations=[getCampaignAccessGroupOperations, updateCampaignAccessGroupOperations, deleteCampaignAccessGroupOperations]}], 
+                roles = talon_one.models.role_v2_roles_group.RoleV2RolesGroup(
+                    applications = {1={application=Application permission set}, 3={campaign=Campaign manager permission set}, 4={draftCampaign=Campaign read-only permission set}, 5={tools=Tools permission set}}, 
+                    loyalty_programs = {10=Loyalty program manager permission set}, 
+                    campaign_access_groups = {5=Campaign access group manager permission set}, )
             )
         else :
             return RoleV2Permissions(

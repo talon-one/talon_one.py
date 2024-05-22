@@ -38,68 +38,86 @@ class TestInlineResponse2007(unittest.TestCase):
             return InlineResponse2007(
                 total_result_size = 1, 
                 data = [
-                    talon_one.models.coupon.Coupon(
+                    talon_one.models.ruleset.Ruleset(
                         id = 6, 
                         created = '2020-06-10T09:05:27.993483Z', 
-                        campaign_id = 211, 
-                        value = 'XMAS-20-2021', 
-                        usage_limit = 100, 
-                        discount_limit = 30.0, 
-                        reservation_limit = 45, 
-                        start_date = '2020-01-24T14:15:22Z', 
-                        expiry_date = '2023-08-24T14:15:22Z', 
-                        limits = [
-                            talon_one.models.limit_config.LimitConfig(
-                                action = 'createCoupon', 
-                                limit = 1000.0, 
-                                period = 'yearly', 
-                                entities = [Coupon], )
+                        user_id = 388, 
+                        rules = [
+                            talon_one.models.rule.Rule(
+                                id = '7fa800a8-ac8d-4792-85dc-c4650dcc8f23', 
+                                parent_id = '7fa800a8-ac8d-4792-85dc-c4650dcc8f23', 
+                                title = 'Give discount via coupon', 
+                                description = 'Creates a discount when a coupon is valid', 
+                                bindings = [
+                                    talon_one.models.binding.Binding(
+                                        name = 'my property', 
+                                        type = 'templateParameter', 
+                                        expression = [
+                                            None
+                                            ], 
+                                        value_type = 'string', )
+                                    ], 
+                                condition = [and, [couponValid]], 
+                                effects = [catch, [noop], [setDiscount, 10% off, [*, [., Session, Total], [/, 10, 100]]]], )
                             ], 
-                        usage_counter = 10, 
-                        discount_counter = 10.0, 
-                        discount_remainder = 5.0, 
-                        reservation_counter = 1.0, 
-                        attributes = talon_one.models.attributes_of_coupon.Attributes of coupon(), 
-                        referral_id = 326632952, 
-                        recipient_integration_id = 'URNGV8294NV', 
-                        import_id = 4, 
-                        reservation = False, 
-                        batch_id = '32535-43255', 
-                        is_reservation_mandatory = False, )
+                        strikethrough_rules = [
+                            talon_one.models.rule.Rule(
+                                id = '7fa800a8-ac8d-4792-85dc-c4650dcc8f23', 
+                                parent_id = '7fa800a8-ac8d-4792-85dc-c4650dcc8f23', 
+                                title = 'Give discount via coupon', 
+                                description = 'Creates a discount when a coupon is valid', 
+                                condition = [and, [couponValid]], 
+                                effects = [catch, [noop], [setDiscount, 10% off, [*, [., Session, Total], [/, 10, 100]]]], )
+                            ], 
+                        bindings = [], 
+                        rb_version = 'v2', 
+                        activate = True, 
+                        campaign_id = 320, 
+                        template_id = 3, 
+                        activated_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), )
                     ]
             )
         else :
             return InlineResponse2007(
                 total_result_size = 1,
                 data = [
-                    talon_one.models.coupon.Coupon(
+                    talon_one.models.ruleset.Ruleset(
                         id = 6, 
                         created = '2020-06-10T09:05:27.993483Z', 
-                        campaign_id = 211, 
-                        value = 'XMAS-20-2021', 
-                        usage_limit = 100, 
-                        discount_limit = 30.0, 
-                        reservation_limit = 45, 
-                        start_date = '2020-01-24T14:15:22Z', 
-                        expiry_date = '2023-08-24T14:15:22Z', 
-                        limits = [
-                            talon_one.models.limit_config.LimitConfig(
-                                action = 'createCoupon', 
-                                limit = 1000.0, 
-                                period = 'yearly', 
-                                entities = [Coupon], )
+                        user_id = 388, 
+                        rules = [
+                            talon_one.models.rule.Rule(
+                                id = '7fa800a8-ac8d-4792-85dc-c4650dcc8f23', 
+                                parent_id = '7fa800a8-ac8d-4792-85dc-c4650dcc8f23', 
+                                title = 'Give discount via coupon', 
+                                description = 'Creates a discount when a coupon is valid', 
+                                bindings = [
+                                    talon_one.models.binding.Binding(
+                                        name = 'my property', 
+                                        type = 'templateParameter', 
+                                        expression = [
+                                            None
+                                            ], 
+                                        value_type = 'string', )
+                                    ], 
+                                condition = [and, [couponValid]], 
+                                effects = [catch, [noop], [setDiscount, 10% off, [*, [., Session, Total], [/, 10, 100]]]], )
                             ], 
-                        usage_counter = 10, 
-                        discount_counter = 10.0, 
-                        discount_remainder = 5.0, 
-                        reservation_counter = 1.0, 
-                        attributes = talon_one.models.attributes_of_coupon.Attributes of coupon(), 
-                        referral_id = 326632952, 
-                        recipient_integration_id = 'URNGV8294NV', 
-                        import_id = 4, 
-                        reservation = False, 
-                        batch_id = '32535-43255', 
-                        is_reservation_mandatory = False, )
+                        strikethrough_rules = [
+                            talon_one.models.rule.Rule(
+                                id = '7fa800a8-ac8d-4792-85dc-c4650dcc8f23', 
+                                parent_id = '7fa800a8-ac8d-4792-85dc-c4650dcc8f23', 
+                                title = 'Give discount via coupon', 
+                                description = 'Creates a discount when a coupon is valid', 
+                                condition = [and, [couponValid]], 
+                                effects = [catch, [noop], [setDiscount, 10% off, [*, [., Session, Total], [/, 10, 100]]]], )
+                            ], 
+                        bindings = [], 
+                        rb_version = 'v2', 
+                        activate = True, 
+                        campaign_id = 320, 
+                        template_id = 3, 
+                        activated_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), )
                     ],
         )
 

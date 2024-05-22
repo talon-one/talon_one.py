@@ -38,24 +38,30 @@ class TestInlineResponse20036(unittest.TestCase):
             return InlineResponse20036(
                 total_result_size = 1, 
                 data = [
-                    talon_one.models.event_type.EventType(
+                    talon_one.models.account_additional_cost.AccountAdditionalCost(
                         id = 6, 
                         created = '2020-06-10T09:05:27.993483Z', 
-                        title = 'Survey Completed', 
-                        name = 'surveyCompleted', 
-                        description = 'The survey was submitted by the customer.', )
+                        account_id = 3886, 
+                        name = 'shippingFee', 
+                        title = 'Shipping fee', 
+                        description = 'A shipping fee', 
+                        subscribed_applications_ids = [3, 13], 
+                        type = 'session', )
                     ]
             )
         else :
             return InlineResponse20036(
                 total_result_size = 1,
                 data = [
-                    talon_one.models.event_type.EventType(
+                    talon_one.models.account_additional_cost.AccountAdditionalCost(
                         id = 6, 
                         created = '2020-06-10T09:05:27.993483Z', 
-                        title = 'Survey Completed', 
-                        name = 'surveyCompleted', 
-                        description = 'The survey was submitted by the customer.', )
+                        account_id = 3886, 
+                        name = 'shippingFee', 
+                        title = 'Shipping fee', 
+                        description = 'A shipping fee', 
+                        subscribed_applications_ids = [3, 13], 
+                        type = 'session', )
                     ],
         )
 

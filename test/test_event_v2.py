@@ -37,6 +37,7 @@ class TestEventV2(unittest.TestCase):
         if include_optional :
             return EventV2(
                 profile_id = 'URNGV8294NV', 
+                store_integration_id = 'STORE-001', 
                 evaluable_campaign_ids = [10, 12], 
                 type = 'pageViewed', 
                 attributes = {"myAttribute":"myValue"}

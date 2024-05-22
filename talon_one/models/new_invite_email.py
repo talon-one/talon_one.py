@@ -59,6 +59,7 @@ class NewInviteEmail(object):
     def email(self):
         """Gets the email of this NewInviteEmail.  # noqa: E501
 
+        Email address of the user.  # noqa: E501
 
         :return: The email of this NewInviteEmail.  # noqa: E501
         :rtype: str
@@ -69,15 +70,13 @@ class NewInviteEmail(object):
     def email(self, email):
         """Sets the email of this NewInviteEmail.
 
+        Email address of the user.  # noqa: E501
 
         :param email: The email of this NewInviteEmail.  # noqa: E501
         :type: str
         """
         if self.local_vars_configuration.client_side_validation and email is None:  # noqa: E501
             raise ValueError("Invalid value for `email`, must not be `None`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                email is not None and len(email) < 1):
-            raise ValueError("Invalid value for `email`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._email = email
 
@@ -85,6 +84,7 @@ class NewInviteEmail(object):
     def token(self):
         """Gets the token of this NewInviteEmail.  # noqa: E501
 
+        Invitation token of the user.  # noqa: E501
 
         :return: The token of this NewInviteEmail.  # noqa: E501
         :rtype: str
@@ -95,15 +95,13 @@ class NewInviteEmail(object):
     def token(self, token):
         """Sets the token of this NewInviteEmail.
 
+        Invitation token of the user.  # noqa: E501
 
         :param token: The token of this NewInviteEmail.  # noqa: E501
         :type: str
         """
         if self.local_vars_configuration.client_side_validation and token is None:  # noqa: E501
             raise ValueError("Invalid value for `token`, must not be `None`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                token is not None and len(token) < 1):
-            raise ValueError("Invalid value for `token`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._token = token
 

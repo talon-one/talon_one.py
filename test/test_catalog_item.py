@@ -47,7 +47,9 @@ class TestCatalogItem(unittest.TestCase):
                         attributeid = 6, 
                         name = '0', 
                         value = talon_one.models.value.value(), )
-                    ]
+                    ], 
+                product = talon_one.models.product.Product(
+                    name = 'sample_product', )
             )
         else :
             return CatalogItem(

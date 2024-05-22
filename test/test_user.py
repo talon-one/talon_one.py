@@ -41,14 +41,17 @@ class TestUser(unittest.TestCase):
                 modified = '2021-09-12T10:12:42Z', 
                 email = 'john.doe@example.com', 
                 account_id = 3886, 
-                invite_token = 'Gy9b8w1irmQtEPo5RmbMmSPheL5h4', 
-                state = 'invited', 
                 name = 'John Doe', 
+                state = 'invited', 
+                invite_token = 'Gy9b8w1irmQtEPo5RmbMmSPheL5h4', 
+                is_admin = False, 
                 policy = {"Role":127}, 
-                latest_feed_timestamp = '2020-06-01T00:00Z', 
                 roles = [71], 
+                auth_method = 'basic_auth', 
                 application_notification_subscriptions = None, 
-                auth_method = 'basic_auth'
+                last_signed_in = '2021-09-12T10:12:42Z', 
+                last_accessed = '2021-09-12T10:14:42Z', 
+                latest_feed_timestamp = '2020-06-01T00:00Z'
             )
         else :
             return User(
@@ -57,9 +60,9 @@ class TestUser(unittest.TestCase):
                 modified = '2021-09-12T10:12:42Z',
                 email = 'john.doe@example.com',
                 account_id = 3886,
-                invite_token = 'Gy9b8w1irmQtEPo5RmbMmSPheL5h4',
-                state = 'invited',
                 name = 'John Doe',
+                state = 'invited',
+                invite_token = 'Gy9b8w1irmQtEPo5RmbMmSPheL5h4',
                 policy = {"Role":127},
         )
 

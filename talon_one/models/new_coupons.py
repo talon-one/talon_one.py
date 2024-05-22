@@ -45,7 +45,8 @@ class NewCoupons(object):
         'recipient_integration_id': 'str',
         'valid_characters': 'list[str]',
         'coupon_pattern': 'str',
-        'is_reservation_mandatory': 'bool'
+        'is_reservation_mandatory': 'bool',
+        'implicitly_reserved': 'bool'
     }
 
     attribute_map = {
@@ -61,10 +62,11 @@ class NewCoupons(object):
         'recipient_integration_id': 'recipientIntegrationId',
         'valid_characters': 'validCharacters',
         'coupon_pattern': 'couponPattern',
-        'is_reservation_mandatory': 'isReservationMandatory'
+        'is_reservation_mandatory': 'isReservationMandatory',
+        'implicitly_reserved': 'implicitlyReserved'
     }
 
-    def __init__(self, usage_limit=None, discount_limit=None, reservation_limit=None, start_date=None, expiry_date=None, limits=None, number_of_coupons=None, unique_prefix=None, attributes=None, recipient_integration_id=None, valid_characters=None, coupon_pattern=None, is_reservation_mandatory=True, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, usage_limit=None, discount_limit=None, reservation_limit=None, start_date=None, expiry_date=None, limits=None, number_of_coupons=None, unique_prefix=None, attributes=None, recipient_integration_id=None, valid_characters=None, coupon_pattern=None, is_reservation_mandatory=False, implicitly_reserved=None, local_vars_configuration=None):  # noqa: E501
         """NewCoupons - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -83,6 +85,7 @@ class NewCoupons(object):
         self._valid_characters = None
         self._coupon_pattern = None
         self._is_reservation_mandatory = None
+        self._implicitly_reserved = None
         self.discriminator = None
 
         self.usage_limit = usage_limit
@@ -109,6 +112,8 @@ class NewCoupons(object):
             self.coupon_pattern = coupon_pattern
         if is_reservation_mandatory is not None:
             self.is_reservation_mandatory = is_reservation_mandatory
+        if implicitly_reserved is not None:
+            self.implicitly_reserved = implicitly_reserved
 
     @property
     def usage_limit(self):
@@ -439,6 +444,29 @@ class NewCoupons(object):
         """
 
         self._is_reservation_mandatory = is_reservation_mandatory
+
+    @property
+    def implicitly_reserved(self):
+        """Gets the implicitly_reserved of this NewCoupons.  # noqa: E501
+
+        An indication of whether the coupon is implicitly reserved for all customers.  # noqa: E501
+
+        :return: The implicitly_reserved of this NewCoupons.  # noqa: E501
+        :rtype: bool
+        """
+        return self._implicitly_reserved
+
+    @implicitly_reserved.setter
+    def implicitly_reserved(self, implicitly_reserved):
+        """Sets the implicitly_reserved of this NewCoupons.
+
+        An indication of whether the coupon is implicitly reserved for all customers.  # noqa: E501
+
+        :param implicitly_reserved: The implicitly_reserved of this NewCoupons.  # noqa: E501
+        :type: bool
+        """
+
+        self._implicitly_reserved = implicitly_reserved
 
     def to_dict(self):
         """Returns the model properties as a dict"""

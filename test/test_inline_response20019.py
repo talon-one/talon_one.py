@@ -36,7 +36,7 @@ class TestInlineResponse20019(unittest.TestCase):
         # model = talon_one.models.inline_response20019.InlineResponse20019()  # noqa: E501
         if include_optional :
             return InlineResponse20019(
-                total_result_size = 1, 
+                has_more = True, 
                 data = [
                     talon_one.models.access_log_entry.AccessLogEntry(
                         uuid = '606e7d34-2d36-4d53-ac71-d4442c325985', 
@@ -55,7 +55,7 @@ class TestInlineResponse20019(unittest.TestCase):
             )
         else :
             return InlineResponse20019(
-                total_result_size = 1,
+                has_more = True,
                 data = [
                     talon_one.models.access_log_entry.AccessLogEntry(
                         uuid = '606e7d34-2d36-4d53-ac71-d4442c325985', 

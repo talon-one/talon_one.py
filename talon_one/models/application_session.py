@@ -35,9 +35,10 @@ class ApplicationSession(object):
     openapi_types = {
         'id': 'int',
         'created': 'datetime',
+        'integration_id': 'str',
+        'store_integration_id': 'str',
         'application_id': 'int',
         'profile_id': 'int',
-        'integration_id': 'str',
         'profileintegrationid': 'str',
         'coupon': 'str',
         'referral': 'str',
@@ -52,9 +53,10 @@ class ApplicationSession(object):
     attribute_map = {
         'id': 'id',
         'created': 'created',
+        'integration_id': 'integrationId',
+        'store_integration_id': 'storeIntegrationId',
         'application_id': 'applicationId',
         'profile_id': 'profileId',
-        'integration_id': 'integrationId',
         'profileintegrationid': 'profileintegrationid',
         'coupon': 'coupon',
         'referral': 'referral',
@@ -66,7 +68,7 @@ class ApplicationSession(object):
         'attributes': 'attributes'
     }
 
-    def __init__(self, id=None, created=None, application_id=None, profile_id=None, integration_id=None, profileintegrationid=None, coupon=None, referral=None, state=None, cart_items=None, discounts=None, total_discounts=None, total=None, attributes=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, created=None, integration_id=None, store_integration_id=None, application_id=None, profile_id=None, profileintegrationid=None, coupon=None, referral=None, state=None, cart_items=None, discounts=None, total_discounts=None, total=None, attributes=None, local_vars_configuration=None):  # noqa: E501
         """ApplicationSession - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -74,9 +76,10 @@ class ApplicationSession(object):
 
         self._id = None
         self._created = None
+        self._integration_id = None
+        self._store_integration_id = None
         self._application_id = None
         self._profile_id = None
-        self._integration_id = None
         self._profileintegrationid = None
         self._coupon = None
         self._referral = None
@@ -90,10 +93,12 @@ class ApplicationSession(object):
 
         self.id = id
         self.created = created
+        self.integration_id = integration_id
+        if store_integration_id is not None:
+            self.store_integration_id = store_integration_id
         self.application_id = application_id
         if profile_id is not None:
             self.profile_id = profile_id
-        self.integration_id = integration_id
         if profileintegrationid is not None:
             self.profileintegrationid = profileintegrationid
         self.coupon = coupon
@@ -157,6 +162,63 @@ class ApplicationSession(object):
         self._created = created
 
     @property
+    def integration_id(self):
+        """Gets the integration_id of this ApplicationSession.  # noqa: E501
+
+        The integration ID set by your integration layer.  # noqa: E501
+
+        :return: The integration_id of this ApplicationSession.  # noqa: E501
+        :rtype: str
+        """
+        return self._integration_id
+
+    @integration_id.setter
+    def integration_id(self, integration_id):
+        """Sets the integration_id of this ApplicationSession.
+
+        The integration ID set by your integration layer.  # noqa: E501
+
+        :param integration_id: The integration_id of this ApplicationSession.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and integration_id is None:  # noqa: E501
+            raise ValueError("Invalid value for `integration_id`, must not be `None`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                integration_id is not None and len(integration_id) > 1000):
+            raise ValueError("Invalid value for `integration_id`, length must be less than or equal to `1000`")  # noqa: E501
+
+        self._integration_id = integration_id
+
+    @property
+    def store_integration_id(self):
+        """Gets the store_integration_id of this ApplicationSession.  # noqa: E501
+
+        The integration ID of the store. You choose this ID when you create a store.  # noqa: E501
+
+        :return: The store_integration_id of this ApplicationSession.  # noqa: E501
+        :rtype: str
+        """
+        return self._store_integration_id
+
+    @store_integration_id.setter
+    def store_integration_id(self, store_integration_id):
+        """Sets the store_integration_id of this ApplicationSession.
+
+        The integration ID of the store. You choose this ID when you create a store.  # noqa: E501
+
+        :param store_integration_id: The store_integration_id of this ApplicationSession.  # noqa: E501
+        :type: str
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                store_integration_id is not None and len(store_integration_id) > 1000):
+            raise ValueError("Invalid value for `store_integration_id`, length must be less than or equal to `1000`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                store_integration_id is not None and len(store_integration_id) < 1):
+            raise ValueError("Invalid value for `store_integration_id`, length must be greater than or equal to `1`")  # noqa: E501
+
+        self._store_integration_id = store_integration_id
+
+    @property
     def application_id(self):
         """Gets the application_id of this ApplicationSession.  # noqa: E501
 
@@ -203,34 +265,6 @@ class ApplicationSession(object):
         """
 
         self._profile_id = profile_id
-
-    @property
-    def integration_id(self):
-        """Gets the integration_id of this ApplicationSession.  # noqa: E501
-
-        The integration ID set by your integration layer.  # noqa: E501
-
-        :return: The integration_id of this ApplicationSession.  # noqa: E501
-        :rtype: str
-        """
-        return self._integration_id
-
-    @integration_id.setter
-    def integration_id(self, integration_id):
-        """Sets the integration_id of this ApplicationSession.
-
-        The integration ID set by your integration layer.  # noqa: E501
-
-        :param integration_id: The integration_id of this ApplicationSession.  # noqa: E501
-        :type: str
-        """
-        if self.local_vars_configuration.client_side_validation and integration_id is None:  # noqa: E501
-            raise ValueError("Invalid value for `integration_id`, must not be `None`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                integration_id is not None and len(integration_id) > 1000):
-            raise ValueError("Invalid value for `integration_id`, length must be less than or equal to `1000`")  # noqa: E501
-
-        self._integration_id = integration_id
 
     @property
     def profileintegrationid(self):
@@ -312,7 +346,7 @@ class ApplicationSession(object):
     def state(self):
         """Gets the state of this ApplicationSession.  # noqa: E501
 
-        Indicates the current state of the session. Sessions can be created as `open` or `closed`. The state transitions are:  1. `open` → `closed` 2. `open` → `cancelled` 3. `closed` → `cancelled` or `partially_returned` 4. `partially_returned` → `cancelled`  For more information, see [Customer session states](https://docs.talon.one/docs/dev/concepts/entities#customer-session).   # noqa: E501
+        Indicates the current state of the session. Sessions can be created as `open` or `closed`. The state transitions are:  1. `open` → `closed` 2. `open` → `cancelled` 3. `closed` → `cancelled` or `partially_returned` 4. `partially_returned` → `cancelled`  For more information, see [Customer session states](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions).   # noqa: E501
 
         :return: The state of this ApplicationSession.  # noqa: E501
         :rtype: str
@@ -323,7 +357,7 @@ class ApplicationSession(object):
     def state(self, state):
         """Sets the state of this ApplicationSession.
 
-        Indicates the current state of the session. Sessions can be created as `open` or `closed`. The state transitions are:  1. `open` → `closed` 2. `open` → `cancelled` 3. `closed` → `cancelled` or `partially_returned` 4. `partially_returned` → `cancelled`  For more information, see [Customer session states](https://docs.talon.one/docs/dev/concepts/entities#customer-session).   # noqa: E501
+        Indicates the current state of the session. Sessions can be created as `open` or `closed`. The state transitions are:  1. `open` → `closed` 2. `open` → `cancelled` 3. `closed` → `cancelled` or `partially_returned` 4. `partially_returned` → `cancelled`  For more information, see [Customer session states](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions).   # noqa: E501
 
         :param state: The state of this ApplicationSession.  # noqa: E501
         :type: str

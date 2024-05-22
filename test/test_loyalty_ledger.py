@@ -129,7 +129,9 @@ class TestLoyaltyLedger(unittest.TestCase):
                         ], 
                     current_tier = talon_one.models.tier.Tier(
                         id = 11, 
-                        name = 'bronze', ), ), 
+                        name = 'bronze', 
+                        expiry_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        downgrade_policy = 'one_down', ), ), 
                 sub_ledgers = {"mysubledger":{"activePoints":286,"pendingPoints":50,"spentPoints":150,"expiredPoints":25}}
             )
         else :
@@ -227,7 +229,9 @@ class TestLoyaltyLedger(unittest.TestCase):
                         ], 
                     current_tier = talon_one.models.tier.Tier(
                         id = 11, 
-                        name = 'bronze', ), ),
+                        name = 'bronze', 
+                        expiry_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        downgrade_policy = 'one_down', ), ),
         )
 
     def testLoyaltyLedger(self):

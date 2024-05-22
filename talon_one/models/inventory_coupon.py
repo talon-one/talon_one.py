@@ -54,6 +54,7 @@ class InventoryCoupon(object):
         'reservation': 'bool',
         'batch_id': 'str',
         'is_reservation_mandatory': 'bool',
+        'implicitly_reserved': 'bool',
         'profile_redemption_count': 'int',
         'state': 'str'
     }
@@ -80,11 +81,12 @@ class InventoryCoupon(object):
         'reservation': 'reservation',
         'batch_id': 'batchId',
         'is_reservation_mandatory': 'isReservationMandatory',
+        'implicitly_reserved': 'implicitlyReserved',
         'profile_redemption_count': 'profileRedemptionCount',
         'state': 'state'
     }
 
-    def __init__(self, id=None, created=None, campaign_id=None, value=None, usage_limit=None, discount_limit=None, reservation_limit=None, start_date=None, expiry_date=None, limits=None, usage_counter=None, discount_counter=None, discount_remainder=None, reservation_counter=None, attributes=None, referral_id=None, recipient_integration_id=None, import_id=None, reservation=True, batch_id=None, is_reservation_mandatory=True, profile_redemption_count=None, state=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, created=None, campaign_id=None, value=None, usage_limit=None, discount_limit=None, reservation_limit=None, start_date=None, expiry_date=None, limits=None, usage_counter=None, discount_counter=None, discount_remainder=None, reservation_counter=None, attributes=None, referral_id=None, recipient_integration_id=None, import_id=None, reservation=True, batch_id=None, is_reservation_mandatory=False, implicitly_reserved=None, profile_redemption_count=None, state=None, local_vars_configuration=None):  # noqa: E501
         """InventoryCoupon - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -111,6 +113,7 @@ class InventoryCoupon(object):
         self._reservation = None
         self._batch_id = None
         self._is_reservation_mandatory = None
+        self._implicitly_reserved = None
         self._profile_redemption_count = None
         self._state = None
         self.discriminator = None
@@ -151,6 +154,8 @@ class InventoryCoupon(object):
             self.batch_id = batch_id
         if is_reservation_mandatory is not None:
             self.is_reservation_mandatory = is_reservation_mandatory
+        if implicitly_reserved is not None:
+            self.implicitly_reserved = implicitly_reserved
         self.profile_redemption_count = profile_redemption_count
         self.state = state
 
@@ -674,6 +679,29 @@ class InventoryCoupon(object):
         self._is_reservation_mandatory = is_reservation_mandatory
 
     @property
+    def implicitly_reserved(self):
+        """Gets the implicitly_reserved of this InventoryCoupon.  # noqa: E501
+
+        An indication of whether the coupon is implicitly reserved for all customers.  # noqa: E501
+
+        :return: The implicitly_reserved of this InventoryCoupon.  # noqa: E501
+        :rtype: bool
+        """
+        return self._implicitly_reserved
+
+    @implicitly_reserved.setter
+    def implicitly_reserved(self, implicitly_reserved):
+        """Sets the implicitly_reserved of this InventoryCoupon.
+
+        An indication of whether the coupon is implicitly reserved for all customers.  # noqa: E501
+
+        :param implicitly_reserved: The implicitly_reserved of this InventoryCoupon.  # noqa: E501
+        :type: bool
+        """
+
+        self._implicitly_reserved = implicitly_reserved
+
+    @property
     def profile_redemption_count(self):
         """Gets the profile_redemption_count of this InventoryCoupon.  # noqa: E501
 
@@ -702,7 +730,7 @@ class InventoryCoupon(object):
     def state(self):
         """Gets the state of this InventoryCoupon.  # noqa: E501
 
-        Can be:  - `active`: The coupon can be used. It is a reserved coupon that is neither pending, used nor expired, and has a non-exhausted limit counter. - `used`: The coupon has been redeemed and cannot be used again. It is not pending and has reached its redemption limit or was redeemed by the profile before expiration. - `expired`: The coupon was never redeemed and it is now expired. It is non-pending, non-active and non-used by the profile. - `pending`: The coupon will be usable in the future. - `disabled`: The coupon is part of a non-active campaign.   # noqa: E501
+        Can be:  - `active`: The coupon can be used. It is a reserved coupon that is not pending, used, or expired, and it has a non-exhausted limit counter.    **Note:** This coupon state is returned for [scheduled campaigns](https://docs.talon.one/docs/product/campaigns/settings/managing-campaign-schedule), but the coupon cannot be used until the campaign is **running**. - `used`: The coupon has been redeemed and cannot be used again. It is not pending and has reached its redemption limit or was redeemed by the profile before expiration. - `expired`: The coupon was never redeemed, and it is now expired. It is non-pending, non-active, and non-used by the profile. - `pending`: The coupon will be usable in the future. - `disabled`: The coupon is part of a non-active campaign.   # noqa: E501
 
         :return: The state of this InventoryCoupon.  # noqa: E501
         :rtype: str
@@ -713,7 +741,7 @@ class InventoryCoupon(object):
     def state(self, state):
         """Sets the state of this InventoryCoupon.
 
-        Can be:  - `active`: The coupon can be used. It is a reserved coupon that is neither pending, used nor expired, and has a non-exhausted limit counter. - `used`: The coupon has been redeemed and cannot be used again. It is not pending and has reached its redemption limit or was redeemed by the profile before expiration. - `expired`: The coupon was never redeemed and it is now expired. It is non-pending, non-active and non-used by the profile. - `pending`: The coupon will be usable in the future. - `disabled`: The coupon is part of a non-active campaign.   # noqa: E501
+        Can be:  - `active`: The coupon can be used. It is a reserved coupon that is not pending, used, or expired, and it has a non-exhausted limit counter.    **Note:** This coupon state is returned for [scheduled campaigns](https://docs.talon.one/docs/product/campaigns/settings/managing-campaign-schedule), but the coupon cannot be used until the campaign is **running**. - `used`: The coupon has been redeemed and cannot be used again. It is not pending and has reached its redemption limit or was redeemed by the profile before expiration. - `expired`: The coupon was never redeemed, and it is now expired. It is non-pending, non-active, and non-used by the profile. - `pending`: The coupon will be usable in the future. - `disabled`: The coupon is part of a non-active campaign.   # noqa: E501
 
         :param state: The state of this InventoryCoupon.  # noqa: E501
         :type: str

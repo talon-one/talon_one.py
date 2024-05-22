@@ -34,25 +34,30 @@ class NewBaseNotification(object):
     """
     openapi_types = {
         'policy': 'object',
+        'enabled': 'bool',
         'webhook': 'NewNotificationWebhook'
     }
 
     attribute_map = {
         'policy': 'policy',
+        'enabled': 'enabled',
         'webhook': 'webhook'
     }
 
-    def __init__(self, policy=None, webhook=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, policy=None, enabled=True, webhook=None, local_vars_configuration=None):  # noqa: E501
         """NewBaseNotification - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._policy = None
+        self._enabled = None
         self._webhook = None
         self.discriminator = None
 
         self.policy = policy
+        if enabled is not None:
+            self.enabled = enabled
         self.webhook = webhook
 
     @property
@@ -77,6 +82,29 @@ class NewBaseNotification(object):
             raise ValueError("Invalid value for `policy`, must not be `None`")  # noqa: E501
 
         self._policy = policy
+
+    @property
+    def enabled(self):
+        """Gets the enabled of this NewBaseNotification.  # noqa: E501
+
+        Indicates whether the notification is activated.  # noqa: E501
+
+        :return: The enabled of this NewBaseNotification.  # noqa: E501
+        :rtype: bool
+        """
+        return self._enabled
+
+    @enabled.setter
+    def enabled(self, enabled):
+        """Sets the enabled of this NewBaseNotification.
+
+        Indicates whether the notification is activated.  # noqa: E501
+
+        :param enabled: The enabled of this NewBaseNotification.  # noqa: E501
+        :type: bool
+        """
+
+        self._enabled = enabled
 
     @property
     def webhook(self):

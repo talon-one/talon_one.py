@@ -57,7 +57,9 @@ class TestCreateTemplateCampaign(unittest.TestCase):
                         entities = [Coupon], )
                     ], 
                 campaign_groups = [1, 3], 
-                tags = [summer]
+                tags = [summer], 
+                evaluation_group_id = 2, 
+                linked_store_ids = [1, 2, 3]
             )
         else :
             return CreateTemplateCampaign(

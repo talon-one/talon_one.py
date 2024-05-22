@@ -85,7 +85,7 @@ class ReturnedCartItem(object):
     def quantity(self):
         """Gets the quantity of this ReturnedCartItem.  # noqa: E501
 
-        Number of cart items to return. It is only available when [cart item flattening](https://docs.talon.one/docs/product/campaigns/campaign-evaluation#flattening) is enabled. If cart item flattening is disabled, the cart item can only be returned in its entirety.   # noqa: E501
+        Number of cart items to return.   # noqa: E501
 
         :return: The quantity of this ReturnedCartItem.  # noqa: E501
         :rtype: int
@@ -96,7 +96,7 @@ class ReturnedCartItem(object):
     def quantity(self, quantity):
         """Sets the quantity of this ReturnedCartItem.
 
-        Number of cart items to return. It is only available when [cart item flattening](https://docs.talon.one/docs/product/campaigns/campaign-evaluation#flattening) is enabled. If cart item flattening is disabled, the cart item can only be returned in its entirety.   # noqa: E501
+        Number of cart items to return.   # noqa: E501
 
         :param quantity: The quantity of this ReturnedCartItem.  # noqa: E501
         :type: int

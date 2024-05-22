@@ -42,6 +42,7 @@ class TestIntegrationStateV2(unittest.TestCase):
                     integration_id = 'URNGV8294NV', 
                     application_id = 322, 
                     profile_id = 'URNGV8294NV', 
+                    store_integration_id = 'STORE-001', 
                     evaluable_campaign_ids = [10, 12], 
                     coupon_codes = [XMAS-20-2021], 
                     referral_code = 'NT2K54D9', 
@@ -56,6 +57,8 @@ class TestIntegrationStateV2(unittest.TestCase):
                             remaining_quantity = 1, 
                             price = 99.99, 
                             category = 'shoes', 
+                            product = talon_one.models.product.Product(
+                                name = 'sample_product', ), 
                             weight = 1130.0, 
                             height = 1.337, 
                             width = 1.337, 
@@ -98,6 +101,7 @@ class TestIntegrationStateV2(unittest.TestCase):
                     created = '2020-06-10T09:05:27.993483Z', 
                     application_id = 322, 
                     profile_id = 'URNGV8294NV', 
+                    store_integration_id = 'STORE-001', 
                     type = 'pageViewed', 
                     attributes = {"myAttribute":"myValue"}, 
                     session_id = '175KJPS947296', 
@@ -152,7 +156,9 @@ class TestIntegrationStateV2(unittest.TestCase):
                                 tentative_pending_balance = 20.0, 
                                 current_tier = talon_one.models.tier.Tier(
                                     id = 11, 
-                                    name = 'bronze', ), 
+                                    name = 'bronze', 
+                                    expiry_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                                    downgrade_policy = 'one_down', ), 
                                 points_to_next_tier = 20.0, ), 
                             subledgers = {
                                 'key' : talon_one.models.ledger_info.LedgerInfo(
@@ -173,6 +179,7 @@ class TestIntegrationStateV2(unittest.TestCase):
                             id = 5, 
                             title = 'My loyalty program', 
                             name = 'program1', 
+                            join_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                             ledger = talon_one.models.ledger_info.LedgerInfo(
                                 current_balance = 100.0, 
                                 pending_balance = 10.0, 
@@ -238,6 +245,7 @@ class TestIntegrationStateV2(unittest.TestCase):
                         reservation = False, 
                         batch_id = '32535-43255', 
                         is_reservation_mandatory = False, 
+                        implicitly_reserved = False, 
                         profile_redemption_count = 5, )
                     ], 
                 triggered_campaigns = [
@@ -269,6 +277,14 @@ class TestIntegrationStateV2(unittest.TestCase):
                                 entities = [Coupon], )
                             ], 
                         campaign_groups = [1, 3], 
+                        type = 'advanced', 
+                        linked_store_ids = [1, 2, 3], 
+                        budgets = [
+                            talon_one.models.campaign_budget.CampaignBudget(
+                                action = 'createCoupon', 
+                                limit = 1000.0, 
+                                counter = 42.0, )
+                            ], 
                         coupon_redemption_count = 163, 
                         referral_redemption_count = 3, 
                         discount_count = 288.0, 
@@ -288,7 +304,8 @@ class TestIntegrationStateV2(unittest.TestCase):
                         updated = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                         created_by = 'John Doe', 
                         updated_by = 'Jane Doe', 
-                        template_id = 3, )
+                        template_id = 3, 
+                        frontend_state = 'running', )
                     ], 
                 effects = [
                     talon_one.models.effect.Effect(
@@ -299,6 +316,7 @@ class TestIntegrationStateV2(unittest.TestCase):
                         effect_type = 'rejectCoupon', 
                         triggered_by_coupon = 4928, 
                         triggered_for_catalog_item = 786, 
+                        condition_index = 786, 
                         props = talon_one.models.effect_props.EffectProps(), )
                     ], 
                 rule_failure_reasons = [
@@ -344,7 +362,8 @@ class TestIntegrationStateV2(unittest.TestCase):
                         import_id = 4, 
                         reservation = False, 
                         batch_id = '32535-43255', 
-                        is_reservation_mandatory = False, )
+                        is_reservation_mandatory = False, 
+                        implicitly_reserved = False, )
                     ], 
                 created_referrals = [
                     talon_one.models.referral.Referral(
@@ -422,6 +441,7 @@ class TestIntegrationStateV2(unittest.TestCase):
                         effect_type = 'rejectCoupon', 
                         triggered_by_coupon = 4928, 
                         triggered_for_catalog_item = 786, 
+                        condition_index = 786, 
                         props = talon_one.models.effect_props.EffectProps(), )
                     ],
                 created_coupons = [
@@ -452,7 +472,8 @@ class TestIntegrationStateV2(unittest.TestCase):
                         import_id = 4, 
                         reservation = False, 
                         batch_id = '32535-43255', 
-                        is_reservation_mandatory = False, )
+                        is_reservation_mandatory = False, 
+                        implicitly_reserved = False, )
                     ],
                 created_referrals = [
                     talon_one.models.referral.Referral(

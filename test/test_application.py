@@ -53,8 +53,6 @@ class TestApplication(unittest.TestCase):
                         period = 'yearly', 
                         entities = [Coupon], )
                     ], 
-                campaign_priority = 'universal', 
-                exclusive_campaigns_strategy = 'listOrder', 
                 default_discount_scope = 'sessionTotal', 
                 enable_cascading_discounts = True, 
                 enable_flattened_cart_items = True, 
@@ -69,6 +67,7 @@ class TestApplication(unittest.TestCase):
                 sandbox = True, 
                 enable_partial_discounts = False, 
                 default_discount_additional_cost_per_item_scope = 'price', 
+                default_evaluation_group_id = 3, 
                 loyalty_programs = [
                     talon_one.models.loyalty_program.LoyaltyProgram(
                         id = 56, 
@@ -81,11 +80,18 @@ class TestApplication(unittest.TestCase):
                         allow_subledger = False, 
                         users_per_card_limit = 111, 
                         sandbox = True, 
+                        tiers_expiration_policy = 'tier_start_date', 
+                        tiers_expire_in = '27W_U', 
+                        tiers_downgrade_policy = 'one_down', 
+                        program_join_policy = 'not_join', 
                         account_id = 1, 
                         name = 'my_program', 
                         tiers = [{name=Gold, minPoints=300, id=3, created=2021-06-10T09:05:27.993483Z, programID=139}, {name=Silver, minPoints=200, id=2, created=2021-06-10T09:04:59.355258Z, programId=139}, {name=Bronze, minPoints=100, id=1, created=2021-06-10T09:04:39.355258Z, programId=139}], 
                         timezone = 'Europe/Berlin', 
-                        card_based = True, )
+                        card_based = True, 
+                        can_update_tiers = True, 
+                        can_update_join_policy = True, 
+                        can_upgrade_to_advanced_tiers = True, )
                     ]
             )
         else :
@@ -109,11 +115,18 @@ class TestApplication(unittest.TestCase):
                         allow_subledger = False, 
                         users_per_card_limit = 111, 
                         sandbox = True, 
+                        tiers_expiration_policy = 'tier_start_date', 
+                        tiers_expire_in = '27W_U', 
+                        tiers_downgrade_policy = 'one_down', 
+                        program_join_policy = 'not_join', 
                         account_id = 1, 
                         name = 'my_program', 
                         tiers = [{name=Gold, minPoints=300, id=3, created=2021-06-10T09:05:27.993483Z, programID=139}, {name=Silver, minPoints=200, id=2, created=2021-06-10T09:04:59.355258Z, programId=139}, {name=Bronze, minPoints=100, id=1, created=2021-06-10T09:04:39.355258Z, programId=139}], 
                         timezone = 'Europe/Berlin', 
-                        card_based = True, )
+                        card_based = True, 
+                        can_update_tiers = True, 
+                        can_update_join_policy = True, 
+                        can_upgrade_to_advanced_tiers = True, )
                     ],
         )
 

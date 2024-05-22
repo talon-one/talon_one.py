@@ -38,6 +38,7 @@ class CustomerSessionV2(object):
         'integration_id': 'str',
         'application_id': 'int',
         'profile_id': 'str',
+        'store_integration_id': 'str',
         'evaluable_campaign_ids': 'list[int]',
         'coupon_codes': 'list[str]',
         'referral_code': 'str',
@@ -60,6 +61,7 @@ class CustomerSessionV2(object):
         'integration_id': 'integrationId',
         'application_id': 'applicationId',
         'profile_id': 'profileId',
+        'store_integration_id': 'storeIntegrationId',
         'evaluable_campaign_ids': 'evaluableCampaignIds',
         'coupon_codes': 'couponCodes',
         'referral_code': 'referralCode',
@@ -76,7 +78,7 @@ class CustomerSessionV2(object):
         'updated': 'updated'
     }
 
-    def __init__(self, id=None, created=None, integration_id=None, application_id=None, profile_id=None, evaluable_campaign_ids=None, coupon_codes=None, referral_code=None, loyalty_cards=None, state='open', cart_items=None, additional_costs=None, identifiers=None, attributes=None, first_session=None, total=None, cart_item_total=None, additional_cost_total=None, updated=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, created=None, integration_id=None, application_id=None, profile_id=None, store_integration_id=None, evaluable_campaign_ids=None, coupon_codes=None, referral_code=None, loyalty_cards=None, state='open', cart_items=None, additional_costs=None, identifiers=None, attributes=None, first_session=None, total=None, cart_item_total=None, additional_cost_total=None, updated=None, local_vars_configuration=None):  # noqa: E501
         """CustomerSessionV2 - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -87,6 +89,7 @@ class CustomerSessionV2(object):
         self._integration_id = None
         self._application_id = None
         self._profile_id = None
+        self._store_integration_id = None
         self._evaluable_campaign_ids = None
         self._coupon_codes = None
         self._referral_code = None
@@ -108,6 +111,8 @@ class CustomerSessionV2(object):
         self.integration_id = integration_id
         self.application_id = application_id
         self.profile_id = profile_id
+        if store_integration_id is not None:
+            self.store_integration_id = store_integration_id
         if evaluable_campaign_ids is not None:
             self.evaluable_campaign_ids = evaluable_campaign_ids
         if coupon_codes is not None:
@@ -258,6 +263,35 @@ class CustomerSessionV2(object):
         self._profile_id = profile_id
 
     @property
+    def store_integration_id(self):
+        """Gets the store_integration_id of this CustomerSessionV2.  # noqa: E501
+
+        The integration ID of the store. You choose this ID when you create a store.  # noqa: E501
+
+        :return: The store_integration_id of this CustomerSessionV2.  # noqa: E501
+        :rtype: str
+        """
+        return self._store_integration_id
+
+    @store_integration_id.setter
+    def store_integration_id(self, store_integration_id):
+        """Sets the store_integration_id of this CustomerSessionV2.
+
+        The integration ID of the store. You choose this ID when you create a store.  # noqa: E501
+
+        :param store_integration_id: The store_integration_id of this CustomerSessionV2.  # noqa: E501
+        :type: str
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                store_integration_id is not None and len(store_integration_id) > 1000):
+            raise ValueError("Invalid value for `store_integration_id`, length must be less than or equal to `1000`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                store_integration_id is not None and len(store_integration_id) < 1):
+            raise ValueError("Invalid value for `store_integration_id`, length must be greater than or equal to `1`")  # noqa: E501
+
+        self._store_integration_id = store_integration_id
+
+    @property
     def evaluable_campaign_ids(self):
         """Gets the evaluable_campaign_ids of this CustomerSessionV2.  # noqa: E501
 
@@ -333,7 +367,7 @@ class CustomerSessionV2(object):
     def loyalty_cards(self):
         """Gets the loyalty_cards of this CustomerSessionV2.  # noqa: E501
 
-        Any loyalty cards used.  # noqa: E501
+        Identifier of a loyalty card.  # noqa: E501
 
         :return: The loyalty_cards of this CustomerSessionV2.  # noqa: E501
         :rtype: list[str]
@@ -344,7 +378,7 @@ class CustomerSessionV2(object):
     def loyalty_cards(self, loyalty_cards):
         """Sets the loyalty_cards of this CustomerSessionV2.
 
-        Any loyalty cards used.  # noqa: E501
+        Identifier of a loyalty card.  # noqa: E501
 
         :param loyalty_cards: The loyalty_cards of this CustomerSessionV2.  # noqa: E501
         :type: list[str]
@@ -356,7 +390,7 @@ class CustomerSessionV2(object):
     def state(self):
         """Gets the state of this CustomerSessionV2.  # noqa: E501
 
-        Indicates the current state of the session. Sessions can be created as `open` or `closed`. The state transitions are:  1. `open` → `closed` 2. `open` → `cancelled` 3. Either:    - `closed` → `cancelled` (**only** via [Update customer session](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2)) or    - `closed` → `partially_returned` (**only** via [Return cart items](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/returnCartItems))    - `closed` → `open` (**only** via [Reopen customer session](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/reopenCustomerSession)) 4. `partially_returned` → `cancelled`  For more information, see [Customer session states](https://docs.talon.one/docs/dev/concepts/entities#customer-session).   # noqa: E501
+        Indicates the current state of the session. Sessions can be created as `open` or `closed`. The state transitions are:  1. `open` → `closed` 2. `open` → `cancelled` 3. Either:    - `closed` → `cancelled` (**only** via [Update customer session](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2)) or    - `closed` → `partially_returned` (**only** via [Return cart items](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/returnCartItems))    - `closed` → `open` (**only** via [Reopen customer session](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/reopenCustomerSession)) 4. `partially_returned` → `cancelled`  For more information, see [Customer session states](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions).   # noqa: E501
 
         :return: The state of this CustomerSessionV2.  # noqa: E501
         :rtype: str
@@ -367,7 +401,7 @@ class CustomerSessionV2(object):
     def state(self, state):
         """Sets the state of this CustomerSessionV2.
 
-        Indicates the current state of the session. Sessions can be created as `open` or `closed`. The state transitions are:  1. `open` → `closed` 2. `open` → `cancelled` 3. Either:    - `closed` → `cancelled` (**only** via [Update customer session](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2)) or    - `closed` → `partially_returned` (**only** via [Return cart items](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/returnCartItems))    - `closed` → `open` (**only** via [Reopen customer session](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/reopenCustomerSession)) 4. `partially_returned` → `cancelled`  For more information, see [Customer session states](https://docs.talon.one/docs/dev/concepts/entities#customer-session).   # noqa: E501
+        Indicates the current state of the session. Sessions can be created as `open` or `closed`. The state transitions are:  1. `open` → `closed` 2. `open` → `cancelled` 3. Either:    - `closed` → `cancelled` (**only** via [Update customer session](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2)) or    - `closed` → `partially_returned` (**only** via [Return cart items](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/returnCartItems))    - `closed` → `open` (**only** via [Reopen customer session](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/reopenCustomerSession)) 4. `partially_returned` → `cancelled`  For more information, see [Customer session states](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions).   # noqa: E501
 
         :param state: The state of this CustomerSessionV2.  # noqa: E501
         :type: str
@@ -387,7 +421,7 @@ class CustomerSessionV2(object):
     def cart_items(self):
         """Gets the cart_items of this CustomerSessionV2.  # noqa: E501
 
-        The items to add to this sessions. - If cart item flattening is disabled: **Do not exceed 1000 items** (regardless of their `quantity`) per request. - If cart item flattening is enabled: **Do not exceed 1000 items** and ensure the sum of all cart item's `quantity` **does not exceed 10.000** per request.   # noqa: E501
+        The items to add to this session. **Do not exceed 1000 items** and ensure the sum of all cart item's `quantity` **does not exceed 10.000** per request.   # noqa: E501
 
         :return: The cart_items of this CustomerSessionV2.  # noqa: E501
         :rtype: list[CartItem]
@@ -398,7 +432,7 @@ class CustomerSessionV2(object):
     def cart_items(self, cart_items):
         """Sets the cart_items of this CustomerSessionV2.
 
-        The items to add to this sessions. - If cart item flattening is disabled: **Do not exceed 1000 items** (regardless of their `quantity`) per request. - If cart item flattening is enabled: **Do not exceed 1000 items** and ensure the sum of all cart item's `quantity` **does not exceed 10.000** per request.   # noqa: E501
+        The items to add to this session. **Do not exceed 1000 items** and ensure the sum of all cart item's `quantity` **does not exceed 10.000** per request.   # noqa: E501
 
         :param cart_items: The cart_items of this CustomerSessionV2.  # noqa: E501
         :type: list[CartItem]
@@ -508,7 +542,7 @@ class CustomerSessionV2(object):
     def total(self):
         """Gets the total of this CustomerSessionV2.  # noqa: E501
 
-        The total sum of cart-items, as well as additional costs, before any discounts applied.  # noqa: E501
+        The total value of cart items and additional costs in the session, before any discounts are applied.  # noqa: E501
 
         :return: The total of this CustomerSessionV2.  # noqa: E501
         :rtype: float
@@ -519,7 +553,7 @@ class CustomerSessionV2(object):
     def total(self, total):
         """Sets the total of this CustomerSessionV2.
 
-        The total sum of cart-items, as well as additional costs, before any discounts applied.  # noqa: E501
+        The total value of cart items and additional costs in the session, before any discounts are applied.  # noqa: E501
 
         :param total: The total of this CustomerSessionV2.  # noqa: E501
         :type: float
@@ -533,7 +567,7 @@ class CustomerSessionV2(object):
     def cart_item_total(self):
         """Gets the cart_item_total of this CustomerSessionV2.  # noqa: E501
 
-        The total sum of cart-items before any discounts applied.  # noqa: E501
+        The total value of cart items, before any discounts are applied.  # noqa: E501
 
         :return: The cart_item_total of this CustomerSessionV2.  # noqa: E501
         :rtype: float
@@ -544,7 +578,7 @@ class CustomerSessionV2(object):
     def cart_item_total(self, cart_item_total):
         """Sets the cart_item_total of this CustomerSessionV2.
 
-        The total sum of cart-items before any discounts applied.  # noqa: E501
+        The total value of cart items, before any discounts are applied.  # noqa: E501
 
         :param cart_item_total: The cart_item_total of this CustomerSessionV2.  # noqa: E501
         :type: float
@@ -558,7 +592,7 @@ class CustomerSessionV2(object):
     def additional_cost_total(self):
         """Gets the additional_cost_total of this CustomerSessionV2.  # noqa: E501
 
-        The total sum of additional costs before any discounts applied.  # noqa: E501
+        The total value of additional costs, before any discounts are applied.  # noqa: E501
 
         :return: The additional_cost_total of this CustomerSessionV2.  # noqa: E501
         :rtype: float
@@ -569,7 +603,7 @@ class CustomerSessionV2(object):
     def additional_cost_total(self, additional_cost_total):
         """Sets the additional_cost_total of this CustomerSessionV2.
 
-        The total sum of additional costs before any discounts applied.  # noqa: E501
+        The total value of additional costs, before any discounts are applied.  # noqa: E501
 
         :param additional_cost_total: The additional_cost_total of this CustomerSessionV2.  # noqa: E501
         :type: float

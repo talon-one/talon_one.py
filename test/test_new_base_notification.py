@@ -37,16 +37,23 @@ class TestNewBaseNotification(unittest.TestCase):
         if include_optional :
             return NewBaseNotification(
                 policy = None, 
+                enabled = True, 
                 webhook = talon_one.models.new_notification_webhook.NewNotificationWebhook(
                     url = 'www.my-company.com/my-endpoint-name', 
-                    headers = content-type: application/json, )
+                    headers = [
+                        'content-type: application/json'
+                        ], 
+                    enabled = True, )
             )
         else :
             return NewBaseNotification(
                 policy = None,
                 webhook = talon_one.models.new_notification_webhook.NewNotificationWebhook(
                     url = 'www.my-company.com/my-endpoint-name', 
-                    headers = content-type: application/json, ),
+                    headers = [
+                        'content-type: application/json'
+                        ], 
+                    enabled = True, ),
         )
 
     def testNewBaseNotification(self):

@@ -39,6 +39,8 @@ class TestPatchItemCatalogAction(unittest.TestCase):
                 sku = '0', 
                 price = 99.99, 
                 attributes = None, 
+                product = talon_one.models.product.Product(
+                    name = 'sample_product', ), 
                 create_if_not_exists = True
             )
         else :

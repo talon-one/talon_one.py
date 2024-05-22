@@ -73,7 +73,8 @@ class TestUpdateCampaignTemplate(unittest.TestCase):
                         name = 'My collection', 
                         description = 'My collection of SKUs', )
                     ], 
-                default_campaign_group_id = 42
+                default_campaign_group_id = 42, 
+                campaign_type = 'advanced'
             )
         else :
             return UpdateCampaignTemplate(

@@ -507,7 +507,7 @@ class CouponCreationJob(object):
     def status(self):
         """Gets the status of this CouponCreationJob.  # noqa: E501
 
-        The current status of this request. Possible values: - `pending` - `completed` - `failed` - `coupon pattern full`   # noqa: E501
+        The current status of this request. Possible values: - `pending verification` - `pending` - `completed` - `failed` - `coupon pattern full`   # noqa: E501
 
         :return: The status of this CouponCreationJob.  # noqa: E501
         :rtype: str
@@ -518,7 +518,7 @@ class CouponCreationJob(object):
     def status(self, status):
         """Sets the status of this CouponCreationJob.
 
-        The current status of this request. Possible values: - `pending` - `completed` - `failed` - `coupon pattern full`   # noqa: E501
+        The current status of this request. Possible values: - `pending verification` - `pending` - `completed` - `failed` - `coupon pattern full`   # noqa: E501
 
         :param status: The status of this CouponCreationJob.  # noqa: E501
         :type: str

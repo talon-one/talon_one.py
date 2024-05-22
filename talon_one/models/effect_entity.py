@@ -39,7 +39,8 @@ class EffectEntity(object):
         'rule_name': 'str',
         'effect_type': 'str',
         'triggered_by_coupon': 'int',
-        'triggered_for_catalog_item': 'int'
+        'triggered_for_catalog_item': 'int',
+        'condition_index': 'int'
     }
 
     attribute_map = {
@@ -49,10 +50,11 @@ class EffectEntity(object):
         'rule_name': 'ruleName',
         'effect_type': 'effectType',
         'triggered_by_coupon': 'triggeredByCoupon',
-        'triggered_for_catalog_item': 'triggeredForCatalogItem'
+        'triggered_for_catalog_item': 'triggeredForCatalogItem',
+        'condition_index': 'conditionIndex'
     }
 
-    def __init__(self, campaign_id=None, ruleset_id=None, rule_index=None, rule_name=None, effect_type=None, triggered_by_coupon=None, triggered_for_catalog_item=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, campaign_id=None, ruleset_id=None, rule_index=None, rule_name=None, effect_type=None, triggered_by_coupon=None, triggered_for_catalog_item=None, condition_index=None, local_vars_configuration=None):  # noqa: E501
         """EffectEntity - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -65,6 +67,7 @@ class EffectEntity(object):
         self._effect_type = None
         self._triggered_by_coupon = None
         self._triggered_for_catalog_item = None
+        self._condition_index = None
         self.discriminator = None
 
         self.campaign_id = campaign_id
@@ -76,6 +79,8 @@ class EffectEntity(object):
             self.triggered_by_coupon = triggered_by_coupon
         if triggered_for_catalog_item is not None:
             self.triggered_for_catalog_item = triggered_for_catalog_item
+        if condition_index is not None:
+            self.condition_index = condition_index
 
     @property
     def campaign_id(self):
@@ -247,6 +252,29 @@ class EffectEntity(object):
         """
 
         self._triggered_for_catalog_item = triggered_for_catalog_item
+
+    @property
+    def condition_index(self):
+        """Gets the condition_index of this EffectEntity.  # noqa: E501
+
+        The index of the condition that was triggered.  # noqa: E501
+
+        :return: The condition_index of this EffectEntity.  # noqa: E501
+        :rtype: int
+        """
+        return self._condition_index
+
+    @condition_index.setter
+    def condition_index(self, condition_index):
+        """Sets the condition_index of this EffectEntity.
+
+        The index of the condition that was triggered.  # noqa: E501
+
+        :param condition_index: The condition_index of this EffectEntity.  # noqa: E501
+        :type: int
+        """
+
+        self._condition_index = condition_index
 
     def to_dict(self):
         """Returns the model properties as a dict"""

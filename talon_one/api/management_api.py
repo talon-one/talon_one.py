@@ -331,7 +331,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse2004
+        :return: InlineResponse2006
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -360,7 +360,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse2004, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse2006, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -439,7 +439,7 @@ class ManagementApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse2004',  # noqa: E501
+            response_type='InlineResponse2006',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -450,7 +450,7 @@ class ManagementApi(object):
     def create_account_collection(self, body, **kwargs):  # noqa: E501
         """Create account-level collection  # noqa: E501
 
-        Create account-level collection.  # noqa: E501
+        Create an account-level collection.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_account_collection(body, async_req=True)
@@ -475,7 +475,7 @@ class ManagementApi(object):
     def create_account_collection_with_http_info(self, body, **kwargs):  # noqa: E501
         """Create account-level collection  # noqa: E501
 
-        Create account-level collection.  # noqa: E501
+        Create an account-level collection.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_account_collection_with_http_info(body, async_req=True)
@@ -558,6 +558,142 @@ class ManagementApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='Collection',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def create_achievement(self, application_id, campaign_id, body, **kwargs):  # noqa: E501
+        """Create achievement  # noqa: E501
+
+        Create a new achievement in a specific campaign.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_achievement(application_id, campaign_id, body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int application_id: The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
+        :param int campaign_id: The ID of the campaign. It is displayed in your Talon.One deployment URL. (required)
+        :param CreateAchievement body: body (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: Achievement
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.create_achievement_with_http_info(application_id, campaign_id, body, **kwargs)  # noqa: E501
+
+    def create_achievement_with_http_info(self, application_id, campaign_id, body, **kwargs):  # noqa: E501
+        """Create achievement  # noqa: E501
+
+        Create a new achievement in a specific campaign.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_achievement_with_http_info(application_id, campaign_id, body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int application_id: The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
+        :param int campaign_id: The ID of the campaign. It is displayed in your Talon.One deployment URL. (required)
+        :param CreateAchievement body: body (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(Achievement, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'application_id',
+            'campaign_id',
+            'body'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method create_achievement" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'application_id' is set
+        if self.api_client.client_side_validation and ('application_id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['application_id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `application_id` when calling `create_achievement`")  # noqa: E501
+        # verify the required parameter 'campaign_id' is set
+        if self.api_client.client_side_validation and ('campaign_id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['campaign_id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `campaign_id` when calling `create_achievement`")  # noqa: E501
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in local_var_params or  # noqa: E501
+                                                        local_var_params['body'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `body` when calling `create_achievement`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'application_id' in local_var_params:
+            path_params['applicationId'] = local_var_params['application_id']  # noqa: E501
+        if 'campaign_id' in local_var_params:
+            path_params['campaignId'] = local_var_params['campaign_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in local_var_params:
+            body_params = local_var_params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/v1/applications/{applicationId}/campaigns/{campaignId}/achievements', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='Achievement',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -929,9 +1065,9 @@ class ManagementApi(object):
             collection_formats=collection_formats)
 
     def create_collection(self, application_id, campaign_id, body, **kwargs):  # noqa: E501
-        """Create collection  # noqa: E501
+        """Create campaign-level collection  # noqa: E501
 
-        Create a collection.  # noqa: E501
+        Create a campaign-level collection in a given campaign.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_collection(application_id, campaign_id, body, async_req=True)
@@ -956,9 +1092,9 @@ class ManagementApi(object):
         return self.create_collection_with_http_info(application_id, campaign_id, body, **kwargs)  # noqa: E501
 
     def create_collection_with_http_info(self, application_id, campaign_id, body, **kwargs):  # noqa: E501
-        """Create collection  # noqa: E501
+        """Create campaign-level collection  # noqa: E501
 
-        Create a collection.  # noqa: E501
+        Create a campaign-level collection in a given campaign.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_collection_with_http_info(application_id, campaign_id, body, async_req=True)
@@ -1085,7 +1221,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse2007
+        :return: InlineResponse2008
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1115,7 +1251,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse2007, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse2008, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1197,7 +1333,7 @@ class ManagementApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse2007',  # noqa: E501
+            response_type='InlineResponse2008',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -1362,7 +1498,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse2007
+        :return: InlineResponse2008
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1392,7 +1528,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse2007, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse2008, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1474,7 +1610,7 @@ class ManagementApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse2007',  # noqa: E501
+            response_type='InlineResponse2008',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -1482,18 +1618,17 @@ class ManagementApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def create_notification_webhook(self, application_id, body, **kwargs):  # noqa: E501
-        """Create notification about campaign-related changes  # noqa: E501
+    def create_invite_email(self, body, **kwargs):  # noqa: E501
+        """Resend invitation email  # noqa: E501
 
-        Create a [notification about campaign-related changes](https://docs.talon.one/docs/product/applications/outbound-notifications).  A notification about campaign-related changes is different from regular webhooks in that it is Application-scoped and has a predefined payload. [Regular webhooks](https://docs.talon.one/docs/dev/getting-started/webhooks) have user-definable payloads.  **Tip:**  - You can create these notifications using the Campaign Manager. See [Managing notifications](https://docs.talon.one/docs/product/applications/outbound-notifications). - You can review the payload you will receive in the [specs](https://docs.talon.one/outbound-notifications#/paths/campaign_created/post).   # noqa: E501
+        Resend an email invitation to an existing user.  **Note:** The invitation token is valid for 24 hours after the email has been sent.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.create_notification_webhook(application_id, body, async_req=True)
+        >>> thread = api.create_invite_email(body, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param int application_id: The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
-        :param NewNotificationWebhook body: body (required)
+        :param NewInviteEmail body: body (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -1501,25 +1636,24 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: NotificationWebhook
+        :return: NewInviteEmail
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.create_notification_webhook_with_http_info(application_id, body, **kwargs)  # noqa: E501
+        return self.create_invite_email_with_http_info(body, **kwargs)  # noqa: E501
 
-    def create_notification_webhook_with_http_info(self, application_id, body, **kwargs):  # noqa: E501
-        """Create notification about campaign-related changes  # noqa: E501
+    def create_invite_email_with_http_info(self, body, **kwargs):  # noqa: E501
+        """Resend invitation email  # noqa: E501
 
-        Create a [notification about campaign-related changes](https://docs.talon.one/docs/product/applications/outbound-notifications).  A notification about campaign-related changes is different from regular webhooks in that it is Application-scoped and has a predefined payload. [Regular webhooks](https://docs.talon.one/docs/dev/getting-started/webhooks) have user-definable payloads.  **Tip:**  - You can create these notifications using the Campaign Manager. See [Managing notifications](https://docs.talon.one/docs/product/applications/outbound-notifications). - You can review the payload you will receive in the [specs](https://docs.talon.one/outbound-notifications#/paths/campaign_created/post).   # noqa: E501
+        Resend an email invitation to an existing user.  **Note:** The invitation token is valid for 24 hours after the email has been sent.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.create_notification_webhook_with_http_info(application_id, body, async_req=True)
+        >>> thread = api.create_invite_email_with_http_info(body, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param int application_id: The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
-        :param NewNotificationWebhook body: body (required)
+        :param NewInviteEmail body: body (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -1529,7 +1663,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(NotificationWebhook, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(NewInviteEmail, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1537,7 +1671,6 @@ class ManagementApi(object):
         local_var_params = locals()
 
         all_params = [
-            'application_id',
             'body'
         ]
         all_params.extend(
@@ -1553,24 +1686,18 @@ class ManagementApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method create_notification_webhook" % key
+                    " to method create_invite_email" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
-        # verify the required parameter 'application_id' is set
-        if self.api_client.client_side_validation and ('application_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['application_id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `application_id` when calling `create_notification_webhook`")  # noqa: E501
         # verify the required parameter 'body' is set
         if self.api_client.client_side_validation and ('body' not in local_var_params or  # noqa: E501
                                                         local_var_params['body'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `body` when calling `create_notification_webhook`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `body` when calling `create_invite_email`")  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'application_id' in local_var_params:
-            path_params['applicationId'] = local_var_params['application_id']  # noqa: E501
 
         query_params = []
 
@@ -1594,14 +1721,132 @@ class ManagementApi(object):
         auth_settings = ['management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
-            '/v1/applications/{applicationId}/notification_webhooks', 'POST',
+            '/v1/invite_emails', 'POST',
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='NotificationWebhook',  # noqa: E501
+            response_type='NewInviteEmail',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def create_invite_v2(self, body, **kwargs):  # noqa: E501
+        """Invite user  # noqa: E501
+
+        Create a new user in the account and send an invitation to their email address.  **Note**: The invitation token is valid for 24 hours after the email has been sent. You can resend an invitation to a user with the [Resend invitation email](https://docs.talon.one/management-api#tag/Accounts-and-users/operation/createInviteEmail) endpoint.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_invite_v2(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param NewInvitation body: body (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: User
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.create_invite_v2_with_http_info(body, **kwargs)  # noqa: E501
+
+    def create_invite_v2_with_http_info(self, body, **kwargs):  # noqa: E501
+        """Invite user  # noqa: E501
+
+        Create a new user in the account and send an invitation to their email address.  **Note**: The invitation token is valid for 24 hours after the email has been sent. You can resend an invitation to a user with the [Resend invitation email](https://docs.talon.one/management-api#tag/Accounts-and-users/operation/createInviteEmail) endpoint.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_invite_v2_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param NewInvitation body: body (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(User, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'body'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method create_invite_v2" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in local_var_params or  # noqa: E501
+                                                        local_var_params['body'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `body` when calling `create_invite_v2`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in local_var_params:
+            body_params = local_var_params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/v2/invites', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='User',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -1845,6 +2090,247 @@ class ManagementApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def create_store(self, application_id, body, **kwargs):  # noqa: E501
+        """Create store  # noqa: E501
+
+        Create a new store in a specific Application.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_store(application_id, body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int application_id: The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
+        :param NewStore body: body (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: Store
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.create_store_with_http_info(application_id, body, **kwargs)  # noqa: E501
+
+    def create_store_with_http_info(self, application_id, body, **kwargs):  # noqa: E501
+        """Create store  # noqa: E501
+
+        Create a new store in a specific Application.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_store_with_http_info(application_id, body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int application_id: The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
+        :param NewStore body: body (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(Store, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'application_id',
+            'body'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method create_store" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'application_id' is set
+        if self.api_client.client_side_validation and ('application_id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['application_id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `application_id` when calling `create_store`")  # noqa: E501
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in local_var_params or  # noqa: E501
+                                                        local_var_params['body'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `body` when calling `create_store`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'application_id' in local_var_params:
+            path_params['applicationId'] = local_var_params['application_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in local_var_params:
+            body_params = local_var_params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/v1/applications/{applicationId}/stores', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='Store',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def deactivate_user_by_email(self, body, **kwargs):  # noqa: E501
+        """Deactivate user by email address  # noqa: E501
+
+        Deactivate a specific user by their email address.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.deactivate_user_by_email(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param DeactivateUserRequest body: body (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.deactivate_user_by_email_with_http_info(body, **kwargs)  # noqa: E501
+
+    def deactivate_user_by_email_with_http_info(self, body, **kwargs):  # noqa: E501
+        """Deactivate user by email address  # noqa: E501
+
+        Deactivate a specific user by their email address.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.deactivate_user_by_email_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param DeactivateUserRequest body: body (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'body'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method deactivate_user_by_email" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in local_var_params or  # noqa: E501
+                                                        local_var_params['body'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `body` when calling `deactivate_user_by_email`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in local_var_params:
+            body_params = local_var_params['body']
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/v1/users/deactivate', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type=None,  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def deduct_loyalty_card_points(self, loyalty_program_id, loyalty_card_id, body, **kwargs):  # noqa: E501
         """Deduct points from card  # noqa: E501
 
@@ -1987,14 +2473,14 @@ class ManagementApi(object):
     def delete_account_collection(self, collection_id, **kwargs):  # noqa: E501
         """Delete account-level collection  # noqa: E501
 
-        Delete the given account-level collection.  # noqa: E501
+        Delete a given account-level collection.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.delete_account_collection(collection_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param int collection_id: The ID of the collection. You can get it with the [List collection in account](#operation/listCollectionsInApplication) endpoint. (required)
+        :param int collection_id: The ID of the collection. You can get it with the [List collections in account](#operation/listAccountCollections) endpoint. (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -2012,14 +2498,14 @@ class ManagementApi(object):
     def delete_account_collection_with_http_info(self, collection_id, **kwargs):  # noqa: E501
         """Delete account-level collection  # noqa: E501
 
-        Delete the given account-level collection.  # noqa: E501
+        Delete a given account-level collection.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.delete_account_collection_with_http_info(collection_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param int collection_id: The ID of the collection. You can get it with the [List collection in account](#operation/listCollectionsInApplication) endpoint. (required)
+        :param int collection_id: The ID of the collection. You can get it with the [List collections in account](#operation/listAccountCollections) endpoint. (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -2084,6 +2570,138 @@ class ManagementApi(object):
 
         return self.api_client.call_api(
             '/v1/collections/{collectionId}', 'DELETE',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type=None,  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def delete_achievement(self, application_id, campaign_id, achievement_id, **kwargs):  # noqa: E501
+        """Delete achievement  # noqa: E501
+
+        Delete the specified achievement.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_achievement(application_id, campaign_id, achievement_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int application_id: The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
+        :param int campaign_id: The ID of the campaign. It is displayed in your Talon.One deployment URL. (required)
+        :param int achievement_id: The ID of the achievement. You can get this ID with the [List achievement](https://docs.talon.one/management-api#tag/Achievements/operation/listAchievements) endpoint. (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.delete_achievement_with_http_info(application_id, campaign_id, achievement_id, **kwargs)  # noqa: E501
+
+    def delete_achievement_with_http_info(self, application_id, campaign_id, achievement_id, **kwargs):  # noqa: E501
+        """Delete achievement  # noqa: E501
+
+        Delete the specified achievement.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_achievement_with_http_info(application_id, campaign_id, achievement_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int application_id: The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
+        :param int campaign_id: The ID of the campaign. It is displayed in your Talon.One deployment URL. (required)
+        :param int achievement_id: The ID of the achievement. You can get this ID with the [List achievement](https://docs.talon.one/management-api#tag/Achievements/operation/listAchievements) endpoint. (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'application_id',
+            'campaign_id',
+            'achievement_id'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method delete_achievement" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'application_id' is set
+        if self.api_client.client_side_validation and ('application_id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['application_id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `application_id` when calling `delete_achievement`")  # noqa: E501
+        # verify the required parameter 'campaign_id' is set
+        if self.api_client.client_side_validation and ('campaign_id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['campaign_id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `campaign_id` when calling `delete_achievement`")  # noqa: E501
+        # verify the required parameter 'achievement_id' is set
+        if self.api_client.client_side_validation and ('achievement_id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['achievement_id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `achievement_id` when calling `delete_achievement`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'application_id' in local_var_params:
+            path_params['applicationId'] = local_var_params['application_id']  # noqa: E501
+        if 'campaign_id' in local_var_params:
+            path_params['campaignId'] = local_var_params['campaign_id']  # noqa: E501
+        if 'achievement_id' in local_var_params:
+            path_params['achievementId'] = local_var_params['achievement_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/v1/applications/{applicationId}/campaigns/{campaignId}/achievements/{achievementId}', 'DELETE',
             path_params,
             query_params,
             header_params,
@@ -2218,9 +2836,9 @@ class ManagementApi(object):
             collection_formats=collection_formats)
 
     def delete_collection(self, application_id, campaign_id, collection_id, **kwargs):  # noqa: E501
-        """Delete collection  # noqa: E501
+        """Delete campaign-level collection  # noqa: E501
 
-        Delete the given collection.  # noqa: E501
+        Delete a given campaign-level collection.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.delete_collection(application_id, campaign_id, collection_id, async_req=True)
@@ -2229,7 +2847,7 @@ class ManagementApi(object):
         :param async_req bool: execute request asynchronously
         :param int application_id: The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
         :param int campaign_id: The ID of the campaign. It is displayed in your Talon.One deployment URL. (required)
-        :param int collection_id: The ID of the collection. You can get it with the [List collection in account](#operation/listCollectionsInApplication) endpoint. (required)
+        :param int collection_id: The ID of the collection. You can get it with the [List collections in Application](#operation/listCollectionsInApplication) endpoint. (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -2245,9 +2863,9 @@ class ManagementApi(object):
         return self.delete_collection_with_http_info(application_id, campaign_id, collection_id, **kwargs)  # noqa: E501
 
     def delete_collection_with_http_info(self, application_id, campaign_id, collection_id, **kwargs):  # noqa: E501
-        """Delete collection  # noqa: E501
+        """Delete campaign-level collection  # noqa: E501
 
-        Delete the given collection.  # noqa: E501
+        Delete a given campaign-level collection.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.delete_collection_with_http_info(application_id, campaign_id, collection_id, async_req=True)
@@ -2256,7 +2874,7 @@ class ManagementApi(object):
         :param async_req bool: execute request asynchronously
         :param int application_id: The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
         :param int campaign_id: The ID of the campaign. It is displayed in your Talon.One deployment URL. (required)
-        :param int collection_id: The ID of the collection. You can get it with the [List collection in account](#operation/listCollectionsInApplication) endpoint. (required)
+        :param int collection_id: The ID of the collection. You can get it with the [List collections in Application](#operation/listCollectionsInApplication) endpoint. (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -2490,12 +3108,12 @@ class ManagementApi(object):
         :param int application_id: The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
         :param int campaign_id: The ID of the campaign. It is displayed in your Talon.One deployment URL. (required)
         :param str value: Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters.
-        :param datetime created_before: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
-        :param datetime created_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
-        :param datetime starts_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
-        :param datetime starts_before: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
-        :param datetime expires_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
-        :param datetime expires_before: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
+        :param datetime created_before: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally.
+        :param datetime created_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally.
+        :param datetime starts_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally.
+        :param datetime starts_before: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally.
+        :param datetime expires_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally.
+        :param datetime expires_before: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally.
         :param str valid: - `expired`: Matches coupons in which the expiration date is set and in the past. - `validNow`: Matches coupons in which start date is null or in the past and expiration date is null or in the future. - `validFuture`: Matches coupons in which start date is set and in the future. 
         :param str batch_id: Filter results by batches of coupons
         :param str usable: - `true`: only coupons where `usageCounter < usageLimit` will be returned. - `false`: only coupons where `usageCounter >= usageLimit` will be returned. 
@@ -2529,12 +3147,12 @@ class ManagementApi(object):
         :param int application_id: The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
         :param int campaign_id: The ID of the campaign. It is displayed in your Talon.One deployment URL. (required)
         :param str value: Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters.
-        :param datetime created_before: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
-        :param datetime created_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
-        :param datetime starts_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
-        :param datetime starts_before: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
-        :param datetime expires_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
-        :param datetime expires_before: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
+        :param datetime created_before: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally.
+        :param datetime created_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally.
+        :param datetime starts_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally.
+        :param datetime starts_before: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally.
+        :param datetime expires_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally.
+        :param datetime expires_before: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally.
         :param str valid: - `expired`: Matches coupons in which the expiration date is set and in the past. - `validNow`: Matches coupons in which start date is null or in the past and expiration date is null or in the future. - `validFuture`: Matches coupons in which start date is set and in the future. 
         :param str batch_id: Filter results by batches of coupons
         :param str usable: - `true`: only coupons where `usageCounter < usageLimit` will be returned. - `false`: only coupons where `usageCounter >= usageLimit` will be returned. 
@@ -2787,125 +3405,6 @@ class ManagementApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def delete_notification_webhook(self, application_id, notification_webhook_id, **kwargs):  # noqa: E501
-        """Delete notification about campaign-related changes  # noqa: E501
-
-        Remove the given existing [notification about campaign-related changes](https://docs.talon.one/docs/product/applications/outbound-notifications).   # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.delete_notification_webhook(application_id, notification_webhook_id, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param int application_id: The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
-        :param int notification_webhook_id: The ID of the webhook. Get it with the appropriate _List notifications_ endpoint. (required)
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: None
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        return self.delete_notification_webhook_with_http_info(application_id, notification_webhook_id, **kwargs)  # noqa: E501
-
-    def delete_notification_webhook_with_http_info(self, application_id, notification_webhook_id, **kwargs):  # noqa: E501
-        """Delete notification about campaign-related changes  # noqa: E501
-
-        Remove the given existing [notification about campaign-related changes](https://docs.talon.one/docs/product/applications/outbound-notifications).   # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.delete_notification_webhook_with_http_info(application_id, notification_webhook_id, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param int application_id: The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
-        :param int notification_webhook_id: The ID of the webhook. Get it with the appropriate _List notifications_ endpoint. (required)
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: None
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = [
-            'application_id',
-            'notification_webhook_id'
-        ]
-        all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
-            ]
-        )
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method delete_notification_webhook" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'application_id' is set
-        if self.api_client.client_side_validation and ('application_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['application_id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `application_id` when calling `delete_notification_webhook`")  # noqa: E501
-        # verify the required parameter 'notification_webhook_id' is set
-        if self.api_client.client_side_validation and ('notification_webhook_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['notification_webhook_id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `notification_webhook_id` when calling `delete_notification_webhook`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'application_id' in local_var_params:
-            path_params['applicationId'] = local_var_params['application_id']  # noqa: E501
-        if 'notification_webhook_id' in local_var_params:
-            path_params['notificationWebhookId'] = local_var_params['notification_webhook_id']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/v1/applications/{applicationId}/notification_webhooks/{notificationWebhookId}', 'DELETE',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type=None,  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
     def delete_referral(self, application_id, campaign_id, referral_id, **kwargs):  # noqa: E501
         """Delete referral  # noqa: E501
 
@@ -3034,6 +3533,353 @@ class ManagementApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def delete_store(self, application_id, store_id, **kwargs):  # noqa: E501
+        """Delete store  # noqa: E501
+
+        Delete the specified store.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_store(application_id, store_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int application_id: The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
+        :param str store_id: The ID of the store. You can get this ID with the [List stores](#tag/Stores/operation/listStores) endpoint.  (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.delete_store_with_http_info(application_id, store_id, **kwargs)  # noqa: E501
+
+    def delete_store_with_http_info(self, application_id, store_id, **kwargs):  # noqa: E501
+        """Delete store  # noqa: E501
+
+        Delete the specified store.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_store_with_http_info(application_id, store_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int application_id: The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
+        :param str store_id: The ID of the store. You can get this ID with the [List stores](#tag/Stores/operation/listStores) endpoint.  (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'application_id',
+            'store_id'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method delete_store" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'application_id' is set
+        if self.api_client.client_side_validation and ('application_id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['application_id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `application_id` when calling `delete_store`")  # noqa: E501
+        # verify the required parameter 'store_id' is set
+        if self.api_client.client_side_validation and ('store_id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['store_id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `store_id` when calling `delete_store`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'application_id' in local_var_params:
+            path_params['applicationId'] = local_var_params['application_id']  # noqa: E501
+        if 'store_id' in local_var_params:
+            path_params['storeId'] = local_var_params['store_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/v1/applications/{applicationId}/stores/{storeId}', 'DELETE',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type=None,  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def delete_user(self, user_id, **kwargs):  # noqa: E501
+        """Delete user  # noqa: E501
+
+        Delete a specific user.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_user(user_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int user_id: The ID of the user. (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.delete_user_with_http_info(user_id, **kwargs)  # noqa: E501
+
+    def delete_user_with_http_info(self, user_id, **kwargs):  # noqa: E501
+        """Delete user  # noqa: E501
+
+        Delete a specific user.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_user_with_http_info(user_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int user_id: The ID of the user. (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'user_id'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method delete_user" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'user_id' is set
+        if self.api_client.client_side_validation and ('user_id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['user_id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `user_id` when calling `delete_user`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'user_id' in local_var_params:
+            path_params['userId'] = local_var_params['user_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # Authentication setting
+        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/v1/users/{userId}', 'DELETE',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type=None,  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def delete_user_by_email(self, body, **kwargs):  # noqa: E501
+        """Delete user by email address  # noqa: E501
+
+        Delete a specific user by their email address.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_user_by_email(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param DeleteUserRequest body: body (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.delete_user_by_email_with_http_info(body, **kwargs)  # noqa: E501
+
+    def delete_user_by_email_with_http_info(self, body, **kwargs):  # noqa: E501
+        """Delete user by email address  # noqa: E501
+
+        Delete a specific user by their email address.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_user_by_email_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param DeleteUserRequest body: body (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'body'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method delete_user_by_email" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in local_var_params or  # noqa: E501
+                                                        local_var_params['body'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `body` when calling `delete_user_by_email`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in local_var_params:
+            body_params = local_var_params['body']
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/v1/users/delete', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type=None,  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def destroy_session(self, **kwargs):  # noqa: E501
         """Destroy session  # noqa: E501
 
@@ -3138,14 +3984,14 @@ class ManagementApi(object):
     def export_account_collection_items(self, collection_id, **kwargs):  # noqa: E501
         """Export account-level collection's items  # noqa: E501
 
-        Download a CSV file containing items from an account-level collection.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).   # noqa: E501
+        Download a CSV file containing items from a given account-level collection.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.export_account_collection_items(collection_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param int collection_id: The ID of the collection. You can get it with the [List collection in account](#operation/listCollectionsInApplication) endpoint. (required)
+        :param int collection_id: The ID of the collection. You can get it with the [List collections in account](#operation/listAccountCollections) endpoint. (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -3163,14 +4009,14 @@ class ManagementApi(object):
     def export_account_collection_items_with_http_info(self, collection_id, **kwargs):  # noqa: E501
         """Export account-level collection's items  # noqa: E501
 
-        Download a CSV file containing items from an account-level collection.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).   # noqa: E501
+        Download a CSV file containing items from a given account-level collection.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.export_account_collection_items_with_http_info(collection_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param int collection_id: The ID of the collection. You can get it with the [List collection in account](#operation/listCollectionsInApplication) endpoint. (required)
+        :param int collection_id: The ID of the collection. You can get it with the [List collections in account](#operation/listAccountCollections) endpoint. (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -3249,10 +4095,256 @@ class ManagementApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def export_collection_items(self, application_id, campaign_id, collection_id, **kwargs):  # noqa: E501
-        """Export a collection's items  # noqa: E501
+    def export_achievements(self, application_id, campaign_id, achievement_id, **kwargs):  # noqa: E501
+        """Export achievement customer data  # noqa: E501
 
-        Download a CSV file containing a collection's items.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).   # noqa: E501
+        Download a CSV file containing a list of all the customers who have participated in and are currently participating in the given achievement.  The CSV file contains the following columns: - `profileIntegrationID`: The integration ID of the customer profile participating in the achievement. - `title`: The display name of the achievement in the Campaign Manager. - `target`: The required number of actions or the transactional milestone to complete the achievement. - `progress`: The current progress of the customer in the achievement. - `status`: The status of the achievement. Can be one of: ['inprogress', 'completed', 'expired']. - `startDate`: The date on which the customer profile started the achievement in RFC3339. - `endDate`: The date on which the achievement ends and resets for the customer profile in RFC3339. - `completionDate`: The date on which the customer profile completed the achievement in RFC3339.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.export_achievements(application_id, campaign_id, achievement_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int application_id: The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
+        :param int campaign_id: The ID of the campaign. It is displayed in your Talon.One deployment URL. (required)
+        :param int achievement_id: The ID of the achievement. You can get this ID with the [List achievement](https://docs.talon.one/management-api#tag/Achievements/operation/listAchievements) endpoint. (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: str
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.export_achievements_with_http_info(application_id, campaign_id, achievement_id, **kwargs)  # noqa: E501
+
+    def export_achievements_with_http_info(self, application_id, campaign_id, achievement_id, **kwargs):  # noqa: E501
+        """Export achievement customer data  # noqa: E501
+
+        Download a CSV file containing a list of all the customers who have participated in and are currently participating in the given achievement.  The CSV file contains the following columns: - `profileIntegrationID`: The integration ID of the customer profile participating in the achievement. - `title`: The display name of the achievement in the Campaign Manager. - `target`: The required number of actions or the transactional milestone to complete the achievement. - `progress`: The current progress of the customer in the achievement. - `status`: The status of the achievement. Can be one of: ['inprogress', 'completed', 'expired']. - `startDate`: The date on which the customer profile started the achievement in RFC3339. - `endDate`: The date on which the achievement ends and resets for the customer profile in RFC3339. - `completionDate`: The date on which the customer profile completed the achievement in RFC3339.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.export_achievements_with_http_info(application_id, campaign_id, achievement_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int application_id: The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
+        :param int campaign_id: The ID of the campaign. It is displayed in your Talon.One deployment URL. (required)
+        :param int achievement_id: The ID of the achievement. You can get this ID with the [List achievement](https://docs.talon.one/management-api#tag/Achievements/operation/listAchievements) endpoint. (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(str, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'application_id',
+            'campaign_id',
+            'achievement_id'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method export_achievements" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'application_id' is set
+        if self.api_client.client_side_validation and ('application_id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['application_id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `application_id` when calling `export_achievements`")  # noqa: E501
+        # verify the required parameter 'campaign_id' is set
+        if self.api_client.client_side_validation and ('campaign_id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['campaign_id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `campaign_id` when calling `export_achievements`")  # noqa: E501
+        # verify the required parameter 'achievement_id' is set
+        if self.api_client.client_side_validation and ('achievement_id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['achievement_id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `achievement_id` when calling `export_achievements`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'application_id' in local_var_params:
+            path_params['applicationId'] = local_var_params['application_id']  # noqa: E501
+        if 'campaign_id' in local_var_params:
+            path_params['campaignId'] = local_var_params['campaign_id']  # noqa: E501
+        if 'achievement_id' in local_var_params:
+            path_params['achievementId'] = local_var_params['achievement_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/csv'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/v1/applications/{applicationId}/campaigns/{campaignId}/achievements/{achievementId}/export', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='str',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def export_audiences_memberships(self, audience_id, **kwargs):  # noqa: E501
+        """Export audience members  # noqa: E501
+
+        Download a CSV file containing the integration IDs of the members of an audience.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The file contains the following column: - `profileintegrationid`: The integration ID of the customer profile.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.export_audiences_memberships(audience_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int audience_id: The ID of the audience. (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: str
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.export_audiences_memberships_with_http_info(audience_id, **kwargs)  # noqa: E501
+
+    def export_audiences_memberships_with_http_info(self, audience_id, **kwargs):  # noqa: E501
+        """Export audience members  # noqa: E501
+
+        Download a CSV file containing the integration IDs of the members of an audience.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The file contains the following column: - `profileintegrationid`: The integration ID of the customer profile.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.export_audiences_memberships_with_http_info(audience_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int audience_id: The ID of the audience. (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(str, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'audience_id'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method export_audiences_memberships" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'audience_id' is set
+        if self.api_client.client_side_validation and ('audience_id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['audience_id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `audience_id` when calling `export_audiences_memberships`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'audience_id' in local_var_params:
+            path_params['audienceId'] = local_var_params['audience_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/csv'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/v1/audiences/{audienceId}/memberships/export', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='str',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def export_collection_items(self, application_id, campaign_id, collection_id, **kwargs):  # noqa: E501
+        """Export campaign-level collection's items  # noqa: E501
+
+        Download a CSV file containing items from a given campaign-level collection.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.export_collection_items(application_id, campaign_id, collection_id, async_req=True)
@@ -3261,7 +4353,7 @@ class ManagementApi(object):
         :param async_req bool: execute request asynchronously
         :param int application_id: The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
         :param int campaign_id: The ID of the campaign. It is displayed in your Talon.One deployment URL. (required)
-        :param int collection_id: The ID of the collection. You can get it with the [List collection in account](#operation/listCollectionsInApplication) endpoint. (required)
+        :param int collection_id: The ID of the collection. You can get it with the [List collections in Application](#operation/listCollectionsInApplication) endpoint. (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -3277,9 +4369,9 @@ class ManagementApi(object):
         return self.export_collection_items_with_http_info(application_id, campaign_id, collection_id, **kwargs)  # noqa: E501
 
     def export_collection_items_with_http_info(self, application_id, campaign_id, collection_id, **kwargs):  # noqa: E501
-        """Export a collection's items  # noqa: E501
+        """Export campaign-level collection's items  # noqa: E501
 
-        Download a CSV file containing a collection's items.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).   # noqa: E501
+        Download a CSV file containing items from a given campaign-level collection.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.export_collection_items_with_http_info(application_id, campaign_id, collection_id, async_req=True)
@@ -3288,7 +4380,7 @@ class ManagementApi(object):
         :param async_req bool: execute request asynchronously
         :param int application_id: The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
         :param int campaign_id: The ID of the campaign. It is displayed in your Talon.One deployment URL. (required)
-        :param int collection_id: The ID of the collection. You can get it with the [List collection in account](#operation/listCollectionsInApplication) endpoint. (required)
+        :param int collection_id: The ID of the collection. You can get it with the [List collections in Application](#operation/listCollectionsInApplication) endpoint. (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -3384,7 +4476,7 @@ class ManagementApi(object):
     def export_coupons(self, application_id, **kwargs):  # noqa: E501
         """Export coupons  # noqa: E501
 
-        Download a CSV file containing the coupons that match the given properties.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The CSV file contains the following columns:  - `accountid`: The ID of your deployment. - `applicationid`: The ID of the Application this coupon is related to. - `attributes`: A json object describing _custom_ referral attribute names and their values. - `batchid`: The ID of the batch this coupon is part of. - `campaignid`: The ID of the campaign this coupon is related to. - `counter`: The number of times this coupon has been redeemed. - `created`: The creation date of the coupon code. - `deleted`: Whether the coupon code is deleted. - `deleted_changelogid`: The ID of the delete event in the logs. - `discount_counter`: The amount of discount given by this coupon. - `discount_limitval`: The maximum discount amount that can be given be this coupon. - `expirydate`: The end date in RFC3339 of the code redemption period. - `id`: The internal ID of the coupon code. - `importid`: The ID of the import job that created this coupon. - `is_reservation_mandatory`: Whether this coupon requires a reservation to be redeemed. - `limits`: The limits set on this coupon. - `limitval`: The maximum number of redemptions of this code. - `recipientintegrationid`: The integration ID of the customer considered as recipient of the coupon.   Only the customer with this integration ID can redeem the corresponding coupon code.   Learn about [coupon reservation](https://docs.talon.one/docs/product/rules/effects/using-effects#reserving-a-coupon-code). - `referralid`: The ID of the referral code that triggered the creation of this coupon (create coupon effect). - `reservation`: Whether the coupon is reserved. - `reservation_counter`: How many times this coupon has been reserved. - `reservation_limitval`: The maximum of number of reservations this coupon can have. - `startdate`: The start date in RFC3339 of the code redemption period. - `value`: The coupon code.   # noqa: E501
+        Download a CSV file containing the coupons that match the given properties.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The CSV file can contain the following columns:  - `accountid`: The ID of your deployment. - `applicationid`: The ID of the Application this coupon is related to. - `attributes`: A json object describing _custom_ referral attribute names and their values. - `batchid`: The ID of the batch this coupon is part of. - `campaignid`: The ID of the campaign this coupon is related to. - `counter`: The number of times this coupon has been redeemed. - `created`: The creation date of the coupon code. - `deleted`: Whether the coupon code is deleted. - `deleted_changelogid`: The ID of the delete event in the logs. - `discount_counter`: The amount of discount given by this coupon. - `discount_limitval`: The maximum discount amount that can be given be this coupon. - `expirydate`: The end date in RFC3339 of the code redemption period. - `id`: The internal ID of the coupon code. - `importid`: The ID of the import job that created this coupon. - `is_reservation_mandatory`: Whether this coupon requires a reservation to be redeemed. - `limits`: The limits set on this coupon. - `limitval`: The maximum number of redemptions of this code. - `recipientintegrationid`: The integration ID of the customer considered as recipient of the coupon.   Only the customer with this integration ID can redeem the corresponding coupon code.   Learn about [coupon reservation](https://docs.talon.one/docs/product/rules/effects/using-effects#reserving-a-coupon-code). - `referralid`: The ID of the referral code that triggered the creation of this coupon (create coupon effect). - `reservation`: Whether the coupon is reserved. - `reservation_counter`: How many times this coupon has been reserved. - `reservation_limitval`: The maximum of number of reservations this coupon can have. - `startdate`: The start date in RFC3339 of the code redemption period. - `value`: The coupon code.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.export_coupons(application_id, async_req=True)
@@ -3395,16 +4487,17 @@ class ManagementApi(object):
         :param float campaign_id: Filter results by campaign.
         :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
         :param str value: Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters.
-        :param datetime created_before: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
-        :param datetime created_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
+        :param datetime created_before: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally.
+        :param datetime created_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally.
         :param str valid: Either \"expired\", \"validNow\", or \"validFuture\". The first option matches coupons in which the expiration date is set and in the past. The second matches coupons in which start date is null or in the past and expiration date is null or in the future, the third matches coupons in which start date is set and in the future. 
         :param str usable: Either \"true\" or \"false\". If \"true\", only coupons where `usageCounter < usageLimit` will be returned, \"false\" will return only coupons where `usageCounter >= usageLimit`. 
         :param int referral_id: Filter the results by matching them with the ID of a referral. This filter shows the coupons created by redeeming a referral code.
-        :param str recipient_integration_id: Filter results by match with a profile id specified in the coupon's RecipientIntegrationId field
+        :param str recipient_integration_id: Filter results by match with a profile id specified in the coupon's RecipientIntegrationId field.
         :param str batch_id: Filter results by batches of coupons
-        :param bool exact_match: Filter results to an exact case-insensitive matching against the coupon code
+        :param bool exact_match: Filter results to an exact case-insensitive matching against the coupon code.
         :param str date_format: Determines the format of dates in the export document.
         :param str campaign_state: Filter results by the state of the campaign.  - `enabled`: Campaigns that are scheduled, running (activated), or expired. - `running`: Campaigns that are running (activated). - `disabled`: Campaigns that are disabled. - `expired`: Campaigns that are expired. - `archived`: Campaigns that are archived. - `draft`: Campaigns that are drafts. 
+        :param bool values_only: Filter results to only return the coupon codes (`value` column) without the associated coupon data.
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -3422,7 +4515,7 @@ class ManagementApi(object):
     def export_coupons_with_http_info(self, application_id, **kwargs):  # noqa: E501
         """Export coupons  # noqa: E501
 
-        Download a CSV file containing the coupons that match the given properties.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The CSV file contains the following columns:  - `accountid`: The ID of your deployment. - `applicationid`: The ID of the Application this coupon is related to. - `attributes`: A json object describing _custom_ referral attribute names and their values. - `batchid`: The ID of the batch this coupon is part of. - `campaignid`: The ID of the campaign this coupon is related to. - `counter`: The number of times this coupon has been redeemed. - `created`: The creation date of the coupon code. - `deleted`: Whether the coupon code is deleted. - `deleted_changelogid`: The ID of the delete event in the logs. - `discount_counter`: The amount of discount given by this coupon. - `discount_limitval`: The maximum discount amount that can be given be this coupon. - `expirydate`: The end date in RFC3339 of the code redemption period. - `id`: The internal ID of the coupon code. - `importid`: The ID of the import job that created this coupon. - `is_reservation_mandatory`: Whether this coupon requires a reservation to be redeemed. - `limits`: The limits set on this coupon. - `limitval`: The maximum number of redemptions of this code. - `recipientintegrationid`: The integration ID of the customer considered as recipient of the coupon.   Only the customer with this integration ID can redeem the corresponding coupon code.   Learn about [coupon reservation](https://docs.talon.one/docs/product/rules/effects/using-effects#reserving-a-coupon-code). - `referralid`: The ID of the referral code that triggered the creation of this coupon (create coupon effect). - `reservation`: Whether the coupon is reserved. - `reservation_counter`: How many times this coupon has been reserved. - `reservation_limitval`: The maximum of number of reservations this coupon can have. - `startdate`: The start date in RFC3339 of the code redemption period. - `value`: The coupon code.   # noqa: E501
+        Download a CSV file containing the coupons that match the given properties.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The CSV file can contain the following columns:  - `accountid`: The ID of your deployment. - `applicationid`: The ID of the Application this coupon is related to. - `attributes`: A json object describing _custom_ referral attribute names and their values. - `batchid`: The ID of the batch this coupon is part of. - `campaignid`: The ID of the campaign this coupon is related to. - `counter`: The number of times this coupon has been redeemed. - `created`: The creation date of the coupon code. - `deleted`: Whether the coupon code is deleted. - `deleted_changelogid`: The ID of the delete event in the logs. - `discount_counter`: The amount of discount given by this coupon. - `discount_limitval`: The maximum discount amount that can be given be this coupon. - `expirydate`: The end date in RFC3339 of the code redemption period. - `id`: The internal ID of the coupon code. - `importid`: The ID of the import job that created this coupon. - `is_reservation_mandatory`: Whether this coupon requires a reservation to be redeemed. - `limits`: The limits set on this coupon. - `limitval`: The maximum number of redemptions of this code. - `recipientintegrationid`: The integration ID of the customer considered as recipient of the coupon.   Only the customer with this integration ID can redeem the corresponding coupon code.   Learn about [coupon reservation](https://docs.talon.one/docs/product/rules/effects/using-effects#reserving-a-coupon-code). - `referralid`: The ID of the referral code that triggered the creation of this coupon (create coupon effect). - `reservation`: Whether the coupon is reserved. - `reservation_counter`: How many times this coupon has been reserved. - `reservation_limitval`: The maximum of number of reservations this coupon can have. - `startdate`: The start date in RFC3339 of the code redemption period. - `value`: The coupon code.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.export_coupons_with_http_info(application_id, async_req=True)
@@ -3433,16 +4526,17 @@ class ManagementApi(object):
         :param float campaign_id: Filter results by campaign.
         :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
         :param str value: Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters.
-        :param datetime created_before: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
-        :param datetime created_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
+        :param datetime created_before: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally.
+        :param datetime created_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally.
         :param str valid: Either \"expired\", \"validNow\", or \"validFuture\". The first option matches coupons in which the expiration date is set and in the past. The second matches coupons in which start date is null or in the past and expiration date is null or in the future, the third matches coupons in which start date is set and in the future. 
         :param str usable: Either \"true\" or \"false\". If \"true\", only coupons where `usageCounter < usageLimit` will be returned, \"false\" will return only coupons where `usageCounter >= usageLimit`. 
         :param int referral_id: Filter the results by matching them with the ID of a referral. This filter shows the coupons created by redeeming a referral code.
-        :param str recipient_integration_id: Filter results by match with a profile id specified in the coupon's RecipientIntegrationId field
+        :param str recipient_integration_id: Filter results by match with a profile id specified in the coupon's RecipientIntegrationId field.
         :param str batch_id: Filter results by batches of coupons
-        :param bool exact_match: Filter results to an exact case-insensitive matching against the coupon code
+        :param bool exact_match: Filter results to an exact case-insensitive matching against the coupon code.
         :param str date_format: Determines the format of dates in the export document.
         :param str campaign_state: Filter results by the state of the campaign.  - `enabled`: Campaigns that are scheduled, running (activated), or expired. - `running`: Campaigns that are running (activated). - `disabled`: Campaigns that are disabled. - `expired`: Campaigns that are expired. - `archived`: Campaigns that are archived. - `draft`: Campaigns that are drafts. 
+        :param bool values_only: Filter results to only return the coupon codes (`value` column) without the associated coupon data.
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -3473,7 +4567,8 @@ class ManagementApi(object):
             'batch_id',
             'exact_match',
             'date_format',
-            'campaign_state'
+            'campaign_state',
+            'values_only'
         ]
         all_params.extend(
             [
@@ -3530,6 +4625,8 @@ class ManagementApi(object):
             query_params.append(('dateFormat', local_var_params['date_format']))  # noqa: E501
         if 'campaign_state' in local_var_params and local_var_params['campaign_state'] is not None:  # noqa: E501
             query_params.append(('campaignState', local_var_params['campaign_state']))  # noqa: E501
+        if 'values_only' in local_var_params and local_var_params['values_only'] is not None:  # noqa: E501
+            query_params.append(('valuesOnly', local_var_params['values_only']))  # noqa: E501
 
         header_params = {}
 
@@ -3563,7 +4660,7 @@ class ManagementApi(object):
     def export_customer_sessions(self, application_id, **kwargs):  # noqa: E501
         """Export customer sessions  # noqa: E501
 
-        Download a CSV file containing the customer sessions that match the request.  **Important:** Archived sessions cannot be exported. See the [retention policy](https://docs.talon.one/docs/product/server-infrastructure-and-data-retention#data-retention-policy).  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  - `id`: The internal ID of the session. - `firstsession`: Whether this is a first session. - `integrationid`: The integration ID of the session. - `applicationid`: The ID of the Application. - `profileid`: The internal ID of the customer profile. - `profileintegrationid`: The integration ID of the customer profile. - `created`: The timestamp when the session was created. - `state`: The [state](https://docs.talon.one/docs/dev/concepts/entities#customer-session-states) of the session. - `cartitems`: The cart items in the session. - `discounts`: The discounts in the session. - `total`: The total value of the session. - `attributes`: The attributes set in the session. - `closedat`: Timestamp when the session was closed. - `cancelledat`: Timestamp when the session was cancelled. - `referral`: The referral code in the session. - `identifiers`: The identifiers in the session. - `additional_costs`: The [additional costs](https://docs.talon.one/docs/product/account/dev-tools/managing-additional-costs) in the session. - `updated`: Timestamp of the last session update. - `coupons`: Coupon codes in the session.   # noqa: E501
+        Download a CSV file containing the customer sessions that match the request.  **Important:** Archived sessions cannot be exported. See the [retention policy](https://docs.talon.one/docs/product/server-infrastructure-and-data-retention#data-retention-policy).  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  - `id`: The internal ID of the session. - `firstsession`: Whether this is a first session. - `integrationid`: The integration ID of the session. - `applicationid`: The ID of the Application. - `profileid`: The internal ID of the customer profile. - `profileintegrationid`: The integration ID of the customer profile. - `created`: The timestamp when the session was created. - `state`: The [state](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions#customer-session-states) of the session. - `cartitems`: The cart items in the session. - `discounts`: The discounts in the session. - `total`: The total value of cart items and additional costs in the session, before any discounts are applied. - `attributes`: The attributes set in the session. - `closedat`: Timestamp when the session was closed. - `cancelledat`: Timestamp when the session was cancelled. - `referral`: The referral code in the session. - `identifiers`: The identifiers in the session. - `additional_costs`: The [additional costs](https://docs.talon.one/docs/product/account/dev-tools/managing-additional-costs) in the session. - `updated`: Timestamp of the last session update. - `store_integration_id`: The integration ID of the store. - `coupons`: Coupon codes in the session.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.export_customer_sessions(application_id, async_req=True)
@@ -3593,7 +4690,7 @@ class ManagementApi(object):
     def export_customer_sessions_with_http_info(self, application_id, **kwargs):  # noqa: E501
         """Export customer sessions  # noqa: E501
 
-        Download a CSV file containing the customer sessions that match the request.  **Important:** Archived sessions cannot be exported. See the [retention policy](https://docs.talon.one/docs/product/server-infrastructure-and-data-retention#data-retention-policy).  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  - `id`: The internal ID of the session. - `firstsession`: Whether this is a first session. - `integrationid`: The integration ID of the session. - `applicationid`: The ID of the Application. - `profileid`: The internal ID of the customer profile. - `profileintegrationid`: The integration ID of the customer profile. - `created`: The timestamp when the session was created. - `state`: The [state](https://docs.talon.one/docs/dev/concepts/entities#customer-session-states) of the session. - `cartitems`: The cart items in the session. - `discounts`: The discounts in the session. - `total`: The total value of the session. - `attributes`: The attributes set in the session. - `closedat`: Timestamp when the session was closed. - `cancelledat`: Timestamp when the session was cancelled. - `referral`: The referral code in the session. - `identifiers`: The identifiers in the session. - `additional_costs`: The [additional costs](https://docs.talon.one/docs/product/account/dev-tools/managing-additional-costs) in the session. - `updated`: Timestamp of the last session update. - `coupons`: Coupon codes in the session.   # noqa: E501
+        Download a CSV file containing the customer sessions that match the request.  **Important:** Archived sessions cannot be exported. See the [retention policy](https://docs.talon.one/docs/product/server-infrastructure-and-data-retention#data-retention-policy).  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  - `id`: The internal ID of the session. - `firstsession`: Whether this is a first session. - `integrationid`: The integration ID of the session. - `applicationid`: The ID of the Application. - `profileid`: The internal ID of the customer profile. - `profileintegrationid`: The integration ID of the customer profile. - `created`: The timestamp when the session was created. - `state`: The [state](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions#customer-session-states) of the session. - `cartitems`: The cart items in the session. - `discounts`: The discounts in the session. - `total`: The total value of cart items and additional costs in the session, before any discounts are applied. - `attributes`: The attributes set in the session. - `closedat`: Timestamp when the session was closed. - `cancelledat`: Timestamp when the session was cancelled. - `referral`: The referral code in the session. - `identifiers`: The identifiers in the session. - `additional_costs`: The [additional costs](https://docs.talon.one/docs/product/account/dev-tools/managing-additional-costs) in the session. - `updated`: Timestamp of the last session update. - `store_integration_id`: The integration ID of the store. - `coupons`: Coupon codes in the session.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.export_customer_sessions_with_http_info(application_id, async_req=True)
@@ -3699,10 +4796,136 @@ class ManagementApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def export_customers_tiers(self, loyalty_program_id, **kwargs):  # noqa: E501
+        """Export customers' tier data  # noqa: E501
+
+        Download a CSV file containing the tier information for customers of the specified loyalty program.  The generated file contains the following columns:  - `programid`: The identifier of the loyalty program. It is displayed in your Talon.One deployment URL. - `subledgerid`: The ID of the subledger associated with the loyalty program. This column is empty if the loyalty program has no subledger. In this case, refer to the export file name to get the ID of the loyalty program. - `customerprofileid`: The ID used to integrate customer profiles with the loyalty program. - `tiername`: The name of the tier. - `startdate`: The tier start date in RFC3339. - `expirydate`: The tier expiry date in RFC3339.  You can filter the results by providing the following optional input parameters:  - `subledgerId` (optional): Filter results by subledger ID. If no value is provided, all subledger data for the specified loyalty program will be exported. - `tierName` (optional): Filter results by tier name. If no value is provided, all tier data for the specified loyalty program will be exported.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.export_customers_tiers(loyalty_program_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str loyalty_program_id: The identifier for the loyalty program. (required)
+        :param list[str] subledger_ids: An array of subledgers IDs to filter the export by.
+        :param list[str] tier_names: An array of tier names to filter the export by.
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: str
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.export_customers_tiers_with_http_info(loyalty_program_id, **kwargs)  # noqa: E501
+
+    def export_customers_tiers_with_http_info(self, loyalty_program_id, **kwargs):  # noqa: E501
+        """Export customers' tier data  # noqa: E501
+
+        Download a CSV file containing the tier information for customers of the specified loyalty program.  The generated file contains the following columns:  - `programid`: The identifier of the loyalty program. It is displayed in your Talon.One deployment URL. - `subledgerid`: The ID of the subledger associated with the loyalty program. This column is empty if the loyalty program has no subledger. In this case, refer to the export file name to get the ID of the loyalty program. - `customerprofileid`: The ID used to integrate customer profiles with the loyalty program. - `tiername`: The name of the tier. - `startdate`: The tier start date in RFC3339. - `expirydate`: The tier expiry date in RFC3339.  You can filter the results by providing the following optional input parameters:  - `subledgerId` (optional): Filter results by subledger ID. If no value is provided, all subledger data for the specified loyalty program will be exported. - `tierName` (optional): Filter results by tier name. If no value is provided, all tier data for the specified loyalty program will be exported.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.export_customers_tiers_with_http_info(loyalty_program_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str loyalty_program_id: The identifier for the loyalty program. (required)
+        :param list[str] subledger_ids: An array of subledgers IDs to filter the export by.
+        :param list[str] tier_names: An array of tier names to filter the export by.
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(str, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'loyalty_program_id',
+            'subledger_ids',
+            'tier_names'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method export_customers_tiers" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'loyalty_program_id' is set
+        if self.api_client.client_side_validation and ('loyalty_program_id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['loyalty_program_id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `loyalty_program_id` when calling `export_customers_tiers`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'loyalty_program_id' in local_var_params:
+            path_params['loyaltyProgramId'] = local_var_params['loyalty_program_id']  # noqa: E501
+
+        query_params = []
+        if 'subledger_ids' in local_var_params and local_var_params['subledger_ids'] is not None:  # noqa: E501
+            query_params.append(('subledgerIds', local_var_params['subledger_ids']))  # noqa: E501
+            collection_formats['subledgerIds'] = 'csv'  # noqa: E501
+        if 'tier_names' in local_var_params and local_var_params['tier_names'] is not None:  # noqa: E501
+            query_params.append(('tierNames', local_var_params['tier_names']))  # noqa: E501
+            collection_formats['tierNames'] = 'csv'  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/csv'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/v1/loyalty_programs/{loyaltyProgramId}/export_customers_tiers', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='str',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def export_effects(self, application_id, **kwargs):  # noqa: E501
         """Export triggered effects  # noqa: E501
 
-        Download a CSV file containing the triggered effects that match the given attributes.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The generated file can contain the following columns:  - `applicationid`: The ID of the Application. - `campaignid`: The ID of the campaign. - `couponid`: The ID of the coupon, when applicable to the effect. - `created`: The timestamp of the effect. - `event_type`: The name of the event. See the [docs](https://docs.talon.one/docs/dev/concepts/events). - `eventid`: The internal ID of the effect. - `name`: The effect name. See the [docs](https://docs.talon.one/docs/dev/integration-api/api-effects). - `profileintegrationid`: The ID of the customer profile, when applicable. - `props`: The [properties](https://docs.talon.one/docs/dev/integration-api/api-effects) of the effect. - `ruleindex`: The index of the rule. - `rulesetid`: The ID of the rule set. - `sessionid`: The internal ID of the session that triggered the effect. - `profileid`: The internal ID of the customer profile. - `sessionintegrationid`: The integration ID of the session. - `total_revenue`: The total revenue.   # noqa: E501
+        Download a CSV file containing the triggered effects that match the given attributes.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The generated file can contain the following columns:  - `applicationid`: The ID of the Application. - `campaignid`: The ID of the campaign. - `couponid`: The ID of the coupon, when applicable to the effect. - `created`: The timestamp of the effect. - `event_type`: The name of the event. See the [docs](https://docs.talon.one/docs/dev/concepts/entities/events). - `eventid`: The internal ID of the effect. - `name`: The effect name. See the [docs](https://docs.talon.one/docs/dev/integration-api/api-effects). - `profileintegrationid`: The ID of the customer profile, when applicable. - `props`: The [properties](https://docs.talon.one/docs/dev/integration-api/api-effects) of the effect. - `ruleindex`: The index of the rule. - `rulesetid`: The ID of the rule set. - `sessionid`: The internal ID of the session that triggered the effect. - `profileid`: The internal ID of the customer profile. - `sessionintegrationid`: The integration ID of the session. - `total_revenue`: The total revenue. - `store_integration_id`: The integration ID of the store. You choose this ID when you create a store.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.export_effects(application_id, async_req=True)
@@ -3711,8 +4934,8 @@ class ManagementApi(object):
         :param async_req bool: execute request asynchronously
         :param int application_id: The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
         :param float campaign_id: Filter results by campaign.
-        :param datetime created_before: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
-        :param datetime created_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
+        :param datetime created_before: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally.
+        :param datetime created_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally.
         :param str date_format: Determines the format of dates in the export document.
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -3731,7 +4954,7 @@ class ManagementApi(object):
     def export_effects_with_http_info(self, application_id, **kwargs):  # noqa: E501
         """Export triggered effects  # noqa: E501
 
-        Download a CSV file containing the triggered effects that match the given attributes.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The generated file can contain the following columns:  - `applicationid`: The ID of the Application. - `campaignid`: The ID of the campaign. - `couponid`: The ID of the coupon, when applicable to the effect. - `created`: The timestamp of the effect. - `event_type`: The name of the event. See the [docs](https://docs.talon.one/docs/dev/concepts/events). - `eventid`: The internal ID of the effect. - `name`: The effect name. See the [docs](https://docs.talon.one/docs/dev/integration-api/api-effects). - `profileintegrationid`: The ID of the customer profile, when applicable. - `props`: The [properties](https://docs.talon.one/docs/dev/integration-api/api-effects) of the effect. - `ruleindex`: The index of the rule. - `rulesetid`: The ID of the rule set. - `sessionid`: The internal ID of the session that triggered the effect. - `profileid`: The internal ID of the customer profile. - `sessionintegrationid`: The integration ID of the session. - `total_revenue`: The total revenue.   # noqa: E501
+        Download a CSV file containing the triggered effects that match the given attributes.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The generated file can contain the following columns:  - `applicationid`: The ID of the Application. - `campaignid`: The ID of the campaign. - `couponid`: The ID of the coupon, when applicable to the effect. - `created`: The timestamp of the effect. - `event_type`: The name of the event. See the [docs](https://docs.talon.one/docs/dev/concepts/entities/events). - `eventid`: The internal ID of the effect. - `name`: The effect name. See the [docs](https://docs.talon.one/docs/dev/integration-api/api-effects). - `profileintegrationid`: The ID of the customer profile, when applicable. - `props`: The [properties](https://docs.talon.one/docs/dev/integration-api/api-effects) of the effect. - `ruleindex`: The index of the rule. - `rulesetid`: The ID of the rule set. - `sessionid`: The internal ID of the session that triggered the effect. - `profileid`: The internal ID of the customer profile. - `sessionintegrationid`: The integration ID of the session. - `total_revenue`: The total revenue. - `store_integration_id`: The integration ID of the store. You choose this ID when you create a store.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.export_effects_with_http_info(application_id, async_req=True)
@@ -3740,8 +4963,8 @@ class ManagementApi(object):
         :param async_req bool: execute request asynchronously
         :param int application_id: The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
         :param float campaign_id: Filter results by campaign.
-        :param datetime created_before: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
-        :param datetime created_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
+        :param datetime created_before: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally.
+        :param datetime created_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally.
         :param str date_format: Determines the format of dates in the export document.
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -3844,7 +5067,7 @@ class ManagementApi(object):
 
         :param async_req bool: execute request asynchronously
         :param str loyalty_program_id: The identifier for the loyalty program. (required)
-        :param datetime end_date: Used to return balances only for entries older than this timestamp. The expired, active, and pending points are relative to this timestamp.  **Note:** It must be an RFC3339 timestamp string. 
+        :param datetime end_date: Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -3870,7 +5093,7 @@ class ManagementApi(object):
 
         :param async_req bool: execute request asynchronously
         :param str loyalty_program_id: The identifier for the loyalty program. (required)
-        :param datetime end_date: Used to return balances only for entries older than this timestamp. The expired, active, and pending points are relative to this timestamp.  **Note:** It must be an RFC3339 timestamp string. 
+        :param datetime end_date: Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -3963,7 +5186,7 @@ class ManagementApi(object):
 
         :param async_req bool: execute request asynchronously
         :param str loyalty_program_id: The identifier for the loyalty program. (required)
-        :param datetime end_date: Used to return balances only for entries older than this timestamp. The expired, active, and pending points are relative to this timestamp.  **Note:** It must be an RFC3339 timestamp string. 
+        :param datetime end_date: Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -3989,7 +5212,7 @@ class ManagementApi(object):
 
         :param async_req bool: execute request asynchronously
         :param str loyalty_program_id: The identifier for the loyalty program. (required)
-        :param datetime end_date: Used to return balances only for entries older than this timestamp. The expired, active, and pending points are relative to this timestamp.  **Note:** It must be an RFC3339 timestamp string. 
+        :param datetime end_date: Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -4082,7 +5305,7 @@ class ManagementApi(object):
 
         :param async_req bool: execute request asynchronously
         :param int loyalty_program_id: Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  (required)
-        :param datetime end_date: Used to return balances only for entries older than this timestamp. The expired, active, and pending points are relative to this timestamp.  **Note:** It must be an RFC3339 timestamp string. 
+        :param datetime end_date: Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -4108,7 +5331,7 @@ class ManagementApi(object):
 
         :param async_req bool: execute request asynchronously
         :param int loyalty_program_id: Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  (required)
-        :param datetime end_date: Used to return balances only for entries older than this timestamp. The expired, active, and pending points are relative to this timestamp.  **Note:** It must be an RFC3339 timestamp string. 
+        :param datetime end_date: Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -4202,8 +5425,8 @@ class ManagementApi(object):
         :param async_req bool: execute request asynchronously
         :param int loyalty_program_id: Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  (required)
         :param str loyalty_card_id: Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint.  (required)
-        :param datetime range_start: Only return results from after this timestamp. This must be an RFC3339 timestamp string. (required)
-        :param datetime range_end: Only return results from before this timestamp. This must be an RFC3339 timestamp string. (required)
+        :param datetime range_start: Only return results from after this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.  (required)
+        :param datetime range_end: Only return results from before this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.  (required)
         :param str date_format: Determines the format of dates in the export document.
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -4231,8 +5454,8 @@ class ManagementApi(object):
         :param async_req bool: execute request asynchronously
         :param int loyalty_program_id: Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  (required)
         :param str loyalty_card_id: Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint.  (required)
-        :param datetime range_start: Only return results from after this timestamp. This must be an RFC3339 timestamp string. (required)
-        :param datetime range_end: Only return results from before this timestamp. This must be an RFC3339 timestamp string. (required)
+        :param datetime range_start: Only return results from after this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.  (required)
+        :param datetime range_end: Only return results from before this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.  (required)
         :param str date_format: Determines the format of dates in the export document.
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -4342,15 +5565,15 @@ class ManagementApi(object):
     def export_loyalty_ledger(self, range_start, range_end, loyalty_program_id, integration_id, **kwargs):  # noqa: E501
         """Export customer's transaction logs  # noqa: E501
 
-        Download a CSV file containing a customer's transaction logs in the loyalty program.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The generated file can contain the following columns:  - `customerprofileid`: The ID of the profile. - `customersessionid`: The ID of the customer session. - `rulesetid`: The ID of the rule set. - `rulename`: The name of the rule. - `programid`: The ID of the loyalty program. - `type`: The type of the loyalty program. - `name`: The name of the loyalty program. - `subledgerid`: The ID of the subledger, when applicable. - `startdate`: The start date of the program. - `expirydate`: The expiration date of the program. - `id`: The ID of the transaction. - `created`: The timestamp of the creation of the loyalty program. - `amount`: The number of points in that transaction. - `archived`: Whether the session related to the transaction is archived.   # noqa: E501
+        Download a CSV file containing a customer's transaction logs in the loyalty program.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The generated file can contain the following columns:  - `customerprofileid`: The ID of the profile. - `customersessionid`: The ID of the customer session. - `rulesetid`: The ID of the rule set. - `rulename`: The name of the rule. - `programid`: The ID of the loyalty program. - `type`: The type of the loyalty program. - `name`: The name of the loyalty program. - `subledgerid`: The ID of the subledger, when applicable. - `startdate`: The start date of the program. - `expirydate`: The expiration date of the program. - `id`: The ID of the transaction. - `created`: The timestamp of the creation of the loyalty program. - `amount`: The number of points in that transaction. - `archived`: Whether the session related to the transaction is archived. - `campaignid`: The ID of the campaign.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.export_loyalty_ledger(range_start, range_end, loyalty_program_id, integration_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param datetime range_start: Only return results from after this timestamp. This must be an RFC3339 timestamp string. (required)
-        :param datetime range_end: Only return results from before this timestamp. This must be an RFC3339 timestamp string. (required)
+        :param datetime range_start: Only return results from after this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.  (required)
+        :param datetime range_end: Only return results from before this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.  (required)
         :param str loyalty_program_id: The identifier for the loyalty program. (required)
         :param str integration_id: The identifier of the profile. (required)
         :param str date_format: Determines the format of dates in the export document.
@@ -4371,15 +5594,15 @@ class ManagementApi(object):
     def export_loyalty_ledger_with_http_info(self, range_start, range_end, loyalty_program_id, integration_id, **kwargs):  # noqa: E501
         """Export customer's transaction logs  # noqa: E501
 
-        Download a CSV file containing a customer's transaction logs in the loyalty program.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The generated file can contain the following columns:  - `customerprofileid`: The ID of the profile. - `customersessionid`: The ID of the customer session. - `rulesetid`: The ID of the rule set. - `rulename`: The name of the rule. - `programid`: The ID of the loyalty program. - `type`: The type of the loyalty program. - `name`: The name of the loyalty program. - `subledgerid`: The ID of the subledger, when applicable. - `startdate`: The start date of the program. - `expirydate`: The expiration date of the program. - `id`: The ID of the transaction. - `created`: The timestamp of the creation of the loyalty program. - `amount`: The number of points in that transaction. - `archived`: Whether the session related to the transaction is archived.   # noqa: E501
+        Download a CSV file containing a customer's transaction logs in the loyalty program.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The generated file can contain the following columns:  - `customerprofileid`: The ID of the profile. - `customersessionid`: The ID of the customer session. - `rulesetid`: The ID of the rule set. - `rulename`: The name of the rule. - `programid`: The ID of the loyalty program. - `type`: The type of the loyalty program. - `name`: The name of the loyalty program. - `subledgerid`: The ID of the subledger, when applicable. - `startdate`: The start date of the program. - `expirydate`: The expiration date of the program. - `id`: The ID of the transaction. - `created`: The timestamp of the creation of the loyalty program. - `amount`: The number of points in that transaction. - `archived`: Whether the session related to the transaction is archived. - `campaignid`: The ID of the campaign.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.export_loyalty_ledger_with_http_info(range_start, range_end, loyalty_program_id, integration_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param datetime range_start: Only return results from after this timestamp. This must be an RFC3339 timestamp string. (required)
-        :param datetime range_end: Only return results from before this timestamp. This must be an RFC3339 timestamp string. (required)
+        :param datetime range_start: Only return results from after this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.  (required)
+        :param datetime range_end: Only return results from before this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.  (required)
         :param str loyalty_program_id: The identifier for the loyalty program. (required)
         :param str integration_id: The identifier of the profile. (required)
         :param str date_format: Determines the format of dates in the export document.
@@ -4485,6 +5708,130 @@ class ManagementApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def export_pool_giveaways(self, pool_id, **kwargs):  # noqa: E501
+        """Export giveaway codes of a giveaway pool  # noqa: E501
+
+        Download a CSV file containing the giveaway codes of a specific giveaway pool.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The CSV file contains the following columns:  - `id`: The internal ID of the giveaway. - `poolid`: The internal ID of the giveaway pool. - `code`: The giveaway code. - `startdate`: The validity start date in RFC3339 of the giveaway (can be empty). - `enddate`: The validity end date in RFC3339 of the giveaway (can be empty). - `attributes`: Any custom attributes associated with the giveaway code (can be empty). - `used`: An indication of whether the giveaway is already awarded. - `importid`: The ID of the import which created the giveaway. - `created`: The creation time of the giveaway code. - `profileintegrationid`: The third-party integration ID of the customer profile that was awarded the giveaway. Can be empty if the giveaway was not awarded. - `profileid`: The internal ID of the customer profile that was awarded the giveaway. Can be empty if the giveaway was not awarded or an internal ID does not exist.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.export_pool_giveaways(pool_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int pool_id: The ID of the pool. You can find it in the Campaign Manager, in the **Giveaways** section. (required)
+        :param datetime created_before: Timestamp that filters the results to only contain giveaways created before this date. Must be an RFC3339 timestamp string.
+        :param datetime created_after: Timestamp that filters the results to only contain giveaways created after this date. Must be an RFC3339 timestamp string.
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: str
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.export_pool_giveaways_with_http_info(pool_id, **kwargs)  # noqa: E501
+
+    def export_pool_giveaways_with_http_info(self, pool_id, **kwargs):  # noqa: E501
+        """Export giveaway codes of a giveaway pool  # noqa: E501
+
+        Download a CSV file containing the giveaway codes of a specific giveaway pool.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The CSV file contains the following columns:  - `id`: The internal ID of the giveaway. - `poolid`: The internal ID of the giveaway pool. - `code`: The giveaway code. - `startdate`: The validity start date in RFC3339 of the giveaway (can be empty). - `enddate`: The validity end date in RFC3339 of the giveaway (can be empty). - `attributes`: Any custom attributes associated with the giveaway code (can be empty). - `used`: An indication of whether the giveaway is already awarded. - `importid`: The ID of the import which created the giveaway. - `created`: The creation time of the giveaway code. - `profileintegrationid`: The third-party integration ID of the customer profile that was awarded the giveaway. Can be empty if the giveaway was not awarded. - `profileid`: The internal ID of the customer profile that was awarded the giveaway. Can be empty if the giveaway was not awarded or an internal ID does not exist.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.export_pool_giveaways_with_http_info(pool_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int pool_id: The ID of the pool. You can find it in the Campaign Manager, in the **Giveaways** section. (required)
+        :param datetime created_before: Timestamp that filters the results to only contain giveaways created before this date. Must be an RFC3339 timestamp string.
+        :param datetime created_after: Timestamp that filters the results to only contain giveaways created after this date. Must be an RFC3339 timestamp string.
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(str, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'pool_id',
+            'created_before',
+            'created_after'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method export_pool_giveaways" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'pool_id' is set
+        if self.api_client.client_side_validation and ('pool_id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['pool_id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `pool_id` when calling `export_pool_giveaways`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'pool_id' in local_var_params:
+            path_params['poolId'] = local_var_params['pool_id']  # noqa: E501
+
+        query_params = []
+        if 'created_before' in local_var_params and local_var_params['created_before'] is not None:  # noqa: E501
+            query_params.append(('createdBefore', local_var_params['created_before']))  # noqa: E501
+        if 'created_after' in local_var_params and local_var_params['created_after'] is not None:  # noqa: E501
+            query_params.append(('createdAfter', local_var_params['created_after']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/csv'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/v1/giveaways/pools/{poolId}/export', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='str',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def export_referrals(self, application_id, **kwargs):  # noqa: E501
         """Export referrals  # noqa: E501
 
@@ -4497,8 +5844,8 @@ class ManagementApi(object):
         :param async_req bool: execute request asynchronously
         :param int application_id: The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
         :param float campaign_id: Filter results by campaign.
-        :param datetime created_before: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
-        :param datetime created_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
+        :param datetime created_before: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally.
+        :param datetime created_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally.
         :param str valid: - `expired`: Matches referrals in which the expiration date is set and in the past. - `validNow`: Matches referrals in which start date is null or in the past and expiration date is null or in the future. - `validFuture`: Matches referrals in which start date is set and in the future. 
         :param str usable: - `true`, only referrals where `usageCounter < usageLimit` will be returned. - `false`, only referrals where `usageCounter >= usageLimit` will be returned. 
         :param str batch_id: Filter results by batches of referrals
@@ -4529,8 +5876,8 @@ class ManagementApi(object):
         :param async_req bool: execute request asynchronously
         :param int application_id: The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
         :param float campaign_id: Filter results by campaign.
-        :param datetime created_before: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
-        :param datetime created_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
+        :param datetime created_before: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally.
+        :param datetime created_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally.
         :param str valid: - `expired`: Matches referrals in which the expiration date is set and in the past. - `validNow`: Matches referrals in which start date is null or in the past and expiration date is null or in the future. - `validFuture`: Matches referrals in which start date is set and in the future. 
         :param str usable: - `true`, only referrals where `usageCounter < usageLimit` will be returned. - `false`, only referrals where `usageCounter >= usageLimit` will be returned. 
         :param str batch_id: Filter results by batches of referrals
@@ -4645,13 +5992,13 @@ class ManagementApi(object):
 
         :param async_req bool: execute request asynchronously
         :param int application_id: The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
-        :param datetime range_start: Only return results from after this timestamp. This must be an RFC3339 timestamp string. (required)
-        :param datetime range_end: Only return results from before this timestamp. This must be an RFC3339 timestamp string. (required)
+        :param datetime range_start: Only return results from after this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.  (required)
+        :param datetime range_end: Only return results from before this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.  (required)
         :param str path: Only return results where the request path matches the given regular expression.
         :param str method: Only return results where the request method matches the given regular expression.
         :param str status: Filter results by HTTP status codes.
-        :param int page_size: The number of items in this response.
-        :param int skip: Skips the given number of items when paging through large result sets.
+        :param int page_size: The number of items in the response.
+        :param int skip: The number of items to skip when paging through large result sets.
         :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -4660,7 +6007,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20018
+        :return: InlineResponse20019
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -4678,13 +6025,13 @@ class ManagementApi(object):
 
         :param async_req bool: execute request asynchronously
         :param int application_id: The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
-        :param datetime range_start: Only return results from after this timestamp. This must be an RFC3339 timestamp string. (required)
-        :param datetime range_end: Only return results from before this timestamp. This must be an RFC3339 timestamp string. (required)
+        :param datetime range_start: Only return results from after this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.  (required)
+        :param datetime range_end: Only return results from before this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.  (required)
         :param str path: Only return results where the request path matches the given regular expression.
         :param str method: Only return results where the request method matches the given regular expression.
         :param str status: Filter results by HTTP status codes.
-        :param int page_size: The number of items in this response.
-        :param int skip: Skips the given number of items when paging through large result sets.
+        :param int page_size: The number of items in the response.
+        :param int skip: The number of items to skip when paging through large result sets.
         :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -4695,7 +6042,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20018, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20019, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -4792,7 +6139,7 @@ class ManagementApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20018',  # noqa: E501
+            response_type='InlineResponse20019',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -5038,7 +6385,7 @@ class ManagementApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param int collection_id: The ID of the collection. You can get it with the [List collection in account](#operation/listCollectionsInApplication) endpoint. (required)
+        :param int collection_id: The ID of the collection. You can get it with the [List collections in account](#operation/listAccountCollections) endpoint. (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -5063,7 +6410,7 @@ class ManagementApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param int collection_id: The ID of the collection. You can get it with the [List collection in account](#operation/listCollectionsInApplication) endpoint. (required)
+        :param int collection_id: The ID of the collection. You can get it with the [List collections in account](#operation/listAccountCollections) endpoint. (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -5135,6 +6482,138 @@ class ManagementApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='Collection',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def get_achievement(self, application_id, campaign_id, achievement_id, **kwargs):  # noqa: E501
+        """Get achievement  # noqa: E501
+
+        Get the details of a specific achievement.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_achievement(application_id, campaign_id, achievement_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int application_id: The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
+        :param int campaign_id: The ID of the campaign. It is displayed in your Talon.One deployment URL. (required)
+        :param int achievement_id: The ID of the achievement. You can get this ID with the [List achievement](https://docs.talon.one/management-api#tag/Achievements/operation/listAchievements) endpoint. (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: Achievement
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.get_achievement_with_http_info(application_id, campaign_id, achievement_id, **kwargs)  # noqa: E501
+
+    def get_achievement_with_http_info(self, application_id, campaign_id, achievement_id, **kwargs):  # noqa: E501
+        """Get achievement  # noqa: E501
+
+        Get the details of a specific achievement.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_achievement_with_http_info(application_id, campaign_id, achievement_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int application_id: The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
+        :param int campaign_id: The ID of the campaign. It is displayed in your Talon.One deployment URL. (required)
+        :param int achievement_id: The ID of the achievement. You can get this ID with the [List achievement](https://docs.talon.one/management-api#tag/Achievements/operation/listAchievements) endpoint. (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(Achievement, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'application_id',
+            'campaign_id',
+            'achievement_id'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_achievement" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'application_id' is set
+        if self.api_client.client_side_validation and ('application_id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['application_id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `application_id` when calling `get_achievement`")  # noqa: E501
+        # verify the required parameter 'campaign_id' is set
+        if self.api_client.client_side_validation and ('campaign_id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['campaign_id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `campaign_id` when calling `get_achievement`")  # noqa: E501
+        # verify the required parameter 'achievement_id' is set
+        if self.api_client.client_side_validation and ('achievement_id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['achievement_id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `achievement_id` when calling `get_achievement`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'application_id' in local_var_params:
+            path_params['applicationId'] = local_var_params['application_id']  # noqa: E501
+        if 'campaign_id' in local_var_params:
+            path_params['campaignId'] = local_var_params['campaign_id']  # noqa: E501
+        if 'achievement_id' in local_var_params:
+            path_params['achievementId'] = local_var_params['achievement_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/v1/applications/{applicationId}/campaigns/{campaignId}/achievements/{achievementId}', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='Achievement',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -5266,8 +6745,8 @@ class ManagementApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param int page_size: The number of items in this response.
-        :param int skip: Skips the given number of items when paging through large result sets.
+        :param int page_size: The number of items in the response.
+        :param int skip: The number of items to skip when paging through large result sets.
         :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -5276,7 +6755,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20032
+        :return: InlineResponse20036
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -5293,8 +6772,8 @@ class ManagementApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param int page_size: The number of items in this response.
-        :param int skip: Skips the given number of items when paging through large result sets.
+        :param int page_size: The number of items in the response.
+        :param int skip: The number of items to skip when paging through large result sets.
         :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -5305,7 +6784,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20032, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20036, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -5372,7 +6851,7 @@ class ManagementApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20032',  # noqa: E501
+            response_type='InlineResponse20036',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -5380,23 +6859,23 @@ class ManagementApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def get_all_access_logs(self, range_start, range_end, **kwargs):  # noqa: E501
+    def get_all_access_logs(self, **kwargs):  # noqa: E501
         """List access logs  # noqa: E501
 
         Fetches the access logs for the entire account. Sensitive requests (logins) are _always_ filtered from the logs.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_all_access_logs(range_start, range_end, async_req=True)
+        >>> thread = api.get_all_access_logs(async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param datetime range_start: Only return results from after this timestamp. This must be an RFC3339 timestamp string. (required)
-        :param datetime range_end: Only return results from before this timestamp. This must be an RFC3339 timestamp string. (required)
+        :param datetime range_start: Only return results from after this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
+        :param datetime range_end: Only return results from before this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
         :param str path: Only return results where the request path matches the given regular expression.
         :param str method: Only return results where the request method matches the given regular expression.
         :param str status: Filter results by HTTP status codes.
-        :param int page_size: The number of items in this response.
-        :param int skip: Skips the given number of items when paging through large result sets.
+        :param int page_size: The number of items in the response.
+        :param int skip: The number of items to skip when paging through large result sets.
         :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -5405,30 +6884,30 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20019
+        :return: InlineResponse20020
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.get_all_access_logs_with_http_info(range_start, range_end, **kwargs)  # noqa: E501
+        return self.get_all_access_logs_with_http_info(**kwargs)  # noqa: E501
 
-    def get_all_access_logs_with_http_info(self, range_start, range_end, **kwargs):  # noqa: E501
+    def get_all_access_logs_with_http_info(self, **kwargs):  # noqa: E501
         """List access logs  # noqa: E501
 
         Fetches the access logs for the entire account. Sensitive requests (logins) are _always_ filtered from the logs.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_all_access_logs_with_http_info(range_start, range_end, async_req=True)
+        >>> thread = api.get_all_access_logs_with_http_info(async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param datetime range_start: Only return results from after this timestamp. This must be an RFC3339 timestamp string. (required)
-        :param datetime range_end: Only return results from before this timestamp. This must be an RFC3339 timestamp string. (required)
+        :param datetime range_start: Only return results from after this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
+        :param datetime range_end: Only return results from before this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
         :param str path: Only return results where the request path matches the given regular expression.
         :param str method: Only return results where the request method matches the given regular expression.
         :param str status: Filter results by HTTP status codes.
-        :param int page_size: The number of items in this response.
-        :param int skip: Skips the given number of items when paging through large result sets.
+        :param int page_size: The number of items in the response.
+        :param int skip: The number of items to skip when paging through large result sets.
         :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -5439,7 +6918,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20019, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20020, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -5473,14 +6952,6 @@ class ManagementApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
-        # verify the required parameter 'range_start' is set
-        if self.api_client.client_side_validation and ('range_start' not in local_var_params or  # noqa: E501
-                                                        local_var_params['range_start'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `range_start` when calling `get_all_access_logs`")  # noqa: E501
-        # verify the required parameter 'range_end' is set
-        if self.api_client.client_side_validation and ('range_end' not in local_var_params or  # noqa: E501
-                                                        local_var_params['range_end'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `range_end` when calling `get_all_access_logs`")  # noqa: E501
 
         if self.api_client.client_side_validation and 'page_size' in local_var_params and local_var_params['page_size'] > 1000:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `page_size` when calling `get_all_access_logs`, must be a value less than or equal to `1000`")  # noqa: E501
@@ -5529,7 +7000,7 @@ class ManagementApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20019',  # noqa: E501
+            response_type='InlineResponse20020',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -5554,7 +7025,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20040
+        :return: InlineResponse20044
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -5580,7 +7051,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20040, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20044, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -5634,7 +7105,7 @@ class ManagementApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20040',  # noqa: E501
+            response_type='InlineResponse20044',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -6005,8 +7476,8 @@ class ManagementApi(object):
         :param async_req bool: execute request asynchronously
         :param int application_id: The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
         :param str integration_id: The Integration ID of the Advocate's Profile. (required)
-        :param int page_size: The number of items in this response.
-        :param int skip: Skips the given number of items when paging through large result sets.
+        :param int page_size: The number of items in the response.
+        :param int skip: The number of items to skip when paging through large result sets.
         :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
         :param bool with_total_result_size: When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When `true`: `hasMore` is true when there is a next page. `totalResultSize` is always zero. - When `false`: `hasMore` is always false. `totalResultSize` contains the total number of results for this query. 
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -6016,7 +7487,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20030
+        :return: InlineResponse20033
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -6035,8 +7506,8 @@ class ManagementApi(object):
         :param async_req bool: execute request asynchronously
         :param int application_id: The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
         :param str integration_id: The Integration ID of the Advocate's Profile. (required)
-        :param int page_size: The number of items in this response.
-        :param int skip: Skips the given number of items when paging through large result sets.
+        :param int page_size: The number of items in the response.
+        :param int skip: The number of items to skip when paging through large result sets.
         :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
         :param bool with_total_result_size: When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When `true`: `hasMore` is true when there is a next page. `totalResultSize` is always zero. - When `false`: `hasMore` is always false. `totalResultSize` contains the total number of results for this query. 
         :param _return_http_data_only: response data without head status code
@@ -6048,7 +7519,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20030, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20033, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -6132,7 +7603,7 @@ class ManagementApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20030',  # noqa: E501
+            response_type='InlineResponse20033',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -6152,8 +7623,8 @@ class ManagementApi(object):
         :param async_req bool: execute request asynchronously
         :param int application_id: The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
         :param str integration_id: Filter results performing an exact matching against the profile integration identifier.
-        :param int page_size: The number of items in this response.
-        :param int skip: Skips the given number of items when paging through large result sets.
+        :param int page_size: The number of items in the response.
+        :param int skip: The number of items to skip when paging through large result sets.
         :param bool with_total_result_size: When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When `true`: `hasMore` is true when there is a next page. `totalResultSize` is always zero. - When `false`: `hasMore` is always false. `totalResultSize` contains the total number of results for this query. 
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -6162,7 +7633,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20021
+        :return: InlineResponse20022
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -6181,8 +7652,8 @@ class ManagementApi(object):
         :param async_req bool: execute request asynchronously
         :param int application_id: The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
         :param str integration_id: Filter results performing an exact matching against the profile integration identifier.
-        :param int page_size: The number of items in this response.
-        :param int skip: Skips the given number of items when paging through large result sets.
+        :param int page_size: The number of items in the response.
+        :param int skip: The number of items to skip when paging through large result sets.
         :param bool with_total_result_size: When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When `true`: `hasMore` is true when there is a next page. `totalResultSize` is always zero. - When `false`: `hasMore` is always false. `totalResultSize` contains the total number of results for this query. 
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -6193,7 +7664,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20021, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20022, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -6270,7 +7741,7 @@ class ManagementApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20021',  # noqa: E501
+            response_type='InlineResponse20022',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -6290,8 +7761,8 @@ class ManagementApi(object):
         :param async_req bool: execute request asynchronously
         :param int application_id: The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
         :param CustomerProfileSearchQuery body: body (required)
-        :param int page_size: The number of items in this response.
-        :param int skip: Skips the given number of items when paging through large result sets.
+        :param int page_size: The number of items in the response.
+        :param int skip: The number of items to skip when paging through large result sets.
         :param bool with_total_result_size: When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When `true`: `hasMore` is true when there is a next page. `totalResultSize` is always zero. - When `false`: `hasMore` is always false. `totalResultSize` contains the total number of results for this query. 
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -6300,7 +7771,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20022
+        :return: InlineResponse20023
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -6319,8 +7790,8 @@ class ManagementApi(object):
         :param async_req bool: execute request asynchronously
         :param int application_id: The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
         :param CustomerProfileSearchQuery body: body (required)
-        :param int page_size: The number of items in this response.
-        :param int skip: Skips the given number of items when paging through large result sets.
+        :param int page_size: The number of items in the response.
+        :param int skip: The number of items to skip when paging through large result sets.
         :param bool with_total_result_size: When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When `true`: `hasMore` is true when there is a next page. `totalResultSize` is always zero. - When `false`: `hasMore` is always false. `totalResultSize` contains the total number of results for this query. 
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -6331,7 +7802,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20022, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20023, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -6416,7 +7887,7 @@ class ManagementApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20022',  # noqa: E501
+            response_type='InlineResponse20023',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -6427,7 +7898,7 @@ class ManagementApi(object):
     def get_application_event_types(self, application_id, **kwargs):  # noqa: E501
         """List Applications event types  # noqa: E501
 
-        Get all of the distinct values of the Event `type` property for events recorded in the application.  See also: [Track an event](https://docs.talon.one/integration-api#operation/trackEvent)   # noqa: E501
+        Get all of the distinct values of the Event `type` property for events recorded in the application.  See also: [Track an event](https://docs.talon.one/integration-api#tag/Events/operation/trackEventV2)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_application_event_types(application_id, async_req=True)
@@ -6435,8 +7906,8 @@ class ManagementApi(object):
 
         :param async_req bool: execute request asynchronously
         :param int application_id: The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
-        :param int page_size: The number of items in this response.
-        :param int skip: Skips the given number of items when paging through large result sets.
+        :param int page_size: The number of items in the response.
+        :param int skip: The number of items to skip when paging through large result sets.
         :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -6445,7 +7916,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20028
+        :return: InlineResponse20029
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -6455,7 +7926,7 @@ class ManagementApi(object):
     def get_application_event_types_with_http_info(self, application_id, **kwargs):  # noqa: E501
         """List Applications event types  # noqa: E501
 
-        Get all of the distinct values of the Event `type` property for events recorded in the application.  See also: [Track an event](https://docs.talon.one/integration-api#operation/trackEvent)   # noqa: E501
+        Get all of the distinct values of the Event `type` property for events recorded in the application.  See also: [Track an event](https://docs.talon.one/integration-api#tag/Events/operation/trackEventV2)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_application_event_types_with_http_info(application_id, async_req=True)
@@ -6463,8 +7934,8 @@ class ManagementApi(object):
 
         :param async_req bool: execute request asynchronously
         :param int application_id: The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
-        :param int page_size: The number of items in this response.
-        :param int skip: Skips the given number of items when paging through large result sets.
+        :param int page_size: The number of items in the response.
+        :param int skip: The number of items to skip when paging through large result sets.
         :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -6475,7 +7946,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20028, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20029, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -6549,7 +8020,7 @@ class ManagementApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20028',  # noqa: E501
+            response_type='InlineResponse20029',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -6568,12 +8039,12 @@ class ManagementApi(object):
 
         :param async_req bool: execute request asynchronously
         :param int application_id: The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
-        :param int page_size: The number of items in this response.
-        :param int skip: Skips the given number of items when paging through large result sets.
+        :param int page_size: The number of items in the response.
+        :param int skip: The number of items to skip when paging through large result sets.
         :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
         :param str type: Comma-separated list of types by which to filter events. Must be exact match(es).
-        :param datetime created_before: Only return events created before this date. You can use any timezone. Talon.One will convert to UTC internally.
-        :param datetime created_after: Only return events created after this date. You can use any timezone. Talon.One will convert to UTC internally.
+        :param datetime created_before: Only return events created before this date. You can use any time zone setting. Talon.One will convert to UTC internally.
+        :param datetime created_after: Only return events created after this date. You can use any time zone setting. Talon.One will convert to UTC internally.
         :param str session: Session integration ID filter for events. Must be exact match.
         :param str profile: Profile integration ID filter for events. Must be exact match.
         :param str customer_name: Customer name filter for events. Will match substrings case-insensitively.
@@ -6589,7 +8060,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20027
+        :return: InlineResponse20028
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -6607,12 +8078,12 @@ class ManagementApi(object):
 
         :param async_req bool: execute request asynchronously
         :param int application_id: The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
-        :param int page_size: The number of items in this response.
-        :param int skip: Skips the given number of items when paging through large result sets.
+        :param int page_size: The number of items in the response.
+        :param int skip: The number of items to skip when paging through large result sets.
         :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
         :param str type: Comma-separated list of types by which to filter events. Must be exact match(es).
-        :param datetime created_before: Only return events created before this date. You can use any timezone. Talon.One will convert to UTC internally.
-        :param datetime created_after: Only return events created after this date. You can use any timezone. Talon.One will convert to UTC internally.
+        :param datetime created_before: Only return events created before this date. You can use any time zone setting. Talon.One will convert to UTC internally.
+        :param datetime created_after: Only return events created after this date. You can use any time zone setting. Talon.One will convert to UTC internally.
         :param str session: Session integration ID filter for events. Must be exact match.
         :param str profile: Profile integration ID filter for events. Must be exact match.
         :param str customer_name: Customer name filter for events. Will match substrings case-insensitively.
@@ -6630,7 +8101,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20027, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20028, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -6743,7 +8214,7 @@ class ManagementApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20027',  # noqa: E501
+            response_type='InlineResponse20028',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -6885,16 +8356,17 @@ class ManagementApi(object):
 
         :param async_req bool: execute request asynchronously
         :param int application_id: The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
-        :param int page_size: The number of items in this response.
-        :param int skip: Skips the given number of items when paging through large result sets.
+        :param int page_size: The number of items in the response.
+        :param int skip: The number of items to skip when paging through large result sets.
         :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
         :param str profile: Profile integration ID filter for sessions. Must be exact match.
         :param str state: Filter by sessions with this state. Must be exact match.
-        :param datetime created_before: Only return events created before this date. You can use any timezone. Talon.One will convert to UTC internally.
-        :param datetime created_after: Only return events created after this date. You can use any timezone. Talon.One will convert to UTC internally.
+        :param datetime created_before: Only return events created before this date. You can use any time zone setting. Talon.One will convert to UTC internally.
+        :param datetime created_after: Only return events created after this date. You can use any time zone setting. Talon.One will convert to UTC internally.
         :param str coupon: Filter by sessions with this coupon. Must be exact match.
         :param str referral: Filter by sessions with this referral. Must be exact match.
         :param str integration_id: Filter by sessions with this integrationId. Must be exact match.
+        :param str store_integration_id: The integration ID of the store. You choose this ID when you create a store.
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -6902,7 +8374,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20026
+        :return: InlineResponse20027
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -6920,16 +8392,17 @@ class ManagementApi(object):
 
         :param async_req bool: execute request asynchronously
         :param int application_id: The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
-        :param int page_size: The number of items in this response.
-        :param int skip: Skips the given number of items when paging through large result sets.
+        :param int page_size: The number of items in the response.
+        :param int skip: The number of items to skip when paging through large result sets.
         :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
         :param str profile: Profile integration ID filter for sessions. Must be exact match.
         :param str state: Filter by sessions with this state. Must be exact match.
-        :param datetime created_before: Only return events created before this date. You can use any timezone. Talon.One will convert to UTC internally.
-        :param datetime created_after: Only return events created after this date. You can use any timezone. Talon.One will convert to UTC internally.
+        :param datetime created_before: Only return events created before this date. You can use any time zone setting. Talon.One will convert to UTC internally.
+        :param datetime created_after: Only return events created after this date. You can use any time zone setting. Talon.One will convert to UTC internally.
         :param str coupon: Filter by sessions with this coupon. Must be exact match.
         :param str referral: Filter by sessions with this referral. Must be exact match.
         :param str integration_id: Filter by sessions with this integrationId. Must be exact match.
+        :param str store_integration_id: The integration ID of the store. You choose this ID when you create a store.
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -6939,7 +8412,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20026, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20027, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -6957,7 +8430,8 @@ class ManagementApi(object):
             'created_after',
             'coupon',
             'referral',
-            'integration_id'
+            'integration_id',
+            'store_integration_id'
         ]
         all_params.extend(
             [
@@ -7012,6 +8486,8 @@ class ManagementApi(object):
             query_params.append(('referral', local_var_params['referral']))  # noqa: E501
         if 'integration_id' in local_var_params and local_var_params['integration_id'] is not None:  # noqa: E501
             query_params.append(('integrationId', local_var_params['integration_id']))  # noqa: E501
+        if 'store_integration_id' in local_var_params and local_var_params['store_integration_id'] is not None:  # noqa: E501
+            query_params.append(('storeIntegrationId', local_var_params['store_integration_id']))  # noqa: E501
 
         header_params = {}
 
@@ -7034,7 +8510,7 @@ class ManagementApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20026',  # noqa: E501
+            response_type='InlineResponse20027',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -7052,8 +8528,8 @@ class ManagementApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param int page_size: The number of items in this response.
-        :param int skip: Skips the given number of items when paging through large result sets.
+        :param int page_size: The number of items in the response.
+        :param int skip: The number of items to skip when paging through large result sets.
         :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -7062,7 +8538,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse2003
+        :return: InlineResponse2005
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -7079,8 +8555,8 @@ class ManagementApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param int page_size: The number of items in this response.
-        :param int skip: Skips the given number of items when paging through large result sets.
+        :param int page_size: The number of items in the response.
+        :param int skip: The number of items to skip when paging through large result sets.
         :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -7091,7 +8567,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse2003, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse2005, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -7158,7 +8634,7 @@ class ManagementApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse2003',  # noqa: E501
+            response_type='InlineResponse2005',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -7290,8 +8766,8 @@ class ManagementApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param int page_size: The number of items in this response.
-        :param int skip: Skips the given number of items when paging through large result sets.
+        :param int page_size: The number of items in the response.
+        :param int skip: The number of items to skip when paging through large result sets.
         :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
         :param str entity: Returned attributes will be filtered by supplied entity.
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -7301,7 +8777,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20031
+        :return: InlineResponse20034
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -7318,8 +8794,8 @@ class ManagementApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param int page_size: The number of items in this response.
-        :param int skip: Skips the given number of items when paging through large result sets.
+        :param int page_size: The number of items in the response.
+        :param int skip: The number of items to skip when paging through large result sets.
         :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
         :param str entity: Returned attributes will be filtered by supplied entity.
         :param _return_http_data_only: response data without head status code
@@ -7331,7 +8807,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20031, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20034, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -7401,7 +8877,145 @@ class ManagementApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20031',  # noqa: E501
+            response_type='InlineResponse20034',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def get_audience_memberships(self, audience_id, **kwargs):  # noqa: E501
+        """List audience members  # noqa: E501
+
+        Get a paginated list of the customer profiles in a given audience.  A maximum of 1000 customer profiles per page is allowed.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_audience_memberships(audience_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int audience_id: The ID of the audience. (required)
+        :param int page_size: The number of items in the response.
+        :param int skip: The number of items to skip when paging through large result sets.
+        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
+        :param str profile_query: The filter to select a profile.
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: InlineResponse20032
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.get_audience_memberships_with_http_info(audience_id, **kwargs)  # noqa: E501
+
+    def get_audience_memberships_with_http_info(self, audience_id, **kwargs):  # noqa: E501
+        """List audience members  # noqa: E501
+
+        Get a paginated list of the customer profiles in a given audience.  A maximum of 1000 customer profiles per page is allowed.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_audience_memberships_with_http_info(audience_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int audience_id: The ID of the audience. (required)
+        :param int page_size: The number of items in the response.
+        :param int skip: The number of items to skip when paging through large result sets.
+        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
+        :param str profile_query: The filter to select a profile.
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(InlineResponse20032, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'audience_id',
+            'page_size',
+            'skip',
+            'sort',
+            'profile_query'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_audience_memberships" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'audience_id' is set
+        if self.api_client.client_side_validation and ('audience_id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['audience_id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `audience_id` when calling `get_audience_memberships`")  # noqa: E501
+
+        if self.api_client.client_side_validation and 'page_size' in local_var_params and local_var_params['page_size'] > 1000:  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `page_size` when calling `get_audience_memberships`, must be a value less than or equal to `1000`")  # noqa: E501
+        if self.api_client.client_side_validation and 'page_size' in local_var_params and local_var_params['page_size'] < 1:  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `page_size` when calling `get_audience_memberships`, must be a value greater than or equal to `1`")  # noqa: E501
+        collection_formats = {}
+
+        path_params = {}
+        if 'audience_id' in local_var_params:
+            path_params['audienceId'] = local_var_params['audience_id']  # noqa: E501
+
+        query_params = []
+        if 'page_size' in local_var_params and local_var_params['page_size'] is not None:  # noqa: E501
+            query_params.append(('pageSize', local_var_params['page_size']))  # noqa: E501
+        if 'skip' in local_var_params and local_var_params['skip'] is not None:  # noqa: E501
+            query_params.append(('skip', local_var_params['skip']))  # noqa: E501
+        if 'sort' in local_var_params and local_var_params['sort'] is not None:  # noqa: E501
+            query_params.append(('sort', local_var_params['sort']))  # noqa: E501
+        if 'profile_query' in local_var_params and local_var_params['profile_query'] is not None:  # noqa: E501
+            query_params.append(('profileQuery', local_var_params['profile_query']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/v1/audiences/{audienceId}/memberships', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='InlineResponse20032',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -7419,8 +9033,8 @@ class ManagementApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param int page_size: The number of items in this response.
-        :param int skip: Skips the given number of items when paging through large result sets.
+        :param int page_size: The number of items in the response.
+        :param int skip: The number of items to skip when paging through large result sets.
         :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
         :param bool with_total_result_size: When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When `true`: `hasMore` is true when there is a next page. `totalResultSize` is always zero. - When `false`: `hasMore` is always false. `totalResultSize` contains the total number of results for this query. 
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -7430,7 +9044,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20029
+        :return: InlineResponse20030
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -7447,8 +9061,8 @@ class ManagementApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param int page_size: The number of items in this response.
-        :param int skip: Skips the given number of items when paging through large result sets.
+        :param int page_size: The number of items in the response.
+        :param int skip: The number of items to skip when paging through large result sets.
         :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
         :param bool with_total_result_size: When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When `true`: `hasMore` is true when there is a next page. `totalResultSize` is always zero. - When `false`: `hasMore` is always false. `totalResultSize` contains the total number of results for this query. 
         :param _return_http_data_only: response data without head status code
@@ -7460,7 +9074,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20029, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20030, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -7530,7 +9144,126 @@ class ManagementApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20029',  # noqa: E501
+            response_type='InlineResponse20030',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def get_audiences_analytics(self, audience_ids, **kwargs):  # noqa: E501
+        """List audience analytics  # noqa: E501
+
+        Get a list of audience IDs and their member count.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_audiences_analytics(audience_ids, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str audience_ids: The IDs of one or more audiences, separated by commas, by which to filter results. (required)
+        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: InlineResponse20031
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.get_audiences_analytics_with_http_info(audience_ids, **kwargs)  # noqa: E501
+
+    def get_audiences_analytics_with_http_info(self, audience_ids, **kwargs):  # noqa: E501
+        """List audience analytics  # noqa: E501
+
+        Get a list of audience IDs and their member count.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_audiences_analytics_with_http_info(audience_ids, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str audience_ids: The IDs of one or more audiences, separated by commas, by which to filter results. (required)
+        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(InlineResponse20031, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'audience_ids',
+            'sort'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_audiences_analytics" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'audience_ids' is set
+        if self.api_client.client_side_validation and ('audience_ids' not in local_var_params or  # noqa: E501
+                                                        local_var_params['audience_ids'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `audience_ids` when calling `get_audiences_analytics`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+        if 'sort' in local_var_params and local_var_params['sort'] is not None:  # noqa: E501
+            query_params.append(('sort', local_var_params['sort']))  # noqa: E501
+        if 'audience_ids' in local_var_params and local_var_params['audience_ids'] is not None:  # noqa: E501
+            query_params.append(('audienceIds', local_var_params['audience_ids']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/v1/audiences/analytics', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='InlineResponse20031',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -7673,8 +9406,8 @@ class ManagementApi(object):
         :param async_req bool: execute request asynchronously
         :param int application_id: The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
         :param int campaign_id: The ID of the campaign. It is displayed in your Talon.One deployment URL. (required)
-        :param datetime range_start: Only return results from after this timestamp. This must be an RFC3339 timestamp string. (required)
-        :param datetime range_end: Only return results from before this timestamp. This must be an RFC3339 timestamp string. (required)
+        :param datetime range_start: Only return results from after this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.  (required)
+        :param datetime range_end: Only return results from before this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.  (required)
         :param str granularity: The time interval between the results in the returned time-series.
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -7683,7 +9416,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20020
+        :return: InlineResponse20021
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -7702,8 +9435,8 @@ class ManagementApi(object):
         :param async_req bool: execute request asynchronously
         :param int application_id: The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
         :param int campaign_id: The ID of the campaign. It is displayed in your Talon.One deployment URL. (required)
-        :param datetime range_start: Only return results from after this timestamp. This must be an RFC3339 timestamp string. (required)
-        :param datetime range_end: Only return results from before this timestamp. This must be an RFC3339 timestamp string. (required)
+        :param datetime range_start: Only return results from after this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.  (required)
+        :param datetime range_end: Only return results from before this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.  (required)
         :param str granularity: The time interval between the results in the returned time-series.
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -7714,7 +9447,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20020, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20021, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -7799,7 +9532,7 @@ class ManagementApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20020',  # noqa: E501
+            response_type='InlineResponse20021',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -7819,8 +9552,8 @@ class ManagementApi(object):
         :param async_req bool: execute request asynchronously
         :param int application_id: The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
         :param CampaignSearch body: body (required)
-        :param int page_size: The number of items in this response.
-        :param int skip: Skips the given number of items when paging through large result sets.
+        :param int page_size: The number of items in the response.
+        :param int skip: The number of items to skip when paging through large result sets.
         :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
         :param str campaign_state: Filter results by the state of the campaign.  - `enabled`: Campaigns that are scheduled, running (activated), or expired. - `running`: Campaigns that are running (activated). - `disabled`: Campaigns that are disabled. - `expired`: Campaigns that are expired. - `archived`: Campaigns that are archived. - `draft`: Campaigns that are drafts. 
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -7830,7 +9563,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse2004
+        :return: InlineResponse2006
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -7849,8 +9582,8 @@ class ManagementApi(object):
         :param async_req bool: execute request asynchronously
         :param int application_id: The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
         :param CampaignSearch body: body (required)
-        :param int page_size: The number of items in this response.
-        :param int skip: Skips the given number of items when paging through large result sets.
+        :param int page_size: The number of items in the response.
+        :param int skip: The number of items to skip when paging through large result sets.
         :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
         :param str campaign_state: Filter results by the state of the campaign.  - `enabled`: Campaigns that are scheduled, running (activated), or expired. - `running`: Campaigns that are running (activated). - `disabled`: Campaigns that are disabled. - `expired`: Campaigns that are expired. - `archived`: Campaigns that are archived. - `draft`: Campaigns that are drafts. 
         :param _return_http_data_only: response data without head status code
@@ -7862,7 +9595,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse2004, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse2006, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -7950,7 +9683,245 @@ class ManagementApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse2004',  # noqa: E501
+            response_type='InlineResponse2006',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def get_campaign_group(self, campaign_group_id, **kwargs):  # noqa: E501
+        """Get campaign access group  # noqa: E501
+
+        Get a campaign access group specified by its ID.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_campaign_group(campaign_group_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int campaign_group_id: The ID of the campaign access group. (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: CampaignGroup
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.get_campaign_group_with_http_info(campaign_group_id, **kwargs)  # noqa: E501
+
+    def get_campaign_group_with_http_info(self, campaign_group_id, **kwargs):  # noqa: E501
+        """Get campaign access group  # noqa: E501
+
+        Get a campaign access group specified by its ID.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_campaign_group_with_http_info(campaign_group_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int campaign_group_id: The ID of the campaign access group. (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(CampaignGroup, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'campaign_group_id'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_campaign_group" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'campaign_group_id' is set
+        if self.api_client.client_side_validation and ('campaign_group_id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['campaign_group_id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `campaign_group_id` when calling `get_campaign_group`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'campaign_group_id' in local_var_params:
+            path_params['campaignGroupId'] = local_var_params['campaign_group_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/v1/campaign_groups/{campaignGroupId}', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='CampaignGroup',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def get_campaign_groups(self, **kwargs):  # noqa: E501
+        """List campaign access groups  # noqa: E501
+
+        List the campaign access groups in the current account.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_campaign_groups(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int page_size: The number of items in the response.
+        :param int skip: The number of items to skip when paging through large result sets.
+        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: InlineResponse20011
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.get_campaign_groups_with_http_info(**kwargs)  # noqa: E501
+
+    def get_campaign_groups_with_http_info(self, **kwargs):  # noqa: E501
+        """List campaign access groups  # noqa: E501
+
+        List the campaign access groups in the current account.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_campaign_groups_with_http_info(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int page_size: The number of items in the response.
+        :param int skip: The number of items to skip when paging through large result sets.
+        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(InlineResponse20011, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'page_size',
+            'skip',
+            'sort'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_campaign_groups" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+
+        if self.api_client.client_side_validation and 'page_size' in local_var_params and local_var_params['page_size'] > 1000:  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `page_size` when calling `get_campaign_groups`, must be a value less than or equal to `1000`")  # noqa: E501
+        if self.api_client.client_side_validation and 'page_size' in local_var_params and local_var_params['page_size'] < 1:  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `page_size` when calling `get_campaign_groups`, must be a value greater than or equal to `1`")  # noqa: E501
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+        if 'page_size' in local_var_params and local_var_params['page_size'] is not None:  # noqa: E501
+            query_params.append(('pageSize', local_var_params['page_size']))  # noqa: E501
+        if 'skip' in local_var_params and local_var_params['skip'] is not None:  # noqa: E501
+            query_params.append(('skip', local_var_params['skip']))  # noqa: E501
+        if 'sort' in local_var_params and local_var_params['sort'] is not None:  # noqa: E501
+            query_params.append(('sort', local_var_params['sort']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/v1/campaign_groups', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='InlineResponse20011',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -7968,8 +9939,8 @@ class ManagementApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param int page_size: The number of items in this response.
-        :param int skip: Skips the given number of items when paging through large result sets.
+        :param int page_size: The number of items in the response.
+        :param int skip: The number of items to skip when paging through large result sets.
         :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
         :param str state: Filter results by the state of the campaign template.
         :param str name: Filter results performing case-insensitive matching against the name of the campaign template.
@@ -7982,7 +9953,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20010
+        :return: InlineResponse20012
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -7999,8 +9970,8 @@ class ManagementApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param int page_size: The number of items in this response.
-        :param int skip: Skips the given number of items when paging through large result sets.
+        :param int page_size: The number of items in the response.
+        :param int skip: The number of items to skip when paging through large result sets.
         :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
         :param str state: Filter results by the state of the campaign template.
         :param str name: Filter results performing case-insensitive matching against the name of the campaign template.
@@ -8015,7 +9986,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20010, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20012, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -8094,7 +10065,7 @@ class ManagementApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20010',  # noqa: E501
+            response_type='InlineResponse20012',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -8113,16 +10084,17 @@ class ManagementApi(object):
 
         :param async_req bool: execute request asynchronously
         :param int application_id: The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
-        :param int page_size: The number of items in this response.
-        :param int skip: Skips the given number of items when paging through large result sets.
+        :param int page_size: The number of items in the response.
+        :param int skip: The number of items to skip when paging through large result sets.
         :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
         :param str campaign_state: Filter results by the state of the campaign.  - `enabled`: Campaigns that are scheduled, running (activated), or expired. - `running`: Campaigns that are running (activated). - `disabled`: Campaigns that are disabled. - `expired`: Campaigns that are expired. - `archived`: Campaigns that are archived. - `draft`: Campaigns that are drafts. 
         :param str name: Filter results performing case-insensitive matching against the name of the campaign.
         :param str tags: Filter results performing case-insensitive matching against the tags of the campaign. When used in conjunction with the \"name\" query parameter, a logical OR will be performed to search both tags and name for the provided values 
-        :param datetime created_before: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
-        :param datetime created_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
-        :param int campaign_group_id: Filter results to campaigns owned by the specified campaign group ID.
+        :param datetime created_before: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally.
+        :param datetime created_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally.
+        :param int campaign_group_id: Filter results to campaigns owned by the specified campaign access group ID.
         :param int template_id: The ID of the Campaign Template this Campaign was created from.
+        :param int store_id: Filter results to campaigns linked to the specified store ID.
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -8130,7 +10102,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse2004
+        :return: InlineResponse2006
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -8148,16 +10120,17 @@ class ManagementApi(object):
 
         :param async_req bool: execute request asynchronously
         :param int application_id: The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
-        :param int page_size: The number of items in this response.
-        :param int skip: Skips the given number of items when paging through large result sets.
+        :param int page_size: The number of items in the response.
+        :param int skip: The number of items to skip when paging through large result sets.
         :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
         :param str campaign_state: Filter results by the state of the campaign.  - `enabled`: Campaigns that are scheduled, running (activated), or expired. - `running`: Campaigns that are running (activated). - `disabled`: Campaigns that are disabled. - `expired`: Campaigns that are expired. - `archived`: Campaigns that are archived. - `draft`: Campaigns that are drafts. 
         :param str name: Filter results performing case-insensitive matching against the name of the campaign.
         :param str tags: Filter results performing case-insensitive matching against the tags of the campaign. When used in conjunction with the \"name\" query parameter, a logical OR will be performed to search both tags and name for the provided values 
-        :param datetime created_before: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
-        :param datetime created_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
-        :param int campaign_group_id: Filter results to campaigns owned by the specified campaign group ID.
+        :param datetime created_before: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally.
+        :param datetime created_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally.
+        :param int campaign_group_id: Filter results to campaigns owned by the specified campaign access group ID.
         :param int template_id: The ID of the Campaign Template this Campaign was created from.
+        :param int store_id: Filter results to campaigns linked to the specified store ID.
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -8167,7 +10140,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse2004, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse2006, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -8185,7 +10158,8 @@ class ManagementApi(object):
             'created_before',
             'created_after',
             'campaign_group_id',
-            'template_id'
+            'template_id',
+            'store_id'
         ]
         all_params.extend(
             [
@@ -8240,6 +10214,8 @@ class ManagementApi(object):
             query_params.append(('campaignGroupId', local_var_params['campaign_group_id']))  # noqa: E501
         if 'template_id' in local_var_params and local_var_params['template_id'] is not None:  # noqa: E501
             query_params.append(('templateId', local_var_params['template_id']))  # noqa: E501
+        if 'store_id' in local_var_params and local_var_params['store_id'] is not None:  # noqa: E501
+            query_params.append(('storeId', local_var_params['store_id']))  # noqa: E501
 
         header_params = {}
 
@@ -8262,7 +10238,7 @@ class ManagementApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse2004',  # noqa: E501
+            response_type='InlineResponse2006',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -8280,14 +10256,14 @@ class ManagementApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param int page_size: The number of items in this response.
-        :param int skip: Skips the given number of items when paging through large result sets.
+        :param int page_size: The number of items in the response.
+        :param int skip: The number of items to skip when paging through large result sets.
         :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
         :param float application_id: Filter results by Application ID.
         :param str entity_path: Filter results on a case insensitive matching of the url path of the entity
         :param int user_id: Filter results by user ID.
-        :param datetime created_before: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
-        :param datetime created_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
+        :param datetime created_before: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally.
+        :param datetime created_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally.
         :param bool with_total_result_size: When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When `true`: `hasMore` is true when there is a next page. `totalResultSize` is always zero. - When `false`: `hasMore` is always false. `totalResultSize` contains the total number of results for this query. 
         :param int management_key_id: Filter results that match the given management key ID.
         :param bool include_old: When this flag is set to false, the state without the change will not be returned. The default value is true.
@@ -8298,7 +10274,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20038
+        :return: InlineResponse20042
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -8315,14 +10291,14 @@ class ManagementApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param int page_size: The number of items in this response.
-        :param int skip: Skips the given number of items when paging through large result sets.
+        :param int page_size: The number of items in the response.
+        :param int skip: The number of items to skip when paging through large result sets.
         :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
         :param float application_id: Filter results by Application ID.
         :param str entity_path: Filter results on a case insensitive matching of the url path of the entity
         :param int user_id: Filter results by user ID.
-        :param datetime created_before: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
-        :param datetime created_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
+        :param datetime created_before: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally.
+        :param datetime created_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally.
         :param bool with_total_result_size: When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When `true`: `hasMore` is true when there is a next page. `totalResultSize` is always zero. - When `false`: `hasMore` is always false. `totalResultSize` contains the total number of results for this query. 
         :param int management_key_id: Filter results that match the given management key ID.
         :param bool include_old: When this flag is set to false, the state without the change will not be returned. The default value is true.
@@ -8335,7 +10311,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20038, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20042, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -8426,7 +10402,7 @@ class ManagementApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20038',  # noqa: E501
+            response_type='InlineResponse20042',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -8435,9 +10411,9 @@ class ManagementApi(object):
             collection_formats=collection_formats)
 
     def get_collection(self, application_id, campaign_id, collection_id, **kwargs):  # noqa: E501
-        """Get collection  # noqa: E501
+        """Get campaign-level collection  # noqa: E501
 
-        Retrieve a given collection.  # noqa: E501
+        Retrieve a given campaign-level collection.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_collection(application_id, campaign_id, collection_id, async_req=True)
@@ -8446,7 +10422,7 @@ class ManagementApi(object):
         :param async_req bool: execute request asynchronously
         :param int application_id: The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
         :param int campaign_id: The ID of the campaign. It is displayed in your Talon.One deployment URL. (required)
-        :param int collection_id: The ID of the collection. You can get it with the [List collection in account](#operation/listCollectionsInApplication) endpoint. (required)
+        :param int collection_id: The ID of the collection. You can get it with the [List collections in Application](#operation/listCollectionsInApplication) endpoint. (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -8462,9 +10438,9 @@ class ManagementApi(object):
         return self.get_collection_with_http_info(application_id, campaign_id, collection_id, **kwargs)  # noqa: E501
 
     def get_collection_with_http_info(self, application_id, campaign_id, collection_id, **kwargs):  # noqa: E501
-        """Get collection  # noqa: E501
+        """Get campaign-level collection  # noqa: E501
 
-        Retrieve a given collection.  # noqa: E501
+        Retrieve a given campaign-level collection.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_collection_with_http_info(application_id, campaign_id, collection_id, async_req=True)
@@ -8473,7 +10449,7 @@ class ManagementApi(object):
         :param async_req bool: execute request asynchronously
         :param int application_id: The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
         :param int campaign_id: The ID of the campaign. It is displayed in your Talon.One deployment URL. (required)
-        :param int collection_id: The ID of the collection. You can get it with the [List collection in account](#operation/listCollectionsInApplication) endpoint. (required)
+        :param int collection_id: The ID of the collection. You can get it with the [List collections in Application](#operation/listCollectionsInApplication) endpoint. (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -8569,16 +10545,16 @@ class ManagementApi(object):
     def get_collection_items(self, collection_id, **kwargs):  # noqa: E501
         """Get collection items  # noqa: E501
 
-        Retrieve the items from the given collection.  # noqa: E501
+        Retrieve items from a given collection.  You can retrieve items from both account-level collections and campaign-level collections using this endpoint.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_collection_items(collection_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param int collection_id: The ID of the collection. You can get it with the [List collection in account](#operation/listCollectionsInApplication) endpoint. (required)
-        :param int page_size: The number of items in this response.
-        :param int skip: Skips the given number of items when paging through large result sets.
+        :param int collection_id: The ID of the collection. You can get it with the [List collections in account](#operation/listAccountCollections) endpoint. (required)
+        :param int page_size: The number of items in the response.
+        :param int skip: The number of items to skip when paging through large result sets.
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -8586,7 +10562,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20016
+        :return: InlineResponse20018
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -8596,16 +10572,16 @@ class ManagementApi(object):
     def get_collection_items_with_http_info(self, collection_id, **kwargs):  # noqa: E501
         """Get collection items  # noqa: E501
 
-        Retrieve the items from the given collection.  # noqa: E501
+        Retrieve items from a given collection.  You can retrieve items from both account-level collections and campaign-level collections using this endpoint.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_collection_items_with_http_info(collection_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param int collection_id: The ID of the collection. You can get it with the [List collection in account](#operation/listCollectionsInApplication) endpoint. (required)
-        :param int page_size: The number of items in this response.
-        :param int skip: Skips the given number of items when paging through large result sets.
+        :param int collection_id: The ID of the collection. You can get it with the [List collections in account](#operation/listAccountCollections) endpoint. (required)
+        :param int page_size: The number of items in the response.
+        :param int skip: The number of items to skip when paging through large result sets.
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -8615,7 +10591,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20016, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20018, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -8686,7 +10662,7 @@ class ManagementApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20016',  # noqa: E501
+            response_type='InlineResponse20018',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -8706,12 +10682,12 @@ class ManagementApi(object):
         :param async_req bool: execute request asynchronously
         :param int application_id: The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
         :param int campaign_id: The ID of the campaign. It is displayed in your Talon.One deployment URL. (required)
-        :param int page_size: The number of items in this response.
-        :param int skip: Skips the given number of items when paging through large result sets.
+        :param int page_size: The number of items in the response.
+        :param int skip: The number of items to skip when paging through large result sets.
         :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
         :param str value: Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters.
-        :param datetime created_before: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
-        :param datetime created_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
+        :param datetime created_before: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally.
+        :param datetime created_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally.
         :param str valid: Either \"expired\", \"validNow\", or \"validFuture\". The first option matches coupons in which the expiration date is set and in the past. The second matches coupons in which start date is null or in the past and expiration date is null or in the future, the third matches coupons in which start date is set and in the future. 
         :param str usable: Either \"true\" or \"false\". If \"true\", only coupons where `usageCounter < usageLimit` will be returned, \"false\" will return only coupons where `usageCounter >= usageLimit`. 
         :param int referral_id: Filter the results by matching them with the ID of a referral. This filter shows the coupons created by redeeming a referral code.
@@ -8725,7 +10701,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse2008
+        :return: InlineResponse2009
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -8744,12 +10720,12 @@ class ManagementApi(object):
         :param async_req bool: execute request asynchronously
         :param int application_id: The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
         :param int campaign_id: The ID of the campaign. It is displayed in your Talon.One deployment URL. (required)
-        :param int page_size: The number of items in this response.
-        :param int skip: Skips the given number of items when paging through large result sets.
+        :param int page_size: The number of items in the response.
+        :param int skip: The number of items to skip when paging through large result sets.
         :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
         :param str value: Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters.
-        :param datetime created_before: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
-        :param datetime created_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
+        :param datetime created_before: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally.
+        :param datetime created_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally.
         :param str valid: Either \"expired\", \"validNow\", or \"validFuture\". The first option matches coupons in which the expiration date is set and in the past. The second matches coupons in which start date is null or in the past and expiration date is null or in the future, the third matches coupons in which start date is set and in the future. 
         :param str usable: Either \"true\" or \"false\". If \"true\", only coupons where `usageCounter < usageLimit` will be returned, \"false\" will return only coupons where `usageCounter >= usageLimit`. 
         :param int referral_id: Filter the results by matching them with the ID of a referral. This filter shows the coupons created by redeeming a referral code.
@@ -8765,7 +10741,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse2008, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse2009, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -8873,7 +10849,7 @@ class ManagementApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse2008',  # noqa: E501
+            response_type='InlineResponse2009',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -8891,12 +10867,12 @@ class ManagementApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param datetime range_start: Only return results from after this timestamp. This must be an RFC3339 timestamp string. (required)
-        :param datetime range_end: Only return results from before this timestamp. This must be an RFC3339 timestamp string. (required)
+        :param datetime range_start: Only return results from after this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.  (required)
+        :param datetime range_end: Only return results from before this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.  (required)
         :param int application_id: The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
         :param int customer_id: The value of the `id` property of a customer profile. Get it with the [List Application's customers](https://docs.talon.one/management-api#operation/getApplicationCustomers) endpoint.  (required)
-        :param int page_size: The number of items in this response.
-        :param int skip: Skips the given number of items when paging through large result sets.
+        :param int page_size: The number of items in the response.
+        :param int skip: The number of items to skip when paging through large result sets.
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -8921,12 +10897,12 @@ class ManagementApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param datetime range_start: Only return results from after this timestamp. This must be an RFC3339 timestamp string. (required)
-        :param datetime range_end: Only return results from before this timestamp. This must be an RFC3339 timestamp string. (required)
+        :param datetime range_start: Only return results from after this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.  (required)
+        :param datetime range_end: Only return results from before this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.  (required)
         :param int application_id: The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
         :param int customer_id: The value of the `id` property of a customer profile. Get it with the [List Application's customers](https://docs.talon.one/management-api#operation/getApplicationCustomers) endpoint.  (required)
-        :param int page_size: The number of items in this response.
-        :param int skip: Skips the given number of items when paging through large result sets.
+        :param int page_size: The number of items in the response.
+        :param int skip: The number of items to skip when paging through large result sets.
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -9046,11 +11022,11 @@ class ManagementApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param datetime range_start: Only return results from after this timestamp. This must be an RFC3339 timestamp string. (required)
-        :param datetime range_end: Only return results from before this timestamp. This must be an RFC3339 timestamp string. (required)
+        :param datetime range_start: Only return results from after this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.  (required)
+        :param datetime range_end: Only return results from before this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.  (required)
         :param int application_id: The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
-        :param int page_size: The number of items in this response.
-        :param int skip: Skips the given number of items when paging through large result sets.
+        :param int page_size: The number of items in the response.
+        :param int skip: The number of items to skip when paging through large result sets.
         :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
         :param str name: Only return reports matching the customer name
         :param str integration_id: Filter results performing an exact matching against the profile integration identifier.
@@ -9063,7 +11039,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20025
+        :return: InlineResponse20026
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -9080,11 +11056,11 @@ class ManagementApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param datetime range_start: Only return results from after this timestamp. This must be an RFC3339 timestamp string. (required)
-        :param datetime range_end: Only return results from before this timestamp. This must be an RFC3339 timestamp string. (required)
+        :param datetime range_start: Only return results from after this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.  (required)
+        :param datetime range_end: Only return results from before this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.  (required)
         :param int application_id: The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
-        :param int page_size: The number of items in this response.
-        :param int skip: Skips the given number of items when paging through large result sets.
+        :param int page_size: The number of items in the response.
+        :param int skip: The number of items to skip when paging through large result sets.
         :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
         :param str name: Only return reports matching the customer name
         :param str integration_id: Filter results performing an exact matching against the profile integration identifier.
@@ -9099,7 +11075,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20025, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20026, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -9199,7 +11175,7 @@ class ManagementApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20025',  # noqa: E501
+            response_type='InlineResponse20026',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -9219,8 +11195,8 @@ class ManagementApi(object):
         :param async_req bool: execute request asynchronously
         :param int application_id: The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
         :param int customer_id: The value of the `id` property of a customer profile. Get it with the [List Application's customers](https://docs.talon.one/management-api#operation/getApplicationCustomers) endpoint.  (required)
-        :param int page_size: The number of items in this response.
-        :param int skip: Skips the given number of items when paging through large result sets.
+        :param int page_size: The number of items in the response.
+        :param int skip: The number of items to skip when paging through large result sets.
         :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -9248,8 +11224,8 @@ class ManagementApi(object):
         :param async_req bool: execute request asynchronously
         :param int application_id: The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
         :param int customer_id: The value of the `id` property of a customer profile. Get it with the [List Application's customers](https://docs.talon.one/management-api#operation/getApplicationCustomers) endpoint.  (required)
-        :param int page_size: The number of items in this response.
-        :param int skip: Skips the given number of items when paging through large result sets.
+        :param int page_size: The number of items in the response.
+        :param int skip: The number of items to skip when paging through large result sets.
         :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -9463,6 +11439,153 @@ class ManagementApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def get_customer_profile_achievement_progress(self, application_id, integration_id, **kwargs):  # noqa: E501
+        """List customer achievements  # noqa: E501
+
+        For the given customer profile, list all the achievements that match your filter criteria.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_customer_profile_achievement_progress(application_id, integration_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int application_id: The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
+        :param str integration_id: The identifier of the profile. (required)
+        :param int page_size: The number of items in the response.
+        :param int skip: The number of items to skip when paging through large result sets.
+        :param int achievement_id: The ID of the achievement. You can get this ID with the [List achievement](https://docs.talon.one/management-api#tag/Achievements/operation/listAchievements) endpoint.
+        :param str title: Filter results by the `title` of an achievement.
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: InlineResponse20047
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.get_customer_profile_achievement_progress_with_http_info(application_id, integration_id, **kwargs)  # noqa: E501
+
+    def get_customer_profile_achievement_progress_with_http_info(self, application_id, integration_id, **kwargs):  # noqa: E501
+        """List customer achievements  # noqa: E501
+
+        For the given customer profile, list all the achievements that match your filter criteria.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_customer_profile_achievement_progress_with_http_info(application_id, integration_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int application_id: The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
+        :param str integration_id: The identifier of the profile. (required)
+        :param int page_size: The number of items in the response.
+        :param int skip: The number of items to skip when paging through large result sets.
+        :param int achievement_id: The ID of the achievement. You can get this ID with the [List achievement](https://docs.talon.one/management-api#tag/Achievements/operation/listAchievements) endpoint.
+        :param str title: Filter results by the `title` of an achievement.
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(InlineResponse20047, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'application_id',
+            'integration_id',
+            'page_size',
+            'skip',
+            'achievement_id',
+            'title'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_customer_profile_achievement_progress" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'application_id' is set
+        if self.api_client.client_side_validation and ('application_id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['application_id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `application_id` when calling `get_customer_profile_achievement_progress`")  # noqa: E501
+        # verify the required parameter 'integration_id' is set
+        if self.api_client.client_side_validation and ('integration_id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['integration_id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `integration_id` when calling `get_customer_profile_achievement_progress`")  # noqa: E501
+
+        if self.api_client.client_side_validation and 'page_size' in local_var_params and local_var_params['page_size'] > 50:  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `page_size` when calling `get_customer_profile_achievement_progress`, must be a value less than or equal to `50`")  # noqa: E501
+        if self.api_client.client_side_validation and 'page_size' in local_var_params and local_var_params['page_size'] < 1:  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `page_size` when calling `get_customer_profile_achievement_progress`, must be a value greater than or equal to `1`")  # noqa: E501
+        collection_formats = {}
+
+        path_params = {}
+        if 'application_id' in local_var_params:
+            path_params['applicationId'] = local_var_params['application_id']  # noqa: E501
+        if 'integration_id' in local_var_params:
+            path_params['integrationId'] = local_var_params['integration_id']  # noqa: E501
+
+        query_params = []
+        if 'page_size' in local_var_params and local_var_params['page_size'] is not None:  # noqa: E501
+            query_params.append(('pageSize', local_var_params['page_size']))  # noqa: E501
+        if 'skip' in local_var_params and local_var_params['skip'] is not None:  # noqa: E501
+            query_params.append(('skip', local_var_params['skip']))  # noqa: E501
+        if 'achievement_id' in local_var_params and local_var_params['achievement_id'] is not None:  # noqa: E501
+            query_params.append(('achievementId', local_var_params['achievement_id']))  # noqa: E501
+        if 'title' in local_var_params and local_var_params['title'] is not None:  # noqa: E501
+            query_params.append(('title', local_var_params['title']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/v1/applications/{applicationId}/achievement_progress/{integrationId}', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='InlineResponse20047',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def get_customer_profiles(self, **kwargs):  # noqa: E501
         """List customer profiles  # noqa: E501
 
@@ -9473,8 +11596,8 @@ class ManagementApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param int page_size: The number of items in this response.
-        :param int skip: Skips the given number of items when paging through large result sets.
+        :param int page_size: The number of items in the response.
+        :param int skip: The number of items to skip when paging through large result sets.
         :param bool sandbox: Indicates whether you are pointing to a sandbox or Live customer.
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -9483,7 +11606,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20024
+        :return: InlineResponse20025
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -9500,8 +11623,8 @@ class ManagementApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param int page_size: The number of items in this response.
-        :param int skip: Skips the given number of items when paging through large result sets.
+        :param int page_size: The number of items in the response.
+        :param int skip: The number of items to skip when paging through large result sets.
         :param bool sandbox: Indicates whether you are pointing to a sandbox or Live customer.
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -9512,7 +11635,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20024, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20025, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -9579,7 +11702,7 @@ class ManagementApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20024',  # noqa: E501
+            response_type='InlineResponse20025',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -9598,8 +11721,8 @@ class ManagementApi(object):
 
         :param async_req bool: execute request asynchronously
         :param CustomerProfileSearchQuery body: body (required)
-        :param int page_size: The number of items in this response.
-        :param int skip: Skips the given number of items when paging through large result sets.
+        :param int page_size: The number of items in the response.
+        :param int skip: The number of items to skip when paging through large result sets.
         :param bool sandbox: Indicates whether you are pointing to a sandbox or Live customer.
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -9608,7 +11731,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20023
+        :return: InlineResponse20024
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -9626,8 +11749,8 @@ class ManagementApi(object):
 
         :param async_req bool: execute request asynchronously
         :param CustomerProfileSearchQuery body: body (required)
-        :param int page_size: The number of items in this response.
-        :param int skip: Skips the given number of items when paging through large result sets.
+        :param int page_size: The number of items in the response.
+        :param int skip: The number of items to skip when paging through large result sets.
         :param bool sandbox: Indicates whether you are pointing to a sandbox or Live customer.
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -9638,7 +11761,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20023, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20024, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -9716,7 +11839,7 @@ class ManagementApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20023',  # noqa: E501
+            response_type='InlineResponse20024',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -9736,8 +11859,8 @@ class ManagementApi(object):
         :param async_req bool: execute request asynchronously
         :param str name: Filter results to event types with the given name. This parameter implies `includeOldVersions`.
         :param bool include_old_versions: Include all versions of every event type.
-        :param int page_size: The number of items in this response.
-        :param int skip: Skips the given number of items when paging through large result sets.
+        :param int page_size: The number of items in the response.
+        :param int skip: The number of items to skip when paging through large result sets.
         :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -9746,7 +11869,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20036
+        :return: InlineResponse20040
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -9765,8 +11888,8 @@ class ManagementApi(object):
         :param async_req bool: execute request asynchronously
         :param str name: Filter results to event types with the given name. This parameter implies `includeOldVersions`.
         :param bool include_old_versions: Include all versions of every event type.
-        :param int page_size: The number of items in this response.
-        :param int skip: Skips the given number of items when paging through large result sets.
+        :param int page_size: The number of items in the response.
+        :param int skip: The number of items to skip when paging through large result sets.
         :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -9777,7 +11900,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20036, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20040, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -9850,7 +11973,7 @@ class ManagementApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20036',  # noqa: E501
+            response_type='InlineResponse20040',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -9868,8 +11991,8 @@ class ManagementApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param int page_size: The number of items in this response.
-        :param int skip: Skips the given number of items when paging through large result sets.
+        :param int page_size: The number of items in the response.
+        :param int skip: The number of items to skip when paging through large result sets.
         :param float application_id: Filter results by Application ID.
         :param int campaign_id: Filter by the campaign ID on which the limit counters are used.
         :param str entity: The name of the entity type that was exported.
@@ -9880,7 +12003,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20039
+        :return: InlineResponse20043
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -9897,8 +12020,8 @@ class ManagementApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param int page_size: The number of items in this response.
-        :param int skip: Skips the given number of items when paging through large result sets.
+        :param int page_size: The number of items in the response.
+        :param int skip: The number of items to skip when paging through large result sets.
         :param float application_id: Filter results by Application ID.
         :param int campaign_id: Filter by the campaign ID on which the limit counters are used.
         :param str entity: The name of the entity type that was exported.
@@ -9911,7 +12034,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20039, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20043, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -9984,7 +12107,7 @@ class ManagementApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20039',  # noqa: E501
+            response_type='InlineResponse20043',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -10121,7 +12244,7 @@ class ManagementApi(object):
     def get_loyalty_card_transaction_logs(self, loyalty_program_id, loyalty_card_id, **kwargs):  # noqa: E501
         """List card's transactions  # noqa: E501
 
-        Retrieve the transaction logs for the given [loyalty card](https://docs.talon.one/docs/product/loyalty-programs/loyalty-cards/loyalty-card-overview) within the specified [card-based loyalty program](https://docs.talon.one/docs/product/loyalty-programs/overview#loyalty-program-types) with filtering options applied. If no filtering options are applied, the last 50 loyalty transactions for the given loyalty card are returned.   # noqa: E501
+        Retrieve the transaction logs for the given [loyalty card](https://docs.talon.one/docs/product/loyalty-programs/card-based/card-based-overview) within the specified [card-based loyalty program](https://docs.talon.one/docs/product/loyalty-programs/overview#loyalty-program-types) with filtering options applied. If no filtering options are applied, the last 50 loyalty transactions for the given loyalty card are returned.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_loyalty_card_transaction_logs(loyalty_program_id, loyalty_card_id, async_req=True)
@@ -10130,10 +12253,10 @@ class ManagementApi(object):
         :param async_req bool: execute request asynchronously
         :param int loyalty_program_id: Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  (required)
         :param str loyalty_card_id: Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint.  (required)
-        :param datetime start_date: Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:** It must be an RFC3339 timestamp string. 
-        :param datetime end_date: Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:** It must be an RFC3339 timestamp string. 
-        :param int page_size: The number of items in this response.
-        :param int skip: Skips the given number of items when paging through large result sets.
+        :param datetime start_date: Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
+        :param datetime end_date: Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
+        :param int page_size: The number of items in the response.
+        :param int skip: The number of items to skip when paging through large result sets.
         :param str subledger_id: The ID of the subledger by which we filter the data.
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -10142,7 +12265,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20014
+        :return: InlineResponse20016
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -10152,7 +12275,7 @@ class ManagementApi(object):
     def get_loyalty_card_transaction_logs_with_http_info(self, loyalty_program_id, loyalty_card_id, **kwargs):  # noqa: E501
         """List card's transactions  # noqa: E501
 
-        Retrieve the transaction logs for the given [loyalty card](https://docs.talon.one/docs/product/loyalty-programs/loyalty-cards/loyalty-card-overview) within the specified [card-based loyalty program](https://docs.talon.one/docs/product/loyalty-programs/overview#loyalty-program-types) with filtering options applied. If no filtering options are applied, the last 50 loyalty transactions for the given loyalty card are returned.   # noqa: E501
+        Retrieve the transaction logs for the given [loyalty card](https://docs.talon.one/docs/product/loyalty-programs/card-based/card-based-overview) within the specified [card-based loyalty program](https://docs.talon.one/docs/product/loyalty-programs/overview#loyalty-program-types) with filtering options applied. If no filtering options are applied, the last 50 loyalty transactions for the given loyalty card are returned.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_loyalty_card_transaction_logs_with_http_info(loyalty_program_id, loyalty_card_id, async_req=True)
@@ -10161,10 +12284,10 @@ class ManagementApi(object):
         :param async_req bool: execute request asynchronously
         :param int loyalty_program_id: Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  (required)
         :param str loyalty_card_id: Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint.  (required)
-        :param datetime start_date: Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:** It must be an RFC3339 timestamp string. 
-        :param datetime end_date: Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:** It must be an RFC3339 timestamp string. 
-        :param int page_size: The number of items in this response.
-        :param int skip: Skips the given number of items when paging through large result sets.
+        :param datetime start_date: Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
+        :param datetime end_date: Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
+        :param int page_size: The number of items in the response.
+        :param int skip: The number of items to skip when paging through large result sets.
         :param str subledger_id: The ID of the subledger by which we filter the data.
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -10175,7 +12298,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20014, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20016, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -10265,7 +12388,7 @@ class ManagementApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20014',  # noqa: E501
+            response_type='InlineResponse20016',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -10284,8 +12407,8 @@ class ManagementApi(object):
 
         :param async_req bool: execute request asynchronously
         :param int loyalty_program_id: Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  (required)
-        :param int page_size: The number of items in this response.
-        :param int skip: Skips the given number of items when paging through large result sets.
+        :param int page_size: The number of items in the response.
+        :param int skip: The number of items to skip when paging through large result sets.
         :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
         :param str identifier: Optional query parameter to search cards by identifier.
         :param int profile_id: Filter by the profile ID.
@@ -10296,7 +12419,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20013
+        :return: InlineResponse20015
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -10314,8 +12437,8 @@ class ManagementApi(object):
 
         :param async_req bool: execute request asynchronously
         :param int loyalty_program_id: Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  (required)
-        :param int page_size: The number of items in this response.
-        :param int skip: Skips the given number of items when paging through large result sets.
+        :param int page_size: The number of items in the response.
+        :param int skip: The number of items to skip when paging through large result sets.
         :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
         :param str identifier: Optional query parameter to search cards by identifier.
         :param int profile_id: Filter by the profile ID.
@@ -10328,7 +12451,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20013, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20015, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -10413,7 +12536,7 @@ class ManagementApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20013',  # noqa: E501
+            response_type='InlineResponse20015',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -10554,7 +12677,7 @@ class ManagementApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param int loyalty_program_id: Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  (required)
+        :param int loyalty_program_id: Identifier of the loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -10579,7 +12702,7 @@ class ManagementApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param int loyalty_program_id: Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  (required)
+        :param int loyalty_program_id: Identifier of the loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -10661,20 +12784,20 @@ class ManagementApi(object):
     def get_loyalty_program_transactions(self, loyalty_program_id, **kwargs):  # noqa: E501
         """List loyalty program transactions  # noqa: E501
 
-        Retrieve all loyalty program transaction logs in a given loyalty program with filtering options applied. Manual and imported transactions are also included. If no filters are applied, the last 50 loyalty transactions for the given loyalty program are returned.  **Important:** To get loyalty transaction logs for a given Integration ID in a loyalty program, we recommend using the Integration API's [Get customer's loyalty logs](https://docs.talon.one/integration-api#tag/Loyalty/operation/getLoyaltyProgramProfileTransactions).   # noqa: E501
+        Retrieve loyalty program transaction logs in a given loyalty program with filtering options applied. Manual and imported transactions are also included. **Note:** If no filters are applied, the last 50 loyalty transactions for the given loyalty program are returned.  **Important:** To get loyalty transaction logs for a given Integration ID in a loyalty program, we recommend using the Integration API's [Get customer's loyalty logs](https://docs.talon.one/integration-api#tag/Loyalty/operation/getLoyaltyProgramProfileTransactions).   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_loyalty_program_transactions(loyalty_program_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param int loyalty_program_id: Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  (required)
+        :param int loyalty_program_id: Identifier of the loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  (required)
         :param str loyalty_transaction_type: Filter results by loyalty transaction type: - `manual`: Loyalty transaction that was done manually. - `session`: Loyalty transaction that resulted from a customer session. - `import`: Loyalty transaction that was imported from a CSV file. 
         :param str subledger_id: The ID of the subledger by which we filter the data.
-        :param datetime start_date: Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:** It must be an RFC3339 timestamp string. 
-        :param datetime end_date: Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:** It must be an RFC3339 timestamp string. 
-        :param int page_size: The number of items in this response.
-        :param int skip: Skips the given number of items when paging through large result sets.
+        :param datetime start_date: Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
+        :param datetime end_date: Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
+        :param int page_size: The number of items in the response.
+        :param int skip: The number of items to skip when paging through large result sets.
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -10682,7 +12805,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20012
+        :return: InlineResponse20014
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -10692,20 +12815,20 @@ class ManagementApi(object):
     def get_loyalty_program_transactions_with_http_info(self, loyalty_program_id, **kwargs):  # noqa: E501
         """List loyalty program transactions  # noqa: E501
 
-        Retrieve all loyalty program transaction logs in a given loyalty program with filtering options applied. Manual and imported transactions are also included. If no filters are applied, the last 50 loyalty transactions for the given loyalty program are returned.  **Important:** To get loyalty transaction logs for a given Integration ID in a loyalty program, we recommend using the Integration API's [Get customer's loyalty logs](https://docs.talon.one/integration-api#tag/Loyalty/operation/getLoyaltyProgramProfileTransactions).   # noqa: E501
+        Retrieve loyalty program transaction logs in a given loyalty program with filtering options applied. Manual and imported transactions are also included. **Note:** If no filters are applied, the last 50 loyalty transactions for the given loyalty program are returned.  **Important:** To get loyalty transaction logs for a given Integration ID in a loyalty program, we recommend using the Integration API's [Get customer's loyalty logs](https://docs.talon.one/integration-api#tag/Loyalty/operation/getLoyaltyProgramProfileTransactions).   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_loyalty_program_transactions_with_http_info(loyalty_program_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param int loyalty_program_id: Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  (required)
+        :param int loyalty_program_id: Identifier of the loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  (required)
         :param str loyalty_transaction_type: Filter results by loyalty transaction type: - `manual`: Loyalty transaction that was done manually. - `session`: Loyalty transaction that resulted from a customer session. - `import`: Loyalty transaction that was imported from a CSV file. 
         :param str subledger_id: The ID of the subledger by which we filter the data.
-        :param datetime start_date: Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:** It must be an RFC3339 timestamp string. 
-        :param datetime end_date: Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:** It must be an RFC3339 timestamp string. 
-        :param int page_size: The number of items in this response.
-        :param int skip: Skips the given number of items when paging through large result sets.
+        :param datetime start_date: Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
+        :param datetime end_date: Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
+        :param int page_size: The number of items in the response.
+        :param int skip: The number of items to skip when paging through large result sets.
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -10715,7 +12838,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20012, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20014, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -10753,9 +12876,6 @@ class ManagementApi(object):
                                                         local_var_params['loyalty_program_id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `loyalty_program_id` when calling `get_loyalty_program_transactions`")  # noqa: E501
 
-        if self.api_client.client_side_validation and ('loyalty_transaction_type' in local_var_params and  # noqa: E501
-                                                        len(local_var_params['loyalty_transaction_type']) > 255):  # noqa: E501
-            raise ApiValueError("Invalid value for parameter `loyalty_transaction_type` when calling `get_loyalty_program_transactions`, length must be less than or equal to `255`")  # noqa: E501
         if self.api_client.client_side_validation and 'page_size' in local_var_params and local_var_params['page_size'] > 50:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `page_size` when calling `get_loyalty_program_transactions`, must be a value less than or equal to `50`")  # noqa: E501
         if self.api_client.client_side_validation and 'page_size' in local_var_params and local_var_params['page_size'] < 1:  # noqa: E501
@@ -10801,7 +12921,7 @@ class ManagementApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20012',  # noqa: E501
+            response_type='InlineResponse20014',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -10826,7 +12946,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20011
+        :return: InlineResponse20013
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -10852,7 +12972,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20011, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20013, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -10906,7 +13026,7 @@ class ManagementApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20011',  # noqa: E501
+            response_type='InlineResponse20013',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -10924,7 +13044,7 @@ class ManagementApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param int loyalty_program_id: Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  (required)
+        :param int loyalty_program_id: Identifier of the loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -10932,7 +13052,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: LoyaltyStatistics
+        :return: LoyaltyDashboardData
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -10949,7 +13069,7 @@ class ManagementApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param int loyalty_program_id: Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  (required)
+        :param int loyalty_program_id: Identifier of the loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -10959,7 +13079,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(LoyaltyStatistics, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(LoyaltyDashboardData, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -11020,244 +13140,7 @@ class ManagementApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='LoyaltyStatistics',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def get_notification_webhook(self, application_id, notification_webhook_id, **kwargs):  # noqa: E501
-        """Get notification about campaign-related changes  # noqa: E501
-
-        Return the given [notification about campaign-related changes](https://docs.talon.one/docs/product/applications/outbound-notifications).   # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_notification_webhook(application_id, notification_webhook_id, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param int application_id: The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
-        :param int notification_webhook_id: The ID of the webhook. Get it with the appropriate _List notifications_ endpoint. (required)
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: NotificationWebhook
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        return self.get_notification_webhook_with_http_info(application_id, notification_webhook_id, **kwargs)  # noqa: E501
-
-    def get_notification_webhook_with_http_info(self, application_id, notification_webhook_id, **kwargs):  # noqa: E501
-        """Get notification about campaign-related changes  # noqa: E501
-
-        Return the given [notification about campaign-related changes](https://docs.talon.one/docs/product/applications/outbound-notifications).   # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_notification_webhook_with_http_info(application_id, notification_webhook_id, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param int application_id: The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
-        :param int notification_webhook_id: The ID of the webhook. Get it with the appropriate _List notifications_ endpoint. (required)
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(NotificationWebhook, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = [
-            'application_id',
-            'notification_webhook_id'
-        ]
-        all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
-            ]
-        )
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_notification_webhook" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'application_id' is set
-        if self.api_client.client_side_validation and ('application_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['application_id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `application_id` when calling `get_notification_webhook`")  # noqa: E501
-        # verify the required parameter 'notification_webhook_id' is set
-        if self.api_client.client_side_validation and ('notification_webhook_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['notification_webhook_id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `notification_webhook_id` when calling `get_notification_webhook`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'application_id' in local_var_params:
-            path_params['applicationId'] = local_var_params['application_id']  # noqa: E501
-        if 'notification_webhook_id' in local_var_params:
-            path_params['notificationWebhookId'] = local_var_params['notification_webhook_id']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/v1/applications/{applicationId}/notification_webhooks/{notificationWebhookId}', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='NotificationWebhook',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def get_notification_webhooks(self, application_id, **kwargs):  # noqa: E501
-        """List notifications about campaign-related changes  # noqa: E501
-
-        List all [notifications about campaign-related changes](https://docs.talon.one/docs/product/applications/outbound-notifications) for the given Application.   # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_notification_webhooks(application_id, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param int application_id: The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: InlineResponse2005
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        return self.get_notification_webhooks_with_http_info(application_id, **kwargs)  # noqa: E501
-
-    def get_notification_webhooks_with_http_info(self, application_id, **kwargs):  # noqa: E501
-        """List notifications about campaign-related changes  # noqa: E501
-
-        List all [notifications about campaign-related changes](https://docs.talon.one/docs/product/applications/outbound-notifications) for the given Application.   # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_notification_webhooks_with_http_info(application_id, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param int application_id: The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(InlineResponse2005, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = [
-            'application_id'
-        ]
-        all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
-            ]
-        )
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_notification_webhooks" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'application_id' is set
-        if self.api_client.client_side_validation and ('application_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['application_id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `application_id` when calling `get_notification_webhooks`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'application_id' in local_var_params:
-            path_params['applicationId'] = local_var_params['application_id']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/v1/applications/{applicationId}/notification_webhooks', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='InlineResponse2005',  # noqa: E501
+            response_type='LoyaltyDashboardData',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -11277,12 +13160,12 @@ class ManagementApi(object):
         :param async_req bool: execute request asynchronously
         :param int application_id: The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
         :param int campaign_id: The ID of the campaign. It is displayed in your Talon.One deployment URL. (required)
-        :param int page_size: The number of items in this response.
-        :param int skip: Skips the given number of items when paging through large result sets.
+        :param int page_size: The number of items in the response.
+        :param int skip: The number of items to skip when paging through large result sets.
         :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
         :param str code: Filter results performing case-insensitive matching against the referral code. Both the code and the query are folded to remove all non-alpha-numeric characters.
-        :param datetime created_before: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
-        :param datetime created_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
+        :param datetime created_before: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally.
+        :param datetime created_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally.
         :param str valid: Either \"expired\", \"validNow\", or \"validFuture\". The first option matches referrals in which the expiration date is set and in the past. The second matches referrals in which start date is null or in the past and expiration date is null or in the future, the third matches referrals in which start date is set and in the future. 
         :param str usable: Either \"true\" or \"false\". If \"true\", only referrals where `usageCounter < usageLimit` will be returned, \"false\" will return only referrals where `usageCounter >= usageLimit`. 
         :param str advocate: Filter results by match with a profile id specified in the referral's AdvocateProfileIntegrationId field
@@ -11293,7 +13176,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse2009
+        :return: InlineResponse20010
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -11312,12 +13195,12 @@ class ManagementApi(object):
         :param async_req bool: execute request asynchronously
         :param int application_id: The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
         :param int campaign_id: The ID of the campaign. It is displayed in your Talon.One deployment URL. (required)
-        :param int page_size: The number of items in this response.
-        :param int skip: Skips the given number of items when paging through large result sets.
+        :param int page_size: The number of items in the response.
+        :param int skip: The number of items to skip when paging through large result sets.
         :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
         :param str code: Filter results performing case-insensitive matching against the referral code. Both the code and the query are folded to remove all non-alpha-numeric characters.
-        :param datetime created_before: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
-        :param datetime created_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
+        :param datetime created_before: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally.
+        :param datetime created_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally.
         :param str valid: Either \"expired\", \"validNow\", or \"validFuture\". The first option matches referrals in which the expiration date is set and in the past. The second matches referrals in which start date is null or in the past and expiration date is null or in the future, the third matches referrals in which start date is set and in the future. 
         :param str usable: Either \"true\" or \"false\". If \"true\", only referrals where `usageCounter < usageLimit` will be returned, \"false\" will return only referrals where `usageCounter >= usageLimit`. 
         :param str advocate: Filter results by match with a profile id specified in the referral's AdvocateProfileIntegrationId field
@@ -11330,7 +13213,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse2009, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20010, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -11429,7 +13312,7 @@ class ManagementApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse2009',  # noqa: E501
+            response_type='InlineResponse20010',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -11440,14 +13323,14 @@ class ManagementApi(object):
     def get_role(self, role_id, **kwargs):  # noqa: E501
         """Get role  # noqa: E501
 
-        Get the details of the specified role. To see all the roles, use [List roles](#operation/getAllRoles).   # noqa: E501
+        Get the details of a specific role. To see all the roles, use [List roles](#operation/getAllRoles).   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_role(role_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param int role_id: The Id of role.  (required)
+        :param int role_id: ID of role.  **Note**: To find the ID of a role, use the [List roles](https://docs.talon.one/management-api#tag/Roles/operation/getAllRoles) endpoint.  (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -11465,14 +13348,14 @@ class ManagementApi(object):
     def get_role_with_http_info(self, role_id, **kwargs):  # noqa: E501
         """Get role  # noqa: E501
 
-        Get the details of the specified role. To see all the roles, use [List roles](#operation/getAllRoles).   # noqa: E501
+        Get the details of a specific role. To see all the roles, use [List roles](#operation/getAllRoles).   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_role_with_http_info(role_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param int role_id: The Id of role.  (required)
+        :param int role_id: ID of role.  **Note**: To find the ID of a role, use the [List roles](https://docs.talon.one/management-api#tag/Roles/operation/getAllRoles) endpoint.  (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -11695,8 +13578,8 @@ class ManagementApi(object):
         :param async_req bool: execute request asynchronously
         :param int application_id: The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
         :param int campaign_id: The ID of the campaign. It is displayed in your Talon.One deployment URL. (required)
-        :param int page_size: The number of items in this response.
-        :param int skip: Skips the given number of items when paging through large result sets.
+        :param int page_size: The number of items in the response.
+        :param int skip: The number of items to skip when paging through large result sets.
         :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -11705,7 +13588,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse2006
+        :return: InlineResponse2007
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -11724,8 +13607,8 @@ class ManagementApi(object):
         :param async_req bool: execute request asynchronously
         :param int application_id: The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
         :param int campaign_id: The ID of the campaign. It is displayed in your Talon.One deployment URL. (required)
-        :param int page_size: The number of items in this response.
-        :param int skip: Skips the given number of items when paging through large result sets.
+        :param int page_size: The number of items in the response.
+        :param int skip: The number of items to skip when paging through large result sets.
         :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -11736,7 +13619,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse2006, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse2007, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -11817,7 +13700,130 @@ class ManagementApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse2006',  # noqa: E501
+            response_type='InlineResponse2007',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def get_store(self, application_id, store_id, **kwargs):  # noqa: E501
+        """Get store  # noqa: E501
+
+        Get store details for a specific store ID.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_store(application_id, store_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int application_id: The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
+        :param str store_id: The ID of the store. You can get this ID with the [List stores](#tag/Stores/operation/listStores) endpoint.  (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: Store
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.get_store_with_http_info(application_id, store_id, **kwargs)  # noqa: E501
+
+    def get_store_with_http_info(self, application_id, store_id, **kwargs):  # noqa: E501
+        """Get store  # noqa: E501
+
+        Get store details for a specific store ID.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_store_with_http_info(application_id, store_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int application_id: The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
+        :param str store_id: The ID of the store. You can get this ID with the [List stores](#tag/Stores/operation/listStores) endpoint.  (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(Store, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'application_id',
+            'store_id'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_store" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'application_id' is set
+        if self.api_client.client_side_validation and ('application_id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['application_id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `application_id` when calling `get_store`")  # noqa: E501
+        # verify the required parameter 'store_id' is set
+        if self.api_client.client_side_validation and ('store_id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['store_id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `store_id` when calling `get_store`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'application_id' in local_var_params:
+            path_params['applicationId'] = local_var_params['application_id']  # noqa: E501
+        if 'store_id' in local_var_params:
+            path_params['storeId'] = local_var_params['store_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/v1/applications/{applicationId}/stores/{storeId}', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='Store',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -11949,8 +13955,8 @@ class ManagementApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param int page_size: The number of items in this response.
-        :param int skip: Skips the given number of items when paging through large result sets.
+        :param int page_size: The number of items in the response.
+        :param int skip: The number of items to skip when paging through large result sets.
         :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -11959,7 +13965,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20037
+        :return: InlineResponse20041
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -11976,8 +13982,8 @@ class ManagementApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param int page_size: The number of items in this response.
-        :param int skip: Skips the given number of items when paging through large result sets.
+        :param int page_size: The number of items in the response.
+        :param int skip: The number of items to skip when paging through large result sets.
         :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -11988,7 +13994,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20037, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20041, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -12055,7 +14061,7 @@ class ManagementApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20037',  # noqa: E501
+            response_type='InlineResponse20041',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -12187,15 +14193,15 @@ class ManagementApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param int page_size: The number of items in this response.
-        :param int skip: Skips the given number of items when paging through large result sets.
+        :param int page_size: The number of items in the response.
+        :param int skip: The number of items to skip when paging through large result sets.
         :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
         :param str integration_request_uuid: Filter results by integration request UUID.
         :param float webhook_id: Filter results by Webhook.
         :param float application_id: Filter results by Application ID.
         :param float campaign_id: Filter results by campaign.
-        :param datetime created_before: Only return events created before this date. You can use any timezone. Talon.One will convert to UTC internally.
-        :param datetime created_after: Only return events created after this date. You can use any timezone. Talon.One will convert to UTC internally.
+        :param datetime created_before: Only return events created before this date. You can use any time zone setting. Talon.One will convert to UTC internally.
+        :param datetime created_after: Only return events created after this date. You can use any time zone setting. Talon.One will convert to UTC internally.
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -12203,7 +14209,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20034
+        :return: InlineResponse20038
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -12220,15 +14226,15 @@ class ManagementApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param int page_size: The number of items in this response.
-        :param int skip: Skips the given number of items when paging through large result sets.
+        :param int page_size: The number of items in the response.
+        :param int skip: The number of items to skip when paging through large result sets.
         :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
         :param str integration_request_uuid: Filter results by integration request UUID.
         :param float webhook_id: Filter results by Webhook.
         :param float application_id: Filter results by Application ID.
         :param float campaign_id: Filter results by campaign.
-        :param datetime created_before: Only return events created before this date. You can use any timezone. Talon.One will convert to UTC internally.
-        :param datetime created_after: Only return events created after this date. You can use any timezone. Talon.One will convert to UTC internally.
+        :param datetime created_before: Only return events created before this date. You can use any time zone setting. Talon.One will convert to UTC internally.
+        :param datetime created_after: Only return events created after this date. You can use any time zone setting. Talon.One will convert to UTC internally.
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -12238,7 +14244,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20034, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20038, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -12323,7 +14329,7 @@ class ManagementApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20034',  # noqa: E501
+            response_type='InlineResponse20038',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -12341,16 +14347,16 @@ class ManagementApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param int page_size: The number of items in this response.
-        :param int skip: Skips the given number of items when paging through large result sets.
+        :param int page_size: The number of items in the response.
+        :param int skip: The number of items to skip when paging through large result sets.
         :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
         :param str status: Filter results by HTTP status codes.
         :param float webhook_id: Filter results by Webhook.
         :param float application_id: Filter results by Application ID.
         :param float campaign_id: Filter results by campaign.
         :param str request_uuid: Filter results by request UUID.
-        :param datetime created_before: Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. You can use any timezone. Talon.One will convert to UTC internally.
-        :param datetime created_after: Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. You can use any timezone. Talon.One will convert to UTC internally.
+        :param datetime created_before: Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally.
+        :param datetime created_after: Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally.
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -12358,7 +14364,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20035
+        :return: InlineResponse20039
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -12375,16 +14381,16 @@ class ManagementApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param int page_size: The number of items in this response.
-        :param int skip: Skips the given number of items when paging through large result sets.
+        :param int page_size: The number of items in the response.
+        :param int skip: The number of items to skip when paging through large result sets.
         :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
         :param str status: Filter results by HTTP status codes.
         :param float webhook_id: Filter results by Webhook.
         :param float application_id: Filter results by Application ID.
         :param float campaign_id: Filter results by campaign.
         :param str request_uuid: Filter results by request UUID.
-        :param datetime created_before: Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. You can use any timezone. Talon.One will convert to UTC internally.
-        :param datetime created_after: Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. You can use any timezone. Talon.One will convert to UTC internally.
+        :param datetime created_before: Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally.
+        :param datetime created_after: Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally.
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -12394,7 +14400,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20035, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20039, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -12482,7 +14488,7 @@ class ManagementApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20035',  # noqa: E501
+            response_type='InlineResponse20039',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -12500,10 +14506,14 @@ class ManagementApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str application_ids: Filter by one or more application IDs separated by a comma.
+        :param str application_ids: Filter by one or more Application IDs, separated by a comma.
         :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
-        :param int page_size: The number of items in this response.
-        :param int skip: Skips the given number of items when paging through large result sets.
+        :param int page_size: The number of items in the response.
+        :param int skip: The number of items to skip when paging through large result sets.
+        :param str creation_type: Filter results by creation type.
+        :param str visibility: Filter results by visibility.
+        :param int outgoing_integrations_type_id: Filter results by outgoing integration type ID.
+        :param str title: Filter results performing case-insensitive matching against the webhook title.
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -12511,7 +14521,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20033
+        :return: InlineResponse20037
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -12528,10 +14538,14 @@ class ManagementApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str application_ids: Filter by one or more application IDs separated by a comma.
+        :param str application_ids: Filter by one or more Application IDs, separated by a comma.
         :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
-        :param int page_size: The number of items in this response.
-        :param int skip: Skips the given number of items when paging through large result sets.
+        :param int page_size: The number of items in the response.
+        :param int skip: The number of items to skip when paging through large result sets.
+        :param str creation_type: Filter results by creation type.
+        :param str visibility: Filter results by visibility.
+        :param int outgoing_integrations_type_id: Filter results by outgoing integration type ID.
+        :param str title: Filter results performing case-insensitive matching against the webhook title.
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -12541,7 +14555,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20033, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20037, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -12552,7 +14566,11 @@ class ManagementApi(object):
             'application_ids',
             'sort',
             'page_size',
-            'skip'
+            'skip',
+            'creation_type',
+            'visibility',
+            'outgoing_integrations_type_id',
+            'title'
         ]
         all_params.extend(
             [
@@ -12589,6 +14607,14 @@ class ManagementApi(object):
             query_params.append(('pageSize', local_var_params['page_size']))  # noqa: E501
         if 'skip' in local_var_params and local_var_params['skip'] is not None:  # noqa: E501
             query_params.append(('skip', local_var_params['skip']))  # noqa: E501
+        if 'creation_type' in local_var_params and local_var_params['creation_type'] is not None:  # noqa: E501
+            query_params.append(('creationType', local_var_params['creation_type']))  # noqa: E501
+        if 'visibility' in local_var_params and local_var_params['visibility'] is not None:  # noqa: E501
+            query_params.append(('visibility', local_var_params['visibility']))  # noqa: E501
+        if 'outgoing_integrations_type_id' in local_var_params and local_var_params['outgoing_integrations_type_id'] is not None:  # noqa: E501
+            query_params.append(('outgoingIntegrationsTypeId', local_var_params['outgoing_integrations_type_id']))  # noqa: E501
+        if 'title' in local_var_params and local_var_params['title'] is not None:  # noqa: E501
+            query_params.append(('title', local_var_params['title']))  # noqa: E501
 
         header_params = {}
 
@@ -12611,7 +14637,7 @@ class ManagementApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20033',  # noqa: E501
+            response_type='InlineResponse20037',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -12620,7 +14646,7 @@ class ManagementApi(object):
             collection_formats=collection_formats)
 
     def import_account_collection(self, collection_id, **kwargs):  # noqa: E501
-        """Import data in existing account-level collection  # noqa: E501
+        """Import data into existing account-level collection  # noqa: E501
 
         Upload a CSV file containing the collection of string values that should be attached as payload for collection. The file should be sent as multipart data.  The import **replaces** the initial content of the collection.  The CSV file **must** only contain the following column:  - `item`: the values in your collection.  A collection is limited to 500,000 items.  Example:  ``` item Addidas Nike Asics ```  **Note:** Before sending a request to this endpoint, ensure the data in the CSV to import is different from the data currently stored in the collection.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -12629,8 +14655,8 @@ class ManagementApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param int collection_id: The ID of the collection. You can get it with the [List collection in account](#operation/listCollectionsInApplication) endpoint. (required)
-        :param str up_file: The file with the information about the data that should be imported.
+        :param int collection_id: The ID of the collection. You can get it with the [List collections in account](#operation/listAccountCollections) endpoint. (required)
+        :param str up_file: The file containing the data that is being imported.
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -12646,7 +14672,7 @@ class ManagementApi(object):
         return self.import_account_collection_with_http_info(collection_id, **kwargs)  # noqa: E501
 
     def import_account_collection_with_http_info(self, collection_id, **kwargs):  # noqa: E501
-        """Import data in existing account-level collection  # noqa: E501
+        """Import data into existing account-level collection  # noqa: E501
 
         Upload a CSV file containing the collection of string values that should be attached as payload for collection. The file should be sent as multipart data.  The import **replaces** the initial content of the collection.  The CSV file **must** only contain the following column:  - `item`: the values in your collection.  A collection is limited to 500,000 items.  Example:  ``` item Addidas Nike Asics ```  **Note:** Before sending a request to this endpoint, ensure the data in the CSV to import is different from the data currently stored in the collection.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -12655,8 +14681,8 @@ class ManagementApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param int collection_id: The ID of the collection. You can get it with the [List collection in account](#operation/listCollectionsInApplication) endpoint. (required)
-        :param str up_file: The file with the information about the data that should be imported.
+        :param int collection_id: The ID of the collection. You can get it with the [List collections in account](#operation/listAccountCollections) endpoint. (required)
+        :param str up_file: The file containing the data that is being imported.
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -12753,7 +14779,7 @@ class ManagementApi(object):
 
         :param async_req bool: execute request asynchronously
         :param int attribute_id: The ID of the attribute. You can find the ID in the Campaign Manager's URL when you display the details of an attribute in **Account** > **Tools** > **Attributes**. (required)
-        :param str up_file: The file with the information about the data that should be imported.
+        :param str up_file: The file containing the data that is being imported.
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -12779,7 +14805,7 @@ class ManagementApi(object):
 
         :param async_req bool: execute request asynchronously
         :param int attribute_id: The ID of the attribute. You can find the ID in the Campaign Manager's URL when you display the details of an attribute in **Account** > **Tools** > **Attributes**. (required)
-        :param str up_file: The file with the information about the data that should be imported.
+        :param str up_file: The file containing the data that is being imported.
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -12865,8 +14891,131 @@ class ManagementApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def import_audiences_memberships(self, audience_id, **kwargs):  # noqa: E501
+        """Import audience members  # noqa: E501
+
+        Upload a CSV file containing the integration IDs of the members you want to add to an audience.  The file should be sent as multipart data and should contain only the following column (required): - `profileintegrationid`: The integration ID of the customer profile.  The import **replaces** the previous list of audience members.  **Note:** We recommend limiting your file size to 500MB.  Example:  ```text profileintegrationid charles alexa ```   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.import_audiences_memberships(audience_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int audience_id: The ID of the audience. (required)
+        :param str up_file: The file containing the data that is being imported.
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: ModelImport
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.import_audiences_memberships_with_http_info(audience_id, **kwargs)  # noqa: E501
+
+    def import_audiences_memberships_with_http_info(self, audience_id, **kwargs):  # noqa: E501
+        """Import audience members  # noqa: E501
+
+        Upload a CSV file containing the integration IDs of the members you want to add to an audience.  The file should be sent as multipart data and should contain only the following column (required): - `profileintegrationid`: The integration ID of the customer profile.  The import **replaces** the previous list of audience members.  **Note:** We recommend limiting your file size to 500MB.  Example:  ```text profileintegrationid charles alexa ```   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.import_audiences_memberships_with_http_info(audience_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int audience_id: The ID of the audience. (required)
+        :param str up_file: The file containing the data that is being imported.
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(ModelImport, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'audience_id',
+            'up_file'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method import_audiences_memberships" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'audience_id' is set
+        if self.api_client.client_side_validation and ('audience_id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['audience_id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `audience_id` when calling `import_audiences_memberships`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'audience_id' in local_var_params:
+            path_params['audienceId'] = local_var_params['audience_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+        if 'up_file' in local_var_params:
+            form_params.append(('upFile', local_var_params['up_file']))  # noqa: E501
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['multipart/form-data'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/v1/audiences/{audienceId}/memberships/import', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='ModelImport',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def import_collection(self, application_id, campaign_id, collection_id, **kwargs):  # noqa: E501
-        """Import data in existing collection  # noqa: E501
+        """Import data into existing campaign-level collection  # noqa: E501
 
         Upload a CSV file containing the collection of string values that should be attached as payload for collection. The file should be sent as multipart data.  The import **replaces** the initial content of the collection.  The CSV file **must** only contain the following column:  - `item`: the values in your collection.  A collection is limited to 500,000 items.  Example:  ``` item Addidas Nike Asics ```  **Note:** Before sending a request to this endpoint, ensure the data in the CSV to import is different from the data currently stored in the collection.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -12877,8 +15026,8 @@ class ManagementApi(object):
         :param async_req bool: execute request asynchronously
         :param int application_id: The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
         :param int campaign_id: The ID of the campaign. It is displayed in your Talon.One deployment URL. (required)
-        :param int collection_id: The ID of the collection. You can get it with the [List collection in account](#operation/listCollectionsInApplication) endpoint. (required)
-        :param str up_file: The file with the information about the data that should be imported.
+        :param int collection_id: The ID of the collection. You can get it with the [List collections in Application](#operation/listCollectionsInApplication) endpoint. (required)
+        :param str up_file: The file containing the data that is being imported.
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -12894,7 +15043,7 @@ class ManagementApi(object):
         return self.import_collection_with_http_info(application_id, campaign_id, collection_id, **kwargs)  # noqa: E501
 
     def import_collection_with_http_info(self, application_id, campaign_id, collection_id, **kwargs):  # noqa: E501
-        """Import data in existing collection  # noqa: E501
+        """Import data into existing campaign-level collection  # noqa: E501
 
         Upload a CSV file containing the collection of string values that should be attached as payload for collection. The file should be sent as multipart data.  The import **replaces** the initial content of the collection.  The CSV file **must** only contain the following column:  - `item`: the values in your collection.  A collection is limited to 500,000 items.  Example:  ``` item Addidas Nike Asics ```  **Note:** Before sending a request to this endpoint, ensure the data in the CSV to import is different from the data currently stored in the collection.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -12905,8 +15054,8 @@ class ManagementApi(object):
         :param async_req bool: execute request asynchronously
         :param int application_id: The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
         :param int campaign_id: The ID of the campaign. It is displayed in your Talon.One deployment URL. (required)
-        :param int collection_id: The ID of the collection. You can get it with the [List collection in account](#operation/listCollectionsInApplication) endpoint. (required)
-        :param str up_file: The file with the information about the data that should be imported.
+        :param int collection_id: The ID of the collection. You can get it with the [List collections in Application](#operation/listCollectionsInApplication) endpoint. (required)
+        :param str up_file: The file containing the data that is being imported.
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -13009,7 +15158,7 @@ class ManagementApi(object):
     def import_coupons(self, application_id, campaign_id, **kwargs):  # noqa: E501
         """Import coupons  # noqa: E501
 
-        Upload a CSV file containing the coupons that should be created. The file should be sent as multipart data.  The CSV file contains the following columns:  - `value` (required): The coupon code. - `expirydate`: The end date in RFC3339 of the code redemption period. - `startdate`: The start date in RFC3339 of the code redemption period. - `recipientintegrationid`: The integration ID of the customer who receives the coupon.   Only the customer with this integration ID can redeem the corresponding coupon code.   Learn about [coupon reservation](https://docs.talon.one/docs/product/rules/effects/using-effects#reserving-a-coupon-code). - `limitval`: The maximum number of redemptions of this code. For unlimited redemptions, use `0`. Defaults to `1` when not provided. - `discountlimit`: The total discount value that the code can give. This is typically used to represent a gift card value. - `attributes`: A json object describing _custom_ referral attribute names and their values. Double the double-quotes in the object.   For example, if you created a [custom attribute](https://docs.talon.one/docs/dev/concepts/attributes#custom-attributes)   called `category` associated to the coupon entity, set it with `\"{\"\"category\"\": \"\"10_off\"\"}\"`.  You can use the time zone of your choice. It is converted to UTC internally by Talon.One.  **Note:** We recommend limiting your file size to 500MB.  **Example:**  ```text \"value\",\"expirydate\",\"startdate\",\"recipientintegrationid\",\"limitval\",\"attributes\",\"discountlimit\" COUP1,2018-07-01T04:00:00Z,2018-05-01T04:00:00Z,cust123,1,\"{\"\"Category\"\": \"\"10_off\"\"}\",2.4 ```  Once imported, you can find the `batchId` in the Campaign Manager or by using [List coupons](#tag/Coupons/operation/getCouponsWithoutTotalCount).   # noqa: E501
+        Upload a CSV file containing the coupons that should be created. The file should be sent as multipart data.  The CSV file contains the following columns:  - `value` (required): The coupon code. - `expirydate`: The end date in RFC3339 of the code redemption period. - `startdate`: The start date in RFC3339 of the code redemption period. - `recipientintegrationid`: The integration ID of the customer who receives the coupon.   Only the customer with this integration ID can redeem the corresponding coupon code.   Learn about [coupon reservation](https://docs.talon.one/docs/product/rules/effects/using-effects#reserving-a-coupon-code). - `limitval`: The maximum number of redemptions of this code. For unlimited redemptions, use `0`. Defaults to `1` when not provided. - `discountlimit`: The total discount value that the code can give. This is typically used to represent a gift card value. - `attributes`: A JSON object describing _custom_ coupon attribute names and their values, enclosed with double quotation marks.    For example, if you created a [custom attribute](https://docs.talon.one/docs/dev/concepts/attributes#custom-attributes)   called `category` associated with the coupon entity, the object in the CSV file, when opened in a text editor, must be: `\"{\"category\": \"10_off\"}\"`.  You can use the time zone of your choice. It is converted to UTC internally by Talon.One.  **Note:** We recommend limiting your file size to 500MB.  **Example:**  ```text \"value\",\"expirydate\",\"startdate\",\"recipientintegrationid\",\"limitval\",\"attributes\",\"discountlimit\" COUP1,2018-07-01T04:00:00Z,2018-05-01T04:00:00Z,cust123,1,\"{\"\"Category\"\": \"\"10_off\"\"}\",2.4 ```  Once imported, you can find the `batchId` in the Campaign Manager or by using [List coupons](#tag/Coupons/operation/getCouponsWithoutTotalCount).   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.import_coupons(application_id, campaign_id, async_req=True)
@@ -13018,7 +15167,8 @@ class ManagementApi(object):
         :param async_req bool: execute request asynchronously
         :param int application_id: The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
         :param int campaign_id: The ID of the campaign. It is displayed in your Talon.One deployment URL. (required)
-        :param str up_file: The file with the information about the data that should be imported.
+        :param bool skip_duplicates: An indicator of whether to skip duplicate coupon values instead of causing an error. Duplicate values are ignored when `skipDuplicates=true`. 
+        :param str up_file: The file containing the data that is being imported.
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -13036,7 +15186,7 @@ class ManagementApi(object):
     def import_coupons_with_http_info(self, application_id, campaign_id, **kwargs):  # noqa: E501
         """Import coupons  # noqa: E501
 
-        Upload a CSV file containing the coupons that should be created. The file should be sent as multipart data.  The CSV file contains the following columns:  - `value` (required): The coupon code. - `expirydate`: The end date in RFC3339 of the code redemption period. - `startdate`: The start date in RFC3339 of the code redemption period. - `recipientintegrationid`: The integration ID of the customer who receives the coupon.   Only the customer with this integration ID can redeem the corresponding coupon code.   Learn about [coupon reservation](https://docs.talon.one/docs/product/rules/effects/using-effects#reserving-a-coupon-code). - `limitval`: The maximum number of redemptions of this code. For unlimited redemptions, use `0`. Defaults to `1` when not provided. - `discountlimit`: The total discount value that the code can give. This is typically used to represent a gift card value. - `attributes`: A json object describing _custom_ referral attribute names and their values. Double the double-quotes in the object.   For example, if you created a [custom attribute](https://docs.talon.one/docs/dev/concepts/attributes#custom-attributes)   called `category` associated to the coupon entity, set it with `\"{\"\"category\"\": \"\"10_off\"\"}\"`.  You can use the time zone of your choice. It is converted to UTC internally by Talon.One.  **Note:** We recommend limiting your file size to 500MB.  **Example:**  ```text \"value\",\"expirydate\",\"startdate\",\"recipientintegrationid\",\"limitval\",\"attributes\",\"discountlimit\" COUP1,2018-07-01T04:00:00Z,2018-05-01T04:00:00Z,cust123,1,\"{\"\"Category\"\": \"\"10_off\"\"}\",2.4 ```  Once imported, you can find the `batchId` in the Campaign Manager or by using [List coupons](#tag/Coupons/operation/getCouponsWithoutTotalCount).   # noqa: E501
+        Upload a CSV file containing the coupons that should be created. The file should be sent as multipart data.  The CSV file contains the following columns:  - `value` (required): The coupon code. - `expirydate`: The end date in RFC3339 of the code redemption period. - `startdate`: The start date in RFC3339 of the code redemption period. - `recipientintegrationid`: The integration ID of the customer who receives the coupon.   Only the customer with this integration ID can redeem the corresponding coupon code.   Learn about [coupon reservation](https://docs.talon.one/docs/product/rules/effects/using-effects#reserving-a-coupon-code). - `limitval`: The maximum number of redemptions of this code. For unlimited redemptions, use `0`. Defaults to `1` when not provided. - `discountlimit`: The total discount value that the code can give. This is typically used to represent a gift card value. - `attributes`: A JSON object describing _custom_ coupon attribute names and their values, enclosed with double quotation marks.    For example, if you created a [custom attribute](https://docs.talon.one/docs/dev/concepts/attributes#custom-attributes)   called `category` associated with the coupon entity, the object in the CSV file, when opened in a text editor, must be: `\"{\"category\": \"10_off\"}\"`.  You can use the time zone of your choice. It is converted to UTC internally by Talon.One.  **Note:** We recommend limiting your file size to 500MB.  **Example:**  ```text \"value\",\"expirydate\",\"startdate\",\"recipientintegrationid\",\"limitval\",\"attributes\",\"discountlimit\" COUP1,2018-07-01T04:00:00Z,2018-05-01T04:00:00Z,cust123,1,\"{\"\"Category\"\": \"\"10_off\"\"}\",2.4 ```  Once imported, you can find the `batchId` in the Campaign Manager or by using [List coupons](#tag/Coupons/operation/getCouponsWithoutTotalCount).   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.import_coupons_with_http_info(application_id, campaign_id, async_req=True)
@@ -13045,7 +15195,8 @@ class ManagementApi(object):
         :param async_req bool: execute request asynchronously
         :param int application_id: The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
         :param int campaign_id: The ID of the campaign. It is displayed in your Talon.One deployment URL. (required)
-        :param str up_file: The file with the information about the data that should be imported.
+        :param bool skip_duplicates: An indicator of whether to skip duplicate coupon values instead of causing an error. Duplicate values are ignored when `skipDuplicates=true`. 
+        :param str up_file: The file containing the data that is being imported.
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -13065,6 +15216,7 @@ class ManagementApi(object):
         all_params = [
             'application_id',
             'campaign_id',
+            'skip_duplicates',
             'up_file'
         ]
         all_params.extend(
@@ -13102,6 +15254,8 @@ class ManagementApi(object):
             path_params['campaignId'] = local_var_params['campaign_id']  # noqa: E501
 
         query_params = []
+        if 'skip_duplicates' in local_var_params and local_var_params['skip_duplicates'] is not None:  # noqa: E501
+            query_params.append(('skipDuplicates', local_var_params['skip_duplicates']))  # noqa: E501
 
         header_params = {}
 
@@ -13149,7 +15303,7 @@ class ManagementApi(object):
 
         :param async_req bool: execute request asynchronously
         :param int loyalty_program_id: Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  (required)
-        :param str up_file: The file with the information about the data that should be imported.
+        :param str up_file: The file containing the data that is being imported.
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -13175,7 +15329,7 @@ class ManagementApi(object):
 
         :param async_req bool: execute request asynchronously
         :param int loyalty_program_id: Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  (required)
-        :param str up_file: The file with the information about the data that should be imported.
+        :param str up_file: The file containing the data that is being imported.
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -13261,18 +15415,141 @@ class ManagementApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def import_loyalty_customers_tiers(self, loyalty_program_id, **kwargs):  # noqa: E501
+        """Import customers into loyalty tiers  # noqa: E501
+
+        Upload a CSV file containing existing customers to be assigned to existing tiers. Send the file as multipart data.  **Important:** This endpoint only works with loyalty programs with advanced tiers (with expiration and downgrade policy) feature enabled.  The CSV file should contain the following columns: - `subledgerid` (optional): The ID of the subledger. If this field is empty, the main ledger will be used. - `customerprofileid`: The integration ID of the customer profile to whom the tier should be assigned. - `tiername`: The name of an existing tier to assign to the customer. - `expirydate`: The expiration date of the tier. It should be a future date.  About customer assignment to a tier: - If the customer isn't already in a tier, the customer is assigned to the specified tier during the tier import. - If the customer is already in the tier that's specified in the CSV file, only the expiration date is updated.  **Note:** We recommend not using this endpoint to update the tier of a customer. To update a customer's tier, you can [add](/management-api#tag/Loyalty/operation/addLoyaltyPoints) or [deduct](/management-api#tag/Loyalty/operation/removeLoyaltyPoints) their loyalty points.  You can use the time zone of your choice. It is converted to UTC internally by Talon.One.  **Note:** We recommend limiting your file size to 500MB.  **Example:** ```csv subledgerid,customerprofileid,tiername,expirydate SUB1,alexa,Gold,2024-03-21T07:32:14Z ,george,Silver,2025-04-16T21:12:37Z SUB2,avocado,Bronze,2026-05-03T11:47:01Z ```   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.import_loyalty_customers_tiers(loyalty_program_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int loyalty_program_id: Identifier of the loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  (required)
+        :param str up_file: The file containing the data that is being imported.
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: ModelImport
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.import_loyalty_customers_tiers_with_http_info(loyalty_program_id, **kwargs)  # noqa: E501
+
+    def import_loyalty_customers_tiers_with_http_info(self, loyalty_program_id, **kwargs):  # noqa: E501
+        """Import customers into loyalty tiers  # noqa: E501
+
+        Upload a CSV file containing existing customers to be assigned to existing tiers. Send the file as multipart data.  **Important:** This endpoint only works with loyalty programs with advanced tiers (with expiration and downgrade policy) feature enabled.  The CSV file should contain the following columns: - `subledgerid` (optional): The ID of the subledger. If this field is empty, the main ledger will be used. - `customerprofileid`: The integration ID of the customer profile to whom the tier should be assigned. - `tiername`: The name of an existing tier to assign to the customer. - `expirydate`: The expiration date of the tier. It should be a future date.  About customer assignment to a tier: - If the customer isn't already in a tier, the customer is assigned to the specified tier during the tier import. - If the customer is already in the tier that's specified in the CSV file, only the expiration date is updated.  **Note:** We recommend not using this endpoint to update the tier of a customer. To update a customer's tier, you can [add](/management-api#tag/Loyalty/operation/addLoyaltyPoints) or [deduct](/management-api#tag/Loyalty/operation/removeLoyaltyPoints) their loyalty points.  You can use the time zone of your choice. It is converted to UTC internally by Talon.One.  **Note:** We recommend limiting your file size to 500MB.  **Example:** ```csv subledgerid,customerprofileid,tiername,expirydate SUB1,alexa,Gold,2024-03-21T07:32:14Z ,george,Silver,2025-04-16T21:12:37Z SUB2,avocado,Bronze,2026-05-03T11:47:01Z ```   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.import_loyalty_customers_tiers_with_http_info(loyalty_program_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int loyalty_program_id: Identifier of the loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  (required)
+        :param str up_file: The file containing the data that is being imported.
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(ModelImport, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'loyalty_program_id',
+            'up_file'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method import_loyalty_customers_tiers" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'loyalty_program_id' is set
+        if self.api_client.client_side_validation and ('loyalty_program_id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['loyalty_program_id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `loyalty_program_id` when calling `import_loyalty_customers_tiers`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'loyalty_program_id' in local_var_params:
+            path_params['loyaltyProgramId'] = local_var_params['loyalty_program_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+        if 'up_file' in local_var_params:
+            form_params.append(('upFile', local_var_params['up_file']))  # noqa: E501
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['multipart/form-data'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/v1/loyalty_programs/{loyaltyProgramId}/import_customers_tiers', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='ModelImport',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def import_loyalty_points(self, loyalty_program_id, **kwargs):  # noqa: E501
         """Import loyalty points  # noqa: E501
 
-        Upload a CSV file containing the loyalty points you want to import into a given loyalty program. Send the file as multipart data.  Depending on the loyalty program type, you can import the points into a given customer profile or into a given _active_ loyalty card.  The CSV file contains the following columns:  - `customerprofileid` (optional): For profile-based loyalty programs, the integration ID of the customer profile where the loyalty points are imported. - `identifier` (optional): For card-based loyalty programs, the identifier of the loyalty card where the loyalty points are imported. - `amount`: The amount of points to award to the customer profile. - `startdate`: The earliest date when the points can be redeemed. On this date and until the expiration date, the points are `active`. - `expirydate`: The latest date when the points can be redeemed. After this date, the points are `expired`. - `subledgerid` (optional): The ID of the subledger that should received the points. - `reason` (optional): The reason why these points are awarded.  You can use the time zone of your choice. It is converted to UTC internally by Talon.One.  **Note:** For existing customer profiles and loyalty cards, the imported points are added to any previous active or pending points, depending on the value provided for `startdate`. If `startdate` matches the current date, the imported points are _active_. If it is later, the points are _pending_ until the date provided for `startdate` is reached.  **Note:** We recommend limiting your file size to 500MB.  **Example for profile-based programs:**  ```text customerprofileid,amount,startdate,expirydate,subledgerid,reason URNGV8294NV,100,2009-11-10T23:00:00Z,2009-11-11T23:00:00Z,subledger1,appeasement ```  **Example for card-based programs:**  ```text identifier,amount,startdate,expirydate,subledgerid,reason summer-loyalty-card-0543,100,2009-11-10T23:00:00Z,2009-11-11T23:00:00Z,subledger1,appeasement ```   # noqa: E501
+        Upload a CSV file containing the loyalty points you want to import into a given loyalty program. Send the file as multipart data.  Depending on the type of loyalty program, you can import points into a given customer profile or loyalty card.  The CSV file contains the following columns:  - `customerprofileid` (optional): For profile-based loyalty programs, the integration ID of the customer profile where the loyalty points are imported. - `identifier` (optional): For card-based loyalty programs, the identifier of the loyalty card where the loyalty points are imported. - `amount`: The amount of points to award to the customer profile. - `startdate` (optional): The earliest date when the points can be redeemed. The points are `active` from this date until the expiration date.    **Note**: It must be an RFC3339 timestamp string or string `immediate`. Empty or missing values are considered `immediate`. - `expirydate` (optional): The latest date when the points can be redeemed. The points are `expired` after this date.    **Note**: It must be an RFC3339 timestamp string or string `unlimited`. Empty or missing values are considered `unlimited`. - `subledgerid` (optional): The ID of the subledger that should received the points. - `reason` (optional): The reason why these points are awarded.  You can use the time zone of your choice. It is converted to UTC internally by Talon.One.  **Note:** For existing customer profiles and loyalty cards, the imported points are added to any previous active or pending points, depending on the value provided for `startdate`. If `startdate` matches the current date, the imported points are _active_. If it is later, the points are _pending_ until the date provided for `startdate` is reached.  **Note:** We recommend limiting your file size to 500MB.  **Example for profile-based programs:**  ```text customerprofileid,amount,startdate,expirydate,subledgerid,reason URNGV8294NV,100,2009-11-10T23:00:00Z,2009-11-11T23:00:00Z,subledger1,appeasement ```  **Example for card-based programs:**  ```text identifier,amount,startdate,expirydate,subledgerid,reason summer-loyalty-card-0543,100,2009-11-10T23:00:00Z,2009-11-11T23:00:00Z,subledger1,appeasement ```   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.import_loyalty_points(loyalty_program_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param int loyalty_program_id: Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  (required)
-        :param str up_file: The file with the information about the data that should be imported.
+        :param int loyalty_program_id: Identifier of the loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  (required)
+        :param str up_file: The file containing the data that is being imported.
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -13290,15 +15567,15 @@ class ManagementApi(object):
     def import_loyalty_points_with_http_info(self, loyalty_program_id, **kwargs):  # noqa: E501
         """Import loyalty points  # noqa: E501
 
-        Upload a CSV file containing the loyalty points you want to import into a given loyalty program. Send the file as multipart data.  Depending on the loyalty program type, you can import the points into a given customer profile or into a given _active_ loyalty card.  The CSV file contains the following columns:  - `customerprofileid` (optional): For profile-based loyalty programs, the integration ID of the customer profile where the loyalty points are imported. - `identifier` (optional): For card-based loyalty programs, the identifier of the loyalty card where the loyalty points are imported. - `amount`: The amount of points to award to the customer profile. - `startdate`: The earliest date when the points can be redeemed. On this date and until the expiration date, the points are `active`. - `expirydate`: The latest date when the points can be redeemed. After this date, the points are `expired`. - `subledgerid` (optional): The ID of the subledger that should received the points. - `reason` (optional): The reason why these points are awarded.  You can use the time zone of your choice. It is converted to UTC internally by Talon.One.  **Note:** For existing customer profiles and loyalty cards, the imported points are added to any previous active or pending points, depending on the value provided for `startdate`. If `startdate` matches the current date, the imported points are _active_. If it is later, the points are _pending_ until the date provided for `startdate` is reached.  **Note:** We recommend limiting your file size to 500MB.  **Example for profile-based programs:**  ```text customerprofileid,amount,startdate,expirydate,subledgerid,reason URNGV8294NV,100,2009-11-10T23:00:00Z,2009-11-11T23:00:00Z,subledger1,appeasement ```  **Example for card-based programs:**  ```text identifier,amount,startdate,expirydate,subledgerid,reason summer-loyalty-card-0543,100,2009-11-10T23:00:00Z,2009-11-11T23:00:00Z,subledger1,appeasement ```   # noqa: E501
+        Upload a CSV file containing the loyalty points you want to import into a given loyalty program. Send the file as multipart data.  Depending on the type of loyalty program, you can import points into a given customer profile or loyalty card.  The CSV file contains the following columns:  - `customerprofileid` (optional): For profile-based loyalty programs, the integration ID of the customer profile where the loyalty points are imported. - `identifier` (optional): For card-based loyalty programs, the identifier of the loyalty card where the loyalty points are imported. - `amount`: The amount of points to award to the customer profile. - `startdate` (optional): The earliest date when the points can be redeemed. The points are `active` from this date until the expiration date.    **Note**: It must be an RFC3339 timestamp string or string `immediate`. Empty or missing values are considered `immediate`. - `expirydate` (optional): The latest date when the points can be redeemed. The points are `expired` after this date.    **Note**: It must be an RFC3339 timestamp string or string `unlimited`. Empty or missing values are considered `unlimited`. - `subledgerid` (optional): The ID of the subledger that should received the points. - `reason` (optional): The reason why these points are awarded.  You can use the time zone of your choice. It is converted to UTC internally by Talon.One.  **Note:** For existing customer profiles and loyalty cards, the imported points are added to any previous active or pending points, depending on the value provided for `startdate`. If `startdate` matches the current date, the imported points are _active_. If it is later, the points are _pending_ until the date provided for `startdate` is reached.  **Note:** We recommend limiting your file size to 500MB.  **Example for profile-based programs:**  ```text customerprofileid,amount,startdate,expirydate,subledgerid,reason URNGV8294NV,100,2009-11-10T23:00:00Z,2009-11-11T23:00:00Z,subledger1,appeasement ```  **Example for card-based programs:**  ```text identifier,amount,startdate,expirydate,subledgerid,reason summer-loyalty-card-0543,100,2009-11-10T23:00:00Z,2009-11-11T23:00:00Z,subledger1,appeasement ```   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.import_loyalty_points_with_http_info(loyalty_program_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param int loyalty_program_id: Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  (required)
-        :param str up_file: The file with the information about the data that should be imported.
+        :param int loyalty_program_id: Identifier of the loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  (required)
+        :param str up_file: The file containing the data that is being imported.
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -13387,7 +15664,7 @@ class ManagementApi(object):
     def import_pool_giveaways(self, pool_id, **kwargs):  # noqa: E501
         """Import giveaway codes into a giveaway pool  # noqa: E501
 
-        Upload a CSV file containing the giveaway codes that should be created. Send the file as multipart data.  The CSV file contains the following columns: - `code` (required): the code of your giveaway, for instance, a gift card redemption code. - `startdate`:  the start date in RFC3339 of the code redemption period. - `enddate`: the last date in RFC3339 of the code redemption period. - `attributes`: A json object describing _custom_ giveaway attribute names and their values. Double the double-quotes in the object.   For example, if you [created a custom attribute](https://docs.talon.one/docs/dev/concepts/attributes#custom-attributes)   called `provider` associated to the giveaway entity, set it with `\"{\"\"provider\"\": \"\"myPartnerCompany\"\"}\"`.  The `startdate` and `enddate` have nothing to do with the _validity_ of the codes. They are only used by the Rule Engine to award the codes or not. You can use the time zone of your choice. It is converted to UTC internally by Talon.One.  **Note:** We recommend limiting your file size to 500MB.  **Example:**  ```text code,startdate,enddate,attributes GIVEAWAY1,2020-11-10T23:00:00Z,2022-11-11T23:00:00Z,\"{\"\"provider\"\": \"\"Amazon\"\"}\" GIVEAWAY2,2020-11-10T23:00:00Z,2022-11-11T23:00:00Z,\"{\"\"provider\"\": \"\"Amazon\"\"}\" GIVEAWAY3,2021-01-10T23:00:00Z,2022-11-11T23:00:00Z,\"{\"\"provider\"\": \"\"Aliexpress\"\"}\" ```   # noqa: E501
+        Upload a CSV file containing the giveaway codes that should be created. Send the file as multipart data.  The CSV file contains the following columns: - `code` (required): The code of your giveaway, for instance, a gift card redemption code. - `startdate`:  The start date in RFC3339 of the code redemption period. - `enddate`: The last date in RFC3339 of the code redemption period. - `attributes`: A JSON object describing _custom_ giveaway attribute names and their values, enclosed with double quotation marks.    For example, if you created a [custom attribute](https://docs.talon.one/docs/dev/concepts/attributes#custom-attributes)   called `provider` associated with the giveaway entity, the object in the CSV file, when opened in a text editor, must be: `\"{\"provider\": \"myPartnerCompany\"}\"`.  The `startdate` and `enddate` have nothing to do with the _validity_ of the codes. They are only used by the Rule Engine to award the codes or not. You can use the time zone setting of your choice. The values are converted to UTC internally by Talon.One.  **Note:**  - We recommend limiting your file size to 500MB. - You can import the same code multiple times. Duplicate codes are treated and distributed to customers as unique codes.  **Example:**  ```text code,startdate,enddate,attributes GIVEAWAY1,2020-11-10T23:00:00Z,2022-11-11T23:00:00Z,\"{\"\"provider\"\": \"\"Amazon\"\"}\" GIVEAWAY2,2020-11-10T23:00:00Z,2022-11-11T23:00:00Z,\"{\"\"provider\"\": \"\"Amazon\"\"}\" GIVEAWAY3,2021-01-10T23:00:00Z,2022-11-11T23:00:00Z,\"{\"\"provider\"\": \"\"Aliexpress\"\"}\" ```   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.import_pool_giveaways(pool_id, async_req=True)
@@ -13395,7 +15672,7 @@ class ManagementApi(object):
 
         :param async_req bool: execute request asynchronously
         :param int pool_id: The ID of the pool. You can find it in the Campaign Manager, in the **Giveaways** section. (required)
-        :param str up_file: The file with the information about the data that should be imported.
+        :param str up_file: The file containing the data that is being imported.
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -13413,7 +15690,7 @@ class ManagementApi(object):
     def import_pool_giveaways_with_http_info(self, pool_id, **kwargs):  # noqa: E501
         """Import giveaway codes into a giveaway pool  # noqa: E501
 
-        Upload a CSV file containing the giveaway codes that should be created. Send the file as multipart data.  The CSV file contains the following columns: - `code` (required): the code of your giveaway, for instance, a gift card redemption code. - `startdate`:  the start date in RFC3339 of the code redemption period. - `enddate`: the last date in RFC3339 of the code redemption period. - `attributes`: A json object describing _custom_ giveaway attribute names and their values. Double the double-quotes in the object.   For example, if you [created a custom attribute](https://docs.talon.one/docs/dev/concepts/attributes#custom-attributes)   called `provider` associated to the giveaway entity, set it with `\"{\"\"provider\"\": \"\"myPartnerCompany\"\"}\"`.  The `startdate` and `enddate` have nothing to do with the _validity_ of the codes. They are only used by the Rule Engine to award the codes or not. You can use the time zone of your choice. It is converted to UTC internally by Talon.One.  **Note:** We recommend limiting your file size to 500MB.  **Example:**  ```text code,startdate,enddate,attributes GIVEAWAY1,2020-11-10T23:00:00Z,2022-11-11T23:00:00Z,\"{\"\"provider\"\": \"\"Amazon\"\"}\" GIVEAWAY2,2020-11-10T23:00:00Z,2022-11-11T23:00:00Z,\"{\"\"provider\"\": \"\"Amazon\"\"}\" GIVEAWAY3,2021-01-10T23:00:00Z,2022-11-11T23:00:00Z,\"{\"\"provider\"\": \"\"Aliexpress\"\"}\" ```   # noqa: E501
+        Upload a CSV file containing the giveaway codes that should be created. Send the file as multipart data.  The CSV file contains the following columns: - `code` (required): The code of your giveaway, for instance, a gift card redemption code. - `startdate`:  The start date in RFC3339 of the code redemption period. - `enddate`: The last date in RFC3339 of the code redemption period. - `attributes`: A JSON object describing _custom_ giveaway attribute names and their values, enclosed with double quotation marks.    For example, if you created a [custom attribute](https://docs.talon.one/docs/dev/concepts/attributes#custom-attributes)   called `provider` associated with the giveaway entity, the object in the CSV file, when opened in a text editor, must be: `\"{\"provider\": \"myPartnerCompany\"}\"`.  The `startdate` and `enddate` have nothing to do with the _validity_ of the codes. They are only used by the Rule Engine to award the codes or not. You can use the time zone setting of your choice. The values are converted to UTC internally by Talon.One.  **Note:**  - We recommend limiting your file size to 500MB. - You can import the same code multiple times. Duplicate codes are treated and distributed to customers as unique codes.  **Example:**  ```text code,startdate,enddate,attributes GIVEAWAY1,2020-11-10T23:00:00Z,2022-11-11T23:00:00Z,\"{\"\"provider\"\": \"\"Amazon\"\"}\" GIVEAWAY2,2020-11-10T23:00:00Z,2022-11-11T23:00:00Z,\"{\"\"provider\"\": \"\"Amazon\"\"}\" GIVEAWAY3,2021-01-10T23:00:00Z,2022-11-11T23:00:00Z,\"{\"\"provider\"\": \"\"Aliexpress\"\"}\" ```   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.import_pool_giveaways_with_http_info(pool_id, async_req=True)
@@ -13421,7 +15698,7 @@ class ManagementApi(object):
 
         :param async_req bool: execute request asynchronously
         :param int pool_id: The ID of the pool. You can find it in the Campaign Manager, in the **Giveaways** section. (required)
-        :param str up_file: The file with the information about the data that should be imported.
+        :param str up_file: The file containing the data that is being imported.
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -13510,7 +15787,7 @@ class ManagementApi(object):
     def import_referrals(self, application_id, campaign_id, **kwargs):  # noqa: E501
         """Import referrals  # noqa: E501
 
-        Upload a CSV file containing the referrals that should be created. The file should be sent as multipart data.  The CSV file contains the following columns:  - `code` (required): The referral code. - `advocateprofileintegrationid` (required): The profile ID of the advocate. - `startdate`: The start date in RFC3339 of the code redemption period. - `expirydate`: The end date in RFC3339 of the code redemption period. - `limitval`: The maximum number of redemptions of this code. Defaults to `1` when left blank. - `attributes`: A json object describing _custom_ referral attribute names and their values. Double the double-quotes in the object.    For example, if you [created a custom attribute](https://docs.talon.one/docs/dev/concepts/attributes#custom-attributes)   called `category` associated to the referral entity, set it with `\"{\"\"category\"\": \"\"10_off\"\"}\"`.  You can use the time zone of your choice. It is converted to UTC internally by Talon.One.  **Note:** We recommend limiting your file size to 500MB.  **Example:**  ```text code,startdate,expirydate,advocateprofileintegrationid,limitval,attributes REFERRAL_CODE1,2020-11-10T23:00:00Z,2021-11-11T23:00:00Z,integid_4,1,\"{\"\"my_attribute\"\": \"\"10_off\"\"}\" REFERRAL_CODE2,2020-11-10T23:00:00Z,2021-11-11T23:00:00Z,integid1,1,\"{\"\"my_attribute\"\": \"\"20_off\"\"}\" ```   # noqa: E501
+        Upload a CSV file containing the referrals that should be created. The file should be sent as multipart data.  The CSV file contains the following columns:  - `code` (required): The referral code. - `advocateprofileintegrationid` (required): The profile ID of the advocate. - `startdate`: The start date in RFC3339 of the code redemption period. - `expirydate`: The end date in RFC3339 of the code redemption period. - `limitval`: The maximum number of redemptions of this code. Defaults to `1` when left blank. - `attributes`: A JSON object describing _custom_ referral attribute names and their values, enclosed with double quotation marks.    For example, if you created a [custom attribute](https://docs.talon.one/docs/dev/concepts/attributes#custom-attributes)   called `category` associated with the referral entity, the object in the CSV file, when opened in a text editor, must be: `\"{\"category\": \"10_off\"}\"`.  You can use the time zone of your choice. It is converted to UTC internally by Talon.One.  **Important:** When you import a CSV file with referrals, a [customer profile](https://docs.talon.one/docs/dev/concepts/entities/customer-profiles) is **not** automatically created for each `advocateprofileintegrationid` column value. Use the [Update customer profile](https://docs.talon.one/integration-api#tag/Customer-profiles/operation/updateCustomerProfileV2) endpoint or the [Update multiple customer profiles](https://docs.talon.one/integration-api#tag/Customer-profiles/operation/updateCustomerProfilesV2) endpoint to create the customer profiles.  **Note:** We recommend limiting your file size to 500MB.  **Example:**  ```text code,startdate,expirydate,advocateprofileintegrationid,limitval,attributes REFERRAL_CODE1,2020-11-10T23:00:00Z,2021-11-11T23:00:00Z,integid_4,1,\"{\"\"my_attribute\"\": \"\"10_off\"\"}\" REFERRAL_CODE2,2020-11-10T23:00:00Z,2021-11-11T23:00:00Z,integid1,1,\"{\"\"my_attribute\"\": \"\"20_off\"\"}\" ```   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.import_referrals(application_id, campaign_id, async_req=True)
@@ -13519,7 +15796,7 @@ class ManagementApi(object):
         :param async_req bool: execute request asynchronously
         :param int application_id: The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
         :param int campaign_id: The ID of the campaign. It is displayed in your Talon.One deployment URL. (required)
-        :param str up_file: The file with the information about the data that should be imported.
+        :param str up_file: The file containing the data that is being imported.
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -13537,7 +15814,7 @@ class ManagementApi(object):
     def import_referrals_with_http_info(self, application_id, campaign_id, **kwargs):  # noqa: E501
         """Import referrals  # noqa: E501
 
-        Upload a CSV file containing the referrals that should be created. The file should be sent as multipart data.  The CSV file contains the following columns:  - `code` (required): The referral code. - `advocateprofileintegrationid` (required): The profile ID of the advocate. - `startdate`: The start date in RFC3339 of the code redemption period. - `expirydate`: The end date in RFC3339 of the code redemption period. - `limitval`: The maximum number of redemptions of this code. Defaults to `1` when left blank. - `attributes`: A json object describing _custom_ referral attribute names and their values. Double the double-quotes in the object.    For example, if you [created a custom attribute](https://docs.talon.one/docs/dev/concepts/attributes#custom-attributes)   called `category` associated to the referral entity, set it with `\"{\"\"category\"\": \"\"10_off\"\"}\"`.  You can use the time zone of your choice. It is converted to UTC internally by Talon.One.  **Note:** We recommend limiting your file size to 500MB.  **Example:**  ```text code,startdate,expirydate,advocateprofileintegrationid,limitval,attributes REFERRAL_CODE1,2020-11-10T23:00:00Z,2021-11-11T23:00:00Z,integid_4,1,\"{\"\"my_attribute\"\": \"\"10_off\"\"}\" REFERRAL_CODE2,2020-11-10T23:00:00Z,2021-11-11T23:00:00Z,integid1,1,\"{\"\"my_attribute\"\": \"\"20_off\"\"}\" ```   # noqa: E501
+        Upload a CSV file containing the referrals that should be created. The file should be sent as multipart data.  The CSV file contains the following columns:  - `code` (required): The referral code. - `advocateprofileintegrationid` (required): The profile ID of the advocate. - `startdate`: The start date in RFC3339 of the code redemption period. - `expirydate`: The end date in RFC3339 of the code redemption period. - `limitval`: The maximum number of redemptions of this code. Defaults to `1` when left blank. - `attributes`: A JSON object describing _custom_ referral attribute names and their values, enclosed with double quotation marks.    For example, if you created a [custom attribute](https://docs.talon.one/docs/dev/concepts/attributes#custom-attributes)   called `category` associated with the referral entity, the object in the CSV file, when opened in a text editor, must be: `\"{\"category\": \"10_off\"}\"`.  You can use the time zone of your choice. It is converted to UTC internally by Talon.One.  **Important:** When you import a CSV file with referrals, a [customer profile](https://docs.talon.one/docs/dev/concepts/entities/customer-profiles) is **not** automatically created for each `advocateprofileintegrationid` column value. Use the [Update customer profile](https://docs.talon.one/integration-api#tag/Customer-profiles/operation/updateCustomerProfileV2) endpoint or the [Update multiple customer profiles](https://docs.talon.one/integration-api#tag/Customer-profiles/operation/updateCustomerProfilesV2) endpoint to create the customer profiles.  **Note:** We recommend limiting your file size to 500MB.  **Example:**  ```text code,startdate,expirydate,advocateprofileintegrationid,limitval,attributes REFERRAL_CODE1,2020-11-10T23:00:00Z,2021-11-11T23:00:00Z,integid_4,1,\"{\"\"my_attribute\"\": \"\"10_off\"\"}\" REFERRAL_CODE2,2020-11-10T23:00:00Z,2021-11-11T23:00:00Z,integid1,1,\"{\"\"my_attribute\"\": \"\"20_off\"\"}\" ```   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.import_referrals_with_http_info(application_id, campaign_id, async_req=True)
@@ -13546,7 +15823,7 @@ class ManagementApi(object):
         :param async_req bool: execute request asynchronously
         :param int application_id: The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
         :param int campaign_id: The ID of the campaign. It is displayed in your Talon.One deployment URL. (required)
-        :param str up_file: The file with the information about the data that should be imported.
+        :param str up_file: The file containing the data that is being imported.
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -13642,18 +15919,18 @@ class ManagementApi(object):
     def list_account_collections(self, **kwargs):  # noqa: E501
         """List collections in account  # noqa: E501
 
-        List collections in account.  # noqa: E501
+        List account-level collections in the account.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.list_account_collections(async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param int page_size: The number of items in this response.
-        :param int skip: Skips the given number of items when paging through large result sets.
+        :param int page_size: The number of items in the response.
+        :param int skip: The number of items to skip when paging through large result sets.
         :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
         :param bool with_total_result_size: When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When `true`: `hasMore` is true when there is a next page. `totalResultSize` is always zero. - When `false`: `hasMore` is always false. `totalResultSize` contains the total number of results for this query. 
-        :param str name: Filter by the name of the Collection.
+        :param str name: Filter by collection name.
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -13661,7 +15938,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20015
+        :return: InlineResponse20017
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -13671,18 +15948,18 @@ class ManagementApi(object):
     def list_account_collections_with_http_info(self, **kwargs):  # noqa: E501
         """List collections in account  # noqa: E501
 
-        List collections in account.  # noqa: E501
+        List account-level collections in the account.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.list_account_collections_with_http_info(async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param int page_size: The number of items in this response.
-        :param int skip: Skips the given number of items when paging through large result sets.
+        :param int page_size: The number of items in the response.
+        :param int skip: The number of items to skip when paging through large result sets.
         :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
         :param bool with_total_result_size: When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When `true`: `hasMore` is true when there is a next page. `totalResultSize` is always zero. - When `false`: `hasMore` is always false. `totalResultSize` contains the total number of results for this query. 
-        :param str name: Filter by the name of the Collection.
+        :param str name: Filter by collection name.
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -13692,7 +15969,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20015, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20017, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -13765,7 +16042,294 @@ class ManagementApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20015',  # noqa: E501
+            response_type='InlineResponse20017',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def list_achievements(self, application_id, campaign_id, **kwargs):  # noqa: E501
+        """List achievements  # noqa: E501
+
+        List all the achievements for a specific campaign.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_achievements(application_id, campaign_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int application_id: The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
+        :param int campaign_id: The ID of the campaign. It is displayed in your Talon.One deployment URL. (required)
+        :param int page_size: The number of items in the response.
+        :param int skip: The number of items to skip when paging through large result sets.
+        :param str title: Filter by the display name for the achievement in the campaign manager.  **Note**: If no `title` is provided, all the achievements from the campaign are returned. 
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: InlineResponse20046
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.list_achievements_with_http_info(application_id, campaign_id, **kwargs)  # noqa: E501
+
+    def list_achievements_with_http_info(self, application_id, campaign_id, **kwargs):  # noqa: E501
+        """List achievements  # noqa: E501
+
+        List all the achievements for a specific campaign.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_achievements_with_http_info(application_id, campaign_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int application_id: The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
+        :param int campaign_id: The ID of the campaign. It is displayed in your Talon.One deployment URL. (required)
+        :param int page_size: The number of items in the response.
+        :param int skip: The number of items to skip when paging through large result sets.
+        :param str title: Filter by the display name for the achievement in the campaign manager.  **Note**: If no `title` is provided, all the achievements from the campaign are returned. 
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(InlineResponse20046, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'application_id',
+            'campaign_id',
+            'page_size',
+            'skip',
+            'title'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method list_achievements" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'application_id' is set
+        if self.api_client.client_side_validation and ('application_id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['application_id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `application_id` when calling `list_achievements`")  # noqa: E501
+        # verify the required parameter 'campaign_id' is set
+        if self.api_client.client_side_validation and ('campaign_id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['campaign_id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `campaign_id` when calling `list_achievements`")  # noqa: E501
+
+        if self.api_client.client_side_validation and 'page_size' in local_var_params and local_var_params['page_size'] > 50:  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `page_size` when calling `list_achievements`, must be a value less than or equal to `50`")  # noqa: E501
+        if self.api_client.client_side_validation and 'page_size' in local_var_params and local_var_params['page_size'] < 1:  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `page_size` when calling `list_achievements`, must be a value greater than or equal to `1`")  # noqa: E501
+        collection_formats = {}
+
+        path_params = {}
+        if 'application_id' in local_var_params:
+            path_params['applicationId'] = local_var_params['application_id']  # noqa: E501
+        if 'campaign_id' in local_var_params:
+            path_params['campaignId'] = local_var_params['campaign_id']  # noqa: E501
+
+        query_params = []
+        if 'page_size' in local_var_params and local_var_params['page_size'] is not None:  # noqa: E501
+            query_params.append(('pageSize', local_var_params['page_size']))  # noqa: E501
+        if 'skip' in local_var_params and local_var_params['skip'] is not None:  # noqa: E501
+            query_params.append(('skip', local_var_params['skip']))  # noqa: E501
+        if 'title' in local_var_params and local_var_params['title'] is not None:  # noqa: E501
+            query_params.append(('title', local_var_params['title']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/v1/applications/{applicationId}/campaigns/{campaignId}/achievements', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='InlineResponse20046',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def list_catalog_items(self, catalog_id, **kwargs):  # noqa: E501
+        """List items in a catalog  # noqa: E501
+
+        Return a paginated list of cart items in the given catalog.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_catalog_items(catalog_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int catalog_id: The ID of the catalog. You can find the ID in the Campaign Manager in **Account** > **Tools** > **Cart item catalogs**. (required)
+        :param int page_size: The number of items in the response.
+        :param int skip: The number of items to skip when paging through large result sets.
+        :param bool with_total_result_size: When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When `true`: `hasMore` is true when there is a next page. `totalResultSize` is always zero. - When `false`: `hasMore` is always false. `totalResultSize` contains the total number of results for this query. 
+        :param list[str] sku: Filter results by one or more SKUs. Must be exact match.
+        :param list[str] product_names: Filter results by one or more product names. Must be exact match.
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: InlineResponse20035
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.list_catalog_items_with_http_info(catalog_id, **kwargs)  # noqa: E501
+
+    def list_catalog_items_with_http_info(self, catalog_id, **kwargs):  # noqa: E501
+        """List items in a catalog  # noqa: E501
+
+        Return a paginated list of cart items in the given catalog.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_catalog_items_with_http_info(catalog_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int catalog_id: The ID of the catalog. You can find the ID in the Campaign Manager in **Account** > **Tools** > **Cart item catalogs**. (required)
+        :param int page_size: The number of items in the response.
+        :param int skip: The number of items to skip when paging through large result sets.
+        :param bool with_total_result_size: When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When `true`: `hasMore` is true when there is a next page. `totalResultSize` is always zero. - When `false`: `hasMore` is always false. `totalResultSize` contains the total number of results for this query. 
+        :param list[str] sku: Filter results by one or more SKUs. Must be exact match.
+        :param list[str] product_names: Filter results by one or more product names. Must be exact match.
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(InlineResponse20035, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'catalog_id',
+            'page_size',
+            'skip',
+            'with_total_result_size',
+            'sku',
+            'product_names'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method list_catalog_items" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'catalog_id' is set
+        if self.api_client.client_side_validation and ('catalog_id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['catalog_id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `catalog_id` when calling `list_catalog_items`")  # noqa: E501
+
+        if self.api_client.client_side_validation and 'page_size' in local_var_params and local_var_params['page_size'] > 1000:  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `page_size` when calling `list_catalog_items`, must be a value less than or equal to `1000`")  # noqa: E501
+        if self.api_client.client_side_validation and 'page_size' in local_var_params and local_var_params['page_size'] < 1:  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `page_size` when calling `list_catalog_items`, must be a value greater than or equal to `1`")  # noqa: E501
+        collection_formats = {}
+
+        path_params = {}
+        if 'catalog_id' in local_var_params:
+            path_params['catalogId'] = local_var_params['catalog_id']  # noqa: E501
+
+        query_params = []
+        if 'page_size' in local_var_params and local_var_params['page_size'] is not None:  # noqa: E501
+            query_params.append(('pageSize', local_var_params['page_size']))  # noqa: E501
+        if 'skip' in local_var_params and local_var_params['skip'] is not None:  # noqa: E501
+            query_params.append(('skip', local_var_params['skip']))  # noqa: E501
+        if 'with_total_result_size' in local_var_params and local_var_params['with_total_result_size'] is not None:  # noqa: E501
+            query_params.append(('withTotalResultSize', local_var_params['with_total_result_size']))  # noqa: E501
+        if 'sku' in local_var_params and local_var_params['sku'] is not None:  # noqa: E501
+            query_params.append(('sku', local_var_params['sku']))  # noqa: E501
+            collection_formats['sku'] = 'csv'  # noqa: E501
+        if 'product_names' in local_var_params and local_var_params['product_names'] is not None:  # noqa: E501
+            query_params.append(('productNames', local_var_params['product_names']))  # noqa: E501
+            collection_formats['productNames'] = 'csv'  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/v1/catalogs/{catalogId}/items', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='InlineResponse20035',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -13774,9 +16338,9 @@ class ManagementApi(object):
             collection_formats=collection_formats)
 
     def list_collections(self, application_id, campaign_id, **kwargs):  # noqa: E501
-        """List collections  # noqa: E501
+        """List collections in campaign  # noqa: E501
 
-        List collections in the campaign.  # noqa: E501
+        List collections in a given campaign.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.list_collections(application_id, campaign_id, async_req=True)
@@ -13785,11 +16349,11 @@ class ManagementApi(object):
         :param async_req bool: execute request asynchronously
         :param int application_id: The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
         :param int campaign_id: The ID of the campaign. It is displayed in your Talon.One deployment URL. (required)
-        :param int page_size: The number of items in this response.
-        :param int skip: Skips the given number of items when paging through large result sets.
+        :param int page_size: The number of items in the response.
+        :param int skip: The number of items to skip when paging through large result sets.
         :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
         :param bool with_total_result_size: When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When `true`: `hasMore` is true when there is a next page. `totalResultSize` is always zero. - When `false`: `hasMore` is always false. `totalResultSize` contains the total number of results for this query. 
-        :param str name: Filter by the name of the Collection.
+        :param str name: Filter by collection name.
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -13805,9 +16369,9 @@ class ManagementApi(object):
         return self.list_collections_with_http_info(application_id, campaign_id, **kwargs)  # noqa: E501
 
     def list_collections_with_http_info(self, application_id, campaign_id, **kwargs):  # noqa: E501
-        """List collections  # noqa: E501
+        """List collections in campaign  # noqa: E501
 
-        List collections in the campaign.  # noqa: E501
+        List collections in a given campaign.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.list_collections_with_http_info(application_id, campaign_id, async_req=True)
@@ -13816,11 +16380,11 @@ class ManagementApi(object):
         :param async_req bool: execute request asynchronously
         :param int application_id: The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
         :param int campaign_id: The ID of the campaign. It is displayed in your Talon.One deployment URL. (required)
-        :param int page_size: The number of items in this response.
-        :param int skip: Skips the given number of items when paging through large result sets.
+        :param int page_size: The number of items in the response.
+        :param int skip: The number of items to skip when paging through large result sets.
         :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
         :param bool with_total_result_size: When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When `true`: `hasMore` is true when there is a next page. `totalResultSize` is always zero. - When `false`: `hasMore` is always false. `totalResultSize` contains the total number of results for this query. 
-        :param str name: Filter by the name of the Collection.
+        :param str name: Filter by collection name.
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -13926,9 +16490,9 @@ class ManagementApi(object):
             collection_formats=collection_formats)
 
     def list_collections_in_application(self, application_id, **kwargs):  # noqa: E501
-        """List collections in application  # noqa: E501
+        """List collections in Application  # noqa: E501
 
-        List collections from all campaigns in the Application.  # noqa: E501
+        List campaign-level collections from all campaigns in a given Application.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.list_collections_in_application(application_id, async_req=True)
@@ -13936,11 +16500,11 @@ class ManagementApi(object):
 
         :param async_req bool: execute request asynchronously
         :param int application_id: The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
-        :param int page_size: The number of items in this response.
-        :param int skip: Skips the given number of items when paging through large result sets.
+        :param int page_size: The number of items in the response.
+        :param int skip: The number of items to skip when paging through large result sets.
         :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
         :param bool with_total_result_size: When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When `true`: `hasMore` is true when there is a next page. `totalResultSize` is always zero. - When `false`: `hasMore` is always false. `totalResultSize` contains the total number of results for this query. 
-        :param str name: Filter by the name of the Collection.
+        :param str name: Filter by collection name.
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -13956,9 +16520,9 @@ class ManagementApi(object):
         return self.list_collections_in_application_with_http_info(application_id, **kwargs)  # noqa: E501
 
     def list_collections_in_application_with_http_info(self, application_id, **kwargs):  # noqa: E501
-        """List collections in application  # noqa: E501
+        """List collections in Application  # noqa: E501
 
-        List collections from all campaigns in the Application.  # noqa: E501
+        List campaign-level collections from all campaigns in a given Application.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.list_collections_in_application_with_http_info(application_id, async_req=True)
@@ -13966,11 +16530,11 @@ class ManagementApi(object):
 
         :param async_req bool: execute request asynchronously
         :param int application_id: The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
-        :param int page_size: The number of items in this response.
-        :param int skip: Skips the given number of items when paging through large result sets.
+        :param int page_size: The number of items in the response.
+        :param int skip: The number of items to skip when paging through large result sets.
         :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
         :param bool with_total_result_size: When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When `true`: `hasMore` is true when there is a next page. `totalResultSize` is always zero. - When `false`: `hasMore` is always false. `totalResultSize` contains the total number of results for this query. 
-        :param str name: Filter by the name of the Collection.
+        :param str name: Filter by collection name.
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -14068,17 +16632,298 @@ class ManagementApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def list_stores(self, application_id, **kwargs):  # noqa: E501
+        """List stores  # noqa: E501
+
+        List all stores for a specific Application.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_stores(application_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int application_id: The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
+        :param int page_size: The number of items in the response.
+        :param int skip: The number of items to skip when paging through large result sets.
+        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
+        :param bool with_total_result_size: When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When `true`: `hasMore` is true when there is a next page. `totalResultSize` is always zero. - When `false`: `hasMore` is always false. `totalResultSize` contains the total number of results for this query. 
+        :param float campaign_id: Filter results by campaign.
+        :param str name: The name of the store.
+        :param str integration_id: The integration ID of the store.
+        :param str query: Filter results by `name` or `integrationId`.
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: InlineResponse20045
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.list_stores_with_http_info(application_id, **kwargs)  # noqa: E501
+
+    def list_stores_with_http_info(self, application_id, **kwargs):  # noqa: E501
+        """List stores  # noqa: E501
+
+        List all stores for a specific Application.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_stores_with_http_info(application_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int application_id: The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
+        :param int page_size: The number of items in the response.
+        :param int skip: The number of items to skip when paging through large result sets.
+        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
+        :param bool with_total_result_size: When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When `true`: `hasMore` is true when there is a next page. `totalResultSize` is always zero. - When `false`: `hasMore` is always false. `totalResultSize` contains the total number of results for this query. 
+        :param float campaign_id: Filter results by campaign.
+        :param str name: The name of the store.
+        :param str integration_id: The integration ID of the store.
+        :param str query: Filter results by `name` or `integrationId`.
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(InlineResponse20045, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'application_id',
+            'page_size',
+            'skip',
+            'sort',
+            'with_total_result_size',
+            'campaign_id',
+            'name',
+            'integration_id',
+            'query'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method list_stores" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'application_id' is set
+        if self.api_client.client_side_validation and ('application_id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['application_id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `application_id` when calling `list_stores`")  # noqa: E501
+
+        if self.api_client.client_side_validation and 'page_size' in local_var_params and local_var_params['page_size'] > 1000:  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `page_size` when calling `list_stores`, must be a value less than or equal to `1000`")  # noqa: E501
+        if self.api_client.client_side_validation and 'page_size' in local_var_params and local_var_params['page_size'] < 1:  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `page_size` when calling `list_stores`, must be a value greater than or equal to `1`")  # noqa: E501
+        collection_formats = {}
+
+        path_params = {}
+        if 'application_id' in local_var_params:
+            path_params['applicationId'] = local_var_params['application_id']  # noqa: E501
+
+        query_params = []
+        if 'page_size' in local_var_params and local_var_params['page_size'] is not None:  # noqa: E501
+            query_params.append(('pageSize', local_var_params['page_size']))  # noqa: E501
+        if 'skip' in local_var_params and local_var_params['skip'] is not None:  # noqa: E501
+            query_params.append(('skip', local_var_params['skip']))  # noqa: E501
+        if 'sort' in local_var_params and local_var_params['sort'] is not None:  # noqa: E501
+            query_params.append(('sort', local_var_params['sort']))  # noqa: E501
+        if 'with_total_result_size' in local_var_params and local_var_params['with_total_result_size'] is not None:  # noqa: E501
+            query_params.append(('withTotalResultSize', local_var_params['with_total_result_size']))  # noqa: E501
+        if 'campaign_id' in local_var_params and local_var_params['campaign_id'] is not None:  # noqa: E501
+            query_params.append(('campaignId', local_var_params['campaign_id']))  # noqa: E501
+        if 'name' in local_var_params and local_var_params['name'] is not None:  # noqa: E501
+            query_params.append(('name', local_var_params['name']))  # noqa: E501
+        if 'integration_id' in local_var_params and local_var_params['integration_id'] is not None:  # noqa: E501
+            query_params.append(('integrationId', local_var_params['integration_id']))  # noqa: E501
+        if 'query' in local_var_params and local_var_params['query'] is not None:  # noqa: E501
+            query_params.append(('query', local_var_params['query']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/v1/applications/{applicationId}/stores', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='InlineResponse20045',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def notification_activation(self, notification_id, body, **kwargs):  # noqa: E501
+        """Activate or deactivate notification  # noqa: E501
+
+        Activate or deactivate the given notification. When `enabled` is false, updates will no longer be sent for the given notification.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.notification_activation(notification_id, body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int notification_id: The ID of the notification. Get it with the appropriate _List notifications_ endpoint. (required)
+        :param NotificationActivation body: body (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.notification_activation_with_http_info(notification_id, body, **kwargs)  # noqa: E501
+
+    def notification_activation_with_http_info(self, notification_id, body, **kwargs):  # noqa: E501
+        """Activate or deactivate notification  # noqa: E501
+
+        Activate or deactivate the given notification. When `enabled` is false, updates will no longer be sent for the given notification.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.notification_activation_with_http_info(notification_id, body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int notification_id: The ID of the notification. Get it with the appropriate _List notifications_ endpoint. (required)
+        :param NotificationActivation body: body (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'notification_id',
+            'body'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method notification_activation" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'notification_id' is set
+        if self.api_client.client_side_validation and ('notification_id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['notification_id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `notification_id` when calling `notification_activation`")  # noqa: E501
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in local_var_params or  # noqa: E501
+                                                        local_var_params['body'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `body` when calling `notification_activation`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'notification_id' in local_var_params:
+            path_params['notificationId'] = local_var_params['notification_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in local_var_params:
+            body_params = local_var_params['body']
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/v1/notifications/{notificationId}/activation', 'PUT',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type=None,  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def post_added_deducted_points_notification(self, loyalty_program_id, body, **kwargs):  # noqa: E501
         """Create notification about added or deducted loyalty points  # noqa: E501
 
-        Create a notification about added or deducted loyalty points in a given profile-based loyalty program. A notification for added or deducted loyalty points is different from regular webhooks in that it is loyalty program-scoped and has a predefined payload.  For more information, see [Managing notifications](https://docs.talon.one/docs/product/loyalty-programs/managing-notifications).   # noqa: E501
+        Create a notification about added or deducted loyalty points in a given profile-based loyalty program. A notification for added or deducted loyalty points is different from regular webhooks in that it is loyalty program-scoped and has a predefined payload.  For more information, see [Managing loyalty notifications](https://docs.talon.one/docs/product/loyalty-programs/managing-loyalty-notifications).   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.post_added_deducted_points_notification(loyalty_program_id, body, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param int loyalty_program_id: Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  (required)
+        :param int loyalty_program_id: Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  (required)
         :param NewBaseNotification body: body (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -14097,14 +16942,14 @@ class ManagementApi(object):
     def post_added_deducted_points_notification_with_http_info(self, loyalty_program_id, body, **kwargs):  # noqa: E501
         """Create notification about added or deducted loyalty points  # noqa: E501
 
-        Create a notification about added or deducted loyalty points in a given profile-based loyalty program. A notification for added or deducted loyalty points is different from regular webhooks in that it is loyalty program-scoped and has a predefined payload.  For more information, see [Managing notifications](https://docs.talon.one/docs/product/loyalty-programs/managing-notifications).   # noqa: E501
+        Create a notification about added or deducted loyalty points in a given profile-based loyalty program. A notification for added or deducted loyalty points is different from regular webhooks in that it is loyalty program-scoped and has a predefined payload.  For more information, see [Managing loyalty notifications](https://docs.talon.one/docs/product/loyalty-programs/managing-loyalty-notifications).   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.post_added_deducted_points_notification_with_http_info(loyalty_program_id, body, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param int loyalty_program_id: Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  (required)
+        :param int loyalty_program_id: Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  (required)
         :param NewBaseNotification body: body (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -14307,7 +17152,134 @@ class ManagementApi(object):
         auth_settings = ['management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
-            '/v1/catalogs/{applicationId}/notifications/strikethrough', 'POST',
+            '/v1/applications/{applicationId}/catalogs/notifications/strikethrough', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='BaseNotification',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def post_pending_points_notification(self, loyalty_program_id, body, **kwargs):  # noqa: E501
+        """Create notification about pending loyalty points  # noqa: E501
+
+        Create a notification about pending loyalty points for a given profile-based loyalty program. For more information, see [Managing loyalty notifications](https://docs.talon.one/docs/product/loyalty-programs/managing-loyalty-notifications).   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.post_pending_points_notification(loyalty_program_id, body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int loyalty_program_id: Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  (required)
+        :param NewBaseNotification body: body (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: BaseNotification
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.post_pending_points_notification_with_http_info(loyalty_program_id, body, **kwargs)  # noqa: E501
+
+    def post_pending_points_notification_with_http_info(self, loyalty_program_id, body, **kwargs):  # noqa: E501
+        """Create notification about pending loyalty points  # noqa: E501
+
+        Create a notification about pending loyalty points for a given profile-based loyalty program. For more information, see [Managing loyalty notifications](https://docs.talon.one/docs/product/loyalty-programs/managing-loyalty-notifications).   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.post_pending_points_notification_with_http_info(loyalty_program_id, body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int loyalty_program_id: Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  (required)
+        :param NewBaseNotification body: body (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(BaseNotification, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'loyalty_program_id',
+            'body'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method post_pending_points_notification" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'loyalty_program_id' is set
+        if self.api_client.client_side_validation and ('loyalty_program_id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['loyalty_program_id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `loyalty_program_id` when calling `post_pending_points_notification`")  # noqa: E501
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in local_var_params or  # noqa: E501
+                                                        local_var_params['body'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `body` when calling `post_pending_points_notification`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'loyalty_program_id' in local_var_params:
+            path_params['loyaltyProgramId'] = local_var_params['loyalty_program_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in local_var_params:
+            body_params = local_var_params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/v1/loyalty_programs/{loyaltyProgramId}/notifications/pending_points', 'POST',
             path_params,
             query_params,
             header_params,
@@ -14325,7 +17297,7 @@ class ManagementApi(object):
     def remove_loyalty_points(self, loyalty_program_id, integration_id, body, **kwargs):  # noqa: E501
         """Deduct points from customer profile  # noqa: E501
 
-        Deduct points from the specified loyalty program and specified customer profile.  To get the `integrationId` of the profile from a `sessionId`, use the [Update customer session](https://docs.talon.one/integration-api#operation/updateCustomerSessionV2) endpoint.   # noqa: E501
+        Deduct points from the specified loyalty program and specified customer profile.  **Important:** - Only active points can be deducted. - Only pending points are rolled back when a session is cancelled or reopened.  To get the `integrationId` of the profile from a `sessionId`, use the [Update customer session](https://docs.talon.one/integration-api#operation/updateCustomerSessionV2) endpoint.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.remove_loyalty_points(loyalty_program_id, integration_id, body, async_req=True)
@@ -14352,7 +17324,7 @@ class ManagementApi(object):
     def remove_loyalty_points_with_http_info(self, loyalty_program_id, integration_id, body, **kwargs):  # noqa: E501
         """Deduct points from customer profile  # noqa: E501
 
-        Deduct points from the specified loyalty program and specified customer profile.  To get the `integrationId` of the profile from a `sessionId`, use the [Update customer session](https://docs.talon.one/integration-api#operation/updateCustomerSessionV2) endpoint.   # noqa: E501
+        Deduct points from the specified loyalty program and specified customer profile.  **Important:** - Only active points can be deducted. - Only pending points are rolled back when a session is cancelled or reopened.  To get the `integrationId` of the profile from a `sessionId`, use the [Update customer session](https://docs.talon.one/integration-api#operation/updateCustomerSessionV2) endpoint.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.remove_loyalty_points_with_http_info(loyalty_program_id, integration_id, body, async_req=True)
@@ -14579,7 +17551,7 @@ class ManagementApi(object):
     def search_coupons_advanced_application_wide_without_total_count(self, application_id, body, **kwargs):  # noqa: E501
         """List coupons that match the given attributes (without total count)  # noqa: E501
 
-        List the coupons whose attributes match the query criteria in all **active** campaigns of the given Application.  The match is successful if all the attributes of the request are found in a coupon, even if the coupon has more attributes that are not present on the request.  **Note:** The total count is not included in the response.   # noqa: E501
+        List the coupons whose attributes match the query criteria in all the campaigns of the given Application.  The match is successful if all the attributes of the request are found in a coupon, even if the coupon has more attributes that are not present on the request.  **Note:** The total count is not included in the response.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.search_coupons_advanced_application_wide_without_total_count(application_id, body, async_req=True)
@@ -14588,12 +17560,12 @@ class ManagementApi(object):
         :param async_req bool: execute request asynchronously
         :param int application_id: The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
         :param object body: body (required)
-        :param int page_size: The number of items in this response.
-        :param int skip: Skips the given number of items when paging through large result sets.
+        :param int page_size: The number of items in the response.
+        :param int skip: The number of items to skip when paging through large result sets.
         :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
         :param str value: Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters.
-        :param datetime created_before: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
-        :param datetime created_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
+        :param datetime created_before: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally.
+        :param datetime created_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally.
         :param str valid: Either \"expired\", \"validNow\", or \"validFuture\". The first option matches coupons in which the expiration date is set and in the past. The second matches coupons in which start date is null or in the past and expiration date is null or in the future, the third matches coupons in which start date is set and in the future. 
         :param str usable: Either \"true\" or \"false\". If \"true\", only coupons where `usageCounter < usageLimit` will be returned, \"false\" will return only coupons where `usageCounter >= usageLimit`. 
         :param int referral_id: Filter the results by matching them with the ID of a referral. This filter shows the coupons created by redeeming a referral code.
@@ -14608,7 +17580,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse2008
+        :return: InlineResponse2009
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -14618,7 +17590,7 @@ class ManagementApi(object):
     def search_coupons_advanced_application_wide_without_total_count_with_http_info(self, application_id, body, **kwargs):  # noqa: E501
         """List coupons that match the given attributes (without total count)  # noqa: E501
 
-        List the coupons whose attributes match the query criteria in all **active** campaigns of the given Application.  The match is successful if all the attributes of the request are found in a coupon, even if the coupon has more attributes that are not present on the request.  **Note:** The total count is not included in the response.   # noqa: E501
+        List the coupons whose attributes match the query criteria in all the campaigns of the given Application.  The match is successful if all the attributes of the request are found in a coupon, even if the coupon has more attributes that are not present on the request.  **Note:** The total count is not included in the response.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.search_coupons_advanced_application_wide_without_total_count_with_http_info(application_id, body, async_req=True)
@@ -14627,12 +17599,12 @@ class ManagementApi(object):
         :param async_req bool: execute request asynchronously
         :param int application_id: The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
         :param object body: body (required)
-        :param int page_size: The number of items in this response.
-        :param int skip: Skips the given number of items when paging through large result sets.
+        :param int page_size: The number of items in the response.
+        :param int skip: The number of items to skip when paging through large result sets.
         :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
         :param str value: Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters.
-        :param datetime created_before: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
-        :param datetime created_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
+        :param datetime created_before: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally.
+        :param datetime created_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally.
         :param str valid: Either \"expired\", \"validNow\", or \"validFuture\". The first option matches coupons in which the expiration date is set and in the past. The second matches coupons in which start date is null or in the past and expiration date is null or in the future, the third matches coupons in which start date is set and in the future. 
         :param str usable: Either \"true\" or \"false\". If \"true\", only coupons where `usageCounter < usageLimit` will be returned, \"false\" will return only coupons where `usageCounter >= usageLimit`. 
         :param int referral_id: Filter the results by matching them with the ID of a referral. This filter shows the coupons created by redeeming a referral code.
@@ -14649,7 +17621,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse2008, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse2009, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -14764,7 +17736,7 @@ class ManagementApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse2008',  # noqa: E501
+            response_type='InlineResponse2009',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -14785,12 +17757,12 @@ class ManagementApi(object):
         :param int application_id: The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
         :param int campaign_id: The ID of the campaign. It is displayed in your Talon.One deployment URL. (required)
         :param object body: body (required)
-        :param int page_size: The number of items in this response.
-        :param int skip: Skips the given number of items when paging through large result sets.
+        :param int page_size: The number of items in the response.
+        :param int skip: The number of items to skip when paging through large result sets.
         :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
         :param str value: Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters.
-        :param datetime created_before: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
-        :param datetime created_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
+        :param datetime created_before: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally.
+        :param datetime created_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally.
         :param str valid: Either \"expired\", \"validNow\", or \"validFuture\". The first option matches coupons in which the expiration date is set and in the past. The second matches coupons in which start date is null or in the past and expiration date is null or in the future, the third matches coupons in which start date is set and in the future. 
         :param str usable: Either \"true\" or \"false\". If \"true\", only coupons where `usageCounter < usageLimit` will be returned, \"false\" will return only coupons where `usageCounter >= usageLimit`. 
         :param int referral_id: Filter the results by matching them with the ID of a referral. This filter shows the coupons created by redeeming a referral code.
@@ -14804,7 +17776,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse2008
+        :return: InlineResponse2009
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -14824,12 +17796,12 @@ class ManagementApi(object):
         :param int application_id: The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
         :param int campaign_id: The ID of the campaign. It is displayed in your Talon.One deployment URL. (required)
         :param object body: body (required)
-        :param int page_size: The number of items in this response.
-        :param int skip: Skips the given number of items when paging through large result sets.
+        :param int page_size: The number of items in the response.
+        :param int skip: The number of items to skip when paging through large result sets.
         :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
         :param str value: Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters.
-        :param datetime created_before: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
-        :param datetime created_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally.
+        :param datetime created_before: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally.
+        :param datetime created_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally.
         :param str valid: Either \"expired\", \"validNow\", or \"validFuture\". The first option matches coupons in which the expiration date is set and in the past. The second matches coupons in which start date is null or in the past and expiration date is null or in the future, the third matches coupons in which start date is set and in the future. 
         :param str usable: Either \"true\" or \"false\". If \"true\", only coupons where `usageCounter < usageLimit` will be returned, \"false\" will return only coupons where `usageCounter >= usageLimit`. 
         :param int referral_id: Filter the results by matching them with the ID of a referral. This filter shows the coupons created by redeeming a referral code.
@@ -14845,7 +17817,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse2008, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse2009, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -14964,7 +17936,7 @@ class ManagementApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse2008',  # noqa: E501
+            response_type='InlineResponse2009',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -15114,14 +18086,14 @@ class ManagementApi(object):
     def update_account_collection(self, collection_id, body, **kwargs):  # noqa: E501
         """Update account-level collection  # noqa: E501
 
-        Edit the description of the account-level collection and enable or disable the collection in the specified Applications.  # noqa: E501
+        Edit the description of a given account-level collection and enable or disable the collection in the specified Applications.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.update_account_collection(collection_id, body, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param int collection_id: The ID of the collection. You can get it with the [List collection in account](#operation/listCollectionsInApplication) endpoint. (required)
+        :param int collection_id: The ID of the collection. You can get it with the [List collections in account](#operation/listAccountCollections) endpoint. (required)
         :param UpdateCollection body: body (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -15140,14 +18112,14 @@ class ManagementApi(object):
     def update_account_collection_with_http_info(self, collection_id, body, **kwargs):  # noqa: E501
         """Update account-level collection  # noqa: E501
 
-        Edit the description of the account-level collection and enable or disable the collection in the specified Applications.  # noqa: E501
+        Edit the description of a given account-level collection and enable or disable the collection in the specified Applications.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.update_account_collection_with_http_info(collection_id, body, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param int collection_id: The ID of the collection. You can get it with the [List collection in account](#operation/listCollectionsInApplication) endpoint. (required)
+        :param int collection_id: The ID of the collection. You can get it with the [List collections in account](#operation/listAccountCollections) endpoint. (required)
         :param UpdateCollection body: body (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -15238,10 +18210,155 @@ class ManagementApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def update_achievement(self, application_id, campaign_id, achievement_id, body, **kwargs):  # noqa: E501
+        """Update achievement  # noqa: E501
+
+        Update the details of a specific achievement.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_achievement(application_id, campaign_id, achievement_id, body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int application_id: The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
+        :param int campaign_id: The ID of the campaign. It is displayed in your Talon.One deployment URL. (required)
+        :param int achievement_id: The ID of the achievement. You can get this ID with the [List achievement](https://docs.talon.one/management-api#tag/Achievements/operation/listAchievements) endpoint. (required)
+        :param UpdateAchievement body: body (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: Achievement
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.update_achievement_with_http_info(application_id, campaign_id, achievement_id, body, **kwargs)  # noqa: E501
+
+    def update_achievement_with_http_info(self, application_id, campaign_id, achievement_id, body, **kwargs):  # noqa: E501
+        """Update achievement  # noqa: E501
+
+        Update the details of a specific achievement.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_achievement_with_http_info(application_id, campaign_id, achievement_id, body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int application_id: The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
+        :param int campaign_id: The ID of the campaign. It is displayed in your Talon.One deployment URL. (required)
+        :param int achievement_id: The ID of the achievement. You can get this ID with the [List achievement](https://docs.talon.one/management-api#tag/Achievements/operation/listAchievements) endpoint. (required)
+        :param UpdateAchievement body: body (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(Achievement, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'application_id',
+            'campaign_id',
+            'achievement_id',
+            'body'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method update_achievement" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'application_id' is set
+        if self.api_client.client_side_validation and ('application_id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['application_id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `application_id` when calling `update_achievement`")  # noqa: E501
+        # verify the required parameter 'campaign_id' is set
+        if self.api_client.client_side_validation and ('campaign_id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['campaign_id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `campaign_id` when calling `update_achievement`")  # noqa: E501
+        # verify the required parameter 'achievement_id' is set
+        if self.api_client.client_side_validation and ('achievement_id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['achievement_id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `achievement_id` when calling `update_achievement`")  # noqa: E501
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in local_var_params or  # noqa: E501
+                                                        local_var_params['body'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `body` when calling `update_achievement`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'application_id' in local_var_params:
+            path_params['applicationId'] = local_var_params['application_id']  # noqa: E501
+        if 'campaign_id' in local_var_params:
+            path_params['campaignId'] = local_var_params['campaign_id']  # noqa: E501
+        if 'achievement_id' in local_var_params:
+            path_params['achievementId'] = local_var_params['achievement_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in local_var_params:
+            body_params = local_var_params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/v1/applications/{applicationId}/campaigns/{campaignId}/achievements/{achievementId}', 'PUT',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='Achievement',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def update_additional_cost(self, additional_cost_id, body, **kwargs):  # noqa: E501
         """Update additional cost  # noqa: E501
 
-        Updates an existing additional cost. Once created, the only property of an additional cost that can be changed is the title (human readable description). This restriction is in place to prevent accidentally breaking live integrations.   # noqa: E501
+        Updates an existing additional cost. Once created, the only property of an additional cost that cannot be changed is the `name` property (or **API name** in the Campaign Manager). This restriction is in place to prevent accidentally breaking live integrations.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.update_additional_cost(additional_cost_id, body, async_req=True)
@@ -15267,7 +18384,7 @@ class ManagementApi(object):
     def update_additional_cost_with_http_info(self, additional_cost_id, body, **kwargs):  # noqa: E501
         """Update additional cost  # noqa: E501
 
-        Updates an existing additional cost. Once created, the only property of an additional cost that can be changed is the title (human readable description). This restriction is in place to prevent accidentally breaking live integrations.   # noqa: E501
+        Updates an existing additional cost. Once created, the only property of an additional cost that cannot be changed is the `name` property (or **API name** in the Campaign Manager). This restriction is in place to prevent accidentally breaking live integrations.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.update_additional_cost_with_http_info(additional_cost_id, body, async_req=True)
@@ -15629,9 +18746,9 @@ class ManagementApi(object):
             collection_formats=collection_formats)
 
     def update_collection(self, application_id, campaign_id, collection_id, body, **kwargs):  # noqa: E501
-        """Update collection description  # noqa: E501
+        """Update campaign-level collection's description  # noqa: E501
 
-        Edit the description of the collection.  # noqa: E501
+        Edit the description of a given campaign-level collection.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.update_collection(application_id, campaign_id, collection_id, body, async_req=True)
@@ -15640,7 +18757,7 @@ class ManagementApi(object):
         :param async_req bool: execute request asynchronously
         :param int application_id: The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
         :param int campaign_id: The ID of the campaign. It is displayed in your Talon.One deployment URL. (required)
-        :param int collection_id: The ID of the collection. You can get it with the [List collection in account](#operation/listCollectionsInApplication) endpoint. (required)
+        :param int collection_id: The ID of the collection. You can get it with the [List collections in Application](#operation/listCollectionsInApplication) endpoint. (required)
         :param UpdateCampaignCollection body: body (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -15657,9 +18774,9 @@ class ManagementApi(object):
         return self.update_collection_with_http_info(application_id, campaign_id, collection_id, body, **kwargs)  # noqa: E501
 
     def update_collection_with_http_info(self, application_id, campaign_id, collection_id, body, **kwargs):  # noqa: E501
-        """Update collection description  # noqa: E501
+        """Update campaign-level collection's description  # noqa: E501
 
-        Edit the description of the collection.  # noqa: E501
+        Edit the description of a given campaign-level collection.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.update_collection_with_http_info(application_id, campaign_id, collection_id, body, async_req=True)
@@ -15668,7 +18785,7 @@ class ManagementApi(object):
         :param async_req bool: execute request asynchronously
         :param int application_id: The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
         :param int campaign_id: The ID of the campaign. It is displayed in your Talon.One deployment URL. (required)
-        :param int collection_id: The ID of the collection. You can get it with the [List collection in account](#operation/listCollectionsInApplication) endpoint. (required)
+        :param int collection_id: The ID of the collection. You can get it with the [List collections in Application](#operation/listCollectionsInApplication) endpoint. (required)
         :param UpdateCampaignCollection body: body (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -15921,7 +19038,7 @@ class ManagementApi(object):
     def update_coupon_batch(self, application_id, campaign_id, body, **kwargs):  # noqa: E501
         """Update coupons  # noqa: E501
 
-        Update all coupons, or a specific batch of coupons, in a campaign. You can find the `batchId` in the **Coupons** view of your Application in the Campaign Manager, or you can use [List coupons](#operation/getCouponsWithoutTotalCount).  <div class=\"redoc-section\">   <p class=\"title\">Important</p>    <ul>     <li>Only send sequential requests to this endpoint.</li>     <li>Requests to this endpoint timeout after 30 minutes. If you hit a timeout, reach out to our support team.</li>   </ul>  </div>  To update a specific coupon, use [Update coupon](#operation/updateCoupon).   # noqa: E501
+        Update all coupons, or a specific batch of coupons in the given campaign. You can find the `batchId` in the **Coupons** view of your Application in the Campaign Manager, or you can use [List coupons](#operation/getCouponsWithoutTotalCount).  <div class=\"redoc-section\">   <p class=\"title\">Important</p>    <ul>     <li>Only send sequential requests to this endpoint.</li>     <li>Requests to this endpoint timeout after 30 minutes. If you hit a timeout, reach out to our support team.</li>   </ul>  </div>  To update a specific coupon, use [Update coupon](#operation/updateCoupon).   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.update_coupon_batch(application_id, campaign_id, body, async_req=True)
@@ -15948,7 +19065,7 @@ class ManagementApi(object):
     def update_coupon_batch_with_http_info(self, application_id, campaign_id, body, **kwargs):  # noqa: E501
         """Update coupons  # noqa: E501
 
-        Update all coupons, or a specific batch of coupons, in a campaign. You can find the `batchId` in the **Coupons** view of your Application in the Campaign Manager, or you can use [List coupons](#operation/getCouponsWithoutTotalCount).  <div class=\"redoc-section\">   <p class=\"title\">Important</p>    <ul>     <li>Only send sequential requests to this endpoint.</li>     <li>Requests to this endpoint timeout after 30 minutes. If you hit a timeout, reach out to our support team.</li>   </ul>  </div>  To update a specific coupon, use [Update coupon](#operation/updateCoupon).   # noqa: E501
+        Update all coupons, or a specific batch of coupons in the given campaign. You can find the `batchId` in the **Coupons** view of your Application in the Campaign Manager, or you can use [List coupons](#operation/getCouponsWithoutTotalCount).  <div class=\"redoc-section\">   <p class=\"title\">Important</p>    <ul>     <li>Only send sequential requests to this endpoint.</li>     <li>Requests to this endpoint timeout after 30 minutes. If you hit a timeout, reach out to our support team.</li>   </ul>  </div>  To update a specific coupon, use [Update coupon](#operation/updateCoupon).   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.update_coupon_batch_with_http_info(application_id, campaign_id, body, async_req=True)
@@ -16189,142 +19306,6 @@ class ManagementApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def update_notification_webhook(self, application_id, notification_webhook_id, body, **kwargs):  # noqa: E501
-        """Update notification about campaign-related changes  # noqa: E501
-
-        Update the given [notification about campaign-related changes](https://docs.talon.one/docs/product/applications/outbound-notifications).  **Tip:** You can review the payload you will receive in the [specs](https://docs.talon.one/outbound-notifications#/paths/campaign_edited/post).   # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_notification_webhook(application_id, notification_webhook_id, body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param int application_id: The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
-        :param int notification_webhook_id: The ID of the webhook. Get it with the appropriate _List notifications_ endpoint. (required)
-        :param NewNotificationWebhook body: body (required)
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: NotificationWebhook
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        return self.update_notification_webhook_with_http_info(application_id, notification_webhook_id, body, **kwargs)  # noqa: E501
-
-    def update_notification_webhook_with_http_info(self, application_id, notification_webhook_id, body, **kwargs):  # noqa: E501
-        """Update notification about campaign-related changes  # noqa: E501
-
-        Update the given [notification about campaign-related changes](https://docs.talon.one/docs/product/applications/outbound-notifications).  **Tip:** You can review the payload you will receive in the [specs](https://docs.talon.one/outbound-notifications#/paths/campaign_edited/post).   # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_notification_webhook_with_http_info(application_id, notification_webhook_id, body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param int application_id: The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
-        :param int notification_webhook_id: The ID of the webhook. Get it with the appropriate _List notifications_ endpoint. (required)
-        :param NewNotificationWebhook body: body (required)
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(NotificationWebhook, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = [
-            'application_id',
-            'notification_webhook_id',
-            'body'
-        ]
-        all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
-            ]
-        )
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method update_notification_webhook" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'application_id' is set
-        if self.api_client.client_side_validation and ('application_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['application_id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `application_id` when calling `update_notification_webhook`")  # noqa: E501
-        # verify the required parameter 'notification_webhook_id' is set
-        if self.api_client.client_side_validation and ('notification_webhook_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['notification_webhook_id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `notification_webhook_id` when calling `update_notification_webhook`")  # noqa: E501
-        # verify the required parameter 'body' is set
-        if self.api_client.client_side_validation and ('body' not in local_var_params or  # noqa: E501
-                                                        local_var_params['body'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `body` when calling `update_notification_webhook`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'application_id' in local_var_params:
-            path_params['applicationId'] = local_var_params['application_id']  # noqa: E501
-        if 'notification_webhook_id' in local_var_params:
-            path_params['notificationWebhookId'] = local_var_params['notification_webhook_id']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'body' in local_var_params:
-            body_params = local_var_params['body']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/v1/applications/{applicationId}/notification_webhooks/{notificationWebhookId}', 'PUT',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='NotificationWebhook',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
     def update_referral(self, application_id, campaign_id, referral_id, body, **kwargs):  # noqa: E501
         """Update referral  # noqa: E501
 
@@ -16463,6 +19444,396 @@ class ManagementApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='Referral',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def update_role_v2(self, role_id, body, **kwargs):  # noqa: E501
+        """Update role  # noqa: E501
+
+        Update a specific role.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_role_v2(role_id, body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int role_id: The ID of role.  (required)
+        :param RoleV2Base body: body (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: RoleV2
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.update_role_v2_with_http_info(role_id, body, **kwargs)  # noqa: E501
+
+    def update_role_v2_with_http_info(self, role_id, body, **kwargs):  # noqa: E501
+        """Update role  # noqa: E501
+
+        Update a specific role.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_role_v2_with_http_info(role_id, body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int role_id: The ID of role.  (required)
+        :param RoleV2Base body: body (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(RoleV2, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'role_id',
+            'body'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method update_role_v2" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'role_id' is set
+        if self.api_client.client_side_validation and ('role_id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['role_id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `role_id` when calling `update_role_v2`")  # noqa: E501
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in local_var_params or  # noqa: E501
+                                                        local_var_params['body'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `body` when calling `update_role_v2`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'role_id' in local_var_params:
+            path_params['roleId'] = local_var_params['role_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in local_var_params:
+            body_params = local_var_params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/v2/roles/{roleId}', 'PUT',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='RoleV2',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def update_store(self, application_id, store_id, body, **kwargs):  # noqa: E501
+        """Update store  # noqa: E501
+
+        Update store details for a specific store ID.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_store(application_id, store_id, body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int application_id: The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
+        :param str store_id: The ID of the store. You can get this ID with the [List stores](#tag/Stores/operation/listStores) endpoint.  (required)
+        :param NewStore body: body (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: Store
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.update_store_with_http_info(application_id, store_id, body, **kwargs)  # noqa: E501
+
+    def update_store_with_http_info(self, application_id, store_id, body, **kwargs):  # noqa: E501
+        """Update store  # noqa: E501
+
+        Update store details for a specific store ID.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_store_with_http_info(application_id, store_id, body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int application_id: The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
+        :param str store_id: The ID of the store. You can get this ID with the [List stores](#tag/Stores/operation/listStores) endpoint.  (required)
+        :param NewStore body: body (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(Store, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'application_id',
+            'store_id',
+            'body'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method update_store" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'application_id' is set
+        if self.api_client.client_side_validation and ('application_id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['application_id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `application_id` when calling `update_store`")  # noqa: E501
+        # verify the required parameter 'store_id' is set
+        if self.api_client.client_side_validation and ('store_id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['store_id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `store_id` when calling `update_store`")  # noqa: E501
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in local_var_params or  # noqa: E501
+                                                        local_var_params['body'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `body` when calling `update_store`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'application_id' in local_var_params:
+            path_params['applicationId'] = local_var_params['application_id']  # noqa: E501
+        if 'store_id' in local_var_params:
+            path_params['storeId'] = local_var_params['store_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in local_var_params:
+            body_params = local_var_params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/v1/applications/{applicationId}/stores/{storeId}', 'PUT',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='Store',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def update_user(self, user_id, body, **kwargs):  # noqa: E501
+        """Update user  # noqa: E501
+
+        Update the details of a specific user.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_user(user_id, body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int user_id: The ID of the user. (required)
+        :param UpdateUser body: body (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: User
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.update_user_with_http_info(user_id, body, **kwargs)  # noqa: E501
+
+    def update_user_with_http_info(self, user_id, body, **kwargs):  # noqa: E501
+        """Update user  # noqa: E501
+
+        Update the details of a specific user.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_user_with_http_info(user_id, body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int user_id: The ID of the user. (required)
+        :param UpdateUser body: body (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(User, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'user_id',
+            'body'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method update_user" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'user_id' is set
+        if self.api_client.client_side_validation and ('user_id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['user_id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `user_id` when calling `update_user`")  # noqa: E501
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in local_var_params or  # noqa: E501
+                                                        local_var_params['body'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `body` when calling `update_user`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'user_id' in local_var_params:
+            path_params['userId'] = local_var_params['user_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in local_var_params:
+            body_params = local_var_params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/v1/users/{userId}', 'PUT',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='User',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501

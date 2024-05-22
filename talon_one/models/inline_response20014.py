@@ -34,7 +34,7 @@ class InlineResponse20014(object):
     """
     openapi_types = {
         'has_more': 'bool',
-        'data': 'list[CardLedgerTransactionLogEntry]'
+        'data': 'list[LoyaltyProgramTransaction]'
     }
 
     attribute_map = {
@@ -59,7 +59,6 @@ class InlineResponse20014(object):
     def has_more(self):
         """Gets the has_more of this InlineResponse20014.  # noqa: E501
 
-        true means there is more data in the source collection to request..  # noqa: E501
 
         :return: The has_more of this InlineResponse20014.  # noqa: E501
         :rtype: bool
@@ -70,7 +69,6 @@ class InlineResponse20014(object):
     def has_more(self, has_more):
         """Sets the has_more of this InlineResponse20014.
 
-        true means there is more data in the source collection to request..  # noqa: E501
 
         :param has_more: The has_more of this InlineResponse20014.  # noqa: E501
         :type: bool
@@ -84,10 +82,9 @@ class InlineResponse20014(object):
     def data(self):
         """Gets the data of this InlineResponse20014.  # noqa: E501
 
-        List of loyalty card transaction logs.  # noqa: E501
 
         :return: The data of this InlineResponse20014.  # noqa: E501
-        :rtype: list[CardLedgerTransactionLogEntry]
+        :rtype: list[LoyaltyProgramTransaction]
         """
         return self._data
 
@@ -95,10 +92,9 @@ class InlineResponse20014(object):
     def data(self, data):
         """Sets the data of this InlineResponse20014.
 
-        List of loyalty card transaction logs.  # noqa: E501
 
         :param data: The data of this InlineResponse20014.  # noqa: E501
-        :type: list[CardLedgerTransactionLogEntry]
+        :type: list[LoyaltyProgramTransaction]
         """
         if self.local_vars_configuration.client_side_validation and data is None:  # noqa: E501
             raise ValueError("Invalid value for `data`, must not be `None`")  # noqa: E501

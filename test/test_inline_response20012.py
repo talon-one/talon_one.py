@@ -38,48 +38,110 @@ class TestInlineResponse20012(unittest.TestCase):
             return InlineResponse20012(
                 has_more = True, 
                 data = [
-                    talon_one.models.loyalty_program_transaction.LoyaltyProgramTransaction(
-                        id = 123, 
-                        program_id = 324, 
-                        created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        type = 'addition', 
-                        amount = 10.25, 
-                        name = 'Reward 50 points for each $500 purchase', 
-                        start_date = '2022-01-02T15:04:05Z07:00', 
-                        expiry_date = '2022-01-02T15:04:05Z07:00', 
-                        customer_profile_id = 'kda0fajs0-fad9f-fd9dfsa9-fd9dasjf9', 
-                        card_identifier = 'summer-loyalty-card-0543', 
-                        subledger_id = 'sub-123', 
-                        customer_session_id = '05c2da0d-48fa-4aa1-b629-898f58f1584d', 
-                        import_id = 4, 
-                        user_id = 5, 
-                        user_email = 'john.doe@example.com', 
-                        ruleset_id = 11, 
-                        rule_name = '10 points for every $100 spent', )
+                    talon_one.models.campaign_template.CampaignTemplate(
+                        id = 6, 
+                        created = '2020-06-10T09:05:27.993483Z', 
+                        account_id = 3886, 
+                        user_id = 388, 
+                        name = 'Discount campaign', 
+                        description = 'This is a template for a discount campaign.', 
+                        instructions = 'Use this template for discount campaigns. Set the campaign properties according to the campaign goals, and don't forget to set an end date.', 
+                        campaign_attributes = talon_one.models.campaign_attributes.campaignAttributes(), 
+                        coupon_attributes = talon_one.models.coupon_attributes.couponAttributes(), 
+                        state = 'draft', 
+                        active_ruleset_id = 5, 
+                        tags = [discount], 
+                        features = [
+                            'coupons'
+                            ], 
+                        coupon_settings = talon_one.models.code_generator_settings.CodeGeneratorSettings(
+                            valid_characters = [A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9], 
+                            coupon_pattern = 'SUMMER-####-####', ), 
+                        referral_settings = talon_one.models.code_generator_settings.CodeGeneratorSettings(
+                            valid_characters = [A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9], 
+                            coupon_pattern = 'SUMMER-####-####', ), 
+                        limits = [
+                            talon_one.models.template_limit_config.TemplateLimitConfig(
+                                action = 'createCoupon', 
+                                limit = 1000.0, 
+                                period = 'yearly', 
+                                entities = [Coupon], )
+                            ], 
+                        template_params = [
+                            talon_one.models.campaign_template_params.CampaignTemplateParams(
+                                name = 'discount_value', 
+                                type = 'number', 
+                                description = 'This is a template parameter of type `number`.', 
+                                attribute_id = 42, )
+                            ], 
+                        applications_ids = [
+                            56
+                            ], 
+                        campaign_collections = [
+                            talon_one.models.campaign_template_collection.CampaignTemplateCollection(
+                                name = 'My collection', 
+                                description = 'My collection of SKUs', )
+                            ], 
+                        default_campaign_group_id = 42, 
+                        campaign_type = 'advanced', 
+                        updated = '2022-08-24T14:15:22Z', 
+                        updated_by = 'Jane Doe', 
+                        valid_application_ids = [1, 2, 3], )
                     ]
             )
         else :
             return InlineResponse20012(
                 has_more = True,
                 data = [
-                    talon_one.models.loyalty_program_transaction.LoyaltyProgramTransaction(
-                        id = 123, 
-                        program_id = 324, 
-                        created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        type = 'addition', 
-                        amount = 10.25, 
-                        name = 'Reward 50 points for each $500 purchase', 
-                        start_date = '2022-01-02T15:04:05Z07:00', 
-                        expiry_date = '2022-01-02T15:04:05Z07:00', 
-                        customer_profile_id = 'kda0fajs0-fad9f-fd9dfsa9-fd9dasjf9', 
-                        card_identifier = 'summer-loyalty-card-0543', 
-                        subledger_id = 'sub-123', 
-                        customer_session_id = '05c2da0d-48fa-4aa1-b629-898f58f1584d', 
-                        import_id = 4, 
-                        user_id = 5, 
-                        user_email = 'john.doe@example.com', 
-                        ruleset_id = 11, 
-                        rule_name = '10 points for every $100 spent', )
+                    talon_one.models.campaign_template.CampaignTemplate(
+                        id = 6, 
+                        created = '2020-06-10T09:05:27.993483Z', 
+                        account_id = 3886, 
+                        user_id = 388, 
+                        name = 'Discount campaign', 
+                        description = 'This is a template for a discount campaign.', 
+                        instructions = 'Use this template for discount campaigns. Set the campaign properties according to the campaign goals, and don't forget to set an end date.', 
+                        campaign_attributes = talon_one.models.campaign_attributes.campaignAttributes(), 
+                        coupon_attributes = talon_one.models.coupon_attributes.couponAttributes(), 
+                        state = 'draft', 
+                        active_ruleset_id = 5, 
+                        tags = [discount], 
+                        features = [
+                            'coupons'
+                            ], 
+                        coupon_settings = talon_one.models.code_generator_settings.CodeGeneratorSettings(
+                            valid_characters = [A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9], 
+                            coupon_pattern = 'SUMMER-####-####', ), 
+                        referral_settings = talon_one.models.code_generator_settings.CodeGeneratorSettings(
+                            valid_characters = [A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9], 
+                            coupon_pattern = 'SUMMER-####-####', ), 
+                        limits = [
+                            talon_one.models.template_limit_config.TemplateLimitConfig(
+                                action = 'createCoupon', 
+                                limit = 1000.0, 
+                                period = 'yearly', 
+                                entities = [Coupon], )
+                            ], 
+                        template_params = [
+                            talon_one.models.campaign_template_params.CampaignTemplateParams(
+                                name = 'discount_value', 
+                                type = 'number', 
+                                description = 'This is a template parameter of type `number`.', 
+                                attribute_id = 42, )
+                            ], 
+                        applications_ids = [
+                            56
+                            ], 
+                        campaign_collections = [
+                            talon_one.models.campaign_template_collection.CampaignTemplateCollection(
+                                name = 'My collection', 
+                                description = 'My collection of SKUs', )
+                            ], 
+                        default_campaign_group_id = 42, 
+                        campaign_type = 'advanced', 
+                        updated = '2022-08-24T14:15:22Z', 
+                        updated_by = 'Jane Doe', 
+                        valid_application_ids = [1, 2, 3], )
                     ],
         )
 

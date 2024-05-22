@@ -38,26 +38,40 @@ class TestInlineResponse20039(unittest.TestCase):
             return InlineResponse20039(
                 total_result_size = 1, 
                 data = [
-                    talon_one.models.export.Export(
-                        id = 6, 
-                        created = '2020-06-10T09:05:27.993483Z', 
-                        account_id = 3886, 
-                        user_id = 388, 
-                        entity = 'Coupon', 
-                        filter = talon_one.models.filter.filter(), )
+                    talon_one.models.webhook_log_entry.WebhookLogEntry(
+                        id = '2', 
+                        integration_request_uuid = '472075793', 
+                        webhook_id = 5, 
+                        application_id = 12, 
+                        url = 'www.my-company.com/my-endpoint-name', 
+                        request = '{
+  mydata: "somevalue"
+}
+', 
+                        response = '0', 
+                        status = 204, 
+                        request_time = '2021-07-20T22:00Z', 
+                        response_time = '2021-07-20T22:00:50Z', )
                     ]
             )
         else :
             return InlineResponse20039(
                 total_result_size = 1,
                 data = [
-                    talon_one.models.export.Export(
-                        id = 6, 
-                        created = '2020-06-10T09:05:27.993483Z', 
-                        account_id = 3886, 
-                        user_id = 388, 
-                        entity = 'Coupon', 
-                        filter = talon_one.models.filter.filter(), )
+                    talon_one.models.webhook_log_entry.WebhookLogEntry(
+                        id = '2', 
+                        integration_request_uuid = '472075793', 
+                        webhook_id = 5, 
+                        application_id = 12, 
+                        url = 'www.my-company.com/my-endpoint-name', 
+                        request = '{
+  mydata: "somevalue"
+}
+', 
+                        response = '0', 
+                        status = 204, 
+                        request_time = '2021-07-20T22:00Z', 
+                        response_time = '2021-07-20T22:00:50Z', )
                     ],
         )
 

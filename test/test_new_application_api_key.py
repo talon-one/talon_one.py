@@ -39,6 +39,8 @@ class TestNewApplicationAPIKey(unittest.TestCase):
                 title = 'My generated key', 
                 expires = '2023-08-24T14:00Z', 
                 platform = 'none', 
+                type = 'staging', 
+                time_offset = 100000, 
                 id = 34, 
                 created_by = 280, 
                 account_id = 13, 

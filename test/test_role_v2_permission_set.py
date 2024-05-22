@@ -36,17 +36,13 @@ class TestRoleV2PermissionSet(unittest.TestCase):
         # model = talon_one.models.role_v2_permission_set.RoleV2PermissionSet()  # noqa: E501
         if include_optional :
             return RoleV2PermissionSet(
-                name = '0', 
-                operation_ids = [
-                    '0'
-                    ]
+                name = 'Campaign manager permission set', 
+                logical_operations = [createCampaignOperations, getCampaignOperations, deleteCampaignOperations]
             )
         else :
             return RoleV2PermissionSet(
-                name = '0',
-                operation_ids = [
-                    '0'
-                    ],
+                name = 'Campaign manager permission set',
+                logical_operations = [createCampaignOperations, getCampaignOperations, deleteCampaignOperations],
         )
 
     def testRoleV2PermissionSet(self):

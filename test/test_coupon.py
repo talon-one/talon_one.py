@@ -62,7 +62,8 @@ class TestCoupon(unittest.TestCase):
                 import_id = 4, 
                 reservation = False, 
                 batch_id = '32535-43255', 
-                is_reservation_mandatory = False
+                is_reservation_mandatory = False, 
+                implicitly_reserved = False
             )
         else :
             return Coupon(

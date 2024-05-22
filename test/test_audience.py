@@ -41,7 +41,7 @@ class TestAudience(unittest.TestCase):
                 created = '2020-06-10T09:05:27.993483Z', 
                 name = 'Travel audience', 
                 sandbox = True, 
-                description = 'Travel audience 18-25', 
+                description = 'Travel audience 18-27', 
                 integration = 'mparticle', 
                 integration_id = '382370BKDB946', 
                 created_in3rd_party = False, 

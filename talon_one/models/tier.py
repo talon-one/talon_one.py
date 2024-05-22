@@ -34,15 +34,19 @@ class Tier(object):
     """
     openapi_types = {
         'id': 'int',
-        'name': 'str'
+        'name': 'str',
+        'expiry_date': 'datetime',
+        'downgrade_policy': 'str'
     }
 
     attribute_map = {
         'id': 'id',
-        'name': 'name'
+        'name': 'name',
+        'expiry_date': 'expiryDate',
+        'downgrade_policy': 'downgradePolicy'
     }
 
-    def __init__(self, id=None, name=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, name=None, expiry_date=None, downgrade_policy=None, local_vars_configuration=None):  # noqa: E501
         """Tier - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -50,10 +54,16 @@ class Tier(object):
 
         self._id = None
         self._name = None
+        self._expiry_date = None
+        self._downgrade_policy = None
         self.discriminator = None
 
         self.id = id
         self.name = name
+        if expiry_date is not None:
+            self.expiry_date = expiry_date
+        if downgrade_policy is not None:
+            self.downgrade_policy = downgrade_policy
 
     @property
     def id(self):
@@ -104,6 +114,58 @@ class Tier(object):
             raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
 
         self._name = name
+
+    @property
+    def expiry_date(self):
+        """Gets the expiry_date of this Tier.  # noqa: E501
+
+        Date when tier level expires in the RFC3339 format (in the Loyalty Program's timezone).  # noqa: E501
+
+        :return: The expiry_date of this Tier.  # noqa: E501
+        :rtype: datetime
+        """
+        return self._expiry_date
+
+    @expiry_date.setter
+    def expiry_date(self, expiry_date):
+        """Sets the expiry_date of this Tier.
+
+        Date when tier level expires in the RFC3339 format (in the Loyalty Program's timezone).  # noqa: E501
+
+        :param expiry_date: The expiry_date of this Tier.  # noqa: E501
+        :type: datetime
+        """
+
+        self._expiry_date = expiry_date
+
+    @property
+    def downgrade_policy(self):
+        """Gets the downgrade_policy of this Tier.  # noqa: E501
+
+        Customers's tier downgrade policy. - `one_down`: Once the tier expires and if the user doesn't have enough points to stay in the tier, the user is downgraded one tier down. - `balance_based`: Once the tier expires, the user's tier is evaluated based on the amount of active points the user has at this instant.   # noqa: E501
+
+        :return: The downgrade_policy of this Tier.  # noqa: E501
+        :rtype: str
+        """
+        return self._downgrade_policy
+
+    @downgrade_policy.setter
+    def downgrade_policy(self, downgrade_policy):
+        """Sets the downgrade_policy of this Tier.
+
+        Customers's tier downgrade policy. - `one_down`: Once the tier expires and if the user doesn't have enough points to stay in the tier, the user is downgraded one tier down. - `balance_based`: Once the tier expires, the user's tier is evaluated based on the amount of active points the user has at this instant.   # noqa: E501
+
+        :param downgrade_policy: The downgrade_policy of this Tier.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["one_down", "balance_based"]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and downgrade_policy not in allowed_values:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `downgrade_policy` ({0}), must be one of {1}"  # noqa: E501
+                .format(downgrade_policy, allowed_values)
+            )
+
+        self._downgrade_policy = downgrade_policy
 
     def to_dict(self):
         """Returns the model properties as a dict"""

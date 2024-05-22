@@ -34,6 +34,7 @@ class EventV2(object):
     """
     openapi_types = {
         'profile_id': 'str',
+        'store_integration_id': 'str',
         'evaluable_campaign_ids': 'list[int]',
         'type': 'str',
         'attributes': 'object'
@@ -41,18 +42,20 @@ class EventV2(object):
 
     attribute_map = {
         'profile_id': 'profileId',
+        'store_integration_id': 'storeIntegrationId',
         'evaluable_campaign_ids': 'evaluableCampaignIds',
         'type': 'type',
         'attributes': 'attributes'
     }
 
-    def __init__(self, profile_id=None, evaluable_campaign_ids=None, type=None, attributes=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, profile_id=None, store_integration_id=None, evaluable_campaign_ids=None, type=None, attributes=None, local_vars_configuration=None):  # noqa: E501
         """EventV2 - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._profile_id = None
+        self._store_integration_id = None
         self._evaluable_campaign_ids = None
         self._type = None
         self._attributes = None
@@ -60,6 +63,8 @@ class EventV2(object):
 
         if profile_id is not None:
             self.profile_id = profile_id
+        if store_integration_id is not None:
+            self.store_integration_id = store_integration_id
         if evaluable_campaign_ids is not None:
             self.evaluable_campaign_ids = evaluable_campaign_ids
         self.type = type
@@ -90,6 +95,35 @@ class EventV2(object):
         self._profile_id = profile_id
 
     @property
+    def store_integration_id(self):
+        """Gets the store_integration_id of this EventV2.  # noqa: E501
+
+        The integration ID of the store. You choose this ID when you create a store.  # noqa: E501
+
+        :return: The store_integration_id of this EventV2.  # noqa: E501
+        :rtype: str
+        """
+        return self._store_integration_id
+
+    @store_integration_id.setter
+    def store_integration_id(self, store_integration_id):
+        """Sets the store_integration_id of this EventV2.
+
+        The integration ID of the store. You choose this ID when you create a store.  # noqa: E501
+
+        :param store_integration_id: The store_integration_id of this EventV2.  # noqa: E501
+        :type: str
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                store_integration_id is not None and len(store_integration_id) > 1000):
+            raise ValueError("Invalid value for `store_integration_id`, length must be less than or equal to `1000`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                store_integration_id is not None and len(store_integration_id) < 1):
+            raise ValueError("Invalid value for `store_integration_id`, length must be greater than or equal to `1`")  # noqa: E501
+
+        self._store_integration_id = store_integration_id
+
+    @property
     def evaluable_campaign_ids(self):
         """Gets the evaluable_campaign_ids of this EventV2.  # noqa: E501
 
@@ -116,7 +150,7 @@ class EventV2(object):
     def type(self):
         """Gets the type of this EventV2.  # noqa: E501
 
-        A string representing the event name. Must not be a reserved event name. You create this value when you [create an attribute](https://docs.talon.one/docs/dev/concepts/events#creating-a-custom-event) of type `event` in the Campaign Manager.   # noqa: E501
+        A string representing the event name. Must not be a reserved event name. You create this value when you [create an attribute](https://docs.talon.one/docs/dev/concepts/entities/events#creating-a-custom-event) of type `event` in the Campaign Manager.   # noqa: E501
 
         :return: The type of this EventV2.  # noqa: E501
         :rtype: str
@@ -127,7 +161,7 @@ class EventV2(object):
     def type(self, type):
         """Sets the type of this EventV2.
 
-        A string representing the event name. Must not be a reserved event name. You create this value when you [create an attribute](https://docs.talon.one/docs/dev/concepts/events#creating-a-custom-event) of type `event` in the Campaign Manager.   # noqa: E501
+        A string representing the event name. Must not be a reserved event name. You create this value when you [create an attribute](https://docs.talon.one/docs/dev/concepts/entities/events#creating-a-custom-event) of type `event` in the Campaign Manager.   # noqa: E501
 
         :param type: The type of this EventV2.  # noqa: E501
         :type: str
@@ -144,7 +178,7 @@ class EventV2(object):
     def attributes(self):
         """Gets the attributes of this EventV2.  # noqa: E501
 
-        Arbitrary additional JSON properties associated with the event. They must be created in the Campaign Manager before setting them with this property. See [creating custom attributes](https://docs.talon.one/docs/product/account/dev-tools/managing-attributes#creating-custom-attributes).  # noqa: E501
+        Arbitrary additional JSON properties associated with the event. They must be created in the Campaign Manager before setting them with this property. See [creating custom attributes](https://docs.talon.one/docs/product/account/dev-tools/managing-attributes#creating-a-custom-attribute).  # noqa: E501
 
         :return: The attributes of this EventV2.  # noqa: E501
         :rtype: object
@@ -155,7 +189,7 @@ class EventV2(object):
     def attributes(self, attributes):
         """Sets the attributes of this EventV2.
 
-        Arbitrary additional JSON properties associated with the event. They must be created in the Campaign Manager before setting them with this property. See [creating custom attributes](https://docs.talon.one/docs/product/account/dev-tools/managing-attributes#creating-custom-attributes).  # noqa: E501
+        Arbitrary additional JSON properties associated with the event. They must be created in the Campaign Manager before setting them with this property. See [creating custom attributes](https://docs.talon.one/docs/product/account/dev-tools/managing-attributes#creating-a-custom-attribute).  # noqa: E501
 
         :param attributes: The attributes of this EventV2.  # noqa: E501
         :type: object

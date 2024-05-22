@@ -54,7 +54,8 @@ class TestNewCoupons(unittest.TestCase):
                 recipient_integration_id = 'URNGV8294NV', 
                 valid_characters = [A, B, G, Y], 
                 coupon_pattern = 'SUMMER-#####', 
-                is_reservation_mandatory = False
+                is_reservation_mandatory = False, 
+                implicitly_reserved = False
             )
         else :
             return NewCoupons(

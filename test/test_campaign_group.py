@@ -40,8 +40,8 @@ class TestCampaignGroup(unittest.TestCase):
                 created = '2020-06-10T09:05:27.993483Z', 
                 modified = '2021-09-12T10:12:42Z', 
                 account_id = 3886, 
-                name = '0', 
-                description = 'My campaign group.', 
+                name = 'Europe access group', 
+                description = 'A group that gives access to all the campaigns for the Europe market.', 
                 subscribed_applications_ids = [1, 2, 3], 
                 campaign_ids = [4, 6, 8]
             )
@@ -51,7 +51,7 @@ class TestCampaignGroup(unittest.TestCase):
                 created = '2020-06-10T09:05:27.993483Z',
                 modified = '2021-09-12T10:12:42Z',
                 account_id = 3886,
-                name = '0',
+                name = 'Europe access group',
         )
 
     def testCampaignGroup(self):

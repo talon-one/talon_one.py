@@ -37,37 +37,89 @@ class TestInlineResponse20015(unittest.TestCase):
         if include_optional :
             return InlineResponse20015(
                 has_more = True, 
-                total_result_size = 1, 
                 data = [
-                    talon_one.models.collection_without_payload.CollectionWithoutPayload(
+                    talon_one.models.loyalty_card.LoyaltyCard(
                         id = 6, 
                         created = '2020-06-10T09:05:27.993483Z', 
-                        account_id = 3886, 
+                        program_id = 125, 
+                        status = 'active', 
+                        identifier = 'summer-loyalty-card-0543', 
+                        users_per_card_limit = 111, 
+                        profiles = [
+                            talon_one.models.loyalty_card_profile_registration.LoyaltyCardProfileRegistration(
+                                integration_id = 'R195412', 
+                                timestamp = '2021-09-12T10:12:42Z', )
+                            ], 
+                        ledger = talon_one.models.ledger_info.LedgerInfo(
+                            current_balance = 100.0, 
+                            pending_balance = 10.0, 
+                            expired_balance = 0.0, 
+                            spent_balance = 0.0, 
+                            tentative_current_balance = 100.0, 
+                            tentative_pending_balance = 20.0, 
+                            current_tier = talon_one.models.tier.Tier(
+                                id = 11, 
+                                name = 'bronze', 
+                                expiry_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                                downgrade_policy = 'one_down', ), 
+                            points_to_next_tier = 20.0, ), 
+                        subledgers = {
+                            'key' : talon_one.models.ledger_info.LedgerInfo(
+                                current_balance = 100.0, 
+                                pending_balance = 10.0, 
+                                expired_balance = 0.0, 
+                                spent_balance = 0.0, 
+                                tentative_current_balance = 100.0, 
+                                tentative_pending_balance = 20.0, 
+                                points_to_next_tier = 20.0, )
+                            }, 
                         modified = '2021-09-12T10:12:42Z', 
-                        description = 'My collection of SKUs', 
-                        subscribed_applications_ids = [1, 2, 3], 
-                        name = 'My collection', 
-                        modified_by = 48, 
-                        created_by = 134, 
-                        application_id = 1, 
-                        campaign_id = 7, )
+                        old_card_identifier = 'summer-loyalty-card-0543', 
+                        new_card_identifier = 'summer-loyalty-card-0543', )
                     ]
             )
         else :
             return InlineResponse20015(
+                has_more = True,
                 data = [
-                    talon_one.models.collection_without_payload.CollectionWithoutPayload(
+                    talon_one.models.loyalty_card.LoyaltyCard(
                         id = 6, 
                         created = '2020-06-10T09:05:27.993483Z', 
-                        account_id = 3886, 
+                        program_id = 125, 
+                        status = 'active', 
+                        identifier = 'summer-loyalty-card-0543', 
+                        users_per_card_limit = 111, 
+                        profiles = [
+                            talon_one.models.loyalty_card_profile_registration.LoyaltyCardProfileRegistration(
+                                integration_id = 'R195412', 
+                                timestamp = '2021-09-12T10:12:42Z', )
+                            ], 
+                        ledger = talon_one.models.ledger_info.LedgerInfo(
+                            current_balance = 100.0, 
+                            pending_balance = 10.0, 
+                            expired_balance = 0.0, 
+                            spent_balance = 0.0, 
+                            tentative_current_balance = 100.0, 
+                            tentative_pending_balance = 20.0, 
+                            current_tier = talon_one.models.tier.Tier(
+                                id = 11, 
+                                name = 'bronze', 
+                                expiry_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                                downgrade_policy = 'one_down', ), 
+                            points_to_next_tier = 20.0, ), 
+                        subledgers = {
+                            'key' : talon_one.models.ledger_info.LedgerInfo(
+                                current_balance = 100.0, 
+                                pending_balance = 10.0, 
+                                expired_balance = 0.0, 
+                                spent_balance = 0.0, 
+                                tentative_current_balance = 100.0, 
+                                tentative_pending_balance = 20.0, 
+                                points_to_next_tier = 20.0, )
+                            }, 
                         modified = '2021-09-12T10:12:42Z', 
-                        description = 'My collection of SKUs', 
-                        subscribed_applications_ids = [1, 2, 3], 
-                        name = 'My collection', 
-                        modified_by = 48, 
-                        created_by = 134, 
-                        application_id = 1, 
-                        campaign_id = 7, )
+                        old_card_identifier = 'summer-loyalty-card-0543', 
+                        new_card_identifier = 'summer-loyalty-card-0543', )
                     ],
         )
 

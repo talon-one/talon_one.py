@@ -39,7 +39,8 @@ class TestCouponsNotificationPolicy(unittest.TestCase):
                 name = 'Christmas Sale', 
                 scopes = [
                     'all'
-                    ]
+                    ], 
+                batching_enabled = True
             )
         else :
             return CouponsNotificationPolicy(

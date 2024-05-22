@@ -37,7 +37,7 @@ class TestOutgoingIntegrationType(unittest.TestCase):
         if include_optional :
             return OutgoingIntegrationType(
                 id = 6, 
-                name = 'braze', 
+                name = 'Braze', 
                 description = 'Braze is a customer data platform', 
                 category = 'customer engagement platform', 
                 documentation_link = 'https://docs.talon.one/docs/dev/technology-partners/braze'
@@ -45,7 +45,7 @@ class TestOutgoingIntegrationType(unittest.TestCase):
         else :
             return OutgoingIntegrationType(
                 id = 6,
-                name = 'braze',
+                name = 'Braze',
         )
 
     def testOutgoingIntegrationType(self):

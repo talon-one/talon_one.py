@@ -43,6 +43,8 @@ class TestCartItem(unittest.TestCase):
                 remaining_quantity = 1, 
                 price = 99.99, 
                 category = 'shoes', 
+                product = talon_one.models.product.Product(
+                    name = 'sample_product', ), 
                 weight = 1130.0, 
                 height = 1.337, 
                 width = 1.337, 

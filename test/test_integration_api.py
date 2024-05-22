@@ -112,10 +112,24 @@ class TestIntegrationApi(unittest.TestCase):
         """
         pass
 
+    def test_get_loyalty_card_points(self):
+        """Test case for get_loyalty_card_points
+
+        List card's unused loyalty points  # noqa: E501
+        """
+        pass
+
     def test_get_loyalty_card_transactions(self):
         """Test case for get_loyalty_card_transactions
 
         List card's transactions  # noqa: E501
+        """
+        pass
+
+    def test_get_loyalty_program_profile_points(self):
+        """Test case for get_loyalty_program_profile_points
+
+        List customer's unused loyalty points  # noqa: E501
         """
         pass
 
@@ -161,17 +175,10 @@ class TestIntegrationApi(unittest.TestCase):
         """
         pass
 
-    def test_track_event(self):
-        """Test case for track_event
-
-        Track event  # noqa: E501
-        """
-        pass
-
     def test_track_event_v2(self):
         """Test case for track_event_v2
 
-        Track event V2  # noqa: E501
+        Track event  # noqa: E501
         """
         pass
 

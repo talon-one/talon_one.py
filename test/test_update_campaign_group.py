@@ -36,14 +36,14 @@ class TestUpdateCampaignGroup(unittest.TestCase):
         # model = talon_one.models.update_campaign_group.UpdateCampaignGroup()  # noqa: E501
         if include_optional :
             return UpdateCampaignGroup(
-                name = '0', 
-                description = 'My campaign group.', 
+                name = 'Europe access group', 
+                description = 'A group that gives access to all the campaigns for the Europe market.', 
                 subscribed_applications_ids = [1, 2, 3], 
                 campaign_ids = [4, 6, 8]
             )
         else :
             return UpdateCampaignGroup(
-                name = '0',
+                name = 'Europe access group',
         )
 
     def testUpdateCampaignGroup(self):

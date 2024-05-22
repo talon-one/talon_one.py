@@ -34,15 +34,17 @@ class AccountDashboardStatisticCampaigns(object):
     """
     openapi_types = {
         'live': 'int',
-        'ending_soon': 'int'
+        'ending_soon': 'int',
+        'low_on_budget': 'int'
     }
 
     attribute_map = {
         'live': 'live',
-        'ending_soon': 'endingSoon'
+        'ending_soon': 'endingSoon',
+        'low_on_budget': 'lowOnBudget'
     }
 
-    def __init__(self, live=None, ending_soon=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, live=None, ending_soon=None, low_on_budget=None, local_vars_configuration=None):  # noqa: E501
         """AccountDashboardStatisticCampaigns - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -50,10 +52,12 @@ class AccountDashboardStatisticCampaigns(object):
 
         self._live = None
         self._ending_soon = None
+        self._low_on_budget = None
         self.discriminator = None
 
         self.live = live
         self.ending_soon = ending_soon
+        self.low_on_budget = low_on_budget
 
     @property
     def live(self):
@@ -84,7 +88,7 @@ class AccountDashboardStatisticCampaigns(object):
     def ending_soon(self):
         """Gets the ending_soon of this AccountDashboardStatisticCampaigns.  # noqa: E501
 
-        Campaigns with a schedule ending in 7 days or with only 10% of budget left.  # noqa: E501
+        Campaigns scheduled to expire sometime in the next 7 days.  # noqa: E501
 
         :return: The ending_soon of this AccountDashboardStatisticCampaigns.  # noqa: E501
         :rtype: int
@@ -95,7 +99,7 @@ class AccountDashboardStatisticCampaigns(object):
     def ending_soon(self, ending_soon):
         """Sets the ending_soon of this AccountDashboardStatisticCampaigns.
 
-        Campaigns with a schedule ending in 7 days or with only 10% of budget left.  # noqa: E501
+        Campaigns scheduled to expire sometime in the next 7 days.  # noqa: E501
 
         :param ending_soon: The ending_soon of this AccountDashboardStatisticCampaigns.  # noqa: E501
         :type: int
@@ -104,6 +108,31 @@ class AccountDashboardStatisticCampaigns(object):
             raise ValueError("Invalid value for `ending_soon`, must not be `None`")  # noqa: E501
 
         self._ending_soon = ending_soon
+
+    @property
+    def low_on_budget(self):
+        """Gets the low_on_budget of this AccountDashboardStatisticCampaigns.  # noqa: E501
+
+        Campaigns with less than 10% of budget left.  # noqa: E501
+
+        :return: The low_on_budget of this AccountDashboardStatisticCampaigns.  # noqa: E501
+        :rtype: int
+        """
+        return self._low_on_budget
+
+    @low_on_budget.setter
+    def low_on_budget(self, low_on_budget):
+        """Sets the low_on_budget of this AccountDashboardStatisticCampaigns.
+
+        Campaigns with less than 10% of budget left.  # noqa: E501
+
+        :param low_on_budget: The low_on_budget of this AccountDashboardStatisticCampaigns.  # noqa: E501
+        :type: int
+        """
+        if self.local_vars_configuration.client_side_validation and low_on_budget is None:  # noqa: E501
+            raise ValueError("Invalid value for `low_on_budget`, must not be `None`")  # noqa: E501
+
+        self._low_on_budget = low_on_budget
 
     def to_dict(self):
         """Returns the model properties as a dict"""

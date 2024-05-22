@@ -37,8 +37,9 @@ class TestUpdateUser(unittest.TestCase):
         if include_optional :
             return UpdateUser(
                 name = 'John Doe', 
-                policy = '0', 
                 state = 'deactivated', 
+                is_admin = False, 
+                policy = '0', 
                 roles = [1, 3], 
                 application_notification_subscriptions = None
             )

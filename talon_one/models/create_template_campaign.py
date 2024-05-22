@@ -40,7 +40,9 @@ class CreateTemplateCampaign(object):
         'template_param_values': 'list[Binding]',
         'limit_overrides': 'list[LimitConfig]',
         'campaign_groups': 'list[int]',
-        'tags': 'list[str]'
+        'tags': 'list[str]',
+        'evaluation_group_id': 'int',
+        'linked_store_ids': 'list[int]'
     }
 
     attribute_map = {
@@ -51,10 +53,12 @@ class CreateTemplateCampaign(object):
         'template_param_values': 'templateParamValues',
         'limit_overrides': 'limitOverrides',
         'campaign_groups': 'campaignGroups',
-        'tags': 'tags'
+        'tags': 'tags',
+        'evaluation_group_id': 'evaluationGroupId',
+        'linked_store_ids': 'linkedStoreIds'
     }
 
-    def __init__(self, name=None, description=None, template_id=None, campaign_attributes_overrides=None, template_param_values=None, limit_overrides=None, campaign_groups=None, tags=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, name=None, description=None, template_id=None, campaign_attributes_overrides=None, template_param_values=None, limit_overrides=None, campaign_groups=None, tags=None, evaluation_group_id=None, linked_store_ids=None, local_vars_configuration=None):  # noqa: E501
         """CreateTemplateCampaign - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -68,6 +72,8 @@ class CreateTemplateCampaign(object):
         self._limit_overrides = None
         self._campaign_groups = None
         self._tags = None
+        self._evaluation_group_id = None
+        self._linked_store_ids = None
         self.discriminator = None
 
         self.name = name
@@ -84,6 +90,10 @@ class CreateTemplateCampaign(object):
             self.campaign_groups = campaign_groups
         if tags is not None:
             self.tags = tags
+        if evaluation_group_id is not None:
+            self.evaluation_group_id = evaluation_group_id
+        if linked_store_ids is not None:
+            self.linked_store_ids = linked_store_ids
 
     @property
     def name(self):
@@ -234,7 +244,7 @@ class CreateTemplateCampaign(object):
     def campaign_groups(self):
         """Gets the campaign_groups of this CreateTemplateCampaign.  # noqa: E501
 
-        The IDs of the [campaign groups](https://docs.talon.one/docs/product/account/managing-campaign-groups) this campaign belongs to.   # noqa: E501
+        The IDs of the [campaign groups](https://docs.talon.one/docs/product/account/account-settings/managing-campaign-groups) this campaign belongs to.   # noqa: E501
 
         :return: The campaign_groups of this CreateTemplateCampaign.  # noqa: E501
         :rtype: list[int]
@@ -245,7 +255,7 @@ class CreateTemplateCampaign(object):
     def campaign_groups(self, campaign_groups):
         """Sets the campaign_groups of this CreateTemplateCampaign.
 
-        The IDs of the [campaign groups](https://docs.talon.one/docs/product/account/managing-campaign-groups) this campaign belongs to.   # noqa: E501
+        The IDs of the [campaign groups](https://docs.talon.one/docs/product/account/account-settings/managing-campaign-groups) this campaign belongs to.   # noqa: E501
 
         :param campaign_groups: The campaign_groups of this CreateTemplateCampaign.  # noqa: E501
         :type: list[int]
@@ -275,6 +285,52 @@ class CreateTemplateCampaign(object):
         """
 
         self._tags = tags
+
+    @property
+    def evaluation_group_id(self):
+        """Gets the evaluation_group_id of this CreateTemplateCampaign.  # noqa: E501
+
+        The ID of the campaign evaluation group the campaign belongs to.  # noqa: E501
+
+        :return: The evaluation_group_id of this CreateTemplateCampaign.  # noqa: E501
+        :rtype: int
+        """
+        return self._evaluation_group_id
+
+    @evaluation_group_id.setter
+    def evaluation_group_id(self, evaluation_group_id):
+        """Sets the evaluation_group_id of this CreateTemplateCampaign.
+
+        The ID of the campaign evaluation group the campaign belongs to.  # noqa: E501
+
+        :param evaluation_group_id: The evaluation_group_id of this CreateTemplateCampaign.  # noqa: E501
+        :type: int
+        """
+
+        self._evaluation_group_id = evaluation_group_id
+
+    @property
+    def linked_store_ids(self):
+        """Gets the linked_store_ids of this CreateTemplateCampaign.  # noqa: E501
+
+        A list of store IDs that are linked to the campaign.  **Note:** Campaigns with linked store IDs will only be evaluated when there is a [customer session update](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) that references a linked store.   # noqa: E501
+
+        :return: The linked_store_ids of this CreateTemplateCampaign.  # noqa: E501
+        :rtype: list[int]
+        """
+        return self._linked_store_ids
+
+    @linked_store_ids.setter
+    def linked_store_ids(self, linked_store_ids):
+        """Sets the linked_store_ids of this CreateTemplateCampaign.
+
+        A list of store IDs that are linked to the campaign.  **Note:** Campaigns with linked store IDs will only be evaluated when there is a [customer session update](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) that references a linked store.   # noqa: E501
+
+        :param linked_store_ids: The linked_store_ids of this CreateTemplateCampaign.  # noqa: E501
+        :type: list[int]
+        """
+
+        self._linked_store_ids = linked_store_ids
 
     def to_dict(self):
         """Returns the model properties as a dict"""

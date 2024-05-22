@@ -58,20 +58,17 @@ class TestAccountDashboardStatistic(unittest.TestCase):
                         total = 1.337, 
                         datetime = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), )
                     ], 
-                api_calls = [
-                    talon_one.models.account_dashboard_statistic_api_calls.AccountDashboardStatisticApiCalls(
-                        total = 1.337, 
-                        datetime = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), )
-                    ], 
                 campaigns = talon_one.models.account_dashboard_statistic_campaigns.AccountDashboardStatisticCampaigns(
                     live = 56, 
-                    ending_soon = 56, )
+                    ending_soon = 56, 
+                    low_on_budget = 56, )
             )
         else :
             return AccountDashboardStatistic(
                 campaigns = talon_one.models.account_dashboard_statistic_campaigns.AccountDashboardStatisticCampaigns(
                     live = 56, 
-                    ending_soon = 56, ),
+                    ending_soon = 56, 
+                    low_on_budget = 56, ),
         )
 
     def testAccountDashboardStatistic(self):

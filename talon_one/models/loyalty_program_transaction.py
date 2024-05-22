@@ -35,6 +35,7 @@ class LoyaltyProgramTransaction(object):
     openapi_types = {
         'id': 'int',
         'program_id': 'int',
+        'campaign_id': 'int',
         'created': 'datetime',
         'type': 'str',
         'amount': 'float',
@@ -55,6 +56,7 @@ class LoyaltyProgramTransaction(object):
     attribute_map = {
         'id': 'id',
         'program_id': 'programId',
+        'campaign_id': 'campaignId',
         'created': 'created',
         'type': 'type',
         'amount': 'amount',
@@ -72,7 +74,7 @@ class LoyaltyProgramTransaction(object):
         'rule_name': 'ruleName'
     }
 
-    def __init__(self, id=None, program_id=None, created=None, type=None, amount=None, name=None, start_date=None, expiry_date=None, customer_profile_id=None, card_identifier=None, subledger_id=None, customer_session_id=None, import_id=None, user_id=None, user_email=None, ruleset_id=None, rule_name=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, program_id=None, campaign_id=None, created=None, type=None, amount=None, name=None, start_date=None, expiry_date=None, customer_profile_id=None, card_identifier=None, subledger_id=None, customer_session_id=None, import_id=None, user_id=None, user_email=None, ruleset_id=None, rule_name=None, local_vars_configuration=None):  # noqa: E501
         """LoyaltyProgramTransaction - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -80,6 +82,7 @@ class LoyaltyProgramTransaction(object):
 
         self._id = None
         self._program_id = None
+        self._campaign_id = None
         self._created = None
         self._type = None
         self._amount = None
@@ -99,6 +102,8 @@ class LoyaltyProgramTransaction(object):
 
         self.id = id
         self.program_id = program_id
+        if campaign_id is not None:
+            self.campaign_id = campaign_id
         self.created = created
         self.type = type
         self.amount = amount
@@ -172,6 +177,29 @@ class LoyaltyProgramTransaction(object):
             raise ValueError("Invalid value for `program_id`, must not be `None`")  # noqa: E501
 
         self._program_id = program_id
+
+    @property
+    def campaign_id(self):
+        """Gets the campaign_id of this LoyaltyProgramTransaction.  # noqa: E501
+
+        ID of the campaign.  # noqa: E501
+
+        :return: The campaign_id of this LoyaltyProgramTransaction.  # noqa: E501
+        :rtype: int
+        """
+        return self._campaign_id
+
+    @campaign_id.setter
+    def campaign_id(self, campaign_id):
+        """Sets the campaign_id of this LoyaltyProgramTransaction.
+
+        ID of the campaign.  # noqa: E501
+
+        :param campaign_id: The campaign_id of this LoyaltyProgramTransaction.  # noqa: E501
+        :type: int
+        """
+
+        self._campaign_id = campaign_id
 
     @property
     def created(self):
@@ -468,7 +496,7 @@ class LoyaltyProgramTransaction(object):
     def user_id(self):
         """Gets the user_id of this LoyaltyProgramTransaction.  # noqa: E501
 
-        ID of the user who manually added or deducted points. Applies only for manual transactions.  # noqa: E501
+        ID of the user who manually added or deducted points. Applies only to manual transactions.  # noqa: E501
 
         :return: The user_id of this LoyaltyProgramTransaction.  # noqa: E501
         :rtype: int
@@ -479,7 +507,7 @@ class LoyaltyProgramTransaction(object):
     def user_id(self, user_id):
         """Sets the user_id of this LoyaltyProgramTransaction.
 
-        ID of the user who manually added or deducted points. Applies only for manual transactions.  # noqa: E501
+        ID of the user who manually added or deducted points. Applies only to manual transactions.  # noqa: E501
 
         :param user_id: The user_id of this LoyaltyProgramTransaction.  # noqa: E501
         :type: int
@@ -491,7 +519,7 @@ class LoyaltyProgramTransaction(object):
     def user_email(self):
         """Gets the user_email of this LoyaltyProgramTransaction.  # noqa: E501
 
-        The email of the user who manually added or deducted points. Applies only for manual transactions.  # noqa: E501
+        The email of the Campaign Manager account that manually added or deducted points. Applies only to manual transactions.  # noqa: E501
 
         :return: The user_email of this LoyaltyProgramTransaction.  # noqa: E501
         :rtype: str
@@ -502,7 +530,7 @@ class LoyaltyProgramTransaction(object):
     def user_email(self, user_email):
         """Sets the user_email of this LoyaltyProgramTransaction.
 
-        The email of the user who manually added or deducted points. Applies only for manual transactions.  # noqa: E501
+        The email of the Campaign Manager account that manually added or deducted points. Applies only to manual transactions.  # noqa: E501
 
         :param user_email: The user_email of this LoyaltyProgramTransaction.  # noqa: E501
         :type: str

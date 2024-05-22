@@ -110,11 +110,33 @@ class TestEnvironment(unittest.TestCase):
                         allow_subledger = False, 
                         users_per_card_limit = 111, 
                         sandbox = True, 
+                        tiers_expiration_policy = 'tier_start_date', 
+                        tiers_expire_in = '27W_U', 
+                        tiers_downgrade_policy = 'one_down', 
+                        program_join_policy = 'not_join', 
                         account_id = 1, 
                         name = 'my_program', 
                         tiers = [{name=Gold, minPoints=300, id=3, created=2021-06-10T09:05:27.993483Z, programID=139}, {name=Silver, minPoints=200, id=2, created=2021-06-10T09:04:59.355258Z, programId=139}, {name=Bronze, minPoints=100, id=1, created=2021-06-10T09:04:39.355258Z, programId=139}], 
                         timezone = 'Europe/Berlin', 
-                        card_based = True, )
+                        card_based = True, 
+                        can_update_tiers = True, 
+                        can_update_join_policy = True, 
+                        can_upgrade_to_advanced_tiers = True, )
+                    ], 
+                achievements = [
+                    talon_one.models.achievement.Achievement(
+                        id = 6, 
+                        created = '2020-06-10T09:05:27.993483Z', 
+                        name = 'Order50Discount', 
+                        title = '50% off on 50th purchase.', 
+                        description = '50% off for every 50th purchase in a year.', 
+                        target = 50.0, 
+                        period = '1Y', 
+                        period_end_override = {month=11, dayOfMonth=23, hour=23, minute=59, second=59}, 
+                        campaign_id = 1, 
+                        user_id = 1234, 
+                        created_by = 'John Doe', 
+                        has_progress = True, )
                     ], 
                 attributes = [
                     talon_one.models.attribute.Attribute(
@@ -156,7 +178,7 @@ class TestEnvironment(unittest.TestCase):
                         created = '2020-06-10T09:05:27.993483Z', 
                         name = 'Travel audience', 
                         sandbox = True, 
-                        description = 'Travel audience 18-25', 
+                        description = 'Travel audience 18-27', 
                         integration = 'mparticle', 
                         integration_id = '382370BKDB946', 
                         created_in3rd_party = False, 

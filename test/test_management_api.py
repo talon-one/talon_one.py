@@ -56,6 +56,13 @@ class TestManagementApi(unittest.TestCase):
         """
         pass
 
+    def test_create_achievement(self):
+        """Test case for create_achievement
+
+        Create achievement  # noqa: E501
+        """
+        pass
+
     def test_create_additional_cost(self):
         """Test case for create_additional_cost
 
@@ -80,7 +87,7 @@ class TestManagementApi(unittest.TestCase):
     def test_create_collection(self):
         """Test case for create_collection
 
-        Create collection  # noqa: E501
+        Create campaign-level collection  # noqa: E501
         """
         pass
 
@@ -105,10 +112,17 @@ class TestManagementApi(unittest.TestCase):
         """
         pass
 
-    def test_create_notification_webhook(self):
-        """Test case for create_notification_webhook
+    def test_create_invite_email(self):
+        """Test case for create_invite_email
 
-        Create notification about campaign-related changes  # noqa: E501
+        Resend invitation email  # noqa: E501
+        """
+        pass
+
+    def test_create_invite_v2(self):
+        """Test case for create_invite_v2
+
+        Invite user  # noqa: E501
         """
         pass
 
@@ -126,6 +140,20 @@ class TestManagementApi(unittest.TestCase):
         """
         pass
 
+    def test_create_store(self):
+        """Test case for create_store
+
+        Create store  # noqa: E501
+        """
+        pass
+
+    def test_deactivate_user_by_email(self):
+        """Test case for deactivate_user_by_email
+
+        Deactivate user by email address  # noqa: E501
+        """
+        pass
+
     def test_deduct_loyalty_card_points(self):
         """Test case for deduct_loyalty_card_points
 
@@ -140,6 +168,13 @@ class TestManagementApi(unittest.TestCase):
         """
         pass
 
+    def test_delete_achievement(self):
+        """Test case for delete_achievement
+
+        Delete achievement  # noqa: E501
+        """
+        pass
+
     def test_delete_campaign(self):
         """Test case for delete_campaign
 
@@ -150,7 +185,7 @@ class TestManagementApi(unittest.TestCase):
     def test_delete_collection(self):
         """Test case for delete_collection
 
-        Delete collection  # noqa: E501
+        Delete campaign-level collection  # noqa: E501
         """
         pass
 
@@ -175,17 +210,31 @@ class TestManagementApi(unittest.TestCase):
         """
         pass
 
-    def test_delete_notification_webhook(self):
-        """Test case for delete_notification_webhook
-
-        Delete notification about campaign-related changes  # noqa: E501
-        """
-        pass
-
     def test_delete_referral(self):
         """Test case for delete_referral
 
         Delete referral  # noqa: E501
+        """
+        pass
+
+    def test_delete_store(self):
+        """Test case for delete_store
+
+        Delete store  # noqa: E501
+        """
+        pass
+
+    def test_delete_user(self):
+        """Test case for delete_user
+
+        Delete user  # noqa: E501
+        """
+        pass
+
+    def test_delete_user_by_email(self):
+        """Test case for delete_user_by_email
+
+        Delete user by email address  # noqa: E501
         """
         pass
 
@@ -203,10 +252,24 @@ class TestManagementApi(unittest.TestCase):
         """
         pass
 
+    def test_export_achievements(self):
+        """Test case for export_achievements
+
+        Export achievement customer data  # noqa: E501
+        """
+        pass
+
+    def test_export_audiences_memberships(self):
+        """Test case for export_audiences_memberships
+
+        Export audience members  # noqa: E501
+        """
+        pass
+
     def test_export_collection_items(self):
         """Test case for export_collection_items
 
-        Export a collection's items  # noqa: E501
+        Export campaign-level collection's items  # noqa: E501
         """
         pass
 
@@ -221,6 +284,13 @@ class TestManagementApi(unittest.TestCase):
         """Test case for export_customer_sessions
 
         Export customer sessions  # noqa: E501
+        """
+        pass
+
+    def test_export_customers_tiers(self):
+        """Test case for export_customers_tiers
+
+        Export customers' tier data  # noqa: E501
         """
         pass
 
@@ -266,6 +336,13 @@ class TestManagementApi(unittest.TestCase):
         """
         pass
 
+    def test_export_pool_giveaways(self):
+        """Test case for export_pool_giveaways
+
+        Export giveaway codes of a giveaway pool  # noqa: E501
+        """
+        pass
+
     def test_export_referrals(self):
         """Test case for export_referrals
 
@@ -298,6 +375,13 @@ class TestManagementApi(unittest.TestCase):
         """Test case for get_account_collection
 
         Get account-level collection  # noqa: E501
+        """
+        pass
+
+    def test_get_achievement(self):
+        """Test case for get_achievement
+
+        Get achievement  # noqa: E501
         """
         pass
 
@@ -420,10 +504,24 @@ class TestManagementApi(unittest.TestCase):
         """
         pass
 
+    def test_get_audience_memberships(self):
+        """Test case for get_audience_memberships
+
+        List audience members  # noqa: E501
+        """
+        pass
+
     def test_get_audiences(self):
         """Test case for get_audiences
 
         List audiences  # noqa: E501
+        """
+        pass
+
+    def test_get_audiences_analytics(self):
+        """Test case for get_audiences_analytics
+
+        List audience analytics  # noqa: E501
         """
         pass
 
@@ -445,6 +543,20 @@ class TestManagementApi(unittest.TestCase):
         """Test case for get_campaign_by_attributes
 
         List campaigns that match the given attributes  # noqa: E501
+        """
+        pass
+
+    def test_get_campaign_group(self):
+        """Test case for get_campaign_group
+
+        Get campaign access group  # noqa: E501
+        """
+        pass
+
+    def test_get_campaign_groups(self):
+        """Test case for get_campaign_groups
+
+        List campaign access groups  # noqa: E501
         """
         pass
 
@@ -472,7 +584,7 @@ class TestManagementApi(unittest.TestCase):
     def test_get_collection(self):
         """Test case for get_collection
 
-        Get collection  # noqa: E501
+        Get campaign-level collection  # noqa: E501
         """
         pass
 
@@ -515,6 +627,13 @@ class TestManagementApi(unittest.TestCase):
         """Test case for get_customer_profile
 
         Get customer profile  # noqa: E501
+        """
+        pass
+
+    def test_get_customer_profile_achievement_progress(self):
+        """Test case for get_customer_profile_achievement_progress
+
+        List customer achievements  # noqa: E501
         """
         pass
 
@@ -602,20 +721,6 @@ class TestManagementApi(unittest.TestCase):
         """
         pass
 
-    def test_get_notification_webhook(self):
-        """Test case for get_notification_webhook
-
-        Get notification about campaign-related changes  # noqa: E501
-        """
-        pass
-
-    def test_get_notification_webhooks(self):
-        """Test case for get_notification_webhooks
-
-        List notifications about campaign-related changes  # noqa: E501
-        """
-        pass
-
     def test_get_referrals_without_total_count(self):
         """Test case for get_referrals_without_total_count
 
@@ -641,6 +746,13 @@ class TestManagementApi(unittest.TestCase):
         """Test case for get_rulesets
 
         List campaign rulesets  # noqa: E501
+        """
+        pass
+
+    def test_get_store(self):
+        """Test case for get_store
+
+        Get store  # noqa: E501
         """
         pass
 
@@ -689,7 +801,7 @@ class TestManagementApi(unittest.TestCase):
     def test_import_account_collection(self):
         """Test case for import_account_collection
 
-        Import data in existing account-level collection  # noqa: E501
+        Import data into existing account-level collection  # noqa: E501
         """
         pass
 
@@ -700,10 +812,17 @@ class TestManagementApi(unittest.TestCase):
         """
         pass
 
+    def test_import_audiences_memberships(self):
+        """Test case for import_audiences_memberships
+
+        Import audience members  # noqa: E501
+        """
+        pass
+
     def test_import_collection(self):
         """Test case for import_collection
 
-        Import data in existing collection  # noqa: E501
+        Import data into existing campaign-level collection  # noqa: E501
         """
         pass
 
@@ -718,6 +837,13 @@ class TestManagementApi(unittest.TestCase):
         """Test case for import_loyalty_cards
 
         Import loyalty cards  # noqa: E501
+        """
+        pass
+
+    def test_import_loyalty_customers_tiers(self):
+        """Test case for import_loyalty_customers_tiers
+
+        Import customers into loyalty tiers  # noqa: E501
         """
         pass
 
@@ -749,17 +875,45 @@ class TestManagementApi(unittest.TestCase):
         """
         pass
 
+    def test_list_achievements(self):
+        """Test case for list_achievements
+
+        List achievements  # noqa: E501
+        """
+        pass
+
+    def test_list_catalog_items(self):
+        """Test case for list_catalog_items
+
+        List items in a catalog  # noqa: E501
+        """
+        pass
+
     def test_list_collections(self):
         """Test case for list_collections
 
-        List collections  # noqa: E501
+        List collections in campaign  # noqa: E501
         """
         pass
 
     def test_list_collections_in_application(self):
         """Test case for list_collections_in_application
 
-        List collections in application  # noqa: E501
+        List collections in Application  # noqa: E501
+        """
+        pass
+
+    def test_list_stores(self):
+        """Test case for list_stores
+
+        List stores  # noqa: E501
+        """
+        pass
+
+    def test_notification_activation(self):
+        """Test case for notification_activation
+
+        Activate or deactivate notification  # noqa: E501
         """
         pass
 
@@ -774,6 +928,13 @@ class TestManagementApi(unittest.TestCase):
         """Test case for post_catalogs_strikethrough_notification
 
         Create strikethrough notification  # noqa: E501
+        """
+        pass
+
+    def test_post_pending_points_notification(self):
+        """Test case for post_pending_points_notification
+
+        Create notification about pending loyalty points  # noqa: E501
         """
         pass
 
@@ -819,6 +980,13 @@ class TestManagementApi(unittest.TestCase):
         """
         pass
 
+    def test_update_achievement(self):
+        """Test case for update_achievement
+
+        Update achievement  # noqa: E501
+        """
+        pass
+
     def test_update_additional_cost(self):
         """Test case for update_additional_cost
 
@@ -843,7 +1011,7 @@ class TestManagementApi(unittest.TestCase):
     def test_update_collection(self):
         """Test case for update_collection
 
-        Update collection description  # noqa: E501
+        Update campaign-level collection's description  # noqa: E501
         """
         pass
 
@@ -868,17 +1036,31 @@ class TestManagementApi(unittest.TestCase):
         """
         pass
 
-    def test_update_notification_webhook(self):
-        """Test case for update_notification_webhook
-
-        Update notification about campaign-related changes  # noqa: E501
-        """
-        pass
-
     def test_update_referral(self):
         """Test case for update_referral
 
         Update referral  # noqa: E501
+        """
+        pass
+
+    def test_update_role_v2(self):
+        """Test case for update_role_v2
+
+        Update role  # noqa: E501
+        """
+        pass
+
+    def test_update_store(self):
+        """Test case for update_store
+
+        Update store  # noqa: E501
+        """
+        pass
+
+    def test_update_user(self):
+        """Test case for update_user
+
+        Update user  # noqa: E501
         """
         pass
 

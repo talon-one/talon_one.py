@@ -38,7 +38,7 @@ class TestNewInternalAudience(unittest.TestCase):
             return NewInternalAudience(
                 name = 'Travel audience', 
                 sandbox = True, 
-                description = 'Travel audience 18-25'
+                description = 'Travel audience 18-27'
             )
         else :
             return NewInternalAudience(

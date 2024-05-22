@@ -36,110 +36,34 @@ class TestInlineResponse2004(unittest.TestCase):
         # model = talon_one.models.inline_response2004.InlineResponse2004()  # noqa: E501
         if include_optional :
             return InlineResponse2004(
-                total_result_size = 1, 
+                has_more = True, 
                 data = [
-                    talon_one.models.campaign.Campaign(
-                        id = 4, 
-                        created = '2020-06-10T09:05:27.993483Z', 
-                        application_id = 322, 
-                        user_id = 388, 
-                        name = 'Summer promotions', 
-                        description = 'Campaign for all summer 2021 promotions', 
-                        start_time = '2021-07-20T22:00Z', 
-                        end_time = '2021-09-22T22:00Z', 
-                        attributes = talon_one.models.attributes.attributes(), 
-                        state = 'enabled', 
-                        active_ruleset_id = 6, 
-                        tags = [summer], 
-                        features = [coupons, referrals], 
-                        coupon_settings = talon_one.models.code_generator_settings.CodeGeneratorSettings(
-                            valid_characters = [A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9], 
-                            coupon_pattern = 'SUMMER-####-####', ), 
-                        referral_settings = talon_one.models.code_generator_settings.CodeGeneratorSettings(
-                            valid_characters = [A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9], 
-                            coupon_pattern = 'SUMMER-####-####', ), 
-                        limits = [
-                            talon_one.models.limit_config.LimitConfig(
-                                action = 'createCoupon', 
-                                limit = 1000.0, 
-                                period = 'yearly', 
-                                entities = [Coupon], )
-                            ], 
-                        campaign_groups = [1, 3], 
-                        coupon_redemption_count = 163, 
-                        referral_redemption_count = 3, 
-                        discount_count = 288.0, 
-                        discount_effect_count = 343, 
-                        coupon_creation_count = 16, 
-                        custom_effect_count = 0, 
-                        referral_creation_count = 8, 
-                        add_free_item_effect_count = 0, 
-                        awarded_giveaways_count = 9, 
-                        created_loyalty_points_count = 9.0, 
-                        created_loyalty_points_effect_count = 2, 
-                        redeemed_loyalty_points_count = 8.0, 
-                        redeemed_loyalty_points_effect_count = 9, 
-                        call_api_effect_count = 0, 
-                        reservecoupon_effect_count = 9, 
-                        last_activity = '2022-11-10T23:00Z', 
-                        updated = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        created_by = 'John Doe', 
-                        updated_by = 'Jane Doe', 
-                        template_id = 3, )
+                    talon_one.models.ledger_points_entry_integration_api.LedgerPointsEntryIntegrationAPI(
+                        id = 123, 
+                        created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        program_id = 324, 
+                        customer_session_id = '05c2da0d-48fa-4aa1-b629-898f58f1584d', 
+                        name = 'Reward 10% points of a purchase's current total', 
+                        start_date = '2022-01-02T15:04:05Z07:00', 
+                        expiry_date = '2022-08-02T15:04:05Z07:00', 
+                        subledger_id = 'sub-123', 
+                        amount = 10.25, )
                     ]
             )
         else :
             return InlineResponse2004(
-                total_result_size = 1,
+                has_more = True,
                 data = [
-                    talon_one.models.campaign.Campaign(
-                        id = 4, 
-                        created = '2020-06-10T09:05:27.993483Z', 
-                        application_id = 322, 
-                        user_id = 388, 
-                        name = 'Summer promotions', 
-                        description = 'Campaign for all summer 2021 promotions', 
-                        start_time = '2021-07-20T22:00Z', 
-                        end_time = '2021-09-22T22:00Z', 
-                        attributes = talon_one.models.attributes.attributes(), 
-                        state = 'enabled', 
-                        active_ruleset_id = 6, 
-                        tags = [summer], 
-                        features = [coupons, referrals], 
-                        coupon_settings = talon_one.models.code_generator_settings.CodeGeneratorSettings(
-                            valid_characters = [A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9], 
-                            coupon_pattern = 'SUMMER-####-####', ), 
-                        referral_settings = talon_one.models.code_generator_settings.CodeGeneratorSettings(
-                            valid_characters = [A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9], 
-                            coupon_pattern = 'SUMMER-####-####', ), 
-                        limits = [
-                            talon_one.models.limit_config.LimitConfig(
-                                action = 'createCoupon', 
-                                limit = 1000.0, 
-                                period = 'yearly', 
-                                entities = [Coupon], )
-                            ], 
-                        campaign_groups = [1, 3], 
-                        coupon_redemption_count = 163, 
-                        referral_redemption_count = 3, 
-                        discount_count = 288.0, 
-                        discount_effect_count = 343, 
-                        coupon_creation_count = 16, 
-                        custom_effect_count = 0, 
-                        referral_creation_count = 8, 
-                        add_free_item_effect_count = 0, 
-                        awarded_giveaways_count = 9, 
-                        created_loyalty_points_count = 9.0, 
-                        created_loyalty_points_effect_count = 2, 
-                        redeemed_loyalty_points_count = 8.0, 
-                        redeemed_loyalty_points_effect_count = 9, 
-                        call_api_effect_count = 0, 
-                        reservecoupon_effect_count = 9, 
-                        last_activity = '2022-11-10T23:00Z', 
-                        updated = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        created_by = 'John Doe', 
-                        updated_by = 'Jane Doe', 
-                        template_id = 3, )
+                    talon_one.models.ledger_points_entry_integration_api.LedgerPointsEntryIntegrationAPI(
+                        id = 123, 
+                        created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        program_id = 324, 
+                        customer_session_id = '05c2da0d-48fa-4aa1-b629-898f58f1584d', 
+                        name = 'Reward 10% points of a purchase's current total', 
+                        start_date = '2022-01-02T15:04:05Z07:00', 
+                        expiry_date = '2022-08-02T15:04:05Z07:00', 
+                        subledger_id = 'sub-123', 
+                        amount = 10.25, )
                     ],
         )
 

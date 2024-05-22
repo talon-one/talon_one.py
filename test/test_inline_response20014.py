@@ -38,40 +38,50 @@ class TestInlineResponse20014(unittest.TestCase):
             return InlineResponse20014(
                 has_more = True, 
                 data = [
-                    talon_one.models.card_ledger_transaction_log_entry.CardLedgerTransactionLogEntry(
-                        created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                    talon_one.models.loyalty_program_transaction.LoyaltyProgramTransaction(
+                        id = 123, 
                         program_id = 324, 
-                        card_identifier = 'summer-loyalty-card-0543', 
-                        application_id = 322, 
-                        session_id = 233, 
-                        customer_session_id = '05c2da0d-48fa-4aa1-b629-898f58f1584d', 
+                        campaign_id = 324, 
+                        created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                         type = 'addition', 
-                        name = 'Reward 10% points of a purchase's current total', 
-                        start_date = '2022-01-02T15:04:05Z07:00', 
-                        expiry_date = '2022-08-02T15:04:05Z07:00', 
-                        subledger_id = 'sub-123', 
                         amount = 10.25, 
-                        id = 123, )
+                        name = 'Reward 50 points for each $500 purchase', 
+                        start_date = '2022-01-02T15:04:05Z07:00', 
+                        expiry_date = '2022-01-02T15:04:05Z07:00', 
+                        customer_profile_id = 'kda0fajs0-fad9f-fd9dfsa9-fd9dasjf9', 
+                        card_identifier = 'summer-loyalty-card-0543', 
+                        subledger_id = 'sub-123', 
+                        customer_session_id = '05c2da0d-48fa-4aa1-b629-898f58f1584d', 
+                        import_id = 4, 
+                        user_id = 5, 
+                        user_email = 'john.doe@example.com', 
+                        ruleset_id = 11, 
+                        rule_name = '10 points for every $100 spent', )
                     ]
             )
         else :
             return InlineResponse20014(
                 has_more = True,
                 data = [
-                    talon_one.models.card_ledger_transaction_log_entry.CardLedgerTransactionLogEntry(
-                        created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                    talon_one.models.loyalty_program_transaction.LoyaltyProgramTransaction(
+                        id = 123, 
                         program_id = 324, 
-                        card_identifier = 'summer-loyalty-card-0543', 
-                        application_id = 322, 
-                        session_id = 233, 
-                        customer_session_id = '05c2da0d-48fa-4aa1-b629-898f58f1584d', 
+                        campaign_id = 324, 
+                        created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                         type = 'addition', 
-                        name = 'Reward 10% points of a purchase's current total', 
-                        start_date = '2022-01-02T15:04:05Z07:00', 
-                        expiry_date = '2022-08-02T15:04:05Z07:00', 
-                        subledger_id = 'sub-123', 
                         amount = 10.25, 
-                        id = 123, )
+                        name = 'Reward 50 points for each $500 purchase', 
+                        start_date = '2022-01-02T15:04:05Z07:00', 
+                        expiry_date = '2022-01-02T15:04:05Z07:00', 
+                        customer_profile_id = 'kda0fajs0-fad9f-fd9dfsa9-fd9dasjf9', 
+                        card_identifier = 'summer-loyalty-card-0543', 
+                        subledger_id = 'sub-123', 
+                        customer_session_id = '05c2da0d-48fa-4aa1-b629-898f58f1584d', 
+                        import_id = 4, 
+                        user_id = 5, 
+                        user_email = 'john.doe@example.com', 
+                        ruleset_id = 11, 
+                        rule_name = '10 points for every $100 spent', )
                     ],
         )
 

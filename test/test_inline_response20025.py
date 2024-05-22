@@ -38,40 +38,52 @@ class TestInlineResponse20025(unittest.TestCase):
             return InlineResponse20025(
                 has_more = True, 
                 data = [
-                    talon_one.models.customer_activity_report.CustomerActivityReport(
+                    talon_one.models.customer_profile.CustomerProfile(
+                        id = 6, 
+                        created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                         integration_id = 'URNGV8294NV', 
-                        created = '2020-02-07T08:15:22Z', 
-                        name = '0', 
-                        customer_id = 56, 
-                        last_activity = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        coupon_redemptions = 56, 
-                        coupon_use_attempts = 56, 
-                        coupon_failed_attempts = 56, 
-                        accrued_discounts = 1.337, 
-                        accrued_revenue = 1.337, 
-                        total_orders = 56, 
-                        total_orders_no_coupon = 56, 
-                        campaign_name = '0', )
+                        attributes = {"Language":"english","ShippingCountry":"DE"}, 
+                        account_id = 31, 
+                        closed_sessions = 3, 
+                        total_sales = 299.99, 
+                        loyalty_memberships = [
+                            talon_one.models.loyalty_membership.LoyaltyMembership(
+                                joined = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                                loyalty_program_id = 323414846, )
+                            ], 
+                        audience_memberships = [
+                            talon_one.models.audience_membership.AudienceMembership(
+                                id = 2, 
+                                name = 'Travel audience', )
+                            ], 
+                        last_activity = '2020-02-08T14:15:20Z', 
+                        sandbox = False, )
                     ]
             )
         else :
             return InlineResponse20025(
                 has_more = True,
                 data = [
-                    talon_one.models.customer_activity_report.CustomerActivityReport(
+                    talon_one.models.customer_profile.CustomerProfile(
+                        id = 6, 
+                        created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                         integration_id = 'URNGV8294NV', 
-                        created = '2020-02-07T08:15:22Z', 
-                        name = '0', 
-                        customer_id = 56, 
-                        last_activity = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        coupon_redemptions = 56, 
-                        coupon_use_attempts = 56, 
-                        coupon_failed_attempts = 56, 
-                        accrued_discounts = 1.337, 
-                        accrued_revenue = 1.337, 
-                        total_orders = 56, 
-                        total_orders_no_coupon = 56, 
-                        campaign_name = '0', )
+                        attributes = {"Language":"english","ShippingCountry":"DE"}, 
+                        account_id = 31, 
+                        closed_sessions = 3, 
+                        total_sales = 299.99, 
+                        loyalty_memberships = [
+                            talon_one.models.loyalty_membership.LoyaltyMembership(
+                                joined = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                                loyalty_program_id = 323414846, )
+                            ], 
+                        audience_memberships = [
+                            talon_one.models.audience_membership.AudienceMembership(
+                                id = 2, 
+                                name = 'Travel audience', )
+                            ], 
+                        last_activity = '2020-02-08T14:15:20Z', 
+                        sandbox = False, )
                     ],
         )
 

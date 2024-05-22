@@ -190,7 +190,7 @@ class Role(object):
     def campaign_group_id(self):
         """Gets the campaign_group_id of this Role.  # noqa: E501
 
-        The ID of the [Campaign Group](https://docs.talon.one/docs/product/account/managing-campaign-groups) this role was created for.   # noqa: E501
+        The ID of the [Campaign Group](https://docs.talon.one/docs/product/account/account-settings/managing-campaign-groups) this role was created for.   # noqa: E501
 
         :return: The campaign_group_id of this Role.  # noqa: E501
         :rtype: int
@@ -201,7 +201,7 @@ class Role(object):
     def campaign_group_id(self, campaign_group_id):
         """Sets the campaign_group_id of this Role.
 
-        The ID of the [Campaign Group](https://docs.talon.one/docs/product/account/managing-campaign-groups) this role was created for.   # noqa: E501
+        The ID of the [Campaign Group](https://docs.talon.one/docs/product/account/account-settings/managing-campaign-groups) this role was created for.   # noqa: E501
 
         :param campaign_group_id: The campaign_group_id of this Role.  # noqa: E501
         :type: int

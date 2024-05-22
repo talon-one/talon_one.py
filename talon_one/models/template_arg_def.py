@@ -65,7 +65,8 @@ class TemplateArgDef(object):
         self.discriminator = None
 
         self.type = type
-        self.description = description
+        if description is not None:
+            self.description = description
         self.title = title
         self.ui = ui
         if picklist_id is not None:
@@ -124,8 +125,6 @@ class TemplateArgDef(object):
         :param description: The description of this TemplateArgDef.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and description is None:  # noqa: E501
-            raise ValueError("Invalid value for `description`, must not be `None`")  # noqa: E501
 
         self._description = description
 

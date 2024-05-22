@@ -49,8 +49,6 @@ class TestUpdateApplication(unittest.TestCase):
                         period = 'yearly', 
                         entities = [Coupon], )
                     ], 
-                campaign_priority = 'universal', 
-                exclusive_campaigns_strategy = 'listOrder', 
                 default_discount_scope = 'sessionTotal', 
                 enable_cascading_discounts = True, 
                 enable_flattened_cart_items = True, 
@@ -64,7 +62,8 @@ class TestUpdateApplication(unittest.TestCase):
                             ], ), ), 
                 sandbox = True, 
                 enable_partial_discounts = False, 
-                default_discount_additional_cost_per_item_scope = 'price'
+                default_discount_additional_cost_per_item_scope = 'price', 
+                default_evaluation_group_id = 3
             )
         else :
             return UpdateApplication(

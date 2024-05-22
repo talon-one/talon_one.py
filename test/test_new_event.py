@@ -37,6 +37,7 @@ class TestNewEvent(unittest.TestCase):
         if include_optional :
             return NewEvent(
                 profile_id = 'URNGV8294NV', 
+                store_integration_id = 'STORE-001', 
                 type = 'pageViewed', 
                 attributes = {"myAttribute":"myValue"}, 
                 session_id = '175KJPS947296'

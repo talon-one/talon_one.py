@@ -157,7 +157,7 @@ class RollbackDiscountEffectProps(object):
     def cart_item_sub_position(self):
         """Gets the cart_item_sub_position of this RollbackDiscountEffectProps.  # noqa: E501
 
-        The index of the item unit in its line item. It is only used for cart items with `quantity` > 1 and is only returned when cart item flattening is enabled.   # noqa: E501
+        For cart items with `quantity` > 1, the subposition returns the index of the item unit in its line item.   # noqa: E501
 
         :return: The cart_item_sub_position of this RollbackDiscountEffectProps.  # noqa: E501
         :rtype: float
@@ -168,7 +168,7 @@ class RollbackDiscountEffectProps(object):
     def cart_item_sub_position(self, cart_item_sub_position):
         """Sets the cart_item_sub_position of this RollbackDiscountEffectProps.
 
-        The index of the item unit in its line item. It is only used for cart items with `quantity` > 1 and is only returned when cart item flattening is enabled.   # noqa: E501
+        For cart items with `quantity` > 1, the subposition returns the index of the item unit in its line item.   # noqa: E501
 
         :param cart_item_sub_position: The cart_item_sub_position of this RollbackDiscountEffectProps.  # noqa: E501
         :type: float

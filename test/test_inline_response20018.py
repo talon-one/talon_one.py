@@ -38,38 +38,16 @@ class TestInlineResponse20018(unittest.TestCase):
             return InlineResponse20018(
                 has_more = True, 
                 data = [
-                    talon_one.models.access_log_entry.AccessLogEntry(
-                        uuid = '606e7d34-2d36-4d53-ac71-d4442c325985', 
-                        status = 200, 
-                        method = 'PUT', 
-                        request_uri = '/v2/customer_sessions/Session136667', 
-                        time = '2023-01-16T16:00:00.700763Z', 
-                        request_payload = '{
-    "customerSession": {
-        "profileId": "customer123",
-        "state": "closed",
-...
-}', 
-                        response_payload = '{"coupons":[],"createdCoupons":[],...}', )
+                    talon_one.models.collection_item.CollectionItem(
+                        item = '0', )
                     ]
             )
         else :
             return InlineResponse20018(
                 has_more = True,
                 data = [
-                    talon_one.models.access_log_entry.AccessLogEntry(
-                        uuid = '606e7d34-2d36-4d53-ac71-d4442c325985', 
-                        status = 200, 
-                        method = 'PUT', 
-                        request_uri = '/v2/customer_sessions/Session136667', 
-                        time = '2023-01-16T16:00:00.700763Z', 
-                        request_payload = '{
-    "customerSession": {
-        "profileId": "customer123",
-        "state": "closed",
-...
-}', 
-                        response_payload = '{"coupons":[],"createdCoupons":[],...}', )
+                    talon_one.models.collection_item.CollectionItem(
+                        item = '0', )
                     ],
         )
 
