@@ -179,7 +179,7 @@ class UpdateUser(object):
     def roles(self):
         """Gets the roles of this UpdateUser.  # noqa: E501
 
-        A list of the IDs of the roles assigned to the user.  **Note**: Use the [List roles](https://docs.talon.one/management-api#tag/Roles/operation/getAllRoles) endpoint to find the ID of a role.   # noqa: E501
+        A list of the IDs of the roles assigned to the user.  **Note**: To find the ID of a role, use the [List roles](/management-api#tag/Roles/operation/listAllRolesV2) endpoint.   # noqa: E501
 
         :return: The roles of this UpdateUser.  # noqa: E501
         :rtype: list[int]
@@ -190,7 +190,7 @@ class UpdateUser(object):
     def roles(self, roles):
         """Sets the roles of this UpdateUser.
 
-        A list of the IDs of the roles assigned to the user.  **Note**: Use the [List roles](https://docs.talon.one/management-api#tag/Roles/operation/getAllRoles) endpoint to find the ID of a role.   # noqa: E501
+        A list of the IDs of the roles assigned to the user.  **Note**: To find the ID of a role, use the [List roles](/management-api#tag/Roles/operation/listAllRolesV2) endpoint.   # noqa: E501
 
         :param roles: The roles of this UpdateUser.  # noqa: E501
         :type: list[int]

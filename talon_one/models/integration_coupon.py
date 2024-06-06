@@ -609,7 +609,7 @@ class IntegrationCoupon(object):
     def reservation(self):
         """Gets the reservation of this IntegrationCoupon.  # noqa: E501
 
-        Defines the type of reservation: - `true`: The reservation is a soft reservation. Any customer can use the coupon. This is done via the [Create coupon reservation](https://docs.talon.one/integration-api#operation/createCouponReservation) endpoint. - `false`: The reservation is a hard reservation. Only the associated customer (`recipientIntegrationId`) can use the coupon. This is done via the Campaign Manager when you create a coupon for a given `recipientIntegrationId`, the [Create coupons](https://docs.talon.one/management-api#operation/createCoupons) endpoint or [Create coupons for multiple recipients](https://docs.talon.one/management-api#operation/createCouponsForMultipleRecipients) endpoint.   # noqa: E501
+        Defines the reservation type: - `true`: The coupon can be reserved for multiple customers. - `false`: The coupon can be reserved only for one customer. It is a personal code.   # noqa: E501
 
         :return: The reservation of this IntegrationCoupon.  # noqa: E501
         :rtype: bool
@@ -620,7 +620,7 @@ class IntegrationCoupon(object):
     def reservation(self, reservation):
         """Sets the reservation of this IntegrationCoupon.
 
-        Defines the type of reservation: - `true`: The reservation is a soft reservation. Any customer can use the coupon. This is done via the [Create coupon reservation](https://docs.talon.one/integration-api#operation/createCouponReservation) endpoint. - `false`: The reservation is a hard reservation. Only the associated customer (`recipientIntegrationId`) can use the coupon. This is done via the Campaign Manager when you create a coupon for a given `recipientIntegrationId`, the [Create coupons](https://docs.talon.one/management-api#operation/createCoupons) endpoint or [Create coupons for multiple recipients](https://docs.talon.one/management-api#operation/createCouponsForMultipleRecipients) endpoint.   # noqa: E501
+        Defines the reservation type: - `true`: The coupon can be reserved for multiple customers. - `false`: The coupon can be reserved only for one customer. It is a personal code.   # noqa: E501
 
         :param reservation: The reservation of this IntegrationCoupon.  # noqa: E501
         :type: bool
@@ -655,7 +655,7 @@ class IntegrationCoupon(object):
     def is_reservation_mandatory(self):
         """Gets the is_reservation_mandatory of this IntegrationCoupon.  # noqa: E501
 
-        Whether the reservation effect actually created a new reservation.  # noqa: E501
+        An indication of whether the code can be redeemed only if it has been reserved first.  # noqa: E501
 
         :return: The is_reservation_mandatory of this IntegrationCoupon.  # noqa: E501
         :rtype: bool
@@ -666,7 +666,7 @@ class IntegrationCoupon(object):
     def is_reservation_mandatory(self, is_reservation_mandatory):
         """Sets the is_reservation_mandatory of this IntegrationCoupon.
 
-        Whether the reservation effect actually created a new reservation.  # noqa: E501
+        An indication of whether the code can be redeemed only if it has been reserved first.  # noqa: E501
 
         :param is_reservation_mandatory: The is_reservation_mandatory of this IntegrationCoupon.  # noqa: E501
         :type: bool

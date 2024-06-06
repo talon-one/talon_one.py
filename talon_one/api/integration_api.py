@@ -157,7 +157,7 @@ class IntegrationApi(object):
     def create_coupon_reservation(self, coupon_value, body, **kwargs):  # noqa: E501
         """Create coupon reservation  # noqa: E501
 
-        Create a coupon reservation for specified customer profiles on the specified coupon. You can also create a reservation via the Campaign Manager using the [Create coupon code reservation effect](https://docs.talon.one/docs/product/rules/effects/using-effects#reserving-a-coupon-code).  Reserving a coupon allows you to associate a coupon code to a given customer(s). You can then list the reserved coupons of a given customer with the [List customer data](https://docs.talon.one/integration-api#operation/getCustomerInventory) endpoint.  If a coupon gets created for a specific user, it will automatically appear in their coupons.  When a user redeems a coupon, a reservation is automatically created after the redemption and the used coupon will be returned in the [List customer data](https://docs.talon.one/integration-api#operation/getCustomerInventory) endpoint.  For example, you can use this endpoint and `List customer data` to create a _coupon wallet_ by reserving coupon codes for a customer, and then displaying their coupon wallet when they visit your store.  If the **Coupon visibility** checkbox was selected when [creating a universal code](https://docs.talon.one/docs/product/campaigns/coupons/creating-coupons#generating-a-universal-code), the coupon code is implicitly reserved for all customers, and the code will be returned for all customer profiles in the [List customer data](https://docs.talon.one/integration-api#operation/getCustomerInventory) endpoint.  <div class=\"redoc-section\">   <p class=\"title\">Important</p>    This endpoint creates a **soft** reservation. _Any_ customer   can use a reserved coupon code and proceed to checkout.    To create a hard reservation, you can:   - use the [Create coupons](https://docs.talon.one/management-api#operation/createCoupons) endpoint or,   - use the [Create coupons for multiple recipients](https://docs.talon.one/management-api#operation/createCouponsForMultipleRecipients)     endpoint setting the `recipientsIntegrationId` property or,   - create a coupon code with the **Reservation mandatory** option then use the [Create coupon code reservation effect](https://docs.talon.one/docs/product/rules/effects/using-effects#reserving-a-coupon-code).    This endpoint overrides the reservation limit set for the coupon code during coupon creation. </div>  To delete a reservation, use the [Delete reservation](https://docs.talon.one/integration-api#tag/Coupons/operation/deleteCouponReservation) endpoint.   # noqa: E501
+        Create a coupon reservation for the specified customer profiles on the specified coupon. You can also create a reservation via the Campaign Manager using the [Create coupon code reservation effect](https://docs.talon.one/docs/product/rules/effects/using-effects#reserving-a-coupon-code).  - If the **Reservation mandatory** option was selected when creating the specified coupon, the endpoint creates a **hard** reservation, meaning only users who have this coupon code reserved can redeem it. Otherwise, the endpoint creates a **soft** reservation, meaning the coupon will be associated with the specified customer profiles (they show up when using the [List customer data](https://docs.talon.one/integration-api#operation/getCustomerInventory) endpoint), but any user can redeem it. This can be useful, for example, to display a _coupon wallet_ for customers when they visit your store.  - If the **Coupon visibility** option was selected when creating the specified coupon, the coupon code is implicitly soft-reserved for all customers, and the code will be returned for all customer profiles in the [List customer data](https://docs.talon.one/integration-api#operation/getCustomerInventory) endpoint.  To delete a reservation, use the [Delete reservation](https://docs.talon.one/integration-api#tag/Coupons/operation/deleteCouponReservation) endpoint.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_coupon_reservation(coupon_value, body, async_req=True)
@@ -183,7 +183,7 @@ class IntegrationApi(object):
     def create_coupon_reservation_with_http_info(self, coupon_value, body, **kwargs):  # noqa: E501
         """Create coupon reservation  # noqa: E501
 
-        Create a coupon reservation for specified customer profiles on the specified coupon. You can also create a reservation via the Campaign Manager using the [Create coupon code reservation effect](https://docs.talon.one/docs/product/rules/effects/using-effects#reserving-a-coupon-code).  Reserving a coupon allows you to associate a coupon code to a given customer(s). You can then list the reserved coupons of a given customer with the [List customer data](https://docs.talon.one/integration-api#operation/getCustomerInventory) endpoint.  If a coupon gets created for a specific user, it will automatically appear in their coupons.  When a user redeems a coupon, a reservation is automatically created after the redemption and the used coupon will be returned in the [List customer data](https://docs.talon.one/integration-api#operation/getCustomerInventory) endpoint.  For example, you can use this endpoint and `List customer data` to create a _coupon wallet_ by reserving coupon codes for a customer, and then displaying their coupon wallet when they visit your store.  If the **Coupon visibility** checkbox was selected when [creating a universal code](https://docs.talon.one/docs/product/campaigns/coupons/creating-coupons#generating-a-universal-code), the coupon code is implicitly reserved for all customers, and the code will be returned for all customer profiles in the [List customer data](https://docs.talon.one/integration-api#operation/getCustomerInventory) endpoint.  <div class=\"redoc-section\">   <p class=\"title\">Important</p>    This endpoint creates a **soft** reservation. _Any_ customer   can use a reserved coupon code and proceed to checkout.    To create a hard reservation, you can:   - use the [Create coupons](https://docs.talon.one/management-api#operation/createCoupons) endpoint or,   - use the [Create coupons for multiple recipients](https://docs.talon.one/management-api#operation/createCouponsForMultipleRecipients)     endpoint setting the `recipientsIntegrationId` property or,   - create a coupon code with the **Reservation mandatory** option then use the [Create coupon code reservation effect](https://docs.talon.one/docs/product/rules/effects/using-effects#reserving-a-coupon-code).    This endpoint overrides the reservation limit set for the coupon code during coupon creation. </div>  To delete a reservation, use the [Delete reservation](https://docs.talon.one/integration-api#tag/Coupons/operation/deleteCouponReservation) endpoint.   # noqa: E501
+        Create a coupon reservation for the specified customer profiles on the specified coupon. You can also create a reservation via the Campaign Manager using the [Create coupon code reservation effect](https://docs.talon.one/docs/product/rules/effects/using-effects#reserving-a-coupon-code).  - If the **Reservation mandatory** option was selected when creating the specified coupon, the endpoint creates a **hard** reservation, meaning only users who have this coupon code reserved can redeem it. Otherwise, the endpoint creates a **soft** reservation, meaning the coupon will be associated with the specified customer profiles (they show up when using the [List customer data](https://docs.talon.one/integration-api#operation/getCustomerInventory) endpoint), but any user can redeem it. This can be useful, for example, to display a _coupon wallet_ for customers when they visit your store.  - If the **Coupon visibility** option was selected when creating the specified coupon, the coupon code is implicitly soft-reserved for all customers, and the code will be returned for all customer profiles in the [List customer data](https://docs.talon.one/integration-api#operation/getCustomerInventory) endpoint.  To delete a reservation, use the [Delete reservation](https://docs.talon.one/integration-api#tag/Coupons/operation/deleteCouponReservation) endpoint.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_coupon_reservation_with_http_info(coupon_value, body, async_req=True)
@@ -1252,7 +1252,7 @@ class IntegrationApi(object):
     def get_loyalty_balances(self, loyalty_program_id, integration_id, **kwargs):  # noqa: E501
         """Get customer's loyalty points  # noqa: E501
 
-        Retrieve loyalty ledger balances for the given Integration ID in the specified loyalty program. You can filter balances by date and subledger ID.   **Note**: If no filtering options are applied, you retrieve all loyalty balances on the current date for the given integration ID.  Loyalty balances are calculated when Talon.One receives your request using the points stored in our database, so retrieving a large number of balances at once can impact performance.  For more information, see: - [Managing card-based loyalty program data](https://docs.talon.one/docs/product/loyalty-programs/card-based/managing-loyalty-cards) - [Managing profile-based loyalty program data](https://docs.talon.one/docs/product/loyalty-programs/profile-based/managing-pb-lp-data)   # noqa: E501
+        Retrieve loyalty ledger balances for the given Integration ID in the specified loyalty program. You can filter balances by date and subledger ID.  **Note**: If no filtering options are applied, you retrieve all loyalty balances on the current date for the given integration ID.  Loyalty balances are calculated when Talon.One receives your request using the points stored in our database, so retrieving a large number of balances at once can impact performance.  For more information, see: - [Managing card-based loyalty program data](https://docs.talon.one/docs/product/loyalty-programs/card-based/managing-loyalty-cards) - [Managing profile-based loyalty program data](https://docs.talon.one/docs/product/loyalty-programs/profile-based/managing-pb-lp-data)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_loyalty_balances(loyalty_program_id, integration_id, async_req=True)
@@ -1262,7 +1262,7 @@ class IntegrationApi(object):
         :param int loyalty_program_id: Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  (required)
         :param str integration_id: The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier.  (required)
         :param datetime end_date: Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
-        :param list[str] subledger_id: Filter results by one or more subledger IDs. Must be exact match.
+        :param str subledger_id: The ID of the subledger by which we filter the data.
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -1280,7 +1280,7 @@ class IntegrationApi(object):
     def get_loyalty_balances_with_http_info(self, loyalty_program_id, integration_id, **kwargs):  # noqa: E501
         """Get customer's loyalty points  # noqa: E501
 
-        Retrieve loyalty ledger balances for the given Integration ID in the specified loyalty program. You can filter balances by date and subledger ID.   **Note**: If no filtering options are applied, you retrieve all loyalty balances on the current date for the given integration ID.  Loyalty balances are calculated when Talon.One receives your request using the points stored in our database, so retrieving a large number of balances at once can impact performance.  For more information, see: - [Managing card-based loyalty program data](https://docs.talon.one/docs/product/loyalty-programs/card-based/managing-loyalty-cards) - [Managing profile-based loyalty program data](https://docs.talon.one/docs/product/loyalty-programs/profile-based/managing-pb-lp-data)   # noqa: E501
+        Retrieve loyalty ledger balances for the given Integration ID in the specified loyalty program. You can filter balances by date and subledger ID.  **Note**: If no filtering options are applied, you retrieve all loyalty balances on the current date for the given integration ID.  Loyalty balances are calculated when Talon.One receives your request using the points stored in our database, so retrieving a large number of balances at once can impact performance.  For more information, see: - [Managing card-based loyalty program data](https://docs.talon.one/docs/product/loyalty-programs/card-based/managing-loyalty-cards) - [Managing profile-based loyalty program data](https://docs.talon.one/docs/product/loyalty-programs/profile-based/managing-pb-lp-data)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_loyalty_balances_with_http_info(loyalty_program_id, integration_id, async_req=True)
@@ -1290,7 +1290,7 @@ class IntegrationApi(object):
         :param int loyalty_program_id: Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  (required)
         :param str integration_id: The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier.  (required)
         :param datetime end_date: Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
-        :param list[str] subledger_id: Filter results by one or more subledger IDs. Must be exact match.
+        :param str subledger_id: The ID of the subledger by which we filter the data.
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -1352,7 +1352,6 @@ class IntegrationApi(object):
             query_params.append(('endDate', local_var_params['end_date']))  # noqa: E501
         if 'subledger_id' in local_var_params and local_var_params['subledger_id'] is not None:  # noqa: E501
             query_params.append(('subledgerId', local_var_params['subledger_id']))  # noqa: E501
-            collection_formats['subledgerId'] = 'csv'  # noqa: E501
 
         header_params = {}
 
@@ -1404,7 +1403,7 @@ class IntegrationApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: LoyaltyBalances
+        :return: LoyaltyCardBalances
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1434,7 +1433,7 @@ class IntegrationApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(LoyaltyBalances, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(LoyaltyCardBalances, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1512,7 +1511,7 @@ class IntegrationApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='LoyaltyBalances',  # noqa: E501
+            response_type='LoyaltyCardBalances',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -1533,7 +1532,7 @@ class IntegrationApi(object):
         :param int loyalty_program_id: Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  (required)
         :param str loyalty_card_id: Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint.  (required)
         :param str status: Filter points based on their status.
-        :param str subledger_id: The ID of the subledger by which we filter the data.
+        :param list[str] subledger_id: Filter results by one or more subledger IDs. Must be exact match.
         :param int page_size: The number of items in the response.
         :param int skip: The number of items to skip when paging through large result sets.
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -1563,7 +1562,7 @@ class IntegrationApi(object):
         :param int loyalty_program_id: Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  (required)
         :param str loyalty_card_id: Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint.  (required)
         :param str status: Filter points based on their status.
-        :param str subledger_id: The ID of the subledger by which we filter the data.
+        :param list[str] subledger_id: Filter results by one or more subledger IDs. Must be exact match.
         :param int page_size: The number of items in the response.
         :param int skip: The number of items to skip when paging through large result sets.
         :param _return_http_data_only: response data without head status code
@@ -1636,6 +1635,7 @@ class IntegrationApi(object):
             query_params.append(('status', local_var_params['status']))  # noqa: E501
         if 'subledger_id' in local_var_params and local_var_params['subledger_id'] is not None:  # noqa: E501
             query_params.append(('subledgerId', local_var_params['subledger_id']))  # noqa: E501
+            collection_formats['subledgerId'] = 'csv'  # noqa: E501
         if 'page_size' in local_var_params and local_var_params['page_size'] is not None:  # noqa: E501
             query_params.append(('pageSize', local_var_params['page_size']))  # noqa: E501
         if 'skip' in local_var_params and local_var_params['skip'] is not None:  # noqa: E501
@@ -1682,7 +1682,7 @@ class IntegrationApi(object):
         :param async_req bool: execute request asynchronously
         :param int loyalty_program_id: Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  (required)
         :param str loyalty_card_id: Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint.  (required)
-        :param str subledger_id: The ID of the subledger by which we filter the data.
+        :param list[str] subledger_id: Filter results by one or more subledger IDs. Must be exact match.
         :param str loyalty_transaction_type: Filter results by loyalty transaction type: - `manual`: Loyalty transaction that was done manually. - `session`: Loyalty transaction that resulted from a customer session. - `import`: Loyalty transaction that was imported from a CSV file. 
         :param datetime start_date: Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
         :param datetime end_date: Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
@@ -1714,7 +1714,7 @@ class IntegrationApi(object):
         :param async_req bool: execute request asynchronously
         :param int loyalty_program_id: Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  (required)
         :param str loyalty_card_id: Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint.  (required)
-        :param str subledger_id: The ID of the subledger by which we filter the data.
+        :param list[str] subledger_id: Filter results by one or more subledger IDs. Must be exact match.
         :param str loyalty_transaction_type: Filter results by loyalty transaction type: - `manual`: Loyalty transaction that was done manually. - `session`: Loyalty transaction that resulted from a customer session. - `import`: Loyalty transaction that was imported from a CSV file. 
         :param datetime start_date: Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
         :param datetime end_date: Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
@@ -1790,6 +1790,7 @@ class IntegrationApi(object):
         query_params = []
         if 'subledger_id' in local_var_params and local_var_params['subledger_id'] is not None:  # noqa: E501
             query_params.append(('subledgerId', local_var_params['subledger_id']))  # noqa: E501
+            collection_formats['subledgerId'] = 'csv'  # noqa: E501
         if 'loyalty_transaction_type' in local_var_params and local_var_params['loyalty_transaction_type'] is not None:  # noqa: E501
             query_params.append(('loyaltyTransactionType', local_var_params['loyalty_transaction_type']))  # noqa: E501
         if 'start_date' in local_var_params and local_var_params['start_date'] is not None:  # noqa: E501
@@ -2137,7 +2138,7 @@ class IntegrationApi(object):
     def get_reserved_customers(self, coupon_value, **kwargs):  # noqa: E501
         """List customers that have this coupon reserved  # noqa: E501
 
-        Return all customers that have this coupon marked as reserved.  Coupons are reserved in the following ways: - To create a soft reservation (any customer can use the coupon), use the [Create coupon reservation](#operation/createCouponReservation) endpoint. - To create a hard reservation (only the given customer can use the coupon), create a coupon in the Campaign Manager for a given `recipientIntegrationId` or use the [Create coupons](https://docs.talon.one/management-api#operation/createCoupons) or [Create coupons for multiple recipients](https://docs.talon.one/management-api#operation/createCouponsForMultipleRecipients) endpoints.   # noqa: E501
+        Return all customers that have this coupon marked as reserved. This includes hard and soft reservations.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_reserved_customers(coupon_value, async_req=True)
@@ -2162,7 +2163,7 @@ class IntegrationApi(object):
     def get_reserved_customers_with_http_info(self, coupon_value, **kwargs):  # noqa: E501
         """List customers that have this coupon reserved  # noqa: E501
 
-        Return all customers that have this coupon marked as reserved.  Coupons are reserved in the following ways: - To create a soft reservation (any customer can use the coupon), use the [Create coupon reservation](#operation/createCouponReservation) endpoint. - To create a hard reservation (only the given customer can use the coupon), create a coupon in the Campaign Manager for a given `recipientIntegrationId` or use the [Create coupons](https://docs.talon.one/management-api#operation/createCoupons) or [Create coupons for multiple recipients](https://docs.talon.one/management-api#operation/createCouponsForMultipleRecipients) endpoints.   # noqa: E501
+        Return all customers that have this coupon marked as reserved. This includes hard and soft reservations.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_reserved_customers_with_http_info(coupon_value, async_req=True)

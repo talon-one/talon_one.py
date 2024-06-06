@@ -53,7 +53,6 @@ class TestMessageLogEntries(unittest.TestCase):
                             status = 200, ), 
                         created_at = '2021-07-20T22:00Z', 
                         entity_type = 'loyalty_program', 
-                        url = 'www.my-company.com/my-endpoint-name', 
                         application_id = 5, 
                         loyalty_program_id = 2, )
                     ]
@@ -76,7 +75,6 @@ class TestMessageLogEntries(unittest.TestCase):
                             status = 200, ), 
                         created_at = '2021-07-20T22:00Z', 
                         entity_type = 'loyalty_program', 
-                        url = 'www.my-company.com/my-endpoint-name', 
                         application_id = 5, 
                         loyalty_program_id = 2, )
                     ],

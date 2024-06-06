@@ -144,7 +144,7 @@ class CustomerInventory(object):
     def coupons(self):
         """Gets the coupons of this CustomerInventory.  # noqa: E501
 
-        The coupons reserved by this profile. This array includes hard and soft reservations. See each coupon's `reservation` property.   # noqa: E501
+        The coupons reserved by this profile. This array includes hard and soft reservations.   # noqa: E501
 
         :return: The coupons of this CustomerInventory.  # noqa: E501
         :rtype: list[InventoryCoupon]
@@ -155,7 +155,7 @@ class CustomerInventory(object):
     def coupons(self, coupons):
         """Sets the coupons of this CustomerInventory.
 
-        The coupons reserved by this profile. This array includes hard and soft reservations. See each coupon's `reservation` property.   # noqa: E501
+        The coupons reserved by this profile. This array includes hard and soft reservations.   # noqa: E501
 
         :param coupons: The coupons of this CustomerInventory.  # noqa: E501
         :type: list[InventoryCoupon]

@@ -16,11 +16,11 @@ import unittest
 import datetime
 
 import talon_one
-from talon_one.models.message_log_entry import MessageLogEntry  # noqa: E501
+from talon_one.models.activate_user_request import ActivateUserRequest  # noqa: E501
 from talon_one.rest import ApiException
 
-class TestMessageLogEntry(unittest.TestCase):
-    """MessageLogEntry unit test stubs"""
+class TestActivateUserRequest(unittest.TestCase):
+    """ActivateUserRequest unit test stubs"""
 
     def setUp(self):
         pass
@@ -29,39 +29,22 @@ class TestMessageLogEntry(unittest.TestCase):
         pass
 
     def make_instance(self, include_optional):
-        """Test MessageLogEntry
+        """Test ActivateUserRequest
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # model = talon_one.models.message_log_entry.MessageLogEntry()  # noqa: E501
+        # model = talon_one.models.activate_user_request.ActivateUserRequest()  # noqa: E501
         if include_optional :
-            return MessageLogEntry(
-                id = '123e4567-e89b-12d3-a456-426614174000', 
-                service = 'NotificationService', 
-                change_type = 'Update', 
-                notification_id = 101, 
-                notification_name = 'My campaign notification', 
-                request = talon_one.models.message_log_request.MessageLogRequest(
-                    created_at = '2021-07-20T21:59Z', 
-                    request = 'SGVsbG8sIHdvcmxkIQ==', ), 
-                response = talon_one.models.message_log_response.MessageLogResponse(
-                    created_at = '2021-07-20T22:00:50Z', 
-                    response = 'UmVzcG9uc2UgY29udGVudA==', 
-                    status = 200, ), 
-                created_at = '2021-07-20T22:00Z', 
-                entity_type = 'loyalty_program', 
-                application_id = 5, 
-                loyalty_program_id = 2
+            return ActivateUserRequest(
+                email = 'john.doe@example.com'
             )
         else :
-            return MessageLogEntry(
-                id = '123e4567-e89b-12d3-a456-426614174000',
-                service = 'NotificationService',
-                created_at = '2021-07-20T22:00Z',
+            return ActivateUserRequest(
+                email = 'john.doe@example.com',
         )
 
-    def testMessageLogEntry(self):
-        """Test MessageLogEntry"""
+    def testActivateUserRequest(self):
+        """Test ActivateUserRequest"""
         inst_req_only = self.make_instance(include_optional=False)
         inst_req_and_optional = self.make_instance(include_optional=True)
 
