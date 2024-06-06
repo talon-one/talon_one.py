@@ -28,6 +28,13 @@ class TestManagementApi(unittest.TestCase):
     def tearDown(self):
         pass
 
+    def test_activate_user_by_email(self):
+        """Test case for activate_user_by_email
+
+        Activate user by email address  # noqa: E501
+        """
+        pass
+
     def test_add_loyalty_card_points(self):
         """Test case for add_loyalty_card_points
 
@@ -406,13 +413,6 @@ class TestManagementApi(unittest.TestCase):
         """
         pass
 
-    def test_get_all_roles(self):
-        """Test case for get_all_roles
-
-        List roles  # noqa: E501
-        """
-        pass
-
     def test_get_application(self):
         """Test case for get_application
 
@@ -728,8 +728,8 @@ class TestManagementApi(unittest.TestCase):
         """
         pass
 
-    def test_get_role(self):
-        """Test case for get_role
+    def test_get_role_v2(self):
+        """Test case for get_role_v2
 
         Get role  # noqa: E501
         """
@@ -868,6 +868,13 @@ class TestManagementApi(unittest.TestCase):
         """
         pass
 
+    def test_invite_user_external(self):
+        """Test case for invite_user_external
+
+        Invite user from identity provider  # noqa: E501
+        """
+        pass
+
     def test_list_account_collections(self):
         """Test case for list_account_collections
 
@@ -879,6 +886,13 @@ class TestManagementApi(unittest.TestCase):
         """Test case for list_achievements
 
         List achievements  # noqa: E501
+        """
+        pass
+
+    def test_list_all_roles_v2(self):
+        """Test case for list_all_roles_v2
+
+        List roles  # noqa: E501
         """
         pass
 

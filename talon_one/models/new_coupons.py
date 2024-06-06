@@ -426,7 +426,7 @@ class NewCoupons(object):
     def is_reservation_mandatory(self):
         """Gets the is_reservation_mandatory of this NewCoupons.  # noqa: E501
 
-        Whether the reservation effect actually created a new reservation.  # noqa: E501
+        An indication of whether the code can be redeemed only if it has been reserved first.  # noqa: E501
 
         :return: The is_reservation_mandatory of this NewCoupons.  # noqa: E501
         :rtype: bool
@@ -437,7 +437,7 @@ class NewCoupons(object):
     def is_reservation_mandatory(self, is_reservation_mandatory):
         """Sets the is_reservation_mandatory of this NewCoupons.
 
-        Whether the reservation effect actually created a new reservation.  # noqa: E501
+        An indication of whether the code can be redeemed only if it has been reserved first.  # noqa: E501
 
         :param is_reservation_mandatory: The is_reservation_mandatory of this NewCoupons.  # noqa: E501
         :type: bool

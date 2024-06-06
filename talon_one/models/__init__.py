@@ -32,6 +32,7 @@ from talon_one.models.account_limits import AccountLimits
 from talon_one.models.achievement import Achievement
 from talon_one.models.achievement_additional_properties import AchievementAdditionalProperties
 from talon_one.models.achievement_progress import AchievementProgress
+from talon_one.models.activate_user_request import ActivateUserRequest
 from talon_one.models.add_free_item_effect_props import AddFreeItemEffectProps
 from talon_one.models.add_item_catalog_action import AddItemCatalogAction
 from talon_one.models.add_loyalty_points import AddLoyaltyPoints
@@ -270,6 +271,7 @@ from talon_one.models.loyalty import Loyalty
 from talon_one.models.loyalty_balance import LoyaltyBalance
 from talon_one.models.loyalty_balances import LoyaltyBalances
 from talon_one.models.loyalty_card import LoyaltyCard
+from talon_one.models.loyalty_card_balances import LoyaltyCardBalances
 from talon_one.models.loyalty_card_profile_registration import LoyaltyCardProfileRegistration
 from talon_one.models.loyalty_card_registration import LoyaltyCardRegistration
 from talon_one.models.loyalty_dashboard_data import LoyaltyDashboardData
@@ -330,6 +332,7 @@ from talon_one.models.new_customer_session import NewCustomerSession
 from talon_one.models.new_customer_session_v2 import NewCustomerSessionV2
 from talon_one.models.new_event import NewEvent
 from talon_one.models.new_event_type import NewEventType
+from talon_one.models.new_external_invitation import NewExternalInvitation
 from talon_one.models.new_giveaways_pool import NewGiveawaysPool
 from talon_one.models.new_internal_audience import NewInternalAudience
 from talon_one.models.new_invitation import NewInvitation

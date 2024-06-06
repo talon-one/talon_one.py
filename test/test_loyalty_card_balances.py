@@ -16,11 +16,11 @@ import unittest
 import datetime
 
 import talon_one
-from talon_one.models.message_log_entry import MessageLogEntry  # noqa: E501
+from talon_one.models.loyalty_card_balances import LoyaltyCardBalances  # noqa: E501
 from talon_one.rest import ApiException
 
-class TestMessageLogEntry(unittest.TestCase):
-    """MessageLogEntry unit test stubs"""
+class TestLoyaltyCardBalances(unittest.TestCase):
+    """LoyaltyCardBalances unit test stubs"""
 
     def setUp(self):
         pass
@@ -29,39 +29,31 @@ class TestMessageLogEntry(unittest.TestCase):
         pass
 
     def make_instance(self, include_optional):
-        """Test MessageLogEntry
+        """Test LoyaltyCardBalances
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # model = talon_one.models.message_log_entry.MessageLogEntry()  # noqa: E501
+        # model = talon_one.models.loyalty_card_balances.LoyaltyCardBalances()  # noqa: E501
         if include_optional :
-            return MessageLogEntry(
-                id = '123e4567-e89b-12d3-a456-426614174000', 
-                service = 'NotificationService', 
-                change_type = 'Update', 
-                notification_id = 101, 
-                notification_name = 'My campaign notification', 
-                request = talon_one.models.message_log_request.MessageLogRequest(
-                    created_at = '2021-07-20T21:59Z', 
-                    request = 'SGVsbG8sIHdvcmxkIQ==', ), 
-                response = talon_one.models.message_log_response.MessageLogResponse(
-                    created_at = '2021-07-20T22:00:50Z', 
-                    response = 'UmVzcG9uc2UgY29udGVudA==', 
-                    status = 200, ), 
-                created_at = '2021-07-20T22:00Z', 
-                entity_type = 'loyalty_program', 
-                application_id = 5, 
-                loyalty_program_id = 2
+            return LoyaltyCardBalances(
+                balance = talon_one.models.loyalty_balance.LoyaltyBalance(
+                    active_points = 286.0, 
+                    pending_points = 50.0, 
+                    spent_points = 150.0, 
+                    expired_points = 286.0, ), 
+                subledger_balances = {"mysubledger":{"activePoints":286,"pendingPoints":50,"spentPoints":150,"expiredPoints":25}}, 
+                profiles = [
+                    talon_one.models.loyalty_card_profile_registration.LoyaltyCardProfileRegistration(
+                        integration_id = 'R195412', 
+                        timestamp = '2021-09-12T10:12:42Z', )
+                    ]
             )
         else :
-            return MessageLogEntry(
-                id = '123e4567-e89b-12d3-a456-426614174000',
-                service = 'NotificationService',
-                created_at = '2021-07-20T22:00Z',
+            return LoyaltyCardBalances(
         )
 
-    def testMessageLogEntry(self):
-        """Test MessageLogEntry"""
+    def testLoyaltyCardBalances(self):
+        """Test LoyaltyCardBalances"""
         inst_req_only = self.make_instance(include_optional=False)
         inst_req_and_optional = self.make_instance(include_optional=True)
 

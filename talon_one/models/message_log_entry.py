@@ -42,7 +42,6 @@ class MessageLogEntry(object):
         'response': 'MessageLogResponse',
         'created_at': 'datetime',
         'entity_type': 'str',
-        'url': 'str',
         'application_id': 'int',
         'loyalty_program_id': 'int'
     }
@@ -57,12 +56,11 @@ class MessageLogEntry(object):
         'response': 'response',
         'created_at': 'createdAt',
         'entity_type': 'entityType',
-        'url': 'url',
         'application_id': 'applicationId',
         'loyalty_program_id': 'loyaltyProgramId'
     }
 
-    def __init__(self, id=None, service=None, change_type=None, notification_id=None, notification_name=None, request=None, response=None, created_at=None, entity_type=None, url=None, application_id=None, loyalty_program_id=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, service=None, change_type=None, notification_id=None, notification_name=None, request=None, response=None, created_at=None, entity_type=None, application_id=None, loyalty_program_id=None, local_vars_configuration=None):  # noqa: E501
         """MessageLogEntry - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -77,7 +75,6 @@ class MessageLogEntry(object):
         self._response = None
         self._created_at = None
         self._entity_type = None
-        self._url = None
         self._application_id = None
         self._loyalty_program_id = None
         self.discriminator = None
@@ -97,8 +94,6 @@ class MessageLogEntry(object):
         self.created_at = created_at
         if entity_type is not None:
             self.entity_type = entity_type
-        if url is not None:
-            self.url = url
         if application_id is not None:
             self.application_id = application_id
         if loyalty_program_id is not None:
@@ -294,7 +289,7 @@ class MessageLogEntry(object):
     def entity_type(self):
         """Gets the entity_type of this MessageLogEntry.  # noqa: E501
 
-        The entity type the log is related to.   # noqa: E501
+        The entity type the notification is related to.   # noqa: E501
 
         :return: The entity_type of this MessageLogEntry.  # noqa: E501
         :rtype: str
@@ -305,12 +300,12 @@ class MessageLogEntry(object):
     def entity_type(self, entity_type):
         """Sets the entity_type of this MessageLogEntry.
 
-        The entity type the log is related to.   # noqa: E501
+        The entity type the notification is related to.   # noqa: E501
 
         :param entity_type: The entity_type of this MessageLogEntry.  # noqa: E501
         :type: str
         """
-        allowed_values = ["application", "loyalty_program", "webhook"]  # noqa: E501
+        allowed_values = ["application", "loyalty_program"]  # noqa: E501
         if self.local_vars_configuration.client_side_validation and entity_type not in allowed_values:  # noqa: E501
             raise ValueError(
                 "Invalid value for `entity_type` ({0}), must be one of {1}"  # noqa: E501
@@ -318,29 +313,6 @@ class MessageLogEntry(object):
             )
 
         self._entity_type = entity_type
-
-    @property
-    def url(self):
-        """Gets the url of this MessageLogEntry.  # noqa: E501
-
-        The target URL of the request.  # noqa: E501
-
-        :return: The url of this MessageLogEntry.  # noqa: E501
-        :rtype: str
-        """
-        return self._url
-
-    @url.setter
-    def url(self, url):
-        """Sets the url of this MessageLogEntry.
-
-        The target URL of the request.  # noqa: E501
-
-        :param url: The url of this MessageLogEntry.  # noqa: E501
-        :type: str
-        """
-
-        self._url = url
 
     @property
     def application_id(self):

@@ -662,7 +662,7 @@ class AdditionalCampaignProperties(object):
         """
         if self.local_vars_configuration.client_side_validation and frontend_state is None:  # noqa: E501
             raise ValueError("Invalid value for `frontend_state`, must not be `None`")  # noqa: E501
-        allowed_values = ["expired", "scheduled", "running", "draft"]  # noqa: E501
+        allowed_values = ["expired", "scheduled", "running", "draft", "disabled", "archived"]  # noqa: E501
         if self.local_vars_configuration.client_side_validation and frontend_state not in allowed_values:  # noqa: E501
             raise ValueError(
                 "Invalid value for `frontend_state` ({0}), must be one of {1}"  # noqa: E501
