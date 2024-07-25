@@ -40,7 +40,9 @@ class EffectEntity(object):
         'effect_type': 'str',
         'triggered_by_coupon': 'int',
         'triggered_for_catalog_item': 'int',
-        'condition_index': 'int'
+        'condition_index': 'int',
+        'evaluation_group_id': 'int',
+        'evaluation_group_mode': 'str'
     }
 
     attribute_map = {
@@ -51,10 +53,12 @@ class EffectEntity(object):
         'effect_type': 'effectType',
         'triggered_by_coupon': 'triggeredByCoupon',
         'triggered_for_catalog_item': 'triggeredForCatalogItem',
-        'condition_index': 'conditionIndex'
+        'condition_index': 'conditionIndex',
+        'evaluation_group_id': 'evaluationGroupID',
+        'evaluation_group_mode': 'evaluationGroupMode'
     }
 
-    def __init__(self, campaign_id=None, ruleset_id=None, rule_index=None, rule_name=None, effect_type=None, triggered_by_coupon=None, triggered_for_catalog_item=None, condition_index=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, campaign_id=None, ruleset_id=None, rule_index=None, rule_name=None, effect_type=None, triggered_by_coupon=None, triggered_for_catalog_item=None, condition_index=None, evaluation_group_id=None, evaluation_group_mode=None, local_vars_configuration=None):  # noqa: E501
         """EffectEntity - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -68,6 +72,8 @@ class EffectEntity(object):
         self._triggered_by_coupon = None
         self._triggered_for_catalog_item = None
         self._condition_index = None
+        self._evaluation_group_id = None
+        self._evaluation_group_mode = None
         self.discriminator = None
 
         self.campaign_id = campaign_id
@@ -81,6 +87,10 @@ class EffectEntity(object):
             self.triggered_for_catalog_item = triggered_for_catalog_item
         if condition_index is not None:
             self.condition_index = condition_index
+        if evaluation_group_id is not None:
+            self.evaluation_group_id = evaluation_group_id
+        if evaluation_group_mode is not None:
+            self.evaluation_group_mode = evaluation_group_mode
 
     @property
     def campaign_id(self):
@@ -275,6 +285,52 @@ class EffectEntity(object):
         """
 
         self._condition_index = condition_index
+
+    @property
+    def evaluation_group_id(self):
+        """Gets the evaluation_group_id of this EffectEntity.  # noqa: E501
+
+        The ID of the evaluation group. For more information, see [Managing campaign evaluation](https://docs.talon.one/docs/product/applications/managing-campaign-evaluation).  # noqa: E501
+
+        :return: The evaluation_group_id of this EffectEntity.  # noqa: E501
+        :rtype: int
+        """
+        return self._evaluation_group_id
+
+    @evaluation_group_id.setter
+    def evaluation_group_id(self, evaluation_group_id):
+        """Sets the evaluation_group_id of this EffectEntity.
+
+        The ID of the evaluation group. For more information, see [Managing campaign evaluation](https://docs.talon.one/docs/product/applications/managing-campaign-evaluation).  # noqa: E501
+
+        :param evaluation_group_id: The evaluation_group_id of this EffectEntity.  # noqa: E501
+        :type: int
+        """
+
+        self._evaluation_group_id = evaluation_group_id
+
+    @property
+    def evaluation_group_mode(self):
+        """Gets the evaluation_group_mode of this EffectEntity.  # noqa: E501
+
+        The evaluation mode of the evaluation group. For more information, see [Managing campaign evaluation](https://docs.talon.one/docs/product/applications/managing-campaign-evaluation).  # noqa: E501
+
+        :return: The evaluation_group_mode of this EffectEntity.  # noqa: E501
+        :rtype: str
+        """
+        return self._evaluation_group_mode
+
+    @evaluation_group_mode.setter
+    def evaluation_group_mode(self, evaluation_group_mode):
+        """Sets the evaluation_group_mode of this EffectEntity.
+
+        The evaluation mode of the evaluation group. For more information, see [Managing campaign evaluation](https://docs.talon.one/docs/product/applications/managing-campaign-evaluation).  # noqa: E501
+
+        :param evaluation_group_mode: The evaluation_group_mode of this EffectEntity.  # noqa: E501
+        :type: str
+        """
+
+        self._evaluation_group_mode = evaluation_group_mode
 
     def to_dict(self):
         """Returns the model properties as a dict"""

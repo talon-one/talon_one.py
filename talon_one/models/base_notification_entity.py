@@ -60,6 +60,7 @@ class BaseNotificationEntity(object):
     def policy(self):
         """Gets the policy of this BaseNotificationEntity.  # noqa: E501
 
+        Indicates which notification properties to apply.  # noqa: E501
 
         :return: The policy of this BaseNotificationEntity.  # noqa: E501
         :rtype: object
@@ -70,6 +71,7 @@ class BaseNotificationEntity(object):
     def policy(self, policy):
         """Sets the policy of this BaseNotificationEntity.
 
+        Indicates which notification properties to apply.  # noqa: E501
 
         :param policy: The policy of this BaseNotificationEntity.  # noqa: E501
         :type: object

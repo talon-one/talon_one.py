@@ -36,7 +36,8 @@ class TestUpdateLoyaltyCard(unittest.TestCase):
         # model = talon_one.models.update_loyalty_card.UpdateLoyaltyCard()  # noqa: E501
         if include_optional :
             return UpdateLoyaltyCard(
-                status = 'active'
+                status = 'active', 
+                block_reason = 'Current card lost. Customer needs a new card.'
             )
         else :
             return UpdateLoyaltyCard(

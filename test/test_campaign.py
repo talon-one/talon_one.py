@@ -91,7 +91,8 @@ class TestCampaign(unittest.TestCase):
                 created_by = 'John Doe', 
                 updated_by = 'Jane Doe', 
                 template_id = 3, 
-                frontend_state = 'running'
+                frontend_state = 'running', 
+                stores_imported = True
             )
         else :
             return Campaign(
@@ -119,6 +120,7 @@ class TestCampaign(unittest.TestCase):
                         counter = 42.0, )
                     ],
                 frontend_state = 'running',
+                stores_imported = True,
         )
 
     def testCampaign(self):

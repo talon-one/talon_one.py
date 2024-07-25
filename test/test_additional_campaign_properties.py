@@ -62,7 +62,8 @@ class TestAdditionalCampaignProperties(unittest.TestCase):
                 created_by = 'John Doe', 
                 updated_by = 'Jane Doe', 
                 template_id = 3, 
-                frontend_state = 'running'
+                frontend_state = 'running', 
+                stores_imported = True
             )
         else :
             return AdditionalCampaignProperties(
@@ -73,6 +74,7 @@ class TestAdditionalCampaignProperties(unittest.TestCase):
                         counter = 42.0, )
                     ],
                 frontend_state = 'running',
+                stores_imported = True,
         )
 
     def testAdditionalCampaignProperties(self):

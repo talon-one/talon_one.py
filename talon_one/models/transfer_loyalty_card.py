@@ -33,23 +33,28 @@ class TransferLoyaltyCard(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'new_card_identifier': 'str'
+        'new_card_identifier': 'str',
+        'block_reason': 'str'
     }
 
     attribute_map = {
-        'new_card_identifier': 'newCardIdentifier'
+        'new_card_identifier': 'newCardIdentifier',
+        'block_reason': 'blockReason'
     }
 
-    def __init__(self, new_card_identifier=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, new_card_identifier=None, block_reason=None, local_vars_configuration=None):  # noqa: E501
         """TransferLoyaltyCard - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._new_card_identifier = None
+        self._block_reason = None
         self.discriminator = None
 
         self.new_card_identifier = new_card_identifier
+        if block_reason is not None:
+            self.block_reason = block_reason
 
     @property
     def new_card_identifier(self):
@@ -78,6 +83,29 @@ class TransferLoyaltyCard(object):
             raise ValueError("Invalid value for `new_card_identifier`, length must be less than or equal to `108`")  # noqa: E501
 
         self._new_card_identifier = new_card_identifier
+
+    @property
+    def block_reason(self):
+        """Gets the block_reason of this TransferLoyaltyCard.  # noqa: E501
+
+        Reason for transferring and blocking the loyalty card.   # noqa: E501
+
+        :return: The block_reason of this TransferLoyaltyCard.  # noqa: E501
+        :rtype: str
+        """
+        return self._block_reason
+
+    @block_reason.setter
+    def block_reason(self, block_reason):
+        """Sets the block_reason of this TransferLoyaltyCard.
+
+        Reason for transferring and blocking the loyalty card.   # noqa: E501
+
+        :param block_reason: The block_reason of this TransferLoyaltyCard.  # noqa: E501
+        :type: str
+        """
+
+        self._block_reason = block_reason
 
     def to_dict(self):
         """Returns the model properties as a dict"""

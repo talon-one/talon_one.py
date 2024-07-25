@@ -94,7 +94,8 @@ class TestInlineResponse2006(unittest.TestCase):
                         created_by = 'John Doe', 
                         updated_by = 'Jane Doe', 
                         template_id = 3, 
-                        frontend_state = 'running', )
+                        frontend_state = 'running', 
+                        stores_imported = True, )
                     ]
             )
         else :
@@ -157,7 +158,8 @@ class TestInlineResponse2006(unittest.TestCase):
                         created_by = 'John Doe', 
                         updated_by = 'Jane Doe', 
                         template_id = 3, 
-                        frontend_state = 'running', )
+                        frontend_state = 'running', 
+                        stores_imported = True, )
                     ],
         )
 
