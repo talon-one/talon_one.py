@@ -35,6 +35,7 @@ class Tier(object):
     openapi_types = {
         'id': 'int',
         'name': 'str',
+        'start_date': 'datetime',
         'expiry_date': 'datetime',
         'downgrade_policy': 'str'
     }
@@ -42,11 +43,12 @@ class Tier(object):
     attribute_map = {
         'id': 'id',
         'name': 'name',
+        'start_date': 'startDate',
         'expiry_date': 'expiryDate',
         'downgrade_policy': 'downgradePolicy'
     }
 
-    def __init__(self, id=None, name=None, expiry_date=None, downgrade_policy=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, name=None, start_date=None, expiry_date=None, downgrade_policy=None, local_vars_configuration=None):  # noqa: E501
         """Tier - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -54,12 +56,15 @@ class Tier(object):
 
         self._id = None
         self._name = None
+        self._start_date = None
         self._expiry_date = None
         self._downgrade_policy = None
         self.discriminator = None
 
         self.id = id
         self.name = name
+        if start_date is not None:
+            self.start_date = start_date
         if expiry_date is not None:
             self.expiry_date = expiry_date
         if downgrade_policy is not None:
@@ -114,6 +119,29 @@ class Tier(object):
             raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
 
         self._name = name
+
+    @property
+    def start_date(self):
+        """Gets the start_date of this Tier.  # noqa: E501
+
+        Date and time when the customer moved to this tier. This value uses the loyalty program's time zone setting.  # noqa: E501
+
+        :return: The start_date of this Tier.  # noqa: E501
+        :rtype: datetime
+        """
+        return self._start_date
+
+    @start_date.setter
+    def start_date(self, start_date):
+        """Sets the start_date of this Tier.
+
+        Date and time when the customer moved to this tier. This value uses the loyalty program's time zone setting.  # noqa: E501
+
+        :param start_date: The start_date of this Tier.  # noqa: E501
+        :type: datetime
+        """
+
+        self._start_date = start_date
 
     @property
     def expiry_date(self):

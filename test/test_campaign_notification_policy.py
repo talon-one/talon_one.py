@@ -36,7 +36,8 @@ class TestCampaignNotificationPolicy(unittest.TestCase):
         # model = talon_one.models.campaign_notification_policy.CampaignNotificationPolicy()  # noqa: E501
         if include_optional :
             return CampaignNotificationPolicy(
-                name = 'Christmas Sale'
+                name = 'Christmas Sale', 
+                batching_enabled = False
             )
         else :
             return CampaignNotificationPolicy(

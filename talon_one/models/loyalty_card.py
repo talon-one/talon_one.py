@@ -37,6 +37,7 @@ class LoyaltyCard(object):
         'created': 'datetime',
         'program_id': 'int',
         'status': 'str',
+        'block_reason': 'str',
         'identifier': 'str',
         'users_per_card_limit': 'int',
         'profiles': 'list[LoyaltyCardProfileRegistration]',
@@ -52,6 +53,7 @@ class LoyaltyCard(object):
         'created': 'created',
         'program_id': 'programID',
         'status': 'status',
+        'block_reason': 'blockReason',
         'identifier': 'identifier',
         'users_per_card_limit': 'usersPerCardLimit',
         'profiles': 'profiles',
@@ -62,7 +64,7 @@ class LoyaltyCard(object):
         'new_card_identifier': 'newCardIdentifier'
     }
 
-    def __init__(self, id=None, created=None, program_id=None, status=None, identifier=None, users_per_card_limit=None, profiles=None, ledger=None, subledgers=None, modified=None, old_card_identifier=None, new_card_identifier=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, created=None, program_id=None, status=None, block_reason=None, identifier=None, users_per_card_limit=None, profiles=None, ledger=None, subledgers=None, modified=None, old_card_identifier=None, new_card_identifier=None, local_vars_configuration=None):  # noqa: E501
         """LoyaltyCard - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -72,6 +74,7 @@ class LoyaltyCard(object):
         self._created = None
         self._program_id = None
         self._status = None
+        self._block_reason = None
         self._identifier = None
         self._users_per_card_limit = None
         self._profiles = None
@@ -86,6 +89,8 @@ class LoyaltyCard(object):
         self.created = created
         self.program_id = program_id
         self.status = status
+        if block_reason is not None:
+            self.block_reason = block_reason
         self.identifier = identifier
         self.users_per_card_limit = users_per_card_limit
         if profiles is not None:
@@ -200,6 +205,29 @@ class LoyaltyCard(object):
             raise ValueError("Invalid value for `status`, must not be `None`")  # noqa: E501
 
         self._status = status
+
+    @property
+    def block_reason(self):
+        """Gets the block_reason of this LoyaltyCard.  # noqa: E501
+
+        Reason for transferring and blocking the loyalty card.   # noqa: E501
+
+        :return: The block_reason of this LoyaltyCard.  # noqa: E501
+        :rtype: str
+        """
+        return self._block_reason
+
+    @block_reason.setter
+    def block_reason(self, block_reason):
+        """Sets the block_reason of this LoyaltyCard.
+
+        Reason for transferring and blocking the loyalty card.   # noqa: E501
+
+        :param block_reason: The block_reason of this LoyaltyCard.  # noqa: E501
+        :type: str
+        """
+
+        self._block_reason = block_reason
 
     @property
     def identifier(self):
