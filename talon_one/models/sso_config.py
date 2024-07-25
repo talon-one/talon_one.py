@@ -33,23 +33,28 @@ class SSOConfig(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'enforced': 'bool'
+        'enforced': 'bool',
+        'new_acs_url': 'str'
     }
 
     attribute_map = {
-        'enforced': 'enforced'
+        'enforced': 'enforced',
+        'new_acs_url': 'newAcsUrl'
     }
 
-    def __init__(self, enforced=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, enforced=None, new_acs_url=None, local_vars_configuration=None):  # noqa: E501
         """SSOConfig - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._enforced = None
+        self._new_acs_url = None
         self.discriminator = None
 
         self.enforced = enforced
+        if new_acs_url is not None:
+            self.new_acs_url = new_acs_url
 
     @property
     def enforced(self):
@@ -75,6 +80,29 @@ class SSOConfig(object):
             raise ValueError("Invalid value for `enforced`, must not be `None`")  # noqa: E501
 
         self._enforced = enforced
+
+    @property
+    def new_acs_url(self):
+        """Gets the new_acs_url of this SSOConfig.  # noqa: E501
+
+        Assertion Consumer Service (ACS) URL for setting up a new SAML connection with an identity provider like Okta or Microsoft Entra ID.   # noqa: E501
+
+        :return: The new_acs_url of this SSOConfig.  # noqa: E501
+        :rtype: str
+        """
+        return self._new_acs_url
+
+    @new_acs_url.setter
+    def new_acs_url(self, new_acs_url):
+        """Sets the new_acs_url of this SSOConfig.
+
+        Assertion Consumer Service (ACS) URL for setting up a new SAML connection with an identity provider like Okta or Microsoft Entra ID.   # noqa: E501
+
+        :param new_acs_url: The new_acs_url of this SSOConfig.  # noqa: E501
+        :type: str
+        """
+
+        self._new_acs_url = new_acs_url
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -40,7 +40,8 @@ class TestRejectCouponEffectProps(unittest.TestCase):
                 rejection_reason = '0', 
                 condition_index = 56, 
                 effect_index = 56, 
-                details = '0'
+                details = '0', 
+                campaign_exclusion_reason = 'CampaignGaveLowerDiscount'
             )
         else :
             return RejectCouponEffectProps(

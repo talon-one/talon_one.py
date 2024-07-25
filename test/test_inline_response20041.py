@@ -54,7 +54,8 @@ class TestInlineResponse20041(unittest.TestCase):
                         application_notification_subscriptions = talon_one.models.application_notification_subscriptions.applicationNotificationSubscriptions(), 
                         last_signed_in = '2021-09-12T10:12:42Z', 
                         last_accessed = '2021-09-12T10:14:42Z', 
-                        latest_feed_timestamp = '2020-06-01T00:00Z', )
+                        latest_feed_timestamp = '2020-06-01T00:00Z', 
+                        additional_attributes = talon_one.models.additional_attributes.additionalAttributes(), )
                     ]
             )
         else :
@@ -77,7 +78,8 @@ class TestInlineResponse20041(unittest.TestCase):
                         application_notification_subscriptions = talon_one.models.application_notification_subscriptions.applicationNotificationSubscriptions(), 
                         last_signed_in = '2021-09-12T10:12:42Z', 
                         last_accessed = '2021-09-12T10:14:42Z', 
-                        latest_feed_timestamp = '2020-06-01T00:00Z', )
+                        latest_feed_timestamp = '2020-06-01T00:00Z', 
+                        additional_attributes = talon_one.models.additional_attributes.additionalAttributes(), )
                     ],
         )
 

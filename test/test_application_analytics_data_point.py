@@ -38,23 +38,25 @@ class TestApplicationAnalyticsDataPoint(unittest.TestCase):
             return ApplicationAnalyticsDataPoint(
                 start_time = '2024-02-01T00:00Z', 
                 end_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                total_revenue = talon_one.models.application_analytics_data_point_total_revenue.ApplicationAnalyticsDataPoint_totalRevenue(
-                    total = 1.25, 
-                    influenced = 3.25, ), 
-                sessions_count = talon_one.models.application_analytics_data_point_sessions_count.ApplicationAnalyticsDataPoint_sessionsCount(
-                    total = 15.0, 
-                    influenced = 5.0, ), 
-                avg_items_per_session = talon_one.models.application_analytics_data_point_avg_items_per_session.ApplicationAnalyticsDataPoint_avgItemsPerSession(
-                    total = 1.25, 
-                    influenced = 3.25, ), 
-                avg_session_value = talon_one.models.application_analytics_data_point_avg_session_value.ApplicationAnalyticsDataPoint_avgSessionValue(
-                    total = 1.25, 
-                    influenced = 3.25, ), 
+                total_revenue = talon_one.models.analytics_data_point.AnalyticsDataPoint(
+                    total = 12.0, 
+                    influenced = 12.0, ), 
+                sessions_count = talon_one.models.analytics_data_point.AnalyticsDataPoint(
+                    total = 12.0, 
+                    influenced = 12.0, ), 
+                avg_items_per_session = talon_one.models.analytics_data_point.AnalyticsDataPoint(
+                    total = 12.0, 
+                    influenced = 12.0, ), 
+                avg_session_value = talon_one.models.analytics_data_point.AnalyticsDataPoint(
+                    total = 12.0, 
+                    influenced = 12.0, ), 
                 total_discounts = 10.0, 
                 coupons_count = 12.0
             )
         else :
             return ApplicationAnalyticsDataPoint(
+                start_time = '2024-02-01T00:00Z',
+                end_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
         )
 
     def testApplicationAnalyticsDataPoint(self):

@@ -33,23 +33,28 @@ class CampaignNotificationPolicy(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'name': 'str'
+        'name': 'str',
+        'batching_enabled': 'bool'
     }
 
     attribute_map = {
-        'name': 'name'
+        'name': 'name',
+        'batching_enabled': 'batchingEnabled'
     }
 
-    def __init__(self, name=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, name=None, batching_enabled=True, local_vars_configuration=None):  # noqa: E501
         """CampaignNotificationPolicy - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._name = None
+        self._batching_enabled = None
         self.discriminator = None
 
         self.name = name
+        if batching_enabled is not None:
+            self.batching_enabled = batching_enabled
 
     @property
     def name(self):
@@ -78,6 +83,29 @@ class CampaignNotificationPolicy(object):
             raise ValueError("Invalid value for `name`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._name = name
+
+    @property
+    def batching_enabled(self):
+        """Gets the batching_enabled of this CampaignNotificationPolicy.  # noqa: E501
+
+        Indicates whether batching is activated.  # noqa: E501
+
+        :return: The batching_enabled of this CampaignNotificationPolicy.  # noqa: E501
+        :rtype: bool
+        """
+        return self._batching_enabled
+
+    @batching_enabled.setter
+    def batching_enabled(self, batching_enabled):
+        """Sets the batching_enabled of this CampaignNotificationPolicy.
+
+        Indicates whether batching is activated.  # noqa: E501
+
+        :param batching_enabled: The batching_enabled of this CampaignNotificationPolicy.  # noqa: E501
+        :type: bool
+        """
+
+        self._batching_enabled = batching_enabled
 
     def to_dict(self):
         """Returns the model properties as a dict"""

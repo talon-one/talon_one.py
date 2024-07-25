@@ -43,7 +43,9 @@ class TestEffectEntity(unittest.TestCase):
                 effect_type = 'rejectCoupon', 
                 triggered_by_coupon = 4928, 
                 triggered_for_catalog_item = 786, 
-                condition_index = 786
+                condition_index = 786, 
+                evaluation_group_id = 3, 
+                evaluation_group_mode = 'stackable'
             )
         else :
             return EffectEntity(

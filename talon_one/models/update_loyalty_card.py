@@ -33,23 +33,28 @@ class UpdateLoyaltyCard(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'status': 'str'
+        'status': 'str',
+        'block_reason': 'str'
     }
 
     attribute_map = {
-        'status': 'status'
+        'status': 'status',
+        'block_reason': 'blockReason'
     }
 
-    def __init__(self, status=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, status=None, block_reason=None, local_vars_configuration=None):  # noqa: E501
         """UpdateLoyaltyCard - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._status = None
+        self._block_reason = None
         self.discriminator = None
 
         self.status = status
+        if block_reason is not None:
+            self.block_reason = block_reason
 
     @property
     def status(self):
@@ -75,6 +80,29 @@ class UpdateLoyaltyCard(object):
             raise ValueError("Invalid value for `status`, must not be `None`")  # noqa: E501
 
         self._status = status
+
+    @property
+    def block_reason(self):
+        """Gets the block_reason of this UpdateLoyaltyCard.  # noqa: E501
+
+        Reason for transferring and blocking the loyalty card.   # noqa: E501
+
+        :return: The block_reason of this UpdateLoyaltyCard.  # noqa: E501
+        :rtype: str
+        """
+        return self._block_reason
+
+    @block_reason.setter
+    def block_reason(self, block_reason):
+        """Sets the block_reason of this UpdateLoyaltyCard.
+
+        Reason for transferring and blocking the loyalty card.   # noqa: E501
+
+        :param block_reason: The block_reason of this UpdateLoyaltyCard.  # noqa: E501
+        :type: str
+        """
+
+        self._block_reason = block_reason
 
     def to_dict(self):
         """Returns the model properties as a dict"""

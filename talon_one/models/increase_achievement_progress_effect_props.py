@@ -203,7 +203,7 @@ class IncreaseAchievementProgressEffectProps(object):
     def target(self):
         """Gets the target of this IncreaseAchievementProgressEffectProps.  # noqa: E501
 
-        The required number of actions or the transactional milestone to complete the achievement.  # noqa: E501
+        The target value to complete the achievement.  # noqa: E501
 
         :return: The target of this IncreaseAchievementProgressEffectProps.  # noqa: E501
         :rtype: float
@@ -214,7 +214,7 @@ class IncreaseAchievementProgressEffectProps(object):
     def target(self, target):
         """Sets the target of this IncreaseAchievementProgressEffectProps.
 
-        The required number of actions or the transactional milestone to complete the achievement.  # noqa: E501
+        The target value to complete the achievement.  # noqa: E501
 
         :param target: The target of this IncreaseAchievementProgressEffectProps.  # noqa: E501
         :type: float

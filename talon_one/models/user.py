@@ -48,7 +48,8 @@ class User(object):
         'application_notification_subscriptions': 'object',
         'last_signed_in': 'datetime',
         'last_accessed': 'datetime',
-        'latest_feed_timestamp': 'datetime'
+        'latest_feed_timestamp': 'datetime',
+        'additional_attributes': 'object'
     }
 
     attribute_map = {
@@ -67,10 +68,11 @@ class User(object):
         'application_notification_subscriptions': 'applicationNotificationSubscriptions',
         'last_signed_in': 'lastSignedIn',
         'last_accessed': 'lastAccessed',
-        'latest_feed_timestamp': 'latestFeedTimestamp'
+        'latest_feed_timestamp': 'latestFeedTimestamp',
+        'additional_attributes': 'additionalAttributes'
     }
 
-    def __init__(self, id=None, created=None, modified=None, email=None, account_id=None, name=None, state=None, invite_token=None, is_admin=None, policy=None, roles=None, auth_method=None, application_notification_subscriptions=None, last_signed_in=None, last_accessed=None, latest_feed_timestamp=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, created=None, modified=None, email=None, account_id=None, name=None, state=None, invite_token=None, is_admin=None, policy=None, roles=None, auth_method=None, application_notification_subscriptions=None, last_signed_in=None, last_accessed=None, latest_feed_timestamp=None, additional_attributes=None, local_vars_configuration=None):  # noqa: E501
         """User - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -92,6 +94,7 @@ class User(object):
         self._last_signed_in = None
         self._last_accessed = None
         self._latest_feed_timestamp = None
+        self._additional_attributes = None
         self.discriminator = None
 
         self.id = id
@@ -117,6 +120,8 @@ class User(object):
             self.last_accessed = last_accessed
         if latest_feed_timestamp is not None:
             self.latest_feed_timestamp = latest_feed_timestamp
+        if additional_attributes is not None:
+            self.additional_attributes = additional_attributes
 
     @property
     def id(self):
@@ -509,6 +514,29 @@ class User(object):
         """
 
         self._latest_feed_timestamp = latest_feed_timestamp
+
+    @property
+    def additional_attributes(self):
+        """Gets the additional_attributes of this User.  # noqa: E501
+
+        Additional user attributes, created and used by external identity providers.  # noqa: E501
+
+        :return: The additional_attributes of this User.  # noqa: E501
+        :rtype: object
+        """
+        return self._additional_attributes
+
+    @additional_attributes.setter
+    def additional_attributes(self, additional_attributes):
+        """Sets the additional_attributes of this User.
+
+        Additional user attributes, created and used by external identity providers.  # noqa: E501
+
+        :param additional_attributes: The additional_attributes of this User.  # noqa: E501
+        :type: object
+        """
+
+        self._additional_attributes = additional_attributes
 
     def to_dict(self):
         """Returns the model properties as a dict"""

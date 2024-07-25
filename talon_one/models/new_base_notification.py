@@ -64,6 +64,7 @@ class NewBaseNotification(object):
     def policy(self):
         """Gets the policy of this NewBaseNotification.  # noqa: E501
 
+        Indicates which notification properties to apply.  # noqa: E501
 
         :return: The policy of this NewBaseNotification.  # noqa: E501
         :rtype: object
@@ -74,6 +75,7 @@ class NewBaseNotification(object):
     def policy(self, policy):
         """Sets the policy of this NewBaseNotification.
 
+        Indicates which notification properties to apply.  # noqa: E501
 
         :param policy: The policy of this NewBaseNotification.  # noqa: E501
         :type: object

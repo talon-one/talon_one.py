@@ -36,7 +36,8 @@ class TestSSOConfig(unittest.TestCase):
         # model = talon_one.models.sso_config.SSOConfig()  # noqa: E501
         if include_optional :
             return SSOConfig(
-                enforced = True
+                enforced = True, 
+                new_acs_url = 'https://yourdeployment.talon.one/v1/saml_connections/5/saml_callback'
             )
         else :
             return SSOConfig(
