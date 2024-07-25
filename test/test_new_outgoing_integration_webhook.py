@@ -37,6 +37,7 @@ class TestNewOutgoingIntegrationWebhook(unittest.TestCase):
         if include_optional :
             return NewOutgoingIntegrationWebhook(
                 title = 'Send email to customer via Braze', 
+                description = 'A webhook to send a coupon to the user.', 
                 application_ids = [1, 2, 3]
             )
         else :

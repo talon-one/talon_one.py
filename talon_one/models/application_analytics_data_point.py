@@ -35,10 +35,10 @@ class ApplicationAnalyticsDataPoint(object):
     openapi_types = {
         'start_time': 'datetime',
         'end_time': 'datetime',
-        'total_revenue': 'ApplicationAnalyticsDataPointTotalRevenue',
-        'sessions_count': 'ApplicationAnalyticsDataPointSessionsCount',
-        'avg_items_per_session': 'ApplicationAnalyticsDataPointAvgItemsPerSession',
-        'avg_session_value': 'ApplicationAnalyticsDataPointAvgSessionValue',
+        'total_revenue': 'AnalyticsDataPoint',
+        'sessions_count': 'AnalyticsDataPoint',
+        'avg_items_per_session': 'AnalyticsDataPoint',
+        'avg_session_value': 'AnalyticsDataPoint',
         'total_discounts': 'float',
         'coupons_count': 'float'
     }
@@ -70,10 +70,8 @@ class ApplicationAnalyticsDataPoint(object):
         self._coupons_count = None
         self.discriminator = None
 
-        if start_time is not None:
-            self.start_time = start_time
-        if end_time is not None:
-            self.end_time = end_time
+        self.start_time = start_time
+        self.end_time = end_time
         if total_revenue is not None:
             self.total_revenue = total_revenue
         if sessions_count is not None:
@@ -107,6 +105,8 @@ class ApplicationAnalyticsDataPoint(object):
         :param start_time: The start_time of this ApplicationAnalyticsDataPoint.  # noqa: E501
         :type: datetime
         """
+        if self.local_vars_configuration.client_side_validation and start_time is None:  # noqa: E501
+            raise ValueError("Invalid value for `start_time`, must not be `None`")  # noqa: E501
 
         self._start_time = start_time
 
@@ -130,6 +130,8 @@ class ApplicationAnalyticsDataPoint(object):
         :param end_time: The end_time of this ApplicationAnalyticsDataPoint.  # noqa: E501
         :type: datetime
         """
+        if self.local_vars_configuration.client_side_validation and end_time is None:  # noqa: E501
+            raise ValueError("Invalid value for `end_time`, must not be `None`")  # noqa: E501
 
         self._end_time = end_time
 
@@ -139,7 +141,7 @@ class ApplicationAnalyticsDataPoint(object):
 
 
         :return: The total_revenue of this ApplicationAnalyticsDataPoint.  # noqa: E501
-        :rtype: ApplicationAnalyticsDataPointTotalRevenue
+        :rtype: AnalyticsDataPoint
         """
         return self._total_revenue
 
@@ -149,7 +151,7 @@ class ApplicationAnalyticsDataPoint(object):
 
 
         :param total_revenue: The total_revenue of this ApplicationAnalyticsDataPoint.  # noqa: E501
-        :type: ApplicationAnalyticsDataPointTotalRevenue
+        :type: AnalyticsDataPoint
         """
 
         self._total_revenue = total_revenue
@@ -160,7 +162,7 @@ class ApplicationAnalyticsDataPoint(object):
 
 
         :return: The sessions_count of this ApplicationAnalyticsDataPoint.  # noqa: E501
-        :rtype: ApplicationAnalyticsDataPointSessionsCount
+        :rtype: AnalyticsDataPoint
         """
         return self._sessions_count
 
@@ -170,7 +172,7 @@ class ApplicationAnalyticsDataPoint(object):
 
 
         :param sessions_count: The sessions_count of this ApplicationAnalyticsDataPoint.  # noqa: E501
-        :type: ApplicationAnalyticsDataPointSessionsCount
+        :type: AnalyticsDataPoint
         """
 
         self._sessions_count = sessions_count
@@ -181,7 +183,7 @@ class ApplicationAnalyticsDataPoint(object):
 
 
         :return: The avg_items_per_session of this ApplicationAnalyticsDataPoint.  # noqa: E501
-        :rtype: ApplicationAnalyticsDataPointAvgItemsPerSession
+        :rtype: AnalyticsDataPoint
         """
         return self._avg_items_per_session
 
@@ -191,7 +193,7 @@ class ApplicationAnalyticsDataPoint(object):
 
 
         :param avg_items_per_session: The avg_items_per_session of this ApplicationAnalyticsDataPoint.  # noqa: E501
-        :type: ApplicationAnalyticsDataPointAvgItemsPerSession
+        :type: AnalyticsDataPoint
         """
 
         self._avg_items_per_session = avg_items_per_session
@@ -202,7 +204,7 @@ class ApplicationAnalyticsDataPoint(object):
 
 
         :return: The avg_session_value of this ApplicationAnalyticsDataPoint.  # noqa: E501
-        :rtype: ApplicationAnalyticsDataPointAvgSessionValue
+        :rtype: AnalyticsDataPoint
         """
         return self._avg_session_value
 
@@ -212,7 +214,7 @@ class ApplicationAnalyticsDataPoint(object):
 
 
         :param avg_session_value: The avg_session_value of this ApplicationAnalyticsDataPoint.  # noqa: E501
-        :type: ApplicationAnalyticsDataPointAvgSessionValue
+        :type: AnalyticsDataPoint
         """
 
         self._avg_session_value = avg_session_value

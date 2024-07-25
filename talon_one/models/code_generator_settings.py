@@ -84,7 +84,7 @@ class CodeGeneratorSettings(object):
     def coupon_pattern(self):
         """Gets the coupon_pattern of this CodeGeneratorSettings.  # noqa: E501
 
-        The pattern used to generate coupon codes. The character `#` is a placeholder and is replaced by a random character from the `validCharacters` set.   # noqa: E501
+        The pattern used to generate codes, such as coupon codes, referral codes, and loyalty cards. The character `#` is a placeholder and is replaced by a random character from the `validCharacters` set.   # noqa: E501
 
         :return: The coupon_pattern of this CodeGeneratorSettings.  # noqa: E501
         :rtype: str
@@ -95,7 +95,7 @@ class CodeGeneratorSettings(object):
     def coupon_pattern(self, coupon_pattern):
         """Sets the coupon_pattern of this CodeGeneratorSettings.
 
-        The pattern used to generate coupon codes. The character `#` is a placeholder and is replaced by a random character from the `validCharacters` set.   # noqa: E501
+        The pattern used to generate codes, such as coupon codes, referral codes, and loyalty cards. The character `#` is a placeholder and is replaced by a random character from the `validCharacters` set.   # noqa: E501
 
         :param coupon_pattern: The coupon_pattern of this CodeGeneratorSettings.  # noqa: E501
         :type: str

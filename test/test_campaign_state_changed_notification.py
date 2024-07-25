@@ -92,7 +92,8 @@ class TestCampaignStateChangedNotification(unittest.TestCase):
                     created_by = 'John Doe', 
                     updated_by = 'Jane Doe', 
                     template_id = 3, 
-                    frontend_state = 'running', ), 
+                    frontend_state = 'running', 
+                    stores_imported = True, ), 
                 old_state = 'disabled', 
                 new_state = 'running', 
                 ruleset = talon_one.models.ruleset.Ruleset(
@@ -191,7 +192,8 @@ class TestCampaignStateChangedNotification(unittest.TestCase):
                     created_by = 'John Doe', 
                     updated_by = 'Jane Doe', 
                     template_id = 3, 
-                    frontend_state = 'running', ),
+                    frontend_state = 'running', 
+                    stores_imported = True, ),
                 old_state = 'disabled',
                 new_state = 'running',
         )

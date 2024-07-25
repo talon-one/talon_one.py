@@ -37,7 +37,8 @@ class RejectCouponEffectProps(object):
         'rejection_reason': 'str',
         'condition_index': 'int',
         'effect_index': 'int',
-        'details': 'str'
+        'details': 'str',
+        'campaign_exclusion_reason': 'str'
     }
 
     attribute_map = {
@@ -45,10 +46,11 @@ class RejectCouponEffectProps(object):
         'rejection_reason': 'rejectionReason',
         'condition_index': 'conditionIndex',
         'effect_index': 'effectIndex',
-        'details': 'details'
+        'details': 'details',
+        'campaign_exclusion_reason': 'campaignExclusionReason'
     }
 
-    def __init__(self, value=None, rejection_reason=None, condition_index=None, effect_index=None, details=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, value=None, rejection_reason=None, condition_index=None, effect_index=None, details=None, campaign_exclusion_reason=None, local_vars_configuration=None):  # noqa: E501
         """RejectCouponEffectProps - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -59,6 +61,7 @@ class RejectCouponEffectProps(object):
         self._condition_index = None
         self._effect_index = None
         self._details = None
+        self._campaign_exclusion_reason = None
         self.discriminator = None
 
         self.value = value
@@ -69,6 +72,8 @@ class RejectCouponEffectProps(object):
             self.effect_index = effect_index
         if details is not None:
             self.details = details
+        if campaign_exclusion_reason is not None:
+            self.campaign_exclusion_reason = campaign_exclusion_reason
 
     @property
     def value(self):
@@ -188,6 +193,29 @@ class RejectCouponEffectProps(object):
         """
 
         self._details = details
+
+    @property
+    def campaign_exclusion_reason(self):
+        """Gets the campaign_exclusion_reason of this RejectCouponEffectProps.  # noqa: E501
+
+        The reason why the campaign was not applied.  # noqa: E501
+
+        :return: The campaign_exclusion_reason of this RejectCouponEffectProps.  # noqa: E501
+        :rtype: str
+        """
+        return self._campaign_exclusion_reason
+
+    @campaign_exclusion_reason.setter
+    def campaign_exclusion_reason(self, campaign_exclusion_reason):
+        """Sets the campaign_exclusion_reason of this RejectCouponEffectProps.
+
+        The reason why the campaign was not applied.  # noqa: E501
+
+        :param campaign_exclusion_reason: The campaign_exclusion_reason of this RejectCouponEffectProps.  # noqa: E501
+        :type: str
+        """
+
+        self._campaign_exclusion_reason = campaign_exclusion_reason
 
     def to_dict(self):
         """Returns the model properties as a dict"""

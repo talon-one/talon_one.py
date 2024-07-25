@@ -92,7 +92,8 @@ class TestCampaignCreatedNotification(unittest.TestCase):
                     created_by = 'John Doe', 
                     updated_by = 'Jane Doe', 
                     template_id = 3, 
-                    frontend_state = 'running', ), 
+                    frontend_state = 'running', 
+                    stores_imported = True, ), 
                 ruleset = talon_one.models.ruleset.Ruleset(
                     id = 6, 
                     created = '2020-06-10T09:05:27.993483Z', 
@@ -193,7 +194,8 @@ class TestCampaignCreatedNotification(unittest.TestCase):
                     created_by = 'John Doe', 
                     updated_by = 'Jane Doe', 
                     template_id = 3, 
-                    frontend_state = 'running', ),
+                    frontend_state = 'running', 
+                    stores_imported = True, ),
                 evaluation_position = talon_one.models.campaign_evaluation_position.CampaignEvaluationPosition(
                     group_id = 2, 
                     group_name = 'Summer campaigns', 
