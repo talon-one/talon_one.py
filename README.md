@@ -62,6 +62,7 @@ Please follow the [installation procedure](#installation--usage) and then run th
 import talon_one
 from talon_one.rest import ApiException
 from pprint import pprint
+import json
 
 # Create configuration with your host destination and authorization using api_key_v1
 configuration = talon_one.Configuration(
@@ -108,7 +109,8 @@ integration_request = talon_one.IntegrationRequest(
 try:
     # Create/update a customer session using `update_customer_session_v2` function
     api_response = integration_api.update_customer_session_v2("my_unique_session_v2_id", integration_request)
-    pprint(api_response)
+    encoded_data = json.dumps(api_response.to_dict(), default=str)
+    pprint(encoded_data)
 
     # Parsing the returned effects list, please consult https://developers.talon.one/Integration-API/handling-effects-v2 for the full list of effects and their corresponding properties
     for effect in api_response.effects:
@@ -133,6 +135,10 @@ except ApiException as e:
 ### Management API
 
 ```python
+import talon_one
+from pprint import pprint
+import json
+
 # Create configuration with your host destination and authorization using management_key
 configuration = talon_one.Configuration(
     host = "https://yourbaseurl.talon.one",
@@ -150,7 +156,8 @@ management_api = talon_one.ManagementApi(talon_one.ApiClient(configuration))
 try:
     # Calling get_application function with the desired id (7)
     application = management_api.get_application(7)
-    pprint(application)
+    encoded_data = json.dumps(application.to_dict(), default=str)
+    pprint(encoded_data)
 except ApiException as e:
     print("Exception when calling ManagementApi: %s\n" % e)
 ```
