@@ -52,6 +52,7 @@ class Application(object):
         'enable_partial_discounts': 'bool',
         'default_discount_additional_cost_per_item_scope': 'str',
         'default_evaluation_group_id': 'int',
+        'enable_campaign_state_management': 'bool',
         'loyalty_programs': 'list[LoyaltyProgram]'
     }
 
@@ -75,10 +76,11 @@ class Application(object):
         'enable_partial_discounts': 'enablePartialDiscounts',
         'default_discount_additional_cost_per_item_scope': 'defaultDiscountAdditionalCostPerItemScope',
         'default_evaluation_group_id': 'defaultEvaluationGroupId',
+        'enable_campaign_state_management': 'enableCampaignStateManagement',
         'loyalty_programs': 'loyaltyPrograms'
     }
 
-    def __init__(self, id=None, created=None, modified=None, account_id=None, name=None, description=None, timezone=None, currency=None, case_sensitivity=None, attributes=None, limits=None, default_discount_scope=None, enable_cascading_discounts=None, enable_flattened_cart_items=None, attributes_settings=None, sandbox=None, enable_partial_discounts=None, default_discount_additional_cost_per_item_scope=None, default_evaluation_group_id=None, loyalty_programs=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, created=None, modified=None, account_id=None, name=None, description=None, timezone=None, currency=None, case_sensitivity=None, attributes=None, limits=None, default_discount_scope=None, enable_cascading_discounts=None, enable_flattened_cart_items=None, attributes_settings=None, sandbox=None, enable_partial_discounts=None, default_discount_additional_cost_per_item_scope=None, default_evaluation_group_id=None, enable_campaign_state_management=None, loyalty_programs=None, local_vars_configuration=None):  # noqa: E501
         """Application - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -103,6 +105,7 @@ class Application(object):
         self._enable_partial_discounts = None
         self._default_discount_additional_cost_per_item_scope = None
         self._default_evaluation_group_id = None
+        self._enable_campaign_state_management = None
         self._loyalty_programs = None
         self.discriminator = None
 
@@ -137,6 +140,8 @@ class Application(object):
             self.default_discount_additional_cost_per_item_scope = default_discount_additional_cost_per_item_scope
         if default_evaluation_group_id is not None:
             self.default_evaluation_group_id = default_evaluation_group_id
+        if enable_campaign_state_management is not None:
+            self.enable_campaign_state_management = enable_campaign_state_management
         self.loyalty_programs = loyalty_programs
 
     @property
@@ -614,6 +619,29 @@ class Application(object):
         """
 
         self._default_evaluation_group_id = default_evaluation_group_id
+
+    @property
+    def enable_campaign_state_management(self):
+        """Gets the enable_campaign_state_management of this Application.  # noqa: E501
+
+        Indicates whether the campaign staging and revisions feature is enabled for the Application.  **Important:** After this feature is enabled, it cannot be disabled.   # noqa: E501
+
+        :return: The enable_campaign_state_management of this Application.  # noqa: E501
+        :rtype: bool
+        """
+        return self._enable_campaign_state_management
+
+    @enable_campaign_state_management.setter
+    def enable_campaign_state_management(self, enable_campaign_state_management):
+        """Sets the enable_campaign_state_management of this Application.
+
+        Indicates whether the campaign staging and revisions feature is enabled for the Application.  **Important:** After this feature is enabled, it cannot be disabled.   # noqa: E501
+
+        :param enable_campaign_state_management: The enable_campaign_state_management of this Application.  # noqa: E501
+        :type: bool
+        """
+
+        self._enable_campaign_state_management = enable_campaign_state_management
 
     @property
     def loyalty_programs(self):

@@ -73,7 +73,8 @@ class Campaign(object):
         'created_by': 'str',
         'updated_by': 'str',
         'template_id': 'int',
-        'frontend_state': 'str'
+        'frontend_state': 'str',
+        'stores_imported': 'bool'
     }
 
     attribute_map = {
@@ -117,10 +118,11 @@ class Campaign(object):
         'created_by': 'createdBy',
         'updated_by': 'updatedBy',
         'template_id': 'templateId',
-        'frontend_state': 'frontendState'
+        'frontend_state': 'frontendState',
+        'stores_imported': 'storesImported'
     }
 
-    def __init__(self, id=None, created=None, application_id=None, user_id=None, name=None, description=None, start_time=None, end_time=None, attributes=None, state='enabled', active_ruleset_id=None, tags=None, features=None, coupon_settings=None, referral_settings=None, limits=None, campaign_groups=None, type='advanced', linked_store_ids=None, budgets=None, coupon_redemption_count=None, referral_redemption_count=None, discount_count=None, discount_effect_count=None, coupon_creation_count=None, custom_effect_count=None, referral_creation_count=None, add_free_item_effect_count=None, awarded_giveaways_count=None, created_loyalty_points_count=None, created_loyalty_points_effect_count=None, redeemed_loyalty_points_count=None, redeemed_loyalty_points_effect_count=None, call_api_effect_count=None, reservecoupon_effect_count=None, last_activity=None, updated=None, created_by=None, updated_by=None, template_id=None, frontend_state=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, created=None, application_id=None, user_id=None, name=None, description=None, start_time=None, end_time=None, attributes=None, state='enabled', active_ruleset_id=None, tags=None, features=None, coupon_settings=None, referral_settings=None, limits=None, campaign_groups=None, type='advanced', linked_store_ids=None, budgets=None, coupon_redemption_count=None, referral_redemption_count=None, discount_count=None, discount_effect_count=None, coupon_creation_count=None, custom_effect_count=None, referral_creation_count=None, add_free_item_effect_count=None, awarded_giveaways_count=None, created_loyalty_points_count=None, created_loyalty_points_effect_count=None, redeemed_loyalty_points_count=None, redeemed_loyalty_points_effect_count=None, call_api_effect_count=None, reservecoupon_effect_count=None, last_activity=None, updated=None, created_by=None, updated_by=None, template_id=None, frontend_state=None, stores_imported=None, local_vars_configuration=None):  # noqa: E501
         """Campaign - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -167,6 +169,7 @@ class Campaign(object):
         self._updated_by = None
         self._template_id = None
         self._frontend_state = None
+        self._stores_imported = None
         self.discriminator = None
 
         self.id = id
@@ -238,6 +241,7 @@ class Campaign(object):
         if template_id is not None:
             self.template_id = template_id
         self.frontend_state = frontend_state
+        self.stores_imported = stores_imported
 
     @property
     def id(self):
@@ -1224,7 +1228,7 @@ class Campaign(object):
         """
         if self.local_vars_configuration.client_side_validation and frontend_state is None:  # noqa: E501
             raise ValueError("Invalid value for `frontend_state`, must not be `None`")  # noqa: E501
-        allowed_values = ["expired", "scheduled", "running", "draft", "disabled", "archived"]  # noqa: E501
+        allowed_values = ["expired", "scheduled", "running", "disabled", "archived"]  # noqa: E501
         if self.local_vars_configuration.client_side_validation and frontend_state not in allowed_values:  # noqa: E501
             raise ValueError(
                 "Invalid value for `frontend_state` ({0}), must be one of {1}"  # noqa: E501
@@ -1232,6 +1236,31 @@ class Campaign(object):
             )
 
         self._frontend_state = frontend_state
+
+    @property
+    def stores_imported(self):
+        """Gets the stores_imported of this Campaign.  # noqa: E501
+
+        Indicates whether the linked stores were imported via a CSV file.  # noqa: E501
+
+        :return: The stores_imported of this Campaign.  # noqa: E501
+        :rtype: bool
+        """
+        return self._stores_imported
+
+    @stores_imported.setter
+    def stores_imported(self, stores_imported):
+        """Sets the stores_imported of this Campaign.
+
+        Indicates whether the linked stores were imported via a CSV file.  # noqa: E501
+
+        :param stores_imported: The stores_imported of this Campaign.  # noqa: E501
+        :type: bool
+        """
+        if self.local_vars_configuration.client_side_validation and stores_imported is None:  # noqa: E501
+            raise ValueError("Invalid value for `stores_imported`, must not be `None`")  # noqa: E501
+
+        self._stores_imported = stores_imported
 
     def to_dict(self):
         """Returns the model properties as a dict"""

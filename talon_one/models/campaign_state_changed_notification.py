@@ -91,7 +91,7 @@ class CampaignStateChangedNotification(object):
     def old_state(self):
         """Gets the old_state of this CampaignStateChangedNotification.  # noqa: E501
 
-        The campaign's old state. Can be one of the following: ['running', 'disabled', 'scheduled', 'expired', 'draft', 'archived']   # noqa: E501
+        The campaign's old state. Can be one of the following: ['running', 'disabled', 'scheduled', 'expired', 'archived']   # noqa: E501
 
         :return: The old_state of this CampaignStateChangedNotification.  # noqa: E501
         :rtype: str
@@ -102,7 +102,7 @@ class CampaignStateChangedNotification(object):
     def old_state(self, old_state):
         """Sets the old_state of this CampaignStateChangedNotification.
 
-        The campaign's old state. Can be one of the following: ['running', 'disabled', 'scheduled', 'expired', 'draft', 'archived']   # noqa: E501
+        The campaign's old state. Can be one of the following: ['running', 'disabled', 'scheduled', 'expired', 'archived']   # noqa: E501
 
         :param old_state: The old_state of this CampaignStateChangedNotification.  # noqa: E501
         :type: str
@@ -116,7 +116,7 @@ class CampaignStateChangedNotification(object):
     def new_state(self):
         """Gets the new_state of this CampaignStateChangedNotification.  # noqa: E501
 
-        The campaign's new state. Can be one of the following: ['running', 'disabled', 'scheduled', 'expired', 'draft', 'archived']   # noqa: E501
+        The campaign's new state. Can be one of the following: ['running', 'disabled', 'scheduled', 'expired', 'archived']   # noqa: E501
 
         :return: The new_state of this CampaignStateChangedNotification.  # noqa: E501
         :rtype: str
@@ -127,7 +127,7 @@ class CampaignStateChangedNotification(object):
     def new_state(self, new_state):
         """Sets the new_state of this CampaignStateChangedNotification.
 
-        The campaign's new state. Can be one of the following: ['running', 'disabled', 'scheduled', 'expired', 'draft', 'archived']   # noqa: E501
+        The campaign's new state. Can be one of the following: ['running', 'disabled', 'scheduled', 'expired', 'archived']   # noqa: E501
 
         :param new_state: The new_state of this CampaignStateChangedNotification.  # noqa: E501
         :type: str

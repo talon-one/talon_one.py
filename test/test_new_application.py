@@ -63,7 +63,8 @@ class TestNewApplication(unittest.TestCase):
                 sandbox = True, 
                 enable_partial_discounts = False, 
                 default_discount_additional_cost_per_item_scope = 'price', 
-                key = 'a'
+                key = 'a', 
+                enable_campaign_state_management = False
             )
         else :
             return NewApplication(

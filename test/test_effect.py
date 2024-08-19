@@ -44,6 +44,8 @@ class TestEffect(unittest.TestCase):
                 triggered_by_coupon = 4928, 
                 triggered_for_catalog_item = 786, 
                 condition_index = 786, 
+                evaluation_group_id = 3, 
+                evaluation_group_mode = 'stackable', 
                 props = talon_one.models.effect_props.EffectProps()
             )
         else :

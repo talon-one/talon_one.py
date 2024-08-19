@@ -100,6 +100,7 @@ class TestCustomerProfileIntegrationResponseV2(unittest.TestCase):
                             created = '2020-06-10T09:05:27.993483Z', 
                             program_id = 125, 
                             status = 'active', 
+                            block_reason = 'Current card lost. Customer needs a new card.', 
                             identifier = 'summer-loyalty-card-0543', 
                             users_per_card_limit = 111, 
                             profiles = [
@@ -117,6 +118,7 @@ class TestCustomerProfileIntegrationResponseV2(unittest.TestCase):
                                 current_tier = talon_one.models.tier.Tier(
                                     id = 11, 
                                     name = 'bronze', 
+                                    start_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                                     expiry_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                                     downgrade_policy = 'one_down', ), 
                                 points_to_next_tier = 20.0, ), 
@@ -216,7 +218,8 @@ class TestCustomerProfileIntegrationResponseV2(unittest.TestCase):
                         created_by = 'John Doe', 
                         updated_by = 'Jane Doe', 
                         template_id = 3, 
-                        frontend_state = 'running', )
+                        frontend_state = 'running', 
+                        stores_imported = True, )
                     ], 
                 rule_failure_reasons = [
                     talon_one.models.rule_failure_reason.RuleFailureReason(
@@ -231,7 +234,9 @@ class TestCustomerProfileIntegrationResponseV2(unittest.TestCase):
                         rule_name = '0', 
                         condition_index = 56, 
                         effect_index = 56, 
-                        details = '0', )
+                        details = '0', 
+                        evaluation_group_id = 3, 
+                        evaluation_group_mode = 'stackable', )
                     ], 
                 awarded_giveaways = [
                     talon_one.models.giveaway.Giveaway(
@@ -257,6 +262,8 @@ class TestCustomerProfileIntegrationResponseV2(unittest.TestCase):
                         triggered_by_coupon = 4928, 
                         triggered_for_catalog_item = 786, 
                         condition_index = 786, 
+                        evaluation_group_id = 3, 
+                        evaluation_group_mode = 'stackable', 
                         props = talon_one.models.effect_props.EffectProps(), )
                     ], 
                 created_coupons = [
@@ -319,6 +326,8 @@ class TestCustomerProfileIntegrationResponseV2(unittest.TestCase):
                         triggered_by_coupon = 4928, 
                         triggered_for_catalog_item = 786, 
                         condition_index = 786, 
+                        evaluation_group_id = 3, 
+                        evaluation_group_mode = 'stackable', 
                         props = talon_one.models.effect_props.EffectProps(), )
                     ],
                 created_coupons = [

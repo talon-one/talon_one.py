@@ -84,6 +84,13 @@ class TestIntegrationApi(unittest.TestCase):
         """
         pass
 
+    def test_generate_loyalty_card(self):
+        """Test case for generate_loyalty_card
+
+        Generate loyalty card  # noqa: E501
+        """
+        pass
+
     def test_get_customer_inventory(self):
         """Test case for get_customer_inventory
 

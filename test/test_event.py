@@ -83,19 +83,6 @@ class TestEvent(unittest.TestCase):
                 effects = [
                     None
                     ],
-                ledger_entries = [
-                    talon_one.models.ledger_entry.LedgerEntry(
-                        id = 6, 
-                        created = '2020-06-10T09:05:27.993483Z', 
-                        profile_id = 'URNGV8294NV', 
-                        account_id = 56, 
-                        loyalty_program_id = 323414846, 
-                        event_id = 3, 
-                        amount = 100, 
-                        reason = 'Customer appeasement.', 
-                        expiry_date = '2022-04-26T11:02:38Z', 
-                        reference_id = 56, )
-                    ],
         )
 
     def testEvent(self):

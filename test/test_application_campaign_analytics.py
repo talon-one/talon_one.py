@@ -41,35 +41,38 @@ class TestApplicationCampaignAnalytics(unittest.TestCase):
                 campaign_id = 1, 
                 campaign_name = 'Summer promotions', 
                 campaign_tags = [summer], 
-                campaign_state = 'enabled', 
-                campaign_active_ruleset_id = 2, 
-                campaign_start_time = '2021-07-20T22:00Z', 
-                campaign_end_time = '2021-10-01T02:00Z', 
-                total_revenue = talon_one.models.application_campaign_analytics_total_revenue.ApplicationCampaignAnalytics_totalRevenue(
-                    value = 1.25, 
-                    influence_rate = 3.25, 
-                    trend = 3.25, ), 
-                sessions_count = talon_one.models.application_campaign_analytics_sessions_count.ApplicationCampaignAnalytics_sessionsCount(
+                campaign_state = 'running', 
+                total_revenue = talon_one.models.analytics_data_point_with_trend_and_influenced_rate.AnalyticsDataPointWithTrendAndInfluencedRate(
                     value = 12.0, 
-                    influence_rate = 3.25, 
+                    influenced_rate = 12.0, 
                     trend = 3.25, ), 
-                avg_items_per_session = talon_one.models.application_campaign_analytics_avg_items_per_session.ApplicationCampaignAnalytics_avgItemsPerSession(
+                sessions_count = talon_one.models.analytics_data_point_with_trend_and_influenced_rate.AnalyticsDataPointWithTrendAndInfluencedRate(
+                    value = 12.0, 
+                    influenced_rate = 12.0, 
+                    trend = 3.25, ), 
+                avg_items_per_session = talon_one.models.analytics_data_point_with_trend_and_uplift.AnalyticsDataPointWithTrendAndUplift(
                     value = 12.0, 
                     uplift = 3.25, 
                     trend = 3.25, ), 
-                avg_session_value = talon_one.models.application_campaign_analytics_avg_session_value.ApplicationCampaignAnalytics_avgSessionValue(
+                avg_session_value = talon_one.models.analytics_data_point_with_trend_and_uplift.AnalyticsDataPointWithTrendAndUplift(
                     value = 12.0, 
                     uplift = 3.25, 
                     trend = 3.25, ), 
-                total_discounts = talon_one.models.application_campaign_analytics_total_discounts.ApplicationCampaignAnalytics_totalDiscounts(
-                    value = 10.0, 
+                total_discounts = talon_one.models.analytics_data_point_with_trend.AnalyticsDataPointWithTrend(
+                    value = 12.0, 
                     trend = 3.25, ), 
-                coupons_count = talon_one.models.application_campaign_analytics_coupons_count.ApplicationCampaignAnalytics_couponsCount(
-                    value = 10.0, 
+                coupons_count = talon_one.models.analytics_data_point_with_trend.AnalyticsDataPointWithTrend(
+                    value = 12.0, 
                     trend = 3.25, )
             )
         else :
             return ApplicationCampaignAnalytics(
+                start_time = '2024-02-01T00:00Z',
+                end_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
+                campaign_id = 1,
+                campaign_name = 'Summer promotions',
+                campaign_tags = [summer],
+                campaign_state = 'running',
         )
 
     def testApplicationCampaignAnalytics(self):

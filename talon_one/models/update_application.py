@@ -47,7 +47,8 @@ class UpdateApplication(object):
         'sandbox': 'bool',
         'enable_partial_discounts': 'bool',
         'default_discount_additional_cost_per_item_scope': 'str',
-        'default_evaluation_group_id': 'int'
+        'default_evaluation_group_id': 'int',
+        'enable_campaign_state_management': 'bool'
     }
 
     attribute_map = {
@@ -65,10 +66,11 @@ class UpdateApplication(object):
         'sandbox': 'sandbox',
         'enable_partial_discounts': 'enablePartialDiscounts',
         'default_discount_additional_cost_per_item_scope': 'defaultDiscountAdditionalCostPerItemScope',
-        'default_evaluation_group_id': 'defaultEvaluationGroupId'
+        'default_evaluation_group_id': 'defaultEvaluationGroupId',
+        'enable_campaign_state_management': 'enableCampaignStateManagement'
     }
 
-    def __init__(self, name=None, description=None, timezone=None, currency=None, case_sensitivity=None, attributes=None, limits=None, default_discount_scope=None, enable_cascading_discounts=None, enable_flattened_cart_items=None, attributes_settings=None, sandbox=None, enable_partial_discounts=None, default_discount_additional_cost_per_item_scope=None, default_evaluation_group_id=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, name=None, description=None, timezone=None, currency=None, case_sensitivity=None, attributes=None, limits=None, default_discount_scope=None, enable_cascading_discounts=None, enable_flattened_cart_items=None, attributes_settings=None, sandbox=None, enable_partial_discounts=None, default_discount_additional_cost_per_item_scope=None, default_evaluation_group_id=None, enable_campaign_state_management=None, local_vars_configuration=None):  # noqa: E501
         """UpdateApplication - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -89,6 +91,7 @@ class UpdateApplication(object):
         self._enable_partial_discounts = None
         self._default_discount_additional_cost_per_item_scope = None
         self._default_evaluation_group_id = None
+        self._enable_campaign_state_management = None
         self.discriminator = None
 
         self.name = name
@@ -118,6 +121,8 @@ class UpdateApplication(object):
             self.default_discount_additional_cost_per_item_scope = default_discount_additional_cost_per_item_scope
         if default_evaluation_group_id is not None:
             self.default_evaluation_group_id = default_evaluation_group_id
+        if enable_campaign_state_management is not None:
+            self.enable_campaign_state_management = enable_campaign_state_management
 
     @property
     def name(self):
@@ -494,6 +499,29 @@ class UpdateApplication(object):
         """
 
         self._default_evaluation_group_id = default_evaluation_group_id
+
+    @property
+    def enable_campaign_state_management(self):
+        """Gets the enable_campaign_state_management of this UpdateApplication.  # noqa: E501
+
+        Indicates whether the campaign staging and revisions feature is enabled for the Application.  **Important:** After this feature is enabled, it cannot be disabled.   # noqa: E501
+
+        :return: The enable_campaign_state_management of this UpdateApplication.  # noqa: E501
+        :rtype: bool
+        """
+        return self._enable_campaign_state_management
+
+    @enable_campaign_state_management.setter
+    def enable_campaign_state_management(self, enable_campaign_state_management):
+        """Sets the enable_campaign_state_management of this UpdateApplication.
+
+        Indicates whether the campaign staging and revisions feature is enabled for the Application.  **Important:** After this feature is enabled, it cannot be disabled.   # noqa: E501
+
+        :param enable_campaign_state_management: The enable_campaign_state_management of this UpdateApplication.  # noqa: E501
+        :type: bool
+        """
+
+        self._enable_campaign_state_management = enable_campaign_state_management
 
     def to_dict(self):
         """Returns the model properties as a dict"""

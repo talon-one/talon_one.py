@@ -111,7 +111,7 @@ class NewReferralsForMultipleAdvocates(object):
     def expiry_date(self):
         """Gets the expiry_date of this NewReferralsForMultipleAdvocates.  # noqa: E501
 
-        Expiration date of the referral code. Referral never expires if this is omitted, zero, or negative.  # noqa: E501
+        Expiration date of the referral code. Referral never expires if this is omitted.  # noqa: E501
 
         :return: The expiry_date of this NewReferralsForMultipleAdvocates.  # noqa: E501
         :rtype: datetime
@@ -122,7 +122,7 @@ class NewReferralsForMultipleAdvocates(object):
     def expiry_date(self, expiry_date):
         """Sets the expiry_date of this NewReferralsForMultipleAdvocates.
 
-        Expiration date of the referral code. Referral never expires if this is omitted, zero, or negative.  # noqa: E501
+        Expiration date of the referral code. Referral never expires if this is omitted.  # noqa: E501
 
         :param expiry_date: The expiry_date of this NewReferralsForMultipleAdvocates.  # noqa: E501
         :type: datetime

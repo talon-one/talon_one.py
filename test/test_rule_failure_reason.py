@@ -47,7 +47,9 @@ class TestRuleFailureReason(unittest.TestCase):
                 rule_name = '0', 
                 condition_index = 56, 
                 effect_index = 56, 
-                details = '0'
+                details = '0', 
+                evaluation_group_id = 3, 
+                evaluation_group_mode = 'stackable'
             )
         else :
             return RuleFailureReason(
