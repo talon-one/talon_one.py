@@ -14,7 +14,7 @@
 
 from __future__ import absolute_import
 
-__version__ = "6.0.1"
+__version__ = "6.1.1"
 
 # import apis into sdk package
 from talon_one.api.integration_api import IntegrationApi
