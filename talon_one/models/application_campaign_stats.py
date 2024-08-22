@@ -33,7 +33,6 @@ class ApplicationCampaignStats(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'draft': 'int',
         'disabled': 'int',
         'scheduled': 'int',
         'running': 'int',
@@ -42,7 +41,6 @@ class ApplicationCampaignStats(object):
     }
 
     attribute_map = {
-        'draft': 'draft',
         'disabled': 'disabled',
         'scheduled': 'scheduled',
         'running': 'running',
@@ -50,13 +48,12 @@ class ApplicationCampaignStats(object):
         'archived': 'archived'
     }
 
-    def __init__(self, draft=None, disabled=None, scheduled=None, running=None, expired=None, archived=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, disabled=None, scheduled=None, running=None, expired=None, archived=None, local_vars_configuration=None):  # noqa: E501
         """ApplicationCampaignStats - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
-        self._draft = None
         self._disabled = None
         self._scheduled = None
         self._running = None
@@ -64,37 +61,11 @@ class ApplicationCampaignStats(object):
         self._archived = None
         self.discriminator = None
 
-        self.draft = draft
         self.disabled = disabled
         self.scheduled = scheduled
         self.running = running
         self.expired = expired
         self.archived = archived
-
-    @property
-    def draft(self):
-        """Gets the draft of this ApplicationCampaignStats.  # noqa: E501
-
-        Number of draft campaigns.  # noqa: E501
-
-        :return: The draft of this ApplicationCampaignStats.  # noqa: E501
-        :rtype: int
-        """
-        return self._draft
-
-    @draft.setter
-    def draft(self, draft):
-        """Sets the draft of this ApplicationCampaignStats.
-
-        Number of draft campaigns.  # noqa: E501
-
-        :param draft: The draft of this ApplicationCampaignStats.  # noqa: E501
-        :type: int
-        """
-        if self.local_vars_configuration.client_side_validation and draft is None:  # noqa: E501
-            raise ValueError("Invalid value for `draft`, must not be `None`")  # noqa: E501
-
-        self._draft = draft
 
     @property
     def disabled(self):

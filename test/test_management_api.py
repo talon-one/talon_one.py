@@ -31,7 +31,7 @@ class TestManagementApi(unittest.TestCase):
     def test_activate_user_by_email(self):
         """Test case for activate_user_by_email
 
-        Activate user by email address  # noqa: E501
+        Enable user by email address  # noqa: E501
         """
         pass
 
@@ -112,6 +112,13 @@ class TestManagementApi(unittest.TestCase):
         """
         pass
 
+    def test_create_coupons_deletion_job(self):
+        """Test case for create_coupons_deletion_job
+
+        Creates a coupon deletion job  # noqa: E501
+        """
+        pass
+
     def test_create_coupons_for_multiple_recipients(self):
         """Test case for create_coupons_for_multiple_recipients
 
@@ -157,7 +164,7 @@ class TestManagementApi(unittest.TestCase):
     def test_deactivate_user_by_email(self):
         """Test case for deactivate_user_by_email
 
-        Deactivate user by email address  # noqa: E501
+        Disable user by email address  # noqa: E501
         """
         pass
 
@@ -252,6 +259,13 @@ class TestManagementApi(unittest.TestCase):
         """
         pass
 
+    def test_disconnect_campaign_stores(self):
+        """Test case for disconnect_campaign_stores
+
+        Disconnect stores  # noqa: E501
+        """
+        pass
+
     def test_export_account_collection_items(self):
         """Test case for export_account_collection_items
 
@@ -270,6 +284,13 @@ class TestManagementApi(unittest.TestCase):
         """Test case for export_audiences_memberships
 
         Export audience members  # noqa: E501
+        """
+        pass
+
+    def test_export_campaign_stores(self):
+        """Test case for export_campaign_stores
+
+        Export stores  # noqa: E501
         """
         pass
 
@@ -819,6 +840,13 @@ class TestManagementApi(unittest.TestCase):
         """
         pass
 
+    def test_import_campaign_stores(self):
+        """Test case for import_campaign_stores
+
+        Import stores  # noqa: E501
+        """
+        pass
+
     def test_import_collection(self):
         """Test case for import_collection
 
@@ -931,6 +959,13 @@ class TestManagementApi(unittest.TestCase):
         """
         pass
 
+    def test_okta_event_handler_challenge(self):
+        """Test case for okta_event_handler_challenge
+
+        Validate Okta API ownership  # noqa: E501
+        """
+        pass
+
     def test_post_added_deducted_points_notification(self):
         """Test case for post_added_deducted_points_notification
 
@@ -963,6 +998,69 @@ class TestManagementApi(unittest.TestCase):
         """Test case for reset_password
 
         Reset password  # noqa: E501
+        """
+        pass
+
+    def test_scim_create_user(self):
+        """Test case for scim_create_user
+
+        Create SCIM user  # noqa: E501
+        """
+        pass
+
+    def test_scim_delete_user(self):
+        """Test case for scim_delete_user
+
+        Delete SCIM user  # noqa: E501
+        """
+        pass
+
+    def test_scim_get_resource_types(self):
+        """Test case for scim_get_resource_types
+
+        List supported SCIM resource types  # noqa: E501
+        """
+        pass
+
+    def test_scim_get_schemas(self):
+        """Test case for scim_get_schemas
+
+        List supported SCIM schemas  # noqa: E501
+        """
+        pass
+
+    def test_scim_get_service_provider_config(self):
+        """Test case for scim_get_service_provider_config
+
+        Service config endpoint for SCIM provisioning protocol  # noqa: E501
+        """
+        pass
+
+    def test_scim_get_user(self):
+        """Test case for scim_get_user
+
+        Get SCIM user  # noqa: E501
+        """
+        pass
+
+    def test_scim_get_users(self):
+        """Test case for scim_get_users
+
+        List SCIM users  # noqa: E501
+        """
+        pass
+
+    def test_scim_patch_user(self):
+        """Test case for scim_patch_user
+
+        Update SCIM user attributes  # noqa: E501
+        """
+        pass
+
+    def test_scim_replace_user_attributes(self):
+        """Test case for scim_replace_user_attributes
+
+        Update SCIM user  # noqa: E501
         """
         pass
 

@@ -42,9 +42,6 @@ class TestMessageLogResponse(unittest.TestCase):
             )
         else :
             return MessageLogResponse(
-                created_at = '2021-07-20T22:00:50Z',
-                response = 'UmVzcG9uc2UgY29udGVudA==',
-                status = 200,
         )
 
     def testMessageLogResponse(self):

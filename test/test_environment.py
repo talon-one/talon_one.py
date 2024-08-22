@@ -110,10 +110,14 @@ class TestEnvironment(unittest.TestCase):
                         allow_subledger = False, 
                         users_per_card_limit = 111, 
                         sandbox = True, 
+                        program_join_policy = 'not_join', 
                         tiers_expiration_policy = 'tier_start_date', 
+                        tier_cycle_start_date = '2021-09-12T10:12:42Z', 
                         tiers_expire_in = '27W_U', 
                         tiers_downgrade_policy = 'one_down', 
-                        program_join_policy = 'not_join', 
+                        card_code_settings = talon_one.models.code_generator_settings.CodeGeneratorSettings(
+                            valid_characters = [A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9], 
+                            coupon_pattern = 'SUMMER-####-####', ), 
                         account_id = 1, 
                         name = 'my_program', 
                         tiers = [{name=Gold, minPoints=300, id=3, created=2021-06-10T09:05:27.993483Z, programID=139}, {name=Silver, minPoints=200, id=2, created=2021-06-10T09:04:59.355258Z, programId=139}, {name=Bronze, minPoints=100, id=1, created=2021-06-10T09:04:39.355258Z, programId=139}], 
@@ -121,6 +125,7 @@ class TestEnvironment(unittest.TestCase):
                         card_based = True, 
                         can_update_tiers = True, 
                         can_update_join_policy = True, 
+                        can_update_tier_expiration_policy = True, 
                         can_upgrade_to_advanced_tiers = True, )
                     ], 
                 achievements = [

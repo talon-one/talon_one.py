@@ -370,7 +370,7 @@ class Coupon(object):
     def expiry_date(self):
         """Gets the expiry_date of this Coupon.  # noqa: E501
 
-        Expiration date of the coupon. Coupon never expires if this is omitted, zero, or negative.  # noqa: E501
+        Expiration date of the coupon. Coupon never expires if this is omitted.  # noqa: E501
 
         :return: The expiry_date of this Coupon.  # noqa: E501
         :rtype: datetime
@@ -381,7 +381,7 @@ class Coupon(object):
     def expiry_date(self, expiry_date):
         """Sets the expiry_date of this Coupon.
 
-        Expiration date of the coupon. Coupon never expires if this is omitted, zero, or negative.  # noqa: E501
+        Expiration date of the coupon. Coupon never expires if this is omitted.  # noqa: E501
 
         :param expiry_date: The expiry_date of this Coupon.  # noqa: E501
         :type: datetime

@@ -92,7 +92,8 @@ class TestCampaignDeletedNotification(unittest.TestCase):
                     created_by = 'John Doe', 
                     updated_by = 'Jane Doe', 
                     template_id = 3, 
-                    frontend_state = 'running', ), 
+                    frontend_state = 'running', 
+                    stores_imported = True, ), 
                 deleted_at = '2022-11-10T23:00Z'
             )
         else :
@@ -153,7 +154,8 @@ class TestCampaignDeletedNotification(unittest.TestCase):
                     created_by = 'John Doe', 
                     updated_by = 'Jane Doe', 
                     template_id = 3, 
-                    frontend_state = 'running', ),
+                    frontend_state = 'running', 
+                    stores_imported = True, ),
                 deleted_at = '2022-11-10T23:00Z',
         )
 

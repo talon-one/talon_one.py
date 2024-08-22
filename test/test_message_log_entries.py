@@ -49,7 +49,6 @@ class TestMessageLogEntries(unittest.TestCase):
                             request = 'SGVsbG8sIHdvcmxkIQ==', ), 
                         response = talon_one.models.message_log_response.MessageLogResponse(
                             created_at = '2021-07-20T22:00:50Z', 
-                            response = 'UmVzcG9uc2UgY29udGVudA==', 
                             status = 200, ), 
                         created_at = '2021-07-20T22:00Z', 
                         entity_type = 'loyalty_program', 
@@ -71,7 +70,6 @@ class TestMessageLogEntries(unittest.TestCase):
                             request = 'SGVsbG8sIHdvcmxkIQ==', ), 
                         response = talon_one.models.message_log_response.MessageLogResponse(
                             created_at = '2021-07-20T22:00:50Z', 
-                            response = 'UmVzcG9uc2UgY29udGVudA==', 
                             status = 200, ), 
                         created_at = '2021-07-20T22:00Z', 
                         entity_type = 'loyalty_program', 

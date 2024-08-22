@@ -36,7 +36,6 @@ class TestApplicationCampaignStats(unittest.TestCase):
         # model = talon_one.models.application_campaign_stats.ApplicationCampaignStats()  # noqa: E501
         if include_optional :
             return ApplicationCampaignStats(
-                draft = 56, 
                 disabled = 56, 
                 scheduled = 56, 
                 running = 56, 
@@ -45,7 +44,6 @@ class TestApplicationCampaignStats(unittest.TestCase):
             )
         else :
             return ApplicationCampaignStats(
-                draft = 56,
                 disabled = 56,
                 scheduled = 56,
                 running = 56,

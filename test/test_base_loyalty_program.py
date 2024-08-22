@@ -44,10 +44,14 @@ class TestBaseLoyaltyProgram(unittest.TestCase):
                 allow_subledger = False, 
                 users_per_card_limit = 111, 
                 sandbox = True, 
+                program_join_policy = 'not_join', 
                 tiers_expiration_policy = 'tier_start_date', 
+                tier_cycle_start_date = '2021-09-12T10:12:42Z', 
                 tiers_expire_in = '27W_U', 
                 tiers_downgrade_policy = 'one_down', 
-                program_join_policy = 'not_join'
+                card_code_settings = talon_one.models.code_generator_settings.CodeGeneratorSettings(
+                    valid_characters = [A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9], 
+                    coupon_pattern = 'SUMMER-####-####', )
             )
         else :
             return BaseLoyaltyProgram(

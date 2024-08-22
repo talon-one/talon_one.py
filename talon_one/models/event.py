@@ -91,7 +91,8 @@ class Event(object):
         if session_id is not None:
             self.session_id = session_id
         self.effects = effects
-        self.ledger_entries = ledger_entries
+        if ledger_entries is not None:
+            self.ledger_entries = ledger_entries
         if meta is not None:
             self.meta = meta
 
@@ -343,8 +344,6 @@ class Event(object):
         :param ledger_entries: The ledger_entries of this Event.  # noqa: E501
         :type: list[LedgerEntry]
         """
-        if self.local_vars_configuration.client_side_validation and ledger_entries is None:  # noqa: E501
-            raise ValueError("Invalid value for `ledger_entries`, must not be `None`")  # noqa: E501
 
         self._ledger_entries = ledger_entries
 

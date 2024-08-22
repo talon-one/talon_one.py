@@ -55,9 +55,12 @@ class MessageLogResponse(object):
         self._status = None
         self.discriminator = None
 
-        self.created_at = created_at
-        self.response = response
-        self.status = status
+        if created_at is not None:
+            self.created_at = created_at
+        if response is not None:
+            self.response = response
+        if status is not None:
+            self.status = status
 
     @property
     def created_at(self):
@@ -79,8 +82,6 @@ class MessageLogResponse(object):
         :param created_at: The created_at of this MessageLogResponse.  # noqa: E501
         :type: datetime
         """
-        if self.local_vars_configuration.client_side_validation and created_at is None:  # noqa: E501
-            raise ValueError("Invalid value for `created_at`, must not be `None`")  # noqa: E501
 
         self._created_at = created_at
 
@@ -104,8 +105,6 @@ class MessageLogResponse(object):
         :param response: The response of this MessageLogResponse.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and response is None:  # noqa: E501
-            raise ValueError("Invalid value for `response`, must not be `None`")  # noqa: E501
         if (self.local_vars_configuration.client_side_validation and
                 response is not None and not re.search(r'^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$', response)):  # noqa: E501
             raise ValueError(r"Invalid value for `response`, must be a follow pattern or equal to `/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/`")  # noqa: E501
@@ -132,8 +131,6 @@ class MessageLogResponse(object):
         :param status: The status of this MessageLogResponse.  # noqa: E501
         :type: int
         """
-        if self.local_vars_configuration.client_side_validation and status is None:  # noqa: E501
-            raise ValueError("Invalid value for `status`, must not be `None`")  # noqa: E501
 
         self._status = status
 

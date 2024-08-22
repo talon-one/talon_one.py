@@ -58,6 +58,8 @@ class TestInlineResponse20028(unittest.TestCase):
                                 triggered_by_coupon = 4928, 
                                 triggered_for_catalog_item = 786, 
                                 condition_index = 786, 
+                                evaluation_group_id = 3, 
+                                evaluation_group_mode = 'stackable', 
                                 props = talon_one.models.effect_props.EffectProps(), )
                             ], 
                         rule_failure_reasons = [
@@ -73,7 +75,9 @@ class TestInlineResponse20028(unittest.TestCase):
                                 rule_name = '0', 
                                 condition_index = 56, 
                                 effect_index = 56, 
-                                details = '0', )
+                                details = '0', 
+                                evaluation_group_id = 3, 
+                                evaluation_group_mode = 'stackable', )
                             ], )
                     ]
             )
@@ -101,6 +105,8 @@ class TestInlineResponse20028(unittest.TestCase):
                                 triggered_by_coupon = 4928, 
                                 triggered_for_catalog_item = 786, 
                                 condition_index = 786, 
+                                evaluation_group_id = 3, 
+                                evaluation_group_mode = 'stackable', 
                                 props = talon_one.models.effect_props.EffectProps(), )
                             ], 
                         rule_failure_reasons = [
@@ -116,7 +122,9 @@ class TestInlineResponse20028(unittest.TestCase):
                                 rule_name = '0', 
                                 condition_index = 56, 
                                 effect_index = 56, 
-                                details = '0', )
+                                details = '0', 
+                                evaluation_group_id = 3, 
+                                evaluation_group_mode = 'stackable', )
                             ], )
                     ],
         )

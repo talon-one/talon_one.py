@@ -42,6 +42,7 @@ class TestLoyalty(unittest.TestCase):
                         created = '2020-06-10T09:05:27.993483Z', 
                         program_id = 125, 
                         status = 'active', 
+                        block_reason = 'Current card lost. Customer needs a new card.', 
                         identifier = 'summer-loyalty-card-0543', 
                         users_per_card_limit = 111, 
                         profiles = [
@@ -59,6 +60,7 @@ class TestLoyalty(unittest.TestCase):
                             current_tier = talon_one.models.tier.Tier(
                                 id = 11, 
                                 name = 'bronze', 
+                                start_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                                 expiry_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                                 downgrade_policy = 'one_down', ), 
                             points_to_next_tier = 20.0, ), 
@@ -92,6 +94,7 @@ class TestLoyalty(unittest.TestCase):
                             current_tier = talon_one.models.tier.Tier(
                                 id = 11, 
                                 name = 'bronze', 
+                                start_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                                 expiry_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                                 downgrade_policy = 'one_down', ), 
                             points_to_next_tier = 20.0, ), 
@@ -125,6 +128,7 @@ class TestLoyalty(unittest.TestCase):
                             current_tier = talon_one.models.tier.Tier(
                                 id = 11, 
                                 name = 'bronze', 
+                                start_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                                 expiry_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                                 downgrade_policy = 'one_down', ), 
                             points_to_next_tier = 20.0, ), 

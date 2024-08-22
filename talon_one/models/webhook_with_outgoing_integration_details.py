@@ -38,6 +38,7 @@ class WebhookWithOutgoingIntegrationDetails(object):
         'modified': 'datetime',
         'application_ids': 'list[int]',
         'title': 'str',
+        'description': 'str',
         'verb': 'str',
         'url': 'str',
         'headers': 'list[str]',
@@ -55,6 +56,7 @@ class WebhookWithOutgoingIntegrationDetails(object):
         'modified': 'modified',
         'application_ids': 'applicationIds',
         'title': 'title',
+        'description': 'description',
         'verb': 'verb',
         'url': 'url',
         'headers': 'headers',
@@ -66,7 +68,7 @@ class WebhookWithOutgoingIntegrationDetails(object):
         'outgoing_integration_type_name': 'outgoingIntegrationTypeName'
     }
 
-    def __init__(self, id=None, created=None, modified=None, application_ids=None, title=None, verb=None, url=None, headers=None, payload=None, params=None, enabled=None, outgoing_integration_template_id=None, outgoing_integration_type_id=None, outgoing_integration_type_name=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, created=None, modified=None, application_ids=None, title=None, description=None, verb=None, url=None, headers=None, payload=None, params=None, enabled=None, outgoing_integration_template_id=None, outgoing_integration_type_id=None, outgoing_integration_type_name=None, local_vars_configuration=None):  # noqa: E501
         """WebhookWithOutgoingIntegrationDetails - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -77,6 +79,7 @@ class WebhookWithOutgoingIntegrationDetails(object):
         self._modified = None
         self._application_ids = None
         self._title = None
+        self._description = None
         self._verb = None
         self._url = None
         self._headers = None
@@ -93,6 +96,8 @@ class WebhookWithOutgoingIntegrationDetails(object):
         self.modified = modified
         self.application_ids = application_ids
         self.title = title
+        if description is not None:
+            self.description = description
         self.verb = verb
         self.url = url
         self.headers = headers
@@ -234,6 +239,29 @@ class WebhookWithOutgoingIntegrationDetails(object):
             raise ValueError(r"Invalid value for `title`, must be a follow pattern or equal to `/^[A-Za-z][A-Za-z0-9_.!~*'() -]*$/`")  # noqa: E501
 
         self._title = title
+
+    @property
+    def description(self):
+        """Gets the description of this WebhookWithOutgoingIntegrationDetails.  # noqa: E501
+
+        A description of the webhook.  # noqa: E501
+
+        :return: The description of this WebhookWithOutgoingIntegrationDetails.  # noqa: E501
+        :rtype: str
+        """
+        return self._description
+
+    @description.setter
+    def description(self, description):
+        """Sets the description of this WebhookWithOutgoingIntegrationDetails.
+
+        A description of the webhook.  # noqa: E501
+
+        :param description: The description of this WebhookWithOutgoingIntegrationDetails.  # noqa: E501
+        :type: str
+        """
+
+        self._description = description
 
     @property
     def verb(self):

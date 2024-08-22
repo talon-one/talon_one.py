@@ -44,7 +44,9 @@ class RuleFailureReason(object):
         'rule_name': 'str',
         'condition_index': 'int',
         'effect_index': 'int',
-        'details': 'str'
+        'details': 'str',
+        'evaluation_group_id': 'int',
+        'evaluation_group_mode': 'str'
     }
 
     attribute_map = {
@@ -59,10 +61,12 @@ class RuleFailureReason(object):
         'rule_name': 'ruleName',
         'condition_index': 'conditionIndex',
         'effect_index': 'effectIndex',
-        'details': 'details'
+        'details': 'details',
+        'evaluation_group_id': 'evaluationGroupID',
+        'evaluation_group_mode': 'evaluationGroupMode'
     }
 
-    def __init__(self, campaign_id=None, campaign_name=None, ruleset_id=None, coupon_id=None, coupon_value=None, referral_id=None, referral_value=None, rule_index=None, rule_name=None, condition_index=None, effect_index=None, details=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, campaign_id=None, campaign_name=None, ruleset_id=None, coupon_id=None, coupon_value=None, referral_id=None, referral_value=None, rule_index=None, rule_name=None, condition_index=None, effect_index=None, details=None, evaluation_group_id=None, evaluation_group_mode=None, local_vars_configuration=None):  # noqa: E501
         """RuleFailureReason - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -80,6 +84,8 @@ class RuleFailureReason(object):
         self._condition_index = None
         self._effect_index = None
         self._details = None
+        self._evaluation_group_id = None
+        self._evaluation_group_mode = None
         self.discriminator = None
 
         self.campaign_id = campaign_id
@@ -101,6 +107,10 @@ class RuleFailureReason(object):
             self.effect_index = effect_index
         if details is not None:
             self.details = details
+        if evaluation_group_id is not None:
+            self.evaluation_group_id = evaluation_group_id
+        if evaluation_group_mode is not None:
+            self.evaluation_group_mode = evaluation_group_mode
 
     @property
     def campaign_id(self):
@@ -387,6 +397,52 @@ class RuleFailureReason(object):
         """
 
         self._details = details
+
+    @property
+    def evaluation_group_id(self):
+        """Gets the evaluation_group_id of this RuleFailureReason.  # noqa: E501
+
+        The ID of the evaluation group. For more information, see [Managing campaign evaluation](https://docs.talon.one/docs/product/applications/managing-campaign-evaluation).  # noqa: E501
+
+        :return: The evaluation_group_id of this RuleFailureReason.  # noqa: E501
+        :rtype: int
+        """
+        return self._evaluation_group_id
+
+    @evaluation_group_id.setter
+    def evaluation_group_id(self, evaluation_group_id):
+        """Sets the evaluation_group_id of this RuleFailureReason.
+
+        The ID of the evaluation group. For more information, see [Managing campaign evaluation](https://docs.talon.one/docs/product/applications/managing-campaign-evaluation).  # noqa: E501
+
+        :param evaluation_group_id: The evaluation_group_id of this RuleFailureReason.  # noqa: E501
+        :type: int
+        """
+
+        self._evaluation_group_id = evaluation_group_id
+
+    @property
+    def evaluation_group_mode(self):
+        """Gets the evaluation_group_mode of this RuleFailureReason.  # noqa: E501
+
+        The evaluation mode of the evaluation group. For more information, see [Managing campaign evaluation](https://docs.talon.one/docs/product/applications/managing-campaign-  # noqa: E501
+
+        :return: The evaluation_group_mode of this RuleFailureReason.  # noqa: E501
+        :rtype: str
+        """
+        return self._evaluation_group_mode
+
+    @evaluation_group_mode.setter
+    def evaluation_group_mode(self, evaluation_group_mode):
+        """Sets the evaluation_group_mode of this RuleFailureReason.
+
+        The evaluation mode of the evaluation group. For more information, see [Managing campaign evaluation](https://docs.talon.one/docs/product/applications/managing-campaign-  # noqa: E501
+
+        :param evaluation_group_mode: The evaluation_group_mode of this RuleFailureReason.  # noqa: E501
+        :type: str
+        """
+
+        self._evaluation_group_mode = evaluation_group_mode
 
     def to_dict(self):
         """Returns the model properties as a dict"""

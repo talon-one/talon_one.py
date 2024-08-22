@@ -39,15 +39,12 @@ class ApplicationCampaignAnalytics(object):
         'campaign_name': 'str',
         'campaign_tags': 'list[str]',
         'campaign_state': 'str',
-        'campaign_active_ruleset_id': 'int',
-        'campaign_start_time': 'datetime',
-        'campaign_end_time': 'datetime',
-        'total_revenue': 'ApplicationCampaignAnalyticsTotalRevenue',
-        'sessions_count': 'ApplicationCampaignAnalyticsSessionsCount',
-        'avg_items_per_session': 'ApplicationCampaignAnalyticsAvgItemsPerSession',
-        'avg_session_value': 'ApplicationCampaignAnalyticsAvgSessionValue',
-        'total_discounts': 'ApplicationCampaignAnalyticsTotalDiscounts',
-        'coupons_count': 'ApplicationCampaignAnalyticsCouponsCount'
+        'total_revenue': 'AnalyticsDataPointWithTrendAndInfluencedRate',
+        'sessions_count': 'AnalyticsDataPointWithTrendAndInfluencedRate',
+        'avg_items_per_session': 'AnalyticsDataPointWithTrendAndUplift',
+        'avg_session_value': 'AnalyticsDataPointWithTrendAndUplift',
+        'total_discounts': 'AnalyticsDataPointWithTrend',
+        'coupons_count': 'AnalyticsDataPointWithTrend'
     }
 
     attribute_map = {
@@ -57,9 +54,6 @@ class ApplicationCampaignAnalytics(object):
         'campaign_name': 'campaignName',
         'campaign_tags': 'campaignTags',
         'campaign_state': 'campaignState',
-        'campaign_active_ruleset_id': 'campaignActiveRulesetId',
-        'campaign_start_time': 'campaignStartTime',
-        'campaign_end_time': 'campaignEndTime',
         'total_revenue': 'totalRevenue',
         'sessions_count': 'sessionsCount',
         'avg_items_per_session': 'avgItemsPerSession',
@@ -68,7 +62,7 @@ class ApplicationCampaignAnalytics(object):
         'coupons_count': 'couponsCount'
     }
 
-    def __init__(self, start_time=None, end_time=None, campaign_id=None, campaign_name=None, campaign_tags=None, campaign_state='enabled', campaign_active_ruleset_id=None, campaign_start_time=None, campaign_end_time=None, total_revenue=None, sessions_count=None, avg_items_per_session=None, avg_session_value=None, total_discounts=None, coupons_count=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, start_time=None, end_time=None, campaign_id=None, campaign_name=None, campaign_tags=None, campaign_state=None, total_revenue=None, sessions_count=None, avg_items_per_session=None, avg_session_value=None, total_discounts=None, coupons_count=None, local_vars_configuration=None):  # noqa: E501
         """ApplicationCampaignAnalytics - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -80,9 +74,6 @@ class ApplicationCampaignAnalytics(object):
         self._campaign_name = None
         self._campaign_tags = None
         self._campaign_state = None
-        self._campaign_active_ruleset_id = None
-        self._campaign_start_time = None
-        self._campaign_end_time = None
         self._total_revenue = None
         self._sessions_count = None
         self._avg_items_per_session = None
@@ -91,24 +82,12 @@ class ApplicationCampaignAnalytics(object):
         self._coupons_count = None
         self.discriminator = None
 
-        if start_time is not None:
-            self.start_time = start_time
-        if end_time is not None:
-            self.end_time = end_time
-        if campaign_id is not None:
-            self.campaign_id = campaign_id
-        if campaign_name is not None:
-            self.campaign_name = campaign_name
-        if campaign_tags is not None:
-            self.campaign_tags = campaign_tags
-        if campaign_state is not None:
-            self.campaign_state = campaign_state
-        if campaign_active_ruleset_id is not None:
-            self.campaign_active_ruleset_id = campaign_active_ruleset_id
-        if campaign_start_time is not None:
-            self.campaign_start_time = campaign_start_time
-        if campaign_end_time is not None:
-            self.campaign_end_time = campaign_end_time
+        self.start_time = start_time
+        self.end_time = end_time
+        self.campaign_id = campaign_id
+        self.campaign_name = campaign_name
+        self.campaign_tags = campaign_tags
+        self.campaign_state = campaign_state
         if total_revenue is not None:
             self.total_revenue = total_revenue
         if sessions_count is not None:
@@ -142,6 +121,8 @@ class ApplicationCampaignAnalytics(object):
         :param start_time: The start_time of this ApplicationCampaignAnalytics.  # noqa: E501
         :type: datetime
         """
+        if self.local_vars_configuration.client_side_validation and start_time is None:  # noqa: E501
+            raise ValueError("Invalid value for `start_time`, must not be `None`")  # noqa: E501
 
         self._start_time = start_time
 
@@ -165,6 +146,8 @@ class ApplicationCampaignAnalytics(object):
         :param end_time: The end_time of this ApplicationCampaignAnalytics.  # noqa: E501
         :type: datetime
         """
+        if self.local_vars_configuration.client_side_validation and end_time is None:  # noqa: E501
+            raise ValueError("Invalid value for `end_time`, must not be `None`")  # noqa: E501
 
         self._end_time = end_time
 
@@ -188,6 +171,8 @@ class ApplicationCampaignAnalytics(object):
         :param campaign_id: The campaign_id of this ApplicationCampaignAnalytics.  # noqa: E501
         :type: int
         """
+        if self.local_vars_configuration.client_side_validation and campaign_id is None:  # noqa: E501
+            raise ValueError("Invalid value for `campaign_id`, must not be `None`")  # noqa: E501
 
         self._campaign_id = campaign_id
 
@@ -211,6 +196,8 @@ class ApplicationCampaignAnalytics(object):
         :param campaign_name: The campaign_name of this ApplicationCampaignAnalytics.  # noqa: E501
         :type: str
         """
+        if self.local_vars_configuration.client_side_validation and campaign_name is None:  # noqa: E501
+            raise ValueError("Invalid value for `campaign_name`, must not be `None`")  # noqa: E501
 
         self._campaign_name = campaign_name
 
@@ -234,6 +221,8 @@ class ApplicationCampaignAnalytics(object):
         :param campaign_tags: The campaign_tags of this ApplicationCampaignAnalytics.  # noqa: E501
         :type: list[str]
         """
+        if self.local_vars_configuration.client_side_validation and campaign_tags is None:  # noqa: E501
+            raise ValueError("Invalid value for `campaign_tags`, must not be `None`")  # noqa: E501
 
         self._campaign_tags = campaign_tags
 
@@ -257,7 +246,9 @@ class ApplicationCampaignAnalytics(object):
         :param campaign_state: The campaign_state of this ApplicationCampaignAnalytics.  # noqa: E501
         :type: str
         """
-        allowed_values = ["enabled", "disabled", "archived"]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and campaign_state is None:  # noqa: E501
+            raise ValueError("Invalid value for `campaign_state`, must not be `None`")  # noqa: E501
+        allowed_values = ["expired", "scheduled", "running", "disabled", "archived"]  # noqa: E501
         if self.local_vars_configuration.client_side_validation and campaign_state not in allowed_values:  # noqa: E501
             raise ValueError(
                 "Invalid value for `campaign_state` ({0}), must be one of {1}"  # noqa: E501
@@ -267,81 +258,12 @@ class ApplicationCampaignAnalytics(object):
         self._campaign_state = campaign_state
 
     @property
-    def campaign_active_ruleset_id(self):
-        """Gets the campaign_active_ruleset_id of this ApplicationCampaignAnalytics.  # noqa: E501
-
-        The [ID of the ruleset](https://docs.talon.one/management-api#operation/getRulesets) this campaign applies on customer session evaluation.   # noqa: E501
-
-        :return: The campaign_active_ruleset_id of this ApplicationCampaignAnalytics.  # noqa: E501
-        :rtype: int
-        """
-        return self._campaign_active_ruleset_id
-
-    @campaign_active_ruleset_id.setter
-    def campaign_active_ruleset_id(self, campaign_active_ruleset_id):
-        """Sets the campaign_active_ruleset_id of this ApplicationCampaignAnalytics.
-
-        The [ID of the ruleset](https://docs.talon.one/management-api#operation/getRulesets) this campaign applies on customer session evaluation.   # noqa: E501
-
-        :param campaign_active_ruleset_id: The campaign_active_ruleset_id of this ApplicationCampaignAnalytics.  # noqa: E501
-        :type: int
-        """
-
-        self._campaign_active_ruleset_id = campaign_active_ruleset_id
-
-    @property
-    def campaign_start_time(self):
-        """Gets the campaign_start_time of this ApplicationCampaignAnalytics.  # noqa: E501
-
-        Date and time when the campaign becomes active.  # noqa: E501
-
-        :return: The campaign_start_time of this ApplicationCampaignAnalytics.  # noqa: E501
-        :rtype: datetime
-        """
-        return self._campaign_start_time
-
-    @campaign_start_time.setter
-    def campaign_start_time(self, campaign_start_time):
-        """Sets the campaign_start_time of this ApplicationCampaignAnalytics.
-
-        Date and time when the campaign becomes active.  # noqa: E501
-
-        :param campaign_start_time: The campaign_start_time of this ApplicationCampaignAnalytics.  # noqa: E501
-        :type: datetime
-        """
-
-        self._campaign_start_time = campaign_start_time
-
-    @property
-    def campaign_end_time(self):
-        """Gets the campaign_end_time of this ApplicationCampaignAnalytics.  # noqa: E501
-
-        Date and time when the campaign becomes inactive.  # noqa: E501
-
-        :return: The campaign_end_time of this ApplicationCampaignAnalytics.  # noqa: E501
-        :rtype: datetime
-        """
-        return self._campaign_end_time
-
-    @campaign_end_time.setter
-    def campaign_end_time(self, campaign_end_time):
-        """Sets the campaign_end_time of this ApplicationCampaignAnalytics.
-
-        Date and time when the campaign becomes inactive.  # noqa: E501
-
-        :param campaign_end_time: The campaign_end_time of this ApplicationCampaignAnalytics.  # noqa: E501
-        :type: datetime
-        """
-
-        self._campaign_end_time = campaign_end_time
-
-    @property
     def total_revenue(self):
         """Gets the total_revenue of this ApplicationCampaignAnalytics.  # noqa: E501
 
 
         :return: The total_revenue of this ApplicationCampaignAnalytics.  # noqa: E501
-        :rtype: ApplicationCampaignAnalyticsTotalRevenue
+        :rtype: AnalyticsDataPointWithTrendAndInfluencedRate
         """
         return self._total_revenue
 
@@ -351,7 +273,7 @@ class ApplicationCampaignAnalytics(object):
 
 
         :param total_revenue: The total_revenue of this ApplicationCampaignAnalytics.  # noqa: E501
-        :type: ApplicationCampaignAnalyticsTotalRevenue
+        :type: AnalyticsDataPointWithTrendAndInfluencedRate
         """
 
         self._total_revenue = total_revenue
@@ -362,7 +284,7 @@ class ApplicationCampaignAnalytics(object):
 
 
         :return: The sessions_count of this ApplicationCampaignAnalytics.  # noqa: E501
-        :rtype: ApplicationCampaignAnalyticsSessionsCount
+        :rtype: AnalyticsDataPointWithTrendAndInfluencedRate
         """
         return self._sessions_count
 
@@ -372,7 +294,7 @@ class ApplicationCampaignAnalytics(object):
 
 
         :param sessions_count: The sessions_count of this ApplicationCampaignAnalytics.  # noqa: E501
-        :type: ApplicationCampaignAnalyticsSessionsCount
+        :type: AnalyticsDataPointWithTrendAndInfluencedRate
         """
 
         self._sessions_count = sessions_count
@@ -383,7 +305,7 @@ class ApplicationCampaignAnalytics(object):
 
 
         :return: The avg_items_per_session of this ApplicationCampaignAnalytics.  # noqa: E501
-        :rtype: ApplicationCampaignAnalyticsAvgItemsPerSession
+        :rtype: AnalyticsDataPointWithTrendAndUplift
         """
         return self._avg_items_per_session
 
@@ -393,7 +315,7 @@ class ApplicationCampaignAnalytics(object):
 
 
         :param avg_items_per_session: The avg_items_per_session of this ApplicationCampaignAnalytics.  # noqa: E501
-        :type: ApplicationCampaignAnalyticsAvgItemsPerSession
+        :type: AnalyticsDataPointWithTrendAndUplift
         """
 
         self._avg_items_per_session = avg_items_per_session
@@ -404,7 +326,7 @@ class ApplicationCampaignAnalytics(object):
 
 
         :return: The avg_session_value of this ApplicationCampaignAnalytics.  # noqa: E501
-        :rtype: ApplicationCampaignAnalyticsAvgSessionValue
+        :rtype: AnalyticsDataPointWithTrendAndUplift
         """
         return self._avg_session_value
 
@@ -414,7 +336,7 @@ class ApplicationCampaignAnalytics(object):
 
 
         :param avg_session_value: The avg_session_value of this ApplicationCampaignAnalytics.  # noqa: E501
-        :type: ApplicationCampaignAnalyticsAvgSessionValue
+        :type: AnalyticsDataPointWithTrendAndUplift
         """
 
         self._avg_session_value = avg_session_value
@@ -425,7 +347,7 @@ class ApplicationCampaignAnalytics(object):
 
 
         :return: The total_discounts of this ApplicationCampaignAnalytics.  # noqa: E501
-        :rtype: ApplicationCampaignAnalyticsTotalDiscounts
+        :rtype: AnalyticsDataPointWithTrend
         """
         return self._total_discounts
 
@@ -435,7 +357,7 @@ class ApplicationCampaignAnalytics(object):
 
 
         :param total_discounts: The total_discounts of this ApplicationCampaignAnalytics.  # noqa: E501
-        :type: ApplicationCampaignAnalyticsTotalDiscounts
+        :type: AnalyticsDataPointWithTrend
         """
 
         self._total_discounts = total_discounts
@@ -446,7 +368,7 @@ class ApplicationCampaignAnalytics(object):
 
 
         :return: The coupons_count of this ApplicationCampaignAnalytics.  # noqa: E501
-        :rtype: ApplicationCampaignAnalyticsCouponsCount
+        :rtype: AnalyticsDataPointWithTrend
         """
         return self._coupons_count
 
@@ -456,7 +378,7 @@ class ApplicationCampaignAnalytics(object):
 
 
         :param coupons_count: The coupons_count of this ApplicationCampaignAnalytics.  # noqa: E501
-        :type: ApplicationCampaignAnalyticsCouponsCount
+        :type: AnalyticsDataPointWithTrend
         """
 
         self._coupons_count = coupons_count

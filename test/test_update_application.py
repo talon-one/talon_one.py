@@ -63,7 +63,8 @@ class TestUpdateApplication(unittest.TestCase):
                 sandbox = True, 
                 enable_partial_discounts = False, 
                 default_discount_additional_cost_per_item_scope = 'price', 
-                default_evaluation_group_id = 3
+                default_evaluation_group_id = 3, 
+                enable_campaign_state_management = False
             )
         else :
             return UpdateApplication(

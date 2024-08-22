@@ -36,7 +36,8 @@ class TestTransferLoyaltyCard(unittest.TestCase):
         # model = talon_one.models.transfer_loyalty_card.TransferLoyaltyCard()  # noqa: E501
         if include_optional :
             return TransferLoyaltyCard(
-                new_card_identifier = 'summer-loyalty-card-0543'
+                new_card_identifier = 'summer-loyalty-card-0543', 
+                block_reason = 'Current card lost. Customer needs a new card.'
             )
         else :
             return TransferLoyaltyCard(

@@ -436,7 +436,7 @@ class CartItem(object):
     def attributes(self):
         """Gets the attributes of this CartItem.  # noqa: E501
 
-        Use this property to set a value for the attributes of your choice. [Attributes](https://docs.talon.one/docs/dev/concepts/attributes) represent any information to attach to this cart item.  Custom _cart item_ attributes must be created in the Campaign Manager before you set them with this property.   # noqa: E501
+        Use this property to set a value for the attributes of your choice. [Attributes](https://docs.talon.one/docs/dev/concepts/attributes) represent any information to attach to this cart item.  Custom _cart item_ attributes must be created in the Campaign Manager before you set them with this property.  **Note:** Any previously defined attributes that you do not include in the array will be removed.   # noqa: E501
 
         :return: The attributes of this CartItem.  # noqa: E501
         :rtype: object
@@ -447,7 +447,7 @@ class CartItem(object):
     def attributes(self, attributes):
         """Sets the attributes of this CartItem.
 
-        Use this property to set a value for the attributes of your choice. [Attributes](https://docs.talon.one/docs/dev/concepts/attributes) represent any information to attach to this cart item.  Custom _cart item_ attributes must be created in the Campaign Manager before you set them with this property.   # noqa: E501
+        Use this property to set a value for the attributes of your choice. [Attributes](https://docs.talon.one/docs/dev/concepts/attributes) represent any information to attach to this cart item.  Custom _cart item_ attributes must be created in the Campaign Manager before you set them with this property.  **Note:** Any previously defined attributes that you do not include in the array will be removed.   # noqa: E501
 
         :param attributes: The attributes of this CartItem.  # noqa: E501
         :type: object

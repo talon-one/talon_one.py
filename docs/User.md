@@ -20,6 +20,7 @@ Name | Type | Description | Notes
 **last_signed_in** | **datetime** | Timestamp when the user last signed in to Talon.One. | [optional] 
 **last_accessed** | **datetime** | Timestamp of the user&#39;s last activity after signing in to Talon.One. | [optional] 
 **latest_feed_timestamp** | **datetime** | Timestamp when the user was notified for feed. | [optional] 
+**additional_attributes** | [**object**](.md) | Additional user attributes, created and used by external identity providers. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
