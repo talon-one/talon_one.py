@@ -36,12 +36,12 @@ class TestNewPicklist(unittest.TestCase):
         # model = talon_one.models.new_picklist.NewPicklist()  # noqa: E501
         if include_optional :
             return NewPicklist(
-                type = '2012-11-01T22:08:41+00:00', 
+                type = 'string', 
                 values = [Jeans, Shirt, Coat]
             )
         else :
             return NewPicklist(
-                type = '2012-11-01T22:08:41+00:00',
+                type = 'string',
                 values = [Jeans, Shirt, Coat],
         )
 

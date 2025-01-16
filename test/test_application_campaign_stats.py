@@ -37,6 +37,7 @@ class TestApplicationCampaignStats(unittest.TestCase):
         if include_optional :
             return ApplicationCampaignStats(
                 disabled = 56, 
+                staged = 56, 
                 scheduled = 56, 
                 running = 56, 
                 expired = 56, 
@@ -45,6 +46,7 @@ class TestApplicationCampaignStats(unittest.TestCase):
         else :
             return ApplicationCampaignStats(
                 disabled = 56,
+                staged = 56,
                 scheduled = 56,
                 running = 56,
                 expired = 56,

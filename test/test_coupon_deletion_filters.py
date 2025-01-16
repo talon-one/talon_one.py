@@ -45,7 +45,7 @@ class TestCouponDeletionFilters(unittest.TestCase):
                 redeemed = True, 
                 recipient_integration_id = '0', 
                 exact_match = True, 
-                value = 'false', 
+                value = '0', 
                 batch_id = '0', 
                 referral_id = 56, 
                 expires_after = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 

@@ -37,7 +37,8 @@ class TestGenerateLoyaltyCard(unittest.TestCase):
         if include_optional :
             return GenerateLoyaltyCard(
                 status = 'active', 
-                customer_profile_ids = [R195412, G244519]
+                customer_profile_ids = [R195412, G244519], 
+                card_identifier = 'summer-loyalty-card-0543'
             )
         else :
             return GenerateLoyaltyCard(

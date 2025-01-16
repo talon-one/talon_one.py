@@ -103,7 +103,7 @@ class ApplicationCustomer(object):
     def id(self):
         """Gets the id of this ApplicationCustomer.  # noqa: E501
 
-        Internal ID of this entity. Internal ID of this entity.  # noqa: E501
+        Internal ID of this entity.  # noqa: E501
 
         :return: The id of this ApplicationCustomer.  # noqa: E501
         :rtype: int
@@ -114,7 +114,7 @@ class ApplicationCustomer(object):
     def id(self, id):
         """Sets the id of this ApplicationCustomer.
 
-        Internal ID of this entity. Internal ID of this entity.  # noqa: E501
+        Internal ID of this entity.  # noqa: E501
 
         :param id: The id of this ApplicationCustomer.  # noqa: E501
         :type: int
@@ -128,7 +128,7 @@ class ApplicationCustomer(object):
     def created(self):
         """Gets the created of this ApplicationCustomer.  # noqa: E501
 
-        The time this entity was created. The time this entity was created. The time this entity was created. The time this entity was created.  # noqa: E501
+        The time this entity was created.  # noqa: E501
 
         :return: The created of this ApplicationCustomer.  # noqa: E501
         :rtype: datetime
@@ -139,7 +139,7 @@ class ApplicationCustomer(object):
     def created(self, created):
         """Sets the created of this ApplicationCustomer.
 
-        The time this entity was created. The time this entity was created. The time this entity was created. The time this entity was created.  # noqa: E501
+        The time this entity was created.  # noqa: E501
 
         :param created: The created of this ApplicationCustomer.  # noqa: E501
         :type: datetime
@@ -153,7 +153,7 @@ class ApplicationCustomer(object):
     def integration_id(self):
         """Gets the integration_id of this ApplicationCustomer.  # noqa: E501
 
-        The integration ID set by your integration layer. The integration ID set by your integration layer.  # noqa: E501
+        The integration ID set by your integration layer.  # noqa: E501
 
         :return: The integration_id of this ApplicationCustomer.  # noqa: E501
         :rtype: str
@@ -164,7 +164,7 @@ class ApplicationCustomer(object):
     def integration_id(self, integration_id):
         """Sets the integration_id of this ApplicationCustomer.
 
-        The integration ID set by your integration layer. The integration ID set by your integration layer.  # noqa: E501
+        The integration ID set by your integration layer.  # noqa: E501
 
         :param integration_id: The integration_id of this ApplicationCustomer.  # noqa: E501
         :type: str
@@ -206,7 +206,7 @@ class ApplicationCustomer(object):
     def account_id(self):
         """Gets the account_id of this ApplicationCustomer.  # noqa: E501
 
-        The ID of the Talon.One account that owns this profile. The ID of the Talon.One account that owns this profile.  # noqa: E501
+        The ID of the Talon.One account that owns this profile.  # noqa: E501
 
         :return: The account_id of this ApplicationCustomer.  # noqa: E501
         :rtype: int
@@ -217,7 +217,7 @@ class ApplicationCustomer(object):
     def account_id(self, account_id):
         """Sets the account_id of this ApplicationCustomer.
 
-        The ID of the Talon.One account that owns this profile. The ID of the Talon.One account that owns this profile.  # noqa: E501
+        The ID of the Talon.One account that owns this profile.  # noqa: E501
 
         :param account_id: The account_id of this ApplicationCustomer.  # noqa: E501
         :type: int

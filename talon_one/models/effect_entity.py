@@ -42,7 +42,9 @@ class EffectEntity(object):
         'triggered_for_catalog_item': 'int',
         'condition_index': 'int',
         'evaluation_group_id': 'int',
-        'evaluation_group_mode': 'str'
+        'evaluation_group_mode': 'str',
+        'campaign_revision_id': 'int',
+        'campaign_revision_version_id': 'int'
     }
 
     attribute_map = {
@@ -55,10 +57,12 @@ class EffectEntity(object):
         'triggered_for_catalog_item': 'triggeredForCatalogItem',
         'condition_index': 'conditionIndex',
         'evaluation_group_id': 'evaluationGroupID',
-        'evaluation_group_mode': 'evaluationGroupMode'
+        'evaluation_group_mode': 'evaluationGroupMode',
+        'campaign_revision_id': 'campaignRevisionId',
+        'campaign_revision_version_id': 'campaignRevisionVersionId'
     }
 
-    def __init__(self, campaign_id=None, ruleset_id=None, rule_index=None, rule_name=None, effect_type=None, triggered_by_coupon=None, triggered_for_catalog_item=None, condition_index=None, evaluation_group_id=None, evaluation_group_mode=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, campaign_id=None, ruleset_id=None, rule_index=None, rule_name=None, effect_type=None, triggered_by_coupon=None, triggered_for_catalog_item=None, condition_index=None, evaluation_group_id=None, evaluation_group_mode=None, campaign_revision_id=None, campaign_revision_version_id=None, local_vars_configuration=None):  # noqa: E501
         """EffectEntity - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -74,6 +78,8 @@ class EffectEntity(object):
         self._condition_index = None
         self._evaluation_group_id = None
         self._evaluation_group_mode = None
+        self._campaign_revision_id = None
+        self._campaign_revision_version_id = None
         self.discriminator = None
 
         self.campaign_id = campaign_id
@@ -91,6 +97,10 @@ class EffectEntity(object):
             self.evaluation_group_id = evaluation_group_id
         if evaluation_group_mode is not None:
             self.evaluation_group_mode = evaluation_group_mode
+        if campaign_revision_id is not None:
+            self.campaign_revision_id = campaign_revision_id
+        if campaign_revision_version_id is not None:
+            self.campaign_revision_version_id = campaign_revision_version_id
 
     @property
     def campaign_id(self):
@@ -331,6 +341,52 @@ class EffectEntity(object):
         """
 
         self._evaluation_group_mode = evaluation_group_mode
+
+    @property
+    def campaign_revision_id(self):
+        """Gets the campaign_revision_id of this EffectEntity.  # noqa: E501
+
+        The revision ID of the campaign that was used when triggering the effect.  # noqa: E501
+
+        :return: The campaign_revision_id of this EffectEntity.  # noqa: E501
+        :rtype: int
+        """
+        return self._campaign_revision_id
+
+    @campaign_revision_id.setter
+    def campaign_revision_id(self, campaign_revision_id):
+        """Sets the campaign_revision_id of this EffectEntity.
+
+        The revision ID of the campaign that was used when triggering the effect.  # noqa: E501
+
+        :param campaign_revision_id: The campaign_revision_id of this EffectEntity.  # noqa: E501
+        :type: int
+        """
+
+        self._campaign_revision_id = campaign_revision_id
+
+    @property
+    def campaign_revision_version_id(self):
+        """Gets the campaign_revision_version_id of this EffectEntity.  # noqa: E501
+
+        The revision version ID of the campaign that was used when triggering the effect.  # noqa: E501
+
+        :return: The campaign_revision_version_id of this EffectEntity.  # noqa: E501
+        :rtype: int
+        """
+        return self._campaign_revision_version_id
+
+    @campaign_revision_version_id.setter
+    def campaign_revision_version_id(self, campaign_revision_version_id):
+        """Sets the campaign_revision_version_id of this EffectEntity.
+
+        The revision version ID of the campaign that was used when triggering the effect.  # noqa: E501
+
+        :param campaign_revision_version_id: The campaign_revision_version_id of this EffectEntity.  # noqa: E501
+        :type: int
+        """
+
+        self._campaign_revision_version_id = campaign_revision_version_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

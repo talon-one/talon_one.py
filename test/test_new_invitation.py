@@ -40,7 +40,7 @@ class TestNewInvitation(unittest.TestCase):
                 email = 'john.doe@example.com', 
                 is_admin = False, 
                 roles = [
-                    56
+                    13
                     ], 
                 acl = '0'
             )

@@ -34,7 +34,7 @@ class InlineResponse20027(object):
     """
     openapi_types = {
         'has_more': 'bool',
-        'data': 'list[ApplicationSession]'
+        'data': 'list[ApplicationEvent]'
     }
 
     attribute_map = {
@@ -52,8 +52,7 @@ class InlineResponse20027(object):
         self._data = None
         self.discriminator = None
 
-        if has_more is not None:
-            self.has_more = has_more
+        self.has_more = has_more
         self.data = data
 
     @property
@@ -74,6 +73,8 @@ class InlineResponse20027(object):
         :param has_more: The has_more of this InlineResponse20027.  # noqa: E501
         :type: bool
         """
+        if self.local_vars_configuration.client_side_validation and has_more is None:  # noqa: E501
+            raise ValueError("Invalid value for `has_more`, must not be `None`")  # noqa: E501
 
         self._has_more = has_more
 
@@ -83,7 +84,7 @@ class InlineResponse20027(object):
 
 
         :return: The data of this InlineResponse20027.  # noqa: E501
-        :rtype: list[ApplicationSession]
+        :rtype: list[ApplicationEvent]
         """
         return self._data
 
@@ -93,7 +94,7 @@ class InlineResponse20027(object):
 
 
         :param data: The data of this InlineResponse20027.  # noqa: E501
-        :type: list[ApplicationSession]
+        :type: list[ApplicationEvent]
         """
         if self.local_vars_configuration.client_side_validation and data is None:  # noqa: E501
             raise ValueError("Invalid value for `data`, must not be `None`")  # noqa: E501

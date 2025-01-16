@@ -1,6 +1,5 @@
 # OutgoingIntegrationTemplateWithConfigurationDetails
 
-
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

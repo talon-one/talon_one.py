@@ -38,24 +38,40 @@ class TestInlineResponse20038(unittest.TestCase):
             return InlineResponse20038(
                 total_result_size = 1, 
                 data = [
-                    talon_one.models.webhook_activation_log_entry.WebhookActivationLogEntry(
-                        integration_request_uuid = '6d3699cf-95bd-444a-b62f-80d6e8391dc9', 
-                        webhook_id = 1, 
-                        application_id = 13, 
-                        campaign_id = 86, 
-                        created = '2023-03-21T13:55:08.571144Z', )
+                    talon_one.models.webhook_log_entry.WebhookLogEntry(
+                        id = '2', 
+                        integration_request_uuid = '472075793', 
+                        webhook_id = 5, 
+                        application_id = 12, 
+                        url = 'www.my-company.com/my-endpoint-name', 
+                        request = '{
+  mydata: "somevalue"
+}
+', 
+                        response = '0', 
+                        status = 204, 
+                        request_time = '2021-07-20T22:00Z', 
+                        response_time = '2021-07-20T22:00:50Z', )
                     ]
             )
         else :
             return InlineResponse20038(
                 total_result_size = 1,
                 data = [
-                    talon_one.models.webhook_activation_log_entry.WebhookActivationLogEntry(
-                        integration_request_uuid = '6d3699cf-95bd-444a-b62f-80d6e8391dc9', 
-                        webhook_id = 1, 
-                        application_id = 13, 
-                        campaign_id = 86, 
-                        created = '2023-03-21T13:55:08.571144Z', )
+                    talon_one.models.webhook_log_entry.WebhookLogEntry(
+                        id = '2', 
+                        integration_request_uuid = '472075793', 
+                        webhook_id = 5, 
+                        application_id = 12, 
+                        url = 'www.my-company.com/my-endpoint-name', 
+                        request = '{
+  mydata: "somevalue"
+}
+', 
+                        response = '0', 
+                        status = 204, 
+                        request_time = '2021-07-20T22:00Z', 
+                        response_time = '2021-07-20T22:00:50Z', )
                     ],
         )
 

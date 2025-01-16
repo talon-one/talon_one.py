@@ -38,37 +38,36 @@ class TestInlineResponse20046(unittest.TestCase):
             return InlineResponse20046(
                 has_more = True, 
                 data = [
-                    talon_one.models.achievement.Achievement(
-                        id = 6, 
-                        created = '2020-06-10T09:05:27.993483Z', 
-                        name = 'Order50Discount', 
+                    talon_one.models.achievement_progress.AchievementProgress(
+                        achievement_id = 3, 
+                        name = 'FreeCoffee10Orders', 
                         title = '50% off on 50th purchase.', 
                         description = '50% off for every 50th purchase in a year.', 
-                        target = 50.0, 
-                        period = '1Y', 
-                        period_end_override = {month=11, dayOfMonth=23, hour=23, minute=59, second=59}, 
-                        campaign_id = 1, 
-                        user_id = 1234, 
-                        created_by = 'John Doe', 
-                        has_progress = True, )
+                        campaign_id = 3, 
+                        status = 'completed', 
+                        target = 10.0, 
+                        progress = 10.0, 
+                        start_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        completion_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        end_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), )
                     ]
             )
         else :
             return InlineResponse20046(
+                has_more = True,
                 data = [
-                    talon_one.models.achievement.Achievement(
-                        id = 6, 
-                        created = '2020-06-10T09:05:27.993483Z', 
-                        name = 'Order50Discount', 
+                    talon_one.models.achievement_progress.AchievementProgress(
+                        achievement_id = 3, 
+                        name = 'FreeCoffee10Orders', 
                         title = '50% off on 50th purchase.', 
                         description = '50% off for every 50th purchase in a year.', 
-                        target = 50.0, 
-                        period = '1Y', 
-                        period_end_override = {month=11, dayOfMonth=23, hour=23, minute=59, second=59}, 
-                        campaign_id = 1, 
-                        user_id = 1234, 
-                        created_by = 'John Doe', 
-                        has_progress = True, )
+                        campaign_id = 3, 
+                        status = 'completed', 
+                        target = 10.0, 
+                        progress = 10.0, 
+                        start_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        completion_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        end_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), )
                     ],
         )
 

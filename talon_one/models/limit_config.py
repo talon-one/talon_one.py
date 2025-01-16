@@ -168,7 +168,7 @@ class LimitConfig(object):
         """
         if self.local_vars_configuration.client_side_validation and entities is None:  # noqa: E501
             raise ValueError("Invalid value for `entities`, must not be `None`")  # noqa: E501
-        allowed_values = ["Coupon", "Referral", "Profile", "Identifier"]  # noqa: E501
+        allowed_values = ["Coupon", "Referral", "Profile", "Identifier", "Store", "Session"]  # noqa: E501
         if (self.local_vars_configuration.client_side_validation and
                 not set(entities).issubset(set(allowed_values))):  # noqa: E501
             raise ValueError(

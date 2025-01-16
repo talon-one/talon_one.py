@@ -34,6 +34,7 @@ class ApplicationCampaignStats(object):
     """
     openapi_types = {
         'disabled': 'int',
+        'staged': 'int',
         'scheduled': 'int',
         'running': 'int',
         'expired': 'int',
@@ -42,19 +43,21 @@ class ApplicationCampaignStats(object):
 
     attribute_map = {
         'disabled': 'disabled',
+        'staged': 'staged',
         'scheduled': 'scheduled',
         'running': 'running',
         'expired': 'expired',
         'archived': 'archived'
     }
 
-    def __init__(self, disabled=None, scheduled=None, running=None, expired=None, archived=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, disabled=None, staged=None, scheduled=None, running=None, expired=None, archived=None, local_vars_configuration=None):  # noqa: E501
         """ApplicationCampaignStats - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._disabled = None
+        self._staged = None
         self._scheduled = None
         self._running = None
         self._expired = None
@@ -62,6 +65,7 @@ class ApplicationCampaignStats(object):
         self.discriminator = None
 
         self.disabled = disabled
+        self.staged = staged
         self.scheduled = scheduled
         self.running = running
         self.expired = expired
@@ -91,6 +95,31 @@ class ApplicationCampaignStats(object):
             raise ValueError("Invalid value for `disabled`, must not be `None`")  # noqa: E501
 
         self._disabled = disabled
+
+    @property
+    def staged(self):
+        """Gets the staged of this ApplicationCampaignStats.  # noqa: E501
+
+        Number of staged campaigns.  # noqa: E501
+
+        :return: The staged of this ApplicationCampaignStats.  # noqa: E501
+        :rtype: int
+        """
+        return self._staged
+
+    @staged.setter
+    def staged(self, staged):
+        """Sets the staged of this ApplicationCampaignStats.
+
+        Number of staged campaigns.  # noqa: E501
+
+        :param staged: The staged of this ApplicationCampaignStats.  # noqa: E501
+        :type: int
+        """
+        if self.local_vars_configuration.client_side_validation and staged is None:  # noqa: E501
+            raise ValueError("Invalid value for `staged`, must not be `None`")  # noqa: E501
+
+        self._staged = staged
 
     @property
     def scheduled(self):

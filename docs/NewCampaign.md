@@ -1,6 +1,5 @@
 # NewCampaign
 
-
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

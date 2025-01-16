@@ -36,7 +36,7 @@ class TestCustomerSession(unittest.TestCase):
         # model = talon_one.models.customer_session.CustomerSession()  # noqa: E501
         if include_optional :
             return CustomerSession(
-                integration_id = '0', 
+                integration_id = 'URNGV8294NV', 
                 created = '2020-02-07T08:15:22Z', 
                 application_id = 322, 
                 profile_id = 'URNGV8294NV', 
@@ -74,7 +74,7 @@ class TestCustomerSession(unittest.TestCase):
             )
         else :
             return CustomerSession(
-                integration_id = '0',
+                integration_id = 'URNGV8294NV',
                 created = '2020-02-07T08:15:22Z',
                 application_id = 322,
                 profile_id = 'URNGV8294NV',

@@ -34,7 +34,7 @@ class InlineResponse20043(object):
     """
     openapi_types = {
         'total_result_size': 'int',
-        'data': 'list[Export]'
+        'data': 'list[RoleV2]'
     }
 
     attribute_map = {
@@ -84,7 +84,7 @@ class InlineResponse20043(object):
 
 
         :return: The data of this InlineResponse20043.  # noqa: E501
-        :rtype: list[Export]
+        :rtype: list[RoleV2]
         """
         return self._data
 
@@ -94,7 +94,7 @@ class InlineResponse20043(object):
 
 
         :param data: The data of this InlineResponse20043.  # noqa: E501
-        :type: list[Export]
+        :type: list[RoleV2]
         """
         if self.local_vars_configuration.client_side_validation and data is None:  # noqa: E501
             raise ValueError("Invalid value for `data`, must not be `None`")  # noqa: E501

@@ -51,6 +51,9 @@ class TestNewCampaignTemplate(unittest.TestCase):
                 coupon_settings = talon_one.models.code_generator_settings.CodeGeneratorSettings(
                     valid_characters = [A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9], 
                     coupon_pattern = 'SUMMER-####-####', ), 
+                coupon_reservation_settings = talon_one.models.campaign_template_coupon_reservation_settings.CampaignTemplateCouponReservationSettings(
+                    reservation_limit = 45, 
+                    is_reservation_mandatory = False, ), 
                 referral_settings = talon_one.models.code_generator_settings.CodeGeneratorSettings(
                     valid_characters = [A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9], 
                     coupon_pattern = 'SUMMER-####-####', ), 

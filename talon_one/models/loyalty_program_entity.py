@@ -33,23 +33,33 @@ class LoyaltyProgramEntity(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'program_id': 'int'
+        'program_id': 'int',
+        'program_name': 'str',
+        'program_title': 'str'
     }
 
     attribute_map = {
-        'program_id': 'programID'
+        'program_id': 'programID',
+        'program_name': 'programName',
+        'program_title': 'programTitle'
     }
 
-    def __init__(self, program_id=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, program_id=None, program_name=None, program_title=None, local_vars_configuration=None):  # noqa: E501
         """LoyaltyProgramEntity - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._program_id = None
+        self._program_name = None
+        self._program_title = None
         self.discriminator = None
 
         self.program_id = program_id
+        if program_name is not None:
+            self.program_name = program_name
+        if program_title is not None:
+            self.program_title = program_title
 
     @property
     def program_id(self):
@@ -75,6 +85,52 @@ class LoyaltyProgramEntity(object):
             raise ValueError("Invalid value for `program_id`, must not be `None`")  # noqa: E501
 
         self._program_id = program_id
+
+    @property
+    def program_name(self):
+        """Gets the program_name of this LoyaltyProgramEntity.  # noqa: E501
+
+        The integration name of the loyalty program that owns this entity.  # noqa: E501
+
+        :return: The program_name of this LoyaltyProgramEntity.  # noqa: E501
+        :rtype: str
+        """
+        return self._program_name
+
+    @program_name.setter
+    def program_name(self, program_name):
+        """Sets the program_name of this LoyaltyProgramEntity.
+
+        The integration name of the loyalty program that owns this entity.  # noqa: E501
+
+        :param program_name: The program_name of this LoyaltyProgramEntity.  # noqa: E501
+        :type: str
+        """
+
+        self._program_name = program_name
+
+    @property
+    def program_title(self):
+        """Gets the program_title of this LoyaltyProgramEntity.  # noqa: E501
+
+        The Campaign Manager-displayed name of the loyalty program that owns this entity.  # noqa: E501
+
+        :return: The program_title of this LoyaltyProgramEntity.  # noqa: E501
+        :rtype: str
+        """
+        return self._program_title
+
+    @program_title.setter
+    def program_title(self, program_title):
+        """Sets the program_title of this LoyaltyProgramEntity.
+
+        The Campaign Manager-displayed name of the loyalty program that owns this entity.  # noqa: E501
+
+        :param program_title: The program_title of this LoyaltyProgramEntity.  # noqa: E501
+        :type: str
+        """
+
+        self._program_title = program_title
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -42,6 +42,7 @@ class NewCampaignTemplate(object):
         'tags': 'list[str]',
         'features': 'list[str]',
         'coupon_settings': 'CodeGeneratorSettings',
+        'coupon_reservation_settings': 'CampaignTemplateCouponReservationSettings',
         'referral_settings': 'CodeGeneratorSettings',
         'limits': 'list[TemplateLimitConfig]',
         'template_params': 'list[CampaignTemplateParams]',
@@ -60,6 +61,7 @@ class NewCampaignTemplate(object):
         'tags': 'tags',
         'features': 'features',
         'coupon_settings': 'couponSettings',
+        'coupon_reservation_settings': 'couponReservationSettings',
         'referral_settings': 'referralSettings',
         'limits': 'limits',
         'template_params': 'templateParams',
@@ -68,7 +70,7 @@ class NewCampaignTemplate(object):
         'campaign_type': 'campaignType'
     }
 
-    def __init__(self, name=None, description=None, instructions=None, campaign_attributes=None, coupon_attributes=None, state=None, tags=None, features=None, coupon_settings=None, referral_settings=None, limits=None, template_params=None, campaign_collections=None, default_campaign_group_id=None, campaign_type='advanced', local_vars_configuration=None):  # noqa: E501
+    def __init__(self, name=None, description=None, instructions=None, campaign_attributes=None, coupon_attributes=None, state=None, tags=None, features=None, coupon_settings=None, coupon_reservation_settings=None, referral_settings=None, limits=None, template_params=None, campaign_collections=None, default_campaign_group_id=None, campaign_type='advanced', local_vars_configuration=None):  # noqa: E501
         """NewCampaignTemplate - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -83,6 +85,7 @@ class NewCampaignTemplate(object):
         self._tags = None
         self._features = None
         self._coupon_settings = None
+        self._coupon_reservation_settings = None
         self._referral_settings = None
         self._limits = None
         self._template_params = None
@@ -105,6 +108,8 @@ class NewCampaignTemplate(object):
             self.features = features
         if coupon_settings is not None:
             self.coupon_settings = coupon_settings
+        if coupon_reservation_settings is not None:
+            self.coupon_reservation_settings = coupon_reservation_settings
         if referral_settings is not None:
             self.referral_settings = referral_settings
         if limits is not None:
@@ -346,6 +351,27 @@ class NewCampaignTemplate(object):
         """
 
         self._coupon_settings = coupon_settings
+
+    @property
+    def coupon_reservation_settings(self):
+        """Gets the coupon_reservation_settings of this NewCampaignTemplate.  # noqa: E501
+
+
+        :return: The coupon_reservation_settings of this NewCampaignTemplate.  # noqa: E501
+        :rtype: CampaignTemplateCouponReservationSettings
+        """
+        return self._coupon_reservation_settings
+
+    @coupon_reservation_settings.setter
+    def coupon_reservation_settings(self, coupon_reservation_settings):
+        """Sets the coupon_reservation_settings of this NewCampaignTemplate.
+
+
+        :param coupon_reservation_settings: The coupon_reservation_settings of this NewCampaignTemplate.  # noqa: E501
+        :type: CampaignTemplateCouponReservationSettings
+        """
+
+        self._coupon_reservation_settings = coupon_reservation_settings
 
     @property
     def referral_settings(self):

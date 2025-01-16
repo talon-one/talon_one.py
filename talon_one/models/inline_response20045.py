@@ -34,31 +34,26 @@ class InlineResponse20045(object):
     """
     openapi_types = {
         'has_more': 'bool',
-        'total_result_size': 'int',
-        'data': 'list[Store]'
+        'data': 'list[Achievement]'
     }
 
     attribute_map = {
         'has_more': 'hasMore',
-        'total_result_size': 'totalResultSize',
         'data': 'data'
     }
 
-    def __init__(self, has_more=None, total_result_size=None, data=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, has_more=None, data=None, local_vars_configuration=None):  # noqa: E501
         """InlineResponse20045 - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._has_more = None
-        self._total_result_size = None
         self._data = None
         self.discriminator = None
 
         if has_more is not None:
             self.has_more = has_more
-        if total_result_size is not None:
-            self.total_result_size = total_result_size
         self.data = data
 
     @property
@@ -83,33 +78,12 @@ class InlineResponse20045(object):
         self._has_more = has_more
 
     @property
-    def total_result_size(self):
-        """Gets the total_result_size of this InlineResponse20045.  # noqa: E501
-
-
-        :return: The total_result_size of this InlineResponse20045.  # noqa: E501
-        :rtype: int
-        """
-        return self._total_result_size
-
-    @total_result_size.setter
-    def total_result_size(self, total_result_size):
-        """Sets the total_result_size of this InlineResponse20045.
-
-
-        :param total_result_size: The total_result_size of this InlineResponse20045.  # noqa: E501
-        :type: int
-        """
-
-        self._total_result_size = total_result_size
-
-    @property
     def data(self):
         """Gets the data of this InlineResponse20045.  # noqa: E501
 
 
         :return: The data of this InlineResponse20045.  # noqa: E501
-        :rtype: list[Store]
+        :rtype: list[Achievement]
         """
         return self._data
 
@@ -119,7 +93,7 @@ class InlineResponse20045(object):
 
 
         :param data: The data of this InlineResponse20045.  # noqa: E501
-        :type: list[Store]
+        :type: list[Achievement]
         """
         if self.local_vars_configuration.client_side_validation and data is None:  # noqa: E501
             raise ValueError("Invalid value for `data`, must not be `None`")  # noqa: E501

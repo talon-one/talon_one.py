@@ -38,7 +38,7 @@ class TestCustomerInventory(unittest.TestCase):
             return CustomerInventory(
                 profile = talon_one.models.customer_profile.CustomerProfile(
                     id = 6, 
-                    created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                    created = '2020-02-07T08:15:22Z', 
                     integration_id = 'URNGV8294NV', 
                     attributes = {"Language":"english","ShippingCountry":"DE"}, 
                     account_id = 31, 
@@ -46,7 +46,7 @@ class TestCustomerInventory(unittest.TestCase):
                     total_sales = 299.99, 
                     loyalty_memberships = [
                         talon_one.models.loyalty_membership.LoyaltyMembership(
-                            joined = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                            joined = '2012-03-20T14:15:22Z', 
                             loyalty_program_id = 323414846, )
                         ], 
                     audience_memberships = [
@@ -62,6 +62,8 @@ class TestCustomerInventory(unittest.TestCase):
                             id = 6, 
                             created = '2020-06-10T09:05:27.993483Z', 
                             program_id = 125, 
+                            program_name = 'Loyalty_program', 
+                            program_title = 'Loyalty program', 
                             status = 'active', 
                             block_reason = 'Current card lost. Customer needs a new card.', 
                             identifier = 'summer-loyalty-card-0543', 
@@ -97,7 +99,8 @@ class TestCustomerInventory(unittest.TestCase):
                                 }, 
                             modified = '2021-09-12T10:12:42Z', 
                             old_card_identifier = 'summer-loyalty-card-0543', 
-                            new_card_identifier = 'summer-loyalty-card-0543', )
+                            new_card_identifier = 'summer-loyalty-card-0543', 
+                            batch_id = 'wdefpov', )
                         ], 
                     programs = {
                         'key' : talon_one.models.loyalty_program_ledgers.LoyaltyProgramLedgers(
@@ -195,6 +198,7 @@ class TestCustomerInventory(unittest.TestCase):
                         achievement_id = 3, 
                         name = 'FreeCoffee10Orders', 
                         title = '50% off on 50th purchase.', 
+                        description = '50% off for every 50th purchase in a year.', 
                         campaign_id = 3, 
                         status = 'completed', 
                         target = 10.0, 

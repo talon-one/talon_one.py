@@ -42,6 +42,8 @@ class TestInlineResponse20015(unittest.TestCase):
                         id = 6, 
                         created = '2020-06-10T09:05:27.993483Z', 
                         program_id = 125, 
+                        program_name = 'Loyalty_program', 
+                        program_title = 'Loyalty program', 
                         status = 'active', 
                         block_reason = 'Current card lost. Customer needs a new card.', 
                         identifier = 'summer-loyalty-card-0543', 
@@ -77,7 +79,8 @@ class TestInlineResponse20015(unittest.TestCase):
                             }, 
                         modified = '2021-09-12T10:12:42Z', 
                         old_card_identifier = 'summer-loyalty-card-0543', 
-                        new_card_identifier = 'summer-loyalty-card-0543', )
+                        new_card_identifier = 'summer-loyalty-card-0543', 
+                        batch_id = 'wdefpov', )
                     ]
             )
         else :
@@ -88,6 +91,8 @@ class TestInlineResponse20015(unittest.TestCase):
                         id = 6, 
                         created = '2020-06-10T09:05:27.993483Z', 
                         program_id = 125, 
+                        program_name = 'Loyalty_program', 
+                        program_title = 'Loyalty program', 
                         status = 'active', 
                         block_reason = 'Current card lost. Customer needs a new card.', 
                         identifier = 'summer-loyalty-card-0543', 
@@ -123,7 +128,8 @@ class TestInlineResponse20015(unittest.TestCase):
                             }, 
                         modified = '2021-09-12T10:12:42Z', 
                         old_card_identifier = 'summer-loyalty-card-0543', 
-                        new_card_identifier = 'summer-loyalty-card-0543', )
+                        new_card_identifier = 'summer-loyalty-card-0543', 
+                        batch_id = 'wdefpov', )
                     ],
         )
 

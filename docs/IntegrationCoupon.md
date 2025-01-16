@@ -1,6 +1,5 @@
 # IntegrationCoupon
 
-
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

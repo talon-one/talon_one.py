@@ -1,6 +1,5 @@
 # AccountAdditionalCost
 
-
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

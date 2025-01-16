@@ -84,6 +84,13 @@ class TestManagementApi(unittest.TestCase):
         """
         pass
 
+    def test_create_batch_loyalty_cards(self):
+        """Test case for create_batch_loyalty_cards
+
+        Create loyalty cards  # noqa: E501
+        """
+        pass
+
     def test_create_campaign_from_template(self):
         """Test case for create_campaign_from_template
 
@@ -357,6 +364,13 @@ class TestManagementApi(unittest.TestCase):
         """
         pass
 
+    def test_export_loyalty_cards(self):
+        """Test case for export_loyalty_cards
+
+        Export loyalty cards  # noqa: E501
+        """
+        pass
+
     def test_export_loyalty_ledger(self):
         """Test case for export_loyalty_ledger
 
@@ -424,13 +438,6 @@ class TestManagementApi(unittest.TestCase):
         """Test case for get_additional_costs
 
         List additional costs  # noqa: E501
-        """
-        pass
-
-    def test_get_all_access_logs(self):
-        """Test case for get_all_access_logs
-
-        List access logs  # noqa: E501
         """
         pass
 
@@ -1032,7 +1039,7 @@ class TestManagementApi(unittest.TestCase):
     def test_scim_get_service_provider_config(self):
         """Test case for scim_get_service_provider_config
 
-        Service config endpoint for SCIM provisioning protocol  # noqa: E501
+        Get SCIM service provider configuration  # noqa: E501
         """
         pass
 

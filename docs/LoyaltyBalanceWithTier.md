@@ -1,6 +1,6 @@
 # LoyaltyBalanceWithTier
 
-
+Point balance of a ledger in the Loyalty Program.
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

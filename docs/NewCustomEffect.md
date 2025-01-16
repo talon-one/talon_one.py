@@ -1,6 +1,5 @@
 # NewCustomEffect
 
-
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

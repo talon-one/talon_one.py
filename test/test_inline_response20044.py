@@ -36,42 +36,34 @@ class TestInlineResponse20044(unittest.TestCase):
         # model = talon_one.models.inline_response20044.InlineResponse20044()  # noqa: E501
         if include_optional :
             return InlineResponse20044(
+                has_more = True, 
                 total_result_size = 1, 
                 data = [
-                    talon_one.models.role_v2.RoleV2(
+                    talon_one.models.store.Store(
                         id = 6, 
-                        created = '2020-06-10T09:05:27.993483Z', 
-                        modified = '2021-09-12T10:12:42Z', 
-                        account_id = 3886, 
-                        name = 'Campaign and campaign access group manager', 
-                        description = 'Allows you to create and edit campaigns for specific Applications, delete specific campaign access groups, and view loyalty programs.', 
-                        permissions = talon_one.models.role_v2_permissions.RoleV2Permissions(
-                            permission_sets = [{name=Application permission set, logicalOperations=[getApplicationOperations, editApplicationOperations]}, {name=Campaign manager permission set, logicalOperations=[getCampaignOperations, createCampaignOperations, updateCampaignOperations]}, {name=Campaign read-only permission set, logicalOperations=[getCampaignOperations]}, {name=Loyalty program read-only permission set, logicalOperations=[getLoyaltyProgramOperations]}, {name=Campaign access group manager permission set, logicalOperations=[getCampaignAccessGroupOperations, updateCampaignAccessGroupOperations, deleteCampaignAccessGroupOperations]}], 
-                            roles = talon_one.models.role_v2_roles_group.RoleV2RolesGroup(
-                                applications = {1={application=Application permission set}, 3={campaign=Campaign manager permission set}, 4={draftCampaign=Campaign read-only permission set}, 5={tools=Tools permission set}}, 
-                                loyalty_programs = {10=Loyalty program manager permission set}, 
-                                campaign_access_groups = {5=Campaign access group manager permission set}, ), ), 
-                        members = [10, 12], )
+                        created = '2020-02-07T08:15:22Z', 
+                        name = 'South US store', 
+                        description = 'This is the description of the store in south US.', 
+                        attributes = {"country":"USA","code":1234}, 
+                        integration_id = 'STORE-001', 
+                        application_id = 322, 
+                        updated = '2021-09-23T10:12:42Z', 
+                        linked_campaign_ids = [4, 6, 8], )
                     ]
             )
         else :
             return InlineResponse20044(
-                total_result_size = 1,
                 data = [
-                    talon_one.models.role_v2.RoleV2(
+                    talon_one.models.store.Store(
                         id = 6, 
-                        created = '2020-06-10T09:05:27.993483Z', 
-                        modified = '2021-09-12T10:12:42Z', 
-                        account_id = 3886, 
-                        name = 'Campaign and campaign access group manager', 
-                        description = 'Allows you to create and edit campaigns for specific Applications, delete specific campaign access groups, and view loyalty programs.', 
-                        permissions = talon_one.models.role_v2_permissions.RoleV2Permissions(
-                            permission_sets = [{name=Application permission set, logicalOperations=[getApplicationOperations, editApplicationOperations]}, {name=Campaign manager permission set, logicalOperations=[getCampaignOperations, createCampaignOperations, updateCampaignOperations]}, {name=Campaign read-only permission set, logicalOperations=[getCampaignOperations]}, {name=Loyalty program read-only permission set, logicalOperations=[getLoyaltyProgramOperations]}, {name=Campaign access group manager permission set, logicalOperations=[getCampaignAccessGroupOperations, updateCampaignAccessGroupOperations, deleteCampaignAccessGroupOperations]}], 
-                            roles = talon_one.models.role_v2_roles_group.RoleV2RolesGroup(
-                                applications = {1={application=Application permission set}, 3={campaign=Campaign manager permission set}, 4={draftCampaign=Campaign read-only permission set}, 5={tools=Tools permission set}}, 
-                                loyalty_programs = {10=Loyalty program manager permission set}, 
-                                campaign_access_groups = {5=Campaign access group manager permission set}, ), ), 
-                        members = [10, 12], )
+                        created = '2020-02-07T08:15:22Z', 
+                        name = 'South US store', 
+                        description = 'This is the description of the store in south US.', 
+                        attributes = {"country":"USA","code":1234}, 
+                        integration_id = 'STORE-001', 
+                        application_id = 322, 
+                        updated = '2021-09-23T10:12:42Z', 
+                        linked_campaign_ids = [4, 6, 8], )
                     ],
         )
 

@@ -1,6 +1,5 @@
 # NewApplicationAPIKey
 
-
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

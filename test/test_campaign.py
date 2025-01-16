@@ -92,7 +92,14 @@ class TestCampaign(unittest.TestCase):
                 updated_by = 'Jane Doe', 
                 template_id = 3, 
                 frontend_state = 'running', 
-                stores_imported = True
+                stores_imported = True, 
+                revision_frontend_state = 'revised', 
+                active_revision_id = 6, 
+                active_revision_version_id = 6, 
+                version = 6, 
+                current_revision_id = 6, 
+                current_revision_version_id = 6, 
+                stage_revision = False
             )
         else :
             return Campaign(

@@ -49,6 +49,7 @@ class LoyaltyProgram(object):
         'tiers_expire_in': 'str',
         'tiers_downgrade_policy': 'str',
         'card_code_settings': 'CodeGeneratorSettings',
+        'return_policy': 'str',
         'account_id': 'int',
         'name': 'str',
         'tiers': 'list[LoyaltyTier]',
@@ -57,7 +58,8 @@ class LoyaltyProgram(object):
         'can_update_tiers': 'bool',
         'can_update_join_policy': 'bool',
         'can_update_tier_expiration_policy': 'bool',
-        'can_upgrade_to_advanced_tiers': 'bool'
+        'can_upgrade_to_advanced_tiers': 'bool',
+        'can_update_subledgers': 'bool'
     }
 
     attribute_map = {
@@ -77,6 +79,7 @@ class LoyaltyProgram(object):
         'tiers_expire_in': 'tiersExpireIn',
         'tiers_downgrade_policy': 'tiersDowngradePolicy',
         'card_code_settings': 'cardCodeSettings',
+        'return_policy': 'returnPolicy',
         'account_id': 'accountID',
         'name': 'name',
         'tiers': 'tiers',
@@ -85,10 +88,11 @@ class LoyaltyProgram(object):
         'can_update_tiers': 'canUpdateTiers',
         'can_update_join_policy': 'canUpdateJoinPolicy',
         'can_update_tier_expiration_policy': 'canUpdateTierExpirationPolicy',
-        'can_upgrade_to_advanced_tiers': 'canUpgradeToAdvancedTiers'
+        'can_upgrade_to_advanced_tiers': 'canUpgradeToAdvancedTiers',
+        'can_update_subledgers': 'canUpdateSubledgers'
     }
 
-    def __init__(self, id=None, created=None, title=None, description=None, subscribed_applications=None, default_validity=None, default_pending=None, allow_subledger=None, users_per_card_limit=None, sandbox=None, program_join_policy=None, tiers_expiration_policy=None, tier_cycle_start_date=None, tiers_expire_in=None, tiers_downgrade_policy=None, card_code_settings=None, account_id=None, name=None, tiers=None, timezone=None, card_based=False, can_update_tiers=False, can_update_join_policy=None, can_update_tier_expiration_policy=None, can_upgrade_to_advanced_tiers=False, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, created=None, title=None, description=None, subscribed_applications=None, default_validity=None, default_pending=None, allow_subledger=None, users_per_card_limit=None, sandbox=None, program_join_policy=None, tiers_expiration_policy=None, tier_cycle_start_date=None, tiers_expire_in=None, tiers_downgrade_policy=None, card_code_settings=None, return_policy=None, account_id=None, name=None, tiers=None, timezone=None, card_based=False, can_update_tiers=False, can_update_join_policy=None, can_update_tier_expiration_policy=None, can_upgrade_to_advanced_tiers=False, can_update_subledgers=False, local_vars_configuration=None):  # noqa: E501
         """LoyaltyProgram - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -110,6 +114,7 @@ class LoyaltyProgram(object):
         self._tiers_expire_in = None
         self._tiers_downgrade_policy = None
         self._card_code_settings = None
+        self._return_policy = None
         self._account_id = None
         self._name = None
         self._tiers = None
@@ -119,6 +124,7 @@ class LoyaltyProgram(object):
         self._can_update_join_policy = None
         self._can_update_tier_expiration_policy = None
         self._can_upgrade_to_advanced_tiers = None
+        self._can_update_subledgers = None
         self.discriminator = None
 
         self.id = id
@@ -144,6 +150,8 @@ class LoyaltyProgram(object):
             self.tiers_downgrade_policy = tiers_downgrade_policy
         if card_code_settings is not None:
             self.card_code_settings = card_code_settings
+        if return_policy is not None:
+            self.return_policy = return_policy
         self.account_id = account_id
         self.name = name
         if tiers is not None:
@@ -158,12 +166,14 @@ class LoyaltyProgram(object):
             self.can_update_tier_expiration_policy = can_update_tier_expiration_policy
         if can_upgrade_to_advanced_tiers is not None:
             self.can_upgrade_to_advanced_tiers = can_upgrade_to_advanced_tiers
+        if can_update_subledgers is not None:
+            self.can_update_subledgers = can_update_subledgers
 
     @property
     def id(self):
         """Gets the id of this LoyaltyProgram.  # noqa: E501
 
-        The ID of loyalty program. Internal ID of this entity.  # noqa: E501
+        The ID of loyalty program.  # noqa: E501
 
         :return: The id of this LoyaltyProgram.  # noqa: E501
         :rtype: int
@@ -174,7 +184,7 @@ class LoyaltyProgram(object):
     def id(self, id):
         """Sets the id of this LoyaltyProgram.
 
-        The ID of loyalty program. Internal ID of this entity.  # noqa: E501
+        The ID of loyalty program.  # noqa: E501
 
         :param id: The id of this LoyaltyProgram.  # noqa: E501
         :type: int
@@ -565,6 +575,35 @@ class LoyaltyProgram(object):
         self._card_code_settings = card_code_settings
 
     @property
+    def return_policy(self):
+        """Gets the return_policy of this LoyaltyProgram.  # noqa: E501
+
+        The policy that defines the rollback of points in case of a partially returned, cancelled, or reopened [customer session](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions). - `only_pending`: Only pending points can be rolled back. - `within_balance`: Available active points can be rolled back if there aren't enough pending points. The active balance of the customer cannot be negative.   # noqa: E501
+
+        :return: The return_policy of this LoyaltyProgram.  # noqa: E501
+        :rtype: str
+        """
+        return self._return_policy
+
+    @return_policy.setter
+    def return_policy(self, return_policy):
+        """Sets the return_policy of this LoyaltyProgram.
+
+        The policy that defines the rollback of points in case of a partially returned, cancelled, or reopened [customer session](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions). - `only_pending`: Only pending points can be rolled back. - `within_balance`: Available active points can be rolled back if there aren't enough pending points. The active balance of the customer cannot be negative.   # noqa: E501
+
+        :param return_policy: The return_policy of this LoyaltyProgram.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["only_pending", "within_balance"]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and return_policy not in allowed_values:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `return_policy` ({0}), must be one of {1}"  # noqa: E501
+                .format(return_policy, allowed_values)
+            )
+
+        self._return_policy = return_policy
+
+    @property
     def account_id(self):
         """Gets the account_id of this LoyaltyProgram.  # noqa: E501
 
@@ -781,6 +820,29 @@ class LoyaltyProgram(object):
         """
 
         self._can_upgrade_to_advanced_tiers = can_upgrade_to_advanced_tiers
+
+    @property
+    def can_update_subledgers(self):
+        """Gets the can_update_subledgers of this LoyaltyProgram.  # noqa: E501
+
+        `True` if the `allowSubledger` property can be updated in the loyalty program.   # noqa: E501
+
+        :return: The can_update_subledgers of this LoyaltyProgram.  # noqa: E501
+        :rtype: bool
+        """
+        return self._can_update_subledgers
+
+    @can_update_subledgers.setter
+    def can_update_subledgers(self, can_update_subledgers):
+        """Sets the can_update_subledgers of this LoyaltyProgram.
+
+        `True` if the `allowSubledger` property can be updated in the loyalty program.   # noqa: E501
+
+        :param can_update_subledgers: The can_update_subledgers of this LoyaltyProgram.  # noqa: E501
+        :type: bool
+        """
+
+        self._can_update_subledgers = can_update_subledgers
 
     def to_dict(self):
         """Returns the model properties as a dict"""

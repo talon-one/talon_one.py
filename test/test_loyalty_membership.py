@@ -36,7 +36,7 @@ class TestLoyaltyMembership(unittest.TestCase):
         # model = talon_one.models.loyalty_membership.LoyaltyMembership()  # noqa: E501
         if include_optional :
             return LoyaltyMembership(
-                joined = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                joined = '2012-03-20T14:15:22Z', 
                 loyalty_program_id = 323414846
             )
         else :

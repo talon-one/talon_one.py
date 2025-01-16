@@ -59,7 +59,7 @@ class NewLoyaltyTier(object):
     def name(self):
         """Gets the name of this NewLoyaltyTier.  # noqa: E501
 
-        The name of the tier  # noqa: E501
+        The name of the tier.  # noqa: E501
 
         :return: The name of this NewLoyaltyTier.  # noqa: E501
         :rtype: str
@@ -70,7 +70,7 @@ class NewLoyaltyTier(object):
     def name(self, name):
         """Sets the name of this NewLoyaltyTier.
 
-        The name of the tier  # noqa: E501
+        The name of the tier.  # noqa: E501
 
         :param name: The name of this NewLoyaltyTier.  # noqa: E501
         :type: str
@@ -84,7 +84,7 @@ class NewLoyaltyTier(object):
     def min_points(self):
         """Gets the min_points of this NewLoyaltyTier.  # noqa: E501
 
-        The minimum amount of points required to be eligible for the tier.  # noqa: E501
+        The minimum amount of points required to enter the tier.  # noqa: E501
 
         :return: The min_points of this NewLoyaltyTier.  # noqa: E501
         :rtype: float
@@ -95,7 +95,7 @@ class NewLoyaltyTier(object):
     def min_points(self, min_points):
         """Sets the min_points of this NewLoyaltyTier.
 
-        The minimum amount of points required to be eligible for the tier.  # noqa: E501
+        The minimum amount of points required to enter the tier.  # noqa: E501
 
         :param min_points: The min_points of this NewLoyaltyTier.  # noqa: E501
         :type: float

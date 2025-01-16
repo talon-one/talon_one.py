@@ -46,6 +46,8 @@ class TestEffect(unittest.TestCase):
                 condition_index = 786, 
                 evaluation_group_id = 3, 
                 evaluation_group_mode = 'stackable', 
+                campaign_revision_id = 1, 
+                campaign_revision_version_id = 5, 
                 props = talon_one.models.effect_props.EffectProps()
             )
         else :

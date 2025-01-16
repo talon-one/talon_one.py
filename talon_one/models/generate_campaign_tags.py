@@ -33,48 +33,48 @@ class GenerateCampaignTags(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'campaign_id': 'int'
+        'ruleset_id': 'int'
     }
 
     attribute_map = {
-        'campaign_id': 'campaignID'
+        'ruleset_id': 'rulesetID'
     }
 
-    def __init__(self, campaign_id=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, ruleset_id=None, local_vars_configuration=None):  # noqa: E501
         """GenerateCampaignTags - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
-        self._campaign_id = None
+        self._ruleset_id = None
         self.discriminator = None
 
-        self.campaign_id = campaign_id
+        self.ruleset_id = ruleset_id
 
     @property
-    def campaign_id(self):
-        """Gets the campaign_id of this GenerateCampaignTags.  # noqa: E501
+    def ruleset_id(self):
+        """Gets the ruleset_id of this GenerateCampaignTags.  # noqa: E501
 
-        ID of the campaign.  # noqa: E501
+        ID of a ruleset.  # noqa: E501
 
-        :return: The campaign_id of this GenerateCampaignTags.  # noqa: E501
+        :return: The ruleset_id of this GenerateCampaignTags.  # noqa: E501
         :rtype: int
         """
-        return self._campaign_id
+        return self._ruleset_id
 
-    @campaign_id.setter
-    def campaign_id(self, campaign_id):
-        """Sets the campaign_id of this GenerateCampaignTags.
+    @ruleset_id.setter
+    def ruleset_id(self, ruleset_id):
+        """Sets the ruleset_id of this GenerateCampaignTags.
 
-        ID of the campaign.  # noqa: E501
+        ID of a ruleset.  # noqa: E501
 
-        :param campaign_id: The campaign_id of this GenerateCampaignTags.  # noqa: E501
+        :param ruleset_id: The ruleset_id of this GenerateCampaignTags.  # noqa: E501
         :type: int
         """
-        if self.local_vars_configuration.client_side_validation and campaign_id is None:  # noqa: E501
-            raise ValueError("Invalid value for `campaign_id`, must not be `None`")  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and ruleset_id is None:  # noqa: E501
+            raise ValueError("Invalid value for `ruleset_id`, must not be `None`")  # noqa: E501
 
-        self._campaign_id = campaign_id
+        self._ruleset_id = ruleset_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

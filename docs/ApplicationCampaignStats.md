@@ -5,6 +5,7 @@ Provides statistics regarding an application's campaigns.
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **disabled** | **int** | Number of disabled campaigns. | 
+**staged** | **int** | Number of staged campaigns. | 
 **scheduled** | **int** | Number of scheduled campaigns. | 
 **running** | **int** | Number of running campaigns. | 
 **expired** | **int** | Number of expired campaigns. | 

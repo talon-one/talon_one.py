@@ -1,6 +1,5 @@
 # InventoryCoupon
 
-
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

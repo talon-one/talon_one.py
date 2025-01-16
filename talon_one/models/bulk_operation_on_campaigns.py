@@ -34,15 +34,17 @@ class BulkOperationOnCampaigns(object):
     """
     openapi_types = {
         'operation': 'str',
-        'campaign_ids': 'list[int]'
+        'campaign_ids': 'list[int]',
+        'activate_at': 'datetime'
     }
 
     attribute_map = {
         'operation': 'operation',
-        'campaign_ids': 'campaignIds'
+        'campaign_ids': 'campaignIds',
+        'activate_at': 'activateAt'
     }
 
-    def __init__(self, operation=None, campaign_ids=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, operation=None, campaign_ids=None, activate_at=None, local_vars_configuration=None):  # noqa: E501
         """BulkOperationOnCampaigns - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -50,10 +52,13 @@ class BulkOperationOnCampaigns(object):
 
         self._operation = None
         self._campaign_ids = None
+        self._activate_at = None
         self.discriminator = None
 
         self.operation = operation
         self.campaign_ids = campaign_ids
+        if activate_at is not None:
+            self.activate_at = activate_at
 
     @property
     def operation(self):
@@ -77,7 +82,7 @@ class BulkOperationOnCampaigns(object):
         """
         if self.local_vars_configuration.client_side_validation and operation is None:  # noqa: E501
             raise ValueError("Invalid value for `operation`, must not be `None`")  # noqa: E501
-        allowed_values = ["disable", "delete"]  # noqa: E501
+        allowed_values = ["disable", "delete", "activate_revision"]  # noqa: E501
         if self.local_vars_configuration.client_side_validation and operation not in allowed_values:  # noqa: E501
             raise ValueError(
                 "Invalid value for `operation` ({0}), must be one of {1}"  # noqa: E501
@@ -110,6 +115,29 @@ class BulkOperationOnCampaigns(object):
             raise ValueError("Invalid value for `campaign_ids`, must not be `None`")  # noqa: E501
 
         self._campaign_ids = campaign_ids
+
+    @property
+    def activate_at(self):
+        """Gets the activate_at of this BulkOperationOnCampaigns.  # noqa: E501
+
+        Timestamp when the revisions are finalized after the `activate_revision` operation. The current time is used when left blank.  **Note:** It must be an RFC3339 timestamp string.   # noqa: E501
+
+        :return: The activate_at of this BulkOperationOnCampaigns.  # noqa: E501
+        :rtype: datetime
+        """
+        return self._activate_at
+
+    @activate_at.setter
+    def activate_at(self, activate_at):
+        """Sets the activate_at of this BulkOperationOnCampaigns.
+
+        Timestamp when the revisions are finalized after the `activate_revision` operation. The current time is used when left blank.  **Note:** It must be an RFC3339 timestamp string.   # noqa: E501
+
+        :param activate_at: The activate_at of this BulkOperationOnCampaigns.  # noqa: E501
+        :type: datetime
+        """
+
+        self._activate_at = activate_at
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -45,7 +45,9 @@ class TestEffectEntity(unittest.TestCase):
                 triggered_for_catalog_item = 786, 
                 condition_index = 786, 
                 evaluation_group_id = 3, 
-                evaluation_group_mode = 'stackable'
+                evaluation_group_mode = 'stackable', 
+                campaign_revision_id = 1, 
+                campaign_revision_version_id = 5
             )
         else :
             return EffectEntity(

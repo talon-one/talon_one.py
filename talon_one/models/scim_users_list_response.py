@@ -88,6 +88,7 @@ class ScimUsersListResponse(object):
     def schemas(self):
         """Gets the schemas of this ScimUsersListResponse.  # noqa: E501
 
+        SCIM schema for the given resource.  # noqa: E501
 
         :return: The schemas of this ScimUsersListResponse.  # noqa: E501
         :rtype: list[str]
@@ -98,6 +99,7 @@ class ScimUsersListResponse(object):
     def schemas(self, schemas):
         """Sets the schemas of this ScimUsersListResponse.
 
+        SCIM schema for the given resource.  # noqa: E501
 
         :param schemas: The schemas of this ScimUsersListResponse.  # noqa: E501
         :type: list[str]

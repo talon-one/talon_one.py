@@ -38,24 +38,48 @@ class TestInlineResponse20040(unittest.TestCase):
             return InlineResponse20040(
                 total_result_size = 1, 
                 data = [
-                    talon_one.models.event_type.EventType(
+                    talon_one.models.user.User(
                         id = 6, 
                         created = '2020-06-10T09:05:27.993483Z', 
-                        title = 'Survey Completed', 
-                        name = 'surveyCompleted', 
-                        description = 'The survey was submitted by the customer.', )
+                        modified = '2021-09-12T10:12:42Z', 
+                        email = 'john.doe@example.com', 
+                        account_id = 3886, 
+                        name = 'John Doe', 
+                        state = 'invited', 
+                        invite_token = 'Gy9b8w1irmQtEPo5RmbMmSPheL5h4', 
+                        is_admin = False, 
+                        policy = {"Role":127}, 
+                        roles = [71], 
+                        auth_method = 'basic_auth', 
+                        application_notification_subscriptions = {}, 
+                        last_signed_in = '2021-09-12T10:12:42Z', 
+                        last_accessed = '2021-09-12T10:14:42Z', 
+                        latest_feed_timestamp = '2020-06-01T00:00Z', 
+                        additional_attributes = {}, )
                     ]
             )
         else :
             return InlineResponse20040(
                 total_result_size = 1,
                 data = [
-                    talon_one.models.event_type.EventType(
+                    talon_one.models.user.User(
                         id = 6, 
                         created = '2020-06-10T09:05:27.993483Z', 
-                        title = 'Survey Completed', 
-                        name = 'surveyCompleted', 
-                        description = 'The survey was submitted by the customer.', )
+                        modified = '2021-09-12T10:12:42Z', 
+                        email = 'john.doe@example.com', 
+                        account_id = 3886, 
+                        name = 'John Doe', 
+                        state = 'invited', 
+                        invite_token = 'Gy9b8w1irmQtEPo5RmbMmSPheL5h4', 
+                        is_admin = False, 
+                        policy = {"Role":127}, 
+                        roles = [71], 
+                        auth_method = 'basic_auth', 
+                        application_notification_subscriptions = {}, 
+                        last_signed_in = '2021-09-12T10:12:42Z', 
+                        last_accessed = '2021-09-12T10:14:42Z', 
+                        latest_feed_timestamp = '2020-06-01T00:00Z', 
+                        additional_attributes = {}, )
                     ],
         )
 

@@ -248,7 +248,7 @@ class ApplicationCampaignAnalytics(object):
         """
         if self.local_vars_configuration.client_side_validation and campaign_state is None:  # noqa: E501
             raise ValueError("Invalid value for `campaign_state`, must not be `None`")  # noqa: E501
-        allowed_values = ["expired", "scheduled", "running", "disabled", "archived"]  # noqa: E501
+        allowed_values = ["expired", "scheduled", "running", "disabled", "archived", "staged"]  # noqa: E501
         if self.local_vars_configuration.client_side_validation and campaign_state not in allowed_values:  # noqa: E501
             raise ValueError(
                 "Invalid value for `campaign_state` ({0}), must be one of {1}"  # noqa: E501

@@ -1,12 +1,13 @@
 # LoyaltyCard
 
-
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** | Internal ID of this entity. | 
 **created** | **datetime** | The time this entity was created. | 
 **program_id** | **int** | The ID of the loyalty program that owns this entity. | 
+**program_name** | **str** | The integration name of the loyalty program that owns this entity. | [optional] 
+**program_title** | **str** | The Campaign Manager-displayed name of the loyalty program that owns this entity. | [optional] 
 **status** | **str** | Status of the loyalty card. Can be &#x60;active&#x60; or &#x60;inactive&#x60;.  | 
 **block_reason** | **str** | Reason for transferring and blocking the loyalty card.  | [optional] 
 **identifier** | **str** | The alphanumeric identifier of the loyalty card.  | 
@@ -17,6 +18,7 @@ Name | Type | Description | Notes
 **modified** | **datetime** | Timestamp of the most recent update of the loyalty card. | [optional] 
 **old_card_identifier** | **str** | The alphanumeric identifier of the loyalty card.  | [optional] 
 **new_card_identifier** | **str** | The alphanumeric identifier of the loyalty card.  | [optional] 
+**batch_id** | **str** | The ID of the batch in which the loyalty card was created. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

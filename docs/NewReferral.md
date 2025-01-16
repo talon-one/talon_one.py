@@ -1,6 +1,5 @@
 # NewReferral
 
-
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

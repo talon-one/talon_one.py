@@ -1,6 +1,5 @@
 # Application
 
-
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
@@ -23,6 +22,7 @@ Name | Type | Description | Notes
 **enable_partial_discounts** | **bool** | Indicates if this Application supports partial discounts. | [optional] 
 **default_discount_additional_cost_per_item_scope** | **str** | The default scope to apply &#x60;setDiscountPerItem&#x60; effects on if no scope was provided with the effect.  | [optional] 
 **default_evaluation_group_id** | **int** | The ID of the default campaign evaluation group to which new campaigns will be added unless a different group is selected when creating the campaign. | [optional] 
+**default_cart_item_filter_id** | **int** | The ID of the default Cart-Item-Filter for this application. | [optional] 
 **enable_campaign_state_management** | **bool** | Indicates whether the campaign staging and revisions feature is enabled for the Application.  **Important:** After this feature is enabled, it cannot be disabled.  | [optional] 
 **loyalty_programs** | [**list[LoyaltyProgram]**](LoyaltyProgram.md) | An array containing all the loyalty programs to which this application is subscribed. | 
 

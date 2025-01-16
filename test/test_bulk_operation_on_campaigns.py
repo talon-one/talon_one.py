@@ -37,7 +37,8 @@ class TestBulkOperationOnCampaigns(unittest.TestCase):
         if include_optional :
             return BulkOperationOnCampaigns(
                 operation = 'disable', 
-                campaign_ids = [1, 2, 3]
+                campaign_ids = [1, 2, 3], 
+                activate_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f')
             )
         else :
             return BulkOperationOnCampaigns(

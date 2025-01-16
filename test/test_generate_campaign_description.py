@@ -36,12 +36,12 @@ class TestGenerateCampaignDescription(unittest.TestCase):
         # model = talon_one.models.generate_campaign_description.GenerateCampaignDescription()  # noqa: E501
         if include_optional :
             return GenerateCampaignDescription(
-                campaign_id = 56, 
+                ruleset_id = 56, 
                 currency = '0'
             )
         else :
             return GenerateCampaignDescription(
-                campaign_id = 56,
+                ruleset_id = 56,
                 currency = '0',
         )
 

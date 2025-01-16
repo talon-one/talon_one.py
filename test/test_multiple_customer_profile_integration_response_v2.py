@@ -40,7 +40,7 @@ class TestMultipleCustomerProfileIntegrationResponseV2(unittest.TestCase):
                     talon_one.models.customer_profile_update_v2_response.CustomerProfileUpdateV2Response(
                         customer_profile = talon_one.models.customer_profile.CustomerProfile(
                             id = 6, 
-                            created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                            created = '2020-02-07T08:15:22Z', 
                             integration_id = 'URNGV8294NV', 
                             attributes = {"Language":"english","ShippingCountry":"DE"}, 
                             account_id = 31, 
@@ -48,7 +48,7 @@ class TestMultipleCustomerProfileIntegrationResponseV2(unittest.TestCase):
                             total_sales = 299.99, 
                             loyalty_memberships = [
                                 talon_one.models.loyalty_membership.LoyaltyMembership(
-                                    joined = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                                    joined = '2012-03-20T14:15:22Z', 
                                     loyalty_program_id = 323414846, )
                                 ], 
                             audience_memberships = [

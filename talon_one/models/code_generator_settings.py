@@ -108,6 +108,9 @@ class CodeGeneratorSettings(object):
         if (self.local_vars_configuration.client_side_validation and
                 coupon_pattern is not None and len(coupon_pattern) < 3):
             raise ValueError("Invalid value for `coupon_pattern`, length must be greater than or equal to `3`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                coupon_pattern is not None and not re.search(r'^[A-Za-z0-9_#-]*$', coupon_pattern)):  # noqa: E501
+            raise ValueError(r"Invalid value for `coupon_pattern`, must be a follow pattern or equal to `/^[A-Za-z0-9_#-]*$/`")  # noqa: E501
 
         self._coupon_pattern = coupon_pattern
 

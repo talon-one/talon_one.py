@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 **achievement_id** | **int** | The internal ID of the achievement. | 
 **name** | **str** | The internal name of the achievement used in API requests.  | 
 **title** | **str** | The display name of the achievement in the Campaign Manager. | 
+**description** | **str** | The description of the achievement in the Campaign Manager. | 
 **campaign_id** | **int** | The ID of the campaign the achievement belongs to. | 
 **status** | **str** | The status of the achievement. | 
 **target** | **float** | The required number of actions or the transactional milestone to complete the achievement. | [optional] 

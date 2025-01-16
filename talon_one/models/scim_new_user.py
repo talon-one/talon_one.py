@@ -35,16 +35,18 @@ class ScimNewUser(object):
     openapi_types = {
         'active': 'bool',
         'display_name': 'str',
-        'user_name': 'str'
+        'user_name': 'str',
+        'name': 'ScimBaseUserName'
     }
 
     attribute_map = {
         'active': 'active',
         'display_name': 'displayName',
-        'user_name': 'userName'
+        'user_name': 'userName',
+        'name': 'name'
     }
 
-    def __init__(self, active=None, display_name=None, user_name=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, active=None, display_name=None, user_name=None, name=None, local_vars_configuration=None):  # noqa: E501
         """ScimNewUser - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -53,6 +55,7 @@ class ScimNewUser(object):
         self._active = None
         self._display_name = None
         self._user_name = None
+        self._name = None
         self.discriminator = None
 
         if active is not None:
@@ -60,6 +63,8 @@ class ScimNewUser(object):
         if display_name is not None:
             self.display_name = display_name
         self.user_name = user_name
+        if name is not None:
+            self.name = name
 
     @property
     def active(self):
@@ -131,6 +136,27 @@ class ScimNewUser(object):
             raise ValueError("Invalid value for `user_name`, must not be `None`")  # noqa: E501
 
         self._user_name = user_name
+
+    @property
+    def name(self):
+        """Gets the name of this ScimNewUser.  # noqa: E501
+
+
+        :return: The name of this ScimNewUser.  # noqa: E501
+        :rtype: ScimBaseUserName
+        """
+        return self._name
+
+    @name.setter
+    def name(self, name):
+        """Sets the name of this ScimNewUser.
+
+
+        :param name: The name of this ScimNewUser.  # noqa: E501
+        :type: ScimBaseUserName
+        """
+
+        self._name = name
 
     def to_dict(self):
         """Returns the model properties as a dict"""
