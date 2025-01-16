@@ -37,7 +37,7 @@ class TestStore(unittest.TestCase):
         if include_optional :
             return Store(
                 id = 6, 
-                created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                created = '2020-02-07T08:15:22Z', 
                 name = 'South US store', 
                 description = 'This is the description of the store in south US.', 
                 attributes = {"country":"USA","code":1234}, 
@@ -49,7 +49,7 @@ class TestStore(unittest.TestCase):
         else :
             return Store(
                 id = 6,
-                created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
+                created = '2020-02-07T08:15:22Z',
                 name = 'South US store',
                 description = 'This is the description of the store in south US.',
                 integration_id = 'STORE-001',

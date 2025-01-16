@@ -1,6 +1,5 @@
 # NewRole
 
-
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

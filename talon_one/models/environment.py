@@ -46,7 +46,8 @@ class Environment(object):
         'attributes': 'list[Attribute]',
         'additional_costs': 'list[AccountAdditionalCost]',
         'audiences': 'list[Audience]',
-        'collections': 'list[Collection]'
+        'collections': 'list[Collection]',
+        'application_cart_item_filters': 'list[ApplicationCIF]'
     }
 
     attribute_map = {
@@ -63,10 +64,11 @@ class Environment(object):
         'attributes': 'attributes',
         'additional_costs': 'additionalCosts',
         'audiences': 'audiences',
-        'collections': 'collections'
+        'collections': 'collections',
+        'application_cart_item_filters': 'applicationCartItemFilters'
     }
 
-    def __init__(self, id=None, created=None, application_id=None, slots=None, functions=None, templates=None, variables=None, giveaways_pools=None, loyalty_programs=None, achievements=None, attributes=None, additional_costs=None, audiences=None, collections=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, created=None, application_id=None, slots=None, functions=None, templates=None, variables=None, giveaways_pools=None, loyalty_programs=None, achievements=None, attributes=None, additional_costs=None, audiences=None, collections=None, application_cart_item_filters=None, local_vars_configuration=None):  # noqa: E501
         """Environment - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -86,6 +88,7 @@ class Environment(object):
         self._additional_costs = None
         self._audiences = None
         self._collections = None
+        self._application_cart_item_filters = None
         self.discriminator = None
 
         self.id = id
@@ -109,6 +112,8 @@ class Environment(object):
             self.audiences = audiences
         if collections is not None:
             self.collections = collections
+        if application_cart_item_filters is not None:
+            self.application_cart_item_filters = application_cart_item_filters
 
     @property
     def id(self):
@@ -445,6 +450,29 @@ class Environment(object):
         """
 
         self._collections = collections
+
+    @property
+    def application_cart_item_filters(self):
+        """Gets the application_cart_item_filters of this Environment.  # noqa: E501
+
+        The cart item filters belonging to the Application.  # noqa: E501
+
+        :return: The application_cart_item_filters of this Environment.  # noqa: E501
+        :rtype: list[ApplicationCIF]
+        """
+        return self._application_cart_item_filters
+
+    @application_cart_item_filters.setter
+    def application_cart_item_filters(self, application_cart_item_filters):
+        """Sets the application_cart_item_filters of this Environment.
+
+        The cart item filters belonging to the Application.  # noqa: E501
+
+        :param application_cart_item_filters: The application_cart_item_filters of this Environment.  # noqa: E501
+        :type: list[ApplicationCIF]
+        """
+
+        self._application_cart_item_filters = application_cart_item_filters
 
     def to_dict(self):
         """Returns the model properties as a dict"""

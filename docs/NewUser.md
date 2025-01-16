@@ -1,6 +1,5 @@
 # NewUser
 
-
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

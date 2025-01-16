@@ -66,7 +66,7 @@ class CouponDeletionFilters(object):
         'expires_before': 'expiresBefore'
     }
 
-    def __init__(self, created_before=None, created_after=None, starts_after=None, starts_before=None, valid=None, usable=None, redeemed=None, recipient_integration_id=None, exact_match=False, value='false', batch_id=None, referral_id=None, expires_after=None, expires_before=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, created_before=None, created_after=None, starts_after=None, starts_before=None, valid=None, usable=None, redeemed=None, recipient_integration_id=None, exact_match=False, value=None, batch_id=None, referral_id=None, expires_after=None, expires_before=None, local_vars_configuration=None):  # noqa: E501
         """CouponDeletionFilters - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()

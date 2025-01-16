@@ -38,12 +38,16 @@ class MessageLogEntry(object):
         'change_type': 'str',
         'notification_id': 'int',
         'notification_name': 'str',
+        'webhook_id': 'int',
+        'webhook_name': 'str',
         'request': 'MessageLogRequest',
         'response': 'MessageLogResponse',
         'created_at': 'datetime',
         'entity_type': 'str',
+        'url': 'str',
         'application_id': 'int',
-        'loyalty_program_id': 'int'
+        'loyalty_program_id': 'int',
+        'campaign_id': 'int'
     }
 
     attribute_map = {
@@ -52,15 +56,19 @@ class MessageLogEntry(object):
         'change_type': 'changeType',
         'notification_id': 'notificationId',
         'notification_name': 'notificationName',
+        'webhook_id': 'webhookId',
+        'webhook_name': 'webhookName',
         'request': 'request',
         'response': 'response',
         'created_at': 'createdAt',
         'entity_type': 'entityType',
+        'url': 'url',
         'application_id': 'applicationId',
-        'loyalty_program_id': 'loyaltyProgramId'
+        'loyalty_program_id': 'loyaltyProgramId',
+        'campaign_id': 'campaignId'
     }
 
-    def __init__(self, id=None, service=None, change_type=None, notification_id=None, notification_name=None, request=None, response=None, created_at=None, entity_type=None, application_id=None, loyalty_program_id=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, service=None, change_type=None, notification_id=None, notification_name=None, webhook_id=None, webhook_name=None, request=None, response=None, created_at=None, entity_type=None, url=None, application_id=None, loyalty_program_id=None, campaign_id=None, local_vars_configuration=None):  # noqa: E501
         """MessageLogEntry - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -71,12 +79,16 @@ class MessageLogEntry(object):
         self._change_type = None
         self._notification_id = None
         self._notification_name = None
+        self._webhook_id = None
+        self._webhook_name = None
         self._request = None
         self._response = None
         self._created_at = None
         self._entity_type = None
+        self._url = None
         self._application_id = None
         self._loyalty_program_id = None
+        self._campaign_id = None
         self.discriminator = None
 
         self.id = id
@@ -87,17 +99,24 @@ class MessageLogEntry(object):
             self.notification_id = notification_id
         if notification_name is not None:
             self.notification_name = notification_name
+        if webhook_id is not None:
+            self.webhook_id = webhook_id
+        if webhook_name is not None:
+            self.webhook_name = webhook_name
         if request is not None:
             self.request = request
         if response is not None:
             self.response = response
         self.created_at = created_at
-        if entity_type is not None:
-            self.entity_type = entity_type
+        self.entity_type = entity_type
+        if url is not None:
+            self.url = url
         if application_id is not None:
             self.application_id = application_id
         if loyalty_program_id is not None:
             self.loyalty_program_id = loyalty_program_id
+        if campaign_id is not None:
+            self.campaign_id = campaign_id
 
     @property
     def id(self):
@@ -219,6 +238,52 @@ class MessageLogEntry(object):
         self._notification_name = notification_name
 
     @property
+    def webhook_id(self):
+        """Gets the webhook_id of this MessageLogEntry.  # noqa: E501
+
+        ID of the webhook.  # noqa: E501
+
+        :return: The webhook_id of this MessageLogEntry.  # noqa: E501
+        :rtype: int
+        """
+        return self._webhook_id
+
+    @webhook_id.setter
+    def webhook_id(self, webhook_id):
+        """Sets the webhook_id of this MessageLogEntry.
+
+        ID of the webhook.  # noqa: E501
+
+        :param webhook_id: The webhook_id of this MessageLogEntry.  # noqa: E501
+        :type: int
+        """
+
+        self._webhook_id = webhook_id
+
+    @property
+    def webhook_name(self):
+        """Gets the webhook_name of this MessageLogEntry.  # noqa: E501
+
+        The name of the webhook.  # noqa: E501
+
+        :return: The webhook_name of this MessageLogEntry.  # noqa: E501
+        :rtype: str
+        """
+        return self._webhook_name
+
+    @webhook_name.setter
+    def webhook_name(self, webhook_name):
+        """Sets the webhook_name of this MessageLogEntry.
+
+        The name of the webhook.  # noqa: E501
+
+        :param webhook_name: The webhook_name of this MessageLogEntry.  # noqa: E501
+        :type: str
+        """
+
+        self._webhook_name = webhook_name
+
+    @property
     def request(self):
         """Gets the request of this MessageLogEntry.  # noqa: E501
 
@@ -289,7 +354,7 @@ class MessageLogEntry(object):
     def entity_type(self):
         """Gets the entity_type of this MessageLogEntry.  # noqa: E501
 
-        The entity type the notification is related to.   # noqa: E501
+        The entity type the log is related to.   # noqa: E501
 
         :return: The entity_type of this MessageLogEntry.  # noqa: E501
         :rtype: str
@@ -300,12 +365,14 @@ class MessageLogEntry(object):
     def entity_type(self, entity_type):
         """Sets the entity_type of this MessageLogEntry.
 
-        The entity type the notification is related to.   # noqa: E501
+        The entity type the log is related to.   # noqa: E501
 
         :param entity_type: The entity_type of this MessageLogEntry.  # noqa: E501
         :type: str
         """
-        allowed_values = ["application", "loyalty_program"]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and entity_type is None:  # noqa: E501
+            raise ValueError("Invalid value for `entity_type`, must not be `None`")  # noqa: E501
+        allowed_values = ["application", "loyalty_program", "webhook"]  # noqa: E501
         if self.local_vars_configuration.client_side_validation and entity_type not in allowed_values:  # noqa: E501
             raise ValueError(
                 "Invalid value for `entity_type` ({0}), must be one of {1}"  # noqa: E501
@@ -313,6 +380,29 @@ class MessageLogEntry(object):
             )
 
         self._entity_type = entity_type
+
+    @property
+    def url(self):
+        """Gets the url of this MessageLogEntry.  # noqa: E501
+
+        The target URL of the request.  # noqa: E501
+
+        :return: The url of this MessageLogEntry.  # noqa: E501
+        :rtype: str
+        """
+        return self._url
+
+    @url.setter
+    def url(self, url):
+        """Sets the url of this MessageLogEntry.
+
+        The target URL of the request.  # noqa: E501
+
+        :param url: The url of this MessageLogEntry.  # noqa: E501
+        :type: str
+        """
+
+        self._url = url
 
     @property
     def application_id(self):
@@ -365,6 +455,32 @@ class MessageLogEntry(object):
             raise ValueError("Invalid value for `loyalty_program_id`, must be a value greater than or equal to `1`")  # noqa: E501
 
         self._loyalty_program_id = loyalty_program_id
+
+    @property
+    def campaign_id(self):
+        """Gets the campaign_id of this MessageLogEntry.  # noqa: E501
+
+        Identifier of the campaign.  # noqa: E501
+
+        :return: The campaign_id of this MessageLogEntry.  # noqa: E501
+        :rtype: int
+        """
+        return self._campaign_id
+
+    @campaign_id.setter
+    def campaign_id(self, campaign_id):
+        """Sets the campaign_id of this MessageLogEntry.
+
+        Identifier of the campaign.  # noqa: E501
+
+        :param campaign_id: The campaign_id of this MessageLogEntry.  # noqa: E501
+        :type: int
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                campaign_id is not None and campaign_id < 1):  # noqa: E501
+            raise ValueError("Invalid value for `campaign_id`, must be a value greater than or equal to `1`")  # noqa: E501
+
+        self._campaign_id = campaign_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

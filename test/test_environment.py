@@ -78,6 +78,7 @@ class TestEnvironment(unittest.TestCase):
                                 description = '0', 
                                 title = '0', 
                                 ui = talon_one.models.ui.ui(), 
+                                key = '0', 
                                 picklist_id = 56, 
                                 restricted_by_picklist = True, )
                             ], 
@@ -100,7 +101,7 @@ class TestEnvironment(unittest.TestCase):
                     ], 
                 loyalty_programs = [
                     talon_one.models.loyalty_program.LoyaltyProgram(
-                        id = 56, 
+                        id = 139, 
                         created = '2020-06-10T09:05:27.993483Z', 
                         title = 'Point collection', 
                         description = 'Customers collect 10 points per 1$ spent', 
@@ -118,15 +119,17 @@ class TestEnvironment(unittest.TestCase):
                         card_code_settings = talon_one.models.code_generator_settings.CodeGeneratorSettings(
                             valid_characters = [A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9], 
                             coupon_pattern = 'SUMMER-####-####', ), 
+                        return_policy = 'only_pending', 
                         account_id = 1, 
                         name = 'my_program', 
-                        tiers = [{name=Gold, minPoints=300, id=3, created=2021-06-10T09:05:27.993483Z, programID=139}, {name=Silver, minPoints=200, id=2, created=2021-06-10T09:04:59.355258Z, programId=139}, {name=Bronze, minPoints=100, id=1, created=2021-06-10T09:04:39.355258Z, programId=139}], 
+                        tiers = [{name=Gold, minPoints=300, id=3, created=2021-06-10T09:05:27.993483Z, programID=139}, {name=Silver, minPoints=200, id=2, created=2021-06-10T09:04:59.355258Z, programID=139}, {name=Bronze, minPoints=100, id=1, created=2021-06-10T09:04:39.355258Z, programID=139}], 
                         timezone = 'Europe/Berlin', 
                         card_based = True, 
                         can_update_tiers = True, 
                         can_update_join_policy = True, 
                         can_update_tier_expiration_policy = True, 
-                        can_upgrade_to_advanced_tiers = True, )
+                        can_upgrade_to_advanced_tiers = True, 
+                        can_update_subledgers = True, )
                     ], 
                 achievements = [
                     talon_one.models.achievement.Achievement(
@@ -138,6 +141,10 @@ class TestEnvironment(unittest.TestCase):
                         target = 50.0, 
                         period = '1Y', 
                         period_end_override = {month=11, dayOfMonth=23, hour=23, minute=59, second=59}, 
+                        recurrence_policy = 'no_recurrence', 
+                        activation_policy = 'fixed_schedule', 
+                        fixed_start_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        end_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                         campaign_id = 1, 
                         user_id = 1234, 
                         created_by = 'John Doe', 
@@ -203,6 +210,18 @@ class TestEnvironment(unittest.TestCase):
                         application_id = 1, 
                         campaign_id = 7, 
                         payload = [KTL-WH-ET-1, KTL-BL-ET-1], )
+                    ], 
+                application_cart_item_filters = [
+                    talon_one.models.application_cif.ApplicationCIF(
+                        id = 6, 
+                        created = '2020-06-10T09:05:27.993483Z', 
+                        name = 'Filter items by product', 
+                        description = 'This filter allows filtering by shoes', 
+                        active_expression_id = 1, 
+                        modified_by = 334, 
+                        created_by = 216, 
+                        modified = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        application_id = 322, )
                     ]
             )
         else :
@@ -249,6 +268,7 @@ class TestEnvironment(unittest.TestCase):
                                 description = '0', 
                                 title = '0', 
                                 ui = talon_one.models.ui.ui(), 
+                                key = '0', 
                                 picklist_id = 56, 
                                 restricted_by_picklist = True, )
                             ], 

@@ -1,6 +1,5 @@
 # NewBaseNotification
 
-
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

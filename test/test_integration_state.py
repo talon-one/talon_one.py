@@ -37,7 +37,7 @@ class TestIntegrationState(unittest.TestCase):
         if include_optional :
             return IntegrationState(
                 session = talon_one.models.customer_session.CustomerSession(
-                    integration_id = '0', 
+                    integration_id = 'URNGV8294NV', 
                     created = '2020-02-07T08:15:22Z', 
                     application_id = 322, 
                     profile_id = 'URNGV8294NV', 
@@ -74,7 +74,7 @@ class TestIntegrationState(unittest.TestCase):
                     updated = '2021-09-12T10:12:42Z', ), 
                 profile = talon_one.models.customer_profile.CustomerProfile(
                     id = 6, 
-                    created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                    created = '2020-02-07T08:15:22Z', 
                     integration_id = 'URNGV8294NV', 
                     attributes = {"Language":"english","ShippingCountry":"DE"}, 
                     account_id = 31, 
@@ -82,7 +82,7 @@ class TestIntegrationState(unittest.TestCase):
                     total_sales = 299.99, 
                     loyalty_memberships = [
                         talon_one.models.loyalty_membership.LoyaltyMembership(
-                            joined = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                            joined = '2012-03-20T14:15:22Z', 
                             loyalty_program_id = 323414846, )
                         ], 
                     audience_memberships = [
@@ -135,6 +135,8 @@ class TestIntegrationState(unittest.TestCase):
                             id = 6, 
                             created = '2020-06-10T09:05:27.993483Z', 
                             program_id = 125, 
+                            program_name = 'Loyalty_program', 
+                            program_title = 'Loyalty program', 
                             status = 'active', 
                             block_reason = 'Current card lost. Customer needs a new card.', 
                             identifier = 'summer-loyalty-card-0543', 
@@ -170,7 +172,8 @@ class TestIntegrationState(unittest.TestCase):
                                 }, 
                             modified = '2021-09-12T10:12:42Z', 
                             old_card_identifier = 'summer-loyalty-card-0543', 
-                            new_card_identifier = 'summer-loyalty-card-0543', )
+                            new_card_identifier = 'summer-loyalty-card-0543', 
+                            batch_id = 'wdefpov', )
                         ], 
                     programs = {
                         'key' : talon_one.models.loyalty_program_ledgers.LoyaltyProgramLedgers(
@@ -230,7 +233,7 @@ class TestIntegrationState(unittest.TestCase):
         else :
             return IntegrationState(
                 session = talon_one.models.customer_session.CustomerSession(
-                    integration_id = '0', 
+                    integration_id = 'URNGV8294NV', 
                     created = '2020-02-07T08:15:22Z', 
                     application_id = 322, 
                     profile_id = 'URNGV8294NV', 
@@ -267,7 +270,7 @@ class TestIntegrationState(unittest.TestCase):
                     updated = '2021-09-12T10:12:42Z', ),
                 profile = talon_one.models.customer_profile.CustomerProfile(
                     id = 6, 
-                    created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                    created = '2020-02-07T08:15:22Z', 
                     integration_id = 'URNGV8294NV', 
                     attributes = {"Language":"english","ShippingCountry":"DE"}, 
                     account_id = 31, 
@@ -275,7 +278,7 @@ class TestIntegrationState(unittest.TestCase):
                     total_sales = 299.99, 
                     loyalty_memberships = [
                         talon_one.models.loyalty_membership.LoyaltyMembership(
-                            joined = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                            joined = '2012-03-20T14:15:22Z', 
                             loyalty_program_id = 323414846, )
                         ], 
                     audience_memberships = [

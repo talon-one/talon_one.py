@@ -38,7 +38,11 @@ class UpdateAchievement(object):
         'description': 'str',
         'target': 'float',
         'period': 'str',
-        'period_end_override': 'TimePoint'
+        'period_end_override': 'TimePoint',
+        'recurrence_policy': 'str',
+        'activation_policy': 'str',
+        'fixed_start_date': 'datetime',
+        'end_date': 'datetime'
     }
 
     attribute_map = {
@@ -47,10 +51,14 @@ class UpdateAchievement(object):
         'description': 'description',
         'target': 'target',
         'period': 'period',
-        'period_end_override': 'periodEndOverride'
+        'period_end_override': 'periodEndOverride',
+        'recurrence_policy': 'recurrencePolicy',
+        'activation_policy': 'activationPolicy',
+        'fixed_start_date': 'fixedStartDate',
+        'end_date': 'endDate'
     }
 
-    def __init__(self, name=None, title=None, description=None, target=None, period=None, period_end_override=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, name=None, title=None, description=None, target=None, period=None, period_end_override=None, recurrence_policy=None, activation_policy=None, fixed_start_date=None, end_date=None, local_vars_configuration=None):  # noqa: E501
         """UpdateAchievement - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -62,6 +70,10 @@ class UpdateAchievement(object):
         self._target = None
         self._period = None
         self._period_end_override = None
+        self._recurrence_policy = None
+        self._activation_policy = None
+        self._fixed_start_date = None
+        self._end_date = None
         self.discriminator = None
 
         if name is not None:
@@ -76,6 +88,14 @@ class UpdateAchievement(object):
             self.period = period
         if period_end_override is not None:
             self.period_end_override = period_end_override
+        if recurrence_policy is not None:
+            self.recurrence_policy = recurrence_policy
+        if activation_policy is not None:
+            self.activation_policy = activation_policy
+        if fixed_start_date is not None:
+            self.fixed_start_date = fixed_start_date
+        if end_date is not None:
+            self.end_date = end_date
 
     @property
     def name(self):
@@ -221,6 +241,110 @@ class UpdateAchievement(object):
         """
 
         self._period_end_override = period_end_override
+
+    @property
+    def recurrence_policy(self):
+        """Gets the recurrence_policy of this UpdateAchievement.  # noqa: E501
+
+        The policy that determines if and how the achievement recurs. - `no_recurrence`: The achievement can be completed only once. - `on_expiration`: The achievement resets after it expires and becomes available again.   # noqa: E501
+
+        :return: The recurrence_policy of this UpdateAchievement.  # noqa: E501
+        :rtype: str
+        """
+        return self._recurrence_policy
+
+    @recurrence_policy.setter
+    def recurrence_policy(self, recurrence_policy):
+        """Sets the recurrence_policy of this UpdateAchievement.
+
+        The policy that determines if and how the achievement recurs. - `no_recurrence`: The achievement can be completed only once. - `on_expiration`: The achievement resets after it expires and becomes available again.   # noqa: E501
+
+        :param recurrence_policy: The recurrence_policy of this UpdateAchievement.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["no_recurrence", "on_expiration"]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and recurrence_policy not in allowed_values:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `recurrence_policy` ({0}), must be one of {1}"  # noqa: E501
+                .format(recurrence_policy, allowed_values)
+            )
+
+        self._recurrence_policy = recurrence_policy
+
+    @property
+    def activation_policy(self):
+        """Gets the activation_policy of this UpdateAchievement.  # noqa: E501
+
+        The policy that determines how the achievement starts, ends, or resets. - `user_action`: The achievement ends or resets relative to when the customer started the achievement. - `fixed_schedule`: The achievement starts, ends, or resets for all customers following a fixed schedule.   # noqa: E501
+
+        :return: The activation_policy of this UpdateAchievement.  # noqa: E501
+        :rtype: str
+        """
+        return self._activation_policy
+
+    @activation_policy.setter
+    def activation_policy(self, activation_policy):
+        """Sets the activation_policy of this UpdateAchievement.
+
+        The policy that determines how the achievement starts, ends, or resets. - `user_action`: The achievement ends or resets relative to when the customer started the achievement. - `fixed_schedule`: The achievement starts, ends, or resets for all customers following a fixed schedule.   # noqa: E501
+
+        :param activation_policy: The activation_policy of this UpdateAchievement.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["user_action", "fixed_schedule"]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and activation_policy not in allowed_values:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `activation_policy` ({0}), must be one of {1}"  # noqa: E501
+                .format(activation_policy, allowed_values)
+            )
+
+        self._activation_policy = activation_policy
+
+    @property
+    def fixed_start_date(self):
+        """Gets the fixed_start_date of this UpdateAchievement.  # noqa: E501
+
+        The achievement's start date when `activationPolicy` is set to `fixed_schedule`.  **Note:** It must be an RFC3339 timestamp string.   # noqa: E501
+
+        :return: The fixed_start_date of this UpdateAchievement.  # noqa: E501
+        :rtype: datetime
+        """
+        return self._fixed_start_date
+
+    @fixed_start_date.setter
+    def fixed_start_date(self, fixed_start_date):
+        """Sets the fixed_start_date of this UpdateAchievement.
+
+        The achievement's start date when `activationPolicy` is set to `fixed_schedule`.  **Note:** It must be an RFC3339 timestamp string.   # noqa: E501
+
+        :param fixed_start_date: The fixed_start_date of this UpdateAchievement.  # noqa: E501
+        :type: datetime
+        """
+
+        self._fixed_start_date = fixed_start_date
+
+    @property
+    def end_date(self):
+        """Gets the end_date of this UpdateAchievement.  # noqa: E501
+
+        The achievement's end date. If defined, customers cannot participate in the achievement after this date.  **Note:** It must be an RFC3339 timestamp string.   # noqa: E501
+
+        :return: The end_date of this UpdateAchievement.  # noqa: E501
+        :rtype: datetime
+        """
+        return self._end_date
+
+    @end_date.setter
+    def end_date(self, end_date):
+        """Sets the end_date of this UpdateAchievement.
+
+        The achievement's end date. If defined, customers cannot participate in the achievement after this date.  **Note:** It must be an RFC3339 timestamp string.   # noqa: E501
+
+        :param end_date: The end_date of this UpdateAchievement.  # noqa: E501
+        :type: datetime
+        """
+
+        self._end_date = end_date
 
     def to_dict(self):
         """Returns the model properties as a dict"""

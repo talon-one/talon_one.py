@@ -37,7 +37,7 @@ class TestApplicationSession(unittest.TestCase):
         if include_optional :
             return ApplicationSession(
                 id = 6, 
-                created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                created = '2020-02-07T08:15:22Z', 
                 integration_id = 'URNGV8294NV', 
                 store_integration_id = 'STORE-001', 
                 application_id = 322, 
@@ -76,7 +76,7 @@ class TestApplicationSession(unittest.TestCase):
         else :
             return ApplicationSession(
                 id = 6,
-                created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
+                created = '2020-02-07T08:15:22Z',
                 integration_id = 'URNGV8294NV',
                 application_id = 322,
                 coupon = 'BKDB946',

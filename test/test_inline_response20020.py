@@ -38,38 +38,64 @@ class TestInlineResponse20020(unittest.TestCase):
             return InlineResponse20020(
                 total_result_size = 1, 
                 data = [
-                    talon_one.models.access_log_entry.AccessLogEntry(
-                        uuid = '606e7d34-2d36-4d53-ac71-d4442c325985', 
-                        status = 200, 
-                        method = 'PUT', 
-                        request_uri = '/v2/customer_sessions/Session136667', 
-                        time = '2023-01-16T16:00:00.700763Z', 
-                        request_payload = '{
-    "customerSession": {
-        "profileId": "customer123",
-        "state": "closed",
-...
-}', 
-                        response_payload = '{"coupons":[],"createdCoupons":[],...}', )
+                    talon_one.models.campaign_analytics.CampaignAnalytics(
+                        date = '2021-10-12T10:12:42Z', 
+                        campaign_revenue = 3539.76, 
+                        total_campaign_revenue = 5784.63, 
+                        campaign_refund = 1.337, 
+                        total_campaign_refund = 1.337, 
+                        campaign_discount_costs = 1.337, 
+                        total_campaign_discount_costs = 1.337, 
+                        campaign_refunded_discounts = 1.337, 
+                        total_campaign_refunded_discounts = 1.337, 
+                        campaign_free_items = 56, 
+                        total_campaign_free_items = 86, 
+                        coupon_redemptions = 56, 
+                        total_coupon_redemptions = 56, 
+                        coupon_rolledback_redemptions = 56, 
+                        total_coupon_rolledback_redemptions = 56, 
+                        referral_redemptions = 56, 
+                        total_referral_redemptions = 56, 
+                        coupons_created = 56, 
+                        total_coupons_created = 56, 
+                        referrals_created = 56, 
+                        total_referrals_created = 56, 
+                        added_loyalty_points = 250.0, 
+                        total_added_loyalty_points = 340.0, 
+                        deducted_loyalty_points = 120.0, 
+                        total_deducted_loyalty_points = 220.0, )
                     ]
             )
         else :
             return InlineResponse20020(
                 total_result_size = 1,
                 data = [
-                    talon_one.models.access_log_entry.AccessLogEntry(
-                        uuid = '606e7d34-2d36-4d53-ac71-d4442c325985', 
-                        status = 200, 
-                        method = 'PUT', 
-                        request_uri = '/v2/customer_sessions/Session136667', 
-                        time = '2023-01-16T16:00:00.700763Z', 
-                        request_payload = '{
-    "customerSession": {
-        "profileId": "customer123",
-        "state": "closed",
-...
-}', 
-                        response_payload = '{"coupons":[],"createdCoupons":[],...}', )
+                    talon_one.models.campaign_analytics.CampaignAnalytics(
+                        date = '2021-10-12T10:12:42Z', 
+                        campaign_revenue = 3539.76, 
+                        total_campaign_revenue = 5784.63, 
+                        campaign_refund = 1.337, 
+                        total_campaign_refund = 1.337, 
+                        campaign_discount_costs = 1.337, 
+                        total_campaign_discount_costs = 1.337, 
+                        campaign_refunded_discounts = 1.337, 
+                        total_campaign_refunded_discounts = 1.337, 
+                        campaign_free_items = 56, 
+                        total_campaign_free_items = 86, 
+                        coupon_redemptions = 56, 
+                        total_coupon_redemptions = 56, 
+                        coupon_rolledback_redemptions = 56, 
+                        total_coupon_rolledback_redemptions = 56, 
+                        referral_redemptions = 56, 
+                        total_referral_redemptions = 56, 
+                        coupons_created = 56, 
+                        total_coupons_created = 56, 
+                        referrals_created = 56, 
+                        total_referrals_created = 56, 
+                        added_loyalty_points = 250.0, 
+                        total_added_loyalty_points = 340.0, 
+                        deducted_loyalty_points = 120.0, 
+                        total_deducted_loyalty_points = 220.0, )
                     ],
         )
 

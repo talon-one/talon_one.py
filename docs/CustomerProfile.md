@@ -1,11 +1,10 @@
 # CustomerProfile
 
-
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** | Internal ID of this entity. | 
-**created** | **datetime** | The time this entity was created. The time this entity was created. | 
+**created** | **datetime** | The time this entity was created. | 
 **integration_id** | **str** | The integration ID set by your integration layer. | 
 **attributes** | [**object**](.md) | Arbitrary properties associated with this item. | 
 **account_id** | **int** | The ID of the Talon.One account that owns this profile. | 

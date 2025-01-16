@@ -191,7 +191,7 @@ class WebhookWithOutgoingIntegrationDetails(object):
     def application_ids(self):
         """Gets the application_ids of this WebhookWithOutgoingIntegrationDetails.  # noqa: E501
 
-        The IDs of the Applications that are related to this entity. The IDs of the Applications that are related to this entity.  # noqa: E501
+        The IDs of the Applications in which this webhook is available. An empty array means the webhook is available in `All Applications`.   # noqa: E501
 
         :return: The application_ids of this WebhookWithOutgoingIntegrationDetails.  # noqa: E501
         :rtype: list[int]
@@ -202,7 +202,7 @@ class WebhookWithOutgoingIntegrationDetails(object):
     def application_ids(self, application_ids):
         """Sets the application_ids of this WebhookWithOutgoingIntegrationDetails.
 
-        The IDs of the Applications that are related to this entity. The IDs of the Applications that are related to this entity.  # noqa: E501
+        The IDs of the Applications in which this webhook is available. An empty array means the webhook is available in `All Applications`.   # noqa: E501
 
         :param application_ids: The application_ids of this WebhookWithOutgoingIntegrationDetails.  # noqa: E501
         :type: list[int]

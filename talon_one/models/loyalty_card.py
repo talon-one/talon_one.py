@@ -36,6 +36,8 @@ class LoyaltyCard(object):
         'id': 'int',
         'created': 'datetime',
         'program_id': 'int',
+        'program_name': 'str',
+        'program_title': 'str',
         'status': 'str',
         'block_reason': 'str',
         'identifier': 'str',
@@ -45,13 +47,16 @@ class LoyaltyCard(object):
         'subledgers': 'dict(str, LedgerInfo)',
         'modified': 'datetime',
         'old_card_identifier': 'str',
-        'new_card_identifier': 'str'
+        'new_card_identifier': 'str',
+        'batch_id': 'str'
     }
 
     attribute_map = {
         'id': 'id',
         'created': 'created',
         'program_id': 'programID',
+        'program_name': 'programName',
+        'program_title': 'programTitle',
         'status': 'status',
         'block_reason': 'blockReason',
         'identifier': 'identifier',
@@ -61,10 +66,11 @@ class LoyaltyCard(object):
         'subledgers': 'subledgers',
         'modified': 'modified',
         'old_card_identifier': 'oldCardIdentifier',
-        'new_card_identifier': 'newCardIdentifier'
+        'new_card_identifier': 'newCardIdentifier',
+        'batch_id': 'batchId'
     }
 
-    def __init__(self, id=None, created=None, program_id=None, status=None, block_reason=None, identifier=None, users_per_card_limit=None, profiles=None, ledger=None, subledgers=None, modified=None, old_card_identifier=None, new_card_identifier=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, created=None, program_id=None, program_name=None, program_title=None, status=None, block_reason=None, identifier=None, users_per_card_limit=None, profiles=None, ledger=None, subledgers=None, modified=None, old_card_identifier=None, new_card_identifier=None, batch_id=None, local_vars_configuration=None):  # noqa: E501
         """LoyaltyCard - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -73,6 +79,8 @@ class LoyaltyCard(object):
         self._id = None
         self._created = None
         self._program_id = None
+        self._program_name = None
+        self._program_title = None
         self._status = None
         self._block_reason = None
         self._identifier = None
@@ -83,11 +91,16 @@ class LoyaltyCard(object):
         self._modified = None
         self._old_card_identifier = None
         self._new_card_identifier = None
+        self._batch_id = None
         self.discriminator = None
 
         self.id = id
         self.created = created
         self.program_id = program_id
+        if program_name is not None:
+            self.program_name = program_name
+        if program_title is not None:
+            self.program_title = program_title
         self.status = status
         if block_reason is not None:
             self.block_reason = block_reason
@@ -105,6 +118,8 @@ class LoyaltyCard(object):
             self.old_card_identifier = old_card_identifier
         if new_card_identifier is not None:
             self.new_card_identifier = new_card_identifier
+        if batch_id is not None:
+            self.batch_id = batch_id
 
     @property
     def id(self):
@@ -182,6 +197,52 @@ class LoyaltyCard(object):
         self._program_id = program_id
 
     @property
+    def program_name(self):
+        """Gets the program_name of this LoyaltyCard.  # noqa: E501
+
+        The integration name of the loyalty program that owns this entity.  # noqa: E501
+
+        :return: The program_name of this LoyaltyCard.  # noqa: E501
+        :rtype: str
+        """
+        return self._program_name
+
+    @program_name.setter
+    def program_name(self, program_name):
+        """Sets the program_name of this LoyaltyCard.
+
+        The integration name of the loyalty program that owns this entity.  # noqa: E501
+
+        :param program_name: The program_name of this LoyaltyCard.  # noqa: E501
+        :type: str
+        """
+
+        self._program_name = program_name
+
+    @property
+    def program_title(self):
+        """Gets the program_title of this LoyaltyCard.  # noqa: E501
+
+        The Campaign Manager-displayed name of the loyalty program that owns this entity.  # noqa: E501
+
+        :return: The program_title of this LoyaltyCard.  # noqa: E501
+        :rtype: str
+        """
+        return self._program_title
+
+    @program_title.setter
+    def program_title(self, program_title):
+        """Sets the program_title of this LoyaltyCard.
+
+        The Campaign Manager-displayed name of the loyalty program that owns this entity.  # noqa: E501
+
+        :param program_title: The program_title of this LoyaltyCard.  # noqa: E501
+        :type: str
+        """
+
+        self._program_title = program_title
+
+    @property
     def status(self):
         """Gets the status of this LoyaltyCard.  # noqa: E501
 
@@ -254,6 +315,9 @@ class LoyaltyCard(object):
         if (self.local_vars_configuration.client_side_validation and
                 identifier is not None and len(identifier) > 108):
             raise ValueError("Invalid value for `identifier`, length must be less than or equal to `108`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                identifier is not None and not re.search(r'^[A-Za-z0-9_-]*$', identifier)):  # noqa: E501
+            raise ValueError(r"Invalid value for `identifier`, must be a follow pattern or equal to `/^[A-Za-z0-9_-]*$/`")  # noqa: E501
 
         self._identifier = identifier
 
@@ -398,6 +462,9 @@ class LoyaltyCard(object):
         if (self.local_vars_configuration.client_side_validation and
                 old_card_identifier is not None and len(old_card_identifier) > 108):
             raise ValueError("Invalid value for `old_card_identifier`, length must be less than or equal to `108`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                old_card_identifier is not None and not re.search(r'^[A-Za-z0-9_-]*$', old_card_identifier)):  # noqa: E501
+            raise ValueError(r"Invalid value for `old_card_identifier`, must be a follow pattern or equal to `/^[A-Za-z0-9_-]*$/`")  # noqa: E501
 
         self._old_card_identifier = old_card_identifier
 
@@ -424,8 +491,34 @@ class LoyaltyCard(object):
         if (self.local_vars_configuration.client_side_validation and
                 new_card_identifier is not None and len(new_card_identifier) > 108):
             raise ValueError("Invalid value for `new_card_identifier`, length must be less than or equal to `108`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                new_card_identifier is not None and not re.search(r'^[A-Za-z0-9_-]*$', new_card_identifier)):  # noqa: E501
+            raise ValueError(r"Invalid value for `new_card_identifier`, must be a follow pattern or equal to `/^[A-Za-z0-9_-]*$/`")  # noqa: E501
 
         self._new_card_identifier = new_card_identifier
+
+    @property
+    def batch_id(self):
+        """Gets the batch_id of this LoyaltyCard.  # noqa: E501
+
+        The ID of the batch in which the loyalty card was created.  # noqa: E501
+
+        :return: The batch_id of this LoyaltyCard.  # noqa: E501
+        :rtype: str
+        """
+        return self._batch_id
+
+    @batch_id.setter
+    def batch_id(self, batch_id):
+        """Sets the batch_id of this LoyaltyCard.
+
+        The ID of the batch in which the loyalty card was created.  # noqa: E501
+
+        :param batch_id: The batch_id of this LoyaltyCard.  # noqa: E501
+        :type: str
+        """
+
+        self._batch_id = batch_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

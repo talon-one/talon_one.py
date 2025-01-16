@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **tags** | **list[str]** | A list of tags for the campaign template. | [optional] 
 **features** | **list[str]** | A list of features for the campaign template. | [optional] 
 **coupon_settings** | [**CodeGeneratorSettings**](CodeGeneratorSettings.md) |  | [optional] 
+**coupon_reservation_settings** | [**CampaignTemplateCouponReservationSettings**](CampaignTemplateCouponReservationSettings.md) |  | [optional] 
 **referral_settings** | [**CodeGeneratorSettings**](CodeGeneratorSettings.md) |  | [optional] 
 **limits** | [**list[TemplateLimitConfig]**](TemplateLimitConfig.md) | The set of limits that operate for this campaign template. | [optional] 
 **template_params** | [**list[CampaignTemplateParams]**](CampaignTemplateParams.md) | Fields which can be used to replace values in a rule. | [optional] 

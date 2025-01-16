@@ -37,52 +37,27 @@ class TestInlineResponse20032(unittest.TestCase):
         if include_optional :
             return InlineResponse20032(
                 has_more = True, 
+                total_result_size = 1, 
                 data = [
-                    talon_one.models.customer_profile.CustomerProfile(
-                        id = 6, 
-                        created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        integration_id = 'URNGV8294NV', 
-                        attributes = {"Language":"english","ShippingCountry":"DE"}, 
-                        account_id = 31, 
-                        closed_sessions = 3, 
-                        total_sales = 299.99, 
-                        loyalty_memberships = [
-                            talon_one.models.loyalty_membership.LoyaltyMembership(
-                                joined = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                                loyalty_program_id = 323414846, )
-                            ], 
-                        audience_memberships = [
-                            talon_one.models.audience_membership.AudienceMembership(
-                                id = 2, 
-                                name = 'Travel audience', )
-                            ], 
-                        last_activity = '2020-02-08T14:15:20Z', 
-                        sandbox = False, )
+                    talon_one.models.application_referee.ApplicationReferee(
+                        application_id = 322, 
+                        session_id = '0', 
+                        advocate_integration_id = '0', 
+                        friend_integration_id = '0', 
+                        code = '0', 
+                        created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), )
                     ]
             )
         else :
             return InlineResponse20032(
                 data = [
-                    talon_one.models.customer_profile.CustomerProfile(
-                        id = 6, 
-                        created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        integration_id = 'URNGV8294NV', 
-                        attributes = {"Language":"english","ShippingCountry":"DE"}, 
-                        account_id = 31, 
-                        closed_sessions = 3, 
-                        total_sales = 299.99, 
-                        loyalty_memberships = [
-                            talon_one.models.loyalty_membership.LoyaltyMembership(
-                                joined = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                                loyalty_program_id = 323414846, )
-                            ], 
-                        audience_memberships = [
-                            talon_one.models.audience_membership.AudienceMembership(
-                                id = 2, 
-                                name = 'Travel audience', )
-                            ], 
-                        last_activity = '2020-02-08T14:15:20Z', 
-                        sandbox = False, )
+                    talon_one.models.application_referee.ApplicationReferee(
+                        application_id = 322, 
+                        session_id = '0', 
+                        advocate_integration_id = '0', 
+                        friend_integration_id = '0', 
+                        code = '0', 
+                        created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), )
                     ],
         )
 

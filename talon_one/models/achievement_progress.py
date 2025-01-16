@@ -36,6 +36,7 @@ class AchievementProgress(object):
         'achievement_id': 'int',
         'name': 'str',
         'title': 'str',
+        'description': 'str',
         'campaign_id': 'int',
         'status': 'str',
         'target': 'float',
@@ -49,6 +50,7 @@ class AchievementProgress(object):
         'achievement_id': 'achievementId',
         'name': 'name',
         'title': 'title',
+        'description': 'description',
         'campaign_id': 'campaignId',
         'status': 'status',
         'target': 'target',
@@ -58,7 +60,7 @@ class AchievementProgress(object):
         'end_date': 'endDate'
     }
 
-    def __init__(self, achievement_id=None, name=None, title=None, campaign_id=None, status=None, target=None, progress=None, start_date=None, completion_date=None, end_date=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, achievement_id=None, name=None, title=None, description=None, campaign_id=None, status=None, target=None, progress=None, start_date=None, completion_date=None, end_date=None, local_vars_configuration=None):  # noqa: E501
         """AchievementProgress - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -67,6 +69,7 @@ class AchievementProgress(object):
         self._achievement_id = None
         self._name = None
         self._title = None
+        self._description = None
         self._campaign_id = None
         self._status = None
         self._target = None
@@ -79,6 +82,7 @@ class AchievementProgress(object):
         self.achievement_id = achievement_id
         self.name = name
         self.title = title
+        self.description = description
         self.campaign_id = campaign_id
         self.status = status
         if target is not None:
@@ -172,6 +176,31 @@ class AchievementProgress(object):
             raise ValueError("Invalid value for `title`, must not be `None`")  # noqa: E501
 
         self._title = title
+
+    @property
+    def description(self):
+        """Gets the description of this AchievementProgress.  # noqa: E501
+
+        The description of the achievement in the Campaign Manager.  # noqa: E501
+
+        :return: The description of this AchievementProgress.  # noqa: E501
+        :rtype: str
+        """
+        return self._description
+
+    @description.setter
+    def description(self, description):
+        """Sets the description of this AchievementProgress.
+
+        The description of the achievement in the Campaign Manager.  # noqa: E501
+
+        :param description: The description of this AchievementProgress.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and description is None:  # noqa: E501
+            raise ValueError("Invalid value for `description`, must not be `None`")  # noqa: E501
+
+        self._description = description
 
     @property
     def campaign_id(self):

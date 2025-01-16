@@ -1,6 +1,5 @@
 # AsyncCouponDeletionJobResponse
 
-
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

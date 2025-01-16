@@ -181,7 +181,7 @@ class NewCustomerSessionV2(object):
     def coupon_codes(self):
         """Gets the coupon_codes of this NewCustomerSessionV2.  # noqa: E501
 
-        Any coupon codes entered.  **Important**: If you [create a coupon budget](https://docs.talon.one/docs/product/campaigns/settings/managing-campaign-budgets/#budget-types) for your campaign, ensure the session contains a coupon code by the time you close it.   # noqa: E501
+        Any coupon codes entered.  **Important - for requests only**:  - If you [create a coupon budget](https://docs.talon.one/docs/product/campaigns/settings/managing-campaign-budgets/#budget-types) for your campaign, ensure the session contains a coupon code by the time you close it. - In requests where `dry=false`, providing an empty array discards any previous coupons. To avoid this, omit the parameter entirely.   # noqa: E501
 
         :return: The coupon_codes of this NewCustomerSessionV2.  # noqa: E501
         :rtype: list[str]
@@ -192,7 +192,7 @@ class NewCustomerSessionV2(object):
     def coupon_codes(self, coupon_codes):
         """Sets the coupon_codes of this NewCustomerSessionV2.
 
-        Any coupon codes entered.  **Important**: If you [create a coupon budget](https://docs.talon.one/docs/product/campaigns/settings/managing-campaign-budgets/#budget-types) for your campaign, ensure the session contains a coupon code by the time you close it.   # noqa: E501
+        Any coupon codes entered.  **Important - for requests only**:  - If you [create a coupon budget](https://docs.talon.one/docs/product/campaigns/settings/managing-campaign-budgets/#budget-types) for your campaign, ensure the session contains a coupon code by the time you close it. - In requests where `dry=false`, providing an empty array discards any previous coupons. To avoid this, omit the parameter entirely.   # noqa: E501
 
         :param coupon_codes: The coupon_codes of this NewCustomerSessionV2.  # noqa: E501
         :type: list[str]
@@ -204,7 +204,7 @@ class NewCustomerSessionV2(object):
     def referral_code(self):
         """Gets the referral_code of this NewCustomerSessionV2.  # noqa: E501
 
-        Any referral code entered.  **Important**: If you [create a referral budget](https://docs.talon.one/docs/product/campaigns/settings/managing-campaign-budgets/#budget-types) for your campaign, ensure the session contains a referral code by the time you close it.   # noqa: E501
+        Any referral code entered.  **Important - for requests only**:  - If you [create a referral budget](https://docs.talon.one/docs/product/campaigns/settings/managing-campaign-budgets/#budget-types) for your campaign, ensure the session contains a referral code by the time you close it. - In requests where `dry=false`, providing an empty value discards the previous referral code. To avoid this, omit the parameter entirely.   # noqa: E501
 
         :return: The referral_code of this NewCustomerSessionV2.  # noqa: E501
         :rtype: str
@@ -215,7 +215,7 @@ class NewCustomerSessionV2(object):
     def referral_code(self, referral_code):
         """Sets the referral_code of this NewCustomerSessionV2.
 
-        Any referral code entered.  **Important**: If you [create a referral budget](https://docs.talon.one/docs/product/campaigns/settings/managing-campaign-budgets/#budget-types) for your campaign, ensure the session contains a referral code by the time you close it.   # noqa: E501
+        Any referral code entered.  **Important - for requests only**:  - If you [create a referral budget](https://docs.talon.one/docs/product/campaigns/settings/managing-campaign-budgets/#budget-types) for your campaign, ensure the session contains a referral code by the time you close it. - In requests where `dry=false`, providing an empty value discards the previous referral code. To avoid this, omit the parameter entirely.   # noqa: E501
 
         :param referral_code: The referral_code of this NewCustomerSessionV2.  # noqa: E501
         :type: str
@@ -328,7 +328,7 @@ class NewCustomerSessionV2(object):
     def identifiers(self):
         """Gets the identifiers of this NewCustomerSessionV2.  # noqa: E501
 
-        Session custom identifiers that you can set limits on or use inside your rules.  For example, you can use IP addresses as identifiers to potentially identify devices and limit discounts abuse in case of customers creating multiple accounts. See the [tutorial](https://docs.talon.one/docs/dev/tutorials/using-identifiers).  **Important**: Ensure the session contains an identifier by the time you close it if: - You [create a unique identifier budget](https://docs.talon.one/docs/product/campaigns/settings/managing-campaign-budgets/#budget-types) for your campaign. - Your campaign has [coupons](https://docs.talon.one/docs/product/campaigns/coupons/coupon-page-overview).   # noqa: E501
+        Session custom identifiers that you can set limits on or use inside your rules.  For example, you can use IP addresses as identifiers to potentially identify devices and limit discounts abuse in case of customers creating multiple accounts. See the [tutorial](https://docs.talon.one/docs/dev/tutorials/using-identifiers).  **Important**: Ensure the session contains an identifier by the time you close it if: - You [create a unique identifier budget](https://docs.talon.one/docs/product/campaigns/settings/managing-campaign-budgets/#budget-types) for your campaign. - Your campaign has [coupons](https://docs.talon.one/docs/product/campaigns/coupons/coupon-page-overview). - We recommend passing an anonymized (hashed) version of the identifier value.   # noqa: E501
 
         :return: The identifiers of this NewCustomerSessionV2.  # noqa: E501
         :rtype: list[str]
@@ -339,7 +339,7 @@ class NewCustomerSessionV2(object):
     def identifiers(self, identifiers):
         """Sets the identifiers of this NewCustomerSessionV2.
 
-        Session custom identifiers that you can set limits on or use inside your rules.  For example, you can use IP addresses as identifiers to potentially identify devices and limit discounts abuse in case of customers creating multiple accounts. See the [tutorial](https://docs.talon.one/docs/dev/tutorials/using-identifiers).  **Important**: Ensure the session contains an identifier by the time you close it if: - You [create a unique identifier budget](https://docs.talon.one/docs/product/campaigns/settings/managing-campaign-budgets/#budget-types) for your campaign. - Your campaign has [coupons](https://docs.talon.one/docs/product/campaigns/coupons/coupon-page-overview).   # noqa: E501
+        Session custom identifiers that you can set limits on or use inside your rules.  For example, you can use IP addresses as identifiers to potentially identify devices and limit discounts abuse in case of customers creating multiple accounts. See the [tutorial](https://docs.talon.one/docs/dev/tutorials/using-identifiers).  **Important**: Ensure the session contains an identifier by the time you close it if: - You [create a unique identifier budget](https://docs.talon.one/docs/product/campaigns/settings/managing-campaign-budgets/#budget-types) for your campaign. - Your campaign has [coupons](https://docs.talon.one/docs/product/campaigns/coupons/coupon-page-overview). - We recommend passing an anonymized (hashed) version of the identifier value.   # noqa: E501
 
         :param identifiers: The identifiers of this NewCustomerSessionV2.  # noqa: E501
         :type: list[str]

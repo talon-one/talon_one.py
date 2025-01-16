@@ -38,30 +38,52 @@ class TestInlineResponse20036(unittest.TestCase):
             return InlineResponse20036(
                 total_result_size = 1, 
                 data = [
-                    talon_one.models.account_additional_cost.AccountAdditionalCost(
+                    talon_one.models.webhook_with_outgoing_integration_details.WebhookWithOutgoingIntegrationDetails(
                         id = 6, 
                         created = '2020-06-10T09:05:27.993483Z', 
-                        account_id = 3886, 
-                        name = 'shippingFee', 
-                        title = 'Shipping fee', 
-                        description = 'A shipping fee', 
-                        subscribed_applications_ids = [3, 13], 
-                        type = 'session', )
+                        modified = '2021-09-12T10:12:42Z', 
+                        application_ids = [
+                            56
+                            ], 
+                        title = 'Send message', 
+                        description = 'A webhook to send a coupon to the user.', 
+                        verb = 'POST', 
+                        url = 'www.my-company.com/my-endpoint-name', 
+                        headers = [{"Authorization": "Basic bmF2ZWVua3VtYXIU="}, {"Content-Type": "application/json"}], 
+                        payload = '{
+	"message": "${message}"
+}', 
+                        params = [], 
+                        enabled = True, 
+                        outgoing_integration_template_id = 1, 
+                        outgoing_integration_type_id = 1, 
+                        outgoing_integration_type_name = 'Braze', )
                     ]
             )
         else :
             return InlineResponse20036(
                 total_result_size = 1,
                 data = [
-                    talon_one.models.account_additional_cost.AccountAdditionalCost(
+                    talon_one.models.webhook_with_outgoing_integration_details.WebhookWithOutgoingIntegrationDetails(
                         id = 6, 
                         created = '2020-06-10T09:05:27.993483Z', 
-                        account_id = 3886, 
-                        name = 'shippingFee', 
-                        title = 'Shipping fee', 
-                        description = 'A shipping fee', 
-                        subscribed_applications_ids = [3, 13], 
-                        type = 'session', )
+                        modified = '2021-09-12T10:12:42Z', 
+                        application_ids = [
+                            56
+                            ], 
+                        title = 'Send message', 
+                        description = 'A webhook to send a coupon to the user.', 
+                        verb = 'POST', 
+                        url = 'www.my-company.com/my-endpoint-name', 
+                        headers = [{"Authorization": "Basic bmF2ZWVua3VtYXIU="}, {"Content-Type": "application/json"}], 
+                        payload = '{
+	"message": "${message}"
+}', 
+                        params = [], 
+                        enabled = True, 
+                        outgoing_integration_template_id = 1, 
+                        outgoing_integration_type_id = 1, 
+                        outgoing_integration_type_name = 'Braze', )
                     ],
         )
 

@@ -1,6 +1,5 @@
 # CatalogItem
 
-
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

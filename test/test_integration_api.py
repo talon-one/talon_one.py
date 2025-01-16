@@ -108,7 +108,7 @@ class TestIntegrationApi(unittest.TestCase):
     def test_get_loyalty_balances(self):
         """Test case for get_loyalty_balances
 
-        Get customer's loyalty points  # noqa: E501
+        Get customer's loyalty balances  # noqa: E501
         """
         pass
 

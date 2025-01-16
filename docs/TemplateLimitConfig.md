@@ -1,6 +1,5 @@
 # TemplateLimitConfig
 
-
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

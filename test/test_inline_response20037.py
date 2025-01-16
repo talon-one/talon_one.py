@@ -38,52 +38,24 @@ class TestInlineResponse20037(unittest.TestCase):
             return InlineResponse20037(
                 total_result_size = 1, 
                 data = [
-                    talon_one.models.webhook_with_outgoing_integration_details.WebhookWithOutgoingIntegrationDetails(
-                        id = 6, 
-                        created = '2020-06-10T09:05:27.993483Z', 
-                        modified = '2021-09-12T10:12:42Z', 
-                        application_ids = [
-                            56
-                            ], 
-                        title = 'Send message', 
-                        description = 'A webhook to send a coupon to the user.', 
-                        verb = 'POST', 
-                        url = 'www.my-company.com/my-endpoint-name', 
-                        headers = [{"Authorization": "Basic bmF2ZWVua3VtYXIU="}, {"Content-Type": "application/json"}], 
-                        payload = '{
-	"message": "${message}"
-}', 
-                        params = [], 
-                        enabled = True, 
-                        outgoing_integration_template_id = 1, 
-                        outgoing_integration_type_id = 1, 
-                        outgoing_integration_type_name = 'Braze', )
+                    talon_one.models.webhook_activation_log_entry.WebhookActivationLogEntry(
+                        integration_request_uuid = '6d3699cf-95bd-444a-b62f-80d6e8391dc9', 
+                        webhook_id = 1, 
+                        application_id = 13, 
+                        campaign_id = 86, 
+                        created = '2023-03-21T13:55:08.571144Z', )
                     ]
             )
         else :
             return InlineResponse20037(
                 total_result_size = 1,
                 data = [
-                    talon_one.models.webhook_with_outgoing_integration_details.WebhookWithOutgoingIntegrationDetails(
-                        id = 6, 
-                        created = '2020-06-10T09:05:27.993483Z', 
-                        modified = '2021-09-12T10:12:42Z', 
-                        application_ids = [
-                            56
-                            ], 
-                        title = 'Send message', 
-                        description = 'A webhook to send a coupon to the user.', 
-                        verb = 'POST', 
-                        url = 'www.my-company.com/my-endpoint-name', 
-                        headers = [{"Authorization": "Basic bmF2ZWVua3VtYXIU="}, {"Content-Type": "application/json"}], 
-                        payload = '{
-	"message": "${message}"
-}', 
-                        params = [], 
-                        enabled = True, 
-                        outgoing_integration_template_id = 1, 
-                        outgoing_integration_type_id = 1, 
-                        outgoing_integration_type_name = 'Braze', )
+                    talon_one.models.webhook_activation_log_entry.WebhookActivationLogEntry(
+                        integration_request_uuid = '6d3699cf-95bd-444a-b62f-80d6e8391dc9', 
+                        webhook_id = 1, 
+                        application_id = 13, 
+                        campaign_id = 86, 
+                        created = '2023-03-21T13:55:08.571144Z', )
                     ],
         )
 

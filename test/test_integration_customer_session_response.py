@@ -38,7 +38,7 @@ class TestIntegrationCustomerSessionResponse(unittest.TestCase):
             return IntegrationCustomerSessionResponse(
                 customer_session = talon_one.models.customer_session_v2.CustomerSessionV2(
                     id = 6, 
-                    created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                    created = '2020-02-07T08:15:22Z', 
                     integration_id = 'URNGV8294NV', 
                     application_id = 322, 
                     profile_id = 'URNGV8294NV', 
@@ -69,13 +69,14 @@ class TestIntegrationCustomerSessionResponse(unittest.TestCase):
                             catalog_item_id = 56, )
                         ], 
                     additional_costs = {"shipping":{"price":9}}, 
-                    identifiers = [91.11.156.141], 
+                    identifiers = [d41306257915f83fe01e54092ae470f631161ea16fcf4415842eed41470386ea], 
                     attributes = {"ShippingCity":"Berlin"}, 
                     first_session = True, 
                     total = 119.99, 
                     cart_item_total = 99.99, 
                     additional_cost_total = 20.0, 
-                    updated = '2020-02-08T14:15:22Z', ), 
+                    updated = '2020-02-08T14:15:22Z', 
+                    closure_prediction = 0.283, ), 
                 effects = [
                     talon_one.models.effect.Effect(
                         campaign_id = 244, 
@@ -88,6 +89,8 @@ class TestIntegrationCustomerSessionResponse(unittest.TestCase):
                         condition_index = 786, 
                         evaluation_group_id = 3, 
                         evaluation_group_mode = 'stackable', 
+                        campaign_revision_id = 1, 
+                        campaign_revision_version_id = 5, 
                         props = talon_one.models.effect_props.EffectProps(), )
                     ]
             )

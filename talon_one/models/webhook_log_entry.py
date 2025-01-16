@@ -193,7 +193,7 @@ class WebhookLogEntry(object):
     def url(self):
         """Gets the url of this WebhookLogEntry.  # noqa: E501
 
-        Target url of request  # noqa: E501
+        The target URL of the request.  # noqa: E501
 
         :return: The url of this WebhookLogEntry.  # noqa: E501
         :rtype: str
@@ -204,7 +204,7 @@ class WebhookLogEntry(object):
     def url(self, url):
         """Sets the url of this WebhookLogEntry.
 
-        Target url of request  # noqa: E501
+        The target URL of the request.  # noqa: E501
 
         :param url: The url of this WebhookLogEntry.  # noqa: E501
         :type: str

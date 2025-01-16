@@ -38,7 +38,7 @@ class TestTrackEventV2Response(unittest.TestCase):
             return TrackEventV2Response(
                 customer_profile = talon_one.models.customer_profile.CustomerProfile(
                     id = 6, 
-                    created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                    created = '2020-02-07T08:15:22Z', 
                     integration_id = 'URNGV8294NV', 
                     attributes = {"Language":"english","ShippingCountry":"DE"}, 
                     account_id = 31, 
@@ -46,7 +46,7 @@ class TestTrackEventV2Response(unittest.TestCase):
                     total_sales = 299.99, 
                     loyalty_memberships = [
                         talon_one.models.loyalty_membership.LoyaltyMembership(
-                            joined = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                            joined = '2012-03-20T14:15:22Z', 
                             loyalty_program_id = 323414846, )
                         ], 
                     audience_memberships = [
@@ -99,6 +99,8 @@ class TestTrackEventV2Response(unittest.TestCase):
                             id = 6, 
                             created = '2020-06-10T09:05:27.993483Z', 
                             program_id = 125, 
+                            program_name = 'Loyalty_program', 
+                            program_title = 'Loyalty program', 
                             status = 'active', 
                             block_reason = 'Current card lost. Customer needs a new card.', 
                             identifier = 'summer-loyalty-card-0543', 
@@ -134,7 +136,8 @@ class TestTrackEventV2Response(unittest.TestCase):
                                 }, 
                             modified = '2021-09-12T10:12:42Z', 
                             old_card_identifier = 'summer-loyalty-card-0543', 
-                            new_card_identifier = 'summer-loyalty-card-0543', )
+                            new_card_identifier = 'summer-loyalty-card-0543', 
+                            batch_id = 'wdefpov', )
                         ], 
                     programs = {
                         'key' : talon_one.models.loyalty_program_ledgers.LoyaltyProgramLedgers(
@@ -219,7 +222,14 @@ class TestTrackEventV2Response(unittest.TestCase):
                         updated_by = 'Jane Doe', 
                         template_id = 3, 
                         frontend_state = 'running', 
-                        stores_imported = True, )
+                        stores_imported = True, 
+                        revision_frontend_state = 'revised', 
+                        active_revision_id = 6, 
+                        active_revision_version_id = 6, 
+                        version = 6, 
+                        current_revision_id = 6, 
+                        current_revision_version_id = 6, 
+                        stage_revision = False, )
                     ], 
                 rule_failure_reasons = [
                     talon_one.models.rule_failure_reason.RuleFailureReason(
@@ -264,6 +274,8 @@ class TestTrackEventV2Response(unittest.TestCase):
                         condition_index = 786, 
                         evaluation_group_id = 3, 
                         evaluation_group_mode = 'stackable', 
+                        campaign_revision_id = 1, 
+                        campaign_revision_version_id = 5, 
                         props = talon_one.models.effect_props.EffectProps(), )
                     ], 
                 created_coupons = [
@@ -328,6 +340,8 @@ class TestTrackEventV2Response(unittest.TestCase):
                         condition_index = 786, 
                         evaluation_group_id = 3, 
                         evaluation_group_mode = 'stackable', 
+                        campaign_revision_id = 1, 
+                        campaign_revision_version_id = 5, 
                         props = talon_one.models.effect_props.EffectProps(), )
                     ],
                 created_coupons = [

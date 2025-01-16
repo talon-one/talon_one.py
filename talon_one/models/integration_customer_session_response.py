@@ -82,6 +82,7 @@ class IntegrationCustomerSessionResponse(object):
     def effects(self):
         """Gets the effects of this IntegrationCustomerSessionResponse.  # noqa: E501
 
+        The returned effects.  **Note:** This endpoint returns only the effects that are valid after any rollback effects and their corresponding non-rollback effects are removed.   # noqa: E501
 
         :return: The effects of this IntegrationCustomerSessionResponse.  # noqa: E501
         :rtype: list[Effect]
@@ -92,6 +93,7 @@ class IntegrationCustomerSessionResponse(object):
     def effects(self, effects):
         """Sets the effects of this IntegrationCustomerSessionResponse.
 
+        The returned effects.  **Note:** This endpoint returns only the effects that are valid after any rollback effects and their corresponding non-rollback effects are removed.   # noqa: E501
 
         :param effects: The effects of this IntegrationCustomerSessionResponse.  # noqa: E501
         :type: list[Effect]

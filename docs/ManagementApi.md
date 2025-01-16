@@ -12,6 +12,7 @@ Method | HTTP request | Description
 [**create_achievement**](ManagementApi.md#create_achievement) | **POST** /v1/applications/{applicationId}/campaigns/{campaignId}/achievements | Create achievement
 [**create_additional_cost**](ManagementApi.md#create_additional_cost) | **POST** /v1/additional_costs | Create additional cost
 [**create_attribute**](ManagementApi.md#create_attribute) | **POST** /v1/attributes | Create custom attribute
+[**create_batch_loyalty_cards**](ManagementApi.md#create_batch_loyalty_cards) | **POST** /v1/loyalty_programs/{loyaltyProgramId}/cards/batch | Create loyalty cards
 [**create_campaign_from_template**](ManagementApi.md#create_campaign_from_template) | **POST** /v1/applications/{applicationId}/create_campaign_from_template | Create campaign from campaign template
 [**create_collection**](ManagementApi.md#create_collection) | **POST** /v1/applications/{applicationId}/campaigns/{campaignId}/collections | Create campaign-level collection
 [**create_coupons**](ManagementApi.md#create_coupons) | **POST** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons | Create coupons
@@ -51,6 +52,7 @@ Method | HTTP request | Description
 [**export_loyalty_balances**](ManagementApi.md#export_loyalty_balances) | **GET** /v1/loyalty_programs/{loyaltyProgramId}/export_customer_balances | Export customer loyalty balances
 [**export_loyalty_card_balances**](ManagementApi.md#export_loyalty_card_balances) | **GET** /v1/loyalty_programs/{loyaltyProgramId}/export_card_balances | Export all card transaction logs
 [**export_loyalty_card_ledger**](ManagementApi.md#export_loyalty_card_ledger) | **GET** /v1/loyalty_programs/{loyaltyProgramId}/cards/{loyaltyCardId}/export_log | Export card&#39;s ledger log
+[**export_loyalty_cards**](ManagementApi.md#export_loyalty_cards) | **GET** /v1/loyalty_programs/{loyaltyProgramId}/cards/export | Export loyalty cards
 [**export_loyalty_ledger**](ManagementApi.md#export_loyalty_ledger) | **GET** /v1/loyalty_programs/{loyaltyProgramId}/profile/{integrationId}/export_log | Export customer&#39;s transaction logs
 [**export_pool_giveaways**](ManagementApi.md#export_pool_giveaways) | **GET** /v1/giveaways/pools/{poolId}/export | Export giveaway codes of a giveaway pool
 [**export_referrals**](ManagementApi.md#export_referrals) | **GET** /v1/applications/{applicationId}/export_referrals | Export referrals
@@ -61,7 +63,6 @@ Method | HTTP request | Description
 [**get_achievement**](ManagementApi.md#get_achievement) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/achievements/{achievementId} | Get achievement
 [**get_additional_cost**](ManagementApi.md#get_additional_cost) | **GET** /v1/additional_costs/{additionalCostId} | Get additional cost
 [**get_additional_costs**](ManagementApi.md#get_additional_costs) | **GET** /v1/additional_costs | List additional costs
-[**get_all_access_logs**](ManagementApi.md#get_all_access_logs) | **GET** /v1/access_logs | List access logs
 [**get_application**](ManagementApi.md#get_application) | **GET** /v1/applications/{applicationId} | Get Application
 [**get_application_api_health**](ManagementApi.md#get_application_api_health) | **GET** /v1/applications/{applicationId}/health_report | Get Application health
 [**get_application_customer**](ManagementApi.md#get_application_customer) | **GET** /v1/applications/{applicationId}/customers/{customerId} | Get application&#39;s customer
@@ -147,7 +148,7 @@ Method | HTTP request | Description
 [**scim_delete_user**](ManagementApi.md#scim_delete_user) | **DELETE** /v1/provisioning/scim/Users/{userId} | Delete SCIM user
 [**scim_get_resource_types**](ManagementApi.md#scim_get_resource_types) | **GET** /v1/provisioning/scim/ResourceTypes | List supported SCIM resource types
 [**scim_get_schemas**](ManagementApi.md#scim_get_schemas) | **GET** /v1/provisioning/scim/Schemas | List supported SCIM schemas
-[**scim_get_service_provider_config**](ManagementApi.md#scim_get_service_provider_config) | **GET** /v1/provisioning/scim/ServiceProviderConfig | Service config endpoint for SCIM provisioning protocol
+[**scim_get_service_provider_config**](ManagementApi.md#scim_get_service_provider_config) | **GET** /v1/provisioning/scim/ServiceProviderConfig | Get SCIM service provider configuration
 [**scim_get_user**](ManagementApi.md#scim_get_user) | **GET** /v1/provisioning/scim/Users/{userId} | Get SCIM user
 [**scim_get_users**](ManagementApi.md#scim_get_users) | **GET** /v1/provisioning/scim/Users | List SCIM users
 [**scim_patch_user**](ManagementApi.md#scim_patch_user) | **PATCH** /v1/provisioning/scim/Users/{userId} | Update SCIM user attributes
@@ -221,7 +222,7 @@ configuration = talon_one.Configuration(
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
-    body = talon_one.ActivateUserRequest() # ActivateUserRequest | body
+    body = talon_one.DeactivateUserRequest() # DeactivateUserRequest | body
 
     try:
         # Enable user by email address
@@ -272,7 +273,7 @@ configuration = talon_one.Configuration(
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
-    body = talon_one.ActivateUserRequest() # ActivateUserRequest | body
+    body = talon_one.DeactivateUserRequest() # DeactivateUserRequest | body
 
     try:
         # Enable user by email address
@@ -285,7 +286,7 @@ with talon_one.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**ActivateUserRequest**](ActivateUserRequest.md)| body | 
+ **body** | **DeactivateUserRequest**| body | 
 
 ### Return type
 
@@ -1309,6 +1310,151 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | Created |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **create_batch_loyalty_cards**
+> LoyaltyCardBatchResponse create_batch_loyalty_cards(loyalty_program_id, body)
+
+Create loyalty cards
+
+Create a batch of loyalty cards in a specified [card-based loyalty program](https://docs.talon.one/docs/product/loyalty-programs/overview#loyalty-program-types).  Customers can use loyalty cards to collect and spend loyalty points.  **Important:**  - The specified card-based loyalty program must have a defined card code format that is used to generate the loyalty card codes. - Trying to create more than 20,000 loyalty cards in a single request returns an error message with a `400` status code. 
+
+### Example
+
+* Api Key Authentication (management_key):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    loyalty_program_id = 56 # int | Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. 
+body = talon_one.LoyaltyCardBatch() # LoyaltyCardBatch | body
+
+    try:
+        # Create loyalty cards
+        api_response = api_instance.create_batch_loyalty_cards(loyalty_program_id, body)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->create_batch_loyalty_cards: %s\n" % e)
+```
+
+* Api Key Authentication (manager_auth):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    loyalty_program_id = 56 # int | Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. 
+body = talon_one.LoyaltyCardBatch() # LoyaltyCardBatch | body
+
+    try:
+        # Create loyalty cards
+        api_response = api_instance.create_batch_loyalty_cards(loyalty_program_id, body)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->create_batch_loyalty_cards: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **loyalty_program_id** | **int**| Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  | 
+ **body** | [**LoyaltyCardBatch**](LoyaltyCardBatch.md)| body | 
+
+### Return type
+
+[**LoyaltyCardBatchResponse**](LoyaltyCardBatchResponse.md)
+
+### Authorization
+
+[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Bad request |  -  |
+**401** | Unauthorized |  -  |
+**404** | Not found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -3944,7 +4090,7 @@ valid = 'valid_example' # str | - `expired`: Matches coupons in which the expira
 batch_id = 'batch_id_example' # str | Filter results by batches of coupons (optional)
 usable = 'usable_example' # str | - `true`: only coupons where `usageCounter < usageLimit` will be returned. - `false`: only coupons where `usageCounter >= usageLimit` will be returned.  (optional)
 referral_id = 56 # int | Filter the results by matching them with the ID of a referral. This filter shows the coupons created by redeeming a referral code. (optional)
-recipient_integration_id = 'recipient_integration_id_example' # str | Filter results by match with a profile id specified in the coupon's `RecipientIntegrationId` field.  (optional)
+recipient_integration_id = 'recipient_integration_id_example' # str | Filter results by match with a profile ID specified in the coupon's `RecipientIntegrationId` field.  (optional)
 exact_match = False # bool | Filter results to an exact case-insensitive matching against the coupon code (optional) (default to False)
 
     try:
@@ -4009,7 +4155,7 @@ valid = 'valid_example' # str | - `expired`: Matches coupons in which the expira
 batch_id = 'batch_id_example' # str | Filter results by batches of coupons (optional)
 usable = 'usable_example' # str | - `true`: only coupons where `usageCounter < usageLimit` will be returned. - `false`: only coupons where `usageCounter >= usageLimit` will be returned.  (optional)
 referral_id = 56 # int | Filter the results by matching them with the ID of a referral. This filter shows the coupons created by redeeming a referral code. (optional)
-recipient_integration_id = 'recipient_integration_id_example' # str | Filter results by match with a profile id specified in the coupon's `RecipientIntegrationId` field.  (optional)
+recipient_integration_id = 'recipient_integration_id_example' # str | Filter results by match with a profile ID specified in the coupon's `RecipientIntegrationId` field.  (optional)
 exact_match = False # bool | Filter results to an exact case-insensitive matching against the coupon code (optional) (default to False)
 
     try:
@@ -4036,7 +4182,7 @@ Name | Type | Description  | Notes
  **batch_id** | **str**| Filter results by batches of coupons | [optional] 
  **usable** | **str**| - &#x60;true&#x60;: only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned. - &#x60;false&#x60;: only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60; will be returned.  | [optional] 
  **referral_id** | **int**| Filter the results by matching them with the ID of a referral. This filter shows the coupons created by redeeming a referral code. | [optional] 
- **recipient_integration_id** | **str**| Filter results by match with a profile id specified in the coupon&#39;s &#x60;RecipientIntegrationId&#x60; field.  | [optional] 
+ **recipient_integration_id** | **str**| Filter results by match with a profile ID specified in the coupon&#39;s &#x60;RecipientIntegrationId&#x60; field.  | [optional] 
  **exact_match** | **bool**| Filter results to an exact case-insensitive matching against the coupon code | [optional] [default to False]
 
 ### Return type
@@ -4673,7 +4819,7 @@ configuration = talon_one.Configuration(
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
-    body = talon_one.DeleteUserRequest() # DeleteUserRequest | body
+    body = talon_one.DeactivateUserRequest() # DeactivateUserRequest | body
 
     try:
         # Delete user by email address
@@ -4724,7 +4870,7 @@ configuration = talon_one.Configuration(
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
-    body = talon_one.DeleteUserRequest() # DeleteUserRequest | body
+    body = talon_one.DeactivateUserRequest() # DeactivateUserRequest | body
 
     try:
         # Delete user by email address
@@ -4737,7 +4883,7 @@ with talon_one.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**DeleteUserRequest**](DeleteUserRequest.md)| body | 
+ **body** | **DeactivateUserRequest**| body | 
 
 ### Return type
 
@@ -5762,7 +5908,7 @@ Name | Type | Description  | Notes
 
 Export coupons
 
-Download a CSV file containing the coupons that match the given properties.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The CSV file can contain the following columns:  - `accountid`: The ID of your deployment. - `applicationid`: The ID of the Application this coupon is related to. - `attributes`: A json object describing _custom_ referral attribute names and their values. - `batchid`: The ID of the batch this coupon is part of. - `campaignid`: The ID of the campaign this coupon is related to. - `counter`: The number of times this coupon has been redeemed. - `created`: The creation date of the coupon code. - `deleted`: Whether the coupon code is deleted. - `deleted_changelogid`: The ID of the delete event in the logs. - `discount_counter`: The amount of discount given by this coupon. - `discount_limitval`: The maximum discount amount that can be given be this coupon. - `expirydate`: The end date in RFC3339 of the code redemption period. - `id`: The internal ID of the coupon code. - `importid`: The ID of the import job that created this coupon. - `is_reservation_mandatory`: Whether this coupon requires a reservation to be redeemed. - `limits`: The limits set on this coupon. - `limitval`: The maximum number of redemptions of this code. - `recipientintegrationid`: The integration ID of the recipient of the coupon.   Only the customer with this integration ID can redeem this code. Available only for personal codes. - `referralid`: The ID of the referral code that triggered the creation of this coupon (create coupon effect). - `reservation`: Whether the coupon can be reserved for multiple customers. - `reservation_counter`: How many times this coupon has been reserved. - `reservation_limitval`: The maximum of number of reservations this coupon can have. - `startdate`: The start date in RFC3339 of the code redemption period. - `value`: The coupon code. 
+Download a CSV file containing the coupons that match the given properties.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The CSV file can contain the following columns:  - `accountid`: The ID of your deployment. - `applicationid`: The ID of the Application this coupon is related to. - `attributes`: A json object describing _custom_ referral attribute names and their values. - `batchid`: The ID of the batch this coupon is part of. - `campaignid`: The ID of the campaign this coupon is related to. - `counter`: The number of times this coupon has been redeemed. - `created`: The creation date in RFC3339 of the coupon code. - `deleted`: Whether the coupon code is deleted. - `deleted_changelogid`: The ID of the delete event in the logs. - `discount_counter`: The amount of discount given by this coupon. - `discount_limitval`: The maximum discount amount that can be given be this coupon. - `expirydate`: The end date in RFC3339 of the code redemption period. - `id`: The internal ID of the coupon code. - `importid`: The ID of the import job that created this coupon. - `is_reservation_mandatory`: Whether this coupon requires a reservation to be redeemed. - `limits`: The limits set on this coupon. - `limitval`: The maximum number of redemptions of this code. - `recipientintegrationid`: The integration ID of the recipient of the coupon.   Only the customer with this integration ID can redeem this code. Available only for personal codes. - `referralid`: The ID of the referral code that triggered the creation of this coupon (create coupon effect). - `reservation`: Whether the coupon can be reserved for multiple customers. - `reservation_counter`: How many times this coupon has been reserved. - `reservation_limitval`: The maximum of number of reservations this coupon can have. - `startdate`: The start date in RFC3339 of the code redemption period. - `value`: The coupon code. 
 
 ### Example
 
@@ -5809,7 +5955,7 @@ with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
     application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
-campaign_id = 3.4 # float | Filter results by campaign. (optional)
+campaign_id = 3.4 # float | Filter results by campaign ID. (optional)
 sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
 value = 'value_example' # str | Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
 created_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
@@ -5875,7 +6021,7 @@ with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
     application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
-campaign_id = 3.4 # float | Filter results by campaign. (optional)
+campaign_id = 3.4 # float | Filter results by campaign ID. (optional)
 sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
 value = 'value_example' # str | Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
 created_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
@@ -5903,7 +6049,7 @@ values_only = False # bool | Filter results to only return the coupon codes (`va
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **application_id** | **int**| The ID of the Application. It is displayed in your Talon.One deployment URL. | 
- **campaign_id** | **float**| Filter results by campaign. | [optional] 
+ **campaign_id** | **float**| Filter results by campaign ID. | [optional] 
  **sort** | **str**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  | [optional] 
  **value** | **str**| Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. | [optional] 
  **created_before** | **datetime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. | [optional] 
@@ -6289,9 +6435,9 @@ with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
     application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
-campaign_id = 3.4 # float | Filter results by campaign. (optional)
-created_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
-created_after = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
+campaign_id = 3.4 # float | Filter results by campaign ID. (optional)
+created_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
+created_after = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
 date_format = 'date_format_example' # str | Determines the format of dates in the export document. (optional)
 
     try:
@@ -6345,9 +6491,9 @@ with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
     application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
-campaign_id = 3.4 # float | Filter results by campaign. (optional)
-created_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
-created_after = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
+campaign_id = 3.4 # float | Filter results by campaign ID. (optional)
+created_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
+created_after = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
 date_format = 'date_format_example' # str | Determines the format of dates in the export document. (optional)
 
     try:
@@ -6363,9 +6509,9 @@ date_format = 'date_format_example' # str | Determines the format of dates in th
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **application_id** | **int**| The ID of the Application. It is displayed in your Talon.One deployment URL. | 
- **campaign_id** | **float**| Filter results by campaign. | [optional] 
- **created_before** | **datetime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. | [optional] 
- **created_after** | **datetime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. | [optional] 
+ **campaign_id** | **float**| Filter results by campaign ID. | [optional] 
+ **created_before** | **datetime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally. | [optional] 
+ **created_after** | **datetime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally. | [optional] 
  **date_format** | **str**| Determines the format of dates in the export document. | [optional] 
 
 ### Return type
@@ -6973,12 +7119,159 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **export_loyalty_cards**
+> str export_loyalty_cards(loyalty_program_id, batch_id=batch_id, date_format=date_format)
+
+Export loyalty cards
+
+Download a CSV file containing the loyalty cards from a specified loyalty program.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The CSV file contains the following columns: - `identifier`: The unique identifier of the loyalty card. - `created`: The date and time the loyalty card was created. - `status`: The status of the loyalty card. - `userpercardlimit`: The maximum number of customer profiles that can be linked to the card. - `customerprofileids`: Integration IDs of the customer profiles linked to the card. - `blockreason`: The reason for transferring and blocking the loyalty card. - `generated`: An indicator of whether the loyalty card was generated. - `batchid`: The ID of the batch the loyalty card is in. 
+
+### Example
+
+* Api Key Authentication (management_key):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    loyalty_program_id = 56 # int | Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. 
+batch_id = 'batch_id_example' # str | Filter results by loyalty card batch ID. (optional)
+date_format = 'date_format_example' # str | Determines the format of dates in the export document. (optional)
+
+    try:
+        # Export loyalty cards
+        api_response = api_instance.export_loyalty_cards(loyalty_program_id, batch_id=batch_id, date_format=date_format)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->export_loyalty_cards: %s\n" % e)
+```
+
+* Api Key Authentication (manager_auth):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    loyalty_program_id = 56 # int | Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. 
+batch_id = 'batch_id_example' # str | Filter results by loyalty card batch ID. (optional)
+date_format = 'date_format_example' # str | Determines the format of dates in the export document. (optional)
+
+    try:
+        # Export loyalty cards
+        api_response = api_instance.export_loyalty_cards(loyalty_program_id, batch_id=batch_id, date_format=date_format)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->export_loyalty_cards: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **loyalty_program_id** | **int**| Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  | 
+ **batch_id** | **str**| Filter results by loyalty card batch ID. | [optional] 
+ **date_format** | **str**| Determines the format of dates in the export document. | [optional] 
+
+### Return type
+
+**str**
+
+### Authorization
+
+[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/csv
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Bad request |  -  |
+**401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **export_loyalty_ledger**
 > str export_loyalty_ledger(range_start, range_end, loyalty_program_id, integration_id, date_format=date_format)
 
 Export customer's transaction logs
 
-Download a CSV file containing a customer's transaction logs in the loyalty program.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The generated file can contain the following columns:  - `customerprofileid`: The ID of the profile. - `customersessionid`: The ID of the customer session. - `rulesetid`: The ID of the rule set. - `rulename`: The name of the rule. - `programid`: The ID of the loyalty program. - `type`: The type of the loyalty program. - `name`: The name of the loyalty program. - `subledgerid`: The ID of the subledger, when applicable. - `startdate`: The start date of the program. - `expirydate`: The expiration date of the program. - `id`: The ID of the transaction. - `created`: The timestamp of the creation of the loyalty program. - `amount`: The number of points in that transaction. - `archived`: Whether the session related to the transaction is archived. - `campaignid`: The ID of the campaign. 
+Download a CSV file containing a customer's transaction logs in the loyalty program.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The generated file can contain the following columns:  - `customerprofileid`: The ID of the profile. - `customersessionid`: The ID of the customer session. - `rulesetid`: The ID of the rule set. - `rulename`: The name of the rule. - `programid`: The ID of the loyalty program. - `type`: The transaction type, such as `addition` or `subtraction`. - `name`: The reason for the transaction. - `subledgerid`: The ID of the subledger, when applicable. - `startdate`: The start date of the program. - `expirydate`: The expiration date of the program. - `id`: The ID of the transaction. - `created`: The timestamp of the creation of the loyalty program. - `amount`: The number of points in that transaction. - `archived`: Whether the session related to the transaction is archived. - `campaignid`: The ID of the campaign. 
 
 ### Example
 
@@ -7322,7 +7615,7 @@ with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
     application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
-campaign_id = 3.4 # float | Filter results by campaign. (optional)
+campaign_id = 3.4 # float | Filter results by campaign ID. (optional)
 created_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
 created_after = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
 valid = 'valid_example' # str | - `expired`: Matches referrals in which the expiration date is set and in the past. - `validNow`: Matches referrals in which start date is null or in the past and expiration date is null or in the future. - `validFuture`: Matches referrals in which start date is set and in the future.  (optional)
@@ -7381,7 +7674,7 @@ with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
     application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
-campaign_id = 3.4 # float | Filter results by campaign. (optional)
+campaign_id = 3.4 # float | Filter results by campaign ID. (optional)
 created_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
 created_after = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
 valid = 'valid_example' # str | - `expired`: Matches referrals in which the expiration date is set and in the past. - `validNow`: Matches referrals in which start date is null or in the past and expiration date is null or in the future. - `validFuture`: Matches referrals in which start date is set and in the future.  (optional)
@@ -7402,7 +7695,7 @@ date_format = 'date_format_example' # str | Determines the format of dates in th
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **application_id** | **int**| The ID of the Application. It is displayed in your Talon.One deployment URL. | 
- **campaign_id** | **float**| Filter results by campaign. | [optional] 
+ **campaign_id** | **float**| Filter results by campaign ID. | [optional] 
  **created_before** | **datetime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. | [optional] 
  **created_after** | **datetime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. | [optional] 
  **valid** | **str**| - &#x60;expired&#x60;: Matches referrals in which the expiration date is set and in the past. - &#x60;validNow&#x60;: Matches referrals in which start date is null or in the past and expiration date is null or in the future. - &#x60;validFuture&#x60;: Matches referrals in which start date is set and in the future.  | [optional] 
@@ -8298,7 +8591,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_additional_costs**
-> InlineResponse20036 get_additional_costs(page_size=page_size, skip=skip, sort=sort)
+> InlineResponse20035 get_additional_costs(page_size=page_size, skip=skip, sort=sort)
 
 List additional costs
 
@@ -8424,167 +8717,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20036**](InlineResponse20036.md)
-
-### Authorization
-
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | OK |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **get_all_access_logs**
-> InlineResponse20020 get_all_access_logs(range_start=range_start, range_end=range_end, path=path, method=method, status=status, page_size=page_size, skip=skip, sort=sort)
-
-List access logs
-
-Fetches the access logs for the entire account. Sensitive requests (logins) are _always_ filtered from the logs. 
-
-### Example
-
-* Api Key Authentication (management_key):
-```python
-from __future__ import print_function
-import time
-import talon_one
-from talon_one.rest import ApiException
-from pprint import pprint
-# Defining the host is optional and defaults to https://yourbaseurl.talon.one
-# See configuration.py for a list of all supported configuration parameters.
-configuration = talon_one.Configuration(
-    host = "https://yourbaseurl.talon.one"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: management_key
-configuration = talon_one.Configuration(
-    host = "https://yourbaseurl.talon.one",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
-)
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
-
-# Configure API key authorization: manager_auth
-configuration = talon_one.Configuration(
-    host = "https://yourbaseurl.talon.one",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
-)
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with talon_one.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = talon_one.ManagementApi(api_client)
-    range_start = '2013-10-20T19:20:30+01:00' # datetime | Only return results from after this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.  (optional)
-range_end = '2013-10-20T19:20:30+01:00' # datetime | Only return results from before this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.  (optional)
-path = 'path_example' # str | Only return results where the request path matches the given regular expression. (optional)
-method = 'method_example' # str | Only return results where the request method matches the given regular expression. (optional)
-status = 'status_example' # str | Filter results by HTTP status codes. (optional)
-page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
-skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
-sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
-
-    try:
-        # List access logs
-        api_response = api_instance.get_all_access_logs(range_start=range_start, range_end=range_end, path=path, method=method, status=status, page_size=page_size, skip=skip, sort=sort)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling ManagementApi->get_all_access_logs: %s\n" % e)
-```
-
-* Api Key Authentication (manager_auth):
-```python
-from __future__ import print_function
-import time
-import talon_one
-from talon_one.rest import ApiException
-from pprint import pprint
-# Defining the host is optional and defaults to https://yourbaseurl.talon.one
-# See configuration.py for a list of all supported configuration parameters.
-configuration = talon_one.Configuration(
-    host = "https://yourbaseurl.talon.one"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: management_key
-configuration = talon_one.Configuration(
-    host = "https://yourbaseurl.talon.one",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
-)
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
-
-# Configure API key authorization: manager_auth
-configuration = talon_one.Configuration(
-    host = "https://yourbaseurl.talon.one",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
-)
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with talon_one.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = talon_one.ManagementApi(api_client)
-    range_start = '2013-10-20T19:20:30+01:00' # datetime | Only return results from after this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.  (optional)
-range_end = '2013-10-20T19:20:30+01:00' # datetime | Only return results from before this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.  (optional)
-path = 'path_example' # str | Only return results where the request path matches the given regular expression. (optional)
-method = 'method_example' # str | Only return results where the request method matches the given regular expression. (optional)
-status = 'status_example' # str | Filter results by HTTP status codes. (optional)
-page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
-skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
-sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
-
-    try:
-        # List access logs
-        api_response = api_instance.get_all_access_logs(range_start=range_start, range_end=range_end, path=path, method=method, status=status, page_size=page_size, skip=skip, sort=sort)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling ManagementApi->get_all_access_logs: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **range_start** | **datetime**| Only return results from after this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  | [optional] 
- **range_end** | **datetime**| Only return results from before this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  | [optional] 
- **path** | **str**| Only return results where the request path matches the given regular expression. | [optional] 
- **method** | **str**| Only return results where the request method matches the given regular expression. | [optional] 
- **status** | **str**| Filter results by HTTP status codes. | [optional] 
- **page_size** | **int**| The number of items in the response. | [optional] [default to 1000]
- **skip** | **int**| The number of items to skip when paging through large result sets. | [optional] 
- **sort** | **str**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  | [optional] 
-
-### Return type
-
-[**InlineResponse20020**](InlineResponse20020.md)
+[**InlineResponse20035**](InlineResponse20035.md)
 
 ### Authorization
 
@@ -8746,7 +8879,7 @@ Name | Type | Description  | Notes
 
 Get Application health
 
-Display the health of the Application and show the last time the Application was used.  You can also display this information from the **Settings** of an Application, in the **Developer Settings** menu. See the [docs](https://docs.talon.one/docs/dev/tutorials/monitoring-integration-status). 
+Display the health of the Application and show the last time the Application was used.  You can also find this information in the Campaign Manager. In your Application, click **Settings** > **Integration API Keys**. See the [docs](https://docs.talon.one/docs/dev/tutorials/monitoring-integration-status). 
 
 ### Example
 
@@ -9023,7 +9156,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_application_customer_friends**
-> InlineResponse20033 get_application_customer_friends(application_id, integration_id, page_size=page_size, skip=skip, sort=sort, with_total_result_size=with_total_result_size)
+> InlineResponse20032 get_application_customer_friends(application_id, integration_id, page_size=page_size, skip=skip, sort=sort, with_total_result_size=with_total_result_size)
 
 List friends referred by customer profile
 
@@ -9158,7 +9291,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20033**](InlineResponse20033.md)
+[**InlineResponse20032**](InlineResponse20032.md)
 
 ### Authorization
 
@@ -9177,7 +9310,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_application_customers**
-> InlineResponse20022 get_application_customers(application_id, integration_id=integration_id, page_size=page_size, skip=skip, with_total_result_size=with_total_result_size)
+> InlineResponse20021 get_application_customers(application_id, integration_id=integration_id, page_size=page_size, skip=skip, with_total_result_size=with_total_result_size)
 
 List application's customers
 
@@ -9309,7 +9442,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20022**](InlineResponse20022.md)
+[**InlineResponse20021**](InlineResponse20021.md)
 
 ### Authorization
 
@@ -9328,7 +9461,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_application_customers_by_attributes**
-> InlineResponse20023 get_application_customers_by_attributes(application_id, body, page_size=page_size, skip=skip, with_total_result_size=with_total_result_size)
+> InlineResponse20022 get_application_customers_by_attributes(application_id, body, page_size=page_size, skip=skip, with_total_result_size=with_total_result_size)
 
 List application customers matching the given attributes
 
@@ -9460,7 +9593,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20023**](InlineResponse20023.md)
+[**InlineResponse20022**](InlineResponse20022.md)
 
 ### Authorization
 
@@ -9479,7 +9612,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_application_event_types**
-> InlineResponse20029 get_application_event_types(application_id, page_size=page_size, skip=skip, sort=sort)
+> InlineResponse20028 get_application_event_types(application_id, page_size=page_size, skip=skip, sort=sort)
 
 List Applications event types
 
@@ -9608,7 +9741,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20029**](InlineResponse20029.md)
+[**InlineResponse20028**](InlineResponse20028.md)
 
 ### Authorization
 
@@ -9627,7 +9760,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_application_events_without_total_count**
-> InlineResponse20028 get_application_events_without_total_count(application_id, page_size=page_size, skip=skip, sort=sort, type=type, created_before=created_before, created_after=created_after, session=session, profile=profile, customer_name=customer_name, customer_email=customer_email, coupon_code=coupon_code, referral_code=referral_code, rule_query=rule_query, campaign_query=campaign_query)
+> InlineResponse20027 get_application_events_without_total_count(application_id, page_size=page_size, skip=skip, sort=sort, type=type, created_before=created_before, created_after=created_after, session=session, profile=profile, customer_name=customer_name, customer_email=customer_email, coupon_code=coupon_code, referral_code=referral_code, rule_query=rule_query, campaign_query=campaign_query)
 
 List Applications events
 
@@ -9789,7 +9922,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20028**](InlineResponse20028.md)
+[**InlineResponse20027**](InlineResponse20027.md)
 
 ### Authorization
 
@@ -9950,7 +10083,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_application_sessions**
-> InlineResponse20027 get_application_sessions(application_id, page_size=page_size, skip=skip, sort=sort, profile=profile, state=state, created_before=created_before, created_after=created_after, coupon=coupon, referral=referral, integration_id=integration_id, store_integration_id=store_integration_id)
+> InlineResponse20026 get_application_sessions(application_id, page_size=page_size, skip=skip, sort=sort, profile=profile, state=state, created_before=created_before, created_after=created_after, coupon=coupon, referral=referral, integration_id=integration_id, store_integration_id=store_integration_id)
 
 List Application sessions
 
@@ -10010,7 +10143,7 @@ created_before = '2013-10-20T19:20:30+01:00' # datetime | Only return events cre
 created_after = '2013-10-20T19:20:30+01:00' # datetime | Only return events created after this date. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
 coupon = 'coupon_example' # str | Filter by sessions with this coupon. Must be exact match. (optional)
 referral = 'referral_example' # str | Filter by sessions with this referral. Must be exact match. (optional)
-integration_id = 'integration_id_example' # str | Filter by sessions with this integrationId. Must be exact match. (optional)
+integration_id = 'integration_id_example' # str | Filter by sessions with this integration ID. Must be exact match. (optional)
 store_integration_id = 'store_integration_id_example' # str | The integration ID of the store. You choose this ID when you create a store. (optional)
 
     try:
@@ -10073,7 +10206,7 @@ created_before = '2013-10-20T19:20:30+01:00' # datetime | Only return events cre
 created_after = '2013-10-20T19:20:30+01:00' # datetime | Only return events created after this date. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
 coupon = 'coupon_example' # str | Filter by sessions with this coupon. Must be exact match. (optional)
 referral = 'referral_example' # str | Filter by sessions with this referral. Must be exact match. (optional)
-integration_id = 'integration_id_example' # str | Filter by sessions with this integrationId. Must be exact match. (optional)
+integration_id = 'integration_id_example' # str | Filter by sessions with this integration ID. Must be exact match. (optional)
 store_integration_id = 'store_integration_id_example' # str | The integration ID of the store. You choose this ID when you create a store. (optional)
 
     try:
@@ -10098,12 +10231,12 @@ Name | Type | Description  | Notes
  **created_after** | **datetime**| Only return events created after this date. You can use any time zone setting. Talon.One will convert to UTC internally. | [optional] 
  **coupon** | **str**| Filter by sessions with this coupon. Must be exact match. | [optional] 
  **referral** | **str**| Filter by sessions with this referral. Must be exact match. | [optional] 
- **integration_id** | **str**| Filter by sessions with this integrationId. Must be exact match. | [optional] 
+ **integration_id** | **str**| Filter by sessions with this integration ID. Must be exact match. | [optional] 
  **store_integration_id** | **str**| The integration ID of the store. You choose this ID when you create a store. | [optional] 
 
 ### Return type
 
-[**InlineResponse20027**](InlineResponse20027.md)
+[**InlineResponse20026**](InlineResponse20026.md)
 
 ### Authorization
 
@@ -10406,7 +10539,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_attributes**
-> InlineResponse20034 get_attributes(page_size=page_size, skip=skip, sort=sort, entity=entity)
+> InlineResponse20033 get_attributes(page_size=page_size, skip=skip, sort=sort, entity=entity)
 
 List custom attributes
 
@@ -10535,7 +10668,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20034**](InlineResponse20034.md)
+[**InlineResponse20033**](InlineResponse20033.md)
 
 ### Authorization
 
@@ -10554,7 +10687,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_audience_memberships**
-> InlineResponse20032 get_audience_memberships(audience_id, page_size=page_size, skip=skip, sort=sort, profile_query=profile_query)
+> InlineResponse20031 get_audience_memberships(audience_id, page_size=page_size, skip=skip, sort=sort, profile_query=profile_query)
 
 List audience members
 
@@ -10686,7 +10819,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20032**](InlineResponse20032.md)
+[**InlineResponse20031**](InlineResponse20031.md)
 
 ### Authorization
 
@@ -10706,7 +10839,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_audiences**
-> InlineResponse20030 get_audiences(page_size=page_size, skip=skip, sort=sort, with_total_result_size=with_total_result_size)
+> InlineResponse20029 get_audiences(page_size=page_size, skip=skip, sort=sort, with_total_result_size=with_total_result_size)
 
 List audiences
 
@@ -10835,7 +10968,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20030**](InlineResponse20030.md)
+[**InlineResponse20029**](InlineResponse20029.md)
 
 ### Authorization
 
@@ -10854,7 +10987,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_audiences_analytics**
-> InlineResponse20031 get_audiences_analytics(audience_ids, sort=sort)
+> InlineResponse20030 get_audiences_analytics(audience_ids, sort=sort)
 
 List audience analytics
 
@@ -10977,7 +11110,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20031**](InlineResponse20031.md)
+[**InlineResponse20030**](InlineResponse20030.md)
 
 ### Authorization
 
@@ -11138,7 +11271,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_campaign_analytics**
-> InlineResponse20021 get_campaign_analytics(application_id, campaign_id, range_start, range_end, granularity=granularity)
+> InlineResponse20020 get_campaign_analytics(application_id, campaign_id, range_start, range_end, granularity=granularity)
 
 Get analytics of campaigns
 
@@ -11270,7 +11403,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20021**](InlineResponse20021.md)
+[**InlineResponse20020**](InlineResponse20020.md)
 
 ### Authorization
 
@@ -11944,7 +12077,7 @@ tags = 'tags_example' # str | Filter results performing case-insensitive matchin
 created_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
 created_after = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
 campaign_group_id = 56 # int | Filter results to campaigns owned by the specified campaign access group ID. (optional)
-template_id = 56 # int | The ID of the Campaign Template this Campaign was created from. (optional)
+template_id = 56 # int | The ID of the campaign template this campaign was created from. (optional)
 store_id = 56 # int | Filter results to campaigns linked to the specified store ID. (optional)
 
     try:
@@ -12007,7 +12140,7 @@ tags = 'tags_example' # str | Filter results performing case-insensitive matchin
 created_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
 created_after = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
 campaign_group_id = 56 # int | Filter results to campaigns owned by the specified campaign access group ID. (optional)
-template_id = 56 # int | The ID of the Campaign Template this Campaign was created from. (optional)
+template_id = 56 # int | The ID of the campaign template this campaign was created from. (optional)
 store_id = 56 # int | Filter results to campaigns linked to the specified store ID. (optional)
 
     try:
@@ -12032,7 +12165,7 @@ Name | Type | Description  | Notes
  **created_before** | **datetime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. | [optional] 
  **created_after** | **datetime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. | [optional] 
  **campaign_group_id** | **int**| Filter results to campaigns owned by the specified campaign access group ID. | [optional] 
- **template_id** | **int**| The ID of the Campaign Template this Campaign was created from. | [optional] 
+ **template_id** | **int**| The ID of the campaign template this campaign was created from. | [optional] 
  **store_id** | **int**| Filter results to campaigns linked to the specified store ID. | [optional] 
 
 ### Return type
@@ -12057,7 +12190,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_changes**
-> InlineResponse20042 get_changes(page_size=page_size, skip=skip, sort=sort, application_id=application_id, entity_path=entity_path, user_id=user_id, created_before=created_before, created_after=created_after, with_total_result_size=with_total_result_size, management_key_id=management_key_id, include_old=include_old)
+> InlineResponse20041 get_changes(page_size=page_size, skip=skip, sort=sort, application_id=application_id, entity_path=entity_path, user_id=user_id, created_before=created_before, created_after=created_after, with_total_result_size=with_total_result_size, management_key_id=management_key_id, include_old=include_old)
 
 Get audit logs for an account
 
@@ -12207,7 +12340,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20042**](InlineResponse20042.md)
+[**InlineResponse20041**](InlineResponse20041.md)
 
 ### Authorization
 
@@ -12580,9 +12713,9 @@ valid = 'valid_example' # str | Either \"expired\", \"validNow\", or \"validFutu
 usable = 'usable_example' # str | Either \"true\" or \"false\". If \"true\", only coupons where `usageCounter < usageLimit` will be returned, \"false\" will return only coupons where `usageCounter >= usageLimit`.  (optional)
 redeemed = 'redeemed_example' # str | - `true`: only coupons where `usageCounter > 0` will be returned. - `false`: only coupons where `usageCounter = 0` will be returned. - This field cannot be used in conjunction with the `usable` query parameter.  (optional)
 referral_id = 56 # int | Filter the results by matching them with the ID of a referral. This filter shows the coupons created by redeeming a referral code. (optional)
-recipient_integration_id = 'recipient_integration_id_example' # str | Filter results by match with a profile id specified in the coupon's RecipientIntegrationId field (optional)
+recipient_integration_id = 'recipient_integration_id_example' # str | Filter results by match with a profile ID specified in the coupon's RecipientIntegrationId field. (optional)
 batch_id = 'batch_id_example' # str | Filter results by batches of coupons (optional)
-exact_match = False # bool | Filter results to an exact case-insensitive matching against the coupon code (optional) (default to False)
+exact_match = False # bool | Filter results to an exact case-insensitive matching against the coupon code. (optional) (default to False)
 expires_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon expiration date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
 expires_after = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon expiration date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
 starts_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon start date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
@@ -12651,9 +12784,9 @@ valid = 'valid_example' # str | Either \"expired\", \"validNow\", or \"validFutu
 usable = 'usable_example' # str | Either \"true\" or \"false\". If \"true\", only coupons where `usageCounter < usageLimit` will be returned, \"false\" will return only coupons where `usageCounter >= usageLimit`.  (optional)
 redeemed = 'redeemed_example' # str | - `true`: only coupons where `usageCounter > 0` will be returned. - `false`: only coupons where `usageCounter = 0` will be returned. - This field cannot be used in conjunction with the `usable` query parameter.  (optional)
 referral_id = 56 # int | Filter the results by matching them with the ID of a referral. This filter shows the coupons created by redeeming a referral code. (optional)
-recipient_integration_id = 'recipient_integration_id_example' # str | Filter results by match with a profile id specified in the coupon's RecipientIntegrationId field (optional)
+recipient_integration_id = 'recipient_integration_id_example' # str | Filter results by match with a profile ID specified in the coupon's RecipientIntegrationId field. (optional)
 batch_id = 'batch_id_example' # str | Filter results by batches of coupons (optional)
-exact_match = False # bool | Filter results to an exact case-insensitive matching against the coupon code (optional) (default to False)
+exact_match = False # bool | Filter results to an exact case-insensitive matching against the coupon code. (optional) (default to False)
 expires_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon expiration date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
 expires_after = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon expiration date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
 starts_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon start date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
@@ -12684,9 +12817,9 @@ Name | Type | Description  | Notes
  **usable** | **str**| Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  | [optional] 
  **redeemed** | **str**| - &#x60;true&#x60;: only coupons where &#x60;usageCounter &gt; 0&#x60; will be returned. - &#x60;false&#x60;: only coupons where &#x60;usageCounter &#x3D; 0&#x60; will be returned. - This field cannot be used in conjunction with the &#x60;usable&#x60; query parameter.  | [optional] 
  **referral_id** | **int**| Filter the results by matching them with the ID of a referral. This filter shows the coupons created by redeeming a referral code. | [optional] 
- **recipient_integration_id** | **str**| Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field | [optional] 
+ **recipient_integration_id** | **str**| Filter results by match with a profile ID specified in the coupon&#39;s RecipientIntegrationId field. | [optional] 
  **batch_id** | **str**| Filter results by batches of coupons | [optional] 
- **exact_match** | **bool**| Filter results to an exact case-insensitive matching against the coupon code | [optional] [default to False]
+ **exact_match** | **bool**| Filter results to an exact case-insensitive matching against the coupon code. | [optional] [default to False]
  **expires_before** | **datetime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon expiration date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. | [optional] 
  **expires_after** | **datetime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon expiration date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. | [optional] 
  **starts_before** | **datetime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon start date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. | [optional] 
@@ -12868,7 +13001,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_customer_activity_reports_without_total_count**
-> InlineResponse20026 get_customer_activity_reports_without_total_count(range_start, range_end, application_id, page_size=page_size, skip=skip, sort=sort, name=name, integration_id=integration_id, campaign_name=campaign_name, advocate_name=advocate_name)
+> InlineResponse20025 get_customer_activity_reports_without_total_count(range_start, range_end, application_id, page_size=page_size, skip=skip, sort=sort, name=name, integration_id=integration_id, campaign_name=campaign_name, advocate_name=advocate_name)
 
 Get Activity Reports for Application Customers
 
@@ -12924,10 +13057,10 @@ application_id = 56 # int | The ID of the Application. It is displayed in your T
 page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
 skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
 sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
-name = 'name_example' # str | Only return reports matching the customer name (optional)
+name = 'name_example' # str | Only return reports matching the customer name. (optional)
 integration_id = 'integration_id_example' # str | Filter results performing an exact matching against the profile integration identifier. (optional)
-campaign_name = 'campaign_name_example' # str | Only return reports matching the campaignName (optional)
-advocate_name = 'advocate_name_example' # str | Only return reports matching the current customer referrer name (optional)
+campaign_name = 'campaign_name_example' # str | Only return reports matching the campaign name. (optional)
+advocate_name = 'advocate_name_example' # str | Only return reports matching the current customer referrer name. (optional)
 
     try:
         # Get Activity Reports for Application Customers
@@ -12985,10 +13118,10 @@ application_id = 56 # int | The ID of the Application. It is displayed in your T
 page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
 skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
 sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
-name = 'name_example' # str | Only return reports matching the customer name (optional)
+name = 'name_example' # str | Only return reports matching the customer name. (optional)
 integration_id = 'integration_id_example' # str | Filter results performing an exact matching against the profile integration identifier. (optional)
-campaign_name = 'campaign_name_example' # str | Only return reports matching the campaignName (optional)
-advocate_name = 'advocate_name_example' # str | Only return reports matching the current customer referrer name (optional)
+campaign_name = 'campaign_name_example' # str | Only return reports matching the campaign name. (optional)
+advocate_name = 'advocate_name_example' # str | Only return reports matching the current customer referrer name. (optional)
 
     try:
         # Get Activity Reports for Application Customers
@@ -13008,14 +13141,14 @@ Name | Type | Description  | Notes
  **page_size** | **int**| The number of items in the response. | [optional] [default to 1000]
  **skip** | **int**| The number of items to skip when paging through large result sets. | [optional] 
  **sort** | **str**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  | [optional] 
- **name** | **str**| Only return reports matching the customer name | [optional] 
+ **name** | **str**| Only return reports matching the customer name. | [optional] 
  **integration_id** | **str**| Filter results performing an exact matching against the profile integration identifier. | [optional] 
- **campaign_name** | **str**| Only return reports matching the campaignName | [optional] 
- **advocate_name** | **str**| Only return reports matching the current customer referrer name | [optional] 
+ **campaign_name** | **str**| Only return reports matching the campaign name. | [optional] 
+ **advocate_name** | **str**| Only return reports matching the current customer referrer name. | [optional] 
 
 ### Return type
 
-[**InlineResponse20026**](InlineResponse20026.md)
+[**InlineResponse20025**](InlineResponse20025.md)
 
 ### Authorization
 
@@ -13324,7 +13457,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_customer_profile_achievement_progress**
-> InlineResponse20047 get_customer_profile_achievement_progress(application_id, integration_id, page_size=page_size, skip=skip, achievement_id=achievement_id, title=title)
+> InlineResponse20046 get_customer_profile_achievement_progress(application_id, integration_id, page_size=page_size, skip=skip, achievement_id=achievement_id, title=title)
 
 List customer achievements
 
@@ -13459,7 +13592,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20047**](InlineResponse20047.md)
+[**InlineResponse20046**](InlineResponse20046.md)
 
 ### Authorization
 
@@ -13480,7 +13613,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_customer_profiles**
-> InlineResponse20025 get_customer_profiles(page_size=page_size, skip=skip, sandbox=sandbox)
+> InlineResponse20024 get_customer_profiles(page_size=page_size, skip=skip, sandbox=sandbox)
 
 List customer profiles
 
@@ -13532,7 +13665,7 @@ with talon_one.ApiClient(configuration) as api_client:
     api_instance = talon_one.ManagementApi(api_client)
     page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
 skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
-sandbox = False # bool | Indicates whether you are pointing to a sandbox or Live customer. (optional) (default to False)
+sandbox = False # bool | Indicates whether you are pointing to a sandbox or live customer. (optional) (default to False)
 
     try:
         # List customer profiles
@@ -13586,7 +13719,7 @@ with talon_one.ApiClient(configuration) as api_client:
     api_instance = talon_one.ManagementApi(api_client)
     page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
 skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
-sandbox = False # bool | Indicates whether you are pointing to a sandbox or Live customer. (optional) (default to False)
+sandbox = False # bool | Indicates whether you are pointing to a sandbox or live customer. (optional) (default to False)
 
     try:
         # List customer profiles
@@ -13602,11 +13735,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **page_size** | **int**| The number of items in the response. | [optional] [default to 1000]
  **skip** | **int**| The number of items to skip when paging through large result sets. | [optional] 
- **sandbox** | **bool**| Indicates whether you are pointing to a sandbox or Live customer. | [optional] [default to False]
+ **sandbox** | **bool**| Indicates whether you are pointing to a sandbox or live customer. | [optional] [default to False]
 
 ### Return type
 
-[**InlineResponse20025**](InlineResponse20025.md)
+[**InlineResponse20024**](InlineResponse20024.md)
 
 ### Authorization
 
@@ -13625,7 +13758,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_customers_by_attributes**
-> InlineResponse20024 get_customers_by_attributes(body, page_size=page_size, skip=skip, sandbox=sandbox)
+> InlineResponse20023 get_customers_by_attributes(body, page_size=page_size, skip=skip, sandbox=sandbox)
 
 List customer profiles matching the given attributes
 
@@ -13678,7 +13811,7 @@ with talon_one.ApiClient(configuration) as api_client:
     body = talon_one.CustomerProfileSearchQuery() # CustomerProfileSearchQuery | body
 page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
 skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
-sandbox = False # bool | Indicates whether you are pointing to a sandbox or Live customer. (optional) (default to False)
+sandbox = False # bool | Indicates whether you are pointing to a sandbox or live customer. (optional) (default to False)
 
     try:
         # List customer profiles matching the given attributes
@@ -13733,7 +13866,7 @@ with talon_one.ApiClient(configuration) as api_client:
     body = talon_one.CustomerProfileSearchQuery() # CustomerProfileSearchQuery | body
 page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
 skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
-sandbox = False # bool | Indicates whether you are pointing to a sandbox or Live customer. (optional) (default to False)
+sandbox = False # bool | Indicates whether you are pointing to a sandbox or live customer. (optional) (default to False)
 
     try:
         # List customer profiles matching the given attributes
@@ -13750,11 +13883,11 @@ Name | Type | Description  | Notes
  **body** | [**CustomerProfileSearchQuery**](CustomerProfileSearchQuery.md)| body | 
  **page_size** | **int**| The number of items in the response. | [optional] [default to 1000]
  **skip** | **int**| The number of items to skip when paging through large result sets. | [optional] 
- **sandbox** | **bool**| Indicates whether you are pointing to a sandbox or Live customer. | [optional] [default to False]
+ **sandbox** | **bool**| Indicates whether you are pointing to a sandbox or live customer. | [optional] [default to False]
 
 ### Return type
 
-[**InlineResponse20024**](InlineResponse20024.md)
+[**InlineResponse20023**](InlineResponse20023.md)
 
 ### Authorization
 
@@ -13773,7 +13906,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_event_types**
-> InlineResponse20040 get_event_types(name=name, include_old_versions=include_old_versions, page_size=page_size, skip=skip, sort=sort)
+> InlineResponse20039 get_event_types(name=name, include_old_versions=include_old_versions, page_size=page_size, skip=skip, sort=sort)
 
 List event types
 
@@ -13905,7 +14038,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20040**](InlineResponse20040.md)
+[**InlineResponse20039**](InlineResponse20039.md)
 
 ### Authorization
 
@@ -13924,7 +14057,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_exports**
-> InlineResponse20043 get_exports(page_size=page_size, skip=skip, application_id=application_id, campaign_id=campaign_id, entity=entity)
+> InlineResponse20042 get_exports(page_size=page_size, skip=skip, application_id=application_id, campaign_id=campaign_id, entity=entity)
 
 Get exports
 
@@ -14056,7 +14189,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20043**](InlineResponse20043.md)
+[**InlineResponse20042**](InlineResponse20042.md)
 
 ### Authorization
 
@@ -14379,7 +14512,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_loyalty_cards**
-> InlineResponse20015 get_loyalty_cards(loyalty_program_id, page_size=page_size, skip=skip, sort=sort, identifier=identifier, profile_id=profile_id)
+> InlineResponse20015 get_loyalty_cards(loyalty_program_id, page_size=page_size, skip=skip, sort=sort, identifier=identifier, profile_id=profile_id, batch_id=batch_id)
 
 List loyalty cards
 
@@ -14433,12 +14566,13 @@ with talon_one.ApiClient(configuration) as api_client:
 page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
 skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
 sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
-identifier = 'identifier_example' # str | Optional query parameter to search cards by identifier. (optional)
-profile_id = 56 # int | Filter by the profile ID. (optional)
+identifier = 'identifier_example' # str | The card code by which to filter loyalty cards in the response. (optional)
+profile_id = 56 # int | Filter results by customer profile ID. (optional)
+batch_id = 'batch_id_example' # str | Filter results by loyalty card batch ID. (optional)
 
     try:
         # List loyalty cards
-        api_response = api_instance.get_loyalty_cards(loyalty_program_id, page_size=page_size, skip=skip, sort=sort, identifier=identifier, profile_id=profile_id)
+        api_response = api_instance.get_loyalty_cards(loyalty_program_id, page_size=page_size, skip=skip, sort=sort, identifier=identifier, profile_id=profile_id, batch_id=batch_id)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling ManagementApi->get_loyalty_cards: %s\n" % e)
@@ -14490,12 +14624,13 @@ with talon_one.ApiClient(configuration) as api_client:
 page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
 skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
 sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
-identifier = 'identifier_example' # str | Optional query parameter to search cards by identifier. (optional)
-profile_id = 56 # int | Filter by the profile ID. (optional)
+identifier = 'identifier_example' # str | The card code by which to filter loyalty cards in the response. (optional)
+profile_id = 56 # int | Filter results by customer profile ID. (optional)
+batch_id = 'batch_id_example' # str | Filter results by loyalty card batch ID. (optional)
 
     try:
         # List loyalty cards
-        api_response = api_instance.get_loyalty_cards(loyalty_program_id, page_size=page_size, skip=skip, sort=sort, identifier=identifier, profile_id=profile_id)
+        api_response = api_instance.get_loyalty_cards(loyalty_program_id, page_size=page_size, skip=skip, sort=sort, identifier=identifier, profile_id=profile_id, batch_id=batch_id)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling ManagementApi->get_loyalty_cards: %s\n" % e)
@@ -14509,8 +14644,9 @@ Name | Type | Description  | Notes
  **page_size** | **int**| The number of items in the response. | [optional] [default to 1000]
  **skip** | **int**| The number of items to skip when paging through large result sets. | [optional] 
  **sort** | **str**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  | [optional] 
- **identifier** | **str**| Optional query parameter to search cards by identifier. | [optional] 
- **profile_id** | **int**| Filter by the profile ID. | [optional] 
+ **identifier** | **str**| The card code by which to filter loyalty cards in the response. | [optional] 
+ **profile_id** | **int**| Filter results by customer profile ID. | [optional] 
+ **batch_id** | **str**| Filter results by loyalty card batch ID. | [optional] 
 
 ### Return type
 
@@ -15309,7 +15445,7 @@ created_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results compari
 created_after = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
 valid = 'valid_example' # str | Either \"expired\", \"validNow\", or \"validFuture\". The first option matches referrals in which the expiration date is set and in the past. The second matches referrals in which start date is null or in the past and expiration date is null or in the future, the third matches referrals in which start date is set and in the future.  (optional)
 usable = 'usable_example' # str | Either \"true\" or \"false\". If \"true\", only referrals where `usageCounter < usageLimit` will be returned, \"false\" will return only referrals where `usageCounter >= usageLimit`.  (optional)
-advocate = 'advocate_example' # str | Filter results by match with a profile id specified in the referral's AdvocateProfileIntegrationId field (optional)
+advocate = 'advocate_example' # str | Filter results by match with a profile ID specified in the referral's AdvocateProfileIntegrationId field. (optional)
 
     try:
         # List referrals
@@ -15371,7 +15507,7 @@ created_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results compari
 created_after = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
 valid = 'valid_example' # str | Either \"expired\", \"validNow\", or \"validFuture\". The first option matches referrals in which the expiration date is set and in the past. The second matches referrals in which start date is null or in the past and expiration date is null or in the future, the third matches referrals in which start date is set and in the future.  (optional)
 usable = 'usable_example' # str | Either \"true\" or \"false\". If \"true\", only referrals where `usageCounter < usageLimit` will be returned, \"false\" will return only referrals where `usageCounter >= usageLimit`.  (optional)
-advocate = 'advocate_example' # str | Filter results by match with a profile id specified in the referral's AdvocateProfileIntegrationId field (optional)
+advocate = 'advocate_example' # str | Filter results by match with a profile ID specified in the referral's AdvocateProfileIntegrationId field. (optional)
 
     try:
         # List referrals
@@ -15395,7 +15531,7 @@ Name | Type | Description  | Notes
  **created_after** | **datetime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. | [optional] 
  **valid** | **str**| Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches referrals in which the expiration date is set and in the past. The second matches referrals in which start date is null or in the past and expiration date is null or in the future, the third matches referrals in which start date is set and in the future.  | [optional] 
  **usable** | **str**| Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only referrals where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only referrals where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  | [optional] 
- **advocate** | **str**| Filter results by match with a profile id specified in the referral&#39;s AdvocateProfileIntegrationId field | [optional] 
+ **advocate** | **str**| Filter results by match with a profile ID specified in the referral&#39;s AdvocateProfileIntegrationId field. | [optional] 
 
 ### Return type
 
@@ -16135,7 +16271,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_users**
-> InlineResponse20041 get_users(page_size=page_size, skip=skip, sort=sort)
+> InlineResponse20040 get_users(page_size=page_size, skip=skip, sort=sort)
 
 List users in account
 
@@ -16261,7 +16397,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20041**](InlineResponse20041.md)
+[**InlineResponse20040**](InlineResponse20040.md)
 
 ### Authorization
 
@@ -16419,7 +16555,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_webhook_activation_logs**
-> InlineResponse20038 get_webhook_activation_logs(page_size=page_size, skip=skip, sort=sort, integration_request_uuid=integration_request_uuid, webhook_id=webhook_id, application_id=application_id, campaign_id=campaign_id, created_before=created_before, created_after=created_after)
+> InlineResponse20037 get_webhook_activation_logs(page_size=page_size, skip=skip, sort=sort, integration_request_uuid=integration_request_uuid, webhook_id=webhook_id, application_id=application_id, campaign_id=campaign_id, created_before=created_before, created_after=created_after)
 
 List webhook activation log entries
 
@@ -16473,9 +16609,9 @@ with talon_one.ApiClient(configuration) as api_client:
 skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
 sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
 integration_request_uuid = 'integration_request_uuid_example' # str | Filter results by integration request UUID. (optional)
-webhook_id = 3.4 # float | Filter results by Webhook. (optional)
+webhook_id = 3.4 # float | Filter results by webhook id. (optional)
 application_id = 3.4 # float | Filter results by Application ID. (optional)
-campaign_id = 3.4 # float | Filter results by campaign. (optional)
+campaign_id = 3.4 # float | Filter results by campaign ID. (optional)
 created_before = '2013-10-20T19:20:30+01:00' # datetime | Only return events created before this date. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
 created_after = '2013-10-20T19:20:30+01:00' # datetime | Only return events created after this date. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
 
@@ -16533,9 +16669,9 @@ with talon_one.ApiClient(configuration) as api_client:
 skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
 sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
 integration_request_uuid = 'integration_request_uuid_example' # str | Filter results by integration request UUID. (optional)
-webhook_id = 3.4 # float | Filter results by Webhook. (optional)
+webhook_id = 3.4 # float | Filter results by webhook id. (optional)
 application_id = 3.4 # float | Filter results by Application ID. (optional)
-campaign_id = 3.4 # float | Filter results by campaign. (optional)
+campaign_id = 3.4 # float | Filter results by campaign ID. (optional)
 created_before = '2013-10-20T19:20:30+01:00' # datetime | Only return events created before this date. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
 created_after = '2013-10-20T19:20:30+01:00' # datetime | Only return events created after this date. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
 
@@ -16555,15 +16691,15 @@ Name | Type | Description  | Notes
  **skip** | **int**| The number of items to skip when paging through large result sets. | [optional] 
  **sort** | **str**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  | [optional] 
  **integration_request_uuid** | **str**| Filter results by integration request UUID. | [optional] 
- **webhook_id** | **float**| Filter results by Webhook. | [optional] 
+ **webhook_id** | **float**| Filter results by webhook id. | [optional] 
  **application_id** | **float**| Filter results by Application ID. | [optional] 
- **campaign_id** | **float**| Filter results by campaign. | [optional] 
+ **campaign_id** | **float**| Filter results by campaign ID. | [optional] 
  **created_before** | **datetime**| Only return events created before this date. You can use any time zone setting. Talon.One will convert to UTC internally. | [optional] 
  **created_after** | **datetime**| Only return events created after this date. You can use any time zone setting. Talon.One will convert to UTC internally. | [optional] 
 
 ### Return type
 
-[**InlineResponse20038**](InlineResponse20038.md)
+[**InlineResponse20037**](InlineResponse20037.md)
 
 ### Authorization
 
@@ -16582,7 +16718,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_webhook_logs**
-> InlineResponse20039 get_webhook_logs(page_size=page_size, skip=skip, sort=sort, status=status, webhook_id=webhook_id, application_id=application_id, campaign_id=campaign_id, request_uuid=request_uuid, created_before=created_before, created_after=created_after)
+> InlineResponse20038 get_webhook_logs(page_size=page_size, skip=skip, sort=sort, status=status, webhook_id=webhook_id, application_id=application_id, campaign_id=campaign_id, request_uuid=request_uuid, created_before=created_before, created_after=created_after)
 
 List webhook log entries
 
@@ -16636,9 +16772,9 @@ with talon_one.ApiClient(configuration) as api_client:
 skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
 sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
 status = 'status_example' # str | Filter results by HTTP status codes. (optional)
-webhook_id = 3.4 # float | Filter results by Webhook. (optional)
+webhook_id = 3.4 # float | Filter results by webhook id. (optional)
 application_id = 3.4 # float | Filter results by Application ID. (optional)
-campaign_id = 3.4 # float | Filter results by campaign. (optional)
+campaign_id = 3.4 # float | Filter results by campaign ID. (optional)
 request_uuid = 'request_uuid_example' # str | Filter results by request UUID. (optional)
 created_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
 created_after = '2013-10-20T19:20:30+01:00' # datetime | Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
@@ -16697,9 +16833,9 @@ with talon_one.ApiClient(configuration) as api_client:
 skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
 sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
 status = 'status_example' # str | Filter results by HTTP status codes. (optional)
-webhook_id = 3.4 # float | Filter results by Webhook. (optional)
+webhook_id = 3.4 # float | Filter results by webhook id. (optional)
 application_id = 3.4 # float | Filter results by Application ID. (optional)
-campaign_id = 3.4 # float | Filter results by campaign. (optional)
+campaign_id = 3.4 # float | Filter results by campaign ID. (optional)
 request_uuid = 'request_uuid_example' # str | Filter results by request UUID. (optional)
 created_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
 created_after = '2013-10-20T19:20:30+01:00' # datetime | Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
@@ -16720,16 +16856,16 @@ Name | Type | Description  | Notes
  **skip** | **int**| The number of items to skip when paging through large result sets. | [optional] 
  **sort** | **str**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  | [optional] 
  **status** | **str**| Filter results by HTTP status codes. | [optional] 
- **webhook_id** | **float**| Filter results by Webhook. | [optional] 
+ **webhook_id** | **float**| Filter results by webhook id. | [optional] 
  **application_id** | **float**| Filter results by Application ID. | [optional] 
- **campaign_id** | **float**| Filter results by campaign. | [optional] 
+ **campaign_id** | **float**| Filter results by campaign ID. | [optional] 
  **request_uuid** | **str**| Filter results by request UUID. | [optional] 
  **created_before** | **datetime**| Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally. | [optional] 
  **created_after** | **datetime**| Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally. | [optional] 
 
 ### Return type
 
-[**InlineResponse20039**](InlineResponse20039.md)
+[**InlineResponse20038**](InlineResponse20038.md)
 
 ### Authorization
 
@@ -16748,7 +16884,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_webhooks**
-> InlineResponse20037 get_webhooks(application_ids=application_ids, sort=sort, page_size=page_size, skip=skip, creation_type=creation_type, visibility=visibility, outgoing_integrations_type_id=outgoing_integrations_type_id, title=title)
+> InlineResponse20036 get_webhooks(application_ids=application_ids, sort=sort, page_size=page_size, skip=skip, creation_type=creation_type, visibility=visibility, outgoing_integrations_type_id=outgoing_integrations_type_id, title=title)
 
 List webhooks
 
@@ -16889,7 +17025,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20037**](InlineResponse20037.md)
+[**InlineResponse20036**](InlineResponse20036.md)
 
 ### Authorization
 
@@ -17791,7 +17927,7 @@ Name | Type | Description  | Notes
 
 Import loyalty cards
 
-Upload a CSV file containing the loyalty cards that you want to use in your card-based loyalty program. Send the file as multipart data.  It contains the following columns for each card:  - `identifier` (required): The alphanumeric identifier of the loyalty card. - `state` (required): The state of the loyalty card. It can be `active` or `inactive`. - `customerprofileids` (optional): An array of strings representing the identifiers of the customer profiles linked to the loyalty card.  **Note:** We recommend limiting your file size to 500MB.  **Example:**  ```csv identifier,state,customerprofileids 123-456-789AT,active,Alexa001;UserA ``` 
+Upload a CSV file containing the loyalty cards that you want to use in your card-based loyalty program. Send the file as multipart data.  It contains the following columns for each card:  - `identifier` (required): The alphanumeric identifier of the loyalty card. - `state` (required): The state of the loyalty card. It can be `active` or `inactive`. - `customerprofileids` (optional): An array of strings representing the identifiers of the customer profiles linked to the loyalty card. The identifiers should be separated with a semicolon (;).  **Note:** We recommend limiting your file size to 500MB.  **Example:**  ```csv identifier,state,customerprofileids 123-456-789AT,active,Alexa001;UserA ``` 
 
 ### Example
 
@@ -18080,7 +18216,7 @@ Name | Type | Description  | Notes
 
 Import loyalty points
 
-Upload a CSV file containing the loyalty points you want to import into a given loyalty program. Send the file as multipart data.  Depending on the type of loyalty program, you can import points into a given customer profile or loyalty card.  The CSV file contains the following columns:  - `customerprofileid` (optional): For profile-based loyalty programs, the integration ID of the customer profile where the loyalty points are imported. - `identifier` (optional): For card-based loyalty programs, the identifier of the loyalty card where the loyalty points are imported. - `amount`: The amount of points to award to the customer profile. - `startdate` (optional): The earliest date when the points can be redeemed. The points are `active` from this date until the expiration date.    **Note**: It must be an RFC3339 timestamp string or string `immediate`. Empty or missing values are considered `immediate`. - `expirydate` (optional): The latest date when the points can be redeemed. The points are `expired` after this date.    **Note**: It must be an RFC3339 timestamp string or string `unlimited`. Empty or missing values are considered `unlimited`. - `subledgerid` (optional): The ID of the subledger that should received the points. - `reason` (optional): The reason why these points are awarded.  You can use the time zone of your choice. It is converted to UTC internally by Talon.One.  **Note:** For existing customer profiles and loyalty cards, the imported points are added to any previous active or pending points, depending on the value provided for `startdate`. If `startdate` matches the current date, the imported points are _active_. If it is later, the points are _pending_ until the date provided for `startdate` is reached.  **Note:** We recommend limiting your file size to 500MB.  **Example for profile-based programs:**  ```text customerprofileid,amount,startdate,expirydate,subledgerid,reason URNGV8294NV,100,2009-11-10T23:00:00Z,2009-11-11T23:00:00Z,subledger1,appeasement ```  **Example for card-based programs:**  ```text identifier,amount,startdate,expirydate,subledgerid,reason summer-loyalty-card-0543,100,2009-11-10T23:00:00Z,2009-11-11T23:00:00Z,subledger1,appeasement ``` 
+Upload a CSV file containing the loyalty points you want to import into a given loyalty program. Send the file as multipart data.  Depending on the type of loyalty program, you can import points into a given customer profile or loyalty card.  The CSV file contains the following columns:  - `customerprofileid` (optional): For profile-based loyalty programs, the integration ID of the customer profile where the loyalty points are imported.    **Note**: If the customer profile does not exist, it will be created. The profile will not be visible in any Application   until a session or profile update is received for that profile. - `identifier` (optional): For card-based loyalty programs, the identifier of the loyalty card where the loyalty points are imported. - `amount`: The amount of points to award to the customer profile. - `startdate` (optional): The earliest date when the points can be redeemed. The points are `active` from this date until the expiration date.    **Note**: It must be an RFC3339 timestamp string or string `immediate`. Empty or missing values are considered `immediate`. - `expirydate` (optional): The latest date when the points can be redeemed. The points are `expired` after this date.    **Note**: It must be an RFC3339 timestamp string or string `unlimited`. Empty or missing values are considered `unlimited`. - `subledgerid` (optional): The ID of the subledger that should received the points. - `reason` (optional): The reason why these points are awarded.  You can use the time zone of your choice. It is converted to UTC internally by Talon.One.  **Note:** For existing customer profiles and loyalty cards, the imported points are added to any previous active or pending points, depending on the value provided for `startdate`. If `startdate` matches the current date, the imported points are _active_. If it is later, the points are _pending_ until the date provided for `startdate` is reached.  **Note:** We recommend limiting your file size to 500MB.  **Example for profile-based programs:**  ```text customerprofileid,amount,startdate,expirydate,subledgerid,reason URNGV8294NV,100,2009-11-10T23:00:00Z,2009-11-11T23:00:00Z,subledger1,appeasement ```  **Example for card-based programs:**  ```text identifier,amount,startdate,expirydate,subledgerid,reason summer-loyalty-card-0543,100,2009-11-10T23:00:00Z,2009-11-11T23:00:00Z,subledger1,appeasement ``` 
 
 ### Example
 
@@ -18796,7 +18932,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_achievements**
-> InlineResponse20046 list_achievements(application_id, campaign_id, page_size=page_size, skip=skip, title=title)
+> InlineResponse20045 list_achievements(application_id, campaign_id, page_size=page_size, skip=skip, title=title)
 
 List achievements
 
@@ -18928,7 +19064,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20046**](InlineResponse20046.md)
+[**InlineResponse20045**](InlineResponse20045.md)
 
 ### Authorization
 
@@ -18947,7 +19083,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_all_roles_v2**
-> InlineResponse20044 list_all_roles_v2()
+> InlineResponse20043 list_all_roles_v2()
 
 List roles
 
@@ -19062,7 +19198,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**InlineResponse20044**](InlineResponse20044.md)
+[**InlineResponse20043**](InlineResponse20043.md)
 
 ### Authorization
 
@@ -19081,7 +19217,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_catalog_items**
-> InlineResponse20035 list_catalog_items(catalog_id, page_size=page_size, skip=skip, with_total_result_size=with_total_result_size, sku=sku, product_names=product_names)
+> InlineResponse20034 list_catalog_items(catalog_id, page_size=page_size, skip=skip, with_total_result_size=with_total_result_size, sku=sku, product_names=product_names)
 
 List items in a catalog
 
@@ -19216,7 +19352,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20035**](InlineResponse20035.md)
+[**InlineResponse20034**](InlineResponse20034.md)
 
 ### Authorization
 
@@ -19548,7 +19684,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_stores**
-> InlineResponse20045 list_stores(application_id, page_size=page_size, skip=skip, sort=sort, with_total_result_size=with_total_result_size, campaign_id=campaign_id, name=name, integration_id=integration_id, query=query)
+> InlineResponse20044 list_stores(application_id, page_size=page_size, skip=skip, sort=sort, with_total_result_size=with_total_result_size, campaign_id=campaign_id, name=name, integration_id=integration_id, query=query)
 
 List stores
 
@@ -19603,7 +19739,7 @@ page_size = 1000 # int | The number of items in the response. (optional) (defaul
 skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
 sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
 with_total_result_size = True # bool | When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When `true`: `hasMore` is true when there is a next page. `totalResultSize` is always zero. - When `false`: `hasMore` is always false. `totalResultSize` contains the total number of results for this query.  (optional)
-campaign_id = 3.4 # float | Filter results by campaign. (optional)
+campaign_id = 3.4 # float | Filter results by campaign ID. (optional)
 name = 'name_example' # str | The name of the store. (optional)
 integration_id = 'integration_id_example' # str | The integration ID of the store. (optional)
 query = 'query_example' # str | Filter results by `name` or `integrationId`. (optional)
@@ -19663,7 +19799,7 @@ page_size = 1000 # int | The number of items in the response. (optional) (defaul
 skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
 sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
 with_total_result_size = True # bool | When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When `true`: `hasMore` is true when there is a next page. `totalResultSize` is always zero. - When `false`: `hasMore` is always false. `totalResultSize` contains the total number of results for this query.  (optional)
-campaign_id = 3.4 # float | Filter results by campaign. (optional)
+campaign_id = 3.4 # float | Filter results by campaign ID. (optional)
 name = 'name_example' # str | The name of the store. (optional)
 integration_id = 'integration_id_example' # str | The integration ID of the store. (optional)
 query = 'query_example' # str | Filter results by `name` or `integrationId`. (optional)
@@ -19685,14 +19821,14 @@ Name | Type | Description  | Notes
  **skip** | **int**| The number of items to skip when paging through large result sets. | [optional] 
  **sort** | **str**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  | [optional] 
  **with_total_result_size** | **bool**| When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When &#x60;true&#x60;: &#x60;hasMore&#x60; is true when there is a next page. &#x60;totalResultSize&#x60; is always zero. - When &#x60;false&#x60;: &#x60;hasMore&#x60; is always false. &#x60;totalResultSize&#x60; contains the total number of results for this query.  | [optional] 
- **campaign_id** | **float**| Filter results by campaign. | [optional] 
+ **campaign_id** | **float**| Filter results by campaign ID. | [optional] 
  **name** | **str**| The name of the store. | [optional] 
  **integration_id** | **str**| The integration ID of the store. | [optional] 
  **query** | **str**| Filter results by &#x60;name&#x60; or &#x60;integrationId&#x60;. | [optional] 
 
 ### Return type
 
-[**InlineResponse20045**](InlineResponse20045.md)
+[**InlineResponse20044**](InlineResponse20044.md)
 
 ### Authorization
 
@@ -20753,7 +20889,7 @@ configuration = talon_one.Configuration(
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
-    body = None # object | body
+    body = talon_one.ScimNewUser() # ScimNewUser | body
 
     try:
         # Create SCIM user
@@ -20805,7 +20941,7 @@ configuration = talon_one.Configuration(
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
-    body = None # object | body
+    body = talon_one.ScimNewUser() # ScimNewUser | body
 
     try:
         # Create SCIM user
@@ -20819,7 +20955,7 @@ with talon_one.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | **object**| body | 
+ **body** | [**ScimNewUser**](ScimNewUser.md)| body | 
 
 ### Return type
 
@@ -21113,7 +21249,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **scim_get_schemas**
-> scim_get_schemas()
+> ScimSchemasListResponse scim_get_schemas()
 
 List supported SCIM schemas
 
@@ -21166,7 +21302,8 @@ with talon_one.ApiClient(configuration) as api_client:
     
     try:
         # List supported SCIM schemas
-        api_instance.scim_get_schemas()
+        api_response = api_instance.scim_get_schemas()
+        pprint(api_response)
     except ApiException as e:
         print("Exception when calling ManagementApi->scim_get_schemas: %s\n" % e)
 ```
@@ -21216,7 +21353,8 @@ with talon_one.ApiClient(configuration) as api_client:
     
     try:
         # List supported SCIM schemas
-        api_instance.scim_get_schemas()
+        api_response = api_instance.scim_get_schemas()
+        pprint(api_response)
     except ApiException as e:
         print("Exception when calling ManagementApi->scim_get_schemas: %s\n" % e)
 ```
@@ -21226,7 +21364,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-void (empty response body)
+[**ScimSchemasListResponse**](ScimSchemasListResponse.md)
 
 ### Authorization
 
@@ -21235,21 +21373,21 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Schemas |  -  |
+**200** | List of schemas supported by the SCIM provisioning protocol |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **scim_get_service_provider_config**
-> scim_get_service_provider_config()
+> ScimServiceProviderConfigResponse scim_get_service_provider_config()
 
-Service config endpoint for SCIM provisioning protocol
+Get SCIM service provider configuration
 
-Service config endpoint for SCIM provisioning protocol
+Retrieve the configuration settings of the SCIM service provider. It provides details about the features and capabilities supported by the SCIM API, such as the different operation settings. 
 
 ### Example
 
@@ -21297,8 +21435,9 @@ with talon_one.ApiClient(configuration) as api_client:
     api_instance = talon_one.ManagementApi(api_client)
     
     try:
-        # Service config endpoint for SCIM provisioning protocol
-        api_instance.scim_get_service_provider_config()
+        # Get SCIM service provider configuration
+        api_response = api_instance.scim_get_service_provider_config()
+        pprint(api_response)
     except ApiException as e:
         print("Exception when calling ManagementApi->scim_get_service_provider_config: %s\n" % e)
 ```
@@ -21347,8 +21486,9 @@ with talon_one.ApiClient(configuration) as api_client:
     api_instance = talon_one.ManagementApi(api_client)
     
     try:
-        # Service config endpoint for SCIM provisioning protocol
-        api_instance.scim_get_service_provider_config()
+        # Get SCIM service provider configuration
+        api_response = api_instance.scim_get_service_provider_config()
+        pprint(api_response)
     except ApiException as e:
         print("Exception when calling ManagementApi->scim_get_service_provider_config: %s\n" % e)
 ```
@@ -21358,7 +21498,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-void (empty response body)
+[**ScimServiceProviderConfigResponse**](ScimServiceProviderConfigResponse.md)
 
 ### Authorization
 
@@ -21367,12 +21507,12 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Service config |  -  |
+**200** | Service configuration |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -21650,7 +21790,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **scim_patch_user**
-> ScimUser scim_patch_user(user_id)
+> ScimUser scim_patch_user(user_id, body)
 
 Update SCIM user attributes
 
@@ -21701,10 +21841,11 @@ with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
     user_id = 56 # int | The ID of the user.
+body = talon_one.ScimPatchRequest() # ScimPatchRequest | body
 
     try:
         # Update SCIM user attributes
-        api_response = api_instance.scim_patch_user(user_id)
+        api_response = api_instance.scim_patch_user(user_id, body)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling ManagementApi->scim_patch_user: %s\n" % e)
@@ -21753,10 +21894,11 @@ with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
     user_id = 56 # int | The ID of the user.
+body = talon_one.ScimPatchRequest() # ScimPatchRequest | body
 
     try:
         # Update SCIM user attributes
-        api_response = api_instance.scim_patch_user(user_id)
+        api_response = api_instance.scim_patch_user(user_id, body)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling ManagementApi->scim_patch_user: %s\n" % e)
@@ -21767,6 +21909,7 @@ with talon_one.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **user_id** | **int**| The ID of the user. | 
+ **body** | [**ScimPatchRequest**](ScimPatchRequest.md)| body | 
 
 ### Return type
 
@@ -21778,7 +21921,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 ### HTTP response details
@@ -21840,7 +21983,7 @@ with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
     user_id = 56 # int | The ID of the user.
-body = None # object | body
+body = talon_one.ScimNewUser() # ScimNewUser | body
 
     try:
         # Update SCIM user
@@ -21893,7 +22036,7 @@ with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
     user_id = 56 # int | The ID of the user.
-body = None # object | body
+body = talon_one.ScimNewUser() # ScimNewUser | body
 
     try:
         # Update SCIM user
@@ -21908,7 +22051,7 @@ body = None # object | body
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **user_id** | **int**| The ID of the user. | 
- **body** | **object**| body | 
+ **body** | [**ScimNewUser**](ScimNewUser.md)| body | 
 
 ### Return type
 
@@ -21992,9 +22135,9 @@ created_after = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparin
 valid = 'valid_example' # str | Either \"expired\", \"validNow\", or \"validFuture\". The first option matches coupons in which the expiration date is set and in the past. The second matches coupons in which start date is null or in the past and expiration date is null or in the future, the third matches coupons in which start date is set and in the future.  (optional)
 usable = 'usable_example' # str | Either \"true\" or \"false\". If \"true\", only coupons where `usageCounter < usageLimit` will be returned, \"false\" will return only coupons where `usageCounter >= usageLimit`.  (optional)
 referral_id = 56 # int | Filter the results by matching them with the ID of a referral. This filter shows the coupons created by redeeming a referral code. (optional)
-recipient_integration_id = 'recipient_integration_id_example' # str | Filter results by match with a profile id specified in the coupon's RecipientIntegrationId field (optional)
+recipient_integration_id = 'recipient_integration_id_example' # str | Filter results by match with a profile ID specified in the coupon's RecipientIntegrationId field. (optional)
 batch_id = 'batch_id_example' # str | Filter results by batches of coupons (optional)
-exact_match = False # bool | Filter results to an exact case-insensitive matching against the coupon code (optional) (default to False)
+exact_match = False # bool | Filter results to an exact case-insensitive matching against the coupon code. (optional) (default to False)
 campaign_state = 'campaign_state_example' # str | Filter results by the state of the campaign.  - `enabled`: Campaigns that are scheduled, running (activated), or expired. - `running`: Campaigns that are running (activated). - `disabled`: Campaigns that are disabled. - `expired`: Campaigns that are expired. - `archived`: Campaigns that are archived.  (optional)
 
     try:
@@ -22058,9 +22201,9 @@ created_after = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparin
 valid = 'valid_example' # str | Either \"expired\", \"validNow\", or \"validFuture\". The first option matches coupons in which the expiration date is set and in the past. The second matches coupons in which start date is null or in the past and expiration date is null or in the future, the third matches coupons in which start date is set and in the future.  (optional)
 usable = 'usable_example' # str | Either \"true\" or \"false\". If \"true\", only coupons where `usageCounter < usageLimit` will be returned, \"false\" will return only coupons where `usageCounter >= usageLimit`.  (optional)
 referral_id = 56 # int | Filter the results by matching them with the ID of a referral. This filter shows the coupons created by redeeming a referral code. (optional)
-recipient_integration_id = 'recipient_integration_id_example' # str | Filter results by match with a profile id specified in the coupon's RecipientIntegrationId field (optional)
+recipient_integration_id = 'recipient_integration_id_example' # str | Filter results by match with a profile ID specified in the coupon's RecipientIntegrationId field. (optional)
 batch_id = 'batch_id_example' # str | Filter results by batches of coupons (optional)
-exact_match = False # bool | Filter results to an exact case-insensitive matching against the coupon code (optional) (default to False)
+exact_match = False # bool | Filter results to an exact case-insensitive matching against the coupon code. (optional) (default to False)
 campaign_state = 'campaign_state_example' # str | Filter results by the state of the campaign.  - `enabled`: Campaigns that are scheduled, running (activated), or expired. - `running`: Campaigns that are running (activated). - `disabled`: Campaigns that are disabled. - `expired`: Campaigns that are expired. - `archived`: Campaigns that are archived.  (optional)
 
     try:
@@ -22086,9 +22229,9 @@ Name | Type | Description  | Notes
  **valid** | **str**| Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiration date is set and in the past. The second matches coupons in which start date is null or in the past and expiration date is null or in the future, the third matches coupons in which start date is set and in the future.  | [optional] 
  **usable** | **str**| Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  | [optional] 
  **referral_id** | **int**| Filter the results by matching them with the ID of a referral. This filter shows the coupons created by redeeming a referral code. | [optional] 
- **recipient_integration_id** | **str**| Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field | [optional] 
+ **recipient_integration_id** | **str**| Filter results by match with a profile ID specified in the coupon&#39;s RecipientIntegrationId field. | [optional] 
  **batch_id** | **str**| Filter results by batches of coupons | [optional] 
- **exact_match** | **bool**| Filter results to an exact case-insensitive matching against the coupon code | [optional] [default to False]
+ **exact_match** | **bool**| Filter results to an exact case-insensitive matching against the coupon code. | [optional] [default to False]
  **campaign_state** | **str**| Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Campaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived.  | [optional] 
 
 ### Return type
@@ -22174,8 +22317,8 @@ created_after = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparin
 valid = 'valid_example' # str | Either \"expired\", \"validNow\", or \"validFuture\". The first option matches coupons in which the expiration date is set and in the past. The second matches coupons in which start date is null or in the past and expiration date is null or in the future, the third matches coupons in which start date is set and in the future.  (optional)
 usable = 'usable_example' # str | Either \"true\" or \"false\". If \"true\", only coupons where `usageCounter < usageLimit` will be returned, \"false\" will return only coupons where `usageCounter >= usageLimit`.  (optional)
 referral_id = 56 # int | Filter the results by matching them with the ID of a referral. This filter shows the coupons created by redeeming a referral code. (optional)
-recipient_integration_id = 'recipient_integration_id_example' # str | Filter results by match with a profile id specified in the coupon's RecipientIntegrationId field (optional)
-exact_match = False # bool | Filter results to an exact case-insensitive matching against the coupon code (optional) (default to False)
+recipient_integration_id = 'recipient_integration_id_example' # str | Filter results by match with a profile ID specified in the coupon's RecipientIntegrationId field. (optional)
+exact_match = False # bool | Filter results to an exact case-insensitive matching against the coupon code. (optional) (default to False)
 batch_id = 'batch_id_example' # str | Filter results by batches of coupons (optional)
 
     try:
@@ -22240,8 +22383,8 @@ created_after = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparin
 valid = 'valid_example' # str | Either \"expired\", \"validNow\", or \"validFuture\". The first option matches coupons in which the expiration date is set and in the past. The second matches coupons in which start date is null or in the past and expiration date is null or in the future, the third matches coupons in which start date is set and in the future.  (optional)
 usable = 'usable_example' # str | Either \"true\" or \"false\". If \"true\", only coupons where `usageCounter < usageLimit` will be returned, \"false\" will return only coupons where `usageCounter >= usageLimit`.  (optional)
 referral_id = 56 # int | Filter the results by matching them with the ID of a referral. This filter shows the coupons created by redeeming a referral code. (optional)
-recipient_integration_id = 'recipient_integration_id_example' # str | Filter results by match with a profile id specified in the coupon's RecipientIntegrationId field (optional)
-exact_match = False # bool | Filter results to an exact case-insensitive matching against the coupon code (optional) (default to False)
+recipient_integration_id = 'recipient_integration_id_example' # str | Filter results by match with a profile ID specified in the coupon's RecipientIntegrationId field. (optional)
+exact_match = False # bool | Filter results to an exact case-insensitive matching against the coupon code. (optional) (default to False)
 batch_id = 'batch_id_example' # str | Filter results by batches of coupons (optional)
 
     try:
@@ -22268,8 +22411,8 @@ Name | Type | Description  | Notes
  **valid** | **str**| Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiration date is set and in the past. The second matches coupons in which start date is null or in the past and expiration date is null or in the future, the third matches coupons in which start date is set and in the future.  | [optional] 
  **usable** | **str**| Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  | [optional] 
  **referral_id** | **int**| Filter the results by matching them with the ID of a referral. This filter shows the coupons created by redeeming a referral code. | [optional] 
- **recipient_integration_id** | **str**| Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field | [optional] 
- **exact_match** | **bool**| Filter results to an exact case-insensitive matching against the coupon code | [optional] [default to False]
+ **recipient_integration_id** | **str**| Filter results by match with a profile ID specified in the coupon&#39;s RecipientIntegrationId field. | [optional] 
+ **exact_match** | **bool**| Filter results to an exact case-insensitive matching against the coupon code. | [optional] [default to False]
  **batch_id** | **str**| Filter results by batches of coupons | [optional] 
 
 ### Return type
@@ -23023,7 +23166,7 @@ Name | Type | Description  | Notes
 
 Update campaign
 
-Update the given campaign.
+Update the given campaign.  **Important:** You cannot use this endpoint to update campaigns if [campaign staging and revisions](https://docs.talon.one/docs/product/applications/managing-general-settings#campaign-staging-and-revisions) is enabled for your Application. 
 
 ### Example
 
@@ -23317,7 +23460,7 @@ Name | Type | Description  | Notes
 
 Update coupon
 
-Update the specified coupon.  <div class=\"redoc-section\">   <p class=\"title\">Important</p>    <p>With this <code>PUT</code> endpoint alone, if you do not explicitly set a value for the <code>startDate</code>, <code>expiryDate</code>, and <code>recipientIntegrationId</code> properties in your request, it is automatically set to <code>null</code>.</p>  </div> 
+Update the specified coupon.  <div class=\"redoc-section\">   <p class=\"title\">Important</p>    <p>With this <code>PUT</code> endpoint, if you do not explicitly set a value for the <code>startDate</code>, <code>expiryDate</code>, and <code>recipientIntegrationId</code> properties in your request, it is automatically set to <code>null</code>.</p>  </div> 
 
 ### Example
 
@@ -23465,7 +23608,7 @@ Name | Type | Description  | Notes
 
 Update coupons
 
-Update all coupons, or a specific batch of coupons in the given campaign. You can find the `batchId` in the **Coupons** view of your Application in the Campaign Manager, or you can use [List coupons](#operation/getCouponsWithoutTotalCount).  <div class=\"redoc-section\">   <p class=\"title\">Important</p>    <ul>     <li>Only send sequential requests to this endpoint.</li>     <li>Requests to this endpoint timeout after 30 minutes. If you hit a timeout, reach out to our support team.</li>   </ul>  </div>  To update a specific coupon, use [Update coupon](#operation/updateCoupon). 
+Update all coupons or a specific batch of coupons in the given campaign. You can find the `batchId` on the **Coupons** page of your campaign in the Campaign Manager, or you can use [List coupons](#operation/getCouponsWithoutTotalCount).  <div class=\"redoc-section\">   <p class=\"title\">Important</p>    <ul>     <li>Only send sequential requests to this endpoint.</li>     <li>Requests to this endpoint time out after 30 minutes. If you hit a timeout, contact our support team.</li>     <li>With this <code>PUT</code> endpoint, if you do not explicitly set a value for the <code>startDate</code> and <code>expiryDate</code> properties in your request, it is automatically set to <code>null</code>.</li>   </ul>  </div>  To update a specific coupon, use [Update coupon](#operation/updateCoupon). 
 
 ### Example
 

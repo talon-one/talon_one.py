@@ -36,7 +36,9 @@ class TestLoyaltyProgramEntity(unittest.TestCase):
         # model = talon_one.models.loyalty_program_entity.LoyaltyProgramEntity()  # noqa: E501
         if include_optional :
             return LoyaltyProgramEntity(
-                program_id = 125
+                program_id = 125, 
+                program_name = 'Loyalty_program', 
+                program_title = 'Loyalty program'
             )
         else :
             return LoyaltyProgramEntity(

@@ -648,7 +648,7 @@ class AdditionalCampaignProperties(object):
     def frontend_state(self):
         """Gets the frontend_state of this AdditionalCampaignProperties.  # noqa: E501
 
-        A campaign state described exactly as in the Campaign Manager.  # noqa: E501
+        The campaign state displayed in the Campaign Manager.  # noqa: E501
 
         :return: The frontend_state of this AdditionalCampaignProperties.  # noqa: E501
         :rtype: str
@@ -659,14 +659,14 @@ class AdditionalCampaignProperties(object):
     def frontend_state(self, frontend_state):
         """Sets the frontend_state of this AdditionalCampaignProperties.
 
-        A campaign state described exactly as in the Campaign Manager.  # noqa: E501
+        The campaign state displayed in the Campaign Manager.  # noqa: E501
 
         :param frontend_state: The frontend_state of this AdditionalCampaignProperties.  # noqa: E501
         :type: str
         """
         if self.local_vars_configuration.client_side_validation and frontend_state is None:  # noqa: E501
             raise ValueError("Invalid value for `frontend_state`, must not be `None`")  # noqa: E501
-        allowed_values = ["expired", "scheduled", "running", "disabled", "archived"]  # noqa: E501
+        allowed_values = ["expired", "scheduled", "running", "disabled", "archived", "staged"]  # noqa: E501
         if self.local_vars_configuration.client_side_validation and frontend_state not in allowed_values:  # noqa: E501
             raise ValueError(
                 "Invalid value for `frontend_state` ({0}), must be one of {1}"  # noqa: E501

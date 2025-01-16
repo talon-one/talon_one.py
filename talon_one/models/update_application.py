@@ -48,6 +48,7 @@ class UpdateApplication(object):
         'enable_partial_discounts': 'bool',
         'default_discount_additional_cost_per_item_scope': 'str',
         'default_evaluation_group_id': 'int',
+        'default_cart_item_filter_id': 'int',
         'enable_campaign_state_management': 'bool'
     }
 
@@ -67,10 +68,11 @@ class UpdateApplication(object):
         'enable_partial_discounts': 'enablePartialDiscounts',
         'default_discount_additional_cost_per_item_scope': 'defaultDiscountAdditionalCostPerItemScope',
         'default_evaluation_group_id': 'defaultEvaluationGroupId',
+        'default_cart_item_filter_id': 'defaultCartItemFilterId',
         'enable_campaign_state_management': 'enableCampaignStateManagement'
     }
 
-    def __init__(self, name=None, description=None, timezone=None, currency=None, case_sensitivity=None, attributes=None, limits=None, default_discount_scope=None, enable_cascading_discounts=None, enable_flattened_cart_items=None, attributes_settings=None, sandbox=None, enable_partial_discounts=None, default_discount_additional_cost_per_item_scope=None, default_evaluation_group_id=None, enable_campaign_state_management=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, name=None, description=None, timezone=None, currency=None, case_sensitivity=None, attributes=None, limits=None, default_discount_scope=None, enable_cascading_discounts=None, enable_flattened_cart_items=None, attributes_settings=None, sandbox=None, enable_partial_discounts=None, default_discount_additional_cost_per_item_scope=None, default_evaluation_group_id=None, default_cart_item_filter_id=None, enable_campaign_state_management=None, local_vars_configuration=None):  # noqa: E501
         """UpdateApplication - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -91,6 +93,7 @@ class UpdateApplication(object):
         self._enable_partial_discounts = None
         self._default_discount_additional_cost_per_item_scope = None
         self._default_evaluation_group_id = None
+        self._default_cart_item_filter_id = None
         self._enable_campaign_state_management = None
         self.discriminator = None
 
@@ -121,6 +124,8 @@ class UpdateApplication(object):
             self.default_discount_additional_cost_per_item_scope = default_discount_additional_cost_per_item_scope
         if default_evaluation_group_id is not None:
             self.default_evaluation_group_id = default_evaluation_group_id
+        if default_cart_item_filter_id is not None:
+            self.default_cart_item_filter_id = default_cart_item_filter_id
         if enable_campaign_state_management is not None:
             self.enable_campaign_state_management = enable_campaign_state_management
 
@@ -499,6 +504,29 @@ class UpdateApplication(object):
         """
 
         self._default_evaluation_group_id = default_evaluation_group_id
+
+    @property
+    def default_cart_item_filter_id(self):
+        """Gets the default_cart_item_filter_id of this UpdateApplication.  # noqa: E501
+
+        The ID of the default Cart-Item-Filter for this application.  # noqa: E501
+
+        :return: The default_cart_item_filter_id of this UpdateApplication.  # noqa: E501
+        :rtype: int
+        """
+        return self._default_cart_item_filter_id
+
+    @default_cart_item_filter_id.setter
+    def default_cart_item_filter_id(self, default_cart_item_filter_id):
+        """Sets the default_cart_item_filter_id of this UpdateApplication.
+
+        The ID of the default Cart-Item-Filter for this application.  # noqa: E501
+
+        :param default_cart_item_filter_id: The default_cart_item_filter_id of this UpdateApplication.  # noqa: E501
+        :type: int
+        """
+
+        self._default_cart_item_filter_id = default_cart_item_filter_id
 
     @property
     def enable_campaign_state_management(self):

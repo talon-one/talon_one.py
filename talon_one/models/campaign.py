@@ -74,7 +74,14 @@ class Campaign(object):
         'updated_by': 'str',
         'template_id': 'int',
         'frontend_state': 'str',
-        'stores_imported': 'bool'
+        'stores_imported': 'bool',
+        'revision_frontend_state': 'str',
+        'active_revision_id': 'int',
+        'active_revision_version_id': 'int',
+        'version': 'int',
+        'current_revision_id': 'int',
+        'current_revision_version_id': 'int',
+        'stage_revision': 'bool'
     }
 
     attribute_map = {
@@ -119,10 +126,17 @@ class Campaign(object):
         'updated_by': 'updatedBy',
         'template_id': 'templateId',
         'frontend_state': 'frontendState',
-        'stores_imported': 'storesImported'
+        'stores_imported': 'storesImported',
+        'revision_frontend_state': 'revisionFrontendState',
+        'active_revision_id': 'activeRevisionId',
+        'active_revision_version_id': 'activeRevisionVersionId',
+        'version': 'version',
+        'current_revision_id': 'currentRevisionId',
+        'current_revision_version_id': 'currentRevisionVersionId',
+        'stage_revision': 'stageRevision'
     }
 
-    def __init__(self, id=None, created=None, application_id=None, user_id=None, name=None, description=None, start_time=None, end_time=None, attributes=None, state='enabled', active_ruleset_id=None, tags=None, features=None, coupon_settings=None, referral_settings=None, limits=None, campaign_groups=None, type='advanced', linked_store_ids=None, budgets=None, coupon_redemption_count=None, referral_redemption_count=None, discount_count=None, discount_effect_count=None, coupon_creation_count=None, custom_effect_count=None, referral_creation_count=None, add_free_item_effect_count=None, awarded_giveaways_count=None, created_loyalty_points_count=None, created_loyalty_points_effect_count=None, redeemed_loyalty_points_count=None, redeemed_loyalty_points_effect_count=None, call_api_effect_count=None, reservecoupon_effect_count=None, last_activity=None, updated=None, created_by=None, updated_by=None, template_id=None, frontend_state=None, stores_imported=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, created=None, application_id=None, user_id=None, name=None, description=None, start_time=None, end_time=None, attributes=None, state='enabled', active_ruleset_id=None, tags=None, features=None, coupon_settings=None, referral_settings=None, limits=None, campaign_groups=None, type='advanced', linked_store_ids=None, budgets=None, coupon_redemption_count=None, referral_redemption_count=None, discount_count=None, discount_effect_count=None, coupon_creation_count=None, custom_effect_count=None, referral_creation_count=None, add_free_item_effect_count=None, awarded_giveaways_count=None, created_loyalty_points_count=None, created_loyalty_points_effect_count=None, redeemed_loyalty_points_count=None, redeemed_loyalty_points_effect_count=None, call_api_effect_count=None, reservecoupon_effect_count=None, last_activity=None, updated=None, created_by=None, updated_by=None, template_id=None, frontend_state=None, stores_imported=None, revision_frontend_state=None, active_revision_id=None, active_revision_version_id=None, version=None, current_revision_id=None, current_revision_version_id=None, stage_revision=False, local_vars_configuration=None):  # noqa: E501
         """Campaign - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -170,6 +184,13 @@ class Campaign(object):
         self._template_id = None
         self._frontend_state = None
         self._stores_imported = None
+        self._revision_frontend_state = None
+        self._active_revision_id = None
+        self._active_revision_version_id = None
+        self._version = None
+        self._current_revision_id = None
+        self._current_revision_version_id = None
+        self._stage_revision = None
         self.discriminator = None
 
         self.id = id
@@ -242,6 +263,20 @@ class Campaign(object):
             self.template_id = template_id
         self.frontend_state = frontend_state
         self.stores_imported = stores_imported
+        if revision_frontend_state is not None:
+            self.revision_frontend_state = revision_frontend_state
+        if active_revision_id is not None:
+            self.active_revision_id = active_revision_id
+        if active_revision_version_id is not None:
+            self.active_revision_version_id = active_revision_version_id
+        if version is not None:
+            self.version = version
+        if current_revision_id is not None:
+            self.current_revision_id = current_revision_id
+        if current_revision_version_id is not None:
+            self.current_revision_version_id = current_revision_version_id
+        if stage_revision is not None:
+            self.stage_revision = stage_revision
 
     @property
     def id(self):
@@ -1210,7 +1245,7 @@ class Campaign(object):
     def frontend_state(self):
         """Gets the frontend_state of this Campaign.  # noqa: E501
 
-        A campaign state described exactly as in the Campaign Manager.  # noqa: E501
+        The campaign state displayed in the Campaign Manager.  # noqa: E501
 
         :return: The frontend_state of this Campaign.  # noqa: E501
         :rtype: str
@@ -1221,14 +1256,14 @@ class Campaign(object):
     def frontend_state(self, frontend_state):
         """Sets the frontend_state of this Campaign.
 
-        A campaign state described exactly as in the Campaign Manager.  # noqa: E501
+        The campaign state displayed in the Campaign Manager.  # noqa: E501
 
         :param frontend_state: The frontend_state of this Campaign.  # noqa: E501
         :type: str
         """
         if self.local_vars_configuration.client_side_validation and frontend_state is None:  # noqa: E501
             raise ValueError("Invalid value for `frontend_state`, must not be `None`")  # noqa: E501
-        allowed_values = ["expired", "scheduled", "running", "disabled", "archived"]  # noqa: E501
+        allowed_values = ["expired", "scheduled", "running", "disabled", "archived", "staged"]  # noqa: E501
         if self.local_vars_configuration.client_side_validation and frontend_state not in allowed_values:  # noqa: E501
             raise ValueError(
                 "Invalid value for `frontend_state` ({0}), must be one of {1}"  # noqa: E501
@@ -1261,6 +1296,173 @@ class Campaign(object):
             raise ValueError("Invalid value for `stores_imported`, must not be `None`")  # noqa: E501
 
         self._stores_imported = stores_imported
+
+    @property
+    def revision_frontend_state(self):
+        """Gets the revision_frontend_state of this Campaign.  # noqa: E501
+
+        The campaign revision state displayed in the Campaign Manager.  # noqa: E501
+
+        :return: The revision_frontend_state of this Campaign.  # noqa: E501
+        :rtype: str
+        """
+        return self._revision_frontend_state
+
+    @revision_frontend_state.setter
+    def revision_frontend_state(self, revision_frontend_state):
+        """Sets the revision_frontend_state of this Campaign.
+
+        The campaign revision state displayed in the Campaign Manager.  # noqa: E501
+
+        :param revision_frontend_state: The revision_frontend_state of this Campaign.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["revised", "pending"]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and revision_frontend_state not in allowed_values:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `revision_frontend_state` ({0}), must be one of {1}"  # noqa: E501
+                .format(revision_frontend_state, allowed_values)
+            )
+
+        self._revision_frontend_state = revision_frontend_state
+
+    @property
+    def active_revision_id(self):
+        """Gets the active_revision_id of this Campaign.  # noqa: E501
+
+        ID of the revision that was last activated on this campaign.   # noqa: E501
+
+        :return: The active_revision_id of this Campaign.  # noqa: E501
+        :rtype: int
+        """
+        return self._active_revision_id
+
+    @active_revision_id.setter
+    def active_revision_id(self, active_revision_id):
+        """Sets the active_revision_id of this Campaign.
+
+        ID of the revision that was last activated on this campaign.   # noqa: E501
+
+        :param active_revision_id: The active_revision_id of this Campaign.  # noqa: E501
+        :type: int
+        """
+
+        self._active_revision_id = active_revision_id
+
+    @property
+    def active_revision_version_id(self):
+        """Gets the active_revision_version_id of this Campaign.  # noqa: E501
+
+        ID of the revision version that is active on the campaign.   # noqa: E501
+
+        :return: The active_revision_version_id of this Campaign.  # noqa: E501
+        :rtype: int
+        """
+        return self._active_revision_version_id
+
+    @active_revision_version_id.setter
+    def active_revision_version_id(self, active_revision_version_id):
+        """Sets the active_revision_version_id of this Campaign.
+
+        ID of the revision version that is active on the campaign.   # noqa: E501
+
+        :param active_revision_version_id: The active_revision_version_id of this Campaign.  # noqa: E501
+        :type: int
+        """
+
+        self._active_revision_version_id = active_revision_version_id
+
+    @property
+    def version(self):
+        """Gets the version of this Campaign.  # noqa: E501
+
+        Incrementing number representing how many revisions have been activated on this campaign, starts from 0 for a new campaign.   # noqa: E501
+
+        :return: The version of this Campaign.  # noqa: E501
+        :rtype: int
+        """
+        return self._version
+
+    @version.setter
+    def version(self, version):
+        """Sets the version of this Campaign.
+
+        Incrementing number representing how many revisions have been activated on this campaign, starts from 0 for a new campaign.   # noqa: E501
+
+        :param version: The version of this Campaign.  # noqa: E501
+        :type: int
+        """
+
+        self._version = version
+
+    @property
+    def current_revision_id(self):
+        """Gets the current_revision_id of this Campaign.  # noqa: E501
+
+        ID of the revision currently being modified for the campaign.   # noqa: E501
+
+        :return: The current_revision_id of this Campaign.  # noqa: E501
+        :rtype: int
+        """
+        return self._current_revision_id
+
+    @current_revision_id.setter
+    def current_revision_id(self, current_revision_id):
+        """Sets the current_revision_id of this Campaign.
+
+        ID of the revision currently being modified for the campaign.   # noqa: E501
+
+        :param current_revision_id: The current_revision_id of this Campaign.  # noqa: E501
+        :type: int
+        """
+
+        self._current_revision_id = current_revision_id
+
+    @property
+    def current_revision_version_id(self):
+        """Gets the current_revision_version_id of this Campaign.  # noqa: E501
+
+        ID of the latest version applied on the current revision.   # noqa: E501
+
+        :return: The current_revision_version_id of this Campaign.  # noqa: E501
+        :rtype: int
+        """
+        return self._current_revision_version_id
+
+    @current_revision_version_id.setter
+    def current_revision_version_id(self, current_revision_version_id):
+        """Sets the current_revision_version_id of this Campaign.
+
+        ID of the latest version applied on the current revision.   # noqa: E501
+
+        :param current_revision_version_id: The current_revision_version_id of this Campaign.  # noqa: E501
+        :type: int
+        """
+
+        self._current_revision_version_id = current_revision_version_id
+
+    @property
+    def stage_revision(self):
+        """Gets the stage_revision of this Campaign.  # noqa: E501
+
+        Flag for determining whether we use current revision when sending requests with staging API key.   # noqa: E501
+
+        :return: The stage_revision of this Campaign.  # noqa: E501
+        :rtype: bool
+        """
+        return self._stage_revision
+
+    @stage_revision.setter
+    def stage_revision(self, stage_revision):
+        """Sets the stage_revision of this Campaign.
+
+        Flag for determining whether we use current revision when sending requests with staging API key.   # noqa: E501
+
+        :param stage_revision: The stage_revision of this Campaign.  # noqa: E501
+        :type: bool
+        """
+
+        self._stage_revision = stage_revision
 
     def to_dict(self):
         """Returns the model properties as a dict"""

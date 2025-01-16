@@ -37,7 +37,8 @@ class TestScimResource(unittest.TestCase):
         if include_optional :
             return ScimResource(
                 id = '0', 
-                name = '0'
+                name = '0', 
+                description = '0'
             )
         else :
             return ScimResource(

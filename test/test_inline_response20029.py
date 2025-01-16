@@ -36,16 +36,36 @@ class TestInlineResponse20029(unittest.TestCase):
         # model = talon_one.models.inline_response20029.InlineResponse20029()  # noqa: E501
         if include_optional :
             return InlineResponse20029(
+                has_more = True, 
                 total_result_size = 1, 
                 data = [
-                    '0'
+                    talon_one.models.audience.Audience(
+                        account_id = 3886, 
+                        id = 6, 
+                        created = '2020-06-10T09:05:27.993483Z', 
+                        name = 'Travel audience', 
+                        sandbox = True, 
+                        description = 'Travel audience 18-27', 
+                        integration = 'mparticle', 
+                        integration_id = '382370BKDB946', 
+                        created_in3rd_party = False, 
+                        last_update = '2022-04-26T11:02:38Z', )
                     ]
             )
         else :
             return InlineResponse20029(
-                total_result_size = 1,
                 data = [
-                    '0'
+                    talon_one.models.audience.Audience(
+                        account_id = 3886, 
+                        id = 6, 
+                        created = '2020-06-10T09:05:27.993483Z', 
+                        name = 'Travel audience', 
+                        sandbox = True, 
+                        description = 'Travel audience 18-27', 
+                        integration = 'mparticle', 
+                        integration_id = '382370BKDB946', 
+                        created_in3rd_party = False, 
+                        last_update = '2022-04-26T11:02:38Z', )
                     ],
         )
 

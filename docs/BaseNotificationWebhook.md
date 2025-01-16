@@ -1,6 +1,5 @@
 # BaseNotificationWebhook
 
-
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

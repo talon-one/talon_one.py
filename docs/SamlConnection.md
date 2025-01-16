@@ -1,6 +1,6 @@
 # SamlConnection
 
-
+A SAML 2.0 connection.
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

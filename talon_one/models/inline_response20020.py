@@ -34,7 +34,7 @@ class InlineResponse20020(object):
     """
     openapi_types = {
         'total_result_size': 'int',
-        'data': 'list[AccessLogEntry]'
+        'data': 'list[CampaignAnalytics]'
     }
 
     attribute_map = {
@@ -84,7 +84,7 @@ class InlineResponse20020(object):
 
 
         :return: The data of this InlineResponse20020.  # noqa: E501
-        :rtype: list[AccessLogEntry]
+        :rtype: list[CampaignAnalytics]
         """
         return self._data
 
@@ -94,7 +94,7 @@ class InlineResponse20020(object):
 
 
         :param data: The data of this InlineResponse20020.  # noqa: E501
-        :type: list[AccessLogEntry]
+        :type: list[CampaignAnalytics]
         """
         if self.local_vars_configuration.client_side_validation and data is None:  # noqa: E501
             raise ValueError("Invalid value for `data`, must not be `None`")  # noqa: E501

@@ -37,13 +37,13 @@ class TestScimResourceTypesListResponse(unittest.TestCase):
         if include_optional :
             return ScimResourceTypesListResponse(
                 resources = [
-                    {id=User, name=User}
+                    {id=User, name=User, description=User Account}
                     ]
             )
         else :
             return ScimResourceTypesListResponse(
                 resources = [
-                    {id=User, name=User}
+                    {id=User, name=User, description=User Account}
                     ],
         )
 

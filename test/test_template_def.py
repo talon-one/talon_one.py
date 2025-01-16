@@ -52,6 +52,7 @@ class TestTemplateDef(unittest.TestCase):
                         description = '0', 
                         title = '0', 
                         ui = talon_one.models.ui.ui(), 
+                        key = '0', 
                         picklist_id = 56, 
                         restricted_by_picklist = True, )
                     ], 
@@ -76,6 +77,7 @@ class TestTemplateDef(unittest.TestCase):
                         description = '0', 
                         title = '0', 
                         ui = talon_one.models.ui.ui(), 
+                        key = '0', 
                         picklist_id = 56, 
                         restricted_by_picklist = True, )
                     ],

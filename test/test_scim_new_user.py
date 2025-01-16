@@ -38,7 +38,9 @@ class TestScimNewUser(unittest.TestCase):
             return ScimNewUser(
                 active = True, 
                 display_name = 'John Doe', 
-                user_name = 'john.doe@example.com'
+                user_name = 'john.doe@example.com', 
+                name = talon_one.models.scim_base_user_name.ScimBaseUser_name(
+                    formatted = 'Mr. John J Doe', )
             )
         else :
             return ScimNewUser(

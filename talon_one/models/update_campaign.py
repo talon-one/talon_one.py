@@ -499,7 +499,7 @@ class UpdateCampaign(object):
     def linked_store_ids(self):
         """Gets the linked_store_ids of this UpdateCampaign.  # noqa: E501
 
-        A list of store IDs that you want to link to the campaign.  **Note:** Campaigns with linked store IDs will only be evaluated when there is a [customer session update](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) that references a linked store.   # noqa: E501
+        A list of store IDs that you want to link to the campaign.  **Note:** - Campaigns with linked store IDs will only be evaluated when there is a [customer session update](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) that references a linked store. - If you linked stores to the campaign by uploading a CSV file, you cannot use this property and it should be empty. - Use of this property is limited to 50 stores. To link more than 50 stores, upload them via a CSV file.   # noqa: E501
 
         :return: The linked_store_ids of this UpdateCampaign.  # noqa: E501
         :rtype: list[int]
@@ -510,7 +510,7 @@ class UpdateCampaign(object):
     def linked_store_ids(self, linked_store_ids):
         """Sets the linked_store_ids of this UpdateCampaign.
 
-        A list of store IDs that you want to link to the campaign.  **Note:** Campaigns with linked store IDs will only be evaluated when there is a [customer session update](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) that references a linked store.   # noqa: E501
+        A list of store IDs that you want to link to the campaign.  **Note:** - Campaigns with linked store IDs will only be evaluated when there is a [customer session update](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) that references a linked store. - If you linked stores to the campaign by uploading a CSV file, you cannot use this property and it should be empty. - Use of this property is limited to 50 stores. To link more than 50 stores, upload them via a CSV file.   # noqa: E501
 
         :param linked_store_ids: The linked_store_ids of this UpdateCampaign.  # noqa: E501
         :type: list[int]

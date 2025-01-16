@@ -54,6 +54,9 @@ class TestCampaignTemplate(unittest.TestCase):
                 coupon_settings = talon_one.models.code_generator_settings.CodeGeneratorSettings(
                     valid_characters = [A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9], 
                     coupon_pattern = 'SUMMER-####-####', ), 
+                coupon_reservation_settings = talon_one.models.campaign_template_coupon_reservation_settings.CampaignTemplateCouponReservationSettings(
+                    reservation_limit = 45, 
+                    is_reservation_mandatory = False, ), 
                 referral_settings = talon_one.models.code_generator_settings.CodeGeneratorSettings(
                     valid_characters = [A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9], 
                     coupon_pattern = 'SUMMER-####-####', ), 
@@ -71,9 +74,7 @@ class TestCampaignTemplate(unittest.TestCase):
                         description = 'This is a template parameter of type `number`.', 
                         attribute_id = 42, )
                     ], 
-                applications_ids = [
-                    56
-                    ], 
+                applications_ids = [1, 2, 3, 1, 2, 3], 
                 campaign_collections = [
                     talon_one.models.campaign_template_collection.CampaignTemplateCollection(
                         name = 'My collection', 
@@ -95,9 +96,7 @@ class TestCampaignTemplate(unittest.TestCase):
                 description = 'This is a template for a discount campaign.',
                 instructions = 'Use this template for discount campaigns. Set the campaign properties according to the campaign goals, and don't forget to set an end date.',
                 state = 'draft',
-                applications_ids = [
-                    56
-                    ],
+                applications_ids = [1, 2, 3, 1, 2, 3],
                 campaign_type = 'advanced',
                 valid_application_ids = [1, 2, 3],
         )

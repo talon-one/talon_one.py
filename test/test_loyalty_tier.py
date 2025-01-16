@@ -39,6 +39,8 @@ class TestLoyaltyTier(unittest.TestCase):
                 id = 6, 
                 created = '2020-06-10T09:05:27.993483Z', 
                 program_id = 125, 
+                program_name = 'Loyalty_program', 
+                program_title = 'Loyalty program', 
                 name = 'Gold', 
                 min_points = 300.0
             )

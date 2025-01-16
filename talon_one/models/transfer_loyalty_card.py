@@ -81,6 +81,9 @@ class TransferLoyaltyCard(object):
         if (self.local_vars_configuration.client_side_validation and
                 new_card_identifier is not None and len(new_card_identifier) > 108):
             raise ValueError("Invalid value for `new_card_identifier`, length must be less than or equal to `108`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                new_card_identifier is not None and not re.search(r'^[A-Za-z0-9_-]*$', new_card_identifier)):  # noqa: E501
+            raise ValueError(r"Invalid value for `new_card_identifier`, must be a follow pattern or equal to `/^[A-Za-z0-9_-]*$/`")  # noqa: E501
 
         self._new_card_identifier = new_card_identifier
 

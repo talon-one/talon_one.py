@@ -133,7 +133,7 @@ class AudienceCustomer(object):
     def created(self):
         """Gets the created of this AudienceCustomer.  # noqa: E501
 
-        The time this entity was created. The time this entity was created.  # noqa: E501
+        The time this entity was created.  # noqa: E501
 
         :return: The created of this AudienceCustomer.  # noqa: E501
         :rtype: datetime
@@ -144,7 +144,7 @@ class AudienceCustomer(object):
     def created(self, created):
         """Sets the created of this AudienceCustomer.
 
-        The time this entity was created. The time this entity was created.  # noqa: E501
+        The time this entity was created.  # noqa: E501
 
         :param created: The created of this AudienceCustomer.  # noqa: E501
         :type: datetime

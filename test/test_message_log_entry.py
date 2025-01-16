@@ -41,6 +41,8 @@ class TestMessageLogEntry(unittest.TestCase):
                 change_type = 'Update', 
                 notification_id = 101, 
                 notification_name = 'My campaign notification', 
+                webhook_id = 101, 
+                webhook_name = 'My webhook', 
                 request = talon_one.models.message_log_request.MessageLogRequest(
                     created_at = '2021-07-20T21:59Z', 
                     request = 'SGVsbG8sIHdvcmxkIQ==', ), 
@@ -49,14 +51,17 @@ class TestMessageLogEntry(unittest.TestCase):
                     status = 200, ), 
                 created_at = '2021-07-20T22:00Z', 
                 entity_type = 'loyalty_program', 
+                url = 'www.my-company.com/my-endpoint-name', 
                 application_id = 5, 
-                loyalty_program_id = 2
+                loyalty_program_id = 2, 
+                campaign_id = 2
             )
         else :
             return MessageLogEntry(
                 id = '123e4567-e89b-12d3-a456-426614174000',
                 service = 'NotificationService',
                 created_at = '2021-07-20T22:00Z',
+                entity_type = 'loyalty_program',
         )
 
     def testMessageLogEntry(self):

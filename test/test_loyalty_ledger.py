@@ -133,7 +133,7 @@ class TestLoyaltyLedger(unittest.TestCase):
                         start_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                         expiry_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                         downgrade_policy = 'one_down', ), ), 
-                sub_ledgers = {"mysubledger":{"activePoints":286,"pendingPoints":50,"spentPoints":150,"expiredPoints":25}}
+                sub_ledgers = {"mysubledger":{"total":0,"totalActivePoints":286,"totalPendingPoints":50,"totalSpentPoints":150,"totalExpiredPoints":25}}
             )
         else :
             return LoyaltyLedger(

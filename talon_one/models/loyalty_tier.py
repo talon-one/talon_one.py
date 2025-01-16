@@ -36,6 +36,8 @@ class LoyaltyTier(object):
         'id': 'int',
         'created': 'datetime',
         'program_id': 'int',
+        'program_name': 'str',
+        'program_title': 'str',
         'name': 'str',
         'min_points': 'float'
     }
@@ -44,11 +46,13 @@ class LoyaltyTier(object):
         'id': 'id',
         'created': 'created',
         'program_id': 'programID',
+        'program_name': 'programName',
+        'program_title': 'programTitle',
         'name': 'name',
         'min_points': 'minPoints'
     }
 
-    def __init__(self, id=None, created=None, program_id=None, name=None, min_points=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, created=None, program_id=None, program_name=None, program_title=None, name=None, min_points=None, local_vars_configuration=None):  # noqa: E501
         """LoyaltyTier - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -57,6 +61,8 @@ class LoyaltyTier(object):
         self._id = None
         self._created = None
         self._program_id = None
+        self._program_name = None
+        self._program_title = None
         self._name = None
         self._min_points = None
         self.discriminator = None
@@ -64,6 +70,10 @@ class LoyaltyTier(object):
         self.id = id
         self.created = created
         self.program_id = program_id
+        if program_name is not None:
+            self.program_name = program_name
+        if program_title is not None:
+            self.program_title = program_title
         self.name = name
         self.min_points = min_points
 
@@ -143,10 +153,56 @@ class LoyaltyTier(object):
         self._program_id = program_id
 
     @property
+    def program_name(self):
+        """Gets the program_name of this LoyaltyTier.  # noqa: E501
+
+        The integration name of the loyalty program that owns this entity.  # noqa: E501
+
+        :return: The program_name of this LoyaltyTier.  # noqa: E501
+        :rtype: str
+        """
+        return self._program_name
+
+    @program_name.setter
+    def program_name(self, program_name):
+        """Sets the program_name of this LoyaltyTier.
+
+        The integration name of the loyalty program that owns this entity.  # noqa: E501
+
+        :param program_name: The program_name of this LoyaltyTier.  # noqa: E501
+        :type: str
+        """
+
+        self._program_name = program_name
+
+    @property
+    def program_title(self):
+        """Gets the program_title of this LoyaltyTier.  # noqa: E501
+
+        The Campaign Manager-displayed name of the loyalty program that owns this entity.  # noqa: E501
+
+        :return: The program_title of this LoyaltyTier.  # noqa: E501
+        :rtype: str
+        """
+        return self._program_title
+
+    @program_title.setter
+    def program_title(self, program_title):
+        """Sets the program_title of this LoyaltyTier.
+
+        The Campaign Manager-displayed name of the loyalty program that owns this entity.  # noqa: E501
+
+        :param program_title: The program_title of this LoyaltyTier.  # noqa: E501
+        :type: str
+        """
+
+        self._program_title = program_title
+
+    @property
     def name(self):
         """Gets the name of this LoyaltyTier.  # noqa: E501
 
-        The name of the tier  # noqa: E501
+        The name of the tier.  # noqa: E501
 
         :return: The name of this LoyaltyTier.  # noqa: E501
         :rtype: str
@@ -157,7 +213,7 @@ class LoyaltyTier(object):
     def name(self, name):
         """Sets the name of this LoyaltyTier.
 
-        The name of the tier  # noqa: E501
+        The name of the tier.  # noqa: E501
 
         :param name: The name of this LoyaltyTier.  # noqa: E501
         :type: str
@@ -171,7 +227,7 @@ class LoyaltyTier(object):
     def min_points(self):
         """Gets the min_points of this LoyaltyTier.  # noqa: E501
 
-        The minimum amount of points required to be eligible for the tier.  # noqa: E501
+        The minimum amount of points required to enter the tier.  # noqa: E501
 
         :return: The min_points of this LoyaltyTier.  # noqa: E501
         :rtype: float
@@ -182,7 +238,7 @@ class LoyaltyTier(object):
     def min_points(self, min_points):
         """Sets the min_points of this LoyaltyTier.
 
-        The minimum amount of points required to be eligible for the tier.  # noqa: E501
+        The minimum amount of points required to enter the tier.  # noqa: E501
 
         :param min_points: The min_points of this LoyaltyTier.  # noqa: E501
         :type: float

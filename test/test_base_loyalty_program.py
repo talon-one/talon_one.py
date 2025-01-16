@@ -51,7 +51,8 @@ class TestBaseLoyaltyProgram(unittest.TestCase):
                 tiers_downgrade_policy = 'one_down', 
                 card_code_settings = talon_one.models.code_generator_settings.CodeGeneratorSettings(
                     valid_characters = [A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9], 
-                    coupon_pattern = 'SUMMER-####-####', )
+                    coupon_pattern = 'SUMMER-####-####', ), 
+                return_policy = 'only_pending'
             )
         else :
             return BaseLoyaltyProgram(

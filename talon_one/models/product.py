@@ -55,7 +55,7 @@ class Product(object):
     def name(self):
         """Gets the name of this Product.  # noqa: E501
 
-        The name of the product.  # noqa: E501
+        The product the item belongs to.  # noqa: E501
 
         :return: The name of this Product.  # noqa: E501
         :rtype: str
@@ -66,7 +66,7 @@ class Product(object):
     def name(self, name):
         """Sets the name of this Product.
 
-        The name of the product.  # noqa: E501
+        The product the item belongs to.  # noqa: E501
 
         :param name: The name of this Product.  # noqa: E501
         :type: str

@@ -186,7 +186,7 @@ class LedgerInfo(object):
     def tentative_current_balance(self):
         """Gets the tentative_current_balance of this LedgerInfo.  # noqa: E501
 
-        Sum of the tentative active points (including additions and deductions) inside the currently open session. The `currentBalance` is updated to this value when you close the session, and the effects are applied.  # noqa: E501
+        The tentative points balance, reflecting the `currentBalance` and all point additions and deductions within the current open customer session. When the session is closed, the effects are applied and the `currentBalance` is updated to this value.  **Note:** Tentative balances are specific to the current session and do not take into account other open sessions for the given customer.   # noqa: E501
 
         :return: The tentative_current_balance of this LedgerInfo.  # noqa: E501
         :rtype: float
@@ -197,7 +197,7 @@ class LedgerInfo(object):
     def tentative_current_balance(self, tentative_current_balance):
         """Sets the tentative_current_balance of this LedgerInfo.
 
-        Sum of the tentative active points (including additions and deductions) inside the currently open session. The `currentBalance` is updated to this value when you close the session, and the effects are applied.  # noqa: E501
+        The tentative points balance, reflecting the `currentBalance` and all point additions and deductions within the current open customer session. When the session is closed, the effects are applied and the `currentBalance` is updated to this value.  **Note:** Tentative balances are specific to the current session and do not take into account other open sessions for the given customer.   # noqa: E501
 
         :param tentative_current_balance: The tentative_current_balance of this LedgerInfo.  # noqa: E501
         :type: float
@@ -211,7 +211,7 @@ class LedgerInfo(object):
     def tentative_pending_balance(self):
         """Gets the tentative_pending_balance of this LedgerInfo.  # noqa: E501
 
-        Sum of pending points (including additions and deductions) inside the currently open session. The `pendingBalance` is updated to this value when you close the session, and the effects are applied.  # noqa: E501
+        The tentative points balance, reflecting the `pendingBalance` and all point additions with a future activation date within the current open customer session. When the session is closed, the effects are applied and the `pendingBalance` is updated to this value.  **Note:** Tentative balances are specific to the current session and do not take into account other open sessions for the given customer.   # noqa: E501
 
         :return: The tentative_pending_balance of this LedgerInfo.  # noqa: E501
         :rtype: float
@@ -222,7 +222,7 @@ class LedgerInfo(object):
     def tentative_pending_balance(self, tentative_pending_balance):
         """Sets the tentative_pending_balance of this LedgerInfo.
 
-        Sum of pending points (including additions and deductions) inside the currently open session. The `pendingBalance` is updated to this value when you close the session, and the effects are applied.  # noqa: E501
+        The tentative points balance, reflecting the `pendingBalance` and all point additions with a future activation date within the current open customer session. When the session is closed, the effects are applied and the `pendingBalance` is updated to this value.  **Note:** Tentative balances are specific to the current session and do not take into account other open sessions for the given customer.   # noqa: E501
 
         :param tentative_pending_balance: The tentative_pending_balance of this LedgerInfo.  # noqa: E501
         :type: float

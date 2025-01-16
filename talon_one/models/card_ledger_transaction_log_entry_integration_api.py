@@ -177,6 +177,9 @@ class CardLedgerTransactionLogEntryIntegrationAPI(object):
         if (self.local_vars_configuration.client_side_validation and
                 card_identifier is not None and len(card_identifier) > 108):
             raise ValueError("Invalid value for `card_identifier`, length must be less than or equal to `108`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                card_identifier is not None and not re.search(r'^[A-Za-z0-9_-]*$', card_identifier)):  # noqa: E501
+            raise ValueError(r"Invalid value for `card_identifier`, must be a follow pattern or equal to `/^[A-Za-z0-9_-]*$/`")  # noqa: E501
 
         self._card_identifier = card_identifier
 

@@ -52,7 +52,8 @@ class CustomerSessionV2(object):
         'total': 'float',
         'cart_item_total': 'float',
         'additional_cost_total': 'float',
-        'updated': 'datetime'
+        'updated': 'datetime',
+        'closure_prediction': 'float'
     }
 
     attribute_map = {
@@ -75,10 +76,11 @@ class CustomerSessionV2(object):
         'total': 'total',
         'cart_item_total': 'cartItemTotal',
         'additional_cost_total': 'additionalCostTotal',
-        'updated': 'updated'
+        'updated': 'updated',
+        'closure_prediction': 'closurePrediction'
     }
 
-    def __init__(self, id=None, created=None, integration_id=None, application_id=None, profile_id=None, store_integration_id=None, evaluable_campaign_ids=None, coupon_codes=None, referral_code=None, loyalty_cards=None, state='open', cart_items=None, additional_costs=None, identifiers=None, attributes=None, first_session=None, total=None, cart_item_total=None, additional_cost_total=None, updated=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, created=None, integration_id=None, application_id=None, profile_id=None, store_integration_id=None, evaluable_campaign_ids=None, coupon_codes=None, referral_code=None, loyalty_cards=None, state='open', cart_items=None, additional_costs=None, identifiers=None, attributes=None, first_session=None, total=None, cart_item_total=None, additional_cost_total=None, updated=None, closure_prediction=None, local_vars_configuration=None):  # noqa: E501
         """CustomerSessionV2 - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -104,6 +106,7 @@ class CustomerSessionV2(object):
         self._cart_item_total = None
         self._additional_cost_total = None
         self._updated = None
+        self._closure_prediction = None
         self.discriminator = None
 
         self.id = id
@@ -133,6 +136,8 @@ class CustomerSessionV2(object):
         self.cart_item_total = cart_item_total
         self.additional_cost_total = additional_cost_total
         self.updated = updated
+        if closure_prediction is not None:
+            self.closure_prediction = closure_prediction
 
     @property
     def id(self):
@@ -163,7 +168,7 @@ class CustomerSessionV2(object):
     def created(self):
         """Gets the created of this CustomerSessionV2.  # noqa: E501
 
-        The time this entity was created. The time this entity was created.  # noqa: E501
+        The time this entity was created.  # noqa: E501
 
         :return: The created of this CustomerSessionV2.  # noqa: E501
         :rtype: datetime
@@ -174,7 +179,7 @@ class CustomerSessionV2(object):
     def created(self, created):
         """Sets the created of this CustomerSessionV2.
 
-        The time this entity was created. The time this entity was created.  # noqa: E501
+        The time this entity was created.  # noqa: E501
 
         :param created: The created of this CustomerSessionV2.  # noqa: E501
         :type: datetime
@@ -318,7 +323,7 @@ class CustomerSessionV2(object):
     def coupon_codes(self):
         """Gets the coupon_codes of this CustomerSessionV2.  # noqa: E501
 
-        Any coupon codes entered.  **Important**: If you [create a coupon budget](https://docs.talon.one/docs/product/campaigns/settings/managing-campaign-budgets/#budget-types) for your campaign, ensure the session contains a coupon code by the time you close it.   # noqa: E501
+        Any coupon codes entered.  **Important - for requests only**:  - If you [create a coupon budget](https://docs.talon.one/docs/product/campaigns/settings/managing-campaign-budgets/#budget-types) for your campaign, ensure the session contains a coupon code by the time you close it. - In requests where `dry=false`, providing an empty array discards any previous coupons. To avoid this, omit the parameter entirely.   # noqa: E501
 
         :return: The coupon_codes of this CustomerSessionV2.  # noqa: E501
         :rtype: list[str]
@@ -329,7 +334,7 @@ class CustomerSessionV2(object):
     def coupon_codes(self, coupon_codes):
         """Sets the coupon_codes of this CustomerSessionV2.
 
-        Any coupon codes entered.  **Important**: If you [create a coupon budget](https://docs.talon.one/docs/product/campaigns/settings/managing-campaign-budgets/#budget-types) for your campaign, ensure the session contains a coupon code by the time you close it.   # noqa: E501
+        Any coupon codes entered.  **Important - for requests only**:  - If you [create a coupon budget](https://docs.talon.one/docs/product/campaigns/settings/managing-campaign-budgets/#budget-types) for your campaign, ensure the session contains a coupon code by the time you close it. - In requests where `dry=false`, providing an empty array discards any previous coupons. To avoid this, omit the parameter entirely.   # noqa: E501
 
         :param coupon_codes: The coupon_codes of this CustomerSessionV2.  # noqa: E501
         :type: list[str]
@@ -341,7 +346,7 @@ class CustomerSessionV2(object):
     def referral_code(self):
         """Gets the referral_code of this CustomerSessionV2.  # noqa: E501
 
-        Any referral code entered.  **Important**: If you [create a referral budget](https://docs.talon.one/docs/product/campaigns/settings/managing-campaign-budgets/#budget-types) for your campaign, ensure the session contains a referral code by the time you close it.   # noqa: E501
+        Any referral code entered.  **Important - for requests only**:  - If you [create a referral budget](https://docs.talon.one/docs/product/campaigns/settings/managing-campaign-budgets/#budget-types) for your campaign, ensure the session contains a referral code by the time you close it. - In requests where `dry=false`, providing an empty value discards the previous referral code. To avoid this, omit the parameter entirely.   # noqa: E501
 
         :return: The referral_code of this CustomerSessionV2.  # noqa: E501
         :rtype: str
@@ -352,7 +357,7 @@ class CustomerSessionV2(object):
     def referral_code(self, referral_code):
         """Sets the referral_code of this CustomerSessionV2.
 
-        Any referral code entered.  **Important**: If you [create a referral budget](https://docs.talon.one/docs/product/campaigns/settings/managing-campaign-budgets/#budget-types) for your campaign, ensure the session contains a referral code by the time you close it.   # noqa: E501
+        Any referral code entered.  **Important - for requests only**:  - If you [create a referral budget](https://docs.talon.one/docs/product/campaigns/settings/managing-campaign-budgets/#budget-types) for your campaign, ensure the session contains a referral code by the time you close it. - In requests where `dry=false`, providing an empty value discards the previous referral code. To avoid this, omit the parameter entirely.   # noqa: E501
 
         :param referral_code: The referral_code of this CustomerSessionV2.  # noqa: E501
         :type: str
@@ -469,7 +474,7 @@ class CustomerSessionV2(object):
     def identifiers(self):
         """Gets the identifiers of this CustomerSessionV2.  # noqa: E501
 
-        Session custom identifiers that you can set limits on or use inside your rules.  For example, you can use IP addresses as identifiers to potentially identify devices and limit discounts abuse in case of customers creating multiple accounts. See the [tutorial](https://docs.talon.one/docs/dev/tutorials/using-identifiers).  **Important**: Ensure the session contains an identifier by the time you close it if: - You [create a unique identifier budget](https://docs.talon.one/docs/product/campaigns/settings/managing-campaign-budgets/#budget-types) for your campaign. - Your campaign has [coupons](https://docs.talon.one/docs/product/campaigns/coupons/coupon-page-overview).   # noqa: E501
+        Session custom identifiers that you can set limits on or use inside your rules.  For example, you can use IP addresses as identifiers to potentially identify devices and limit discounts abuse in case of customers creating multiple accounts. See the [tutorial](https://docs.talon.one/docs/dev/tutorials/using-identifiers).  **Important**: Ensure the session contains an identifier by the time you close it if: - You [create a unique identifier budget](https://docs.talon.one/docs/product/campaigns/settings/managing-campaign-budgets/#budget-types) for your campaign. - Your campaign has [coupons](https://docs.talon.one/docs/product/campaigns/coupons/coupon-page-overview). - We recommend passing an anonymized (hashed) version of the identifier value.   # noqa: E501
 
         :return: The identifiers of this CustomerSessionV2.  # noqa: E501
         :rtype: list[str]
@@ -480,7 +485,7 @@ class CustomerSessionV2(object):
     def identifiers(self, identifiers):
         """Sets the identifiers of this CustomerSessionV2.
 
-        Session custom identifiers that you can set limits on or use inside your rules.  For example, you can use IP addresses as identifiers to potentially identify devices and limit discounts abuse in case of customers creating multiple accounts. See the [tutorial](https://docs.talon.one/docs/dev/tutorials/using-identifiers).  **Important**: Ensure the session contains an identifier by the time you close it if: - You [create a unique identifier budget](https://docs.talon.one/docs/product/campaigns/settings/managing-campaign-budgets/#budget-types) for your campaign. - Your campaign has [coupons](https://docs.talon.one/docs/product/campaigns/coupons/coupon-page-overview).   # noqa: E501
+        Session custom identifiers that you can set limits on or use inside your rules.  For example, you can use IP addresses as identifiers to potentially identify devices and limit discounts abuse in case of customers creating multiple accounts. See the [tutorial](https://docs.talon.one/docs/dev/tutorials/using-identifiers).  **Important**: Ensure the session contains an identifier by the time you close it if: - You [create a unique identifier budget](https://docs.talon.one/docs/product/campaigns/settings/managing-campaign-budgets/#budget-types) for your campaign. - Your campaign has [coupons](https://docs.talon.one/docs/product/campaigns/coupons/coupon-page-overview). - We recommend passing an anonymized (hashed) version of the identifier value.   # noqa: E501
 
         :param identifiers: The identifiers of this CustomerSessionV2.  # noqa: E501
         :type: list[str]
@@ -517,7 +522,7 @@ class CustomerSessionV2(object):
     def first_session(self):
         """Gets the first_session of this CustomerSessionV2.  # noqa: E501
 
-        Indicates whether this is the first session for the customer's profile. Will always be true for anonymous sessions.  # noqa: E501
+        Indicates whether this is the first session for the customer's profile. It's always `true` for anonymous sessions.  # noqa: E501
 
         :return: The first_session of this CustomerSessionV2.  # noqa: E501
         :rtype: bool
@@ -528,7 +533,7 @@ class CustomerSessionV2(object):
     def first_session(self, first_session):
         """Sets the first_session of this CustomerSessionV2.
 
-        Indicates whether this is the first session for the customer's profile. Will always be true for anonymous sessions.  # noqa: E501
+        Indicates whether this is the first session for the customer's profile. It's always `true` for anonymous sessions.  # noqa: E501
 
         :param first_session: The first_session of this CustomerSessionV2.  # noqa: E501
         :type: bool
@@ -637,6 +642,29 @@ class CustomerSessionV2(object):
             raise ValueError("Invalid value for `updated`, must not be `None`")  # noqa: E501
 
         self._updated = updated
+
+    @property
+    def closure_prediction(self):
+        """Gets the closure_prediction of this CustomerSessionV2.  # noqa: E501
+
+        The likelihood of the customer session closing based on predictive modeling, expressed as a decimal between `0` and `1`.  # noqa: E501
+
+        :return: The closure_prediction of this CustomerSessionV2.  # noqa: E501
+        :rtype: float
+        """
+        return self._closure_prediction
+
+    @closure_prediction.setter
+    def closure_prediction(self, closure_prediction):
+        """Sets the closure_prediction of this CustomerSessionV2.
+
+        The likelihood of the customer session closing based on predictive modeling, expressed as a decimal between `0` and `1`.  # noqa: E501
+
+        :param closure_prediction: The closure_prediction of this CustomerSessionV2.  # noqa: E501
+        :type: float
+        """
+
+        self._closure_prediction = closure_prediction
 
     def to_dict(self):
         """Returns the model properties as a dict"""

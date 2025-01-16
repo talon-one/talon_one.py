@@ -37,6 +37,7 @@ class TemplateArgDef(object):
         'description': 'str',
         'title': 'str',
         'ui': 'object',
+        'key': 'str',
         'picklist_id': 'int',
         'restricted_by_picklist': 'bool'
     }
@@ -46,11 +47,12 @@ class TemplateArgDef(object):
         'description': 'description',
         'title': 'title',
         'ui': 'ui',
+        'key': 'key',
         'picklist_id': 'picklistID',
         'restricted_by_picklist': 'restrictedByPicklist'
     }
 
-    def __init__(self, type=None, description=None, title=None, ui=None, picklist_id=None, restricted_by_picklist=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, type=None, description=None, title=None, ui=None, key=None, picklist_id=None, restricted_by_picklist=None, local_vars_configuration=None):  # noqa: E501
         """TemplateArgDef - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -60,6 +62,7 @@ class TemplateArgDef(object):
         self._description = None
         self._title = None
         self._ui = None
+        self._key = None
         self._picklist_id = None
         self._restricted_by_picklist = None
         self.discriminator = None
@@ -69,6 +72,8 @@ class TemplateArgDef(object):
             self.description = description
         self.title = title
         self.ui = ui
+        if key is not None:
+            self.key = key
         if picklist_id is not None:
             self.picklist_id = picklist_id
         if restricted_by_picklist is not None:
@@ -180,6 +185,29 @@ class TemplateArgDef(object):
             raise ValueError("Invalid value for `ui`, must not be `None`")  # noqa: E501
 
         self._ui = ui
+
+    @property
+    def key(self):
+        """Gets the key of this TemplateArgDef.  # noqa: E501
+
+        The identifier for the associated value within the JSON object.  # noqa: E501
+
+        :return: The key of this TemplateArgDef.  # noqa: E501
+        :rtype: str
+        """
+        return self._key
+
+    @key.setter
+    def key(self, key):
+        """Sets the key of this TemplateArgDef.
+
+        The identifier for the associated value within the JSON object.  # noqa: E501
+
+        :param key: The key of this TemplateArgDef.  # noqa: E501
+        :type: str
+        """
+
+        self._key = key
 
     @property
     def picklist_id(self):

@@ -1,6 +1,5 @@
 # ItemAttribute
 
-
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

@@ -34,15 +34,17 @@ class ScimResource(object):
     """
     openapi_types = {
         'id': 'str',
-        'name': 'str'
+        'name': 'str',
+        'description': 'str'
     }
 
     attribute_map = {
         'id': 'id',
-        'name': 'name'
+        'name': 'name',
+        'description': 'description'
     }
 
-    def __init__(self, id=None, name=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, name=None, description=None, local_vars_configuration=None):  # noqa: E501
         """ScimResource - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -50,12 +52,15 @@ class ScimResource(object):
 
         self._id = None
         self._name = None
+        self._description = None
         self.discriminator = None
 
         if id is not None:
             self.id = id
         if name is not None:
             self.name = name
+        if description is not None:
+            self.description = description
 
     @property
     def id(self):
@@ -102,6 +107,29 @@ class ScimResource(object):
         """
 
         self._name = name
+
+    @property
+    def description(self):
+        """Gets the description of this ScimResource.  # noqa: E501
+
+        Human-readable description of the resource.  # noqa: E501
+
+        :return: The description of this ScimResource.  # noqa: E501
+        :rtype: str
+        """
+        return self._description
+
+    @description.setter
+    def description(self, description):
+        """Sets the description of this ScimResource.
+
+        Human-readable description of the resource.  # noqa: E501
+
+        :param description: The description of this ScimResource.  # noqa: E501
+        :type: str
+        """
+
+        self._description = description
 
     def to_dict(self):
         """Returns the model properties as a dict"""

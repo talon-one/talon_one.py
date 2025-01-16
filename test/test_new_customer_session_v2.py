@@ -64,7 +64,7 @@ class TestNewCustomerSessionV2(unittest.TestCase):
                         catalog_item_id = 56, )
                     ], 
                 additional_costs = {"shipping":{"price":9}}, 
-                identifiers = [91.11.156.141], 
+                identifiers = [d41306257915f83fe01e54092ae470f631161ea16fcf4415842eed41470386ea], 
                 attributes = {"ShippingCity":"Berlin"}
             )
         else :

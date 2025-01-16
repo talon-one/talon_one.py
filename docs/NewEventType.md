@@ -1,6 +1,5 @@
 # NewEventType
 
-
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

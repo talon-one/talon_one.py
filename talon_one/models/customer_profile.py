@@ -123,7 +123,7 @@ class CustomerProfile(object):
     def created(self):
         """Gets the created of this CustomerProfile.  # noqa: E501
 
-        The time this entity was created. The time this entity was created.  # noqa: E501
+        The time this entity was created.  # noqa: E501
 
         :return: The created of this CustomerProfile.  # noqa: E501
         :rtype: datetime
@@ -134,7 +134,7 @@ class CustomerProfile(object):
     def created(self, created):
         """Sets the created of this CustomerProfile.
 
-        The time this entity was created. The time this entity was created.  # noqa: E501
+        The time this entity was created.  # noqa: E501
 
         :param created: The created of this CustomerProfile.  # noqa: E501
         :type: datetime

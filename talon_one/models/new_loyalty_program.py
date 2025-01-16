@@ -47,6 +47,7 @@ class NewLoyaltyProgram(object):
         'tiers_expire_in': 'str',
         'tiers_downgrade_policy': 'str',
         'card_code_settings': 'CodeGeneratorSettings',
+        'return_policy': 'str',
         'name': 'str',
         'tiers': 'list[NewLoyaltyTier]',
         'timezone': 'str',
@@ -68,13 +69,14 @@ class NewLoyaltyProgram(object):
         'tiers_expire_in': 'tiersExpireIn',
         'tiers_downgrade_policy': 'tiersDowngradePolicy',
         'card_code_settings': 'cardCodeSettings',
+        'return_policy': 'returnPolicy',
         'name': 'name',
         'tiers': 'tiers',
         'timezone': 'timezone',
         'card_based': 'cardBased'
     }
 
-    def __init__(self, title=None, description=None, subscribed_applications=None, default_validity=None, default_pending=None, allow_subledger=None, users_per_card_limit=None, sandbox=None, program_join_policy=None, tiers_expiration_policy=None, tier_cycle_start_date=None, tiers_expire_in=None, tiers_downgrade_policy=None, card_code_settings=None, name=None, tiers=None, timezone=None, card_based=False, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, title=None, description=None, subscribed_applications=None, default_validity=None, default_pending=None, allow_subledger=None, users_per_card_limit=None, sandbox=None, program_join_policy=None, tiers_expiration_policy=None, tier_cycle_start_date=None, tiers_expire_in=None, tiers_downgrade_policy=None, card_code_settings=None, return_policy=None, name=None, tiers=None, timezone=None, card_based=False, local_vars_configuration=None):  # noqa: E501
         """NewLoyaltyProgram - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -94,6 +96,7 @@ class NewLoyaltyProgram(object):
         self._tiers_expire_in = None
         self._tiers_downgrade_policy = None
         self._card_code_settings = None
+        self._return_policy = None
         self._name = None
         self._tiers = None
         self._timezone = None
@@ -123,6 +126,8 @@ class NewLoyaltyProgram(object):
             self.tiers_downgrade_policy = tiers_downgrade_policy
         if card_code_settings is not None:
             self.card_code_settings = card_code_settings
+        if return_policy is not None:
+            self.return_policy = return_policy
         self.name = name
         if tiers is not None:
             self.tiers = tiers
@@ -479,6 +484,35 @@ class NewLoyaltyProgram(object):
         """
 
         self._card_code_settings = card_code_settings
+
+    @property
+    def return_policy(self):
+        """Gets the return_policy of this NewLoyaltyProgram.  # noqa: E501
+
+        The policy that defines the rollback of points in case of a partially returned, cancelled, or reopened [customer session](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions). - `only_pending`: Only pending points can be rolled back. - `within_balance`: Available active points can be rolled back if there aren't enough pending points. The active balance of the customer cannot be negative.   # noqa: E501
+
+        :return: The return_policy of this NewLoyaltyProgram.  # noqa: E501
+        :rtype: str
+        """
+        return self._return_policy
+
+    @return_policy.setter
+    def return_policy(self, return_policy):
+        """Sets the return_policy of this NewLoyaltyProgram.
+
+        The policy that defines the rollback of points in case of a partially returned, cancelled, or reopened [customer session](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions). - `only_pending`: Only pending points can be rolled back. - `within_balance`: Available active points can be rolled back if there aren't enough pending points. The active balance of the customer cannot be negative.   # noqa: E501
+
+        :param return_policy: The return_policy of this NewLoyaltyProgram.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["only_pending", "within_balance"]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and return_policy not in allowed_values:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `return_policy` ({0}), must be one of {1}"  # noqa: E501
+                .format(return_policy, allowed_values)
+            )
+
+        self._return_policy = return_policy
 
     @property
     def name(self):

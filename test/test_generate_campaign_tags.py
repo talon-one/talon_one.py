@@ -36,11 +36,11 @@ class TestGenerateCampaignTags(unittest.TestCase):
         # model = talon_one.models.generate_campaign_tags.GenerateCampaignTags()  # noqa: E501
         if include_optional :
             return GenerateCampaignTags(
-                campaign_id = 56
+                ruleset_id = 56
             )
         else :
             return GenerateCampaignTags(
-                campaign_id = 56,
+                ruleset_id = 56,
         )
 
     def testGenerateCampaignTags(self):

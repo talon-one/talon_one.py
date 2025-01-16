@@ -34,15 +34,17 @@ class GenerateLoyaltyCard(object):
     """
     openapi_types = {
         'status': 'str',
-        'customer_profile_ids': 'list[str]'
+        'customer_profile_ids': 'list[str]',
+        'card_identifier': 'str'
     }
 
     attribute_map = {
         'status': 'status',
-        'customer_profile_ids': 'customerProfileIds'
+        'customer_profile_ids': 'customerProfileIds',
+        'card_identifier': 'cardIdentifier'
     }
 
-    def __init__(self, status='active', customer_profile_ids=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, status='active', customer_profile_ids=None, card_identifier=None, local_vars_configuration=None):  # noqa: E501
         """GenerateLoyaltyCard - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -50,12 +52,15 @@ class GenerateLoyaltyCard(object):
 
         self._status = None
         self._customer_profile_ids = None
+        self._card_identifier = None
         self.discriminator = None
 
         if status is not None:
             self.status = status
         if customer_profile_ids is not None:
             self.customer_profile_ids = customer_profile_ids
+        if card_identifier is not None:
+            self.card_identifier = card_identifier
 
     @property
     def status(self):
@@ -108,6 +113,35 @@ class GenerateLoyaltyCard(object):
         """
 
         self._customer_profile_ids = customer_profile_ids
+
+    @property
+    def card_identifier(self):
+        """Gets the card_identifier of this GenerateLoyaltyCard.  # noqa: E501
+
+        The alphanumeric identifier of the loyalty card.   # noqa: E501
+
+        :return: The card_identifier of this GenerateLoyaltyCard.  # noqa: E501
+        :rtype: str
+        """
+        return self._card_identifier
+
+    @card_identifier.setter
+    def card_identifier(self, card_identifier):
+        """Sets the card_identifier of this GenerateLoyaltyCard.
+
+        The alphanumeric identifier of the loyalty card.   # noqa: E501
+
+        :param card_identifier: The card_identifier of this GenerateLoyaltyCard.  # noqa: E501
+        :type: str
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                card_identifier is not None and len(card_identifier) > 108):
+            raise ValueError("Invalid value for `card_identifier`, length must be less than or equal to `108`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                card_identifier is not None and not re.search(r'^[A-Za-z0-9_-]*$', card_identifier)):  # noqa: E501
+            raise ValueError(r"Invalid value for `card_identifier`, must be a follow pattern or equal to `/^[A-Za-z0-9_-]*$/`")  # noqa: E501
+
+        self._card_identifier = card_identifier
 
     def to_dict(self):
         """Returns the model properties as a dict"""

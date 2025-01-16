@@ -63,7 +63,7 @@ class CustomerProfileAudienceRequestItem(object):
     def action(self):
         """Gets the action of this CustomerProfileAudienceRequestItem.  # noqa: E501
 
-        Defines the action to perform: - `add`: Adds the customer profile to the audience. If the customer profile does not exist, it will be created. - `delete`: Removes the customer profile from the audience.   # noqa: E501
+        Defines the action to perform: - `add`: Adds the customer profile to the audience.    **Note**: If the customer profile does not exist, it will be created. The profile will not be visible in any Application   until a session or profile update is received for that profile. - `delete`: Removes the customer profile from the audience.   # noqa: E501
 
         :return: The action of this CustomerProfileAudienceRequestItem.  # noqa: E501
         :rtype: str
@@ -74,7 +74,7 @@ class CustomerProfileAudienceRequestItem(object):
     def action(self, action):
         """Sets the action of this CustomerProfileAudienceRequestItem.
 
-        Defines the action to perform: - `add`: Adds the customer profile to the audience. If the customer profile does not exist, it will be created. - `delete`: Removes the customer profile from the audience.   # noqa: E501
+        Defines the action to perform: - `add`: Adds the customer profile to the audience.    **Note**: If the customer profile does not exist, it will be created. The profile will not be visible in any Application   until a session or profile update is received for that profile. - `delete`: Removes the customer profile from the audience.   # noqa: E501
 
         :param action: The action of this CustomerProfileAudienceRequestItem.  # noqa: E501
         :type: str

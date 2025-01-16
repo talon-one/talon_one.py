@@ -1,6 +1,5 @@
 # Environment
 
-
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
@@ -18,6 +17,7 @@ Name | Type | Description | Notes
 **additional_costs** | [**list[AccountAdditionalCost]**](AccountAdditionalCost.md) | The additional costs that the application is subscribed to. | [optional] 
 **audiences** | [**list[Audience]**](Audience.md) | The audiences contained in the account which the application belongs to. | [optional] 
 **collections** | [**list[Collection]**](Collection.md) | The account-level collections that the application is subscribed to. | [optional] 
+**application_cart_item_filters** | [**list[ApplicationCIF]**](ApplicationCIF.md) | The cart item filters belonging to the Application. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

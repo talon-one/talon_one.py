@@ -1,6 +1,5 @@
 # NewCampaignCollection
 
-
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
