@@ -220,7 +220,8 @@ class Campaign(object):
         self.type = type
         if linked_store_ids is not None:
             self.linked_store_ids = linked_store_ids
-        self.budgets = budgets
+        if budgets is not None:
+            self.budgets = budgets
         if coupon_redemption_count is not None:
             self.coupon_redemption_count = coupon_redemption_count
         if referral_redemption_count is not None:
@@ -776,8 +777,6 @@ class Campaign(object):
         :param budgets: The budgets of this Campaign.  # noqa: E501
         :type: list[CampaignBudget]
         """
-        if self.local_vars_configuration.client_side_validation and budgets is None:  # noqa: E501
-            raise ValueError("Invalid value for `budgets`, must not be `None`")  # noqa: E501
 
         self._budgets = budgets
 

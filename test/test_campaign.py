@@ -120,12 +120,6 @@ class TestCampaign(unittest.TestCase):
                         entities = [Coupon], )
                     ],
                 type = 'advanced',
-                budgets = [
-                    talon_one.models.campaign_budget.CampaignBudget(
-                        action = 'createCoupon', 
-                        limit = 1000.0, 
-                        counter = 42.0, )
-                    ],
                 frontend_state = 'running',
                 stores_imported = True,
         )
