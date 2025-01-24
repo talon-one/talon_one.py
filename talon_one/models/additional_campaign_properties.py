@@ -115,7 +115,8 @@ class AdditionalCampaignProperties(object):
         self._stores_imported = None
         self.discriminator = None
 
-        self.budgets = budgets
+        if budgets is not None:
+            self.budgets = budgets
         if coupon_redemption_count is not None:
             self.coupon_redemption_count = coupon_redemption_count
         if referral_redemption_count is not None:
@@ -179,8 +180,6 @@ class AdditionalCampaignProperties(object):
         :param budgets: The budgets of this AdditionalCampaignProperties.  # noqa: E501
         :type: list[CampaignBudget]
         """
-        if self.local_vars_configuration.client_side_validation and budgets is None:  # noqa: E501
-            raise ValueError("Invalid value for `budgets`, must not be `None`")  # noqa: E501
 
         self._budgets = budgets
 

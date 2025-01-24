@@ -67,12 +67,6 @@ class TestAdditionalCampaignProperties(unittest.TestCase):
             )
         else :
             return AdditionalCampaignProperties(
-                budgets = [
-                    talon_one.models.campaign_budget.CampaignBudget(
-                        action = 'createCoupon', 
-                        limit = 1000.0, 
-                        counter = 42.0, )
-                    ],
                 frontend_state = 'running',
                 stores_imported = True,
         )
