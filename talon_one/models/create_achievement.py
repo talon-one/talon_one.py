@@ -80,7 +80,8 @@ class CreateAchievement(object):
         self.title = title
         self.description = description
         self.target = target
-        self.period = period
+        if period is not None:
+            self.period = period
         if period_end_override is not None:
             self.period_end_override = period_end_override
         if recurrence_policy is not None:
@@ -221,8 +222,6 @@ class CreateAchievement(object):
         :param period: The period of this CreateAchievement.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and period is None:  # noqa: E501
-            raise ValueError("Invalid value for `period`, must not be `None`")  # noqa: E501
 
         self._period = period
 

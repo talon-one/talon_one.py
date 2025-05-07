@@ -37,43 +37,52 @@ class TestInlineResponse20034(unittest.TestCase):
         if include_optional :
             return InlineResponse20034(
                 has_more = True, 
-                total_result_size = 1, 
                 data = [
-                    talon_one.models.catalog_item.CatalogItem(
+                    talon_one.models.customer_profile.CustomerProfile(
                         id = 6, 
-                        created = '2020-06-10T09:05:27.993483Z', 
-                        sku = 'SKU1241028', 
-                        price = 99.99, 
-                        catalogid = 6, 
-                        version = 5, 
-                        attributes = [
-                            talon_one.models.item_attribute.ItemAttribute(
-                                attributeid = 6, 
-                                name = '0', 
-                                value = talon_one.models.value.value(), )
+                        created = '2020-02-07T08:15:22Z', 
+                        integration_id = 'URNGV8294NV', 
+                        attributes = {"Language":"english","ShippingCountry":"DE"}, 
+                        account_id = 31, 
+                        closed_sessions = 3, 
+                        total_sales = 299.99, 
+                        loyalty_memberships = [
+                            talon_one.models.loyalty_membership.LoyaltyMembership(
+                                joined = '2012-03-20T14:15:22Z', 
+                                loyalty_program_id = 323414846, )
                             ], 
-                        product = talon_one.models.product.Product(
-                            name = 'sample_product', ), )
+                        audience_memberships = [
+                            talon_one.models.audience_membership.AudienceMembership(
+                                id = 2, 
+                                name = 'Travel audience', )
+                            ], 
+                        last_activity = '2020-02-08T14:15:20Z', 
+                        sandbox = False, )
                     ]
             )
         else :
             return InlineResponse20034(
                 data = [
-                    talon_one.models.catalog_item.CatalogItem(
+                    talon_one.models.customer_profile.CustomerProfile(
                         id = 6, 
-                        created = '2020-06-10T09:05:27.993483Z', 
-                        sku = 'SKU1241028', 
-                        price = 99.99, 
-                        catalogid = 6, 
-                        version = 5, 
-                        attributes = [
-                            talon_one.models.item_attribute.ItemAttribute(
-                                attributeid = 6, 
-                                name = '0', 
-                                value = talon_one.models.value.value(), )
+                        created = '2020-02-07T08:15:22Z', 
+                        integration_id = 'URNGV8294NV', 
+                        attributes = {"Language":"english","ShippingCountry":"DE"}, 
+                        account_id = 31, 
+                        closed_sessions = 3, 
+                        total_sales = 299.99, 
+                        loyalty_memberships = [
+                            talon_one.models.loyalty_membership.LoyaltyMembership(
+                                joined = '2012-03-20T14:15:22Z', 
+                                loyalty_program_id = 323414846, )
                             ], 
-                        product = talon_one.models.product.Product(
-                            name = 'sample_product', ), )
+                        audience_memberships = [
+                            talon_one.models.audience_membership.AudienceMembership(
+                                id = 2, 
+                                name = 'Travel audience', )
+                            ], 
+                        last_activity = '2020-02-08T14:15:20Z', 
+                        sandbox = False, )
                     ],
         )
 

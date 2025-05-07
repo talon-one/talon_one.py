@@ -36,32 +36,28 @@ class TestInlineResponse20035(unittest.TestCase):
         # model = talon_one.models.inline_response20035.InlineResponse20035()  # noqa: E501
         if include_optional :
             return InlineResponse20035(
+                has_more = True, 
                 total_result_size = 1, 
                 data = [
-                    talon_one.models.account_additional_cost.AccountAdditionalCost(
-                        id = 6, 
-                        created = '2020-06-10T09:05:27.993483Z', 
-                        account_id = 3886, 
-                        name = 'shippingFee', 
-                        title = 'Shipping fee', 
-                        description = 'A shipping fee', 
-                        subscribed_applications_ids = [3, 13], 
-                        type = 'session', )
+                    talon_one.models.application_referee.ApplicationReferee(
+                        application_id = 322, 
+                        session_id = '0', 
+                        advocate_integration_id = '0', 
+                        friend_integration_id = '0', 
+                        code = '0', 
+                        created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), )
                     ]
             )
         else :
             return InlineResponse20035(
-                total_result_size = 1,
                 data = [
-                    talon_one.models.account_additional_cost.AccountAdditionalCost(
-                        id = 6, 
-                        created = '2020-06-10T09:05:27.993483Z', 
-                        account_id = 3886, 
-                        name = 'shippingFee', 
-                        title = 'Shipping fee', 
-                        description = 'A shipping fee', 
-                        subscribed_applications_ids = [3, 13], 
-                        type = 'session', )
+                    talon_one.models.application_referee.ApplicationReferee(
+                        application_id = 322, 
+                        session_id = '0', 
+                        advocate_integration_id = '0', 
+                        friend_integration_id = '0', 
+                        code = '0', 
+                        created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), )
                     ],
         )
 

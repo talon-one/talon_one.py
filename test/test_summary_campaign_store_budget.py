@@ -38,12 +38,14 @@ class TestSummaryCampaignStoreBudget(unittest.TestCase):
             return SummaryCampaignStoreBudget(
                 action = 'redeemCoupon', 
                 period = 'overall', 
-                store_count = 56
+                store_count = 56, 
+                imported = True
             )
         else :
             return SummaryCampaignStoreBudget(
                 action = 'redeemCoupon',
                 store_count = 56,
+                imported = True,
         )
 
     def testSummaryCampaignStoreBudget(self):

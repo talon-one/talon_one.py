@@ -42,7 +42,8 @@ class TestExpiringCouponsNotificationPolicy(unittest.TestCase):
                         amount = 0, 
                         period = 'w', )
                     ], 
-                batching_enabled = True
+                batching_enabled = True, 
+                batch_size = 1000
             )
         else :
             return ExpiringCouponsNotificationPolicy(

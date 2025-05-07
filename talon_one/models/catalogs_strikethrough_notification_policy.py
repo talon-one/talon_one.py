@@ -33,23 +33,28 @@ class CatalogsStrikethroughNotificationPolicy(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'name': 'str'
+        'name': 'str',
+        'ahead_of_days_trigger': 'int'
     }
 
     attribute_map = {
-        'name': 'name'
+        'name': 'name',
+        'ahead_of_days_trigger': 'aheadOfDaysTrigger'
     }
 
-    def __init__(self, name=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, name=None, ahead_of_days_trigger=None, local_vars_configuration=None):  # noqa: E501
         """CatalogsStrikethroughNotificationPolicy - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._name = None
+        self._ahead_of_days_trigger = None
         self.discriminator = None
 
         self.name = name
+        if ahead_of_days_trigger is not None:
+            self.ahead_of_days_trigger = ahead_of_days_trigger
 
     @property
     def name(self):
@@ -78,6 +83,35 @@ class CatalogsStrikethroughNotificationPolicy(object):
             raise ValueError("Invalid value for `name`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._name = name
+
+    @property
+    def ahead_of_days_trigger(self):
+        """Gets the ahead_of_days_trigger of this CatalogsStrikethroughNotificationPolicy.  # noqa: E501
+
+        The number of days in advance that strikethrough pricing updates should be sent.  # noqa: E501
+
+        :return: The ahead_of_days_trigger of this CatalogsStrikethroughNotificationPolicy.  # noqa: E501
+        :rtype: int
+        """
+        return self._ahead_of_days_trigger
+
+    @ahead_of_days_trigger.setter
+    def ahead_of_days_trigger(self, ahead_of_days_trigger):
+        """Sets the ahead_of_days_trigger of this CatalogsStrikethroughNotificationPolicy.
+
+        The number of days in advance that strikethrough pricing updates should be sent.  # noqa: E501
+
+        :param ahead_of_days_trigger: The ahead_of_days_trigger of this CatalogsStrikethroughNotificationPolicy.  # noqa: E501
+        :type: int
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                ahead_of_days_trigger is not None and ahead_of_days_trigger > 30):  # noqa: E501
+            raise ValueError("Invalid value for `ahead_of_days_trigger`, must be a value less than or equal to `30`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                ahead_of_days_trigger is not None and ahead_of_days_trigger < 1):  # noqa: E501
+            raise ValueError("Invalid value for `ahead_of_days_trigger`, must be a value greater than or equal to `1`")  # noqa: E501
+
+        self._ahead_of_days_trigger = ahead_of_days_trigger
 
     def to_dict(self):
         """Returns the model properties as a dict"""

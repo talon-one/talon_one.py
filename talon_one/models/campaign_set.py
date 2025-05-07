@@ -72,7 +72,7 @@ class CampaignSet(object):
     def application_id(self):
         """Gets the application_id of this CampaignSet.  # noqa: E501
 
-        The ID of the application that owns this entity.  # noqa: E501
+        The ID of the Application that owns this entity.  # noqa: E501
 
         :return: The application_id of this CampaignSet.  # noqa: E501
         :rtype: int
@@ -83,7 +83,7 @@ class CampaignSet(object):
     def application_id(self, application_id):
         """Sets the application_id of this CampaignSet.
 
-        The ID of the application that owns this entity.  # noqa: E501
+        The ID of the Application that owns this entity.  # noqa: E501
 
         :param application_id: The application_id of this CampaignSet.  # noqa: E501
         :type: int

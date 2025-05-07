@@ -284,7 +284,7 @@ class IntegrationApi(object):
     def create_referral(self, body, **kwargs):  # noqa: E501
         """Create referral code for an advocate  # noqa: E501
 
-        Creates a referral code for an advocate. The code will be valid for the referral campaign for which is created, indicated in the `campaignId` parameter, and will be associated with the profile specified in the `advocateProfileIntegrationId` parameter as the advocate's profile.   # noqa: E501
+        Creates a referral code for an advocate. The code will be valid for the referral campaign for which is created, indicated in the `campaignId` parameter, and will be associated with the profile specified in the `advocateProfileIntegrationId` parameter as the advocate's profile.  **Note:** Any [referral limits](https://docs.talon.one/docs/product/campaigns/settings/managing-campaign-budgets#referral-limits) set are ignored when you use this endpoint.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_referral(body, async_req=True)
@@ -309,7 +309,7 @@ class IntegrationApi(object):
     def create_referral_with_http_info(self, body, **kwargs):  # noqa: E501
         """Create referral code for an advocate  # noqa: E501
 
-        Creates a referral code for an advocate. The code will be valid for the referral campaign for which is created, indicated in the `campaignId` parameter, and will be associated with the profile specified in the `advocateProfileIntegrationId` parameter as the advocate's profile.   # noqa: E501
+        Creates a referral code for an advocate. The code will be valid for the referral campaign for which is created, indicated in the `campaignId` parameter, and will be associated with the profile specified in the `advocateProfileIntegrationId` parameter as the advocate's profile.  **Note:** Any [referral limits](https://docs.talon.one/docs/product/campaigns/settings/managing-campaign-budgets#referral-limits) set are ignored when you use this endpoint.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_referral_with_http_info(body, async_req=True)
@@ -402,7 +402,7 @@ class IntegrationApi(object):
     def create_referrals_for_multiple_advocates(self, body, **kwargs):  # noqa: E501
         """Create referral codes for multiple advocates  # noqa: E501
 
-        Creates unique referral codes for multiple advocates. The code will be valid for the referral campaign for which it is created, indicated in the `campaignId` parameter, and one referral code will be associated with one advocate using the profile specified in the `advocateProfileIntegrationId` parameter as the advocate's profile.   # noqa: E501
+        Creates unique referral codes for multiple advocates. The code will be valid for the referral campaign for which it is created, indicated in the `campaignId` parameter, and one referral code will be associated with one advocate using the profile specified in the `advocateProfileIntegrationId` parameter as the advocate's profile.  **Note:** Any [referral limits](https://docs.talon.one/docs/product/campaigns/settings/managing-campaign-budgets#referral-limits) set are ignored when you use this endpoint.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_referrals_for_multiple_advocates(body, async_req=True)
@@ -410,7 +410,7 @@ class IntegrationApi(object):
 
         :param async_req bool: execute request asynchronously
         :param NewReferralsForMultipleAdvocates body: body (required)
-        :param str silent: Possible values: `yes` or `no`. - `yes`: Increases the perfomance of the API call by returning a 204 response. - `no`: Returns a 200 response that contains the updated customer profiles. 
+        :param str silent: Possible values: `yes` or `no`. - `yes`: Increases the performance of the API call by returning a 204 response. - `no`: Returns a 200 response that contains the updated customer profiles. 
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -428,7 +428,7 @@ class IntegrationApi(object):
     def create_referrals_for_multiple_advocates_with_http_info(self, body, **kwargs):  # noqa: E501
         """Create referral codes for multiple advocates  # noqa: E501
 
-        Creates unique referral codes for multiple advocates. The code will be valid for the referral campaign for which it is created, indicated in the `campaignId` parameter, and one referral code will be associated with one advocate using the profile specified in the `advocateProfileIntegrationId` parameter as the advocate's profile.   # noqa: E501
+        Creates unique referral codes for multiple advocates. The code will be valid for the referral campaign for which it is created, indicated in the `campaignId` parameter, and one referral code will be associated with one advocate using the profile specified in the `advocateProfileIntegrationId` parameter as the advocate's profile.  **Note:** Any [referral limits](https://docs.talon.one/docs/product/campaigns/settings/managing-campaign-budgets#referral-limits) set are ignored when you use this endpoint.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_referrals_for_multiple_advocates_with_http_info(body, async_req=True)
@@ -436,7 +436,7 @@ class IntegrationApi(object):
 
         :param async_req bool: execute request asynchronously
         :param NewReferralsForMultipleAdvocates body: body (required)
-        :param str silent: Possible values: `yes` or `no`. - `yes`: Increases the perfomance of the API call by returning a 204 response. - `no`: Returns a 200 response that contains the updated customer profiles. 
+        :param str silent: Possible values: `yes` or `no`. - `yes`: Increases the performance of the API call by returning a 204 response. - `no`: Returns a 200 response that contains the updated customer profiles. 
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -1118,6 +1118,311 @@ class IntegrationApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def get_customer_achievement_history(self, integration_id, achievement_id, **kwargs):  # noqa: E501
+        """List customer's achievement history  # noqa: E501
+
+        Retrieve all progress history of a given customer in the given achievement.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_customer_achievement_history(integration_id, achievement_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str integration_id: The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier.  (required)
+        :param int achievement_id: The achievement identifier.  (required)
+        :param list[str] progress_status: Filter by customer progress status in the achievement. 
+        :param datetime start_date: Timestamp that filters the results to only contain achievements created on or after the start date.
+        :param datetime end_date: Timestamp that filters the results to only contain achievements created before or on the end date.
+        :param int page_size: The number of items in the response.
+        :param int skip: The number of items to skip when paging through large result sets.
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: InlineResponse2002
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.get_customer_achievement_history_with_http_info(integration_id, achievement_id, **kwargs)  # noqa: E501
+
+    def get_customer_achievement_history_with_http_info(self, integration_id, achievement_id, **kwargs):  # noqa: E501
+        """List customer's achievement history  # noqa: E501
+
+        Retrieve all progress history of a given customer in the given achievement.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_customer_achievement_history_with_http_info(integration_id, achievement_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str integration_id: The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier.  (required)
+        :param int achievement_id: The achievement identifier.  (required)
+        :param list[str] progress_status: Filter by customer progress status in the achievement. 
+        :param datetime start_date: Timestamp that filters the results to only contain achievements created on or after the start date.
+        :param datetime end_date: Timestamp that filters the results to only contain achievements created before or on the end date.
+        :param int page_size: The number of items in the response.
+        :param int skip: The number of items to skip when paging through large result sets.
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(InlineResponse2002, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'integration_id',
+            'achievement_id',
+            'progress_status',
+            'start_date',
+            'end_date',
+            'page_size',
+            'skip'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_customer_achievement_history" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'integration_id' is set
+        if self.api_client.client_side_validation and ('integration_id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['integration_id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `integration_id` when calling `get_customer_achievement_history`")  # noqa: E501
+        # verify the required parameter 'achievement_id' is set
+        if self.api_client.client_side_validation and ('achievement_id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['achievement_id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `achievement_id` when calling `get_customer_achievement_history`")  # noqa: E501
+
+        if self.api_client.client_side_validation and 'page_size' in local_var_params and local_var_params['page_size'] > 1000:  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `page_size` when calling `get_customer_achievement_history`, must be a value less than or equal to `1000`")  # noqa: E501
+        if self.api_client.client_side_validation and 'page_size' in local_var_params and local_var_params['page_size'] < 1:  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `page_size` when calling `get_customer_achievement_history`, must be a value greater than or equal to `1`")  # noqa: E501
+        collection_formats = {}
+
+        path_params = {}
+        if 'integration_id' in local_var_params:
+            path_params['integrationId'] = local_var_params['integration_id']  # noqa: E501
+        if 'achievement_id' in local_var_params:
+            path_params['achievementId'] = local_var_params['achievement_id']  # noqa: E501
+
+        query_params = []
+        if 'progress_status' in local_var_params and local_var_params['progress_status'] is not None:  # noqa: E501
+            query_params.append(('progressStatus', local_var_params['progress_status']))  # noqa: E501
+            collection_formats['progressStatus'] = 'csv'  # noqa: E501
+        if 'start_date' in local_var_params and local_var_params['start_date'] is not None:  # noqa: E501
+            query_params.append(('startDate', local_var_params['start_date']))  # noqa: E501
+        if 'end_date' in local_var_params and local_var_params['end_date'] is not None:  # noqa: E501
+            query_params.append(('endDate', local_var_params['end_date']))  # noqa: E501
+        if 'page_size' in local_var_params and local_var_params['page_size'] is not None:  # noqa: E501
+            query_params.append(('pageSize', local_var_params['page_size']))  # noqa: E501
+        if 'skip' in local_var_params and local_var_params['skip'] is not None:  # noqa: E501
+            query_params.append(('skip', local_var_params['skip']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['api_key_v1']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/v1/customer_profiles/{integrationId}/achievements/{achievementId}', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='InlineResponse2002',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def get_customer_achievements(self, integration_id, **kwargs):  # noqa: E501
+        """List customer's available achievements  # noqa: E501
+
+        Retrieve all the achievements available to a given customer and their progress in them.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_customer_achievements(integration_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str integration_id: The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier.  (required)
+        :param list[str] campaign_ids: Filter by one or more Campaign IDs, separated by a comma.  **Note:** If no campaigns are specified, data for all the campaigns in the Application is returned. 
+        :param list[str] achievement_ids: Filter by one or more Achievement IDs, separated by a comma.  **Note:** If no achievements are specified, data for all the achievements in the Application is returned. 
+        :param list[str] achievement_status: Filter by status of the achievement.  **Note:** If the achievement status is not specified, only data for all active achievements in the Application is returned. 
+        :param list[str] current_progress_status: Filter by customer progress status in the achievement. 
+        :param int page_size: The number of items in the response.
+        :param int skip: The number of items to skip when paging through large result sets.
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: InlineResponse2001
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.get_customer_achievements_with_http_info(integration_id, **kwargs)  # noqa: E501
+
+    def get_customer_achievements_with_http_info(self, integration_id, **kwargs):  # noqa: E501
+        """List customer's available achievements  # noqa: E501
+
+        Retrieve all the achievements available to a given customer and their progress in them.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_customer_achievements_with_http_info(integration_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str integration_id: The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier.  (required)
+        :param list[str] campaign_ids: Filter by one or more Campaign IDs, separated by a comma.  **Note:** If no campaigns are specified, data for all the campaigns in the Application is returned. 
+        :param list[str] achievement_ids: Filter by one or more Achievement IDs, separated by a comma.  **Note:** If no achievements are specified, data for all the achievements in the Application is returned. 
+        :param list[str] achievement_status: Filter by status of the achievement.  **Note:** If the achievement status is not specified, only data for all active achievements in the Application is returned. 
+        :param list[str] current_progress_status: Filter by customer progress status in the achievement. 
+        :param int page_size: The number of items in the response.
+        :param int skip: The number of items to skip when paging through large result sets.
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(InlineResponse2001, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'integration_id',
+            'campaign_ids',
+            'achievement_ids',
+            'achievement_status',
+            'current_progress_status',
+            'page_size',
+            'skip'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_customer_achievements" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'integration_id' is set
+        if self.api_client.client_side_validation and ('integration_id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['integration_id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `integration_id` when calling `get_customer_achievements`")  # noqa: E501
+
+        if self.api_client.client_side_validation and 'page_size' in local_var_params and local_var_params['page_size'] > 1000:  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `page_size` when calling `get_customer_achievements`, must be a value less than or equal to `1000`")  # noqa: E501
+        if self.api_client.client_side_validation and 'page_size' in local_var_params and local_var_params['page_size'] < 1:  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `page_size` when calling `get_customer_achievements`, must be a value greater than or equal to `1`")  # noqa: E501
+        collection_formats = {}
+
+        path_params = {}
+        if 'integration_id' in local_var_params:
+            path_params['integrationId'] = local_var_params['integration_id']  # noqa: E501
+
+        query_params = []
+        if 'campaign_ids' in local_var_params and local_var_params['campaign_ids'] is not None:  # noqa: E501
+            query_params.append(('campaignIds', local_var_params['campaign_ids']))  # noqa: E501
+            collection_formats['campaignIds'] = 'csv'  # noqa: E501
+        if 'achievement_ids' in local_var_params and local_var_params['achievement_ids'] is not None:  # noqa: E501
+            query_params.append(('achievementIds', local_var_params['achievement_ids']))  # noqa: E501
+            collection_formats['achievementIds'] = 'csv'  # noqa: E501
+        if 'achievement_status' in local_var_params and local_var_params['achievement_status'] is not None:  # noqa: E501
+            query_params.append(('achievementStatus', local_var_params['achievement_status']))  # noqa: E501
+            collection_formats['achievementStatus'] = 'csv'  # noqa: E501
+        if 'current_progress_status' in local_var_params and local_var_params['current_progress_status'] is not None:  # noqa: E501
+            query_params.append(('currentProgressStatus', local_var_params['current_progress_status']))  # noqa: E501
+            collection_formats['currentProgressStatus'] = 'csv'  # noqa: E501
+        if 'page_size' in local_var_params and local_var_params['page_size'] is not None:  # noqa: E501
+            query_params.append(('pageSize', local_var_params['page_size']))  # noqa: E501
+        if 'skip' in local_var_params and local_var_params['skip'] is not None:  # noqa: E501
+            query_params.append(('skip', local_var_params['skip']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['api_key_v1']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/v1/customer_profiles/{integrationId}/achievements', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='InlineResponse2001',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def get_customer_inventory(self, integration_id, **kwargs):  # noqa: E501
         """List customer data  # noqa: E501
 
@@ -1679,7 +1984,7 @@ class IntegrationApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse2003
+        :return: InlineResponse2005
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1711,7 +2016,7 @@ class IntegrationApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse2003, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse2005, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1755,8 +2060,8 @@ class IntegrationApi(object):
         if self.api_client.client_side_validation and ('loyalty_card_id' in local_var_params and  # noqa: E501
                                                         len(local_var_params['loyalty_card_id']) > 108):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `loyalty_card_id` when calling `get_loyalty_card_points`, length must be less than or equal to `108`")  # noqa: E501
-        if self.api_client.client_side_validation and 'page_size' in local_var_params and local_var_params['page_size'] > 50:  # noqa: E501
-            raise ApiValueError("Invalid value for parameter `page_size` when calling `get_loyalty_card_points`, must be a value less than or equal to `50`")  # noqa: E501
+        if self.api_client.client_side_validation and 'page_size' in local_var_params and local_var_params['page_size'] > 1000:  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `page_size` when calling `get_loyalty_card_points`, must be a value less than or equal to `1000`")  # noqa: E501
         if self.api_client.client_side_validation and 'page_size' in local_var_params and local_var_params['page_size'] < 1:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `page_size` when calling `get_loyalty_card_points`, must be a value greater than or equal to `1`")  # noqa: E501
         collection_formats = {}
@@ -1799,7 +2104,7 @@ class IntegrationApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse2003',  # noqa: E501
+            response_type='InlineResponse2005',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -1832,7 +2137,7 @@ class IntegrationApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse2001
+        :return: InlineResponse2003
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1866,7 +2171,7 @@ class IntegrationApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse2001, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse2003, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1960,7 +2265,7 @@ class IntegrationApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse2001',  # noqa: E501
+            response_type='InlineResponse2003',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -1991,7 +2296,7 @@ class IntegrationApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse2004
+        :return: InlineResponse2006
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2023,7 +2328,7 @@ class IntegrationApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse2004, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse2006, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2064,8 +2369,8 @@ class IntegrationApi(object):
                                                         local_var_params['integration_id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `integration_id` when calling `get_loyalty_program_profile_points`")  # noqa: E501
 
-        if self.api_client.client_side_validation and 'page_size' in local_var_params and local_var_params['page_size'] > 50:  # noqa: E501
-            raise ApiValueError("Invalid value for parameter `page_size` when calling `get_loyalty_program_profile_points`, must be a value less than or equal to `50`")  # noqa: E501
+        if self.api_client.client_side_validation and 'page_size' in local_var_params and local_var_params['page_size'] > 1000:  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `page_size` when calling `get_loyalty_program_profile_points`, must be a value less than or equal to `1000`")  # noqa: E501
         if self.api_client.client_side_validation and 'page_size' in local_var_params and local_var_params['page_size'] < 1:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `page_size` when calling `get_loyalty_program_profile_points`, must be a value greater than or equal to `1`")  # noqa: E501
         collection_formats = {}
@@ -2107,7 +2412,7 @@ class IntegrationApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse2004',  # noqa: E501
+            response_type='InlineResponse2006',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -2140,7 +2445,7 @@ class IntegrationApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse2002
+        :return: InlineResponse2004
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2174,7 +2479,7 @@ class IntegrationApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse2002, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse2004, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2217,8 +2522,8 @@ class IntegrationApi(object):
                                                         local_var_params['integration_id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `integration_id` when calling `get_loyalty_program_profile_transactions`")  # noqa: E501
 
-        if self.api_client.client_side_validation and 'page_size' in local_var_params and local_var_params['page_size'] > 50:  # noqa: E501
-            raise ApiValueError("Invalid value for parameter `page_size` when calling `get_loyalty_program_profile_transactions`, must be a value less than or equal to `50`")  # noqa: E501
+        if self.api_client.client_side_validation and 'page_size' in local_var_params and local_var_params['page_size'] > 1000:  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `page_size` when calling `get_loyalty_program_profile_transactions`, must be a value less than or equal to `1000`")  # noqa: E501
         if self.api_client.client_side_validation and 'page_size' in local_var_params and local_var_params['page_size'] < 1:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `page_size` when calling `get_loyalty_program_profile_transactions`, must be a value greater than or equal to `1`")  # noqa: E501
         collection_formats = {}
@@ -2264,7 +2569,7 @@ class IntegrationApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse2002',  # noqa: E501
+            response_type='InlineResponse2004',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -2909,8 +3214,9 @@ class IntegrationApi(object):
 
         :param async_req bool: execute request asynchronously
         :param IntegrationEventV2Request body: body (required)
-        :param str silent: Possible values: `yes` or `no`. - `yes`: Increases the perfomance of the API call by returning a 204 response. - `no`: Returns a 200 response that contains the updated customer profiles. 
+        :param str silent: Possible values: `yes` or `no`. - `yes`: Increases the performance of the API call by returning a 204 response. - `no`: Returns a 200 response that contains the updated customer profiles. 
         :param bool dry: Indicates whether to persist the changes. Changes are ignored when `dry=true`. 
+        :param bool force_complete_evaluation: Forces evaluation for all matching campaigns regardless of the [campaign evaluation mode](https://docs.talon.one/docs/product/applications/managing-campaign-evaluation#setting-campaign-evaluation-mode). Requires `dry=true`. 
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -2936,8 +3242,9 @@ class IntegrationApi(object):
 
         :param async_req bool: execute request asynchronously
         :param IntegrationEventV2Request body: body (required)
-        :param str silent: Possible values: `yes` or `no`. - `yes`: Increases the perfomance of the API call by returning a 204 response. - `no`: Returns a 200 response that contains the updated customer profiles. 
+        :param str silent: Possible values: `yes` or `no`. - `yes`: Increases the performance of the API call by returning a 204 response. - `no`: Returns a 200 response that contains the updated customer profiles. 
         :param bool dry: Indicates whether to persist the changes. Changes are ignored when `dry=true`. 
+        :param bool force_complete_evaluation: Forces evaluation for all matching campaigns regardless of the [campaign evaluation mode](https://docs.talon.one/docs/product/applications/managing-campaign-evaluation#setting-campaign-evaluation-mode). Requires `dry=true`. 
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -2957,7 +3264,8 @@ class IntegrationApi(object):
         all_params = [
             'body',
             'silent',
-            'dry'
+            'dry',
+            'force_complete_evaluation'
         ]
         all_params.extend(
             [
@@ -2990,6 +3298,8 @@ class IntegrationApi(object):
             query_params.append(('silent', local_var_params['silent']))  # noqa: E501
         if 'dry' in local_var_params and local_var_params['dry'] is not None:  # noqa: E501
             query_params.append(('dry', local_var_params['dry']))  # noqa: E501
+        if 'force_complete_evaluation' in local_var_params and local_var_params['force_complete_evaluation'] is not None:  # noqa: E501
+            query_params.append(('forceCompleteEvaluation', local_var_params['force_complete_evaluation']))  # noqa: E501
 
         header_params = {}
 
@@ -3546,7 +3856,7 @@ class IntegrationApi(object):
 
         :param async_req bool: execute request asynchronously
         :param MultipleCustomerProfileIntegrationRequest body: body (required)
-        :param str silent: Possible values: `yes` or `no`. - `yes`: Increases the perfomance of the API call by returning a 204 response. - `no`: Returns a 200 response that contains the updated customer profiles. 
+        :param str silent: Possible values: `yes` or `no`. - `yes`: Increases the performance of the API call by returning a 204 response. - `no`: Returns a 200 response that contains the updated customer profiles. 
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -3572,7 +3882,7 @@ class IntegrationApi(object):
 
         :param async_req bool: execute request asynchronously
         :param MultipleCustomerProfileIntegrationRequest body: body (required)
-        :param str silent: Possible values: `yes` or `no`. - `yes`: Increases the perfomance of the API call by returning a 204 response. - `no`: Returns a 200 response that contains the updated customer profiles. 
+        :param str silent: Possible values: `yes` or `no`. - `yes`: Increases the performance of the API call by returning a 204 response. - `no`: Returns a 200 response that contains the updated customer profiles. 
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will

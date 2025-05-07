@@ -37,6 +37,7 @@ class LoyaltyBalanceWithTier(object):
         'pending_points': 'float',
         'spent_points': 'float',
         'expired_points': 'float',
+        'negative_points': 'float',
         'current_tier': 'Tier',
         'projected_tier': 'ProjectedTier',
         'points_to_next_tier': 'float',
@@ -48,13 +49,14 @@ class LoyaltyBalanceWithTier(object):
         'pending_points': 'pendingPoints',
         'spent_points': 'spentPoints',
         'expired_points': 'expiredPoints',
+        'negative_points': 'negativePoints',
         'current_tier': 'currentTier',
         'projected_tier': 'projectedTier',
         'points_to_next_tier': 'pointsToNextTier',
         'next_tier_name': 'nextTierName'
     }
 
-    def __init__(self, active_points=None, pending_points=None, spent_points=None, expired_points=None, current_tier=None, projected_tier=None, points_to_next_tier=None, next_tier_name=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, active_points=None, pending_points=None, spent_points=None, expired_points=None, negative_points=None, current_tier=None, projected_tier=None, points_to_next_tier=None, next_tier_name=None, local_vars_configuration=None):  # noqa: E501
         """LoyaltyBalanceWithTier - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -64,6 +66,7 @@ class LoyaltyBalanceWithTier(object):
         self._pending_points = None
         self._spent_points = None
         self._expired_points = None
+        self._negative_points = None
         self._current_tier = None
         self._projected_tier = None
         self._points_to_next_tier = None
@@ -78,6 +81,8 @@ class LoyaltyBalanceWithTier(object):
             self.spent_points = spent_points
         if expired_points is not None:
             self.expired_points = expired_points
+        if negative_points is not None:
+            self.negative_points = negative_points
         if current_tier is not None:
             self.current_tier = current_tier
         if projected_tier is not None:
@@ -178,6 +183,29 @@ class LoyaltyBalanceWithTier(object):
         """
 
         self._expired_points = expired_points
+
+    @property
+    def negative_points(self):
+        """Gets the negative_points of this LoyaltyBalanceWithTier.  # noqa: E501
+
+        Total amount of negative points. This implies that `activePoints` is `0`.  # noqa: E501
+
+        :return: The negative_points of this LoyaltyBalanceWithTier.  # noqa: E501
+        :rtype: float
+        """
+        return self._negative_points
+
+    @negative_points.setter
+    def negative_points(self, negative_points):
+        """Sets the negative_points of this LoyaltyBalanceWithTier.
+
+        Total amount of negative points. This implies that `activePoints` is `0`.  # noqa: E501
+
+        :param negative_points: The negative_points of this LoyaltyBalanceWithTier.  # noqa: E501
+        :type: float
+        """
+
+        self._negative_points = negative_points
 
     @property
     def current_tier(self):

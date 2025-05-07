@@ -33,6 +33,8 @@ class StrikethroughLabelingNotification(object):
                             and the value is json key in definition.
     """
     openapi_types = {
+        'version': 'str',
+        'valid_from': 'datetime',
         'application_id': 'int',
         'current_batch': 'int',
         'total_batches': 'int',
@@ -41,6 +43,8 @@ class StrikethroughLabelingNotification(object):
     }
 
     attribute_map = {
+        'version': 'version',
+        'valid_from': 'validFrom',
         'application_id': 'applicationId',
         'current_batch': 'currentBatch',
         'total_batches': 'totalBatches',
@@ -48,12 +52,14 @@ class StrikethroughLabelingNotification(object):
         'changed_items': 'changedItems'
     }
 
-    def __init__(self, application_id=None, current_batch=None, total_batches=None, trigger=None, changed_items=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, version=None, valid_from=None, application_id=None, current_batch=None, total_batches=None, trigger=None, changed_items=None, local_vars_configuration=None):  # noqa: E501
         """StrikethroughLabelingNotification - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
+        self._version = None
+        self._valid_from = None
         self._application_id = None
         self._current_batch = None
         self._total_batches = None
@@ -61,6 +67,10 @@ class StrikethroughLabelingNotification(object):
         self._changed_items = None
         self.discriminator = None
 
+        if version is not None:
+            self.version = version
+        if valid_from is not None:
+            self.valid_from = valid_from
         self.application_id = application_id
         self.current_batch = current_batch
         self.total_batches = total_batches
@@ -68,10 +78,62 @@ class StrikethroughLabelingNotification(object):
         self.changed_items = changed_items
 
     @property
+    def version(self):
+        """Gets the version of this StrikethroughLabelingNotification.  # noqa: E501
+
+        The version of the strikethrough pricing notification.  # noqa: E501
+
+        :return: The version of this StrikethroughLabelingNotification.  # noqa: E501
+        :rtype: str
+        """
+        return self._version
+
+    @version.setter
+    def version(self, version):
+        """Sets the version of this StrikethroughLabelingNotification.
+
+        The version of the strikethrough pricing notification.  # noqa: E501
+
+        :param version: The version of this StrikethroughLabelingNotification.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["v2"]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and version not in allowed_values:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `version` ({0}), must be one of {1}"  # noqa: E501
+                .format(version, allowed_values)
+            )
+
+        self._version = version
+
+    @property
+    def valid_from(self):
+        """Gets the valid_from of this StrikethroughLabelingNotification.  # noqa: E501
+
+        Timestamp at which the strikethrough pricing update becomes valid. Set for **scheduled** strikethrough pricing updates (version: v2) only.   # noqa: E501
+
+        :return: The valid_from of this StrikethroughLabelingNotification.  # noqa: E501
+        :rtype: datetime
+        """
+        return self._valid_from
+
+    @valid_from.setter
+    def valid_from(self, valid_from):
+        """Sets the valid_from of this StrikethroughLabelingNotification.
+
+        Timestamp at which the strikethrough pricing update becomes valid. Set for **scheduled** strikethrough pricing updates (version: v2) only.   # noqa: E501
+
+        :param valid_from: The valid_from of this StrikethroughLabelingNotification.  # noqa: E501
+        :type: datetime
+        """
+
+        self._valid_from = valid_from
+
+    @property
     def application_id(self):
         """Gets the application_id of this StrikethroughLabelingNotification.  # noqa: E501
 
-        The ID of the application that catalog items labels belongs to.  # noqa: E501
+        The ID of the Application to which the catalog items labels belongs.  # noqa: E501
 
         :return: The application_id of this StrikethroughLabelingNotification.  # noqa: E501
         :rtype: int
@@ -82,7 +144,7 @@ class StrikethroughLabelingNotification(object):
     def application_id(self, application_id):
         """Sets the application_id of this StrikethroughLabelingNotification.
 
-        The ID of the application that catalog items labels belongs to.  # noqa: E501
+        The ID of the Application to which the catalog items labels belongs.  # noqa: E501
 
         :param application_id: The application_id of this StrikethroughLabelingNotification.  # noqa: E501
         :type: int

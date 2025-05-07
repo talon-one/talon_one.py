@@ -52,8 +52,7 @@ class CustomerSessionV2(object):
         'total': 'float',
         'cart_item_total': 'float',
         'additional_cost_total': 'float',
-        'updated': 'datetime',
-        'closure_prediction': 'float'
+        'updated': 'datetime'
     }
 
     attribute_map = {
@@ -76,11 +75,10 @@ class CustomerSessionV2(object):
         'total': 'total',
         'cart_item_total': 'cartItemTotal',
         'additional_cost_total': 'additionalCostTotal',
-        'updated': 'updated',
-        'closure_prediction': 'closurePrediction'
+        'updated': 'updated'
     }
 
-    def __init__(self, id=None, created=None, integration_id=None, application_id=None, profile_id=None, store_integration_id=None, evaluable_campaign_ids=None, coupon_codes=None, referral_code=None, loyalty_cards=None, state='open', cart_items=None, additional_costs=None, identifiers=None, attributes=None, first_session=None, total=None, cart_item_total=None, additional_cost_total=None, updated=None, closure_prediction=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, created=None, integration_id=None, application_id=None, profile_id=None, store_integration_id=None, evaluable_campaign_ids=None, coupon_codes=None, referral_code=None, loyalty_cards=None, state='open', cart_items=None, additional_costs=None, identifiers=None, attributes=None, first_session=None, total=None, cart_item_total=None, additional_cost_total=None, updated=None, local_vars_configuration=None):  # noqa: E501
         """CustomerSessionV2 - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -106,7 +104,6 @@ class CustomerSessionV2(object):
         self._cart_item_total = None
         self._additional_cost_total = None
         self._updated = None
-        self._closure_prediction = None
         self.discriminator = None
 
         self.id = id
@@ -136,8 +133,6 @@ class CustomerSessionV2(object):
         self.cart_item_total = cart_item_total
         self.additional_cost_total = additional_cost_total
         self.updated = updated
-        if closure_prediction is not None:
-            self.closure_prediction = closure_prediction
 
     @property
     def id(self):
@@ -221,7 +216,7 @@ class CustomerSessionV2(object):
     def application_id(self):
         """Gets the application_id of this CustomerSessionV2.  # noqa: E501
 
-        The ID of the application that owns this entity.  # noqa: E501
+        The ID of the Application that owns this entity.  # noqa: E501
 
         :return: The application_id of this CustomerSessionV2.  # noqa: E501
         :rtype: int
@@ -232,7 +227,7 @@ class CustomerSessionV2(object):
     def application_id(self, application_id):
         """Sets the application_id of this CustomerSessionV2.
 
-        The ID of the application that owns this entity.  # noqa: E501
+        The ID of the Application that owns this entity.  # noqa: E501
 
         :param application_id: The application_id of this CustomerSessionV2.  # noqa: E501
         :type: int
@@ -642,29 +637,6 @@ class CustomerSessionV2(object):
             raise ValueError("Invalid value for `updated`, must not be `None`")  # noqa: E501
 
         self._updated = updated
-
-    @property
-    def closure_prediction(self):
-        """Gets the closure_prediction of this CustomerSessionV2.  # noqa: E501
-
-        The likelihood of the customer session closing based on predictive modeling, expressed as a decimal between `0` and `1`.  # noqa: E501
-
-        :return: The closure_prediction of this CustomerSessionV2.  # noqa: E501
-        :rtype: float
-        """
-        return self._closure_prediction
-
-    @closure_prediction.setter
-    def closure_prediction(self, closure_prediction):
-        """Sets the closure_prediction of this CustomerSessionV2.
-
-        The likelihood of the customer session closing based on predictive modeling, expressed as a decimal between `0` and `1`.  # noqa: E501
-
-        :param closure_prediction: The closure_prediction of this CustomerSessionV2.  # noqa: E501
-        :type: float
-        """
-
-        self._closure_prediction = closure_prediction
 
     def to_dict(self):
         """Returns the model properties as a dict"""

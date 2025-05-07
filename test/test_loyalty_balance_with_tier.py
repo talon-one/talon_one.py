@@ -40,6 +40,7 @@ class TestLoyaltyBalanceWithTier(unittest.TestCase):
                 pending_points = 50.0, 
                 spent_points = 150.0, 
                 expired_points = 286.0, 
+                negative_points = 286.0, 
                 current_tier = talon_one.models.tier.Tier(
                     id = 11, 
                     name = 'bronze', 

@@ -38,6 +38,7 @@ class LoyaltySubLedger(object):
         'total_pending_points': 'float',
         'total_spent_points': 'float',
         'total_expired_points': 'float',
+        'total_negative_points': 'float',
         'transactions': 'list[LoyaltyLedgerEntry]',
         'expiring_points': 'list[LoyaltyLedgerEntry]',
         'active_points': 'list[LoyaltyLedgerEntry]',
@@ -52,6 +53,7 @@ class LoyaltySubLedger(object):
         'total_pending_points': 'totalPendingPoints',
         'total_spent_points': 'totalSpentPoints',
         'total_expired_points': 'totalExpiredPoints',
+        'total_negative_points': 'totalNegativePoints',
         'transactions': 'transactions',
         'expiring_points': 'expiringPoints',
         'active_points': 'activePoints',
@@ -60,7 +62,7 @@ class LoyaltySubLedger(object):
         'current_tier': 'currentTier'
     }
 
-    def __init__(self, total=None, total_active_points=None, total_pending_points=None, total_spent_points=None, total_expired_points=None, transactions=None, expiring_points=None, active_points=None, pending_points=None, expired_points=None, current_tier=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, total=None, total_active_points=None, total_pending_points=None, total_spent_points=None, total_expired_points=None, total_negative_points=None, transactions=None, expiring_points=None, active_points=None, pending_points=None, expired_points=None, current_tier=None, local_vars_configuration=None):  # noqa: E501
         """LoyaltySubLedger - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -71,6 +73,7 @@ class LoyaltySubLedger(object):
         self._total_pending_points = None
         self._total_spent_points = None
         self._total_expired_points = None
+        self._total_negative_points = None
         self._transactions = None
         self._expiring_points = None
         self._active_points = None
@@ -84,6 +87,7 @@ class LoyaltySubLedger(object):
         self.total_pending_points = total_pending_points
         self.total_spent_points = total_spent_points
         self.total_expired_points = total_expired_points
+        self.total_negative_points = total_negative_points
         if transactions is not None:
             self.transactions = transactions
         if expiring_points is not None:
@@ -221,6 +225,31 @@ class LoyaltySubLedger(object):
             raise ValueError("Invalid value for `total_expired_points`, must not be `None`")  # noqa: E501
 
         self._total_expired_points = total_expired_points
+
+    @property
+    def total_negative_points(self):
+        """Gets the total_negative_points of this LoyaltySubLedger.  # noqa: E501
+
+        Total amount of negative points. This implies that `totalActivePoints` is `0`.  # noqa: E501
+
+        :return: The total_negative_points of this LoyaltySubLedger.  # noqa: E501
+        :rtype: float
+        """
+        return self._total_negative_points
+
+    @total_negative_points.setter
+    def total_negative_points(self, total_negative_points):
+        """Sets the total_negative_points of this LoyaltySubLedger.
+
+        Total amount of negative points. This implies that `totalActivePoints` is `0`.  # noqa: E501
+
+        :param total_negative_points: The total_negative_points of this LoyaltySubLedger.  # noqa: E501
+        :type: float
+        """
+        if self.local_vars_configuration.client_side_validation and total_negative_points is None:  # noqa: E501
+            raise ValueError("Invalid value for `total_negative_points`, must not be `None`")  # noqa: E501
+
+        self._total_negative_points = total_negative_points
 
     @property
     def transactions(self):

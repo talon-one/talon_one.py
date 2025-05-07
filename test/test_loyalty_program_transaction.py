@@ -53,7 +53,9 @@ class TestLoyaltyProgramTransaction(unittest.TestCase):
                 user_id = 5, 
                 user_email = 'john.doe@example.com', 
                 ruleset_id = 11, 
-                rule_name = '10 points for every $100 spent'
+                rule_name = '10 points for every $100 spent', 
+                flags = talon_one.models.loyalty_ledger_entry_flags.LoyaltyLedgerEntryFlags(
+                    creates_negative_balance = True, )
             )
         else :
             return LoyaltyProgramTransaction(

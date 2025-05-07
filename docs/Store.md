@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **description** | **str** | The description of the store. | 
 **attributes** | [**object**](.md) | The attributes of the store. | [optional] 
 **integration_id** | **str** | The integration ID of the store. You choose this ID when you create a store.  **Note**: You cannot edit the &#x60;integrationId&#x60; after the store has been created.  | 
-**application_id** | **int** | The ID of the application that owns this entity. | 
+**application_id** | **int** | The ID of the Application that owns this entity. | 
 **updated** | **datetime** | Timestamp of the most recent update on this entity. | 
 **linked_campaign_ids** | **list[int]** | A list of IDs of the campaigns that are linked with current store. | [optional] 
 

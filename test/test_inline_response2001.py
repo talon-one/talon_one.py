@@ -36,42 +36,56 @@ class TestInlineResponse2001(unittest.TestCase):
         # model = talon_one.models.inline_response2001.InlineResponse2001()  # noqa: E501
         if include_optional :
             return InlineResponse2001(
-                has_more = True, 
+                total_result_size = 1, 
                 data = [
-                    talon_one.models.card_ledger_transaction_log_entry_integration_api.CardLedgerTransactionLogEntryIntegrationAPI(
-                        created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        program_id = 324, 
-                        card_identifier = 'summer-loyalty-card-0543', 
-                        customer_session_id = '05c2da0d-48fa-4aa1-b629-898f58f1584d', 
-                        type = 'addition', 
-                        name = 'Reward 10% points of a purchase's current total', 
-                        start_date = '2022-01-02T15:04:05Z07:00', 
-                        expiry_date = '2022-08-02T15:04:05Z07:00', 
-                        subledger_id = 'sub-123', 
-                        amount = 10.25, 
-                        id = 123, 
-                        ruleset_id = 11, 
-                        rule_name = 'Add 2 points', )
+                    talon_one.models.achievement_status_entry.AchievementStatusEntry(
+                        id = 6, 
+                        created = '2020-06-10T09:05:27.993483Z', 
+                        name = 'Order50Discount', 
+                        title = '50% off on 50th purchase.', 
+                        description = '50% off for every 50th purchase in a year.', 
+                        target = 50.0, 
+                        period = '1Y', 
+                        period_end_override = {month=11, dayOfMonth=23, hour=23, minute=59, second=59}, 
+                        recurrence_policy = 'no_recurrence', 
+                        activation_policy = 'fixed_schedule', 
+                        fixed_start_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        end_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        campaign_id = 1, 
+                        status = 'active', 
+                        current_progress = talon_one.models.achievement_progress.AchievementProgress(
+                            status = 'completed', 
+                            progress = 10.0, 
+                            start_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                            completion_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                            end_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), ), )
                     ]
             )
         else :
             return InlineResponse2001(
-                has_more = True,
+                total_result_size = 1,
                 data = [
-                    talon_one.models.card_ledger_transaction_log_entry_integration_api.CardLedgerTransactionLogEntryIntegrationAPI(
-                        created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        program_id = 324, 
-                        card_identifier = 'summer-loyalty-card-0543', 
-                        customer_session_id = '05c2da0d-48fa-4aa1-b629-898f58f1584d', 
-                        type = 'addition', 
-                        name = 'Reward 10% points of a purchase's current total', 
-                        start_date = '2022-01-02T15:04:05Z07:00', 
-                        expiry_date = '2022-08-02T15:04:05Z07:00', 
-                        subledger_id = 'sub-123', 
-                        amount = 10.25, 
-                        id = 123, 
-                        ruleset_id = 11, 
-                        rule_name = 'Add 2 points', )
+                    talon_one.models.achievement_status_entry.AchievementStatusEntry(
+                        id = 6, 
+                        created = '2020-06-10T09:05:27.993483Z', 
+                        name = 'Order50Discount', 
+                        title = '50% off on 50th purchase.', 
+                        description = '50% off for every 50th purchase in a year.', 
+                        target = 50.0, 
+                        period = '1Y', 
+                        period_end_override = {month=11, dayOfMonth=23, hour=23, minute=59, second=59}, 
+                        recurrence_policy = 'no_recurrence', 
+                        activation_policy = 'fixed_schedule', 
+                        fixed_start_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        end_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        campaign_id = 1, 
+                        status = 'active', 
+                        current_progress = talon_one.models.achievement_progress.AchievementProgress(
+                            status = 'completed', 
+                            progress = 10.0, 
+                            start_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                            completion_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                            end_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), ), )
                     ],
         )
 

@@ -50,7 +50,8 @@ class LoyaltyProgramTransaction(object):
         'user_id': 'int',
         'user_email': 'str',
         'ruleset_id': 'int',
-        'rule_name': 'str'
+        'rule_name': 'str',
+        'flags': 'LoyaltyLedgerEntryFlags'
     }
 
     attribute_map = {
@@ -71,10 +72,11 @@ class LoyaltyProgramTransaction(object):
         'user_id': 'userId',
         'user_email': 'userEmail',
         'ruleset_id': 'rulesetId',
-        'rule_name': 'ruleName'
+        'rule_name': 'ruleName',
+        'flags': 'flags'
     }
 
-    def __init__(self, id=None, program_id=None, campaign_id=None, created=None, type=None, amount=None, name=None, start_date=None, expiry_date=None, customer_profile_id=None, card_identifier=None, subledger_id=None, customer_session_id=None, import_id=None, user_id=None, user_email=None, ruleset_id=None, rule_name=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, program_id=None, campaign_id=None, created=None, type=None, amount=None, name=None, start_date=None, expiry_date=None, customer_profile_id=None, card_identifier=None, subledger_id=None, customer_session_id=None, import_id=None, user_id=None, user_email=None, ruleset_id=None, rule_name=None, flags=None, local_vars_configuration=None):  # noqa: E501
         """LoyaltyProgramTransaction - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -98,6 +100,7 @@ class LoyaltyProgramTransaction(object):
         self._user_email = None
         self._ruleset_id = None
         self._rule_name = None
+        self._flags = None
         self.discriminator = None
 
         self.id = id
@@ -127,6 +130,8 @@ class LoyaltyProgramTransaction(object):
             self.ruleset_id = ruleset_id
         if rule_name is not None:
             self.rule_name = rule_name
+        if flags is not None:
+            self.flags = flags
 
     @property
     def id(self):
@@ -586,6 +591,27 @@ class LoyaltyProgramTransaction(object):
         """
 
         self._rule_name = rule_name
+
+    @property
+    def flags(self):
+        """Gets the flags of this LoyaltyProgramTransaction.  # noqa: E501
+
+
+        :return: The flags of this LoyaltyProgramTransaction.  # noqa: E501
+        :rtype: LoyaltyLedgerEntryFlags
+        """
+        return self._flags
+
+    @flags.setter
+    def flags(self, flags):
+        """Sets the flags of this LoyaltyProgramTransaction.
+
+
+        :param flags: The flags of this LoyaltyProgramTransaction.  # noqa: E501
+        :type: LoyaltyLedgerEntryFlags
+        """
+
+        self._flags = flags
 
     def to_dict(self):
         """Returns the model properties as a dict"""

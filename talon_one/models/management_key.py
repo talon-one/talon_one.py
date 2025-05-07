@@ -40,7 +40,8 @@ class ManagementKey(object):
         'id': 'int',
         'created_by': 'int',
         'account_id': 'int',
-        'created': 'datetime'
+        'created': 'datetime',
+        'disabled': 'bool'
     }
 
     attribute_map = {
@@ -51,10 +52,11 @@ class ManagementKey(object):
         'id': 'id',
         'created_by': 'createdBy',
         'account_id': 'accountID',
-        'created': 'created'
+        'created': 'created',
+        'disabled': 'disabled'
     }
 
-    def __init__(self, name=None, expiry_date=None, endpoints=None, allowed_application_ids=None, id=None, created_by=None, account_id=None, created=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, name=None, expiry_date=None, endpoints=None, allowed_application_ids=None, id=None, created_by=None, account_id=None, created=None, disabled=None, local_vars_configuration=None):  # noqa: E501
         """ManagementKey - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -68,6 +70,7 @@ class ManagementKey(object):
         self._created_by = None
         self._account_id = None
         self._created = None
+        self._disabled = None
         self.discriminator = None
 
         self.name = name
@@ -79,6 +82,8 @@ class ManagementKey(object):
         self.created_by = created_by
         self.account_id = account_id
         self.created = created
+        if disabled is not None:
+            self.disabled = disabled
 
     @property
     def name(self):
@@ -277,6 +282,29 @@ class ManagementKey(object):
             raise ValueError("Invalid value for `created`, must not be `None`")  # noqa: E501
 
         self._created = created
+
+    @property
+    def disabled(self):
+        """Gets the disabled of this ManagementKey.  # noqa: E501
+
+        The management key is disabled (this property is set to `true`) when the user who created the key is disabled or deleted.  # noqa: E501
+
+        :return: The disabled of this ManagementKey.  # noqa: E501
+        :rtype: bool
+        """
+        return self._disabled
+
+    @disabled.setter
+    def disabled(self, disabled):
+        """Sets the disabled of this ManagementKey.
+
+        The management key is disabled (this property is set to `true`) when the user who created the key is disabled or deleted.  # noqa: E501
+
+        :param disabled: The disabled of this ManagementKey.  # noqa: E501
+        :type: bool
+        """
+
+        self._disabled = disabled
 
     def to_dict(self):
         """Returns the model properties as a dict"""

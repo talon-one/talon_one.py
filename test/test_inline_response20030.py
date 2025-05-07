@@ -38,17 +38,98 @@ class TestInlineResponse20030(unittest.TestCase):
             return InlineResponse20030(
                 has_more = True, 
                 data = [
-                    talon_one.models.audience_analytics.AudienceAnalytics(
-                        audience_id = 1, 
-                        members_count = 1234, )
+                    talon_one.models.application_event.ApplicationEvent(
+                        id = 6, 
+                        created = '2020-06-10T09:05:27.993483Z', 
+                        application_id = 322, 
+                        profile_id = 138, 
+                        store_id = 56, 
+                        store_integration_id = 'STORE-001', 
+                        session_id = 56, 
+                        type = '0', 
+                        attributes = talon_one.models.attributes.attributes(), 
+                        effects = [
+                            talon_one.models.effect.Effect(
+                                campaign_id = 244, 
+                                ruleset_id = 73, 
+                                rule_index = 2, 
+                                rule_name = 'Give 20% discount', 
+                                effect_type = 'rejectCoupon', 
+                                triggered_by_coupon = 4928, 
+                                triggered_for_catalog_item = 786, 
+                                condition_index = 786, 
+                                evaluation_group_id = 3, 
+                                evaluation_group_mode = 'stackable', 
+                                campaign_revision_id = 1, 
+                                campaign_revision_version_id = 5, 
+                                props = talon_one.models.props.props(), )
+                            ], 
+                        rule_failure_reasons = [
+                            talon_one.models.rule_failure_reason.RuleFailureReason(
+                                campaign_id = 56, 
+                                campaign_name = '0', 
+                                ruleset_id = 56, 
+                                coupon_id = 4928, 
+                                coupon_value = '0', 
+                                referral_id = 56, 
+                                referral_value = '0', 
+                                rule_index = 56, 
+                                rule_name = '0', 
+                                condition_index = 56, 
+                                effect_index = 56, 
+                                details = '0', 
+                                evaluation_group_id = 3, 
+                                evaluation_group_mode = 'stackable', )
+                            ], )
                     ]
             )
         else :
             return InlineResponse20030(
+                has_more = True,
                 data = [
-                    talon_one.models.audience_analytics.AudienceAnalytics(
-                        audience_id = 1, 
-                        members_count = 1234, )
+                    talon_one.models.application_event.ApplicationEvent(
+                        id = 6, 
+                        created = '2020-06-10T09:05:27.993483Z', 
+                        application_id = 322, 
+                        profile_id = 138, 
+                        store_id = 56, 
+                        store_integration_id = 'STORE-001', 
+                        session_id = 56, 
+                        type = '0', 
+                        attributes = talon_one.models.attributes.attributes(), 
+                        effects = [
+                            talon_one.models.effect.Effect(
+                                campaign_id = 244, 
+                                ruleset_id = 73, 
+                                rule_index = 2, 
+                                rule_name = 'Give 20% discount', 
+                                effect_type = 'rejectCoupon', 
+                                triggered_by_coupon = 4928, 
+                                triggered_for_catalog_item = 786, 
+                                condition_index = 786, 
+                                evaluation_group_id = 3, 
+                                evaluation_group_mode = 'stackable', 
+                                campaign_revision_id = 1, 
+                                campaign_revision_version_id = 5, 
+                                props = talon_one.models.props.props(), )
+                            ], 
+                        rule_failure_reasons = [
+                            talon_one.models.rule_failure_reason.RuleFailureReason(
+                                campaign_id = 56, 
+                                campaign_name = '0', 
+                                ruleset_id = 56, 
+                                coupon_id = 4928, 
+                                coupon_value = '0', 
+                                referral_id = 56, 
+                                referral_value = '0', 
+                                rule_index = 56, 
+                                rule_name = '0', 
+                                condition_index = 56, 
+                                effect_index = 56, 
+                                details = '0', 
+                                evaluation_group_id = 3, 
+                                evaluation_group_mode = 'stackable', )
+                            ], )
                     ],
         )
 

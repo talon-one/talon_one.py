@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **id** | **int** | Internal ID of this entity. | 
 **created** | **datetime** | The time this entity was created. | 
 **integration_id** | **str** | The integration ID set by your integration layer. | 
-**application_id** | **int** | The ID of the application that owns this entity. | 
+**application_id** | **int** | The ID of the Application that owns this entity. | 
 **profile_id** | **str** | ID of the customer profile set by your integration layer.  **Note:** If the customer does not yet have a known &#x60;profileId&#x60;, we recommend you use a guest &#x60;profileId&#x60;.  | 
 **store_integration_id** | **str** | The integration ID of the store. You choose this ID when you create a store. | [optional] 
 **evaluable_campaign_ids** | **list[int]** | When using the &#x60;dry&#x60; query parameter, use this property to list the campaign to be evaluated by the Rule Engine.  These campaigns will be evaluated, even if they are disabled, allowing you to test specific campaigns before activating them.  | [optional] 
@@ -24,7 +24,6 @@ Name | Type | Description | Notes
 **cart_item_total** | **float** | The total value of cart items, before any discounts are applied. | 
 **additional_cost_total** | **float** | The total value of additional costs, before any discounts are applied. | 
 **updated** | **datetime** | Timestamp of the most recent event received on this session. | 
-**closure_prediction** | **float** | The likelihood of the customer session closing based on predictive modeling, expressed as a decimal between &#x60;0&#x60; and &#x60;1&#x60;. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

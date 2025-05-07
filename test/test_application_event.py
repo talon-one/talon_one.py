@@ -59,7 +59,7 @@ class TestApplicationEvent(unittest.TestCase):
                         evaluation_group_mode = 'stackable', 
                         campaign_revision_id = 1, 
                         campaign_revision_version_id = 5, 
-                        props = talon_one.models.effect_props.EffectProps(), )
+                        props = talon_one.models.props.props(), )
                     ], 
                 rule_failure_reasons = [
                     talon_one.models.rule_failure_reason.RuleFailureReason(
@@ -100,7 +100,7 @@ class TestApplicationEvent(unittest.TestCase):
                         evaluation_group_mode = 'stackable', 
                         campaign_revision_id = 1, 
                         campaign_revision_version_id = 5, 
-                        props = talon_one.models.effect_props.EffectProps(), )
+                        props = talon_one.models.props.props(), )
                     ],
         )
 

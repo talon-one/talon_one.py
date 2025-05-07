@@ -51,7 +51,8 @@ class TestAchievement(unittest.TestCase):
                 campaign_id = 1, 
                 user_id = 1234, 
                 created_by = 'John Doe', 
-                has_progress = True
+                has_progress = True, 
+                status = 'inprogress'
             )
         else :
             return Achievement(
@@ -61,10 +62,8 @@ class TestAchievement(unittest.TestCase):
                 title = '50% off on 50th purchase.',
                 description = '50% off for every 50th purchase in a year.',
                 target = 50.0,
-                period = '1Y',
                 campaign_id = 1,
                 user_id = 1234,
-                created_by = 'John Doe',
         )
 
     def testAchievement(self):

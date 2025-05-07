@@ -34,7 +34,7 @@ class InlineResponse20012(object):
     """
     openapi_types = {
         'has_more': 'bool',
-        'data': 'list[CampaignTemplate]'
+        'data': 'list[Referral]'
     }
 
     attribute_map = {
@@ -84,7 +84,7 @@ class InlineResponse20012(object):
 
 
         :return: The data of this InlineResponse20012.  # noqa: E501
-        :rtype: list[CampaignTemplate]
+        :rtype: list[Referral]
         """
         return self._data
 
@@ -94,7 +94,7 @@ class InlineResponse20012(object):
 
 
         :param data: The data of this InlineResponse20012.  # noqa: E501
-        :type: list[CampaignTemplate]
+        :type: list[Referral]
         """
         if self.local_vars_configuration.client_side_validation and data is None:  # noqa: E501
             raise ValueError("Invalid value for `data`, must not be `None`")  # noqa: E501

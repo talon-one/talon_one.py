@@ -38,32 +38,42 @@ class TestInlineResponse2004(unittest.TestCase):
             return InlineResponse2004(
                 has_more = True, 
                 data = [
-                    talon_one.models.ledger_points_entry_integration_api.LedgerPointsEntryIntegrationAPI(
-                        id = 123, 
+                    talon_one.models.ledger_transaction_log_entry_integration_api.LedgerTransactionLogEntryIntegrationAPI(
                         created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                         program_id = 324, 
                         customer_session_id = '05c2da0d-48fa-4aa1-b629-898f58f1584d', 
+                        type = 'addition', 
                         name = 'Reward 10% points of a purchase's current total', 
                         start_date = '2022-01-02T15:04:05Z07:00', 
                         expiry_date = '2022-08-02T15:04:05Z07:00', 
                         subledger_id = 'sub-123', 
-                        amount = 10.25, )
+                        amount = 10.25, 
+                        id = 123, 
+                        ruleset_id = 11, 
+                        rule_name = 'Add 2 points', 
+                        flags = talon_one.models.loyalty_ledger_entry_flags.LoyaltyLedgerEntryFlags(
+                            creates_negative_balance = True, ), )
                     ]
             )
         else :
             return InlineResponse2004(
                 has_more = True,
                 data = [
-                    talon_one.models.ledger_points_entry_integration_api.LedgerPointsEntryIntegrationAPI(
-                        id = 123, 
+                    talon_one.models.ledger_transaction_log_entry_integration_api.LedgerTransactionLogEntryIntegrationAPI(
                         created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                         program_id = 324, 
                         customer_session_id = '05c2da0d-48fa-4aa1-b629-898f58f1584d', 
+                        type = 'addition', 
                         name = 'Reward 10% points of a purchase's current total', 
                         start_date = '2022-01-02T15:04:05Z07:00', 
                         expiry_date = '2022-08-02T15:04:05Z07:00', 
                         subledger_id = 'sub-123', 
-                        amount = 10.25, )
+                        amount = 10.25, 
+                        id = 123, 
+                        ruleset_id = 11, 
+                        rule_name = 'Add 2 points', 
+                        flags = talon_one.models.loyalty_ledger_entry_flags.LoyaltyLedgerEntryFlags(
+                            creates_negative_balance = True, ), )
                     ],
         )
 

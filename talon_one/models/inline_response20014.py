@@ -34,7 +34,7 @@ class InlineResponse20014(object):
     """
     openapi_types = {
         'has_more': 'bool',
-        'data': 'list[LoyaltyProgramTransaction]'
+        'data': 'list[CampaignTemplate]'
     }
 
     attribute_map = {
@@ -84,7 +84,7 @@ class InlineResponse20014(object):
 
 
         :return: The data of this InlineResponse20014.  # noqa: E501
-        :rtype: list[LoyaltyProgramTransaction]
+        :rtype: list[CampaignTemplate]
         """
         return self._data
 
@@ -94,7 +94,7 @@ class InlineResponse20014(object):
 
 
         :param data: The data of this InlineResponse20014.  # noqa: E501
-        :type: list[LoyaltyProgramTransaction]
+        :type: list[CampaignTemplate]
         """
         if self.local_vars_configuration.client_side_validation and data is None:  # noqa: E501
             raise ValueError("Invalid value for `data`, must not be `None`")  # noqa: E501

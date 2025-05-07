@@ -36,23 +36,37 @@ class TestProductUnitAnalytics(unittest.TestCase):
         # model = talon_one.models.product_unit_analytics.ProductUnitAnalytics()  # noqa: E501
         if include_optional :
             return ProductUnitAnalytics(
-                start_time = '2024-02-01T00:00Z', 
-                end_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                purchased_units = talon_one.models.analytics_data_point_with_trend.AnalyticsDataPointWithTrend(
-                    value = 12.0, 
-                    trend = 3.25, ), 
-                product_id = 1, 
-                product_name = 'MyProduct'
+                data = [
+                    talon_one.models.product_unit_analytics_data_point.ProductUnitAnalyticsDataPoint(
+                        start_time = '2024-02-01T00:00Z', 
+                        end_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        units_sold = talon_one.models.analytics_data_point_with_trend.AnalyticsDataPointWithTrend(
+                            value = 12.0, 
+                            trend = 3.25, ), 
+                        product_id = 1, 
+                        product_name = 'MyProduct', )
+                    ], 
+                totals = talon_one.models.product_unit_analytics_totals.ProductUnitAnalytics_totals(
+                    units_sold = talon_one.models.analytics_data_point_with_trend.AnalyticsDataPointWithTrend(
+                        value = 12.0, 
+                        trend = 3.25, ), )
             )
         else :
             return ProductUnitAnalytics(
-                start_time = '2024-02-01T00:00Z',
-                end_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
-                purchased_units = talon_one.models.analytics_data_point_with_trend.AnalyticsDataPointWithTrend(
-                    value = 12.0, 
-                    trend = 3.25, ),
-                product_id = 1,
-                product_name = 'MyProduct',
+                data = [
+                    talon_one.models.product_unit_analytics_data_point.ProductUnitAnalyticsDataPoint(
+                        start_time = '2024-02-01T00:00Z', 
+                        end_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        units_sold = talon_one.models.analytics_data_point_with_trend.AnalyticsDataPointWithTrend(
+                            value = 12.0, 
+                            trend = 3.25, ), 
+                        product_id = 1, 
+                        product_name = 'MyProduct', )
+                    ],
+                totals = talon_one.models.product_unit_analytics_totals.ProductUnitAnalytics_totals(
+                    units_sold = talon_one.models.analytics_data_point_with_trend.AnalyticsDataPointWithTrend(
+                        value = 12.0, 
+                        trend = 3.25, ), ),
         )
 
     def testProductUnitAnalytics(self):

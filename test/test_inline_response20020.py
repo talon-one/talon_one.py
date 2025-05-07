@@ -36,66 +36,38 @@ class TestInlineResponse20020(unittest.TestCase):
         # model = talon_one.models.inline_response20020.InlineResponse20020()  # noqa: E501
         if include_optional :
             return InlineResponse20020(
+                has_more = True, 
                 total_result_size = 1, 
                 data = [
-                    talon_one.models.campaign_analytics.CampaignAnalytics(
-                        date = '2021-10-12T10:12:42Z', 
-                        campaign_revenue = 3539.76, 
-                        total_campaign_revenue = 5784.63, 
-                        campaign_refund = 1.337, 
-                        total_campaign_refund = 1.337, 
-                        campaign_discount_costs = 1.337, 
-                        total_campaign_discount_costs = 1.337, 
-                        campaign_refunded_discounts = 1.337, 
-                        total_campaign_refunded_discounts = 1.337, 
-                        campaign_free_items = 56, 
-                        total_campaign_free_items = 86, 
-                        coupon_redemptions = 56, 
-                        total_coupon_redemptions = 56, 
-                        coupon_rolledback_redemptions = 56, 
-                        total_coupon_rolledback_redemptions = 56, 
-                        referral_redemptions = 56, 
-                        total_referral_redemptions = 56, 
-                        coupons_created = 56, 
-                        total_coupons_created = 56, 
-                        referrals_created = 56, 
-                        total_referrals_created = 56, 
-                        added_loyalty_points = 250.0, 
-                        total_added_loyalty_points = 340.0, 
-                        deducted_loyalty_points = 120.0, 
-                        total_deducted_loyalty_points = 220.0, )
+                    talon_one.models.collection_without_payload.CollectionWithoutPayload(
+                        id = 6, 
+                        created = '2020-06-10T09:05:27.993483Z', 
+                        account_id = 3886, 
+                        modified = '2021-09-12T10:12:42Z', 
+                        description = 'My collection of SKUs', 
+                        subscribed_applications_ids = [1, 2, 3], 
+                        name = 'My collection', 
+                        modified_by = 48, 
+                        created_by = 134, 
+                        application_id = 1, 
+                        campaign_id = 7, )
                     ]
             )
         else :
             return InlineResponse20020(
-                total_result_size = 1,
                 data = [
-                    talon_one.models.campaign_analytics.CampaignAnalytics(
-                        date = '2021-10-12T10:12:42Z', 
-                        campaign_revenue = 3539.76, 
-                        total_campaign_revenue = 5784.63, 
-                        campaign_refund = 1.337, 
-                        total_campaign_refund = 1.337, 
-                        campaign_discount_costs = 1.337, 
-                        total_campaign_discount_costs = 1.337, 
-                        campaign_refunded_discounts = 1.337, 
-                        total_campaign_refunded_discounts = 1.337, 
-                        campaign_free_items = 56, 
-                        total_campaign_free_items = 86, 
-                        coupon_redemptions = 56, 
-                        total_coupon_redemptions = 56, 
-                        coupon_rolledback_redemptions = 56, 
-                        total_coupon_rolledback_redemptions = 56, 
-                        referral_redemptions = 56, 
-                        total_referral_redemptions = 56, 
-                        coupons_created = 56, 
-                        total_coupons_created = 56, 
-                        referrals_created = 56, 
-                        total_referrals_created = 56, 
-                        added_loyalty_points = 250.0, 
-                        total_added_loyalty_points = 340.0, 
-                        deducted_loyalty_points = 120.0, 
-                        total_deducted_loyalty_points = 220.0, )
+                    talon_one.models.collection_without_payload.CollectionWithoutPayload(
+                        id = 6, 
+                        created = '2020-06-10T09:05:27.993483Z', 
+                        account_id = 3886, 
+                        modified = '2021-09-12T10:12:42Z', 
+                        description = 'My collection of SKUs', 
+                        subscribed_applications_ids = [1, 2, 3], 
+                        name = 'My collection', 
+                        modified_by = 48, 
+                        created_by = 134, 
+                        application_id = 1, 
+                        campaign_id = 7, )
                     ],
         )
 

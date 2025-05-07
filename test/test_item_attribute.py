@@ -38,13 +38,13 @@ class TestItemAttribute(unittest.TestCase):
             return ItemAttribute(
                 attributeid = 6, 
                 name = '0', 
-                value = talon_one.models.value.value()
+                value = None
             )
         else :
             return ItemAttribute(
                 attributeid = 6,
                 name = '0',
-                value = talon_one.models.value.value(),
+                value = None,
         )
 
     def testItemAttribute(self):

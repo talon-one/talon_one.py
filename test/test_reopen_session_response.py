@@ -50,7 +50,7 @@ class TestReopenSessionResponse(unittest.TestCase):
                         evaluation_group_mode = 'stackable', 
                         campaign_revision_id = 1, 
                         campaign_revision_version_id = 5, 
-                        props = talon_one.models.effect_props.EffectProps(), )
+                        props = talon_one.models.props.props(), )
                     ]
             )
         else :
@@ -69,7 +69,7 @@ class TestReopenSessionResponse(unittest.TestCase):
                         evaluation_group_mode = 'stackable', 
                         campaign_revision_id = 1, 
                         campaign_revision_version_id = 5, 
-                        props = talon_one.models.effect_props.EffectProps(), )
+                        props = talon_one.models.props.props(), )
                     ],
         )
 

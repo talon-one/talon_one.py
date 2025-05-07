@@ -222,7 +222,7 @@ class ApplicationSession(object):
     def application_id(self):
         """Gets the application_id of this ApplicationSession.  # noqa: E501
 
-        The ID of the application that owns this entity.  # noqa: E501
+        The ID of the Application that owns this entity.  # noqa: E501
 
         :return: The application_id of this ApplicationSession.  # noqa: E501
         :rtype: int
@@ -233,7 +233,7 @@ class ApplicationSession(object):
     def application_id(self, application_id):
         """Sets the application_id of this ApplicationSession.
 
-        The ID of the application that owns this entity.  # noqa: E501
+        The ID of the Application that owns this entity.  # noqa: E501
 
         :param application_id: The application_id of this ApplicationSession.  # noqa: E501
         :type: int
@@ -427,7 +427,7 @@ class ApplicationSession(object):
     def total_discounts(self):
         """Gets the total_discounts of this ApplicationSession.  # noqa: E501
 
-        The total sum of the discounts applied to this session.  # noqa: E501
+        The total sum of the discounts applied to this session.  **Note:** If more than one session is returned, this value is displayed as `0`.   # noqa: E501
 
         :return: The total_discounts of this ApplicationSession.  # noqa: E501
         :rtype: float
@@ -438,7 +438,7 @@ class ApplicationSession(object):
     def total_discounts(self, total_discounts):
         """Sets the total_discounts of this ApplicationSession.
 
-        The total sum of the discounts applied to this session.  # noqa: E501
+        The total sum of the discounts applied to this session.  **Note:** If more than one session is returned, this value is displayed as `0`.   # noqa: E501
 
         :param total_discounts: The total_discounts of this ApplicationSession.  # noqa: E501
         :type: float

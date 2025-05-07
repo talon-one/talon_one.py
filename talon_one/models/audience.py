@@ -246,7 +246,7 @@ class Audience(object):
     def integration(self):
         """Gets the integration of this Audience.  # noqa: E501
 
-        The Talon.One-supported [3rd-party platform](https://docs.talon.one/docs/dev/technology-partners/overview) that this audience was created in.  For example, `mParticle`, `Segment`, `Selligent`, `Braze`, or `Iterable`.  **Note:** If you do not integrate with any of these platforms, do not use this property.   # noqa: E501
+        The Talon.One-supported [3rd-party platform](https://docs.talon.one/docs/dev/technology-partners/overview) that this audience was created in.  For example, `mParticle`, `Segment`, `Shopify`, `Braze`, or `Iterable`.  **Note:** If you do not integrate with any of these platforms, do not use this property.   # noqa: E501
 
         :return: The integration of this Audience.  # noqa: E501
         :rtype: str
@@ -257,7 +257,7 @@ class Audience(object):
     def integration(self, integration):
         """Sets the integration of this Audience.
 
-        The Talon.One-supported [3rd-party platform](https://docs.talon.one/docs/dev/technology-partners/overview) that this audience was created in.  For example, `mParticle`, `Segment`, `Selligent`, `Braze`, or `Iterable`.  **Note:** If you do not integrate with any of these platforms, do not use this property.   # noqa: E501
+        The Talon.One-supported [3rd-party platform](https://docs.talon.one/docs/dev/technology-partners/overview) that this audience was created in.  For example, `mParticle`, `Segment`, `Shopify`, `Braze`, or `Iterable`.  **Note:** If you do not integrate with any of these platforms, do not use this property.   # noqa: E501
 
         :param integration: The integration of this Audience.  # noqa: E501
         :type: str

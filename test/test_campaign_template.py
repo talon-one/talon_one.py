@@ -84,7 +84,8 @@ class TestCampaignTemplate(unittest.TestCase):
                 campaign_type = 'advanced', 
                 updated = '2022-08-24T14:15:22Z', 
                 updated_by = 'Jane Doe', 
-                valid_application_ids = [1, 2, 3]
+                valid_application_ids = [1, 2, 3], 
+                is_user_favorite = False
             )
         else :
             return CampaignTemplate(

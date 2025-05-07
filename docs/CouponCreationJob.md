@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 **id** | **int** | Internal ID of this entity. | 
 **created** | **datetime** | The time this entity was created. | 
 **campaign_id** | **int** | The ID of the campaign that owns this entity. | 
-**application_id** | **int** | The ID of the application that owns this entity. | 
+**application_id** | **int** | The ID of the Application that owns this entity. | 
 **account_id** | **int** | The ID of the account that owns this entity. | 
 **usage_limit** | **int** | The number of times the coupon code can be redeemed. &#x60;0&#x60; means unlimited redemptions but any campaign usage limits will still apply.  | 
 **discount_limit** | **float** | The total discount value that the code can give. Typically used to represent a gift card value.  | [optional] 

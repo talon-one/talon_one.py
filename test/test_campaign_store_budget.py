@@ -41,11 +41,12 @@ class TestCampaignStoreBudget(unittest.TestCase):
                 campaign_id = 322, 
                 store_id = 56, 
                 limits = [
-                    talon_one.models.limit_config.LimitConfig(
+                    talon_one.models.campaign_store_budget_limit_config.CampaignStoreBudgetLimitConfig(
                         action = 'createCoupon', 
                         limit = 1000.0, 
                         period = 'yearly', 
-                        entities = [Coupon], )
+                        entities = [Coupon], 
+                        imported = True, )
                     ]
             )
         else :
@@ -55,11 +56,12 @@ class TestCampaignStoreBudget(unittest.TestCase):
                 campaign_id = 322,
                 store_id = 56,
                 limits = [
-                    talon_one.models.limit_config.LimitConfig(
+                    talon_one.models.campaign_store_budget_limit_config.CampaignStoreBudgetLimitConfig(
                         action = 'createCoupon', 
                         limit = 1000.0, 
                         period = 'yearly', 
-                        entities = [Coupon], )
+                        entities = [Coupon], 
+                        imported = True, )
                     ],
         )
 

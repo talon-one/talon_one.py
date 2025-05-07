@@ -33,162 +33,73 @@ class ProductUnitAnalytics(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'start_time': 'datetime',
-        'end_time': 'datetime',
-        'purchased_units': 'AnalyticsDataPointWithTrend',
-        'product_id': 'int',
-        'product_name': 'str'
+        'data': 'list[ProductUnitAnalyticsDataPoint]',
+        'totals': 'ProductUnitAnalyticsTotals'
     }
 
     attribute_map = {
-        'start_time': 'startTime',
-        'end_time': 'endTime',
-        'purchased_units': 'purchasedUnits',
-        'product_id': 'productId',
-        'product_name': 'productName'
+        'data': 'data',
+        'totals': 'totals'
     }
 
-    def __init__(self, start_time=None, end_time=None, purchased_units=None, product_id=None, product_name=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, data=None, totals=None, local_vars_configuration=None):  # noqa: E501
         """ProductUnitAnalytics - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
-        self._start_time = None
-        self._end_time = None
-        self._purchased_units = None
-        self._product_id = None
-        self._product_name = None
+        self._data = None
+        self._totals = None
         self.discriminator = None
 
-        self.start_time = start_time
-        self.end_time = end_time
-        self.purchased_units = purchased_units
-        self.product_id = product_id
-        self.product_name = product_name
+        self.data = data
+        self.totals = totals
 
     @property
-    def start_time(self):
-        """Gets the start_time of this ProductUnitAnalytics.  # noqa: E501
+    def data(self):
+        """Gets the data of this ProductUnitAnalytics.  # noqa: E501
 
-        The start of the aggregation time frame in UTC.  # noqa: E501
 
-        :return: The start_time of this ProductUnitAnalytics.  # noqa: E501
-        :rtype: datetime
+        :return: The data of this ProductUnitAnalytics.  # noqa: E501
+        :rtype: list[ProductUnitAnalyticsDataPoint]
         """
-        return self._start_time
+        return self._data
 
-    @start_time.setter
-    def start_time(self, start_time):
-        """Sets the start_time of this ProductUnitAnalytics.
+    @data.setter
+    def data(self, data):
+        """Sets the data of this ProductUnitAnalytics.
 
-        The start of the aggregation time frame in UTC.  # noqa: E501
 
-        :param start_time: The start_time of this ProductUnitAnalytics.  # noqa: E501
-        :type: datetime
+        :param data: The data of this ProductUnitAnalytics.  # noqa: E501
+        :type: list[ProductUnitAnalyticsDataPoint]
         """
-        if self.local_vars_configuration.client_side_validation and start_time is None:  # noqa: E501
-            raise ValueError("Invalid value for `start_time`, must not be `None`")  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and data is None:  # noqa: E501
+            raise ValueError("Invalid value for `data`, must not be `None`")  # noqa: E501
 
-        self._start_time = start_time
+        self._data = data
 
     @property
-    def end_time(self):
-        """Gets the end_time of this ProductUnitAnalytics.  # noqa: E501
+    def totals(self):
+        """Gets the totals of this ProductUnitAnalytics.  # noqa: E501
 
-        The end of the aggregation time frame in UTC.  # noqa: E501
 
-        :return: The end_time of this ProductUnitAnalytics.  # noqa: E501
-        :rtype: datetime
+        :return: The totals of this ProductUnitAnalytics.  # noqa: E501
+        :rtype: ProductUnitAnalyticsTotals
         """
-        return self._end_time
+        return self._totals
 
-    @end_time.setter
-    def end_time(self, end_time):
-        """Sets the end_time of this ProductUnitAnalytics.
+    @totals.setter
+    def totals(self, totals):
+        """Sets the totals of this ProductUnitAnalytics.
 
-        The end of the aggregation time frame in UTC.  # noqa: E501
 
-        :param end_time: The end_time of this ProductUnitAnalytics.  # noqa: E501
-        :type: datetime
+        :param totals: The totals of this ProductUnitAnalytics.  # noqa: E501
+        :type: ProductUnitAnalyticsTotals
         """
-        if self.local_vars_configuration.client_side_validation and end_time is None:  # noqa: E501
-            raise ValueError("Invalid value for `end_time`, must not be `None`")  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and totals is None:  # noqa: E501
+            raise ValueError("Invalid value for `totals`, must not be `None`")  # noqa: E501
 
-        self._end_time = end_time
-
-    @property
-    def purchased_units(self):
-        """Gets the purchased_units of this ProductUnitAnalytics.  # noqa: E501
-
-
-        :return: The purchased_units of this ProductUnitAnalytics.  # noqa: E501
-        :rtype: AnalyticsDataPointWithTrend
-        """
-        return self._purchased_units
-
-    @purchased_units.setter
-    def purchased_units(self, purchased_units):
-        """Sets the purchased_units of this ProductUnitAnalytics.
-
-
-        :param purchased_units: The purchased_units of this ProductUnitAnalytics.  # noqa: E501
-        :type: AnalyticsDataPointWithTrend
-        """
-        if self.local_vars_configuration.client_side_validation and purchased_units is None:  # noqa: E501
-            raise ValueError("Invalid value for `purchased_units`, must not be `None`")  # noqa: E501
-
-        self._purchased_units = purchased_units
-
-    @property
-    def product_id(self):
-        """Gets the product_id of this ProductUnitAnalytics.  # noqa: E501
-
-        The ID of the analytics-level product.  # noqa: E501
-
-        :return: The product_id of this ProductUnitAnalytics.  # noqa: E501
-        :rtype: int
-        """
-        return self._product_id
-
-    @product_id.setter
-    def product_id(self, product_id):
-        """Sets the product_id of this ProductUnitAnalytics.
-
-        The ID of the analytics-level product.  # noqa: E501
-
-        :param product_id: The product_id of this ProductUnitAnalytics.  # noqa: E501
-        :type: int
-        """
-        if self.local_vars_configuration.client_side_validation and product_id is None:  # noqa: E501
-            raise ValueError("Invalid value for `product_id`, must not be `None`")  # noqa: E501
-
-        self._product_id = product_id
-
-    @property
-    def product_name(self):
-        """Gets the product_name of this ProductUnitAnalytics.  # noqa: E501
-
-        The name of the analytics-level product.  # noqa: E501
-
-        :return: The product_name of this ProductUnitAnalytics.  # noqa: E501
-        :rtype: str
-        """
-        return self._product_name
-
-    @product_name.setter
-    def product_name(self, product_name):
-        """Sets the product_name of this ProductUnitAnalytics.
-
-        The name of the analytics-level product.  # noqa: E501
-
-        :param product_name: The product_name of this ProductUnitAnalytics.  # noqa: E501
-        :type: str
-        """
-        if self.local_vars_configuration.client_side_validation and product_name is None:  # noqa: E501
-            raise ValueError("Invalid value for `product_name`, must not be `None`")  # noqa: E501
-
-        self._product_name = product_name
+        self._totals = totals
 
     def to_dict(self):
         """Returns the model properties as a dict"""

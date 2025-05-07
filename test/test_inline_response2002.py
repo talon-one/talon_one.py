@@ -36,40 +36,26 @@ class TestInlineResponse2002(unittest.TestCase):
         # model = talon_one.models.inline_response2002.InlineResponse2002()  # noqa: E501
         if include_optional :
             return InlineResponse2002(
-                has_more = True, 
+                total_result_size = 1, 
                 data = [
-                    talon_one.models.ledger_transaction_log_entry_integration_api.LedgerTransactionLogEntryIntegrationAPI(
-                        created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        program_id = 324, 
-                        customer_session_id = '05c2da0d-48fa-4aa1-b629-898f58f1584d', 
-                        type = 'addition', 
-                        name = 'Reward 10% points of a purchase's current total', 
-                        start_date = '2022-01-02T15:04:05Z07:00', 
-                        expiry_date = '2022-08-02T15:04:05Z07:00', 
-                        subledger_id = 'sub-123', 
-                        amount = 10.25, 
-                        id = 123, 
-                        ruleset_id = 11, 
-                        rule_name = 'Add 2 points', )
+                    talon_one.models.achievement_progress.AchievementProgress(
+                        status = 'completed', 
+                        progress = 10.0, 
+                        start_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        completion_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        end_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), )
                     ]
             )
         else :
             return InlineResponse2002(
-                has_more = True,
+                total_result_size = 1,
                 data = [
-                    talon_one.models.ledger_transaction_log_entry_integration_api.LedgerTransactionLogEntryIntegrationAPI(
-                        created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        program_id = 324, 
-                        customer_session_id = '05c2da0d-48fa-4aa1-b629-898f58f1584d', 
-                        type = 'addition', 
-                        name = 'Reward 10% points of a purchase's current total', 
-                        start_date = '2022-01-02T15:04:05Z07:00', 
-                        expiry_date = '2022-08-02T15:04:05Z07:00', 
-                        subledger_id = 'sub-123', 
-                        amount = 10.25, 
-                        id = 123, 
-                        ruleset_id = 11, 
-                        rule_name = 'Add 2 points', )
+                    talon_one.models.achievement_progress.AchievementProgress(
+                        status = 'completed', 
+                        progress = 10.0, 
+                        start_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        completion_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        end_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), )
                     ],
         )
 

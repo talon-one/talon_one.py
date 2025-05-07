@@ -41,6 +41,7 @@ class TestLoyaltyBalancesWithTiers(unittest.TestCase):
                     pending_points = 50.0, 
                     spent_points = 150.0, 
                     expired_points = 286.0, 
+                    negative_points = 286.0, 
                     current_tier = talon_one.models.tier.Tier(
                         id = 11, 
                         name = 'bronze', 
@@ -53,7 +54,7 @@ class TestLoyaltyBalancesWithTiers(unittest.TestCase):
                         projected_tier_name = 'Tier 1', ), 
                     points_to_next_tier = 20.0, 
                     next_tier_name = 'silver', ), 
-                subledger_balances = {"mysubledger":{"activePoints":286,"pendingPoints":50,"spentPoints":150,"expiredPoints":25}}
+                subledger_balances = {"mysubledger":{"activePoints":286,"pendingPoints":50,"spentPoints":150,"expiredPoints":25,"negativePoints":0}}
             )
         else :
             return LoyaltyBalancesWithTiers(

@@ -38,38 +38,40 @@ class TestInlineResponse20019(unittest.TestCase):
             return InlineResponse20019(
                 has_more = True, 
                 data = [
-                    talon_one.models.access_log_entry.AccessLogEntry(
-                        uuid = '606e7d34-2d36-4d53-ac71-d4442c325985', 
-                        status = 200, 
-                        method = 'PUT', 
-                        request_uri = '/v2/customer_sessions/Session136667', 
-                        time = '2023-01-16T16:00:00.700763Z', 
-                        request_payload = '{
-    "customerSession": {
-        "profileId": "customer123",
-        "state": "closed",
-...
-}', 
-                        response_payload = '{"coupons":[],"createdCoupons":[],...}', )
+                    talon_one.models.card_ledger_transaction_log_entry.CardLedgerTransactionLogEntry(
+                        created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        program_id = 324, 
+                        card_identifier = 'summer-loyalty-card-0543', 
+                        application_id = 322, 
+                        session_id = 233, 
+                        customer_session_id = '05c2da0d-48fa-4aa1-b629-898f58f1584d', 
+                        type = 'addition', 
+                        name = 'Reward 10% points of a purchase's current total', 
+                        start_date = '2022-01-02T15:04:05Z07:00', 
+                        expiry_date = '2022-08-02T15:04:05Z07:00', 
+                        subledger_id = 'sub-123', 
+                        amount = 10.25, 
+                        id = 123, )
                     ]
             )
         else :
             return InlineResponse20019(
                 has_more = True,
                 data = [
-                    talon_one.models.access_log_entry.AccessLogEntry(
-                        uuid = '606e7d34-2d36-4d53-ac71-d4442c325985', 
-                        status = 200, 
-                        method = 'PUT', 
-                        request_uri = '/v2/customer_sessions/Session136667', 
-                        time = '2023-01-16T16:00:00.700763Z', 
-                        request_payload = '{
-    "customerSession": {
-        "profileId": "customer123",
-        "state": "closed",
-...
-}', 
-                        response_payload = '{"coupons":[],"createdCoupons":[],...}', )
+                    talon_one.models.card_ledger_transaction_log_entry.CardLedgerTransactionLogEntry(
+                        created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        program_id = 324, 
+                        card_identifier = 'summer-loyalty-card-0543', 
+                        application_id = 322, 
+                        session_id = 233, 
+                        customer_session_id = '05c2da0d-48fa-4aa1-b629-898f58f1584d', 
+                        type = 'addition', 
+                        name = 'Reward 10% points of a purchase's current total', 
+                        start_date = '2022-01-02T15:04:05Z07:00', 
+                        expiry_date = '2022-08-02T15:04:05Z07:00', 
+                        subledger_id = 'sub-123', 
+                        amount = 10.25, 
+                        id = 123, )
                     ],
         )
 

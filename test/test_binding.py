@@ -38,17 +38,13 @@ class TestBinding(unittest.TestCase):
             return Binding(
                 name = 'my property', 
                 type = 'templateParameter', 
-                expression = [
-                    None
-                    ], 
+                expression = [string1, string2], 
                 value_type = 'string'
             )
         else :
             return Binding(
                 name = 'my property',
-                expression = [
-                    None
-                    ],
+                expression = [string1, string2],
         )
 
     def testBinding(self):

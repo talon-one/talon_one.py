@@ -63,7 +63,8 @@ class TestAdditionalCampaignProperties(unittest.TestCase):
                 updated_by = 'Jane Doe', 
                 template_id = 3, 
                 frontend_state = 'running', 
-                stores_imported = True
+                stores_imported = True, 
+                value_maps_ids = [100, 215]
             )
         else :
             return AdditionalCampaignProperties(

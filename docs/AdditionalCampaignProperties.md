@@ -26,6 +26,7 @@ Name | Type | Description | Notes
 **template_id** | **int** | The ID of the Campaign Template this Campaign was created from. | [optional] 
 **frontend_state** | **str** | The campaign state displayed in the Campaign Manager. | 
 **stores_imported** | **bool** | Indicates whether the linked stores were imported via a CSV file. | 
+**value_maps_ids** | **list[int]** | A list of value map IDs for the campaign. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

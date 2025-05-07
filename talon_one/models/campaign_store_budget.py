@@ -37,7 +37,7 @@ class CampaignStoreBudget(object):
         'created': 'datetime',
         'campaign_id': 'int',
         'store_id': 'int',
-        'limits': 'list[LimitConfig]'
+        'limits': 'list[CampaignStoreBudgetLimitConfig]'
     }
 
     attribute_map = {
@@ -174,7 +174,7 @@ class CampaignStoreBudget(object):
         The set of budget limits for stores linked to the campaign.  # noqa: E501
 
         :return: The limits of this CampaignStoreBudget.  # noqa: E501
-        :rtype: list[LimitConfig]
+        :rtype: list[CampaignStoreBudgetLimitConfig]
         """
         return self._limits
 
@@ -185,7 +185,7 @@ class CampaignStoreBudget(object):
         The set of budget limits for stores linked to the campaign.  # noqa: E501
 
         :param limits: The limits of this CampaignStoreBudget.  # noqa: E501
-        :type: list[LimitConfig]
+        :type: list[CampaignStoreBudgetLimitConfig]
         """
         if self.local_vars_configuration.client_side_validation and limits is None:  # noqa: E501
             raise ValueError("Invalid value for `limits`, must not be `None`")  # noqa: E501

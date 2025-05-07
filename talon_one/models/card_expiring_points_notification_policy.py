@@ -35,16 +35,18 @@ class CardExpiringPointsNotificationPolicy(object):
     openapi_types = {
         'name': 'str',
         'triggers': 'list[CardExpiringPointsNotificationTrigger]',
-        'batching_enabled': 'bool'
+        'batching_enabled': 'bool',
+        'batch_size': 'int'
     }
 
     attribute_map = {
         'name': 'name',
         'triggers': 'triggers',
-        'batching_enabled': 'batchingEnabled'
+        'batching_enabled': 'batchingEnabled',
+        'batch_size': 'batchSize'
     }
 
-    def __init__(self, name=None, triggers=None, batching_enabled=True, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, name=None, triggers=None, batching_enabled=True, batch_size=None, local_vars_configuration=None):  # noqa: E501
         """CardExpiringPointsNotificationPolicy - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -53,12 +55,15 @@ class CardExpiringPointsNotificationPolicy(object):
         self._name = None
         self._triggers = None
         self._batching_enabled = None
+        self._batch_size = None
         self.discriminator = None
 
         self.name = name
         self.triggers = triggers
         if batching_enabled is not None:
             self.batching_enabled = batching_enabled
+        if batch_size is not None:
+            self.batch_size = batch_size
 
     @property
     def name(self):
@@ -133,6 +138,29 @@ class CardExpiringPointsNotificationPolicy(object):
         """
 
         self._batching_enabled = batching_enabled
+
+    @property
+    def batch_size(self):
+        """Gets the batch_size of this CardExpiringPointsNotificationPolicy.  # noqa: E501
+
+        The required size of each batch of data. This value applies only when `batchingEnabled` is `true`.  # noqa: E501
+
+        :return: The batch_size of this CardExpiringPointsNotificationPolicy.  # noqa: E501
+        :rtype: int
+        """
+        return self._batch_size
+
+    @batch_size.setter
+    def batch_size(self, batch_size):
+        """Sets the batch_size of this CardExpiringPointsNotificationPolicy.
+
+        The required size of each batch of data. This value applies only when `batchingEnabled` is `true`.  # noqa: E501
+
+        :param batch_size: The batch_size of this CardExpiringPointsNotificationPolicy.  # noqa: E501
+        :type: int
+        """
+
+        self._batch_size = batch_size
 
     def to_dict(self):
         """Returns the model properties as a dict"""

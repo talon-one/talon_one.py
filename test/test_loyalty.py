@@ -55,10 +55,12 @@ class TestLoyalty(unittest.TestCase):
                         ledger = talon_one.models.ledger_info.LedgerInfo(
                             current_balance = 100.0, 
                             pending_balance = 10.0, 
+                            negative_balance = 10.0, 
                             expired_balance = 0.0, 
                             spent_balance = 0.0, 
                             tentative_current_balance = 100.0, 
                             tentative_pending_balance = 20.0, 
+                            tentative_negative_balance = 100.0, 
                             current_tier = talon_one.models.tier.Tier(
                                 id = 11, 
                                 name = 'bronze', 
@@ -70,10 +72,12 @@ class TestLoyalty(unittest.TestCase):
                             'key' : talon_one.models.ledger_info.LedgerInfo(
                                 current_balance = 100.0, 
                                 pending_balance = 10.0, 
+                                negative_balance = 10.0, 
                                 expired_balance = 0.0, 
                                 spent_balance = 0.0, 
                                 tentative_current_balance = 100.0, 
                                 tentative_pending_balance = 20.0, 
+                                tentative_negative_balance = 100.0, 
                                 points_to_next_tier = 20.0, )
                             }, 
                         modified = '2021-09-12T10:12:42Z', 
@@ -90,10 +94,12 @@ class TestLoyalty(unittest.TestCase):
                         ledger = talon_one.models.ledger_info.LedgerInfo(
                             current_balance = 100.0, 
                             pending_balance = 10.0, 
+                            negative_balance = 10.0, 
                             expired_balance = 0.0, 
                             spent_balance = 0.0, 
                             tentative_current_balance = 100.0, 
                             tentative_pending_balance = 20.0, 
+                            tentative_negative_balance = 100.0, 
                             current_tier = talon_one.models.tier.Tier(
                                 id = 11, 
                                 name = 'bronze', 
@@ -105,10 +111,12 @@ class TestLoyalty(unittest.TestCase):
                             'key' : talon_one.models.ledger_info.LedgerInfo(
                                 current_balance = 100.0, 
                                 pending_balance = 10.0, 
+                                negative_balance = 10.0, 
                                 expired_balance = 0.0, 
                                 spent_balance = 0.0, 
                                 tentative_current_balance = 100.0, 
                                 tentative_pending_balance = 20.0, 
+                                tentative_negative_balance = 100.0, 
                                 points_to_next_tier = 20.0, )
                             }, )
                     }
@@ -124,10 +132,12 @@ class TestLoyalty(unittest.TestCase):
                         ledger = talon_one.models.ledger_info.LedgerInfo(
                             current_balance = 100.0, 
                             pending_balance = 10.0, 
+                            negative_balance = 10.0, 
                             expired_balance = 0.0, 
                             spent_balance = 0.0, 
                             tentative_current_balance = 100.0, 
                             tentative_pending_balance = 20.0, 
+                            tentative_negative_balance = 100.0, 
                             current_tier = talon_one.models.tier.Tier(
                                 id = 11, 
                                 name = 'bronze', 
@@ -139,10 +149,12 @@ class TestLoyalty(unittest.TestCase):
                             'key' : talon_one.models.ledger_info.LedgerInfo(
                                 current_balance = 100.0, 
                                 pending_balance = 10.0, 
+                                negative_balance = 10.0, 
                                 expired_balance = 0.0, 
                                 spent_balance = 0.0, 
                                 tentative_current_balance = 100.0, 
                                 tentative_pending_balance = 20.0, 
+                                tentative_negative_balance = 100.0, 
                                 points_to_next_tier = 20.0, )
                             }, )
                     },

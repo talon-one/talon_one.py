@@ -36,9 +36,10 @@ class TestInlineResponse20024(unittest.TestCase):
         # model = talon_one.models.inline_response20024.InlineResponse20024()  # noqa: E501
         if include_optional :
             return InlineResponse20024(
+                total_result_size = 1, 
                 has_more = True, 
                 data = [
-                    talon_one.models.customer_profile.CustomerProfile(
+                    talon_one.models.application_customer.ApplicationCustomer(
                         id = 6, 
                         created = '2020-02-07T08:15:22Z', 
                         integration_id = 'URNGV8294NV', 
@@ -57,14 +58,14 @@ class TestInlineResponse20024(unittest.TestCase):
                                 name = 'Travel audience', )
                             ], 
                         last_activity = '2020-02-08T14:15:20Z', 
-                        sandbox = False, )
+                        sandbox = False, 
+                        advocate_integration_id = '0', )
                     ]
             )
         else :
             return InlineResponse20024(
-                has_more = True,
                 data = [
-                    talon_one.models.customer_profile.CustomerProfile(
+                    talon_one.models.application_customer.ApplicationCustomer(
                         id = 6, 
                         created = '2020-02-07T08:15:22Z', 
                         integration_id = 'URNGV8294NV', 
@@ -83,7 +84,8 @@ class TestInlineResponse20024(unittest.TestCase):
                                 name = 'Travel audience', )
                             ], 
                         last_activity = '2020-02-08T14:15:20Z', 
-                        sandbox = False, )
+                        sandbox = False, 
+                        advocate_integration_id = '0', )
                     ],
         )
 

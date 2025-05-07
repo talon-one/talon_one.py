@@ -55,7 +55,8 @@ class ProductSearchMatch(object):
         self._product_sku_id = None
         self.discriminator = None
 
-        self.product_id = product_id
+        if product_id is not None:
+            self.product_id = product_id
         self.value = value
         if product_sku_id is not None:
             self.product_sku_id = product_sku_id
@@ -80,8 +81,6 @@ class ProductSearchMatch(object):
         :param product_id: The product_id of this ProductSearchMatch.  # noqa: E501
         :type: int
         """
-        if self.local_vars_configuration.client_side_validation and product_id is None:  # noqa: E501
-            raise ValueError("Invalid value for `product_id`, must not be `None`")  # noqa: E501
 
         self._product_id = product_id
 
@@ -114,7 +113,7 @@ class ProductSearchMatch(object):
     def product_sku_id(self):
         """Gets the product_sku_id of this ProductSearchMatch.  # noqa: E501
 
-        The ID of the SKU linked to a product. If empty, this is an analytics-level product.  # noqa: E501
+        The ID of the SKU linked to a product. If empty, this is an product.  # noqa: E501
 
         :return: The product_sku_id of this ProductSearchMatch.  # noqa: E501
         :rtype: int
@@ -125,7 +124,7 @@ class ProductSearchMatch(object):
     def product_sku_id(self, product_sku_id):
         """Sets the product_sku_id of this ProductSearchMatch.
 
-        The ID of the SKU linked to a product. If empty, this is an analytics-level product.  # noqa: E501
+        The ID of the SKU linked to a product. If empty, this is an product.  # noqa: E501
 
         :param product_sku_id: The product_sku_id of this ProductSearchMatch.  # noqa: E501
         :type: int

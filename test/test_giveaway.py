@@ -42,7 +42,7 @@ class TestGiveaway(unittest.TestCase):
                 pool_id = 1, 
                 start_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                 end_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                attributes = talon_one.models.attributes.attributes(), 
+                attributes = None, 
                 used = True, 
                 import_id = 4, 
                 profile_integration_id = 'R195412', 

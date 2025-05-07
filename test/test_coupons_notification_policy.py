@@ -40,7 +40,9 @@ class TestCouponsNotificationPolicy(unittest.TestCase):
                 scopes = [
                     'all'
                     ], 
-                batching_enabled = True
+                batching_enabled = True, 
+                include_data = True, 
+                batch_size = 1000
             )
         else :
             return CouponsNotificationPolicy(

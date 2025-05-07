@@ -38,6 +38,7 @@ class TestTierWillDowngradeNotificationPolicy(unittest.TestCase):
             return TierWillDowngradeNotificationPolicy(
                 name = 'Notification to Google', 
                 batching_enabled = False, 
+                batch_size = 1000, 
                 triggers = [
                     talon_one.models.tier_will_downgrade_notification_trigger.TierWillDowngradeNotificationTrigger(
                         amount = 56, 

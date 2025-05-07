@@ -38,48 +38,24 @@ class TestInlineResponse20040(unittest.TestCase):
             return InlineResponse20040(
                 total_result_size = 1, 
                 data = [
-                    talon_one.models.user.User(
-                        id = 6, 
-                        created = '2020-06-10T09:05:27.993483Z', 
-                        modified = '2021-09-12T10:12:42Z', 
-                        email = 'john.doe@example.com', 
-                        account_id = 3886, 
-                        name = 'John Doe', 
-                        state = 'invited', 
-                        invite_token = 'Gy9b8w1irmQtEPo5RmbMmSPheL5h4', 
-                        is_admin = False, 
-                        policy = {"Role":127}, 
-                        roles = [71], 
-                        auth_method = 'basic_auth', 
-                        application_notification_subscriptions = {}, 
-                        last_signed_in = '2021-09-12T10:12:42Z', 
-                        last_accessed = '2021-09-12T10:14:42Z', 
-                        latest_feed_timestamp = '2020-06-01T00:00Z', 
-                        additional_attributes = {}, )
+                    talon_one.models.webhook_activation_log_entry.WebhookActivationLogEntry(
+                        integration_request_uuid = '6d3699cf-95bd-444a-b62f-80d6e8391dc9', 
+                        webhook_id = 1, 
+                        application_id = 13, 
+                        campaign_id = 86, 
+                        created = '2023-03-21T13:55:08.571144Z', )
                     ]
             )
         else :
             return InlineResponse20040(
                 total_result_size = 1,
                 data = [
-                    talon_one.models.user.User(
-                        id = 6, 
-                        created = '2020-06-10T09:05:27.993483Z', 
-                        modified = '2021-09-12T10:12:42Z', 
-                        email = 'john.doe@example.com', 
-                        account_id = 3886, 
-                        name = 'John Doe', 
-                        state = 'invited', 
-                        invite_token = 'Gy9b8w1irmQtEPo5RmbMmSPheL5h4', 
-                        is_admin = False, 
-                        policy = {"Role":127}, 
-                        roles = [71], 
-                        auth_method = 'basic_auth', 
-                        application_notification_subscriptions = {}, 
-                        last_signed_in = '2021-09-12T10:12:42Z', 
-                        last_accessed = '2021-09-12T10:14:42Z', 
-                        latest_feed_timestamp = '2020-06-01T00:00Z', 
-                        additional_attributes = {}, )
+                    talon_one.models.webhook_activation_log_entry.WebhookActivationLogEntry(
+                        integration_request_uuid = '6d3699cf-95bd-444a-b62f-80d6e8391dc9', 
+                        webhook_id = 1, 
+                        application_id = 13, 
+                        campaign_id = 86, 
+                        created = '2023-03-21T13:55:08.571144Z', )
                     ],
         )
 

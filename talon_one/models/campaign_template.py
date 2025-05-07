@@ -57,7 +57,8 @@ class CampaignTemplate(object):
         'campaign_type': 'str',
         'updated': 'datetime',
         'updated_by': 'str',
-        'valid_application_ids': 'list[int]'
+        'valid_application_ids': 'list[int]',
+        'is_user_favorite': 'bool'
     }
 
     attribute_map = {
@@ -85,10 +86,11 @@ class CampaignTemplate(object):
         'campaign_type': 'campaignType',
         'updated': 'updated',
         'updated_by': 'updatedBy',
-        'valid_application_ids': 'validApplicationIds'
+        'valid_application_ids': 'validApplicationIds',
+        'is_user_favorite': 'isUserFavorite'
     }
 
-    def __init__(self, id=None, created=None, account_id=None, user_id=None, name=None, description=None, instructions=None, campaign_attributes=None, coupon_attributes=None, state=None, active_ruleset_id=None, tags=None, features=None, coupon_settings=None, coupon_reservation_settings=None, referral_settings=None, limits=None, template_params=None, applications_ids=None, campaign_collections=None, default_campaign_group_id=None, campaign_type='advanced', updated=None, updated_by=None, valid_application_ids=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, created=None, account_id=None, user_id=None, name=None, description=None, instructions=None, campaign_attributes=None, coupon_attributes=None, state=None, active_ruleset_id=None, tags=None, features=None, coupon_settings=None, coupon_reservation_settings=None, referral_settings=None, limits=None, template_params=None, applications_ids=None, campaign_collections=None, default_campaign_group_id=None, campaign_type='advanced', updated=None, updated_by=None, valid_application_ids=None, is_user_favorite=False, local_vars_configuration=None):  # noqa: E501
         """CampaignTemplate - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -119,6 +121,7 @@ class CampaignTemplate(object):
         self._updated = None
         self._updated_by = None
         self._valid_application_ids = None
+        self._is_user_favorite = None
         self.discriminator = None
 
         self.id = id
@@ -160,6 +163,8 @@ class CampaignTemplate(object):
         if updated_by is not None:
             self.updated_by = updated_by
         self.valid_application_ids = valid_application_ids
+        if is_user_favorite is not None:
+            self.is_user_favorite = is_user_favorite
 
     @property
     def id(self):
@@ -774,6 +779,29 @@ class CampaignTemplate(object):
             raise ValueError("Invalid value for `valid_application_ids`, must not be `None`")  # noqa: E501
 
         self._valid_application_ids = valid_application_ids
+
+    @property
+    def is_user_favorite(self):
+        """Gets the is_user_favorite of this CampaignTemplate.  # noqa: E501
+
+        A flag indicating whether the user marked the template as a favorite.  # noqa: E501
+
+        :return: The is_user_favorite of this CampaignTemplate.  # noqa: E501
+        :rtype: bool
+        """
+        return self._is_user_favorite
+
+    @is_user_favorite.setter
+    def is_user_favorite(self, is_user_favorite):
+        """Sets the is_user_favorite of this CampaignTemplate.
+
+        A flag indicating whether the user marked the template as a favorite.  # noqa: E501
+
+        :param is_user_favorite: The is_user_favorite of this CampaignTemplate.  # noqa: E501
+        :type: bool
+        """
+
+        self._is_user_favorite = is_user_favorite
 
     def to_dict(self):
         """Returns the model properties as a dict"""

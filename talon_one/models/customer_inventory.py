@@ -38,7 +38,7 @@ class CustomerInventory(object):
         'referrals': 'list[InventoryReferral]',
         'coupons': 'list[InventoryCoupon]',
         'giveaways': 'list[Giveaway]',
-        'achievements': 'list[AchievementProgress]'
+        'achievements': 'list[AchievementProgressWithDefinition]'
     }
 
     attribute_map = {
@@ -190,7 +190,7 @@ class CustomerInventory(object):
 
 
         :return: The achievements of this CustomerInventory.  # noqa: E501
-        :rtype: list[AchievementProgress]
+        :rtype: list[AchievementProgressWithDefinition]
         """
         return self._achievements
 
@@ -200,7 +200,7 @@ class CustomerInventory(object):
 
 
         :param achievements: The achievements of this CustomerInventory.  # noqa: E501
-        :type: list[AchievementProgress]
+        :type: list[AchievementProgressWithDefinition]
         """
 
         self._achievements = achievements

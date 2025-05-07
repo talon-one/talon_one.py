@@ -53,7 +53,6 @@ class TestCreateAchievement(unittest.TestCase):
                 title = '50% off on 50th purchase.',
                 description = '50% off for every 50th purchase in a year.',
                 target = 50.0,
-                period = '1Y',
         )
 
     def testCreateAchievement(self):

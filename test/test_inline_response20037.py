@@ -36,26 +36,44 @@ class TestInlineResponse20037(unittest.TestCase):
         # model = talon_one.models.inline_response20037.InlineResponse20037()  # noqa: E501
         if include_optional :
             return InlineResponse20037(
+                has_more = True, 
                 total_result_size = 1, 
                 data = [
-                    talon_one.models.webhook_activation_log_entry.WebhookActivationLogEntry(
-                        integration_request_uuid = '6d3699cf-95bd-444a-b62f-80d6e8391dc9', 
-                        webhook_id = 1, 
-                        application_id = 13, 
-                        campaign_id = 86, 
-                        created = '2023-03-21T13:55:08.571144Z', )
+                    talon_one.models.catalog_item.CatalogItem(
+                        id = 6, 
+                        created = '2020-06-10T09:05:27.993483Z', 
+                        sku = 'SKU1241028', 
+                        price = 99.99, 
+                        catalogid = 6, 
+                        version = 5, 
+                        attributes = [
+                            talon_one.models.item_attribute.ItemAttribute(
+                                attributeid = 6, 
+                                name = '0', 
+                                value = talon_one.models.value.value(), )
+                            ], 
+                        product = talon_one.models.product.Product(
+                            name = 'sample_product', ), )
                     ]
             )
         else :
             return InlineResponse20037(
-                total_result_size = 1,
                 data = [
-                    talon_one.models.webhook_activation_log_entry.WebhookActivationLogEntry(
-                        integration_request_uuid = '6d3699cf-95bd-444a-b62f-80d6e8391dc9', 
-                        webhook_id = 1, 
-                        application_id = 13, 
-                        campaign_id = 86, 
-                        created = '2023-03-21T13:55:08.571144Z', )
+                    talon_one.models.catalog_item.CatalogItem(
+                        id = 6, 
+                        created = '2020-06-10T09:05:27.993483Z', 
+                        sku = 'SKU1241028', 
+                        price = 99.99, 
+                        catalogid = 6, 
+                        version = 5, 
+                        attributes = [
+                            talon_one.models.item_attribute.ItemAttribute(
+                                attributeid = 6, 
+                                name = '0', 
+                                value = talon_one.models.value.value(), )
+                            ], 
+                        product = talon_one.models.product.Product(
+                            name = 'sample_product', ), )
                     ],
         )
 
