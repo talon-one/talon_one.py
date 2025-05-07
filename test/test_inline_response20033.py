@@ -36,54 +36,19 @@ class TestInlineResponse20033(unittest.TestCase):
         # model = talon_one.models.inline_response20033.InlineResponse20033()  # noqa: E501
         if include_optional :
             return InlineResponse20033(
-                total_result_size = 1, 
+                has_more = True, 
                 data = [
-                    talon_one.models.attribute.Attribute(
-                        id = 6, 
-                        created = '2020-06-10T09:05:27.993483Z', 
-                        account_id = 3886, 
-                        entity = 'Event', 
-                        event_type = 'pageViewed', 
-                        name = 'pageViewed', 
-                        title = 'Page view event', 
-                        type = 'string', 
-                        description = 'Event triggered when a customer displays a page.', 
-                        suggestions = [
-                            '0'
-                            ], 
-                        has_allowed_list = False, 
-                        restricted_by_suggestions = False, 
-                        editable = True, 
-                        subscribed_applications_ids = [1, 4, 9], 
-                        subscribed_catalogs_ids = [2, 5], 
-                        allowed_subscriptions = [application, catalog], 
-                        event_type_id = 22, )
+                    talon_one.models.audience_analytics.AudienceAnalytics(
+                        audience_id = 1, 
+                        members_count = 1234, )
                     ]
             )
         else :
             return InlineResponse20033(
-                total_result_size = 1,
                 data = [
-                    talon_one.models.attribute.Attribute(
-                        id = 6, 
-                        created = '2020-06-10T09:05:27.993483Z', 
-                        account_id = 3886, 
-                        entity = 'Event', 
-                        event_type = 'pageViewed', 
-                        name = 'pageViewed', 
-                        title = 'Page view event', 
-                        type = 'string', 
-                        description = 'Event triggered when a customer displays a page.', 
-                        suggestions = [
-                            '0'
-                            ], 
-                        has_allowed_list = False, 
-                        restricted_by_suggestions = False, 
-                        editable = True, 
-                        subscribed_applications_ids = [1, 4, 9], 
-                        subscribed_catalogs_ids = [2, 5], 
-                        allowed_subscriptions = [application, catalog], 
-                        event_type_id = 22, )
+                    talon_one.models.audience_analytics.AudienceAnalytics(
+                        audience_id = 1, 
+                        members_count = 1234, )
                     ],
         )
 

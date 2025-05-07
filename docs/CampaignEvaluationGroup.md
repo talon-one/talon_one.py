@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**application_id** | **int** | The ID of the application that owns this entity. | 
+**application_id** | **int** | The ID of the Application that owns this entity. | 
 **name** | **str** | The name of the campaign evaluation group. | 
 **parent_id** | **int** | The ID of the parent group that contains the campaign evaluation group. | 
 **description** | **str** | A description of the campaign evaluation group. | [optional] 

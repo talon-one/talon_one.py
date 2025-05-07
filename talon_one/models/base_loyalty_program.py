@@ -467,7 +467,7 @@ class BaseLoyaltyProgram(object):
     def return_policy(self):
         """Gets the return_policy of this BaseLoyaltyProgram.  # noqa: E501
 
-        The policy that defines the rollback of points in case of a partially returned, cancelled, or reopened [customer session](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions). - `only_pending`: Only pending points can be rolled back. - `within_balance`: Available active points can be rolled back if there aren't enough pending points. The active balance of the customer cannot be negative.   # noqa: E501
+        The policy that defines the rollback of points in case of a partially returned, cancelled, or reopened [customer session](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions). - `only_pending`: Only pending points can be rolled back. - `within_balance`: Available active points can be rolled back if there aren't enough pending points. The active balance of the customer cannot be negative. - `unlimited`: Allows negative balance without any limit.   # noqa: E501
 
         :return: The return_policy of this BaseLoyaltyProgram.  # noqa: E501
         :rtype: str
@@ -478,12 +478,12 @@ class BaseLoyaltyProgram(object):
     def return_policy(self, return_policy):
         """Sets the return_policy of this BaseLoyaltyProgram.
 
-        The policy that defines the rollback of points in case of a partially returned, cancelled, or reopened [customer session](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions). - `only_pending`: Only pending points can be rolled back. - `within_balance`: Available active points can be rolled back if there aren't enough pending points. The active balance of the customer cannot be negative.   # noqa: E501
+        The policy that defines the rollback of points in case of a partially returned, cancelled, or reopened [customer session](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions). - `only_pending`: Only pending points can be rolled back. - `within_balance`: Available active points can be rolled back if there aren't enough pending points. The active balance of the customer cannot be negative. - `unlimited`: Allows negative balance without any limit.   # noqa: E501
 
         :param return_policy: The return_policy of this BaseLoyaltyProgram.  # noqa: E501
         :type: str
         """
-        allowed_values = ["only_pending", "within_balance"]  # noqa: E501
+        allowed_values = ["only_pending", "within_balance", "unlimited"]  # noqa: E501
         if self.local_vars_configuration.client_side_validation and return_policy not in allowed_values:  # noqa: E501
             raise ValueError(
                 "Invalid value for `return_policy` ({0}), must be one of {1}"  # noqa: E501

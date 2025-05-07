@@ -38,26 +38,24 @@ class TestInlineResponse20042(unittest.TestCase):
             return InlineResponse20042(
                 total_result_size = 1, 
                 data = [
-                    talon_one.models.export.Export(
+                    talon_one.models.event_type.EventType(
                         id = 6, 
                         created = '2020-06-10T09:05:27.993483Z', 
-                        account_id = 3886, 
-                        user_id = 388, 
-                        entity = 'Coupon', 
-                        filter = talon_one.models.filter.filter(), )
+                        title = 'Survey Completed', 
+                        name = 'surveyCompleted', 
+                        description = 'The survey was submitted by the customer.', )
                     ]
             )
         else :
             return InlineResponse20042(
                 total_result_size = 1,
                 data = [
-                    talon_one.models.export.Export(
+                    talon_one.models.event_type.EventType(
                         id = 6, 
                         created = '2020-06-10T09:05:27.993483Z', 
-                        account_id = 3886, 
-                        user_id = 388, 
-                        entity = 'Coupon', 
-                        filter = talon_one.models.filter.filter(), )
+                        title = 'Survey Completed', 
+                        name = 'surveyCompleted', 
+                        description = 'The survey was submitted by the customer.', )
                     ],
         )
 

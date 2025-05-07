@@ -42,7 +42,8 @@ class TestExpiringPointsNotificationPolicy(unittest.TestCase):
                         amount = 1, 
                         period = 'w', )
                     ], 
-                batching_enabled = True
+                batching_enabled = True, 
+                batch_size = 1000
             )
         else :
             return ExpiringPointsNotificationPolicy(

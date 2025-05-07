@@ -74,8 +74,7 @@ class TestCustomerSessionV2(unittest.TestCase):
                 total = 119.99, 
                 cart_item_total = 99.99, 
                 additional_cost_total = 20.0, 
-                updated = '2020-02-08T14:15:22Z', 
-                closure_prediction = 0.283
+                updated = '2020-02-08T14:15:22Z'
             )
         else :
             return CustomerSessionV2(

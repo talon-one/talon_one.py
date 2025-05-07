@@ -42,7 +42,6 @@ class TestProductSearchMatch(unittest.TestCase):
             )
         else :
             return ProductSearchMatch(
-                product_id = 1,
                 value = 'MyProduct',
         )
 

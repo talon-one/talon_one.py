@@ -37,12 +37,12 @@ class TestCatalogAction(unittest.TestCase):
         if include_optional :
             return CatalogAction(
                 type = 'ADD', 
-                payload = talon_one.models.catalog_action_payload.CatalogActionPayload()
+                payload = None
             )
         else :
             return CatalogAction(
                 type = 'ADD',
-                payload = talon_one.models.catalog_action_payload.CatalogActionPayload(),
+                payload = None,
         )
 
     def testCatalogAction(self):

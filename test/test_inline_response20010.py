@@ -36,42 +36,72 @@ class TestInlineResponse20010(unittest.TestCase):
         # model = talon_one.models.inline_response20010.InlineResponse20010()  # noqa: E501
         if include_optional :
             return InlineResponse20010(
-                has_more = True, 
+                total_result_size = 1, 
                 data = [
-                    talon_one.models.referral.Referral(
+                    talon_one.models.coupon.Coupon(
                         id = 6, 
                         created = '2020-06-10T09:05:27.993483Z', 
-                        start_date = '2020-11-10T23:00Z', 
-                        expiry_date = '2021-11-10T23:00Z', 
-                        usage_limit = 1, 
-                        campaign_id = 78, 
-                        advocate_profile_integration_id = 'URNGV8294NV', 
-                        friend_profile_integration_id = 'BZGGC2454PA', 
-                        attributes = {"channel":"web"}, 
+                        campaign_id = 211, 
+                        value = 'XMAS-20-2021', 
+                        usage_limit = 100, 
+                        discount_limit = 30.0, 
+                        reservation_limit = 45, 
+                        start_date = '2020-01-24T14:15:22Z', 
+                        expiry_date = '2023-08-24T14:15:22Z', 
+                        limits = [
+                            talon_one.models.limit_config.LimitConfig(
+                                action = 'createCoupon', 
+                                limit = 1000.0, 
+                                period = 'yearly', 
+                                entities = [Coupon], )
+                            ], 
+                        usage_counter = 10, 
+                        discount_counter = 10.0, 
+                        discount_remainder = 5.0, 
+                        reservation_counter = 1.0, 
+                        attributes = talon_one.models.attributes_of_coupon.Attributes of coupon(), 
+                        referral_id = 326632952, 
+                        recipient_integration_id = 'URNGV8294NV', 
                         import_id = 4, 
-                        code = '27G47Y54VH9L', 
-                        usage_counter = 1, 
-                        batch_id = 'tqyrgahe', )
+                        reservation = False, 
+                        batch_id = '32535-43255', 
+                        is_reservation_mandatory = False, 
+                        implicitly_reserved = False, )
                     ]
             )
         else :
             return InlineResponse20010(
-                has_more = True,
+                total_result_size = 1,
                 data = [
-                    talon_one.models.referral.Referral(
+                    talon_one.models.coupon.Coupon(
                         id = 6, 
                         created = '2020-06-10T09:05:27.993483Z', 
-                        start_date = '2020-11-10T23:00Z', 
-                        expiry_date = '2021-11-10T23:00Z', 
-                        usage_limit = 1, 
-                        campaign_id = 78, 
-                        advocate_profile_integration_id = 'URNGV8294NV', 
-                        friend_profile_integration_id = 'BZGGC2454PA', 
-                        attributes = {"channel":"web"}, 
+                        campaign_id = 211, 
+                        value = 'XMAS-20-2021', 
+                        usage_limit = 100, 
+                        discount_limit = 30.0, 
+                        reservation_limit = 45, 
+                        start_date = '2020-01-24T14:15:22Z', 
+                        expiry_date = '2023-08-24T14:15:22Z', 
+                        limits = [
+                            talon_one.models.limit_config.LimitConfig(
+                                action = 'createCoupon', 
+                                limit = 1000.0, 
+                                period = 'yearly', 
+                                entities = [Coupon], )
+                            ], 
+                        usage_counter = 10, 
+                        discount_counter = 10.0, 
+                        discount_remainder = 5.0, 
+                        reservation_counter = 1.0, 
+                        attributes = talon_one.models.attributes_of_coupon.Attributes of coupon(), 
+                        referral_id = 326632952, 
+                        recipient_integration_id = 'URNGV8294NV', 
                         import_id = 4, 
-                        code = '27G47Y54VH9L', 
-                        usage_counter = 1, 
-                        batch_id = 'tqyrgahe', )
+                        reservation = False, 
+                        batch_id = '32535-43255', 
+                        is_reservation_mandatory = False, 
+                        implicitly_reserved = False, )
                     ],
         )
 

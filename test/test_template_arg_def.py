@@ -39,7 +39,7 @@ class TestTemplateArgDef(unittest.TestCase):
                 type = 'string', 
                 description = '0', 
                 title = '0', 
-                ui = talon_one.models.ui.ui(), 
+                ui = None, 
                 key = '0', 
                 picklist_id = 56, 
                 restricted_by_picklist = True
@@ -48,7 +48,7 @@ class TestTemplateArgDef(unittest.TestCase):
             return TemplateArgDef(
                 type = 'string',
                 title = '0',
-                ui = talon_one.models.ui.ui(),
+                ui = None,
         )
 
     def testTemplateArgDef(self):

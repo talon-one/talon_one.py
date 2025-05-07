@@ -75,6 +75,7 @@ class Campaign(object):
         'template_id': 'int',
         'frontend_state': 'str',
         'stores_imported': 'bool',
+        'value_maps_ids': 'list[int]',
         'revision_frontend_state': 'str',
         'active_revision_id': 'int',
         'active_revision_version_id': 'int',
@@ -127,6 +128,7 @@ class Campaign(object):
         'template_id': 'templateId',
         'frontend_state': 'frontendState',
         'stores_imported': 'storesImported',
+        'value_maps_ids': 'valueMapsIds',
         'revision_frontend_state': 'revisionFrontendState',
         'active_revision_id': 'activeRevisionId',
         'active_revision_version_id': 'activeRevisionVersionId',
@@ -136,7 +138,7 @@ class Campaign(object):
         'stage_revision': 'stageRevision'
     }
 
-    def __init__(self, id=None, created=None, application_id=None, user_id=None, name=None, description=None, start_time=None, end_time=None, attributes=None, state='enabled', active_ruleset_id=None, tags=None, features=None, coupon_settings=None, referral_settings=None, limits=None, campaign_groups=None, type='advanced', linked_store_ids=None, budgets=None, coupon_redemption_count=None, referral_redemption_count=None, discount_count=None, discount_effect_count=None, coupon_creation_count=None, custom_effect_count=None, referral_creation_count=None, add_free_item_effect_count=None, awarded_giveaways_count=None, created_loyalty_points_count=None, created_loyalty_points_effect_count=None, redeemed_loyalty_points_count=None, redeemed_loyalty_points_effect_count=None, call_api_effect_count=None, reservecoupon_effect_count=None, last_activity=None, updated=None, created_by=None, updated_by=None, template_id=None, frontend_state=None, stores_imported=None, revision_frontend_state=None, active_revision_id=None, active_revision_version_id=None, version=None, current_revision_id=None, current_revision_version_id=None, stage_revision=False, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, created=None, application_id=None, user_id=None, name=None, description=None, start_time=None, end_time=None, attributes=None, state='enabled', active_ruleset_id=None, tags=None, features=None, coupon_settings=None, referral_settings=None, limits=None, campaign_groups=None, type='advanced', linked_store_ids=None, budgets=None, coupon_redemption_count=None, referral_redemption_count=None, discount_count=None, discount_effect_count=None, coupon_creation_count=None, custom_effect_count=None, referral_creation_count=None, add_free_item_effect_count=None, awarded_giveaways_count=None, created_loyalty_points_count=None, created_loyalty_points_effect_count=None, redeemed_loyalty_points_count=None, redeemed_loyalty_points_effect_count=None, call_api_effect_count=None, reservecoupon_effect_count=None, last_activity=None, updated=None, created_by=None, updated_by=None, template_id=None, frontend_state=None, stores_imported=None, value_maps_ids=None, revision_frontend_state=None, active_revision_id=None, active_revision_version_id=None, version=None, current_revision_id=None, current_revision_version_id=None, stage_revision=False, local_vars_configuration=None):  # noqa: E501
         """Campaign - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -184,6 +186,7 @@ class Campaign(object):
         self._template_id = None
         self._frontend_state = None
         self._stores_imported = None
+        self._value_maps_ids = None
         self._revision_frontend_state = None
         self._active_revision_id = None
         self._active_revision_version_id = None
@@ -264,6 +267,8 @@ class Campaign(object):
             self.template_id = template_id
         self.frontend_state = frontend_state
         self.stores_imported = stores_imported
+        if value_maps_ids is not None:
+            self.value_maps_ids = value_maps_ids
         if revision_frontend_state is not None:
             self.revision_frontend_state = revision_frontend_state
         if active_revision_id is not None:
@@ -333,7 +338,7 @@ class Campaign(object):
     def application_id(self):
         """Gets the application_id of this Campaign.  # noqa: E501
 
-        The ID of the application that owns this entity.  # noqa: E501
+        The ID of the Application that owns this entity.  # noqa: E501
 
         :return: The application_id of this Campaign.  # noqa: E501
         :rtype: int
@@ -344,7 +349,7 @@ class Campaign(object):
     def application_id(self, application_id):
         """Sets the application_id of this Campaign.
 
-        The ID of the application that owns this entity.  # noqa: E501
+        The ID of the Application that owns this entity.  # noqa: E501
 
         :param application_id: The application_id of this Campaign.  # noqa: E501
         :type: int
@@ -1295,6 +1300,29 @@ class Campaign(object):
             raise ValueError("Invalid value for `stores_imported`, must not be `None`")  # noqa: E501
 
         self._stores_imported = stores_imported
+
+    @property
+    def value_maps_ids(self):
+        """Gets the value_maps_ids of this Campaign.  # noqa: E501
+
+        A list of value map IDs for the campaign.  # noqa: E501
+
+        :return: The value_maps_ids of this Campaign.  # noqa: E501
+        :rtype: list[int]
+        """
+        return self._value_maps_ids
+
+    @value_maps_ids.setter
+    def value_maps_ids(self, value_maps_ids):
+        """Sets the value_maps_ids of this Campaign.
+
+        A list of value map IDs for the campaign.  # noqa: E501
+
+        :param value_maps_ids: The value_maps_ids of this Campaign.  # noqa: E501
+        :type: list[int]
+        """
+
+        self._value_maps_ids = value_maps_ids
 
     @property
     def revision_frontend_state(self):

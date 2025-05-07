@@ -36,34 +36,32 @@ class TestInlineResponse20044(unittest.TestCase):
         # model = talon_one.models.inline_response20044.InlineResponse20044()  # noqa: E501
         if include_optional :
             return InlineResponse20044(
-                has_more = True, 
                 total_result_size = 1, 
+                has_more = True, 
                 data = [
-                    talon_one.models.store.Store(
+                    talon_one.models.change.Change(
                         id = 6, 
-                        created = '2020-02-07T08:15:22Z', 
-                        name = 'South US store', 
-                        description = 'This is the description of the store in south US.', 
-                        attributes = {"country":"USA","code":1234}, 
-                        integration_id = 'STORE-001', 
-                        application_id = 322, 
-                        updated = '2021-09-23T10:12:42Z', 
-                        linked_campaign_ids = [4, 6, 8], )
+                        created = '2020-06-10T09:05:27.993483Z', 
+                        user_id = 388, 
+                        application_id = 359, 
+                        entity = '/v1/applications/359/campaigns/6727', 
+                        old = {}, 
+                        new = {"applicationId\"":359,"attributes\"":{},"campaignGroups\"":[],"created\"":"2022-07-08T13:04:02.972762328Z","description\"":"","features\"":["referrals","loyalty"],"id":6727}, 
+                        management_key_id = 3, )
                     ]
             )
         else :
             return InlineResponse20044(
                 data = [
-                    talon_one.models.store.Store(
+                    talon_one.models.change.Change(
                         id = 6, 
-                        created = '2020-02-07T08:15:22Z', 
-                        name = 'South US store', 
-                        description = 'This is the description of the store in south US.', 
-                        attributes = {"country":"USA","code":1234}, 
-                        integration_id = 'STORE-001', 
-                        application_id = 322, 
-                        updated = '2021-09-23T10:12:42Z', 
-                        linked_campaign_ids = [4, 6, 8], )
+                        created = '2020-06-10T09:05:27.993483Z', 
+                        user_id = 388, 
+                        application_id = 359, 
+                        entity = '/v1/applications/359/campaigns/6727', 
+                        old = {}, 
+                        new = {"applicationId\"":359,"attributes\"":{},"campaignGroups\"":[],"created\"":"2022-07-08T13:04:02.972762328Z","description\"":"","features\"":["referrals","loyalty"],"id":6727}, 
+                        management_key_id = 3, )
                     ],
         )
 

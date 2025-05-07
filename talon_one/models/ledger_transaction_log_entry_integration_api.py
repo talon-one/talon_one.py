@@ -44,7 +44,8 @@ class LedgerTransactionLogEntryIntegrationAPI(object):
         'amount': 'float',
         'id': 'int',
         'ruleset_id': 'int',
-        'rule_name': 'str'
+        'rule_name': 'str',
+        'flags': 'LoyaltyLedgerEntryFlags'
     }
 
     attribute_map = {
@@ -59,10 +60,11 @@ class LedgerTransactionLogEntryIntegrationAPI(object):
         'amount': 'amount',
         'id': 'id',
         'ruleset_id': 'rulesetId',
-        'rule_name': 'ruleName'
+        'rule_name': 'ruleName',
+        'flags': 'flags'
     }
 
-    def __init__(self, created=None, program_id=None, customer_session_id=None, type=None, name=None, start_date=None, expiry_date=None, subledger_id=None, amount=None, id=None, ruleset_id=None, rule_name=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, created=None, program_id=None, customer_session_id=None, type=None, name=None, start_date=None, expiry_date=None, subledger_id=None, amount=None, id=None, ruleset_id=None, rule_name=None, flags=None, local_vars_configuration=None):  # noqa: E501
         """LedgerTransactionLogEntryIntegrationAPI - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -80,6 +82,7 @@ class LedgerTransactionLogEntryIntegrationAPI(object):
         self._id = None
         self._ruleset_id = None
         self._rule_name = None
+        self._flags = None
         self.discriminator = None
 
         self.created = created
@@ -97,6 +100,8 @@ class LedgerTransactionLogEntryIntegrationAPI(object):
             self.ruleset_id = ruleset_id
         if rule_name is not None:
             self.rule_name = rule_name
+        if flags is not None:
+            self.flags = flags
 
     @property
     def created(self):
@@ -409,6 +414,27 @@ class LedgerTransactionLogEntryIntegrationAPI(object):
         """
 
         self._rule_name = rule_name
+
+    @property
+    def flags(self):
+        """Gets the flags of this LedgerTransactionLogEntryIntegrationAPI.  # noqa: E501
+
+
+        :return: The flags of this LedgerTransactionLogEntryIntegrationAPI.  # noqa: E501
+        :rtype: LoyaltyLedgerEntryFlags
+        """
+        return self._flags
+
+    @flags.setter
+    def flags(self, flags):
+        """Sets the flags of this LedgerTransactionLogEntryIntegrationAPI.
+
+
+        :param flags: The flags of this LedgerTransactionLogEntryIntegrationAPI.  # noqa: E501
+        :type: LoyaltyLedgerEntryFlags
+        """
+
+        self._flags = flags
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -37,55 +37,39 @@ class TestInlineResponse20022(unittest.TestCase):
         if include_optional :
             return InlineResponse20022(
                 has_more = True, 
-                total_result_size = 56, 
                 data = [
-                    talon_one.models.application_customer.ApplicationCustomer(
-                        id = 6, 
-                        created = '2020-02-07T08:15:22Z', 
-                        integration_id = 'URNGV8294NV', 
-                        attributes = {"Language":"english","ShippingCountry":"DE"}, 
-                        account_id = 31, 
-                        closed_sessions = 3, 
-                        total_sales = 299.99, 
-                        loyalty_memberships = [
-                            talon_one.models.loyalty_membership.LoyaltyMembership(
-                                joined = '2012-03-20T14:15:22Z', 
-                                loyalty_program_id = 323414846, )
-                            ], 
-                        audience_memberships = [
-                            talon_one.models.audience_membership.AudienceMembership(
-                                id = 2, 
-                                name = 'Travel audience', )
-                            ], 
-                        last_activity = '2020-02-08T14:15:20Z', 
-                        sandbox = False, 
-                        advocate_integration_id = '0', )
+                    talon_one.models.access_log_entry.AccessLogEntry(
+                        uuid = '606e7d34-2d36-4d53-ac71-d4442c325985', 
+                        status = 200, 
+                        method = 'PUT', 
+                        request_uri = '/v2/customer_sessions/Session136667', 
+                        time = '2023-01-16T16:00:00.700763Z', 
+                        request_payload = '{
+    "customerSession": {
+        "profileId": "customer123",
+        "state": "closed",
+...
+}', 
+                        response_payload = '{"coupons":[],"createdCoupons":[],...}', )
                     ]
             )
         else :
             return InlineResponse20022(
+                has_more = True,
                 data = [
-                    talon_one.models.application_customer.ApplicationCustomer(
-                        id = 6, 
-                        created = '2020-02-07T08:15:22Z', 
-                        integration_id = 'URNGV8294NV', 
-                        attributes = {"Language":"english","ShippingCountry":"DE"}, 
-                        account_id = 31, 
-                        closed_sessions = 3, 
-                        total_sales = 299.99, 
-                        loyalty_memberships = [
-                            talon_one.models.loyalty_membership.LoyaltyMembership(
-                                joined = '2012-03-20T14:15:22Z', 
-                                loyalty_program_id = 323414846, )
-                            ], 
-                        audience_memberships = [
-                            talon_one.models.audience_membership.AudienceMembership(
-                                id = 2, 
-                                name = 'Travel audience', )
-                            ], 
-                        last_activity = '2020-02-08T14:15:20Z', 
-                        sandbox = False, 
-                        advocate_integration_id = '0', )
+                    talon_one.models.access_log_entry.AccessLogEntry(
+                        uuid = '606e7d34-2d36-4d53-ac71-d4442c325985', 
+                        status = 200, 
+                        method = 'PUT', 
+                        request_uri = '/v2/customer_sessions/Session136667', 
+                        time = '2023-01-16T16:00:00.700763Z', 
+                        request_payload = '{
+    "customerSession": {
+        "profileId": "customer123",
+        "state": "closed",
+...
+}', 
+                        response_payload = '{"coupons":[],"createdCoupons":[],...}', )
                     ],
         )
 

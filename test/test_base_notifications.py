@@ -38,7 +38,7 @@ class TestBaseNotifications(unittest.TestCase):
             return BaseNotifications(
                 data = [
                     talon_one.models.base_notification.BaseNotification(
-                        policy = talon_one.models.base_notification_policy.BaseNotificationPolicy(), 
+                        policy = talon_one.models.policy.policy(), 
                         enabled = True, 
                         webhook = talon_one.models.base_notification_webhook.BaseNotificationWebhook(
                             id = 6, 

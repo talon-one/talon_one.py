@@ -36,53 +36,16 @@ class TestInlineResponse20031(unittest.TestCase):
         # model = talon_one.models.inline_response20031.InlineResponse20031()  # noqa: E501
         if include_optional :
             return InlineResponse20031(
-                has_more = True, 
+                total_result_size = 1, 
                 data = [
-                    talon_one.models.customer_profile.CustomerProfile(
-                        id = 6, 
-                        created = '2020-02-07T08:15:22Z', 
-                        integration_id = 'URNGV8294NV', 
-                        attributes = {"Language":"english","ShippingCountry":"DE"}, 
-                        account_id = 31, 
-                        closed_sessions = 3, 
-                        total_sales = 299.99, 
-                        loyalty_memberships = [
-                            talon_one.models.loyalty_membership.LoyaltyMembership(
-                                joined = '2012-03-20T14:15:22Z', 
-                                loyalty_program_id = 323414846, )
-                            ], 
-                        audience_memberships = [
-                            talon_one.models.audience_membership.AudienceMembership(
-                                id = 2, 
-                                name = 'Travel audience', )
-                            ], 
-                        last_activity = '2020-02-08T14:15:20Z', 
-                        sandbox = False, )
+                    '0'
                     ]
             )
         else :
             return InlineResponse20031(
+                total_result_size = 1,
                 data = [
-                    talon_one.models.customer_profile.CustomerProfile(
-                        id = 6, 
-                        created = '2020-02-07T08:15:22Z', 
-                        integration_id = 'URNGV8294NV', 
-                        attributes = {"Language":"english","ShippingCountry":"DE"}, 
-                        account_id = 31, 
-                        closed_sessions = 3, 
-                        total_sales = 299.99, 
-                        loyalty_memberships = [
-                            talon_one.models.loyalty_membership.LoyaltyMembership(
-                                joined = '2012-03-20T14:15:22Z', 
-                                loyalty_program_id = 323414846, )
-                            ], 
-                        audience_memberships = [
-                            talon_one.models.audience_membership.AudienceMembership(
-                                id = 2, 
-                                name = 'Travel audience', )
-                            ], 
-                        last_activity = '2020-02-08T14:15:20Z', 
-                        sandbox = False, )
+                    '0'
                     ],
         )
 

@@ -36,54 +36,66 @@ class TestInlineResponse20023(unittest.TestCase):
         # model = talon_one.models.inline_response20023.InlineResponse20023()  # noqa: E501
         if include_optional :
             return InlineResponse20023(
-                has_more = True, 
-                total_result_size = 56, 
+                total_result_size = 1, 
                 data = [
-                    talon_one.models.customer_profile.CustomerProfile(
-                        id = 6, 
-                        created = '2020-02-07T08:15:22Z', 
-                        integration_id = 'URNGV8294NV', 
-                        attributes = {"Language":"english","ShippingCountry":"DE"}, 
-                        account_id = 31, 
-                        closed_sessions = 3, 
-                        total_sales = 299.99, 
-                        loyalty_memberships = [
-                            talon_one.models.loyalty_membership.LoyaltyMembership(
-                                joined = '2012-03-20T14:15:22Z', 
-                                loyalty_program_id = 323414846, )
-                            ], 
-                        audience_memberships = [
-                            talon_one.models.audience_membership.AudienceMembership(
-                                id = 2, 
-                                name = 'Travel audience', )
-                            ], 
-                        last_activity = '2020-02-08T14:15:20Z', 
-                        sandbox = False, )
+                    talon_one.models.campaign_analytics.CampaignAnalytics(
+                        date = '2021-10-12T10:12:42Z', 
+                        campaign_revenue = 3539.76, 
+                        total_campaign_revenue = 5784.63, 
+                        campaign_refund = 1.337, 
+                        total_campaign_refund = 1.337, 
+                        campaign_discount_costs = 1.337, 
+                        total_campaign_discount_costs = 1.337, 
+                        campaign_refunded_discounts = 1.337, 
+                        total_campaign_refunded_discounts = 1.337, 
+                        campaign_free_items = 56, 
+                        total_campaign_free_items = 86, 
+                        coupon_redemptions = 56, 
+                        total_coupon_redemptions = 56, 
+                        coupon_rolledback_redemptions = 56, 
+                        total_coupon_rolledback_redemptions = 56, 
+                        referral_redemptions = 56, 
+                        total_referral_redemptions = 56, 
+                        coupons_created = 56, 
+                        total_coupons_created = 56, 
+                        referrals_created = 56, 
+                        total_referrals_created = 56, 
+                        added_loyalty_points = 250.0, 
+                        total_added_loyalty_points = 340.0, 
+                        deducted_loyalty_points = 120.0, 
+                        total_deducted_loyalty_points = 220.0, )
                     ]
             )
         else :
             return InlineResponse20023(
+                total_result_size = 1,
                 data = [
-                    talon_one.models.customer_profile.CustomerProfile(
-                        id = 6, 
-                        created = '2020-02-07T08:15:22Z', 
-                        integration_id = 'URNGV8294NV', 
-                        attributes = {"Language":"english","ShippingCountry":"DE"}, 
-                        account_id = 31, 
-                        closed_sessions = 3, 
-                        total_sales = 299.99, 
-                        loyalty_memberships = [
-                            talon_one.models.loyalty_membership.LoyaltyMembership(
-                                joined = '2012-03-20T14:15:22Z', 
-                                loyalty_program_id = 323414846, )
-                            ], 
-                        audience_memberships = [
-                            talon_one.models.audience_membership.AudienceMembership(
-                                id = 2, 
-                                name = 'Travel audience', )
-                            ], 
-                        last_activity = '2020-02-08T14:15:20Z', 
-                        sandbox = False, )
+                    talon_one.models.campaign_analytics.CampaignAnalytics(
+                        date = '2021-10-12T10:12:42Z', 
+                        campaign_revenue = 3539.76, 
+                        total_campaign_revenue = 5784.63, 
+                        campaign_refund = 1.337, 
+                        total_campaign_refund = 1.337, 
+                        campaign_discount_costs = 1.337, 
+                        total_campaign_discount_costs = 1.337, 
+                        campaign_refunded_discounts = 1.337, 
+                        total_campaign_refunded_discounts = 1.337, 
+                        campaign_free_items = 56, 
+                        total_campaign_free_items = 86, 
+                        coupon_redemptions = 56, 
+                        total_coupon_redemptions = 56, 
+                        coupon_rolledback_redemptions = 56, 
+                        total_coupon_rolledback_redemptions = 56, 
+                        referral_redemptions = 56, 
+                        total_referral_redemptions = 56, 
+                        coupons_created = 56, 
+                        total_coupons_created = 56, 
+                        referrals_created = 56, 
+                        total_referrals_created = 56, 
+                        added_loyalty_points = 250.0, 
+                        total_added_loyalty_points = 340.0, 
+                        deducted_loyalty_points = 120.0, 
+                        total_deducted_loyalty_points = 220.0, )
                     ],
         )
 

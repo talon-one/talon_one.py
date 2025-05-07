@@ -55,7 +55,8 @@ class AdditionalCampaignProperties(object):
         'updated_by': 'str',
         'template_id': 'int',
         'frontend_state': 'str',
-        'stores_imported': 'bool'
+        'stores_imported': 'bool',
+        'value_maps_ids': 'list[int]'
     }
 
     attribute_map = {
@@ -81,10 +82,11 @@ class AdditionalCampaignProperties(object):
         'updated_by': 'updatedBy',
         'template_id': 'templateId',
         'frontend_state': 'frontendState',
-        'stores_imported': 'storesImported'
+        'stores_imported': 'storesImported',
+        'value_maps_ids': 'valueMapsIds'
     }
 
-    def __init__(self, budgets=None, coupon_redemption_count=None, referral_redemption_count=None, discount_count=None, discount_effect_count=None, coupon_creation_count=None, custom_effect_count=None, referral_creation_count=None, add_free_item_effect_count=None, awarded_giveaways_count=None, created_loyalty_points_count=None, created_loyalty_points_effect_count=None, redeemed_loyalty_points_count=None, redeemed_loyalty_points_effect_count=None, call_api_effect_count=None, reservecoupon_effect_count=None, last_activity=None, updated=None, created_by=None, updated_by=None, template_id=None, frontend_state=None, stores_imported=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, budgets=None, coupon_redemption_count=None, referral_redemption_count=None, discount_count=None, discount_effect_count=None, coupon_creation_count=None, custom_effect_count=None, referral_creation_count=None, add_free_item_effect_count=None, awarded_giveaways_count=None, created_loyalty_points_count=None, created_loyalty_points_effect_count=None, redeemed_loyalty_points_count=None, redeemed_loyalty_points_effect_count=None, call_api_effect_count=None, reservecoupon_effect_count=None, last_activity=None, updated=None, created_by=None, updated_by=None, template_id=None, frontend_state=None, stores_imported=None, value_maps_ids=None, local_vars_configuration=None):  # noqa: E501
         """AdditionalCampaignProperties - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -113,6 +115,7 @@ class AdditionalCampaignProperties(object):
         self._template_id = None
         self._frontend_state = None
         self._stores_imported = None
+        self._value_maps_ids = None
         self.discriminator = None
 
         if budgets is not None:
@@ -159,6 +162,8 @@ class AdditionalCampaignProperties(object):
             self.template_id = template_id
         self.frontend_state = frontend_state
         self.stores_imported = stores_imported
+        if value_maps_ids is not None:
+            self.value_maps_ids = value_maps_ids
 
     @property
     def budgets(self):
@@ -698,6 +703,29 @@ class AdditionalCampaignProperties(object):
             raise ValueError("Invalid value for `stores_imported`, must not be `None`")  # noqa: E501
 
         self._stores_imported = stores_imported
+
+    @property
+    def value_maps_ids(self):
+        """Gets the value_maps_ids of this AdditionalCampaignProperties.  # noqa: E501
+
+        A list of value map IDs for the campaign.  # noqa: E501
+
+        :return: The value_maps_ids of this AdditionalCampaignProperties.  # noqa: E501
+        :rtype: list[int]
+        """
+        return self._value_maps_ids
+
+    @value_maps_ids.setter
+    def value_maps_ids(self, value_maps_ids):
+        """Sets the value_maps_ids of this AdditionalCampaignProperties.
+
+        A list of value map IDs for the campaign.  # noqa: E501
+
+        :param value_maps_ids: The value_maps_ids of this AdditionalCampaignProperties.  # noqa: E501
+        :type: list[int]
+        """
+
+        self._value_maps_ids = value_maps_ids
 
     def to_dict(self):
         """Returns the model properties as a dict"""

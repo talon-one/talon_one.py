@@ -37,86 +37,53 @@ class TestInlineResponse20026(unittest.TestCase):
         if include_optional :
             return InlineResponse20026(
                 has_more = True, 
+                total_result_size = 56, 
                 data = [
-                    talon_one.models.application_session.ApplicationSession(
+                    talon_one.models.customer_profile.CustomerProfile(
                         id = 6, 
                         created = '2020-02-07T08:15:22Z', 
                         integration_id = 'URNGV8294NV', 
-                        store_integration_id = 'STORE-001', 
-                        application_id = 322, 
-                        profile_id = 138, 
-                        profileintegrationid = '382370BKDB946', 
-                        coupon = 'BKDB946', 
-                        referral = 'BKDB946', 
-                        state = 'closed', 
-                        cart_items = [
-                            talon_one.models.cart_item.CartItem(
-                                name = 'Air Glide', 
-                                sku = 'SKU1241028', 
-                                quantity = 1, 
-                                returned_quantity = 1, 
-                                remaining_quantity = 1, 
-                                price = 99.99, 
-                                category = 'shoes', 
-                                product = talon_one.models.product.Product(
-                                    name = 'sample_product', ), 
-                                weight = 1130.0, 
-                                height = 1.337, 
-                                width = 1.337, 
-                                length = 1.337, 
-                                position = 1.337, 
-                                attributes = {"image":"11.jpeg","material":"leather"}, 
-                                additional_costs = {"shipping":{"price":9}}, 
-                                catalog_item_id = 56, )
+                        attributes = {"Language":"english","ShippingCountry":"DE"}, 
+                        account_id = 31, 
+                        closed_sessions = 3, 
+                        total_sales = 299.99, 
+                        loyalty_memberships = [
+                            talon_one.models.loyalty_membership.LoyaltyMembership(
+                                joined = '2012-03-20T14:15:22Z', 
+                                loyalty_program_id = 323414846, )
                             ], 
-                        discounts = {
-                            'key' : 1.337
-                            }, 
-                        total_discounts = 100.0, 
-                        total = 200.0, 
-                        attributes = talon_one.models.attributes.attributes(), )
+                        audience_memberships = [
+                            talon_one.models.audience_membership.AudienceMembership(
+                                id = 2, 
+                                name = 'Travel audience', )
+                            ], 
+                        last_activity = '2020-02-08T14:15:20Z', 
+                        sandbox = False, )
                     ]
             )
         else :
             return InlineResponse20026(
                 data = [
-                    talon_one.models.application_session.ApplicationSession(
+                    talon_one.models.customer_profile.CustomerProfile(
                         id = 6, 
                         created = '2020-02-07T08:15:22Z', 
                         integration_id = 'URNGV8294NV', 
-                        store_integration_id = 'STORE-001', 
-                        application_id = 322, 
-                        profile_id = 138, 
-                        profileintegrationid = '382370BKDB946', 
-                        coupon = 'BKDB946', 
-                        referral = 'BKDB946', 
-                        state = 'closed', 
-                        cart_items = [
-                            talon_one.models.cart_item.CartItem(
-                                name = 'Air Glide', 
-                                sku = 'SKU1241028', 
-                                quantity = 1, 
-                                returned_quantity = 1, 
-                                remaining_quantity = 1, 
-                                price = 99.99, 
-                                category = 'shoes', 
-                                product = talon_one.models.product.Product(
-                                    name = 'sample_product', ), 
-                                weight = 1130.0, 
-                                height = 1.337, 
-                                width = 1.337, 
-                                length = 1.337, 
-                                position = 1.337, 
-                                attributes = {"image":"11.jpeg","material":"leather"}, 
-                                additional_costs = {"shipping":{"price":9}}, 
-                                catalog_item_id = 56, )
+                        attributes = {"Language":"english","ShippingCountry":"DE"}, 
+                        account_id = 31, 
+                        closed_sessions = 3, 
+                        total_sales = 299.99, 
+                        loyalty_memberships = [
+                            talon_one.models.loyalty_membership.LoyaltyMembership(
+                                joined = '2012-03-20T14:15:22Z', 
+                                loyalty_program_id = 323414846, )
                             ], 
-                        discounts = {
-                            'key' : 1.337
-                            }, 
-                        total_discounts = 100.0, 
-                        total = 200.0, 
-                        attributes = talon_one.models.attributes.attributes(), )
+                        audience_memberships = [
+                            talon_one.models.audience_membership.AudienceMembership(
+                                id = 2, 
+                                name = 'Travel audience', )
+                            ], 
+                        last_activity = '2020-02-08T14:15:20Z', 
+                        sandbox = False, )
                     ],
         )
 

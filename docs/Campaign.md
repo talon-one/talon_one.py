@@ -5,7 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** | Unique ID for this entity. | 
 **created** | **datetime** | The exact moment this entity was created. | 
-**application_id** | **int** | The ID of the application that owns this entity. | 
+**application_id** | **int** | The ID of the Application that owns this entity. | 
 **user_id** | **int** | The ID of the user associated with this entity. | 
 **name** | **str** | A user-facing name for this campaign. | 
 **description** | **str** | A detailed description of the campaign. | 
@@ -45,6 +45,7 @@ Name | Type | Description | Notes
 **template_id** | **int** | The ID of the Campaign Template this Campaign was created from. | [optional] 
 **frontend_state** | **str** | The campaign state displayed in the Campaign Manager. | 
 **stores_imported** | **bool** | Indicates whether the linked stores were imported via a CSV file. | 
+**value_maps_ids** | **list[int]** | A list of value map IDs for the campaign. | [optional] 
 **revision_frontend_state** | **str** | The campaign revision state displayed in the Campaign Manager. | [optional] 
 **active_revision_id** | **int** | ID of the revision that was last activated on this campaign.  | [optional] 
 **active_revision_version_id** | **int** | ID of the revision version that is active on the campaign.  | [optional] 

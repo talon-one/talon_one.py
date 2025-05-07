@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **pending_points** | **float** | Total amount of points awarded to this customer but not available until their start date. | [optional] 
 **spent_points** | **float** | Total amount of points already spent by this customer. | [optional] 
 **expired_points** | **float** | Total amount of points awarded but never redeemed. They cannot be used anymore. | [optional] 
+**negative_points** | **float** | Total amount of negative points. This implies that &#x60;activePoints&#x60; is &#x60;0&#x60;. | [optional] 
 **current_tier** | [**Tier**](Tier.md) |  | [optional] 
 **projected_tier** | [**ProjectedTier**](ProjectedTier.md) |  | [optional] 
 **points_to_next_tier** | **float** | The number of points required to move up a tier. | [optional] 

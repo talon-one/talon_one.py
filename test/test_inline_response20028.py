@@ -36,16 +36,42 @@ class TestInlineResponse20028(unittest.TestCase):
         # model = talon_one.models.inline_response20028.InlineResponse20028()  # noqa: E501
         if include_optional :
             return InlineResponse20028(
-                total_result_size = 1, 
+                has_more = True, 
                 data = [
-                    '0'
+                    talon_one.models.customer_activity_report.CustomerActivityReport(
+                        integration_id = 'URNGV8294NV', 
+                        created = '2020-02-07T08:15:22Z', 
+                        name = '0', 
+                        customer_id = 56, 
+                        last_activity = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        coupon_redemptions = 56, 
+                        coupon_use_attempts = 56, 
+                        coupon_failed_attempts = 56, 
+                        accrued_discounts = 1.337, 
+                        accrued_revenue = 1.337, 
+                        total_orders = 56, 
+                        total_orders_no_coupon = 56, 
+                        campaign_name = '0', )
                     ]
             )
         else :
             return InlineResponse20028(
-                total_result_size = 1,
+                has_more = True,
                 data = [
-                    '0'
+                    talon_one.models.customer_activity_report.CustomerActivityReport(
+                        integration_id = 'URNGV8294NV', 
+                        created = '2020-02-07T08:15:22Z', 
+                        name = '0', 
+                        customer_id = 56, 
+                        last_activity = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        coupon_redemptions = 56, 
+                        coupon_use_attempts = 56, 
+                        coupon_failed_attempts = 56, 
+                        accrued_discounts = 1.337, 
+                        accrued_revenue = 1.337, 
+                        total_orders = 56, 
+                        total_orders_no_coupon = 56, 
+                        campaign_name = '0', )
                     ],
         )
 

@@ -46,7 +46,7 @@ class ManagementApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param DeactivateUserRequest body: body (required)
+        :param DeleteUserRequest body: body (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -71,7 +71,7 @@ class ManagementApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param DeactivateUserRequest body: body (required)
+        :param DeleteUserRequest body: body (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -300,7 +300,7 @@ class ManagementApi(object):
 
         :param async_req bool: execute request asynchronously
         :param str loyalty_program_id: The identifier for the loyalty program. (required)
-        :param str integration_id: The identifier of the profile. (required)
+        :param str integration_id: The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier.  (required)
         :param AddLoyaltyPoints body: body (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -327,7 +327,7 @@ class ManagementApi(object):
 
         :param async_req bool: execute request asynchronously
         :param str loyalty_program_id: The identifier for the loyalty program. (required)
-        :param str integration_id: The identifier of the profile. (required)
+        :param str integration_id: The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier.  (required)
         :param AddLoyaltyPoints body: body (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -445,7 +445,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse2006
+        :return: InlineResponse2008
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -474,7 +474,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse2006, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse2008, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -553,7 +553,7 @@ class ManagementApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse2006',  # noqa: E501
+            response_type='InlineResponse2008',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -1454,7 +1454,7 @@ class ManagementApi(object):
         :param int application_id: The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
         :param int campaign_id: The ID of the campaign. It is displayed in your Talon.One deployment URL. (required)
         :param NewCoupons body: body (required)
-        :param str silent: Possible values: `yes` or `no`. - `yes`: Increases the perfomance of the API call by returning a 204 response. - `no`: Returns a 200 response that contains the updated customer profiles. 
+        :param str silent: Possible values: `yes` or `no`. - `yes`: Increases the performance of the API call by returning a 204 response. - `no`: Returns a 200 response that contains the updated customer profiles. 
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -1462,7 +1462,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse2008
+        :return: InlineResponse20010
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1482,7 +1482,7 @@ class ManagementApi(object):
         :param int application_id: The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
         :param int campaign_id: The ID of the campaign. It is displayed in your Talon.One deployment URL. (required)
         :param NewCoupons body: body (required)
-        :param str silent: Possible values: `yes` or `no`. - `yes`: Increases the perfomance of the API call by returning a 204 response. - `no`: Returns a 200 response that contains the updated customer profiles. 
+        :param str silent: Possible values: `yes` or `no`. - `yes`: Increases the performance of the API call by returning a 204 response. - `no`: Returns a 200 response that contains the updated customer profiles. 
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -1492,7 +1492,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse2008, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20010, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1574,7 +1574,7 @@ class ManagementApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse2008',  # noqa: E501
+            response_type='InlineResponse20010',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -1867,7 +1867,7 @@ class ManagementApi(object):
         :param int application_id: The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
         :param int campaign_id: The ID of the campaign. It is displayed in your Talon.One deployment URL. (required)
         :param NewCouponsForMultipleRecipients body: body (required)
-        :param str silent: Possible values: `yes` or `no`. - `yes`: Increases the perfomance of the API call by returning a 204 response. - `no`: Returns a 200 response that contains the updated customer profiles. 
+        :param str silent: Possible values: `yes` or `no`. - `yes`: Increases the performance of the API call by returning a 204 response. - `no`: Returns a 200 response that contains the updated customer profiles. 
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -1875,7 +1875,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse2008
+        :return: InlineResponse20010
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1895,7 +1895,7 @@ class ManagementApi(object):
         :param int application_id: The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
         :param int campaign_id: The ID of the campaign. It is displayed in your Talon.One deployment URL. (required)
         :param NewCouponsForMultipleRecipients body: body (required)
-        :param str silent: Possible values: `yes` or `no`. - `yes`: Increases the perfomance of the API call by returning a 204 response. - `no`: Returns a 200 response that contains the updated customer profiles. 
+        :param str silent: Possible values: `yes` or `no`. - `yes`: Increases the performance of the API call by returning a 204 response. - `no`: Returns a 200 response that contains the updated customer profiles. 
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -1905,7 +1905,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse2008, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20010, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1987,7 +1987,7 @@ class ManagementApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse2008',  # noqa: E501
+            response_type='InlineResponse20010',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -2604,7 +2604,7 @@ class ManagementApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param DeactivateUserRequest body: body (required)
+        :param DeleteUserRequest body: body (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -2629,7 +2629,7 @@ class ManagementApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param DeactivateUserRequest body: body (required)
+        :param DeleteUserRequest body: body (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -4153,7 +4153,7 @@ class ManagementApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param DeactivateUserRequest body: body (required)
+        :param DeleteUserRequest body: body (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -4178,7 +4178,7 @@ class ManagementApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param DeactivateUserRequest body: body (required)
+        :param DeleteUserRequest body: body (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -5108,7 +5108,7 @@ class ManagementApi(object):
         :param async_req bool: execute request asynchronously
         :param int application_id: The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
         :param float campaign_id: Filter results by campaign ID.
-        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
+        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations. 
         :param str value: Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters.
         :param datetime created_before: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally.
         :param datetime created_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally.
@@ -5147,7 +5147,7 @@ class ManagementApi(object):
         :param async_req bool: execute request asynchronously
         :param int application_id: The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
         :param float campaign_id: Filter results by campaign ID.
-        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
+        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations. 
         :param str value: Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters.
         :param datetime created_before: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally.
         :param datetime created_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally.
@@ -6312,7 +6312,7 @@ class ManagementApi(object):
     def export_loyalty_ledger(self, range_start, range_end, loyalty_program_id, integration_id, **kwargs):  # noqa: E501
         """Export customer's transaction logs  # noqa: E501
 
-        Download a CSV file containing a customer's transaction logs in the loyalty program.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The generated file can contain the following columns:  - `customerprofileid`: The ID of the profile. - `customersessionid`: The ID of the customer session. - `rulesetid`: The ID of the rule set. - `rulename`: The name of the rule. - `programid`: The ID of the loyalty program. - `type`: The transaction type, such as `addition` or `subtraction`. - `name`: The reason for the transaction. - `subledgerid`: The ID of the subledger, when applicable. - `startdate`: The start date of the program. - `expirydate`: The expiration date of the program. - `id`: The ID of the transaction. - `created`: The timestamp of the creation of the loyalty program. - `amount`: The number of points in that transaction. - `archived`: Whether the session related to the transaction is archived. - `campaignid`: The ID of the campaign.   # noqa: E501
+        Download a CSV file containing a customer's transaction logs in the loyalty program.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The generated file can contain the following columns:  - `customerprofileid`: The ID of the profile. - `customersessionid`: The ID of the customer session. - `rulesetid`: The ID of the rule set. - `rulename`: The name of the rule. - `programid`: The ID of the loyalty program. - `type`: The transaction type, such as `addition` or `subtraction`. - `name`: The reason for the transaction. - `subledgerid`: The ID of the subledger, when applicable. - `startdate`: The start date of the program. - `expirydate`: The expiration date of the program. - `id`: The ID of the transaction. - `created`: The timestamp of the creation of the loyalty program. - `amount`: The number of points in that transaction. - `archived`: Whether the session related to the transaction is archived. - `campaignid`: The ID of the campaign. - `flags`: The flags of the transaction, when applicable. The `createsNegativeBalance` flag indicates whether the transaction results in a negative balance.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.export_loyalty_ledger(range_start, range_end, loyalty_program_id, integration_id, async_req=True)
@@ -6322,7 +6322,7 @@ class ManagementApi(object):
         :param datetime range_start: Only return results from after this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.  (required)
         :param datetime range_end: Only return results from before this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.  (required)
         :param str loyalty_program_id: The identifier for the loyalty program. (required)
-        :param str integration_id: The identifier of the profile. (required)
+        :param str integration_id: The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier.  (required)
         :param str date_format: Determines the format of dates in the export document.
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -6341,7 +6341,7 @@ class ManagementApi(object):
     def export_loyalty_ledger_with_http_info(self, range_start, range_end, loyalty_program_id, integration_id, **kwargs):  # noqa: E501
         """Export customer's transaction logs  # noqa: E501
 
-        Download a CSV file containing a customer's transaction logs in the loyalty program.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The generated file can contain the following columns:  - `customerprofileid`: The ID of the profile. - `customersessionid`: The ID of the customer session. - `rulesetid`: The ID of the rule set. - `rulename`: The name of the rule. - `programid`: The ID of the loyalty program. - `type`: The transaction type, such as `addition` or `subtraction`. - `name`: The reason for the transaction. - `subledgerid`: The ID of the subledger, when applicable. - `startdate`: The start date of the program. - `expirydate`: The expiration date of the program. - `id`: The ID of the transaction. - `created`: The timestamp of the creation of the loyalty program. - `amount`: The number of points in that transaction. - `archived`: Whether the session related to the transaction is archived. - `campaignid`: The ID of the campaign.   # noqa: E501
+        Download a CSV file containing a customer's transaction logs in the loyalty program.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The generated file can contain the following columns:  - `customerprofileid`: The ID of the profile. - `customersessionid`: The ID of the customer session. - `rulesetid`: The ID of the rule set. - `rulename`: The name of the rule. - `programid`: The ID of the loyalty program. - `type`: The transaction type, such as `addition` or `subtraction`. - `name`: The reason for the transaction. - `subledgerid`: The ID of the subledger, when applicable. - `startdate`: The start date of the program. - `expirydate`: The expiration date of the program. - `id`: The ID of the transaction. - `created`: The timestamp of the creation of the loyalty program. - `amount`: The number of points in that transaction. - `archived`: Whether the session related to the transaction is archived. - `campaignid`: The ID of the campaign. - `flags`: The flags of the transaction, when applicable. The `createsNegativeBalance` flag indicates whether the transaction results in a negative balance.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.export_loyalty_ledger_with_http_info(range_start, range_end, loyalty_program_id, integration_id, async_req=True)
@@ -6351,7 +6351,7 @@ class ManagementApi(object):
         :param datetime range_start: Only return results from after this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.  (required)
         :param datetime range_end: Only return results from before this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.  (required)
         :param str loyalty_program_id: The identifier for the loyalty program. (required)
-        :param str integration_id: The identifier of the profile. (required)
+        :param str integration_id: The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier.  (required)
         :param str date_format: Determines the format of dates in the export document.
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -6746,7 +6746,7 @@ class ManagementApi(object):
         :param str status: Filter results by HTTP status codes.
         :param int page_size: The number of items in the response.
         :param int skip: The number of items to skip when paging through large result sets.
-        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
+        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations. 
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -6754,7 +6754,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20019
+        :return: InlineResponse20022
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -6779,7 +6779,7 @@ class ManagementApi(object):
         :param str status: Filter results by HTTP status codes.
         :param int page_size: The number of items in the response.
         :param int skip: The number of items to skip when paging through large result sets.
-        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
+        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations. 
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -6789,7 +6789,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20019, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20022, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -6886,7 +6886,7 @@ class ManagementApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20019',  # noqa: E501
+            response_type='InlineResponse20022',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -7494,7 +7494,7 @@ class ManagementApi(object):
         :param async_req bool: execute request asynchronously
         :param int page_size: The number of items in the response.
         :param int skip: The number of items to skip when paging through large result sets.
-        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
+        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations. 
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -7502,7 +7502,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20035
+        :return: InlineResponse20038
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -7521,7 +7521,7 @@ class ManagementApi(object):
         :param async_req bool: execute request asynchronously
         :param int page_size: The number of items in the response.
         :param int skip: The number of items to skip when paging through large result sets.
-        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
+        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations. 
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -7531,7 +7531,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20035, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20038, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -7598,7 +7598,7 @@ class ManagementApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20035',  # noqa: E501
+            response_type='InlineResponse20038',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -7971,7 +7971,7 @@ class ManagementApi(object):
         :param str integration_id: The Integration ID of the Advocate's Profile. (required)
         :param int page_size: The number of items in the response.
         :param int skip: The number of items to skip when paging through large result sets.
-        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
+        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations. 
         :param bool with_total_result_size: When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When `true`: `hasMore` is true when there is a next page. `totalResultSize` is always zero. - When `false`: `hasMore` is always false. `totalResultSize` contains the total number of results for this query. 
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -7980,7 +7980,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20032
+        :return: InlineResponse20035
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -8001,7 +8001,7 @@ class ManagementApi(object):
         :param str integration_id: The Integration ID of the Advocate's Profile. (required)
         :param int page_size: The number of items in the response.
         :param int skip: The number of items to skip when paging through large result sets.
-        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
+        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations. 
         :param bool with_total_result_size: When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When `true`: `hasMore` is true when there is a next page. `totalResultSize` is always zero. - When `false`: `hasMore` is always false. `totalResultSize` contains the total number of results for this query. 
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -8012,7 +8012,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20032, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20035, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -8096,7 +8096,7 @@ class ManagementApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20032',  # noqa: E501
+            response_type='InlineResponse20035',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -8126,7 +8126,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20021
+        :return: InlineResponse20024
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -8157,7 +8157,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20021, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20024, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -8234,7 +8234,7 @@ class ManagementApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20021',  # noqa: E501
+            response_type='InlineResponse20024',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -8264,7 +8264,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20022
+        :return: InlineResponse20025
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -8295,7 +8295,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20022, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20025, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -8380,7 +8380,7 @@ class ManagementApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20022',  # noqa: E501
+            response_type='InlineResponse20025',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -8401,7 +8401,7 @@ class ManagementApi(object):
         :param int application_id: The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
         :param int page_size: The number of items in the response.
         :param int skip: The number of items to skip when paging through large result sets.
-        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
+        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations. 
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -8409,7 +8409,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20028
+        :return: InlineResponse20031
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -8429,7 +8429,7 @@ class ManagementApi(object):
         :param int application_id: The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
         :param int page_size: The number of items in the response.
         :param int skip: The number of items to skip when paging through large result sets.
-        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
+        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations. 
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -8439,7 +8439,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20028, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20031, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -8513,7 +8513,7 @@ class ManagementApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20028',  # noqa: E501
+            response_type='InlineResponse20031',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -8534,7 +8534,7 @@ class ManagementApi(object):
         :param int application_id: The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
         :param int page_size: The number of items in the response.
         :param int skip: The number of items to skip when paging through large result sets.
-        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
+        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations. 
         :param str type: Comma-separated list of types by which to filter events. Must be exact match(es).
         :param datetime created_before: Only return events created before this date. You can use any time zone setting. Talon.One will convert to UTC internally.
         :param datetime created_after: Only return events created after this date. You can use any time zone setting. Talon.One will convert to UTC internally.
@@ -8553,7 +8553,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20027
+        :return: InlineResponse20030
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -8573,7 +8573,7 @@ class ManagementApi(object):
         :param int application_id: The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
         :param int page_size: The number of items in the response.
         :param int skip: The number of items to skip when paging through large result sets.
-        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
+        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations. 
         :param str type: Comma-separated list of types by which to filter events. Must be exact match(es).
         :param datetime created_before: Only return events created before this date. You can use any time zone setting. Talon.One will convert to UTC internally.
         :param datetime created_after: Only return events created after this date. You can use any time zone setting. Talon.One will convert to UTC internally.
@@ -8594,7 +8594,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20027, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20030, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -8707,7 +8707,7 @@ class ManagementApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20027',  # noqa: E501
+            response_type='InlineResponse20030',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -8851,7 +8851,7 @@ class ManagementApi(object):
         :param int application_id: The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
         :param int page_size: The number of items in the response.
         :param int skip: The number of items to skip when paging through large result sets.
-        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
+        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations. 
         :param str profile: Profile integration ID filter for sessions. Must be exact match.
         :param str state: Filter by sessions with this state. Must be exact match.
         :param datetime created_before: Only return events created before this date. You can use any time zone setting. Talon.One will convert to UTC internally.
@@ -8867,7 +8867,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20026
+        :return: InlineResponse20029
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -8887,7 +8887,7 @@ class ManagementApi(object):
         :param int application_id: The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
         :param int page_size: The number of items in the response.
         :param int skip: The number of items to skip when paging through large result sets.
-        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
+        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations. 
         :param str profile: Profile integration ID filter for sessions. Must be exact match.
         :param str state: Filter by sessions with this state. Must be exact match.
         :param datetime created_before: Only return events created before this date. You can use any time zone setting. Talon.One will convert to UTC internally.
@@ -8905,7 +8905,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20026, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20029, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -9003,7 +9003,7 @@ class ManagementApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20026',  # noqa: E501
+            response_type='InlineResponse20029',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -9023,7 +9023,7 @@ class ManagementApi(object):
         :param async_req bool: execute request asynchronously
         :param int page_size: The number of items in the response.
         :param int skip: The number of items to skip when paging through large result sets.
-        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
+        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations. 
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -9031,7 +9031,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse2005
+        :return: InlineResponse2007
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -9050,7 +9050,7 @@ class ManagementApi(object):
         :param async_req bool: execute request asynchronously
         :param int page_size: The number of items in the response.
         :param int skip: The number of items to skip when paging through large result sets.
-        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
+        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations. 
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -9060,7 +9060,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse2005, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse2007, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -9127,7 +9127,7 @@ class ManagementApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse2005',  # noqa: E501
+            response_type='InlineResponse2007',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -9261,7 +9261,7 @@ class ManagementApi(object):
         :param async_req bool: execute request asynchronously
         :param int page_size: The number of items in the response.
         :param int skip: The number of items to skip when paging through large result sets.
-        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
+        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations. 
         :param str entity: Returned attributes will be filtered by supplied entity.
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -9270,7 +9270,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20033
+        :return: InlineResponse20036
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -9289,7 +9289,7 @@ class ManagementApi(object):
         :param async_req bool: execute request asynchronously
         :param int page_size: The number of items in the response.
         :param int skip: The number of items to skip when paging through large result sets.
-        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
+        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations. 
         :param str entity: Returned attributes will be filtered by supplied entity.
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -9300,7 +9300,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20033, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20036, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -9370,7 +9370,7 @@ class ManagementApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20033',  # noqa: E501
+            response_type='InlineResponse20036',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -9391,7 +9391,7 @@ class ManagementApi(object):
         :param int audience_id: The ID of the audience. (required)
         :param int page_size: The number of items in the response.
         :param int skip: The number of items to skip when paging through large result sets.
-        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
+        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations. 
         :param str profile_query: The filter to select a profile.
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -9400,7 +9400,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20031
+        :return: InlineResponse20034
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -9420,7 +9420,7 @@ class ManagementApi(object):
         :param int audience_id: The ID of the audience. (required)
         :param int page_size: The number of items in the response.
         :param int skip: The number of items to skip when paging through large result sets.
-        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
+        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations. 
         :param str profile_query: The filter to select a profile.
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -9431,7 +9431,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20031, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20034, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -9508,7 +9508,7 @@ class ManagementApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20031',  # noqa: E501
+            response_type='InlineResponse20034',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -9528,7 +9528,7 @@ class ManagementApi(object):
         :param async_req bool: execute request asynchronously
         :param int page_size: The number of items in the response.
         :param int skip: The number of items to skip when paging through large result sets.
-        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
+        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations. 
         :param bool with_total_result_size: When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When `true`: `hasMore` is true when there is a next page. `totalResultSize` is always zero. - When `false`: `hasMore` is always false. `totalResultSize` contains the total number of results for this query. 
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -9537,7 +9537,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20029
+        :return: InlineResponse20032
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -9556,7 +9556,7 @@ class ManagementApi(object):
         :param async_req bool: execute request asynchronously
         :param int page_size: The number of items in the response.
         :param int skip: The number of items to skip when paging through large result sets.
-        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
+        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations. 
         :param bool with_total_result_size: When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When `true`: `hasMore` is true when there is a next page. `totalResultSize` is always zero. - When `false`: `hasMore` is always false. `totalResultSize` contains the total number of results for this query. 
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -9567,7 +9567,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20029, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20032, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -9637,7 +9637,7 @@ class ManagementApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20029',  # noqa: E501
+            response_type='InlineResponse20032',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -9656,7 +9656,7 @@ class ManagementApi(object):
 
         :param async_req bool: execute request asynchronously
         :param str audience_ids: The IDs of one or more audiences, separated by commas, by which to filter results. (required)
-        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
+        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations. 
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -9664,7 +9664,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20030
+        :return: InlineResponse20033
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -9682,7 +9682,7 @@ class ManagementApi(object):
 
         :param async_req bool: execute request asynchronously
         :param str audience_ids: The IDs of one or more audiences, separated by commas, by which to filter results. (required)
-        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
+        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations. 
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -9692,7 +9692,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20030, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20033, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -9756,7 +9756,7 @@ class ManagementApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20030',  # noqa: E501
+            response_type='InlineResponse20033',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -9909,7 +9909,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20020
+        :return: InlineResponse20023
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -9940,7 +9940,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20020, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20023, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -10025,7 +10025,7 @@ class ManagementApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20020',  # noqa: E501
+            response_type='InlineResponse20023',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -10047,7 +10047,7 @@ class ManagementApi(object):
         :param CampaignSearch body: body (required)
         :param int page_size: The number of items in the response.
         :param int skip: The number of items to skip when paging through large result sets.
-        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
+        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations. 
         :param str campaign_state: Filter results by the state of the campaign.  - `enabled`: Campaigns that are scheduled, running (activated), or expired. - `running`: Campaigns that are running (activated). - `disabled`: Campaigns that are disabled. - `expired`: Campaigns that are expired. - `archived`: Campaigns that are archived. 
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -10056,7 +10056,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse2006
+        :return: InlineResponse2008
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -10077,7 +10077,7 @@ class ManagementApi(object):
         :param CampaignSearch body: body (required)
         :param int page_size: The number of items in the response.
         :param int skip: The number of items to skip when paging through large result sets.
-        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
+        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations. 
         :param str campaign_state: Filter results by the state of the campaign.  - `enabled`: Campaigns that are scheduled, running (activated), or expired. - `running`: Campaigns that are running (activated). - `disabled`: Campaigns that are disabled. - `expired`: Campaigns that are expired. - `archived`: Campaigns that are archived. 
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -10088,7 +10088,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse2006, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse2008, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -10176,7 +10176,7 @@ class ManagementApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse2006',  # noqa: E501
+            response_type='InlineResponse2008',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -10310,7 +10310,7 @@ class ManagementApi(object):
         :param async_req bool: execute request asynchronously
         :param int page_size: The number of items in the response.
         :param int skip: The number of items to skip when paging through large result sets.
-        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
+        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations. 
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -10318,7 +10318,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20011
+        :return: InlineResponse20013
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -10337,7 +10337,7 @@ class ManagementApi(object):
         :param async_req bool: execute request asynchronously
         :param int page_size: The number of items in the response.
         :param int skip: The number of items to skip when paging through large result sets.
-        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
+        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations. 
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -10347,7 +10347,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20011, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20013, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -10414,7 +10414,7 @@ class ManagementApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20011',  # noqa: E501
+            response_type='InlineResponse20013',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -10434,7 +10434,7 @@ class ManagementApi(object):
         :param async_req bool: execute request asynchronously
         :param int page_size: The number of items in the response.
         :param int skip: The number of items to skip when paging through large result sets.
-        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
+        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations. 
         :param str state: Filter results by the state of the campaign template.
         :param str name: Filter results performing case-insensitive matching against the name of the campaign template.
         :param str tags: Filter results performing case-insensitive matching against the tags of the campaign template. When used in conjunction with the \"name\" query parameter, a logical OR will be performed to search both tags and name for the provided values. 
@@ -10446,7 +10446,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20012
+        :return: InlineResponse20014
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -10465,7 +10465,7 @@ class ManagementApi(object):
         :param async_req bool: execute request asynchronously
         :param int page_size: The number of items in the response.
         :param int skip: The number of items to skip when paging through large result sets.
-        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
+        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations. 
         :param str state: Filter results by the state of the campaign template.
         :param str name: Filter results performing case-insensitive matching against the name of the campaign template.
         :param str tags: Filter results performing case-insensitive matching against the tags of the campaign template. When used in conjunction with the \"name\" query parameter, a logical OR will be performed to search both tags and name for the provided values. 
@@ -10479,7 +10479,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20012, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20014, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -10558,7 +10558,7 @@ class ManagementApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20012',  # noqa: E501
+            response_type='InlineResponse20014',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -10579,7 +10579,7 @@ class ManagementApi(object):
         :param int application_id: The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
         :param int page_size: The number of items in the response.
         :param int skip: The number of items to skip when paging through large result sets.
-        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
+        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations. 
         :param str campaign_state: Filter results by the state of the campaign.  - `enabled`: Campaigns that are scheduled, running (activated), or expired. - `running`: Campaigns that are running (activated). - `disabled`: Campaigns that are disabled. - `expired`: Campaigns that are expired. - `archived`: Campaigns that are archived. 
         :param str name: Filter results performing case-insensitive matching against the name of the campaign.
         :param str tags: Filter results performing case-insensitive matching against the tags of the campaign. When used in conjunction with the \"name\" query parameter, a logical OR will be performed to search both tags and name for the provided values 
@@ -10595,7 +10595,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse2006
+        :return: InlineResponse2008
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -10615,7 +10615,7 @@ class ManagementApi(object):
         :param int application_id: The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
         :param int page_size: The number of items in the response.
         :param int skip: The number of items to skip when paging through large result sets.
-        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
+        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations. 
         :param str campaign_state: Filter results by the state of the campaign.  - `enabled`: Campaigns that are scheduled, running (activated), or expired. - `running`: Campaigns that are running (activated). - `disabled`: Campaigns that are disabled. - `expired`: Campaigns that are expired. - `archived`: Campaigns that are archived. 
         :param str name: Filter results performing case-insensitive matching against the name of the campaign.
         :param str tags: Filter results performing case-insensitive matching against the tags of the campaign. When used in conjunction with the \"name\" query parameter, a logical OR will be performed to search both tags and name for the provided values 
@@ -10633,7 +10633,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse2006, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse2008, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -10731,7 +10731,7 @@ class ManagementApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse2006',  # noqa: E501
+            response_type='InlineResponse2008',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -10751,7 +10751,7 @@ class ManagementApi(object):
         :param async_req bool: execute request asynchronously
         :param int page_size: The number of items in the response.
         :param int skip: The number of items to skip when paging through large result sets.
-        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
+        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations. 
         :param float application_id: Filter results by Application ID.
         :param str entity_path: Filter results on a case insensitive matching of the url path of the entity
         :param int user_id: Filter results by user ID.
@@ -10767,7 +10767,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20041
+        :return: InlineResponse20044
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -10786,7 +10786,7 @@ class ManagementApi(object):
         :param async_req bool: execute request asynchronously
         :param int page_size: The number of items in the response.
         :param int skip: The number of items to skip when paging through large result sets.
-        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
+        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations. 
         :param float application_id: Filter results by Application ID.
         :param str entity_path: Filter results on a case insensitive matching of the url path of the entity
         :param int user_id: Filter results by user ID.
@@ -10804,7 +10804,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20041, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20044, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -10895,7 +10895,7 @@ class ManagementApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20041',  # noqa: E501
+            response_type='InlineResponse20044',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -11055,7 +11055,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20018
+        :return: InlineResponse20021
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -11084,7 +11084,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20018, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20021, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -11155,7 +11155,7 @@ class ManagementApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20018',  # noqa: E501
+            response_type='InlineResponse20021',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -11177,7 +11177,7 @@ class ManagementApi(object):
         :param int campaign_id: The ID of the campaign. It is displayed in your Talon.One deployment URL. (required)
         :param int page_size: The number of items in the response.
         :param int skip: The number of items to skip when paging through large result sets.
-        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
+        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations. 
         :param str value: Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters.
         :param datetime created_before: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally.
         :param datetime created_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally.
@@ -11200,7 +11200,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse2009
+        :return: InlineResponse20011
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -11221,7 +11221,7 @@ class ManagementApi(object):
         :param int campaign_id: The ID of the campaign. It is displayed in your Talon.One deployment URL. (required)
         :param int page_size: The number of items in the response.
         :param int skip: The number of items to skip when paging through large result sets.
-        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
+        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations. 
         :param str value: Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters.
         :param datetime created_before: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally.
         :param datetime created_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally.
@@ -11246,7 +11246,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse2009, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20011, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -11372,7 +11372,7 @@ class ManagementApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse2009',  # noqa: E501
+            response_type='InlineResponse20011',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -11550,7 +11550,7 @@ class ManagementApi(object):
         :param int application_id: The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
         :param int page_size: The number of items in the response.
         :param int skip: The number of items to skip when paging through large result sets.
-        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
+        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations. 
         :param str name: Only return reports matching the customer name.
         :param str integration_id: Filter results performing an exact matching against the profile integration identifier.
         :param str campaign_name: Only return reports matching the campaign name.
@@ -11562,7 +11562,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20025
+        :return: InlineResponse20028
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -11584,7 +11584,7 @@ class ManagementApi(object):
         :param int application_id: The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
         :param int page_size: The number of items in the response.
         :param int skip: The number of items to skip when paging through large result sets.
-        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
+        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations. 
         :param str name: Only return reports matching the customer name.
         :param str integration_id: Filter results performing an exact matching against the profile integration identifier.
         :param str campaign_name: Only return reports matching the campaign name.
@@ -11598,7 +11598,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20025, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20028, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -11698,7 +11698,7 @@ class ManagementApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20025',  # noqa: E501
+            response_type='InlineResponse20028',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -11720,7 +11720,7 @@ class ManagementApi(object):
         :param int customer_id: The value of the `id` property of a customer profile. Get it with the [List Application's customers](https://docs.talon.one/management-api#operation/getApplicationCustomers) endpoint.  (required)
         :param int page_size: The number of items in the response.
         :param int skip: The number of items to skip when paging through large result sets.
-        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
+        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations. 
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -11749,7 +11749,7 @@ class ManagementApi(object):
         :param int customer_id: The value of the `id` property of a customer profile. Get it with the [List Application's customers](https://docs.talon.one/management-api#operation/getApplicationCustomers) endpoint.  (required)
         :param int page_size: The number of items in the response.
         :param int skip: The number of items to skip when paging through large result sets.
-        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
+        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations. 
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -11973,7 +11973,7 @@ class ManagementApi(object):
 
         :param async_req bool: execute request asynchronously
         :param int application_id: The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
-        :param str integration_id: The identifier of the profile. (required)
+        :param str integration_id: The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier.  (required)
         :param int page_size: The number of items in the response.
         :param int skip: The number of items to skip when paging through large result sets.
         :param int achievement_id: The ID of the achievement. You can get this ID with the [List achievement](https://docs.talon.one/management-api#tag/Achievements/operation/listAchievements) endpoint.
@@ -11985,7 +11985,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20046
+        :return: InlineResponse20049
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -12003,7 +12003,7 @@ class ManagementApi(object):
 
         :param async_req bool: execute request asynchronously
         :param int application_id: The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
-        :param str integration_id: The identifier of the profile. (required)
+        :param str integration_id: The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier.  (required)
         :param int page_size: The number of items in the response.
         :param int skip: The number of items to skip when paging through large result sets.
         :param int achievement_id: The ID of the achievement. You can get this ID with the [List achievement](https://docs.talon.one/management-api#tag/Achievements/operation/listAchievements) endpoint.
@@ -12017,7 +12017,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20046, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20049, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -12101,7 +12101,7 @@ class ManagementApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20046',  # noqa: E501
+            response_type='InlineResponse20049',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -12129,7 +12129,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20024
+        :return: InlineResponse20027
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -12158,7 +12158,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20024, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20027, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -12225,7 +12225,7 @@ class ManagementApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20024',  # noqa: E501
+            response_type='InlineResponse20027',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -12254,7 +12254,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20023
+        :return: InlineResponse20026
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -12284,7 +12284,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20023, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20026, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -12362,7 +12362,144 @@ class ManagementApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20023',  # noqa: E501
+            response_type='InlineResponse20026',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def get_dashboard_statistics(self, loyalty_program_id, range_start, range_end, **kwargs):  # noqa: E501
+        """Get statistics for loyalty dashboard  # noqa: E501
+
+        Retrieve the statistics displayed on the specified loyalty program's dashboard, such as the total active points, pending points, spent points, and expired points.  **Important:** The returned data does not include the current day. All statistics are updated daily at 11:59 PM in the loyalty program time zone.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_dashboard_statistics(loyalty_program_id, range_start, range_end, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int loyalty_program_id: Identifier of the loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  (required)
+        :param datetime range_start: Only return results from after this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.  (required)
+        :param datetime range_end: Only return results from before this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.  (required)
+        :param str subledger_id: The ID of the subledger by which we filter the data.
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: InlineResponse20016
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.get_dashboard_statistics_with_http_info(loyalty_program_id, range_start, range_end, **kwargs)  # noqa: E501
+
+    def get_dashboard_statistics_with_http_info(self, loyalty_program_id, range_start, range_end, **kwargs):  # noqa: E501
+        """Get statistics for loyalty dashboard  # noqa: E501
+
+        Retrieve the statistics displayed on the specified loyalty program's dashboard, such as the total active points, pending points, spent points, and expired points.  **Important:** The returned data does not include the current day. All statistics are updated daily at 11:59 PM in the loyalty program time zone.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_dashboard_statistics_with_http_info(loyalty_program_id, range_start, range_end, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int loyalty_program_id: Identifier of the loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  (required)
+        :param datetime range_start: Only return results from after this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.  (required)
+        :param datetime range_end: Only return results from before this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.  (required)
+        :param str subledger_id: The ID of the subledger by which we filter the data.
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(InlineResponse20016, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'loyalty_program_id',
+            'range_start',
+            'range_end',
+            'subledger_id'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_dashboard_statistics" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'loyalty_program_id' is set
+        if self.api_client.client_side_validation and ('loyalty_program_id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['loyalty_program_id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `loyalty_program_id` when calling `get_dashboard_statistics`")  # noqa: E501
+        # verify the required parameter 'range_start' is set
+        if self.api_client.client_side_validation and ('range_start' not in local_var_params or  # noqa: E501
+                                                        local_var_params['range_start'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `range_start` when calling `get_dashboard_statistics`")  # noqa: E501
+        # verify the required parameter 'range_end' is set
+        if self.api_client.client_side_validation and ('range_end' not in local_var_params or  # noqa: E501
+                                                        local_var_params['range_end'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `range_end` when calling `get_dashboard_statistics`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'loyalty_program_id' in local_var_params:
+            path_params['loyaltyProgramId'] = local_var_params['loyalty_program_id']  # noqa: E501
+
+        query_params = []
+        if 'subledger_id' in local_var_params and local_var_params['subledger_id'] is not None:  # noqa: E501
+            query_params.append(('subledgerId', local_var_params['subledger_id']))  # noqa: E501
+        if 'range_start' in local_var_params and local_var_params['range_start'] is not None:  # noqa: E501
+            query_params.append(('rangeStart', local_var_params['range_start']))  # noqa: E501
+        if 'range_end' in local_var_params and local_var_params['range_end'] is not None:  # noqa: E501
+            query_params.append(('rangeEnd', local_var_params['range_end']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/v1/loyalty_programs/{loyaltyProgramId}/dashboard', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='InlineResponse20016',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -12384,7 +12521,7 @@ class ManagementApi(object):
         :param bool include_old_versions: Include all versions of every event type.
         :param int page_size: The number of items in the response.
         :param int skip: The number of items to skip when paging through large result sets.
-        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
+        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations. 
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -12392,7 +12529,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20039
+        :return: InlineResponse20042
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -12413,7 +12550,7 @@ class ManagementApi(object):
         :param bool include_old_versions: Include all versions of every event type.
         :param int page_size: The number of items in the response.
         :param int skip: The number of items to skip when paging through large result sets.
-        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
+        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations. 
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -12423,7 +12560,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20039, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20042, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -12496,7 +12633,7 @@ class ManagementApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20039',  # noqa: E501
+            response_type='InlineResponse20042',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -12526,7 +12663,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20042
+        :return: InlineResponse20045
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -12557,7 +12694,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20042, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20045, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -12630,7 +12767,7 @@ class ManagementApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20042',  # noqa: E501
+            response_type='InlineResponse20045',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -12788,7 +12925,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20016
+        :return: InlineResponse20019
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -12821,7 +12958,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20016, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20019, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -12911,7 +13048,7 @@ class ManagementApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20016',  # noqa: E501
+            response_type='InlineResponse20019',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -12932,7 +13069,7 @@ class ManagementApi(object):
         :param int loyalty_program_id: Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  (required)
         :param int page_size: The number of items in the response.
         :param int skip: The number of items to skip when paging through large result sets.
-        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
+        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations. 
         :param str identifier: The card code by which to filter loyalty cards in the response.
         :param int profile_id: Filter results by customer profile ID.
         :param str batch_id: Filter results by loyalty card batch ID.
@@ -12943,7 +13080,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20015
+        :return: InlineResponse20018
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -12963,7 +13100,7 @@ class ManagementApi(object):
         :param int loyalty_program_id: Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  (required)
         :param int page_size: The number of items in the response.
         :param int skip: The number of items to skip when paging through large result sets.
-        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
+        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations. 
         :param str identifier: The card code by which to filter loyalty cards in the response.
         :param int profile_id: Filter results by customer profile ID.
         :param str batch_id: Filter results by loyalty card batch ID.
@@ -12976,7 +13113,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20015, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20018, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -13064,7 +13201,7 @@ class ManagementApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20015',  # noqa: E501
+            response_type='InlineResponse20018',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -13083,7 +13220,7 @@ class ManagementApi(object):
 
         :param async_req bool: execute request asynchronously
         :param str loyalty_program_id: The identifier for the loyalty program. (required)
-        :param str integration_id: The identifier of the profile. (required)
+        :param str integration_id: The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier.  (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -13109,7 +13246,7 @@ class ManagementApi(object):
 
         :param async_req bool: execute request asynchronously
         :param str loyalty_program_id: The identifier for the loyalty program. (required)
-        :param str integration_id: The identifier of the profile. (required)
+        :param str integration_id: The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier.  (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -13333,7 +13470,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20014
+        :return: InlineResponse20017
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -13366,7 +13503,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20014, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20017, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -13449,7 +13586,7 @@ class ManagementApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20014',  # noqa: E501
+            response_type='InlineResponse20017',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -13474,7 +13611,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20013
+        :return: InlineResponse20015
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -13500,7 +13637,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20013, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20015, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -13554,7 +13691,7 @@ class ManagementApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20013',  # noqa: E501
+            response_type='InlineResponse20015',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -13565,7 +13702,7 @@ class ManagementApi(object):
     def get_loyalty_statistics(self, loyalty_program_id, **kwargs):  # noqa: E501
         """Get loyalty program statistics  # noqa: E501
 
-        Retrieve the statistics of the specified loyalty program such as the total active points, pending points, spent points, and expired points.  **Important:** The returned data does not include the current day. All statistics are updated daily at 11:59 PM in the loyalty program time zone.   # noqa: E501
+        ⚠️ Deprecation notice: Support for requests to this endpoint will end soon. To retrieve statistics for a loyalty program, use the [Get statistics for loyalty dashboard](/management-api#tag/Loyalty/operation/getDashboardStatistics) endpoint.  Retrieve the statistics of the specified loyalty program, such as the total active points, pending points, spent points, and expired points.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_loyalty_statistics(loyalty_program_id, async_req=True)
@@ -13590,7 +13727,7 @@ class ManagementApi(object):
     def get_loyalty_statistics_with_http_info(self, loyalty_program_id, **kwargs):  # noqa: E501
         """Get loyalty program statistics  # noqa: E501
 
-        Retrieve the statistics of the specified loyalty program such as the total active points, pending points, spent points, and expired points.  **Important:** The returned data does not include the current day. All statistics are updated daily at 11:59 PM in the loyalty program time zone.   # noqa: E501
+        ⚠️ Deprecation notice: Support for requests to this endpoint will end soon. To retrieve statistics for a loyalty program, use the [Get statistics for loyalty dashboard](/management-api#tag/Loyalty/operation/getDashboardStatistics) endpoint.  Retrieve the statistics of the specified loyalty program, such as the total active points, pending points, spent points, and expired points.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_loyalty_statistics_with_http_info(loyalty_program_id, async_req=True)
@@ -13676,6 +13813,185 @@ class ManagementApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def get_message_logs(self, entity_type, **kwargs):  # noqa: E501
+        """List message log entries  # noqa: E501
+
+        Retrieve all message log entries.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_message_logs(entity_type, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str entity_type: The entity type the log is related to.  (required)
+        :param str message_id: Filter results by message ID.
+        :param str change_type: Filter results by change type.
+        :param str notification_i_ds: Filter results by notification ID (include up to 30 values, separated by a comma).
+        :param datetime created_before: Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally.
+        :param datetime created_after: Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally.
+        :param str cursor: A specific unique value in the database. If this value is not given, the server fetches results starting with the first record. 
+        :param str period: Filter results by time period. Choose between the available relative time frames. 
+        :param bool is_successful: Indicates whether to return log entries with either successful or unsuccessful HTTP response codes. When set to`true`, only log entries with `2xx` response codes are returned. When set to `false`, only log entries with `4xx` and `5xx` response codes are returned. 
+        :param float application_id: Filter results by Application ID.
+        :param float campaign_id: Filter results by campaign ID.
+        :param int loyalty_program_id: Identifier of the loyalty program.
+        :param int response_code: Filter results by response status code.
+        :param str webhook_i_ds: Filter results by webhook ID (include up to 30 values, separated by a comma).
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: MessageLogEntries
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.get_message_logs_with_http_info(entity_type, **kwargs)  # noqa: E501
+
+    def get_message_logs_with_http_info(self, entity_type, **kwargs):  # noqa: E501
+        """List message log entries  # noqa: E501
+
+        Retrieve all message log entries.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_message_logs_with_http_info(entity_type, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str entity_type: The entity type the log is related to.  (required)
+        :param str message_id: Filter results by message ID.
+        :param str change_type: Filter results by change type.
+        :param str notification_i_ds: Filter results by notification ID (include up to 30 values, separated by a comma).
+        :param datetime created_before: Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally.
+        :param datetime created_after: Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally.
+        :param str cursor: A specific unique value in the database. If this value is not given, the server fetches results starting with the first record. 
+        :param str period: Filter results by time period. Choose between the available relative time frames. 
+        :param bool is_successful: Indicates whether to return log entries with either successful or unsuccessful HTTP response codes. When set to`true`, only log entries with `2xx` response codes are returned. When set to `false`, only log entries with `4xx` and `5xx` response codes are returned. 
+        :param float application_id: Filter results by Application ID.
+        :param float campaign_id: Filter results by campaign ID.
+        :param int loyalty_program_id: Identifier of the loyalty program.
+        :param int response_code: Filter results by response status code.
+        :param str webhook_i_ds: Filter results by webhook ID (include up to 30 values, separated by a comma).
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(MessageLogEntries, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'entity_type',
+            'message_id',
+            'change_type',
+            'notification_i_ds',
+            'created_before',
+            'created_after',
+            'cursor',
+            'period',
+            'is_successful',
+            'application_id',
+            'campaign_id',
+            'loyalty_program_id',
+            'response_code',
+            'webhook_i_ds'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_message_logs" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'entity_type' is set
+        if self.api_client.client_side_validation and ('entity_type' not in local_var_params or  # noqa: E501
+                                                        local_var_params['entity_type'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `entity_type` when calling `get_message_logs`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+        if 'message_id' in local_var_params and local_var_params['message_id'] is not None:  # noqa: E501
+            query_params.append(('messageID', local_var_params['message_id']))  # noqa: E501
+        if 'change_type' in local_var_params and local_var_params['change_type'] is not None:  # noqa: E501
+            query_params.append(('changeType', local_var_params['change_type']))  # noqa: E501
+        if 'notification_i_ds' in local_var_params and local_var_params['notification_i_ds'] is not None:  # noqa: E501
+            query_params.append(('notificationIDs', local_var_params['notification_i_ds']))  # noqa: E501
+        if 'created_before' in local_var_params and local_var_params['created_before'] is not None:  # noqa: E501
+            query_params.append(('createdBefore', local_var_params['created_before']))  # noqa: E501
+        if 'created_after' in local_var_params and local_var_params['created_after'] is not None:  # noqa: E501
+            query_params.append(('createdAfter', local_var_params['created_after']))  # noqa: E501
+        if 'cursor' in local_var_params and local_var_params['cursor'] is not None:  # noqa: E501
+            query_params.append(('cursor', local_var_params['cursor']))  # noqa: E501
+        if 'period' in local_var_params and local_var_params['period'] is not None:  # noqa: E501
+            query_params.append(('period', local_var_params['period']))  # noqa: E501
+        if 'is_successful' in local_var_params and local_var_params['is_successful'] is not None:  # noqa: E501
+            query_params.append(('isSuccessful', local_var_params['is_successful']))  # noqa: E501
+        if 'entity_type' in local_var_params and local_var_params['entity_type'] is not None:  # noqa: E501
+            query_params.append(('entityType', local_var_params['entity_type']))  # noqa: E501
+        if 'application_id' in local_var_params and local_var_params['application_id'] is not None:  # noqa: E501
+            query_params.append(('applicationId', local_var_params['application_id']))  # noqa: E501
+        if 'campaign_id' in local_var_params and local_var_params['campaign_id'] is not None:  # noqa: E501
+            query_params.append(('campaignId', local_var_params['campaign_id']))  # noqa: E501
+        if 'loyalty_program_id' in local_var_params and local_var_params['loyalty_program_id'] is not None:  # noqa: E501
+            query_params.append(('loyaltyProgramId', local_var_params['loyalty_program_id']))  # noqa: E501
+        if 'response_code' in local_var_params and local_var_params['response_code'] is not None:  # noqa: E501
+            query_params.append(('responseCode', local_var_params['response_code']))  # noqa: E501
+        if 'webhook_i_ds' in local_var_params and local_var_params['webhook_i_ds'] is not None:  # noqa: E501
+            query_params.append(('webhookIDs', local_var_params['webhook_i_ds']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/v1/message_logs', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='MessageLogEntries',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def get_referrals_without_total_count(self, application_id, campaign_id, **kwargs):  # noqa: E501
         """List referrals  # noqa: E501
 
@@ -13690,7 +14006,7 @@ class ManagementApi(object):
         :param int campaign_id: The ID of the campaign. It is displayed in your Talon.One deployment URL. (required)
         :param int page_size: The number of items in the response.
         :param int skip: The number of items to skip when paging through large result sets.
-        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
+        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations. 
         :param str code: Filter results performing case-insensitive matching against the referral code. Both the code and the query are folded to remove all non-alpha-numeric characters.
         :param datetime created_before: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally.
         :param datetime created_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally.
@@ -13704,7 +14020,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20010
+        :return: InlineResponse20012
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -13725,7 +14041,7 @@ class ManagementApi(object):
         :param int campaign_id: The ID of the campaign. It is displayed in your Talon.One deployment URL. (required)
         :param int page_size: The number of items in the response.
         :param int skip: The number of items to skip when paging through large result sets.
-        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
+        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations. 
         :param str code: Filter results performing case-insensitive matching against the referral code. Both the code and the query are folded to remove all non-alpha-numeric characters.
         :param datetime created_before: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally.
         :param datetime created_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally.
@@ -13741,7 +14057,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20010, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20012, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -13840,7 +14156,7 @@ class ManagementApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20010',  # noqa: E501
+            response_type='InlineResponse20012',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -14108,7 +14424,7 @@ class ManagementApi(object):
         :param int campaign_id: The ID of the campaign. It is displayed in your Talon.One deployment URL. (required)
         :param int page_size: The number of items in the response.
         :param int skip: The number of items to skip when paging through large result sets.
-        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
+        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations. 
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -14116,7 +14432,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse2007
+        :return: InlineResponse2009
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -14137,7 +14453,7 @@ class ManagementApi(object):
         :param int campaign_id: The ID of the campaign. It is displayed in your Talon.One deployment URL. (required)
         :param int page_size: The number of items in the response.
         :param int skip: The number of items to skip when paging through large result sets.
-        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
+        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations. 
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -14147,7 +14463,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse2007, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse2009, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -14228,7 +14544,7 @@ class ManagementApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse2007',  # noqa: E501
+            response_type='InlineResponse2009',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -14485,7 +14801,7 @@ class ManagementApi(object):
         :param async_req bool: execute request asynchronously
         :param int page_size: The number of items in the response.
         :param int skip: The number of items to skip when paging through large result sets.
-        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
+        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations. 
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -14493,7 +14809,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20040
+        :return: InlineResponse20043
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -14512,7 +14828,7 @@ class ManagementApi(object):
         :param async_req bool: execute request asynchronously
         :param int page_size: The number of items in the response.
         :param int skip: The number of items to skip when paging through large result sets.
-        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
+        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations. 
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -14522,7 +14838,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20040, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20043, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -14589,7 +14905,7 @@ class ManagementApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20040',  # noqa: E501
+            response_type='InlineResponse20043',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -14723,7 +15039,7 @@ class ManagementApi(object):
         :param async_req bool: execute request asynchronously
         :param int page_size: The number of items in the response.
         :param int skip: The number of items to skip when paging through large result sets.
-        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
+        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations. 
         :param str integration_request_uuid: Filter results by integration request UUID.
         :param float webhook_id: Filter results by webhook id.
         :param float application_id: Filter results by Application ID.
@@ -14737,7 +15053,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20037
+        :return: InlineResponse20040
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -14756,7 +15072,7 @@ class ManagementApi(object):
         :param async_req bool: execute request asynchronously
         :param int page_size: The number of items in the response.
         :param int skip: The number of items to skip when paging through large result sets.
-        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
+        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations. 
         :param str integration_request_uuid: Filter results by integration request UUID.
         :param float webhook_id: Filter results by webhook id.
         :param float application_id: Filter results by Application ID.
@@ -14772,7 +15088,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20037, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20040, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -14857,7 +15173,7 @@ class ManagementApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20037',  # noqa: E501
+            response_type='InlineResponse20040',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -14877,7 +15193,7 @@ class ManagementApi(object):
         :param async_req bool: execute request asynchronously
         :param int page_size: The number of items in the response.
         :param int skip: The number of items to skip when paging through large result sets.
-        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
+        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations. 
         :param str status: Filter results by HTTP status codes.
         :param float webhook_id: Filter results by webhook id.
         :param float application_id: Filter results by Application ID.
@@ -14892,7 +15208,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20038
+        :return: InlineResponse20041
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -14911,7 +15227,7 @@ class ManagementApi(object):
         :param async_req bool: execute request asynchronously
         :param int page_size: The number of items in the response.
         :param int skip: The number of items to skip when paging through large result sets.
-        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
+        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations. 
         :param str status: Filter results by HTTP status codes.
         :param float webhook_id: Filter results by webhook id.
         :param float application_id: Filter results by Application ID.
@@ -14928,7 +15244,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20038, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20041, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -15016,7 +15332,7 @@ class ManagementApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20038',  # noqa: E501
+            response_type='InlineResponse20041',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -15035,7 +15351,7 @@ class ManagementApi(object):
 
         :param async_req bool: execute request asynchronously
         :param str application_ids: Checks if the given catalog or its attributes are referenced in the specified Application ID.  **Note**: If no Application ID is provided, we check for all connected Applications. 
-        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
+        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations. 
         :param int page_size: The number of items in the response.
         :param int skip: The number of items to skip when paging through large result sets.
         :param str creation_type: Filter results by creation type.
@@ -15049,7 +15365,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20036
+        :return: InlineResponse20039
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -15067,7 +15383,7 @@ class ManagementApi(object):
 
         :param async_req bool: execute request asynchronously
         :param str application_ids: Checks if the given catalog or its attributes are referenced in the specified Application ID.  **Note**: If no Application ID is provided, we check for all connected Applications. 
-        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
+        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations. 
         :param int page_size: The number of items in the response.
         :param int skip: The number of items to skip when paging through large result sets.
         :param str creation_type: Filter results by creation type.
@@ -15083,7 +15399,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20036, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20039, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -15165,7 +15481,7 @@ class ManagementApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20036',  # noqa: E501
+            response_type='InlineResponse20039',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -16702,7 +17018,7 @@ class ManagementApi(object):
         :param async_req bool: execute request asynchronously
         :param int page_size: The number of items in the response.
         :param int skip: The number of items to skip when paging through large result sets.
-        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
+        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations. 
         :param bool with_total_result_size: When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When `true`: `hasMore` is true when there is a next page. `totalResultSize` is always zero. - When `false`: `hasMore` is always false. `totalResultSize` contains the total number of results for this query. 
         :param str name: Filter by collection name.
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -16712,7 +17028,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20017
+        :return: InlineResponse20020
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -16731,7 +17047,7 @@ class ManagementApi(object):
         :param async_req bool: execute request asynchronously
         :param int page_size: The number of items in the response.
         :param int skip: The number of items to skip when paging through large result sets.
-        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
+        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations. 
         :param bool with_total_result_size: When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When `true`: `hasMore` is true when there is a next page. `totalResultSize` is always zero. - When `false`: `hasMore` is always false. `totalResultSize` contains the total number of results for this query. 
         :param str name: Filter by collection name.
         :param _return_http_data_only: response data without head status code
@@ -16743,7 +17059,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20017, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20020, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -16816,7 +17132,7 @@ class ManagementApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20017',  # noqa: E501
+            response_type='InlineResponse20020',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -16846,7 +17162,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20045
+        :return: InlineResponse20048
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -16877,7 +17193,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20045, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20048, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -16958,7 +17274,7 @@ class ManagementApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20045',  # noqa: E501
+            response_type='InlineResponse20048',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -16983,7 +17299,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20043
+        :return: InlineResponse20046
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -17009,7 +17325,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20043, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20046, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -17063,7 +17379,7 @@ class ManagementApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20043',  # noqa: E501
+            response_type='InlineResponse20046',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -17094,7 +17410,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20034
+        :return: InlineResponse20037
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -17126,7 +17442,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20034, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20037, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -17208,7 +17524,7 @@ class ManagementApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20034',  # noqa: E501
+            response_type='InlineResponse20037',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -17230,7 +17546,7 @@ class ManagementApi(object):
         :param int campaign_id: The ID of the campaign. It is displayed in your Talon.One deployment URL. (required)
         :param int page_size: The number of items in the response.
         :param int skip: The number of items to skip when paging through large result sets.
-        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
+        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations. 
         :param bool with_total_result_size: When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When `true`: `hasMore` is true when there is a next page. `totalResultSize` is always zero. - When `false`: `hasMore` is always false. `totalResultSize` contains the total number of results for this query. 
         :param str name: Filter by collection name.
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -17240,7 +17556,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20017
+        :return: InlineResponse20020
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -17261,7 +17577,7 @@ class ManagementApi(object):
         :param int campaign_id: The ID of the campaign. It is displayed in your Talon.One deployment URL. (required)
         :param int page_size: The number of items in the response.
         :param int skip: The number of items to skip when paging through large result sets.
-        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
+        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations. 
         :param bool with_total_result_size: When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When `true`: `hasMore` is true when there is a next page. `totalResultSize` is always zero. - When `false`: `hasMore` is always false. `totalResultSize` contains the total number of results for this query. 
         :param str name: Filter by collection name.
         :param _return_http_data_only: response data without head status code
@@ -17273,7 +17589,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20017, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20020, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -17360,7 +17676,7 @@ class ManagementApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20017',  # noqa: E501
+            response_type='InlineResponse20020',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -17381,7 +17697,7 @@ class ManagementApi(object):
         :param int application_id: The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
         :param int page_size: The number of items in the response.
         :param int skip: The number of items to skip when paging through large result sets.
-        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
+        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations. 
         :param bool with_total_result_size: When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When `true`: `hasMore` is true when there is a next page. `totalResultSize` is always zero. - When `false`: `hasMore` is always false. `totalResultSize` contains the total number of results for this query. 
         :param str name: Filter by collection name.
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -17391,7 +17707,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20017
+        :return: InlineResponse20020
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -17411,7 +17727,7 @@ class ManagementApi(object):
         :param int application_id: The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
         :param int page_size: The number of items in the response.
         :param int skip: The number of items to skip when paging through large result sets.
-        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
+        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations. 
         :param bool with_total_result_size: When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When `true`: `hasMore` is true when there is a next page. `totalResultSize` is always zero. - When `false`: `hasMore` is always false. `totalResultSize` contains the total number of results for this query. 
         :param str name: Filter by collection name.
         :param _return_http_data_only: response data without head status code
@@ -17423,7 +17739,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20017, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20020, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -17503,7 +17819,7 @@ class ManagementApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20017',  # noqa: E501
+            response_type='InlineResponse20020',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -17524,7 +17840,7 @@ class ManagementApi(object):
         :param int application_id: The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
         :param int page_size: The number of items in the response.
         :param int skip: The number of items to skip when paging through large result sets.
-        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
+        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations. 
         :param bool with_total_result_size: When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When `true`: `hasMore` is true when there is a next page. `totalResultSize` is always zero. - When `false`: `hasMore` is always false. `totalResultSize` contains the total number of results for this query. 
         :param float campaign_id: Filter results by campaign ID.
         :param str name: The name of the store.
@@ -17537,7 +17853,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20044
+        :return: InlineResponse20047
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -17557,7 +17873,7 @@ class ManagementApi(object):
         :param int application_id: The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
         :param int page_size: The number of items in the response.
         :param int skip: The number of items to skip when paging through large result sets.
-        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
+        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations. 
         :param bool with_total_result_size: When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When `true`: `hasMore` is true when there is a next page. `totalResultSize` is always zero. - When `false`: `hasMore` is always false. `totalResultSize` contains the total number of results for this query. 
         :param float campaign_id: Filter results by campaign ID.
         :param str name: The name of the store.
@@ -17572,7 +17888,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20044, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20047, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -17661,130 +17977,7 @@ class ManagementApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20044',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def notification_activation(self, notification_id, body, **kwargs):  # noqa: E501
-        """Activate or deactivate notification  # noqa: E501
-
-        Activate or deactivate the given notification. When `enabled` is false, updates will no longer be sent for the given notification.   # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.notification_activation(notification_id, body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param int notification_id: The ID of the notification. Get it with the appropriate _List notifications_ endpoint. (required)
-        :param NotificationActivation body: body (required)
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: None
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        return self.notification_activation_with_http_info(notification_id, body, **kwargs)  # noqa: E501
-
-    def notification_activation_with_http_info(self, notification_id, body, **kwargs):  # noqa: E501
-        """Activate or deactivate notification  # noqa: E501
-
-        Activate or deactivate the given notification. When `enabled` is false, updates will no longer be sent for the given notification.   # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.notification_activation_with_http_info(notification_id, body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param int notification_id: The ID of the notification. Get it with the appropriate _List notifications_ endpoint. (required)
-        :param NotificationActivation body: body (required)
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: None
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = [
-            'notification_id',
-            'body'
-        ]
-        all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
-            ]
-        )
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method notification_activation" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'notification_id' is set
-        if self.api_client.client_side_validation and ('notification_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['notification_id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `notification_id` when calling `notification_activation`")  # noqa: E501
-        # verify the required parameter 'body' is set
-        if self.api_client.client_side_validation and ('body' not in local_var_params or  # noqa: E501
-                                                        local_var_params['body'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `body` when calling `notification_activation`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'notification_id' in local_var_params:
-            path_params['notificationId'] = local_var_params['notification_id']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'body' in local_var_params:
-            body_params = local_var_params['body']
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/v1/notifications/{notificationId}/activation', 'PUT',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type=None,  # noqa: E501
+            response_type='InlineResponse20047',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -17893,387 +18086,6 @@ class ManagementApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def post_added_deducted_points_notification(self, loyalty_program_id, body, **kwargs):  # noqa: E501
-        """Create notification about added or deducted loyalty points  # noqa: E501
-
-        Create a notification about added or deducted loyalty points in a given profile-based loyalty program. A notification for added or deducted loyalty points is different from regular webhooks in that it is loyalty program-scoped and has a predefined payload.  For more information, see [Managing loyalty notifications](https://docs.talon.one/docs/product/loyalty-programs/managing-loyalty-notifications).   # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.post_added_deducted_points_notification(loyalty_program_id, body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param int loyalty_program_id: Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  (required)
-        :param NewBaseNotification body: body (required)
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: BaseNotification
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        return self.post_added_deducted_points_notification_with_http_info(loyalty_program_id, body, **kwargs)  # noqa: E501
-
-    def post_added_deducted_points_notification_with_http_info(self, loyalty_program_id, body, **kwargs):  # noqa: E501
-        """Create notification about added or deducted loyalty points  # noqa: E501
-
-        Create a notification about added or deducted loyalty points in a given profile-based loyalty program. A notification for added or deducted loyalty points is different from regular webhooks in that it is loyalty program-scoped and has a predefined payload.  For more information, see [Managing loyalty notifications](https://docs.talon.one/docs/product/loyalty-programs/managing-loyalty-notifications).   # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.post_added_deducted_points_notification_with_http_info(loyalty_program_id, body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param int loyalty_program_id: Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  (required)
-        :param NewBaseNotification body: body (required)
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(BaseNotification, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = [
-            'loyalty_program_id',
-            'body'
-        ]
-        all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
-            ]
-        )
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method post_added_deducted_points_notification" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'loyalty_program_id' is set
-        if self.api_client.client_side_validation and ('loyalty_program_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['loyalty_program_id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `loyalty_program_id` when calling `post_added_deducted_points_notification`")  # noqa: E501
-        # verify the required parameter 'body' is set
-        if self.api_client.client_side_validation and ('body' not in local_var_params or  # noqa: E501
-                                                        local_var_params['body'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `body` when calling `post_added_deducted_points_notification`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'loyalty_program_id' in local_var_params:
-            path_params['loyaltyProgramId'] = local_var_params['loyalty_program_id']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'body' in local_var_params:
-            body_params = local_var_params['body']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/v1/loyalty_programs/{loyaltyProgramId}/notifications/added_deducted_points', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='BaseNotification',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def post_catalogs_strikethrough_notification(self, application_id, body, **kwargs):  # noqa: E501
-        """Create strikethrough notification  # noqa: E501
-
-        Create a notification for the in the given Application. For more information, see [Managing notifications](https://docs.talon.one/docs/product/applications/outbound-notifications).  See the [payload](https://docs.talon.one/outbound-notifications) you will receive.   # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.post_catalogs_strikethrough_notification(application_id, body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param int application_id: The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
-        :param NewBaseNotification body: body (required)
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: BaseNotification
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        return self.post_catalogs_strikethrough_notification_with_http_info(application_id, body, **kwargs)  # noqa: E501
-
-    def post_catalogs_strikethrough_notification_with_http_info(self, application_id, body, **kwargs):  # noqa: E501
-        """Create strikethrough notification  # noqa: E501
-
-        Create a notification for the in the given Application. For more information, see [Managing notifications](https://docs.talon.one/docs/product/applications/outbound-notifications).  See the [payload](https://docs.talon.one/outbound-notifications) you will receive.   # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.post_catalogs_strikethrough_notification_with_http_info(application_id, body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param int application_id: The ID of the Application. It is displayed in your Talon.One deployment URL. (required)
-        :param NewBaseNotification body: body (required)
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(BaseNotification, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = [
-            'application_id',
-            'body'
-        ]
-        all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
-            ]
-        )
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method post_catalogs_strikethrough_notification" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'application_id' is set
-        if self.api_client.client_side_validation and ('application_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['application_id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `application_id` when calling `post_catalogs_strikethrough_notification`")  # noqa: E501
-        # verify the required parameter 'body' is set
-        if self.api_client.client_side_validation and ('body' not in local_var_params or  # noqa: E501
-                                                        local_var_params['body'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `body` when calling `post_catalogs_strikethrough_notification`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'application_id' in local_var_params:
-            path_params['applicationId'] = local_var_params['application_id']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'body' in local_var_params:
-            body_params = local_var_params['body']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/v1/applications/{applicationId}/catalogs/notifications/strikethrough', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='BaseNotification',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def post_pending_points_notification(self, loyalty_program_id, body, **kwargs):  # noqa: E501
-        """Create notification about pending loyalty points  # noqa: E501
-
-        Create a notification about pending loyalty points for a given profile-based loyalty program. For more information, see [Managing loyalty notifications](https://docs.talon.one/docs/product/loyalty-programs/managing-loyalty-notifications).   # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.post_pending_points_notification(loyalty_program_id, body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param int loyalty_program_id: Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  (required)
-        :param NewBaseNotification body: body (required)
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: BaseNotification
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        return self.post_pending_points_notification_with_http_info(loyalty_program_id, body, **kwargs)  # noqa: E501
-
-    def post_pending_points_notification_with_http_info(self, loyalty_program_id, body, **kwargs):  # noqa: E501
-        """Create notification about pending loyalty points  # noqa: E501
-
-        Create a notification about pending loyalty points for a given profile-based loyalty program. For more information, see [Managing loyalty notifications](https://docs.talon.one/docs/product/loyalty-programs/managing-loyalty-notifications).   # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.post_pending_points_notification_with_http_info(loyalty_program_id, body, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param int loyalty_program_id: Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  (required)
-        :param NewBaseNotification body: body (required)
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(BaseNotification, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = [
-            'loyalty_program_id',
-            'body'
-        ]
-        all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
-            ]
-        )
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method post_pending_points_notification" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'loyalty_program_id' is set
-        if self.api_client.client_side_validation and ('loyalty_program_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['loyalty_program_id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `loyalty_program_id` when calling `post_pending_points_notification`")  # noqa: E501
-        # verify the required parameter 'body' is set
-        if self.api_client.client_side_validation and ('body' not in local_var_params or  # noqa: E501
-                                                        local_var_params['body'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `body` when calling `post_pending_points_notification`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'loyalty_program_id' in local_var_params:
-            path_params['loyaltyProgramId'] = local_var_params['loyalty_program_id']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'body' in local_var_params:
-            body_params = local_var_params['body']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/v1/loyalty_programs/{loyaltyProgramId}/notifications/pending_points', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='BaseNotification',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
     def remove_loyalty_points(self, loyalty_program_id, integration_id, body, **kwargs):  # noqa: E501
         """Deduct points from customer profile  # noqa: E501
 
@@ -18285,7 +18097,7 @@ class ManagementApi(object):
 
         :param async_req bool: execute request asynchronously
         :param str loyalty_program_id: The identifier for the loyalty program. (required)
-        :param str integration_id: The identifier of the profile. (required)
+        :param str integration_id: The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier.  (required)
         :param DeductLoyaltyPoints body: body (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -18312,7 +18124,7 @@ class ManagementApi(object):
 
         :param async_req bool: execute request asynchronously
         :param str loyalty_program_id: The identifier for the loyalty program. (required)
-        :param str integration_id: The identifier of the profile. (required)
+        :param str integration_id: The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier.  (required)
         :param DeductLoyaltyPoints body: body (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -19558,7 +19370,7 @@ class ManagementApi(object):
         :param object body: body (required)
         :param int page_size: The number of items in the response.
         :param int skip: The number of items to skip when paging through large result sets.
-        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
+        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations. 
         :param str value: Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters.
         :param datetime created_before: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally.
         :param datetime created_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally.
@@ -19576,7 +19388,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse2009
+        :return: InlineResponse20011
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -19597,7 +19409,7 @@ class ManagementApi(object):
         :param object body: body (required)
         :param int page_size: The number of items in the response.
         :param int skip: The number of items to skip when paging through large result sets.
-        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
+        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations. 
         :param str value: Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters.
         :param datetime created_before: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally.
         :param datetime created_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally.
@@ -19617,7 +19429,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse2009, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20011, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -19732,7 +19544,7 @@ class ManagementApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse2009',  # noqa: E501
+            response_type='InlineResponse20011',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -19755,7 +19567,7 @@ class ManagementApi(object):
         :param object body: body (required)
         :param int page_size: The number of items in the response.
         :param int skip: The number of items to skip when paging through large result sets.
-        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
+        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations. 
         :param str value: Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters.
         :param datetime created_before: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally.
         :param datetime created_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally.
@@ -19772,7 +19584,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse2009
+        :return: InlineResponse20011
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -19794,7 +19606,7 @@ class ManagementApi(object):
         :param object body: body (required)
         :param int page_size: The number of items in the response.
         :param int skip: The number of items to skip when paging through large result sets.
-        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields. 
+        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations. 
         :param str value: Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters.
         :param datetime created_before: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally.
         :param datetime created_after: Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally.
@@ -19813,7 +19625,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse2009, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20011, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -19932,7 +19744,7 @@ class ManagementApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse2009',  # noqa: E501
+            response_type='InlineResponse20011',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501

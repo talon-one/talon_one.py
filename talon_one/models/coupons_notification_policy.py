@@ -35,16 +35,20 @@ class CouponsNotificationPolicy(object):
     openapi_types = {
         'name': 'str',
         'scopes': 'list[str]',
-        'batching_enabled': 'bool'
+        'batching_enabled': 'bool',
+        'include_data': 'bool',
+        'batch_size': 'int'
     }
 
     attribute_map = {
         'name': 'name',
         'scopes': 'scopes',
-        'batching_enabled': 'batchingEnabled'
+        'batching_enabled': 'batchingEnabled',
+        'include_data': 'includeData',
+        'batch_size': 'batchSize'
     }
 
-    def __init__(self, name=None, scopes=None, batching_enabled=True, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, name=None, scopes=None, batching_enabled=True, include_data=None, batch_size=None, local_vars_configuration=None):  # noqa: E501
         """CouponsNotificationPolicy - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -53,12 +57,18 @@ class CouponsNotificationPolicy(object):
         self._name = None
         self._scopes = None
         self._batching_enabled = None
+        self._include_data = None
+        self._batch_size = None
         self.discriminator = None
 
         self.name = name
         self.scopes = scopes
         if batching_enabled is not None:
             self.batching_enabled = batching_enabled
+        if include_data is not None:
+            self.include_data = include_data
+        if batch_size is not None:
+            self.batch_size = batch_size
 
     @property
     def name(self):
@@ -141,6 +151,52 @@ class CouponsNotificationPolicy(object):
         """
 
         self._batching_enabled = batching_enabled
+
+    @property
+    def include_data(self):
+        """Gets the include_data of this CouponsNotificationPolicy.  # noqa: E501
+
+        Indicates whether to include all generated coupons. If `false`, only the `batchId` of the generated coupons is included.  # noqa: E501
+
+        :return: The include_data of this CouponsNotificationPolicy.  # noqa: E501
+        :rtype: bool
+        """
+        return self._include_data
+
+    @include_data.setter
+    def include_data(self, include_data):
+        """Sets the include_data of this CouponsNotificationPolicy.
+
+        Indicates whether to include all generated coupons. If `false`, only the `batchId` of the generated coupons is included.  # noqa: E501
+
+        :param include_data: The include_data of this CouponsNotificationPolicy.  # noqa: E501
+        :type: bool
+        """
+
+        self._include_data = include_data
+
+    @property
+    def batch_size(self):
+        """Gets the batch_size of this CouponsNotificationPolicy.  # noqa: E501
+
+        The required size of each batch of data. This value applies only when `batchingEnabled` is `true`.  # noqa: E501
+
+        :return: The batch_size of this CouponsNotificationPolicy.  # noqa: E501
+        :rtype: int
+        """
+        return self._batch_size
+
+    @batch_size.setter
+    def batch_size(self, batch_size):
+        """Sets the batch_size of this CouponsNotificationPolicy.
+
+        The required size of each batch of data. This value applies only when `batchingEnabled` is `true`.  # noqa: E501
+
+        :param batch_size: The batch_size of this CouponsNotificationPolicy.  # noqa: E501
+        :type: int
+        """
+
+        self._batch_size = batch_size
 
     def to_dict(self):
         """Returns the model properties as a dict"""

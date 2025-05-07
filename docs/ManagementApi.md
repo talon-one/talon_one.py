@@ -97,6 +97,7 @@ Method | HTTP request | Description
 [**get_customer_profile_achievement_progress**](ManagementApi.md#get_customer_profile_achievement_progress) | **GET** /v1/applications/{applicationId}/achievement_progress/{integrationId} | List customer achievements
 [**get_customer_profiles**](ManagementApi.md#get_customer_profiles) | **GET** /v1/customers/no_total | List customer profiles
 [**get_customers_by_attributes**](ManagementApi.md#get_customers_by_attributes) | **POST** /v1/customer_search/no_total | List customer profiles matching the given attributes
+[**get_dashboard_statistics**](ManagementApi.md#get_dashboard_statistics) | **GET** /v1/loyalty_programs/{loyaltyProgramId}/dashboard | Get statistics for loyalty dashboard
 [**get_event_types**](ManagementApi.md#get_event_types) | **GET** /v1/event_types | List event types
 [**get_exports**](ManagementApi.md#get_exports) | **GET** /v1/exports | Get exports
 [**get_loyalty_card**](ManagementApi.md#get_loyalty_card) | **GET** /v1/loyalty_programs/{loyaltyProgramId}/cards/{loyaltyCardId} | Get loyalty card
@@ -107,6 +108,7 @@ Method | HTTP request | Description
 [**get_loyalty_program_transactions**](ManagementApi.md#get_loyalty_program_transactions) | **GET** /v1/loyalty_programs/{loyaltyProgramId}/transactions | List loyalty program transactions
 [**get_loyalty_programs**](ManagementApi.md#get_loyalty_programs) | **GET** /v1/loyalty_programs | List loyalty programs
 [**get_loyalty_statistics**](ManagementApi.md#get_loyalty_statistics) | **GET** /v1/loyalty_programs/{loyaltyProgramId}/statistics | Get loyalty program statistics
+[**get_message_logs**](ManagementApi.md#get_message_logs) | **GET** /v1/message_logs | List message log entries
 [**get_referrals_without_total_count**](ManagementApi.md#get_referrals_without_total_count) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/referrals/no_total | List referrals
 [**get_role_v2**](ManagementApi.md#get_role_v2) | **GET** /v2/roles/{roleId} | Get role
 [**get_ruleset**](ManagementApi.md#get_ruleset) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/rulesets/{rulesetId} | Get ruleset
@@ -137,11 +139,7 @@ Method | HTTP request | Description
 [**list_collections**](ManagementApi.md#list_collections) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/collections | List collections in campaign
 [**list_collections_in_application**](ManagementApi.md#list_collections_in_application) | **GET** /v1/applications/{applicationId}/collections | List collections in Application
 [**list_stores**](ManagementApi.md#list_stores) | **GET** /v1/applications/{applicationId}/stores | List stores
-[**notification_activation**](ManagementApi.md#notification_activation) | **PUT** /v1/notifications/{notificationId}/activation | Activate or deactivate notification
 [**okta_event_handler_challenge**](ManagementApi.md#okta_event_handler_challenge) | **GET** /v1/provisioning/okta | Validate Okta API ownership
-[**post_added_deducted_points_notification**](ManagementApi.md#post_added_deducted_points_notification) | **POST** /v1/loyalty_programs/{loyaltyProgramId}/notifications/added_deducted_points | Create notification about added or deducted loyalty points
-[**post_catalogs_strikethrough_notification**](ManagementApi.md#post_catalogs_strikethrough_notification) | **POST** /v1/applications/{applicationId}/catalogs/notifications/strikethrough | Create strikethrough notification
-[**post_pending_points_notification**](ManagementApi.md#post_pending_points_notification) | **POST** /v1/loyalty_programs/{loyaltyProgramId}/notifications/pending_points | Create notification about pending loyalty points
 [**remove_loyalty_points**](ManagementApi.md#remove_loyalty_points) | **PUT** /v1/loyalty_programs/{loyaltyProgramId}/profile/{integrationId}/deduct_points | Deduct points from customer profile
 [**reset_password**](ManagementApi.md#reset_password) | **POST** /v1/reset_password | Reset password
 [**scim_create_user**](ManagementApi.md#scim_create_user) | **POST** /v1/provisioning/scim/Users | Create SCIM user
@@ -222,7 +220,7 @@ configuration = talon_one.Configuration(
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
-    body = talon_one.DeactivateUserRequest() # DeactivateUserRequest | body
+    body = talon_one.DeleteUserRequest() # DeleteUserRequest | body
 
     try:
         # Enable user by email address
@@ -273,7 +271,7 @@ configuration = talon_one.Configuration(
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
-    body = talon_one.DeactivateUserRequest() # DeactivateUserRequest | body
+    body = talon_one.DeleteUserRequest() # DeleteUserRequest | body
 
     try:
         # Enable user by email address
@@ -286,7 +284,7 @@ with talon_one.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | **DeactivateUserRequest**| body | 
+ **body** | **DeleteUserRequest**| body | 
 
 ### Return type
 
@@ -506,7 +504,7 @@ with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
     loyalty_program_id = 'loyalty_program_id_example' # str | The identifier for the loyalty program.
-integration_id = 'integration_id_example' # str | The identifier of the profile.
+integration_id = 'integration_id_example' # str | The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. 
 body = talon_one.AddLoyaltyPoints() # AddLoyaltyPoints | body
 
     try:
@@ -559,7 +557,7 @@ with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
     loyalty_program_id = 'loyalty_program_id_example' # str | The identifier for the loyalty program.
-integration_id = 'integration_id_example' # str | The identifier of the profile.
+integration_id = 'integration_id_example' # str | The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. 
 body = talon_one.AddLoyaltyPoints() # AddLoyaltyPoints | body
 
     try:
@@ -574,7 +572,7 @@ body = talon_one.AddLoyaltyPoints() # AddLoyaltyPoints | body
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **loyalty_program_id** | **str**| The identifier for the loyalty program. | 
- **integration_id** | **str**| The identifier of the profile. | 
+ **integration_id** | **str**| The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier.  | 
  **body** | [**AddLoyaltyPoints**](AddLoyaltyPoints.md)| body | 
 
 ### Return type
@@ -601,7 +599,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **copy_campaign_to_applications**
-> InlineResponse2006 copy_campaign_to_applications(application_id, campaign_id, body)
+> InlineResponse2008 copy_campaign_to_applications(application_id, campaign_id, body)
 
 Copy the campaign into the specified Application
 
@@ -727,7 +725,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2006**](InlineResponse2006.md)
+[**InlineResponse2008**](InlineResponse2008.md)
 
 ### Authorization
 
@@ -1746,7 +1744,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_coupons**
-> InlineResponse2008 create_coupons(application_id, campaign_id, body, silent=silent)
+> InlineResponse20010 create_coupons(application_id, campaign_id, body, silent=silent)
 
 Create coupons
 
@@ -1799,7 +1797,7 @@ with talon_one.ApiClient(configuration) as api_client:
     application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
 campaign_id = 56 # int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
 body = talon_one.NewCoupons() # NewCoupons | body
-silent = 'yes' # str | Possible values: `yes` or `no`. - `yes`: Increases the perfomance of the API call by returning a 204 response. - `no`: Returns a 200 response that contains the updated customer profiles.  (optional) (default to 'yes')
+silent = 'yes' # str | Possible values: `yes` or `no`. - `yes`: Increases the performance of the API call by returning a 204 response. - `no`: Returns a 200 response that contains the updated customer profiles.  (optional) (default to 'yes')
 
     try:
         # Create coupons
@@ -1854,7 +1852,7 @@ with talon_one.ApiClient(configuration) as api_client:
     application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
 campaign_id = 56 # int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
 body = talon_one.NewCoupons() # NewCoupons | body
-silent = 'yes' # str | Possible values: `yes` or `no`. - `yes`: Increases the perfomance of the API call by returning a 204 response. - `no`: Returns a 200 response that contains the updated customer profiles.  (optional) (default to 'yes')
+silent = 'yes' # str | Possible values: `yes` or `no`. - `yes`: Increases the performance of the API call by returning a 204 response. - `no`: Returns a 200 response that contains the updated customer profiles.  (optional) (default to 'yes')
 
     try:
         # Create coupons
@@ -1871,11 +1869,11 @@ Name | Type | Description  | Notes
  **application_id** | **int**| The ID of the Application. It is displayed in your Talon.One deployment URL. | 
  **campaign_id** | **int**| The ID of the campaign. It is displayed in your Talon.One deployment URL. | 
  **body** | [**NewCoupons**](NewCoupons.md)| body | 
- **silent** | **str**| Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the perfomance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains the updated customer profiles.  | [optional] [default to &#39;yes&#39;]
+ **silent** | **str**| Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the performance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains the updated customer profiles.  | [optional] [default to &#39;yes&#39;]
 
 ### Return type
 
-[**InlineResponse2008**](InlineResponse2008.md)
+[**InlineResponse20010**](InlineResponse20010.md)
 
 ### Authorization
 
@@ -2185,7 +2183,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_coupons_for_multiple_recipients**
-> InlineResponse2008 create_coupons_for_multiple_recipients(application_id, campaign_id, body, silent=silent)
+> InlineResponse20010 create_coupons_for_multiple_recipients(application_id, campaign_id, body, silent=silent)
 
 Create coupons for multiple recipients
 
@@ -2238,7 +2236,7 @@ with talon_one.ApiClient(configuration) as api_client:
     application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
 campaign_id = 56 # int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
 body = talon_one.NewCouponsForMultipleRecipients() # NewCouponsForMultipleRecipients | body
-silent = 'yes' # str | Possible values: `yes` or `no`. - `yes`: Increases the perfomance of the API call by returning a 204 response. - `no`: Returns a 200 response that contains the updated customer profiles.  (optional) (default to 'yes')
+silent = 'yes' # str | Possible values: `yes` or `no`. - `yes`: Increases the performance of the API call by returning a 204 response. - `no`: Returns a 200 response that contains the updated customer profiles.  (optional) (default to 'yes')
 
     try:
         # Create coupons for multiple recipients
@@ -2293,7 +2291,7 @@ with talon_one.ApiClient(configuration) as api_client:
     application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
 campaign_id = 56 # int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
 body = talon_one.NewCouponsForMultipleRecipients() # NewCouponsForMultipleRecipients | body
-silent = 'yes' # str | Possible values: `yes` or `no`. - `yes`: Increases the perfomance of the API call by returning a 204 response. - `no`: Returns a 200 response that contains the updated customer profiles.  (optional) (default to 'yes')
+silent = 'yes' # str | Possible values: `yes` or `no`. - `yes`: Increases the performance of the API call by returning a 204 response. - `no`: Returns a 200 response that contains the updated customer profiles.  (optional) (default to 'yes')
 
     try:
         # Create coupons for multiple recipients
@@ -2310,11 +2308,11 @@ Name | Type | Description  | Notes
  **application_id** | **int**| The ID of the Application. It is displayed in your Talon.One deployment URL. | 
  **campaign_id** | **int**| The ID of the campaign. It is displayed in your Talon.One deployment URL. | 
  **body** | [**NewCouponsForMultipleRecipients**](NewCouponsForMultipleRecipients.md)| body | 
- **silent** | **str**| Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the perfomance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains the updated customer profiles.  | [optional] [default to &#39;yes&#39;]
+ **silent** | **str**| Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the performance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains the updated customer profiles.  | [optional] [default to &#39;yes&#39;]
 
 ### Return type
 
-[**InlineResponse2008**](InlineResponse2008.md)
+[**InlineResponse20010**](InlineResponse20010.md)
 
 ### Authorization
 
@@ -3084,7 +3082,7 @@ configuration = talon_one.Configuration(
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
-    body = talon_one.DeactivateUserRequest() # DeactivateUserRequest | body
+    body = talon_one.DeleteUserRequest() # DeleteUserRequest | body
 
     try:
         # Disable user by email address
@@ -3135,7 +3133,7 @@ configuration = talon_one.Configuration(
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
-    body = talon_one.DeactivateUserRequest() # DeactivateUserRequest | body
+    body = talon_one.DeleteUserRequest() # DeleteUserRequest | body
 
     try:
         # Disable user by email address
@@ -3148,7 +3146,7 @@ with talon_one.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**DeactivateUserRequest**](DeactivateUserRequest.md)| body | 
+ **body** | **DeleteUserRequest**| body | 
 
 ### Return type
 
@@ -4819,7 +4817,7 @@ configuration = talon_one.Configuration(
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
-    body = talon_one.DeactivateUserRequest() # DeactivateUserRequest | body
+    body = talon_one.DeleteUserRequest() # DeleteUserRequest | body
 
     try:
         # Delete user by email address
@@ -4870,7 +4868,7 @@ configuration = talon_one.Configuration(
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
-    body = talon_one.DeactivateUserRequest() # DeactivateUserRequest | body
+    body = talon_one.DeleteUserRequest() # DeleteUserRequest | body
 
     try:
         # Delete user by email address
@@ -4883,7 +4881,7 @@ with talon_one.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | **DeactivateUserRequest**| body | 
+ **body** | [**DeleteUserRequest**](DeleteUserRequest.md)| body | 
 
 ### Return type
 
@@ -5956,7 +5954,7 @@ with talon_one.ApiClient(configuration) as api_client:
     api_instance = talon_one.ManagementApi(api_client)
     application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
 campaign_id = 3.4 # float | Filter results by campaign ID. (optional)
-sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
+sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
 value = 'value_example' # str | Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
 created_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
 created_after = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
@@ -6022,7 +6020,7 @@ with talon_one.ApiClient(configuration) as api_client:
     api_instance = talon_one.ManagementApi(api_client)
     application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
 campaign_id = 3.4 # float | Filter results by campaign ID. (optional)
-sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
+sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
 value = 'value_example' # str | Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
 created_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
 created_after = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
@@ -6050,7 +6048,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **application_id** | **int**| The ID of the Application. It is displayed in your Talon.One deployment URL. | 
  **campaign_id** | **float**| Filter results by campaign ID. | [optional] 
- **sort** | **str**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  | [optional] 
+ **sort** | **str**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  | [optional] 
  **value** | **str**| Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. | [optional] 
  **created_before** | **datetime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. | [optional] 
  **created_after** | **datetime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. | [optional] 
@@ -7271,7 +7269,7 @@ Name | Type | Description  | Notes
 
 Export customer's transaction logs
 
-Download a CSV file containing a customer's transaction logs in the loyalty program.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The generated file can contain the following columns:  - `customerprofileid`: The ID of the profile. - `customersessionid`: The ID of the customer session. - `rulesetid`: The ID of the rule set. - `rulename`: The name of the rule. - `programid`: The ID of the loyalty program. - `type`: The transaction type, such as `addition` or `subtraction`. - `name`: The reason for the transaction. - `subledgerid`: The ID of the subledger, when applicable. - `startdate`: The start date of the program. - `expirydate`: The expiration date of the program. - `id`: The ID of the transaction. - `created`: The timestamp of the creation of the loyalty program. - `amount`: The number of points in that transaction. - `archived`: Whether the session related to the transaction is archived. - `campaignid`: The ID of the campaign. 
+Download a CSV file containing a customer's transaction logs in the loyalty program.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The generated file can contain the following columns:  - `customerprofileid`: The ID of the profile. - `customersessionid`: The ID of the customer session. - `rulesetid`: The ID of the rule set. - `rulename`: The name of the rule. - `programid`: The ID of the loyalty program. - `type`: The transaction type, such as `addition` or `subtraction`. - `name`: The reason for the transaction. - `subledgerid`: The ID of the subledger, when applicable. - `startdate`: The start date of the program. - `expirydate`: The expiration date of the program. - `id`: The ID of the transaction. - `created`: The timestamp of the creation of the loyalty program. - `amount`: The number of points in that transaction. - `archived`: Whether the session related to the transaction is archived. - `campaignid`: The ID of the campaign. - `flags`: The flags of the transaction, when applicable. The `createsNegativeBalance` flag indicates whether the transaction results in a negative balance. 
 
 ### Example
 
@@ -7320,7 +7318,7 @@ with talon_one.ApiClient(configuration) as api_client:
     range_start = '2013-10-20T19:20:30+01:00' # datetime | Only return results from after this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
 range_end = '2013-10-20T19:20:30+01:00' # datetime | Only return results from before this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
 loyalty_program_id = 'loyalty_program_id_example' # str | The identifier for the loyalty program.
-integration_id = 'integration_id_example' # str | The identifier of the profile.
+integration_id = 'integration_id_example' # str | The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. 
 date_format = 'date_format_example' # str | Determines the format of dates in the export document. (optional)
 
     try:
@@ -7376,7 +7374,7 @@ with talon_one.ApiClient(configuration) as api_client:
     range_start = '2013-10-20T19:20:30+01:00' # datetime | Only return results from after this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
 range_end = '2013-10-20T19:20:30+01:00' # datetime | Only return results from before this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
 loyalty_program_id = 'loyalty_program_id_example' # str | The identifier for the loyalty program.
-integration_id = 'integration_id_example' # str | The identifier of the profile.
+integration_id = 'integration_id_example' # str | The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. 
 date_format = 'date_format_example' # str | Determines the format of dates in the export document. (optional)
 
     try:
@@ -7394,7 +7392,7 @@ Name | Type | Description  | Notes
  **range_start** | **datetime**| Only return results from after this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  | 
  **range_end** | **datetime**| Only return results from before this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  | 
  **loyalty_program_id** | **str**| The identifier for the loyalty program. | 
- **integration_id** | **str**| The identifier of the profile. | 
+ **integration_id** | **str**| The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier.  | 
  **date_format** | **str**| Determines the format of dates in the export document. | [optional] 
 
 ### Return type
@@ -7724,7 +7722,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_access_logs_without_total_count**
-> InlineResponse20019 get_access_logs_without_total_count(application_id, range_start, range_end, path=path, method=method, status=status, page_size=page_size, skip=skip, sort=sort)
+> InlineResponse20022 get_access_logs_without_total_count(application_id, range_start, range_end, path=path, method=method, status=status, page_size=page_size, skip=skip, sort=sort)
 
 Get access logs for Application
 
@@ -7782,7 +7780,7 @@ method = 'method_example' # str | Only return results where the request method m
 status = 'status_example' # str | Filter results by HTTP status codes. (optional)
 page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
 skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
-sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
+sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
 
     try:
         # Get access logs for Application
@@ -7842,7 +7840,7 @@ method = 'method_example' # str | Only return results where the request method m
 status = 'status_example' # str | Filter results by HTTP status codes. (optional)
 page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
 skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
-sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
+sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
 
     try:
         # Get access logs for Application
@@ -7864,11 +7862,11 @@ Name | Type | Description  | Notes
  **status** | **str**| Filter results by HTTP status codes. | [optional] 
  **page_size** | **int**| The number of items in the response. | [optional] [default to 1000]
  **skip** | **int**| The number of items to skip when paging through large result sets. | [optional] 
- **sort** | **str**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  | [optional] 
+ **sort** | **str**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  | [optional] 
 
 ### Return type
 
-[**InlineResponse20019**](InlineResponse20019.md)
+[**InlineResponse20022**](InlineResponse20022.md)
 
 ### Authorization
 
@@ -8591,7 +8589,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_additional_costs**
-> InlineResponse20035 get_additional_costs(page_size=page_size, skip=skip, sort=sort)
+> InlineResponse20038 get_additional_costs(page_size=page_size, skip=skip, sort=sort)
 
 List additional costs
 
@@ -8643,7 +8641,7 @@ with talon_one.ApiClient(configuration) as api_client:
     api_instance = talon_one.ManagementApi(api_client)
     page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
 skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
-sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
+sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
 
     try:
         # List additional costs
@@ -8697,7 +8695,7 @@ with talon_one.ApiClient(configuration) as api_client:
     api_instance = talon_one.ManagementApi(api_client)
     page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
 skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
-sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
+sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
 
     try:
         # List additional costs
@@ -8713,11 +8711,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **page_size** | **int**| The number of items in the response. | [optional] [default to 1000]
  **skip** | **int**| The number of items to skip when paging through large result sets. | [optional] 
- **sort** | **str**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  | [optional] 
+ **sort** | **str**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  | [optional] 
 
 ### Return type
 
-[**InlineResponse20035**](InlineResponse20035.md)
+[**InlineResponse20038**](InlineResponse20038.md)
 
 ### Authorization
 
@@ -9156,7 +9154,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_application_customer_friends**
-> InlineResponse20032 get_application_customer_friends(application_id, integration_id, page_size=page_size, skip=skip, sort=sort, with_total_result_size=with_total_result_size)
+> InlineResponse20035 get_application_customer_friends(application_id, integration_id, page_size=page_size, skip=skip, sort=sort, with_total_result_size=with_total_result_size)
 
 List friends referred by customer profile
 
@@ -9210,7 +9208,7 @@ with talon_one.ApiClient(configuration) as api_client:
 integration_id = 'integration_id_example' # str | The Integration ID of the Advocate's Profile.
 page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
 skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
-sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
+sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
 with_total_result_size = True # bool | When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When `true`: `hasMore` is true when there is a next page. `totalResultSize` is always zero. - When `false`: `hasMore` is always false. `totalResultSize` contains the total number of results for this query.  (optional)
 
     try:
@@ -9267,7 +9265,7 @@ with talon_one.ApiClient(configuration) as api_client:
 integration_id = 'integration_id_example' # str | The Integration ID of the Advocate's Profile.
 page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
 skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
-sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
+sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
 with_total_result_size = True # bool | When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When `true`: `hasMore` is true when there is a next page. `totalResultSize` is always zero. - When `false`: `hasMore` is always false. `totalResultSize` contains the total number of results for this query.  (optional)
 
     try:
@@ -9286,12 +9284,12 @@ Name | Type | Description  | Notes
  **integration_id** | **str**| The Integration ID of the Advocate&#39;s Profile. | 
  **page_size** | **int**| The number of items in the response. | [optional] [default to 1000]
  **skip** | **int**| The number of items to skip when paging through large result sets. | [optional] 
- **sort** | **str**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  | [optional] 
+ **sort** | **str**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  | [optional] 
  **with_total_result_size** | **bool**| When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When &#x60;true&#x60;: &#x60;hasMore&#x60; is true when there is a next page. &#x60;totalResultSize&#x60; is always zero. - When &#x60;false&#x60;: &#x60;hasMore&#x60; is always false. &#x60;totalResultSize&#x60; contains the total number of results for this query.  | [optional] 
 
 ### Return type
 
-[**InlineResponse20032**](InlineResponse20032.md)
+[**InlineResponse20035**](InlineResponse20035.md)
 
 ### Authorization
 
@@ -9310,7 +9308,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_application_customers**
-> InlineResponse20021 get_application_customers(application_id, integration_id=integration_id, page_size=page_size, skip=skip, with_total_result_size=with_total_result_size)
+> InlineResponse20024 get_application_customers(application_id, integration_id=integration_id, page_size=page_size, skip=skip, with_total_result_size=with_total_result_size)
 
 List application's customers
 
@@ -9442,7 +9440,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20021**](InlineResponse20021.md)
+[**InlineResponse20024**](InlineResponse20024.md)
 
 ### Authorization
 
@@ -9461,7 +9459,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_application_customers_by_attributes**
-> InlineResponse20022 get_application_customers_by_attributes(application_id, body, page_size=page_size, skip=skip, with_total_result_size=with_total_result_size)
+> InlineResponse20025 get_application_customers_by_attributes(application_id, body, page_size=page_size, skip=skip, with_total_result_size=with_total_result_size)
 
 List application customers matching the given attributes
 
@@ -9593,7 +9591,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20022**](InlineResponse20022.md)
+[**InlineResponse20025**](InlineResponse20025.md)
 
 ### Authorization
 
@@ -9612,7 +9610,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_application_event_types**
-> InlineResponse20028 get_application_event_types(application_id, page_size=page_size, skip=skip, sort=sort)
+> InlineResponse20031 get_application_event_types(application_id, page_size=page_size, skip=skip, sort=sort)
 
 List Applications event types
 
@@ -9665,7 +9663,7 @@ with talon_one.ApiClient(configuration) as api_client:
     application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
 page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
 skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
-sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
+sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
 
     try:
         # List Applications event types
@@ -9720,7 +9718,7 @@ with talon_one.ApiClient(configuration) as api_client:
     application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
 page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
 skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
-sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
+sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
 
     try:
         # List Applications event types
@@ -9737,11 +9735,11 @@ Name | Type | Description  | Notes
  **application_id** | **int**| The ID of the Application. It is displayed in your Talon.One deployment URL. | 
  **page_size** | **int**| The number of items in the response. | [optional] [default to 1000]
  **skip** | **int**| The number of items to skip when paging through large result sets. | [optional] 
- **sort** | **str**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  | [optional] 
+ **sort** | **str**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  | [optional] 
 
 ### Return type
 
-[**InlineResponse20028**](InlineResponse20028.md)
+[**InlineResponse20031**](InlineResponse20031.md)
 
 ### Authorization
 
@@ -9760,7 +9758,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_application_events_without_total_count**
-> InlineResponse20027 get_application_events_without_total_count(application_id, page_size=page_size, skip=skip, sort=sort, type=type, created_before=created_before, created_after=created_after, session=session, profile=profile, customer_name=customer_name, customer_email=customer_email, coupon_code=coupon_code, referral_code=referral_code, rule_query=rule_query, campaign_query=campaign_query)
+> InlineResponse20030 get_application_events_without_total_count(application_id, page_size=page_size, skip=skip, sort=sort, type=type, created_before=created_before, created_after=created_after, session=session, profile=profile, customer_name=customer_name, customer_email=customer_email, coupon_code=coupon_code, referral_code=referral_code, rule_query=rule_query, campaign_query=campaign_query)
 
 List Applications events
 
@@ -9813,7 +9811,7 @@ with talon_one.ApiClient(configuration) as api_client:
     application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
 page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
 skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
-sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
+sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
 type = 'type_example' # str | Comma-separated list of types by which to filter events. Must be exact match(es). (optional)
 created_before = '2013-10-20T19:20:30+01:00' # datetime | Only return events created before this date. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
 created_after = '2013-10-20T19:20:30+01:00' # datetime | Only return events created after this date. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
@@ -9879,7 +9877,7 @@ with talon_one.ApiClient(configuration) as api_client:
     application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
 page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
 skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
-sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
+sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
 type = 'type_example' # str | Comma-separated list of types by which to filter events. Must be exact match(es). (optional)
 created_before = '2013-10-20T19:20:30+01:00' # datetime | Only return events created before this date. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
 created_after = '2013-10-20T19:20:30+01:00' # datetime | Only return events created after this date. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
@@ -9907,7 +9905,7 @@ Name | Type | Description  | Notes
  **application_id** | **int**| The ID of the Application. It is displayed in your Talon.One deployment URL. | 
  **page_size** | **int**| The number of items in the response. | [optional] [default to 1000]
  **skip** | **int**| The number of items to skip when paging through large result sets. | [optional] 
- **sort** | **str**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  | [optional] 
+ **sort** | **str**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  | [optional] 
  **type** | **str**| Comma-separated list of types by which to filter events. Must be exact match(es). | [optional] 
  **created_before** | **datetime**| Only return events created before this date. You can use any time zone setting. Talon.One will convert to UTC internally. | [optional] 
  **created_after** | **datetime**| Only return events created after this date. You can use any time zone setting. Talon.One will convert to UTC internally. | [optional] 
@@ -9922,7 +9920,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20027**](InlineResponse20027.md)
+[**InlineResponse20030**](InlineResponse20030.md)
 
 ### Authorization
 
@@ -10083,7 +10081,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_application_sessions**
-> InlineResponse20026 get_application_sessions(application_id, page_size=page_size, skip=skip, sort=sort, profile=profile, state=state, created_before=created_before, created_after=created_after, coupon=coupon, referral=referral, integration_id=integration_id, store_integration_id=store_integration_id)
+> InlineResponse20029 get_application_sessions(application_id, page_size=page_size, skip=skip, sort=sort, profile=profile, state=state, created_before=created_before, created_after=created_after, coupon=coupon, referral=referral, integration_id=integration_id, store_integration_id=store_integration_id)
 
 List Application sessions
 
@@ -10136,7 +10134,7 @@ with talon_one.ApiClient(configuration) as api_client:
     application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
 page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
 skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
-sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
+sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
 profile = 'profile_example' # str | Profile integration ID filter for sessions. Must be exact match. (optional)
 state = 'state_example' # str | Filter by sessions with this state. Must be exact match. (optional)
 created_before = '2013-10-20T19:20:30+01:00' # datetime | Only return events created before this date. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
@@ -10199,7 +10197,7 @@ with talon_one.ApiClient(configuration) as api_client:
     application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
 page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
 skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
-sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
+sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
 profile = 'profile_example' # str | Profile integration ID filter for sessions. Must be exact match. (optional)
 state = 'state_example' # str | Filter by sessions with this state. Must be exact match. (optional)
 created_before = '2013-10-20T19:20:30+01:00' # datetime | Only return events created before this date. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
@@ -10224,7 +10222,7 @@ Name | Type | Description  | Notes
  **application_id** | **int**| The ID of the Application. It is displayed in your Talon.One deployment URL. | 
  **page_size** | **int**| The number of items in the response. | [optional] [default to 1000]
  **skip** | **int**| The number of items to skip when paging through large result sets. | [optional] 
- **sort** | **str**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  | [optional] 
+ **sort** | **str**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  | [optional] 
  **profile** | **str**| Profile integration ID filter for sessions. Must be exact match. | [optional] 
  **state** | **str**| Filter by sessions with this state. Must be exact match. | [optional] 
  **created_before** | **datetime**| Only return events created before this date. You can use any time zone setting. Talon.One will convert to UTC internally. | [optional] 
@@ -10236,7 +10234,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20026**](InlineResponse20026.md)
+[**InlineResponse20029**](InlineResponse20029.md)
 
 ### Authorization
 
@@ -10255,7 +10253,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_applications**
-> InlineResponse2005 get_applications(page_size=page_size, skip=skip, sort=sort)
+> InlineResponse2007 get_applications(page_size=page_size, skip=skip, sort=sort)
 
 List Applications
 
@@ -10307,7 +10305,7 @@ with talon_one.ApiClient(configuration) as api_client:
     api_instance = talon_one.ManagementApi(api_client)
     page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
 skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
-sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
+sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
 
     try:
         # List Applications
@@ -10361,7 +10359,7 @@ with talon_one.ApiClient(configuration) as api_client:
     api_instance = talon_one.ManagementApi(api_client)
     page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
 skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
-sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
+sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
 
     try:
         # List Applications
@@ -10377,11 +10375,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **page_size** | **int**| The number of items in the response. | [optional] [default to 1000]
  **skip** | **int**| The number of items to skip when paging through large result sets. | [optional] 
- **sort** | **str**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  | [optional] 
+ **sort** | **str**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  | [optional] 
 
 ### Return type
 
-[**InlineResponse2005**](InlineResponse2005.md)
+[**InlineResponse2007**](InlineResponse2007.md)
 
 ### Authorization
 
@@ -10539,7 +10537,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_attributes**
-> InlineResponse20033 get_attributes(page_size=page_size, skip=skip, sort=sort, entity=entity)
+> InlineResponse20036 get_attributes(page_size=page_size, skip=skip, sort=sort, entity=entity)
 
 List custom attributes
 
@@ -10591,7 +10589,7 @@ with talon_one.ApiClient(configuration) as api_client:
     api_instance = talon_one.ManagementApi(api_client)
     page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
 skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
-sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
+sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
 entity = 'entity_example' # str | Returned attributes will be filtered by supplied entity. (optional)
 
     try:
@@ -10646,7 +10644,7 @@ with talon_one.ApiClient(configuration) as api_client:
     api_instance = talon_one.ManagementApi(api_client)
     page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
 skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
-sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
+sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
 entity = 'entity_example' # str | Returned attributes will be filtered by supplied entity. (optional)
 
     try:
@@ -10663,12 +10661,12 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **page_size** | **int**| The number of items in the response. | [optional] [default to 1000]
  **skip** | **int**| The number of items to skip when paging through large result sets. | [optional] 
- **sort** | **str**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  | [optional] 
+ **sort** | **str**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  | [optional] 
  **entity** | **str**| Returned attributes will be filtered by supplied entity. | [optional] 
 
 ### Return type
 
-[**InlineResponse20033**](InlineResponse20033.md)
+[**InlineResponse20036**](InlineResponse20036.md)
 
 ### Authorization
 
@@ -10687,7 +10685,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_audience_memberships**
-> InlineResponse20031 get_audience_memberships(audience_id, page_size=page_size, skip=skip, sort=sort, profile_query=profile_query)
+> InlineResponse20034 get_audience_memberships(audience_id, page_size=page_size, skip=skip, sort=sort, profile_query=profile_query)
 
 List audience members
 
@@ -10740,7 +10738,7 @@ with talon_one.ApiClient(configuration) as api_client:
     audience_id = 56 # int | The ID of the audience.
 page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
 skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
-sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
+sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
 profile_query = 'profile_query_example' # str | The filter to select a profile. (optional)
 
     try:
@@ -10796,7 +10794,7 @@ with talon_one.ApiClient(configuration) as api_client:
     audience_id = 56 # int | The ID of the audience.
 page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
 skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
-sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
+sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
 profile_query = 'profile_query_example' # str | The filter to select a profile. (optional)
 
     try:
@@ -10814,12 +10812,12 @@ Name | Type | Description  | Notes
  **audience_id** | **int**| The ID of the audience. | 
  **page_size** | **int**| The number of items in the response. | [optional] [default to 1000]
  **skip** | **int**| The number of items to skip when paging through large result sets. | [optional] 
- **sort** | **str**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  | [optional] 
+ **sort** | **str**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  | [optional] 
  **profile_query** | **str**| The filter to select a profile. | [optional] 
 
 ### Return type
 
-[**InlineResponse20031**](InlineResponse20031.md)
+[**InlineResponse20034**](InlineResponse20034.md)
 
 ### Authorization
 
@@ -10839,7 +10837,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_audiences**
-> InlineResponse20029 get_audiences(page_size=page_size, skip=skip, sort=sort, with_total_result_size=with_total_result_size)
+> InlineResponse20032 get_audiences(page_size=page_size, skip=skip, sort=sort, with_total_result_size=with_total_result_size)
 
 List audiences
 
@@ -10891,7 +10889,7 @@ with talon_one.ApiClient(configuration) as api_client:
     api_instance = talon_one.ManagementApi(api_client)
     page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
 skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
-sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
+sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
 with_total_result_size = True # bool | When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When `true`: `hasMore` is true when there is a next page. `totalResultSize` is always zero. - When `false`: `hasMore` is always false. `totalResultSize` contains the total number of results for this query.  (optional)
 
     try:
@@ -10946,7 +10944,7 @@ with talon_one.ApiClient(configuration) as api_client:
     api_instance = talon_one.ManagementApi(api_client)
     page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
 skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
-sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
+sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
 with_total_result_size = True # bool | When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When `true`: `hasMore` is true when there is a next page. `totalResultSize` is always zero. - When `false`: `hasMore` is always false. `totalResultSize` contains the total number of results for this query.  (optional)
 
     try:
@@ -10963,12 +10961,12 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **page_size** | **int**| The number of items in the response. | [optional] [default to 1000]
  **skip** | **int**| The number of items to skip when paging through large result sets. | [optional] 
- **sort** | **str**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  | [optional] 
+ **sort** | **str**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  | [optional] 
  **with_total_result_size** | **bool**| When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When &#x60;true&#x60;: &#x60;hasMore&#x60; is true when there is a next page. &#x60;totalResultSize&#x60; is always zero. - When &#x60;false&#x60;: &#x60;hasMore&#x60; is always false. &#x60;totalResultSize&#x60; contains the total number of results for this query.  | [optional] 
 
 ### Return type
 
-[**InlineResponse20029**](InlineResponse20029.md)
+[**InlineResponse20032**](InlineResponse20032.md)
 
 ### Authorization
 
@@ -10987,7 +10985,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_audiences_analytics**
-> InlineResponse20030 get_audiences_analytics(audience_ids, sort=sort)
+> InlineResponse20033 get_audiences_analytics(audience_ids, sort=sort)
 
 List audience analytics
 
@@ -11038,7 +11036,7 @@ with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
     audience_ids = 'audience_ids_example' # str | The IDs of one or more audiences, separated by commas, by which to filter results.
-sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
+sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
 
     try:
         # List audience analytics
@@ -11091,7 +11089,7 @@ with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
     audience_ids = 'audience_ids_example' # str | The IDs of one or more audiences, separated by commas, by which to filter results.
-sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
+sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
 
     try:
         # List audience analytics
@@ -11106,11 +11104,11 @@ sort = 'sort_example' # str | The field by which results should be sorted. By de
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **audience_ids** | **str**| The IDs of one or more audiences, separated by commas, by which to filter results. | 
- **sort** | **str**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  | [optional] 
+ **sort** | **str**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  | [optional] 
 
 ### Return type
 
-[**InlineResponse20030**](InlineResponse20030.md)
+[**InlineResponse20033**](InlineResponse20033.md)
 
 ### Authorization
 
@@ -11271,7 +11269,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_campaign_analytics**
-> InlineResponse20020 get_campaign_analytics(application_id, campaign_id, range_start, range_end, granularity=granularity)
+> InlineResponse20023 get_campaign_analytics(application_id, campaign_id, range_start, range_end, granularity=granularity)
 
 Get analytics of campaigns
 
@@ -11403,7 +11401,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20020**](InlineResponse20020.md)
+[**InlineResponse20023**](InlineResponse20023.md)
 
 ### Authorization
 
@@ -11422,7 +11420,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_campaign_by_attributes**
-> InlineResponse2006 get_campaign_by_attributes(application_id, body, page_size=page_size, skip=skip, sort=sort, campaign_state=campaign_state)
+> InlineResponse2008 get_campaign_by_attributes(application_id, body, page_size=page_size, skip=skip, sort=sort, campaign_state=campaign_state)
 
 List campaigns that match the given attributes
 
@@ -11476,7 +11474,7 @@ with talon_one.ApiClient(configuration) as api_client:
 body = talon_one.CampaignSearch() # CampaignSearch | body
 page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
 skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
-sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
+sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
 campaign_state = 'campaign_state_example' # str | Filter results by the state of the campaign.  - `enabled`: Campaigns that are scheduled, running (activated), or expired. - `running`: Campaigns that are running (activated). - `disabled`: Campaigns that are disabled. - `expired`: Campaigns that are expired. - `archived`: Campaigns that are archived.  (optional)
 
     try:
@@ -11533,7 +11531,7 @@ with talon_one.ApiClient(configuration) as api_client:
 body = talon_one.CampaignSearch() # CampaignSearch | body
 page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
 skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
-sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
+sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
 campaign_state = 'campaign_state_example' # str | Filter results by the state of the campaign.  - `enabled`: Campaigns that are scheduled, running (activated), or expired. - `running`: Campaigns that are running (activated). - `disabled`: Campaigns that are disabled. - `expired`: Campaigns that are expired. - `archived`: Campaigns that are archived.  (optional)
 
     try:
@@ -11552,12 +11550,12 @@ Name | Type | Description  | Notes
  **body** | [**CampaignSearch**](CampaignSearch.md)| body | 
  **page_size** | **int**| The number of items in the response. | [optional] [default to 1000]
  **skip** | **int**| The number of items to skip when paging through large result sets. | [optional] 
- **sort** | **str**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  | [optional] 
+ **sort** | **str**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  | [optional] 
  **campaign_state** | **str**| Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Campaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived.  | [optional] 
 
 ### Return type
 
-[**InlineResponse2006**](InlineResponse2006.md)
+[**InlineResponse2008**](InlineResponse2008.md)
 
 ### Authorization
 
@@ -11715,7 +11713,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_campaign_groups**
-> InlineResponse20011 get_campaign_groups(page_size=page_size, skip=skip, sort=sort)
+> InlineResponse20013 get_campaign_groups(page_size=page_size, skip=skip, sort=sort)
 
 List campaign access groups
 
@@ -11767,7 +11765,7 @@ with talon_one.ApiClient(configuration) as api_client:
     api_instance = talon_one.ManagementApi(api_client)
     page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
 skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
-sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
+sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
 
     try:
         # List campaign access groups
@@ -11821,7 +11819,7 @@ with talon_one.ApiClient(configuration) as api_client:
     api_instance = talon_one.ManagementApi(api_client)
     page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
 skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
-sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
+sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
 
     try:
         # List campaign access groups
@@ -11837,11 +11835,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **page_size** | **int**| The number of items in the response. | [optional] [default to 1000]
  **skip** | **int**| The number of items to skip when paging through large result sets. | [optional] 
- **sort** | **str**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  | [optional] 
+ **sort** | **str**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  | [optional] 
 
 ### Return type
 
-[**InlineResponse20011**](InlineResponse20011.md)
+[**InlineResponse20013**](InlineResponse20013.md)
 
 ### Authorization
 
@@ -11860,7 +11858,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_campaign_templates**
-> InlineResponse20012 get_campaign_templates(page_size=page_size, skip=skip, sort=sort, state=state, name=name, tags=tags, user_id=user_id)
+> InlineResponse20014 get_campaign_templates(page_size=page_size, skip=skip, sort=sort, state=state, name=name, tags=tags, user_id=user_id)
 
 List campaign templates
 
@@ -11912,7 +11910,7 @@ with talon_one.ApiClient(configuration) as api_client:
     api_instance = talon_one.ManagementApi(api_client)
     page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
 skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
-sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
+sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
 state = 'state_example' # str | Filter results by the state of the campaign template. (optional)
 name = 'name_example' # str | Filter results performing case-insensitive matching against the name of the campaign template. (optional)
 tags = 'tags_example' # str | Filter results performing case-insensitive matching against the tags of the campaign template. When used in conjunction with the \"name\" query parameter, a logical OR will be performed to search both tags and name for the provided values.  (optional)
@@ -11970,7 +11968,7 @@ with talon_one.ApiClient(configuration) as api_client:
     api_instance = talon_one.ManagementApi(api_client)
     page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
 skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
-sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
+sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
 state = 'state_example' # str | Filter results by the state of the campaign template. (optional)
 name = 'name_example' # str | Filter results performing case-insensitive matching against the name of the campaign template. (optional)
 tags = 'tags_example' # str | Filter results performing case-insensitive matching against the tags of the campaign template. When used in conjunction with the \"name\" query parameter, a logical OR will be performed to search both tags and name for the provided values.  (optional)
@@ -11990,7 +11988,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **page_size** | **int**| The number of items in the response. | [optional] [default to 1000]
  **skip** | **int**| The number of items to skip when paging through large result sets. | [optional] 
- **sort** | **str**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  | [optional] 
+ **sort** | **str**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  | [optional] 
  **state** | **str**| Filter results by the state of the campaign template. | [optional] 
  **name** | **str**| Filter results performing case-insensitive matching against the name of the campaign template. | [optional] 
  **tags** | **str**| Filter results performing case-insensitive matching against the tags of the campaign template. When used in conjunction with the \&quot;name\&quot; query parameter, a logical OR will be performed to search both tags and name for the provided values.  | [optional] 
@@ -11998,7 +11996,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20012**](InlineResponse20012.md)
+[**InlineResponse20014**](InlineResponse20014.md)
 
 ### Authorization
 
@@ -12017,7 +12015,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_campaigns**
-> InlineResponse2006 get_campaigns(application_id, page_size=page_size, skip=skip, sort=sort, campaign_state=campaign_state, name=name, tags=tags, created_before=created_before, created_after=created_after, campaign_group_id=campaign_group_id, template_id=template_id, store_id=store_id)
+> InlineResponse2008 get_campaigns(application_id, page_size=page_size, skip=skip, sort=sort, campaign_state=campaign_state, name=name, tags=tags, created_before=created_before, created_after=created_after, campaign_group_id=campaign_group_id, template_id=template_id, store_id=store_id)
 
 List campaigns
 
@@ -12070,7 +12068,7 @@ with talon_one.ApiClient(configuration) as api_client:
     application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
 page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
 skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
-sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
+sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
 campaign_state = 'campaign_state_example' # str | Filter results by the state of the campaign.  - `enabled`: Campaigns that are scheduled, running (activated), or expired. - `running`: Campaigns that are running (activated). - `disabled`: Campaigns that are disabled. - `expired`: Campaigns that are expired. - `archived`: Campaigns that are archived.  (optional)
 name = 'name_example' # str | Filter results performing case-insensitive matching against the name of the campaign. (optional)
 tags = 'tags_example' # str | Filter results performing case-insensitive matching against the tags of the campaign. When used in conjunction with the \"name\" query parameter, a logical OR will be performed to search both tags and name for the provided values  (optional)
@@ -12133,7 +12131,7 @@ with talon_one.ApiClient(configuration) as api_client:
     application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
 page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
 skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
-sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
+sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
 campaign_state = 'campaign_state_example' # str | Filter results by the state of the campaign.  - `enabled`: Campaigns that are scheduled, running (activated), or expired. - `running`: Campaigns that are running (activated). - `disabled`: Campaigns that are disabled. - `expired`: Campaigns that are expired. - `archived`: Campaigns that are archived.  (optional)
 name = 'name_example' # str | Filter results performing case-insensitive matching against the name of the campaign. (optional)
 tags = 'tags_example' # str | Filter results performing case-insensitive matching against the tags of the campaign. When used in conjunction with the \"name\" query parameter, a logical OR will be performed to search both tags and name for the provided values  (optional)
@@ -12158,7 +12156,7 @@ Name | Type | Description  | Notes
  **application_id** | **int**| The ID of the Application. It is displayed in your Talon.One deployment URL. | 
  **page_size** | **int**| The number of items in the response. | [optional] [default to 1000]
  **skip** | **int**| The number of items to skip when paging through large result sets. | [optional] 
- **sort** | **str**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  | [optional] 
+ **sort** | **str**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  | [optional] 
  **campaign_state** | **str**| Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Campaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived.  | [optional] 
  **name** | **str**| Filter results performing case-insensitive matching against the name of the campaign. | [optional] 
  **tags** | **str**| Filter results performing case-insensitive matching against the tags of the campaign. When used in conjunction with the \&quot;name\&quot; query parameter, a logical OR will be performed to search both tags and name for the provided values  | [optional] 
@@ -12170,7 +12168,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2006**](InlineResponse2006.md)
+[**InlineResponse2008**](InlineResponse2008.md)
 
 ### Authorization
 
@@ -12190,7 +12188,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_changes**
-> InlineResponse20041 get_changes(page_size=page_size, skip=skip, sort=sort, application_id=application_id, entity_path=entity_path, user_id=user_id, created_before=created_before, created_after=created_after, with_total_result_size=with_total_result_size, management_key_id=management_key_id, include_old=include_old)
+> InlineResponse20044 get_changes(page_size=page_size, skip=skip, sort=sort, application_id=application_id, entity_path=entity_path, user_id=user_id, created_before=created_before, created_after=created_after, with_total_result_size=with_total_result_size, management_key_id=management_key_id, include_old=include_old)
 
 Get audit logs for an account
 
@@ -12242,7 +12240,7 @@ with talon_one.ApiClient(configuration) as api_client:
     api_instance = talon_one.ManagementApi(api_client)
     page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
 skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
-sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
+sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
 application_id = 3.4 # float | Filter results by Application ID. (optional)
 entity_path = 'entity_path_example' # str | Filter results on a case insensitive matching of the url path of the entity (optional)
 user_id = 56 # int | Filter results by user ID. (optional)
@@ -12304,7 +12302,7 @@ with talon_one.ApiClient(configuration) as api_client:
     api_instance = talon_one.ManagementApi(api_client)
     page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
 skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
-sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
+sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
 application_id = 3.4 # float | Filter results by Application ID. (optional)
 entity_path = 'entity_path_example' # str | Filter results on a case insensitive matching of the url path of the entity (optional)
 user_id = 56 # int | Filter results by user ID. (optional)
@@ -12328,7 +12326,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **page_size** | **int**| The number of items in the response. | [optional] [default to 1000]
  **skip** | **int**| The number of items to skip when paging through large result sets. | [optional] 
- **sort** | **str**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  | [optional] 
+ **sort** | **str**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  | [optional] 
  **application_id** | **float**| Filter results by Application ID. | [optional] 
  **entity_path** | **str**| Filter results on a case insensitive matching of the url path of the entity | [optional] 
  **user_id** | **int**| Filter results by user ID. | [optional] 
@@ -12340,7 +12338,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20041**](InlineResponse20041.md)
+[**InlineResponse20044**](InlineResponse20044.md)
 
 ### Authorization
 
@@ -12505,7 +12503,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_collection_items**
-> InlineResponse20018 get_collection_items(collection_id, page_size=page_size, skip=skip)
+> InlineResponse20021 get_collection_items(collection_id, page_size=page_size, skip=skip)
 
 Get collection items
 
@@ -12631,7 +12629,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20018**](InlineResponse20018.md)
+[**InlineResponse20021**](InlineResponse20021.md)
 
 ### Authorization
 
@@ -12651,7 +12649,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_coupons_without_total_count**
-> InlineResponse2009 get_coupons_without_total_count(application_id, campaign_id, page_size=page_size, skip=skip, sort=sort, value=value, created_before=created_before, created_after=created_after, valid=valid, usable=usable, redeemed=redeemed, referral_id=referral_id, recipient_integration_id=recipient_integration_id, batch_id=batch_id, exact_match=exact_match, expires_before=expires_before, expires_after=expires_after, starts_before=starts_before, starts_after=starts_after, values_only=values_only)
+> InlineResponse20011 get_coupons_without_total_count(application_id, campaign_id, page_size=page_size, skip=skip, sort=sort, value=value, created_before=created_before, created_after=created_after, valid=valid, usable=usable, redeemed=redeemed, referral_id=referral_id, recipient_integration_id=recipient_integration_id, batch_id=batch_id, exact_match=exact_match, expires_before=expires_before, expires_after=expires_after, starts_before=starts_before, starts_after=starts_after, values_only=values_only)
 
 List coupons
 
@@ -12705,7 +12703,7 @@ with talon_one.ApiClient(configuration) as api_client:
 campaign_id = 56 # int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
 page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
 skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
-sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
+sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
 value = 'value_example' # str | Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
 created_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
 created_after = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
@@ -12776,7 +12774,7 @@ with talon_one.ApiClient(configuration) as api_client:
 campaign_id = 56 # int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
 page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
 skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
-sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
+sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
 value = 'value_example' # str | Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
 created_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
 created_after = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
@@ -12809,7 +12807,7 @@ Name | Type | Description  | Notes
  **campaign_id** | **int**| The ID of the campaign. It is displayed in your Talon.One deployment URL. | 
  **page_size** | **int**| The number of items in the response. | [optional] [default to 1000]
  **skip** | **int**| The number of items to skip when paging through large result sets. | [optional] 
- **sort** | **str**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  | [optional] 
+ **sort** | **str**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  | [optional] 
  **value** | **str**| Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. | [optional] 
  **created_before** | **datetime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. | [optional] 
  **created_after** | **datetime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. | [optional] 
@@ -12828,7 +12826,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2009**](InlineResponse2009.md)
+[**InlineResponse20011**](InlineResponse20011.md)
 
 ### Authorization
 
@@ -13001,7 +12999,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_customer_activity_reports_without_total_count**
-> InlineResponse20025 get_customer_activity_reports_without_total_count(range_start, range_end, application_id, page_size=page_size, skip=skip, sort=sort, name=name, integration_id=integration_id, campaign_name=campaign_name, advocate_name=advocate_name)
+> InlineResponse20028 get_customer_activity_reports_without_total_count(range_start, range_end, application_id, page_size=page_size, skip=skip, sort=sort, name=name, integration_id=integration_id, campaign_name=campaign_name, advocate_name=advocate_name)
 
 Get Activity Reports for Application Customers
 
@@ -13056,7 +13054,7 @@ range_end = '2013-10-20T19:20:30+01:00' # datetime | Only return results from be
 application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
 page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
 skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
-sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
+sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
 name = 'name_example' # str | Only return reports matching the customer name. (optional)
 integration_id = 'integration_id_example' # str | Filter results performing an exact matching against the profile integration identifier. (optional)
 campaign_name = 'campaign_name_example' # str | Only return reports matching the campaign name. (optional)
@@ -13117,7 +13115,7 @@ range_end = '2013-10-20T19:20:30+01:00' # datetime | Only return results from be
 application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
 page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
 skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
-sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
+sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
 name = 'name_example' # str | Only return reports matching the customer name. (optional)
 integration_id = 'integration_id_example' # str | Filter results performing an exact matching against the profile integration identifier. (optional)
 campaign_name = 'campaign_name_example' # str | Only return reports matching the campaign name. (optional)
@@ -13140,7 +13138,7 @@ Name | Type | Description  | Notes
  **application_id** | **int**| The ID of the Application. It is displayed in your Talon.One deployment URL. | 
  **page_size** | **int**| The number of items in the response. | [optional] [default to 1000]
  **skip** | **int**| The number of items to skip when paging through large result sets. | [optional] 
- **sort** | **str**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  | [optional] 
+ **sort** | **str**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  | [optional] 
  **name** | **str**| Only return reports matching the customer name. | [optional] 
  **integration_id** | **str**| Filter results performing an exact matching against the profile integration identifier. | [optional] 
  **campaign_name** | **str**| Only return reports matching the campaign name. | [optional] 
@@ -13148,7 +13146,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20025**](InlineResponse20025.md)
+[**InlineResponse20028**](InlineResponse20028.md)
 
 ### Authorization
 
@@ -13221,7 +13219,7 @@ with talon_one.ApiClient(configuration) as api_client:
 customer_id = 56 # int | The value of the `id` property of a customer profile. Get it with the [List Application's customers](https://docs.talon.one/management-api#operation/getApplicationCustomers) endpoint. 
 page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
 skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
-sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
+sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
 
     try:
         # Get customer's analytics report
@@ -13277,7 +13275,7 @@ with talon_one.ApiClient(configuration) as api_client:
 customer_id = 56 # int | The value of the `id` property of a customer profile. Get it with the [List Application's customers](https://docs.talon.one/management-api#operation/getApplicationCustomers) endpoint. 
 page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
 skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
-sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
+sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
 
     try:
         # Get customer's analytics report
@@ -13295,7 +13293,7 @@ Name | Type | Description  | Notes
  **customer_id** | **int**| The value of the &#x60;id&#x60; property of a customer profile. Get it with the [List Application&#39;s customers](https://docs.talon.one/management-api#operation/getApplicationCustomers) endpoint.  | 
  **page_size** | **int**| The number of items in the response. | [optional] [default to 1000]
  **skip** | **int**| The number of items to skip when paging through large result sets. | [optional] 
- **sort** | **str**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  | [optional] 
+ **sort** | **str**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  | [optional] 
 
 ### Return type
 
@@ -13457,7 +13455,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_customer_profile_achievement_progress**
-> InlineResponse20046 get_customer_profile_achievement_progress(application_id, integration_id, page_size=page_size, skip=skip, achievement_id=achievement_id, title=title)
+> InlineResponse20049 get_customer_profile_achievement_progress(application_id, integration_id, page_size=page_size, skip=skip, achievement_id=achievement_id, title=title)
 
 List customer achievements
 
@@ -13508,7 +13506,7 @@ with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
     application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
-integration_id = 'integration_id_example' # str | The identifier of the profile.
+integration_id = 'integration_id_example' # str | The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. 
 page_size = 50 # int | The number of items in the response. (optional) (default to 50)
 skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
 achievement_id = 56 # int | The ID of the achievement. You can get this ID with the [List achievement](https://docs.talon.one/management-api#tag/Achievements/operation/listAchievements) endpoint. (optional)
@@ -13565,7 +13563,7 @@ with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
     application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
-integration_id = 'integration_id_example' # str | The identifier of the profile.
+integration_id = 'integration_id_example' # str | The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. 
 page_size = 50 # int | The number of items in the response. (optional) (default to 50)
 skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
 achievement_id = 56 # int | The ID of the achievement. You can get this ID with the [List achievement](https://docs.talon.one/management-api#tag/Achievements/operation/listAchievements) endpoint. (optional)
@@ -13584,7 +13582,7 @@ title = 'title_example' # str | Filter results by the `title` of an achievement.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **application_id** | **int**| The ID of the Application. It is displayed in your Talon.One deployment URL. | 
- **integration_id** | **str**| The identifier of the profile. | 
+ **integration_id** | **str**| The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier.  | 
  **page_size** | **int**| The number of items in the response. | [optional] [default to 50]
  **skip** | **int**| The number of items to skip when paging through large result sets. | [optional] 
  **achievement_id** | **int**| The ID of the achievement. You can get this ID with the [List achievement](https://docs.talon.one/management-api#tag/Achievements/operation/listAchievements) endpoint. | [optional] 
@@ -13592,7 +13590,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20046**](InlineResponse20046.md)
+[**InlineResponse20049**](InlineResponse20049.md)
 
 ### Authorization
 
@@ -13613,7 +13611,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_customer_profiles**
-> InlineResponse20024 get_customer_profiles(page_size=page_size, skip=skip, sandbox=sandbox)
+> InlineResponse20027 get_customer_profiles(page_size=page_size, skip=skip, sandbox=sandbox)
 
 List customer profiles
 
@@ -13739,7 +13737,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20024**](InlineResponse20024.md)
+[**InlineResponse20027**](InlineResponse20027.md)
 
 ### Authorization
 
@@ -13758,7 +13756,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_customers_by_attributes**
-> InlineResponse20023 get_customers_by_attributes(body, page_size=page_size, skip=skip, sandbox=sandbox)
+> InlineResponse20026 get_customers_by_attributes(body, page_size=page_size, skip=skip, sandbox=sandbox)
 
 List customer profiles matching the given attributes
 
@@ -13887,7 +13885,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20023**](InlineResponse20023.md)
+[**InlineResponse20026**](InlineResponse20026.md)
 
 ### Authorization
 
@@ -13905,8 +13903,156 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **get_dashboard_statistics**
+> InlineResponse20016 get_dashboard_statistics(loyalty_program_id, range_start, range_end, subledger_id=subledger_id)
+
+Get statistics for loyalty dashboard
+
+Retrieve the statistics displayed on the specified loyalty program's dashboard, such as the total active points, pending points, spent points, and expired points.  **Important:** The returned data does not include the current day. All statistics are updated daily at 11:59 PM in the loyalty program time zone. 
+
+### Example
+
+* Api Key Authentication (management_key):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    loyalty_program_id = 56 # int | Identifier of the loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. 
+range_start = '2013-10-20T19:20:30+01:00' # datetime | Only return results from after this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
+range_end = '2013-10-20T19:20:30+01:00' # datetime | Only return results from before this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
+subledger_id = 'subledger_id_example' # str | The ID of the subledger by which we filter the data. (optional)
+
+    try:
+        # Get statistics for loyalty dashboard
+        api_response = api_instance.get_dashboard_statistics(loyalty_program_id, range_start, range_end, subledger_id=subledger_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_dashboard_statistics: %s\n" % e)
+```
+
+* Api Key Authentication (manager_auth):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    loyalty_program_id = 56 # int | Identifier of the loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. 
+range_start = '2013-10-20T19:20:30+01:00' # datetime | Only return results from after this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
+range_end = '2013-10-20T19:20:30+01:00' # datetime | Only return results from before this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
+subledger_id = 'subledger_id_example' # str | The ID of the subledger by which we filter the data. (optional)
+
+    try:
+        # Get statistics for loyalty dashboard
+        api_response = api_instance.get_dashboard_statistics(loyalty_program_id, range_start, range_end, subledger_id=subledger_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_dashboard_statistics: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **loyalty_program_id** | **int**| Identifier of the loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  | 
+ **range_start** | **datetime**| Only return results from after this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  | 
+ **range_end** | **datetime**| Only return results from before this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  | 
+ **subledger_id** | **str**| The ID of the subledger by which we filter the data. | [optional] 
+
+### Return type
+
+[**InlineResponse20016**](InlineResponse20016.md)
+
+### Authorization
+
+[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **get_event_types**
-> InlineResponse20039 get_event_types(name=name, include_old_versions=include_old_versions, page_size=page_size, skip=skip, sort=sort)
+> InlineResponse20042 get_event_types(name=name, include_old_versions=include_old_versions, page_size=page_size, skip=skip, sort=sort)
 
 List event types
 
@@ -13960,7 +14106,7 @@ with talon_one.ApiClient(configuration) as api_client:
 include_old_versions = False # bool | Include all versions of every event type. (optional) (default to False)
 page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
 skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
-sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
+sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
 
     try:
         # List event types
@@ -14016,7 +14162,7 @@ with talon_one.ApiClient(configuration) as api_client:
 include_old_versions = False # bool | Include all versions of every event type. (optional) (default to False)
 page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
 skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
-sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
+sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
 
     try:
         # List event types
@@ -14034,11 +14180,11 @@ Name | Type | Description  | Notes
  **include_old_versions** | **bool**| Include all versions of every event type. | [optional] [default to False]
  **page_size** | **int**| The number of items in the response. | [optional] [default to 1000]
  **skip** | **int**| The number of items to skip when paging through large result sets. | [optional] 
- **sort** | **str**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  | [optional] 
+ **sort** | **str**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  | [optional] 
 
 ### Return type
 
-[**InlineResponse20039**](InlineResponse20039.md)
+[**InlineResponse20042**](InlineResponse20042.md)
 
 ### Authorization
 
@@ -14057,7 +14203,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_exports**
-> InlineResponse20042 get_exports(page_size=page_size, skip=skip, application_id=application_id, campaign_id=campaign_id, entity=entity)
+> InlineResponse20045 get_exports(page_size=page_size, skip=skip, application_id=application_id, campaign_id=campaign_id, entity=entity)
 
 Get exports
 
@@ -14189,7 +14335,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20042**](InlineResponse20042.md)
+[**InlineResponse20045**](InlineResponse20045.md)
 
 ### Authorization
 
@@ -14353,7 +14499,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_loyalty_card_transaction_logs**
-> InlineResponse20016 get_loyalty_card_transaction_logs(loyalty_program_id, loyalty_card_id, start_date=start_date, end_date=end_date, page_size=page_size, skip=skip, subledger_id=subledger_id)
+> InlineResponse20019 get_loyalty_card_transaction_logs(loyalty_program_id, loyalty_card_id, start_date=start_date, end_date=end_date, page_size=page_size, skip=skip, subledger_id=subledger_id)
 
 List card's transactions
 
@@ -14491,7 +14637,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20016**](InlineResponse20016.md)
+[**InlineResponse20019**](InlineResponse20019.md)
 
 ### Authorization
 
@@ -14512,7 +14658,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_loyalty_cards**
-> InlineResponse20015 get_loyalty_cards(loyalty_program_id, page_size=page_size, skip=skip, sort=sort, identifier=identifier, profile_id=profile_id, batch_id=batch_id)
+> InlineResponse20018 get_loyalty_cards(loyalty_program_id, page_size=page_size, skip=skip, sort=sort, identifier=identifier, profile_id=profile_id, batch_id=batch_id)
 
 List loyalty cards
 
@@ -14565,7 +14711,7 @@ with talon_one.ApiClient(configuration) as api_client:
     loyalty_program_id = 56 # int | Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. 
 page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
 skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
-sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
+sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
 identifier = 'identifier_example' # str | The card code by which to filter loyalty cards in the response. (optional)
 profile_id = 56 # int | Filter results by customer profile ID. (optional)
 batch_id = 'batch_id_example' # str | Filter results by loyalty card batch ID. (optional)
@@ -14623,7 +14769,7 @@ with talon_one.ApiClient(configuration) as api_client:
     loyalty_program_id = 56 # int | Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. 
 page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
 skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
-sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
+sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
 identifier = 'identifier_example' # str | The card code by which to filter loyalty cards in the response. (optional)
 profile_id = 56 # int | Filter results by customer profile ID. (optional)
 batch_id = 'batch_id_example' # str | Filter results by loyalty card batch ID. (optional)
@@ -14643,14 +14789,14 @@ Name | Type | Description  | Notes
  **loyalty_program_id** | **int**| Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  | 
  **page_size** | **int**| The number of items in the response. | [optional] [default to 1000]
  **skip** | **int**| The number of items to skip when paging through large result sets. | [optional] 
- **sort** | **str**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  | [optional] 
+ **sort** | **str**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  | [optional] 
  **identifier** | **str**| The card code by which to filter loyalty cards in the response. | [optional] 
  **profile_id** | **int**| Filter results by customer profile ID. | [optional] 
  **batch_id** | **str**| Filter results by loyalty card batch ID. | [optional] 
 
 ### Return type
 
-[**InlineResponse20015**](InlineResponse20015.md)
+[**InlineResponse20018**](InlineResponse20018.md)
 
 ### Authorization
 
@@ -14722,7 +14868,7 @@ with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
     loyalty_program_id = 'loyalty_program_id_example' # str | The identifier for the loyalty program.
-integration_id = 'integration_id_example' # str | The identifier of the profile.
+integration_id = 'integration_id_example' # str | The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. 
 
     try:
         # Get customer's full loyalty ledger
@@ -14775,7 +14921,7 @@ with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
     loyalty_program_id = 'loyalty_program_id_example' # str | The identifier for the loyalty program.
-integration_id = 'integration_id_example' # str | The identifier of the profile.
+integration_id = 'integration_id_example' # str | The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. 
 
     try:
         # Get customer's full loyalty ledger
@@ -14790,7 +14936,7 @@ integration_id = 'integration_id_example' # str | The identifier of the profile.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **loyalty_program_id** | **str**| The identifier for the loyalty program. | 
- **integration_id** | **str**| The identifier of the profile. | 
+ **integration_id** | **str**| The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier.  | 
 
 ### Return type
 
@@ -14952,7 +15098,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_loyalty_program_transactions**
-> InlineResponse20014 get_loyalty_program_transactions(loyalty_program_id, loyalty_transaction_type=loyalty_transaction_type, subledger_id=subledger_id, start_date=start_date, end_date=end_date, page_size=page_size, skip=skip)
+> InlineResponse20017 get_loyalty_program_transactions(loyalty_program_id, loyalty_transaction_type=loyalty_transaction_type, subledger_id=subledger_id, start_date=start_date, end_date=end_date, page_size=page_size, skip=skip)
 
 List loyalty program transactions
 
@@ -15090,7 +15236,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20014**](InlineResponse20014.md)
+[**InlineResponse20017**](InlineResponse20017.md)
 
 ### Authorization
 
@@ -15112,7 +15258,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_loyalty_programs**
-> InlineResponse20013 get_loyalty_programs()
+> InlineResponse20015 get_loyalty_programs()
 
 List loyalty programs
 
@@ -15227,7 +15373,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**InlineResponse20013**](InlineResponse20013.md)
+[**InlineResponse20015**](InlineResponse20015.md)
 
 ### Authorization
 
@@ -15250,7 +15396,7 @@ This endpoint does not need any parameter.
 
 Get loyalty program statistics
 
-Retrieve the statistics of the specified loyalty program such as the total active points, pending points, spent points, and expired points.  **Important:** The returned data does not include the current day. All statistics are updated daily at 11:59 PM in the loyalty program time zone. 
+⚠️ Deprecation notice: Support for requests to this endpoint will end soon. To retrieve statistics for a loyalty program, use the [Get statistics for loyalty dashboard](/management-api#tag/Loyalty/operation/getDashboardStatistics) endpoint.  Retrieve the statistics of the specified loyalty program, such as the total active points, pending points, spent points, and expired points. 
 
 ### Example
 
@@ -15384,8 +15530,186 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **get_message_logs**
+> MessageLogEntries get_message_logs(entity_type, message_id=message_id, change_type=change_type, notification_i_ds=notification_i_ds, created_before=created_before, created_after=created_after, cursor=cursor, period=period, is_successful=is_successful, application_id=application_id, campaign_id=campaign_id, loyalty_program_id=loyalty_program_id, response_code=response_code, webhook_i_ds=webhook_i_ds)
+
+List message log entries
+
+Retrieve all message log entries.
+
+### Example
+
+* Api Key Authentication (management_key):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    entity_type = 'entity_type_example' # str | The entity type the log is related to. 
+message_id = 'message_id_example' # str | Filter results by message ID. (optional)
+change_type = 'change_type_example' # str | Filter results by change type. (optional)
+notification_i_ds = 'notification_i_ds_example' # str | Filter results by notification ID (include up to 30 values, separated by a comma). (optional)
+created_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
+created_after = '2013-10-20T19:20:30+01:00' # datetime | Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
+cursor = 'cursor_example' # str | A specific unique value in the database. If this value is not given, the server fetches results starting with the first record.  (optional)
+period = 'period_example' # str | Filter results by time period. Choose between the available relative time frames.  (optional)
+is_successful = True # bool | Indicates whether to return log entries with either successful or unsuccessful HTTP response codes. When set to`true`, only log entries with `2xx` response codes are returned. When set to `false`, only log entries with `4xx` and `5xx` response codes are returned.  (optional)
+application_id = 3.4 # float | Filter results by Application ID. (optional)
+campaign_id = 3.4 # float | Filter results by campaign ID. (optional)
+loyalty_program_id = 56 # int | Identifier of the loyalty program. (optional)
+response_code = 56 # int | Filter results by response status code. (optional)
+webhook_i_ds = 'webhook_i_ds_example' # str | Filter results by webhook ID (include up to 30 values, separated by a comma). (optional)
+
+    try:
+        # List message log entries
+        api_response = api_instance.get_message_logs(entity_type, message_id=message_id, change_type=change_type, notification_i_ds=notification_i_ds, created_before=created_before, created_after=created_after, cursor=cursor, period=period, is_successful=is_successful, application_id=application_id, campaign_id=campaign_id, loyalty_program_id=loyalty_program_id, response_code=response_code, webhook_i_ds=webhook_i_ds)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_message_logs: %s\n" % e)
+```
+
+* Api Key Authentication (manager_auth):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    entity_type = 'entity_type_example' # str | The entity type the log is related to. 
+message_id = 'message_id_example' # str | Filter results by message ID. (optional)
+change_type = 'change_type_example' # str | Filter results by change type. (optional)
+notification_i_ds = 'notification_i_ds_example' # str | Filter results by notification ID (include up to 30 values, separated by a comma). (optional)
+created_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
+created_after = '2013-10-20T19:20:30+01:00' # datetime | Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
+cursor = 'cursor_example' # str | A specific unique value in the database. If this value is not given, the server fetches results starting with the first record.  (optional)
+period = 'period_example' # str | Filter results by time period. Choose between the available relative time frames.  (optional)
+is_successful = True # bool | Indicates whether to return log entries with either successful or unsuccessful HTTP response codes. When set to`true`, only log entries with `2xx` response codes are returned. When set to `false`, only log entries with `4xx` and `5xx` response codes are returned.  (optional)
+application_id = 3.4 # float | Filter results by Application ID. (optional)
+campaign_id = 3.4 # float | Filter results by campaign ID. (optional)
+loyalty_program_id = 56 # int | Identifier of the loyalty program. (optional)
+response_code = 56 # int | Filter results by response status code. (optional)
+webhook_i_ds = 'webhook_i_ds_example' # str | Filter results by webhook ID (include up to 30 values, separated by a comma). (optional)
+
+    try:
+        # List message log entries
+        api_response = api_instance.get_message_logs(entity_type, message_id=message_id, change_type=change_type, notification_i_ds=notification_i_ds, created_before=created_before, created_after=created_after, cursor=cursor, period=period, is_successful=is_successful, application_id=application_id, campaign_id=campaign_id, loyalty_program_id=loyalty_program_id, response_code=response_code, webhook_i_ds=webhook_i_ds)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_message_logs: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **entity_type** | **str**| The entity type the log is related to.  | 
+ **message_id** | **str**| Filter results by message ID. | [optional] 
+ **change_type** | **str**| Filter results by change type. | [optional] 
+ **notification_i_ds** | **str**| Filter results by notification ID (include up to 30 values, separated by a comma). | [optional] 
+ **created_before** | **datetime**| Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally. | [optional] 
+ **created_after** | **datetime**| Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally. | [optional] 
+ **cursor** | **str**| A specific unique value in the database. If this value is not given, the server fetches results starting with the first record.  | [optional] 
+ **period** | **str**| Filter results by time period. Choose between the available relative time frames.  | [optional] 
+ **is_successful** | **bool**| Indicates whether to return log entries with either successful or unsuccessful HTTP response codes. When set to&#x60;true&#x60;, only log entries with &#x60;2xx&#x60; response codes are returned. When set to &#x60;false&#x60;, only log entries with &#x60;4xx&#x60; and &#x60;5xx&#x60; response codes are returned.  | [optional] 
+ **application_id** | **float**| Filter results by Application ID. | [optional] 
+ **campaign_id** | **float**| Filter results by campaign ID. | [optional] 
+ **loyalty_program_id** | **int**| Identifier of the loyalty program. | [optional] 
+ **response_code** | **int**| Filter results by response status code. | [optional] 
+ **webhook_i_ds** | **str**| Filter results by webhook ID (include up to 30 values, separated by a comma). | [optional] 
+
+### Return type
+
+[**MessageLogEntries**](MessageLogEntries.md)
+
+### Authorization
+
+[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **get_referrals_without_total_count**
-> InlineResponse20010 get_referrals_without_total_count(application_id, campaign_id, page_size=page_size, skip=skip, sort=sort, code=code, created_before=created_before, created_after=created_after, valid=valid, usable=usable, advocate=advocate)
+> InlineResponse20012 get_referrals_without_total_count(application_id, campaign_id, page_size=page_size, skip=skip, sort=sort, code=code, created_before=created_before, created_after=created_after, valid=valid, usable=usable, advocate=advocate)
 
 List referrals
 
@@ -15439,7 +15763,7 @@ with talon_one.ApiClient(configuration) as api_client:
 campaign_id = 56 # int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
 page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
 skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
-sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
+sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
 code = 'code_example' # str | Filter results performing case-insensitive matching against the referral code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
 created_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
 created_after = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
@@ -15501,7 +15825,7 @@ with talon_one.ApiClient(configuration) as api_client:
 campaign_id = 56 # int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
 page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
 skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
-sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
+sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
 code = 'code_example' # str | Filter results performing case-insensitive matching against the referral code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
 created_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
 created_after = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
@@ -15525,7 +15849,7 @@ Name | Type | Description  | Notes
  **campaign_id** | **int**| The ID of the campaign. It is displayed in your Talon.One deployment URL. | 
  **page_size** | **int**| The number of items in the response. | [optional] [default to 1000]
  **skip** | **int**| The number of items to skip when paging through large result sets. | [optional] 
- **sort** | **str**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  | [optional] 
+ **sort** | **str**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  | [optional] 
  **code** | **str**| Filter results performing case-insensitive matching against the referral code. Both the code and the query are folded to remove all non-alpha-numeric characters. | [optional] 
  **created_before** | **datetime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. | [optional] 
  **created_after** | **datetime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. | [optional] 
@@ -15535,7 +15859,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20010**](InlineResponse20010.md)
+[**InlineResponse20012**](InlineResponse20012.md)
 
 ### Authorization
 
@@ -15838,7 +16162,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_rulesets**
-> InlineResponse2007 get_rulesets(application_id, campaign_id, page_size=page_size, skip=skip, sort=sort)
+> InlineResponse2009 get_rulesets(application_id, campaign_id, page_size=page_size, skip=skip, sort=sort)
 
 List campaign rulesets
 
@@ -15892,7 +16216,7 @@ with talon_one.ApiClient(configuration) as api_client:
 campaign_id = 56 # int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
 page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
 skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
-sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
+sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
 
     try:
         # List campaign rulesets
@@ -15948,7 +16272,7 @@ with talon_one.ApiClient(configuration) as api_client:
 campaign_id = 56 # int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
 page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
 skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
-sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
+sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
 
     try:
         # List campaign rulesets
@@ -15966,11 +16290,11 @@ Name | Type | Description  | Notes
  **campaign_id** | **int**| The ID of the campaign. It is displayed in your Talon.One deployment URL. | 
  **page_size** | **int**| The number of items in the response. | [optional] [default to 1000]
  **skip** | **int**| The number of items to skip when paging through large result sets. | [optional] 
- **sort** | **str**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  | [optional] 
+ **sort** | **str**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  | [optional] 
 
 ### Return type
 
-[**InlineResponse2007**](InlineResponse2007.md)
+[**InlineResponse2009**](InlineResponse2009.md)
 
 ### Authorization
 
@@ -16271,7 +16595,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_users**
-> InlineResponse20040 get_users(page_size=page_size, skip=skip, sort=sort)
+> InlineResponse20043 get_users(page_size=page_size, skip=skip, sort=sort)
 
 List users in account
 
@@ -16323,7 +16647,7 @@ with talon_one.ApiClient(configuration) as api_client:
     api_instance = talon_one.ManagementApi(api_client)
     page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
 skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
-sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
+sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
 
     try:
         # List users in account
@@ -16377,7 +16701,7 @@ with talon_one.ApiClient(configuration) as api_client:
     api_instance = talon_one.ManagementApi(api_client)
     page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
 skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
-sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
+sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
 
     try:
         # List users in account
@@ -16393,11 +16717,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **page_size** | **int**| The number of items in the response. | [optional] [default to 1000]
  **skip** | **int**| The number of items to skip when paging through large result sets. | [optional] 
- **sort** | **str**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  | [optional] 
+ **sort** | **str**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  | [optional] 
 
 ### Return type
 
-[**InlineResponse20040**](InlineResponse20040.md)
+[**InlineResponse20043**](InlineResponse20043.md)
 
 ### Authorization
 
@@ -16555,7 +16879,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_webhook_activation_logs**
-> InlineResponse20037 get_webhook_activation_logs(page_size=page_size, skip=skip, sort=sort, integration_request_uuid=integration_request_uuid, webhook_id=webhook_id, application_id=application_id, campaign_id=campaign_id, created_before=created_before, created_after=created_after)
+> InlineResponse20040 get_webhook_activation_logs(page_size=page_size, skip=skip, sort=sort, integration_request_uuid=integration_request_uuid, webhook_id=webhook_id, application_id=application_id, campaign_id=campaign_id, created_before=created_before, created_after=created_after)
 
 List webhook activation log entries
 
@@ -16607,7 +16931,7 @@ with talon_one.ApiClient(configuration) as api_client:
     api_instance = talon_one.ManagementApi(api_client)
     page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
 skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
-sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
+sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
 integration_request_uuid = 'integration_request_uuid_example' # str | Filter results by integration request UUID. (optional)
 webhook_id = 3.4 # float | Filter results by webhook id. (optional)
 application_id = 3.4 # float | Filter results by Application ID. (optional)
@@ -16667,7 +16991,7 @@ with talon_one.ApiClient(configuration) as api_client:
     api_instance = talon_one.ManagementApi(api_client)
     page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
 skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
-sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
+sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
 integration_request_uuid = 'integration_request_uuid_example' # str | Filter results by integration request UUID. (optional)
 webhook_id = 3.4 # float | Filter results by webhook id. (optional)
 application_id = 3.4 # float | Filter results by Application ID. (optional)
@@ -16689,7 +17013,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **page_size** | **int**| The number of items in the response. | [optional] [default to 1000]
  **skip** | **int**| The number of items to skip when paging through large result sets. | [optional] 
- **sort** | **str**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  | [optional] 
+ **sort** | **str**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  | [optional] 
  **integration_request_uuid** | **str**| Filter results by integration request UUID. | [optional] 
  **webhook_id** | **float**| Filter results by webhook id. | [optional] 
  **application_id** | **float**| Filter results by Application ID. | [optional] 
@@ -16699,7 +17023,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20037**](InlineResponse20037.md)
+[**InlineResponse20040**](InlineResponse20040.md)
 
 ### Authorization
 
@@ -16718,7 +17042,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_webhook_logs**
-> InlineResponse20038 get_webhook_logs(page_size=page_size, skip=skip, sort=sort, status=status, webhook_id=webhook_id, application_id=application_id, campaign_id=campaign_id, request_uuid=request_uuid, created_before=created_before, created_after=created_after)
+> InlineResponse20041 get_webhook_logs(page_size=page_size, skip=skip, sort=sort, status=status, webhook_id=webhook_id, application_id=application_id, campaign_id=campaign_id, request_uuid=request_uuid, created_before=created_before, created_after=created_after)
 
 List webhook log entries
 
@@ -16770,7 +17094,7 @@ with talon_one.ApiClient(configuration) as api_client:
     api_instance = talon_one.ManagementApi(api_client)
     page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
 skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
-sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
+sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
 status = 'status_example' # str | Filter results by HTTP status codes. (optional)
 webhook_id = 3.4 # float | Filter results by webhook id. (optional)
 application_id = 3.4 # float | Filter results by Application ID. (optional)
@@ -16831,7 +17155,7 @@ with talon_one.ApiClient(configuration) as api_client:
     api_instance = talon_one.ManagementApi(api_client)
     page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
 skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
-sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
+sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
 status = 'status_example' # str | Filter results by HTTP status codes. (optional)
 webhook_id = 3.4 # float | Filter results by webhook id. (optional)
 application_id = 3.4 # float | Filter results by Application ID. (optional)
@@ -16854,7 +17178,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **page_size** | **int**| The number of items in the response. | [optional] [default to 1000]
  **skip** | **int**| The number of items to skip when paging through large result sets. | [optional] 
- **sort** | **str**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  | [optional] 
+ **sort** | **str**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  | [optional] 
  **status** | **str**| Filter results by HTTP status codes. | [optional] 
  **webhook_id** | **float**| Filter results by webhook id. | [optional] 
  **application_id** | **float**| Filter results by Application ID. | [optional] 
@@ -16865,7 +17189,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20038**](InlineResponse20038.md)
+[**InlineResponse20041**](InlineResponse20041.md)
 
 ### Authorization
 
@@ -16884,7 +17208,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_webhooks**
-> InlineResponse20036 get_webhooks(application_ids=application_ids, sort=sort, page_size=page_size, skip=skip, creation_type=creation_type, visibility=visibility, outgoing_integrations_type_id=outgoing_integrations_type_id, title=title)
+> InlineResponse20039 get_webhooks(application_ids=application_ids, sort=sort, page_size=page_size, skip=skip, creation_type=creation_type, visibility=visibility, outgoing_integrations_type_id=outgoing_integrations_type_id, title=title)
 
 List webhooks
 
@@ -16935,7 +17259,7 @@ with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
     application_ids = 'application_ids_example' # str | Checks if the given catalog or its attributes are referenced in the specified Application ID.  **Note**: If no Application ID is provided, we check for all connected Applications.  (optional)
-sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
+sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
 page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
 skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
 creation_type = 'creation_type_example' # str | Filter results by creation type. (optional)
@@ -16994,7 +17318,7 @@ with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
     application_ids = 'application_ids_example' # str | Checks if the given catalog or its attributes are referenced in the specified Application ID.  **Note**: If no Application ID is provided, we check for all connected Applications.  (optional)
-sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
+sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
 page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
 skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
 creation_type = 'creation_type_example' # str | Filter results by creation type. (optional)
@@ -17015,7 +17339,7 @@ title = 'title_example' # str | Filter results performing case-insensitive match
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **application_ids** | **str**| Checks if the given catalog or its attributes are referenced in the specified Application ID.  **Note**: If no Application ID is provided, we check for all connected Applications.  | [optional] 
- **sort** | **str**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  | [optional] 
+ **sort** | **str**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  | [optional] 
  **page_size** | **int**| The number of items in the response. | [optional] [default to 1000]
  **skip** | **int**| The number of items to skip when paging through large result sets. | [optional] 
  **creation_type** | **str**| Filter results by creation type. | [optional] 
@@ -17025,7 +17349,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20036**](InlineResponse20036.md)
+[**InlineResponse20039**](InlineResponse20039.md)
 
 ### Authorization
 
@@ -18778,7 +19102,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_account_collections**
-> InlineResponse20017 list_account_collections(page_size=page_size, skip=skip, sort=sort, with_total_result_size=with_total_result_size, name=name)
+> InlineResponse20020 list_account_collections(page_size=page_size, skip=skip, sort=sort, with_total_result_size=with_total_result_size, name=name)
 
 List collections in account
 
@@ -18830,7 +19154,7 @@ with talon_one.ApiClient(configuration) as api_client:
     api_instance = talon_one.ManagementApi(api_client)
     page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
 skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
-sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
+sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
 with_total_result_size = True # bool | When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When `true`: `hasMore` is true when there is a next page. `totalResultSize` is always zero. - When `false`: `hasMore` is always false. `totalResultSize` contains the total number of results for this query.  (optional)
 name = 'name_example' # str | Filter by collection name. (optional)
 
@@ -18886,7 +19210,7 @@ with talon_one.ApiClient(configuration) as api_client:
     api_instance = talon_one.ManagementApi(api_client)
     page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
 skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
-sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
+sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
 with_total_result_size = True # bool | When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When `true`: `hasMore` is true when there is a next page. `totalResultSize` is always zero. - When `false`: `hasMore` is always false. `totalResultSize` contains the total number of results for this query.  (optional)
 name = 'name_example' # str | Filter by collection name. (optional)
 
@@ -18904,13 +19228,13 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **page_size** | **int**| The number of items in the response. | [optional] [default to 1000]
  **skip** | **int**| The number of items to skip when paging through large result sets. | [optional] 
- **sort** | **str**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  | [optional] 
+ **sort** | **str**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  | [optional] 
  **with_total_result_size** | **bool**| When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When &#x60;true&#x60;: &#x60;hasMore&#x60; is true when there is a next page. &#x60;totalResultSize&#x60; is always zero. - When &#x60;false&#x60;: &#x60;hasMore&#x60; is always false. &#x60;totalResultSize&#x60; contains the total number of results for this query.  | [optional] 
  **name** | **str**| Filter by collection name. | [optional] 
 
 ### Return type
 
-[**InlineResponse20017**](InlineResponse20017.md)
+[**InlineResponse20020**](InlineResponse20020.md)
 
 ### Authorization
 
@@ -18932,7 +19256,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_achievements**
-> InlineResponse20045 list_achievements(application_id, campaign_id, page_size=page_size, skip=skip, title=title)
+> InlineResponse20048 list_achievements(application_id, campaign_id, page_size=page_size, skip=skip, title=title)
 
 List achievements
 
@@ -19064,7 +19388,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20045**](InlineResponse20045.md)
+[**InlineResponse20048**](InlineResponse20048.md)
 
 ### Authorization
 
@@ -19083,7 +19407,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_all_roles_v2**
-> InlineResponse20043 list_all_roles_v2()
+> InlineResponse20046 list_all_roles_v2()
 
 List roles
 
@@ -19198,7 +19522,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**InlineResponse20043**](InlineResponse20043.md)
+[**InlineResponse20046**](InlineResponse20046.md)
 
 ### Authorization
 
@@ -19217,7 +19541,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_catalog_items**
-> InlineResponse20034 list_catalog_items(catalog_id, page_size=page_size, skip=skip, with_total_result_size=with_total_result_size, sku=sku, product_names=product_names)
+> InlineResponse20037 list_catalog_items(catalog_id, page_size=page_size, skip=skip, with_total_result_size=with_total_result_size, sku=sku, product_names=product_names)
 
 List items in a catalog
 
@@ -19352,7 +19676,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20034**](InlineResponse20034.md)
+[**InlineResponse20037**](InlineResponse20037.md)
 
 ### Authorization
 
@@ -19371,7 +19695,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_collections**
-> InlineResponse20017 list_collections(application_id, campaign_id, page_size=page_size, skip=skip, sort=sort, with_total_result_size=with_total_result_size, name=name)
+> InlineResponse20020 list_collections(application_id, campaign_id, page_size=page_size, skip=skip, sort=sort, with_total_result_size=with_total_result_size, name=name)
 
 List collections in campaign
 
@@ -19425,7 +19749,7 @@ with talon_one.ApiClient(configuration) as api_client:
 campaign_id = 56 # int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
 page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
 skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
-sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
+sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
 with_total_result_size = True # bool | When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When `true`: `hasMore` is true when there is a next page. `totalResultSize` is always zero. - When `false`: `hasMore` is always false. `totalResultSize` contains the total number of results for this query.  (optional)
 name = 'name_example' # str | Filter by collection name. (optional)
 
@@ -19483,7 +19807,7 @@ with talon_one.ApiClient(configuration) as api_client:
 campaign_id = 56 # int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
 page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
 skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
-sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
+sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
 with_total_result_size = True # bool | When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When `true`: `hasMore` is true when there is a next page. `totalResultSize` is always zero. - When `false`: `hasMore` is always false. `totalResultSize` contains the total number of results for this query.  (optional)
 name = 'name_example' # str | Filter by collection name. (optional)
 
@@ -19503,13 +19827,13 @@ Name | Type | Description  | Notes
  **campaign_id** | **int**| The ID of the campaign. It is displayed in your Talon.One deployment URL. | 
  **page_size** | **int**| The number of items in the response. | [optional] [default to 1000]
  **skip** | **int**| The number of items to skip when paging through large result sets. | [optional] 
- **sort** | **str**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  | [optional] 
+ **sort** | **str**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  | [optional] 
  **with_total_result_size** | **bool**| When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When &#x60;true&#x60;: &#x60;hasMore&#x60; is true when there is a next page. &#x60;totalResultSize&#x60; is always zero. - When &#x60;false&#x60;: &#x60;hasMore&#x60; is always false. &#x60;totalResultSize&#x60; contains the total number of results for this query.  | [optional] 
  **name** | **str**| Filter by collection name. | [optional] 
 
 ### Return type
 
-[**InlineResponse20017**](InlineResponse20017.md)
+[**InlineResponse20020**](InlineResponse20020.md)
 
 ### Authorization
 
@@ -19529,7 +19853,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_collections_in_application**
-> InlineResponse20017 list_collections_in_application(application_id, page_size=page_size, skip=skip, sort=sort, with_total_result_size=with_total_result_size, name=name)
+> InlineResponse20020 list_collections_in_application(application_id, page_size=page_size, skip=skip, sort=sort, with_total_result_size=with_total_result_size, name=name)
 
 List collections in Application
 
@@ -19582,7 +19906,7 @@ with talon_one.ApiClient(configuration) as api_client:
     application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
 page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
 skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
-sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
+sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
 with_total_result_size = True # bool | When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When `true`: `hasMore` is true when there is a next page. `totalResultSize` is always zero. - When `false`: `hasMore` is always false. `totalResultSize` contains the total number of results for this query.  (optional)
 name = 'name_example' # str | Filter by collection name. (optional)
 
@@ -19639,7 +19963,7 @@ with talon_one.ApiClient(configuration) as api_client:
     application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
 page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
 skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
-sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
+sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
 with_total_result_size = True # bool | When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When `true`: `hasMore` is true when there is a next page. `totalResultSize` is always zero. - When `false`: `hasMore` is always false. `totalResultSize` contains the total number of results for this query.  (optional)
 name = 'name_example' # str | Filter by collection name. (optional)
 
@@ -19658,13 +19982,13 @@ Name | Type | Description  | Notes
  **application_id** | **int**| The ID of the Application. It is displayed in your Talon.One deployment URL. | 
  **page_size** | **int**| The number of items in the response. | [optional] [default to 1000]
  **skip** | **int**| The number of items to skip when paging through large result sets. | [optional] 
- **sort** | **str**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  | [optional] 
+ **sort** | **str**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  | [optional] 
  **with_total_result_size** | **bool**| When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When &#x60;true&#x60;: &#x60;hasMore&#x60; is true when there is a next page. &#x60;totalResultSize&#x60; is always zero. - When &#x60;false&#x60;: &#x60;hasMore&#x60; is always false. &#x60;totalResultSize&#x60; contains the total number of results for this query.  | [optional] 
  **name** | **str**| Filter by collection name. | [optional] 
 
 ### Return type
 
-[**InlineResponse20017**](InlineResponse20017.md)
+[**InlineResponse20020**](InlineResponse20020.md)
 
 ### Authorization
 
@@ -19684,7 +20008,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_stores**
-> InlineResponse20044 list_stores(application_id, page_size=page_size, skip=skip, sort=sort, with_total_result_size=with_total_result_size, campaign_id=campaign_id, name=name, integration_id=integration_id, query=query)
+> InlineResponse20047 list_stores(application_id, page_size=page_size, skip=skip, sort=sort, with_total_result_size=with_total_result_size, campaign_id=campaign_id, name=name, integration_id=integration_id, query=query)
 
 List stores
 
@@ -19737,7 +20061,7 @@ with talon_one.ApiClient(configuration) as api_client:
     application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
 page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
 skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
-sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
+sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
 with_total_result_size = True # bool | When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When `true`: `hasMore` is true when there is a next page. `totalResultSize` is always zero. - When `false`: `hasMore` is always false. `totalResultSize` contains the total number of results for this query.  (optional)
 campaign_id = 3.4 # float | Filter results by campaign ID. (optional)
 name = 'name_example' # str | The name of the store. (optional)
@@ -19797,7 +20121,7 @@ with talon_one.ApiClient(configuration) as api_client:
     application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
 page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
 skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
-sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
+sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
 with_total_result_size = True # bool | When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When `true`: `hasMore` is true when there is a next page. `totalResultSize` is always zero. - When `false`: `hasMore` is always false. `totalResultSize` contains the total number of results for this query.  (optional)
 campaign_id = 3.4 # float | Filter results by campaign ID. (optional)
 name = 'name_example' # str | The name of the store. (optional)
@@ -19819,7 +20143,7 @@ Name | Type | Description  | Notes
  **application_id** | **int**| The ID of the Application. It is displayed in your Talon.One deployment URL. | 
  **page_size** | **int**| The number of items in the response. | [optional] [default to 1000]
  **skip** | **int**| The number of items to skip when paging through large result sets. | [optional] 
- **sort** | **str**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  | [optional] 
+ **sort** | **str**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  | [optional] 
  **with_total_result_size** | **bool**| When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When &#x60;true&#x60;: &#x60;hasMore&#x60; is true when there is a next page. &#x60;totalResultSize&#x60; is always zero. - When &#x60;false&#x60;: &#x60;hasMore&#x60; is always false. &#x60;totalResultSize&#x60; contains the total number of results for this query.  | [optional] 
  **campaign_id** | **float**| Filter results by campaign ID. | [optional] 
  **name** | **str**| The name of the store. | [optional] 
@@ -19828,7 +20152,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20044**](InlineResponse20044.md)
+[**InlineResponse20047**](InlineResponse20047.md)
 
 ### Authorization
 
@@ -19843,146 +20167,6 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **notification_activation**
-> notification_activation(notification_id, body)
-
-Activate or deactivate notification
-
-Activate or deactivate the given notification. When `enabled` is false, updates will no longer be sent for the given notification. 
-
-### Example
-
-* Api Key Authentication (management_key):
-```python
-from __future__ import print_function
-import time
-import talon_one
-from talon_one.rest import ApiException
-from pprint import pprint
-# Defining the host is optional and defaults to https://yourbaseurl.talon.one
-# See configuration.py for a list of all supported configuration parameters.
-configuration = talon_one.Configuration(
-    host = "https://yourbaseurl.talon.one"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: management_key
-configuration = talon_one.Configuration(
-    host = "https://yourbaseurl.talon.one",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
-)
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
-
-# Configure API key authorization: manager_auth
-configuration = talon_one.Configuration(
-    host = "https://yourbaseurl.talon.one",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
-)
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with talon_one.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = talon_one.ManagementApi(api_client)
-    notification_id = 56 # int | The ID of the notification. Get it with the appropriate _List notifications_ endpoint.
-body = talon_one.NotificationActivation() # NotificationActivation | body
-
-    try:
-        # Activate or deactivate notification
-        api_instance.notification_activation(notification_id, body)
-    except ApiException as e:
-        print("Exception when calling ManagementApi->notification_activation: %s\n" % e)
-```
-
-* Api Key Authentication (manager_auth):
-```python
-from __future__ import print_function
-import time
-import talon_one
-from talon_one.rest import ApiException
-from pprint import pprint
-# Defining the host is optional and defaults to https://yourbaseurl.talon.one
-# See configuration.py for a list of all supported configuration parameters.
-configuration = talon_one.Configuration(
-    host = "https://yourbaseurl.talon.one"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: management_key
-configuration = talon_one.Configuration(
-    host = "https://yourbaseurl.talon.one",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
-)
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
-
-# Configure API key authorization: manager_auth
-configuration = talon_one.Configuration(
-    host = "https://yourbaseurl.talon.one",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
-)
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with talon_one.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = talon_one.ManagementApi(api_client)
-    notification_id = 56 # int | The ID of the notification. Get it with the appropriate _List notifications_ endpoint.
-body = talon_one.NotificationActivation() # NotificationActivation | body
-
-    try:
-        # Activate or deactivate notification
-        api_instance.notification_activation(notification_id, body)
-    except ApiException as e:
-        print("Exception when calling ManagementApi->notification_activation: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **notification_id** | **int**| The ID of the notification. Get it with the appropriate _List notifications_ endpoint. | 
- **body** | [**NotificationActivation**](NotificationActivation.md)| body | 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: Not defined
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**204** | No Content |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -20118,441 +20302,6 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **post_added_deducted_points_notification**
-> BaseNotification post_added_deducted_points_notification(loyalty_program_id, body)
-
-Create notification about added or deducted loyalty points
-
-Create a notification about added or deducted loyalty points in a given profile-based loyalty program. A notification for added or deducted loyalty points is different from regular webhooks in that it is loyalty program-scoped and has a predefined payload.  For more information, see [Managing loyalty notifications](https://docs.talon.one/docs/product/loyalty-programs/managing-loyalty-notifications). 
-
-### Example
-
-* Api Key Authentication (management_key):
-```python
-from __future__ import print_function
-import time
-import talon_one
-from talon_one.rest import ApiException
-from pprint import pprint
-# Defining the host is optional and defaults to https://yourbaseurl.talon.one
-# See configuration.py for a list of all supported configuration parameters.
-configuration = talon_one.Configuration(
-    host = "https://yourbaseurl.talon.one"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: management_key
-configuration = talon_one.Configuration(
-    host = "https://yourbaseurl.talon.one",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
-)
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
-
-# Configure API key authorization: manager_auth
-configuration = talon_one.Configuration(
-    host = "https://yourbaseurl.talon.one",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
-)
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with talon_one.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = talon_one.ManagementApi(api_client)
-    loyalty_program_id = 56 # int | Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. 
-body = talon_one.NewBaseNotification() # NewBaseNotification | body
-
-    try:
-        # Create notification about added or deducted loyalty points
-        api_response = api_instance.post_added_deducted_points_notification(loyalty_program_id, body)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling ManagementApi->post_added_deducted_points_notification: %s\n" % e)
-```
-
-* Api Key Authentication (manager_auth):
-```python
-from __future__ import print_function
-import time
-import talon_one
-from talon_one.rest import ApiException
-from pprint import pprint
-# Defining the host is optional and defaults to https://yourbaseurl.talon.one
-# See configuration.py for a list of all supported configuration parameters.
-configuration = talon_one.Configuration(
-    host = "https://yourbaseurl.talon.one"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: management_key
-configuration = talon_one.Configuration(
-    host = "https://yourbaseurl.talon.one",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
-)
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
-
-# Configure API key authorization: manager_auth
-configuration = talon_one.Configuration(
-    host = "https://yourbaseurl.talon.one",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
-)
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with talon_one.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = talon_one.ManagementApi(api_client)
-    loyalty_program_id = 56 # int | Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. 
-body = talon_one.NewBaseNotification() # NewBaseNotification | body
-
-    try:
-        # Create notification about added or deducted loyalty points
-        api_response = api_instance.post_added_deducted_points_notification(loyalty_program_id, body)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling ManagementApi->post_added_deducted_points_notification: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **loyalty_program_id** | **int**| Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  | 
- **body** | [**NewBaseNotification**](NewBaseNotification.md)| body | 
-
-### Return type
-
-[**BaseNotification**](BaseNotification.md)
-
-### Authorization
-
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | OK |  -  |
-**400** | Bad request |  -  |
-**401** | Unauthorized |  -  |
-**404** | Not found |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **post_catalogs_strikethrough_notification**
-> BaseNotification post_catalogs_strikethrough_notification(application_id, body)
-
-Create strikethrough notification
-
-Create a notification for the in the given Application. For more information, see [Managing notifications](https://docs.talon.one/docs/product/applications/outbound-notifications).  See the [payload](https://docs.talon.one/outbound-notifications) you will receive. 
-
-### Example
-
-* Api Key Authentication (management_key):
-```python
-from __future__ import print_function
-import time
-import talon_one
-from talon_one.rest import ApiException
-from pprint import pprint
-# Defining the host is optional and defaults to https://yourbaseurl.talon.one
-# See configuration.py for a list of all supported configuration parameters.
-configuration = talon_one.Configuration(
-    host = "https://yourbaseurl.talon.one"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: management_key
-configuration = talon_one.Configuration(
-    host = "https://yourbaseurl.talon.one",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
-)
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
-
-# Configure API key authorization: manager_auth
-configuration = talon_one.Configuration(
-    host = "https://yourbaseurl.talon.one",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
-)
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with talon_one.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = talon_one.ManagementApi(api_client)
-    application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
-body = talon_one.NewBaseNotification() # NewBaseNotification | body
-
-    try:
-        # Create strikethrough notification
-        api_response = api_instance.post_catalogs_strikethrough_notification(application_id, body)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling ManagementApi->post_catalogs_strikethrough_notification: %s\n" % e)
-```
-
-* Api Key Authentication (manager_auth):
-```python
-from __future__ import print_function
-import time
-import talon_one
-from talon_one.rest import ApiException
-from pprint import pprint
-# Defining the host is optional and defaults to https://yourbaseurl.talon.one
-# See configuration.py for a list of all supported configuration parameters.
-configuration = talon_one.Configuration(
-    host = "https://yourbaseurl.talon.one"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: management_key
-configuration = talon_one.Configuration(
-    host = "https://yourbaseurl.talon.one",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
-)
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
-
-# Configure API key authorization: manager_auth
-configuration = talon_one.Configuration(
-    host = "https://yourbaseurl.talon.one",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
-)
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with talon_one.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = talon_one.ManagementApi(api_client)
-    application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
-body = talon_one.NewBaseNotification() # NewBaseNotification | body
-
-    try:
-        # Create strikethrough notification
-        api_response = api_instance.post_catalogs_strikethrough_notification(application_id, body)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling ManagementApi->post_catalogs_strikethrough_notification: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **application_id** | **int**| The ID of the Application. It is displayed in your Talon.One deployment URL. | 
- **body** | [**NewBaseNotification**](NewBaseNotification.md)| body | 
-
-### Return type
-
-[**BaseNotification**](BaseNotification.md)
-
-### Authorization
-
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | OK |  -  |
-**400** | Bad request |  -  |
-**401** | Unauthorized |  -  |
-**404** | Not found |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **post_pending_points_notification**
-> BaseNotification post_pending_points_notification(loyalty_program_id, body)
-
-Create notification about pending loyalty points
-
-Create a notification about pending loyalty points for a given profile-based loyalty program. For more information, see [Managing loyalty notifications](https://docs.talon.one/docs/product/loyalty-programs/managing-loyalty-notifications). 
-
-### Example
-
-* Api Key Authentication (management_key):
-```python
-from __future__ import print_function
-import time
-import talon_one
-from talon_one.rest import ApiException
-from pprint import pprint
-# Defining the host is optional and defaults to https://yourbaseurl.talon.one
-# See configuration.py for a list of all supported configuration parameters.
-configuration = talon_one.Configuration(
-    host = "https://yourbaseurl.talon.one"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: management_key
-configuration = talon_one.Configuration(
-    host = "https://yourbaseurl.talon.one",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
-)
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
-
-# Configure API key authorization: manager_auth
-configuration = talon_one.Configuration(
-    host = "https://yourbaseurl.talon.one",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
-)
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with talon_one.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = talon_one.ManagementApi(api_client)
-    loyalty_program_id = 56 # int | Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. 
-body = talon_one.NewBaseNotification() # NewBaseNotification | body
-
-    try:
-        # Create notification about pending loyalty points
-        api_response = api_instance.post_pending_points_notification(loyalty_program_id, body)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling ManagementApi->post_pending_points_notification: %s\n" % e)
-```
-
-* Api Key Authentication (manager_auth):
-```python
-from __future__ import print_function
-import time
-import talon_one
-from talon_one.rest import ApiException
-from pprint import pprint
-# Defining the host is optional and defaults to https://yourbaseurl.talon.one
-# See configuration.py for a list of all supported configuration parameters.
-configuration = talon_one.Configuration(
-    host = "https://yourbaseurl.talon.one"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: management_key
-configuration = talon_one.Configuration(
-    host = "https://yourbaseurl.talon.one",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
-)
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
-
-# Configure API key authorization: manager_auth
-configuration = talon_one.Configuration(
-    host = "https://yourbaseurl.talon.one",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
-)
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with talon_one.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = talon_one.ManagementApi(api_client)
-    loyalty_program_id = 56 # int | Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. 
-body = talon_one.NewBaseNotification() # NewBaseNotification | body
-
-    try:
-        # Create notification about pending loyalty points
-        api_response = api_instance.post_pending_points_notification(loyalty_program_id, body)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling ManagementApi->post_pending_points_notification: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **loyalty_program_id** | **int**| Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  | 
- **body** | [**NewBaseNotification**](NewBaseNotification.md)| body | 
-
-### Return type
-
-[**BaseNotification**](BaseNotification.md)
-
-### Authorization
-
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | OK |  -  |
-**400** | Bad request |  -  |
-**401** | Unauthorized |  -  |
-**404** | Not found |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **remove_loyalty_points**
 > remove_loyalty_points(loyalty_program_id, integration_id, body)
 
@@ -20605,7 +20354,7 @@ with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
     loyalty_program_id = 'loyalty_program_id_example' # str | The identifier for the loyalty program.
-integration_id = 'integration_id_example' # str | The identifier of the profile.
+integration_id = 'integration_id_example' # str | The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. 
 body = talon_one.DeductLoyaltyPoints() # DeductLoyaltyPoints | body
 
     try:
@@ -20658,7 +20407,7 @@ with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
     loyalty_program_id = 'loyalty_program_id_example' # str | The identifier for the loyalty program.
-integration_id = 'integration_id_example' # str | The identifier of the profile.
+integration_id = 'integration_id_example' # str | The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. 
 body = talon_one.DeductLoyaltyPoints() # DeductLoyaltyPoints | body
 
     try:
@@ -20673,7 +20422,7 @@ body = talon_one.DeductLoyaltyPoints() # DeductLoyaltyPoints | body
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **loyalty_program_id** | **str**| The identifier for the loyalty program. | 
- **integration_id** | **str**| The identifier of the profile. | 
+ **integration_id** | **str**| The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier.  | 
  **body** | [**DeductLoyaltyPoints**](DeductLoyaltyPoints.md)| body | 
 
 ### Return type
@@ -22074,7 +21823,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **search_coupons_advanced_application_wide_without_total_count**
-> InlineResponse2009 search_coupons_advanced_application_wide_without_total_count(application_id, body, page_size=page_size, skip=skip, sort=sort, value=value, created_before=created_before, created_after=created_after, valid=valid, usable=usable, referral_id=referral_id, recipient_integration_id=recipient_integration_id, batch_id=batch_id, exact_match=exact_match, campaign_state=campaign_state)
+> InlineResponse20011 search_coupons_advanced_application_wide_without_total_count(application_id, body, page_size=page_size, skip=skip, sort=sort, value=value, created_before=created_before, created_after=created_after, valid=valid, usable=usable, referral_id=referral_id, recipient_integration_id=recipient_integration_id, batch_id=batch_id, exact_match=exact_match, campaign_state=campaign_state)
 
 List coupons that match the given attributes (without total count)
 
@@ -22128,7 +21877,7 @@ with talon_one.ApiClient(configuration) as api_client:
 body = None # object | body
 page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
 skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
-sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
+sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
 value = 'value_example' # str | Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
 created_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
 created_after = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
@@ -22194,7 +21943,7 @@ with talon_one.ApiClient(configuration) as api_client:
 body = None # object | body
 page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
 skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
-sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
+sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
 value = 'value_example' # str | Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
 created_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
 created_after = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
@@ -22222,7 +21971,7 @@ Name | Type | Description  | Notes
  **body** | **object**| body | 
  **page_size** | **int**| The number of items in the response. | [optional] [default to 1000]
  **skip** | **int**| The number of items to skip when paging through large result sets. | [optional] 
- **sort** | **str**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  | [optional] 
+ **sort** | **str**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  | [optional] 
  **value** | **str**| Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. | [optional] 
  **created_before** | **datetime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. | [optional] 
  **created_after** | **datetime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. | [optional] 
@@ -22236,7 +21985,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2009**](InlineResponse2009.md)
+[**InlineResponse20011**](InlineResponse20011.md)
 
 ### Authorization
 
@@ -22255,7 +22004,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **search_coupons_advanced_without_total_count**
-> InlineResponse2009 search_coupons_advanced_without_total_count(application_id, campaign_id, body, page_size=page_size, skip=skip, sort=sort, value=value, created_before=created_before, created_after=created_after, valid=valid, usable=usable, referral_id=referral_id, recipient_integration_id=recipient_integration_id, exact_match=exact_match, batch_id=batch_id)
+> InlineResponse20011 search_coupons_advanced_without_total_count(application_id, campaign_id, body, page_size=page_size, skip=skip, sort=sort, value=value, created_before=created_before, created_after=created_after, valid=valid, usable=usable, referral_id=referral_id, recipient_integration_id=recipient_integration_id, exact_match=exact_match, batch_id=batch_id)
 
 List coupons that match the given attributes in campaign (without total count)
 
@@ -22310,7 +22059,7 @@ campaign_id = 56 # int | The ID of the campaign. It is displayed in your Talon.O
 body = None # object | body
 page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
 skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
-sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
+sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
 value = 'value_example' # str | Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
 created_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
 created_after = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
@@ -22376,7 +22125,7 @@ campaign_id = 56 # int | The ID of the campaign. It is displayed in your Talon.O
 body = None # object | body
 page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
 skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
-sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional)
+sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
 value = 'value_example' # str | Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
 created_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
 created_after = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
@@ -22404,7 +22153,7 @@ Name | Type | Description  | Notes
  **body** | **object**| body | 
  **page_size** | **int**| The number of items in the response. | [optional] [default to 1000]
  **skip** | **int**| The number of items to skip when paging through large result sets. | [optional] 
- **sort** | **str**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  | [optional] 
+ **sort** | **str**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  | [optional] 
  **value** | **str**| Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. | [optional] 
  **created_before** | **datetime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. | [optional] 
  **created_after** | **datetime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. | [optional] 
@@ -22417,7 +22166,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2009**](InlineResponse2009.md)
+[**InlineResponse20011**](InlineResponse20011.md)
 
 ### Authorization
 
@@ -24162,7 +23911,7 @@ body = talon_one.RoleV2Base() # RoleV2Base | body
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **role_id** | **int**| The ID of role.  **Note**: To find the ID of a role, use the [List roles](/management-api#tag/Roles/operation/listAllRolesV2) endpoint.  | 
- **body** | **RoleV2Base**| body | 
+ **body** | [**RoleV2Base**](RoleV2Base.md)| body | 
 
 ### Return type
 

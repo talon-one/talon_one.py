@@ -37,31 +37,41 @@ class TestInlineResponse20041(unittest.TestCase):
         if include_optional :
             return InlineResponse20041(
                 total_result_size = 1, 
-                has_more = True, 
                 data = [
-                    talon_one.models.change.Change(
-                        id = 6, 
-                        created = '2020-06-10T09:05:27.993483Z', 
-                        user_id = 388, 
-                        application_id = 359, 
-                        entity = '/v1/applications/359/campaigns/6727', 
-                        old = {}, 
-                        new = {"applicationId\"":359,"attributes\"":{},"campaignGroups\"":[],"created\"":"2022-07-08T13:04:02.972762328Z","description\"":"","features\"":["referrals","loyalty"],"id":6727}, 
-                        management_key_id = 3, )
+                    talon_one.models.webhook_log_entry.WebhookLogEntry(
+                        id = '2', 
+                        integration_request_uuid = '472075793', 
+                        webhook_id = 5, 
+                        application_id = 12, 
+                        url = 'www.my-company.com/my-endpoint-name', 
+                        request = '{
+  mydata: "somevalue"
+}
+', 
+                        response = '0', 
+                        status = 204, 
+                        request_time = '2021-07-20T22:00Z', 
+                        response_time = '2021-07-20T22:00:50Z', )
                     ]
             )
         else :
             return InlineResponse20041(
+                total_result_size = 1,
                 data = [
-                    talon_one.models.change.Change(
-                        id = 6, 
-                        created = '2020-06-10T09:05:27.993483Z', 
-                        user_id = 388, 
-                        application_id = 359, 
-                        entity = '/v1/applications/359/campaigns/6727', 
-                        old = {}, 
-                        new = {"applicationId\"":359,"attributes\"":{},"campaignGroups\"":[],"created\"":"2022-07-08T13:04:02.972762328Z","description\"":"","features\"":["referrals","loyalty"],"id":6727}, 
-                        management_key_id = 3, )
+                    talon_one.models.webhook_log_entry.WebhookLogEntry(
+                        id = '2', 
+                        integration_request_uuid = '472075793', 
+                        webhook_id = 5, 
+                        application_id = 12, 
+                        url = 'www.my-company.com/my-endpoint-name', 
+                        request = '{
+  mydata: "somevalue"
+}
+', 
+                        response = '0', 
+                        status = 204, 
+                        request_time = '2021-07-20T22:00Z', 
+                        response_time = '2021-07-20T22:00:50Z', )
                     ],
         )
 

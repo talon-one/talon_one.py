@@ -37,7 +37,8 @@ class TestPendingPointsNotificationPolicy(unittest.TestCase):
         if include_optional :
             return PendingPointsNotificationPolicy(
                 name = 'Christmas Sale', 
-                batching_enabled = False
+                batching_enabled = False, 
+                batch_size = 1000
             )
         else :
             return PendingPointsNotificationPolicy(

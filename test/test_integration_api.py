@@ -91,6 +91,20 @@ class TestIntegrationApi(unittest.TestCase):
         """
         pass
 
+    def test_get_customer_achievement_history(self):
+        """Test case for get_customer_achievement_history
+
+        List customer's achievement history  # noqa: E501
+        """
+        pass
+
+    def test_get_customer_achievements(self):
+        """Test case for get_customer_achievements
+
+        List customer's available achievements  # noqa: E501
+        """
+        pass
+
     def test_get_customer_inventory(self):
         """Test case for get_customer_inventory
 

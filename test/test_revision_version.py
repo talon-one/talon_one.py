@@ -47,7 +47,7 @@ class TestRevisionVersion(unittest.TestCase):
                 name = 'Summer promotions', 
                 start_time = '2021-07-20T22:00Z', 
                 end_time = '2021-09-22T22:00Z', 
-                attributes = talon_one.models.attributes.attributes(), 
+                attributes = None, 
                 description = 'Campaign for all summer 2021 promotions', 
                 active_ruleset_id = 5, 
                 tags = [

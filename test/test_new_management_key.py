@@ -47,6 +47,7 @@ class TestNewManagementKey(unittest.TestCase):
                 created_by = 280, 
                 account_id = 13, 
                 created = '2022-03-02T16:46:17.758585Z', 
+                disabled = True, 
                 key = 'f45f90d21dcd9bac965c45e547e9754a3196891d09948e35adbcbedc4e9e4b01'
             )
         else :

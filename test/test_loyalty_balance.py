@@ -39,7 +39,8 @@ class TestLoyaltyBalance(unittest.TestCase):
                 active_points = 286.0, 
                 pending_points = 50.0, 
                 spent_points = 150.0, 
-                expired_points = 286.0
+                expired_points = 286.0, 
+                negative_points = 286.0
             )
         else :
             return LoyaltyBalance(

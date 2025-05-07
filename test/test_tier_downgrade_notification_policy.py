@@ -37,7 +37,8 @@ class TestTierDowngradeNotificationPolicy(unittest.TestCase):
         if include_optional :
             return TierDowngradeNotificationPolicy(
                 name = 'Christmas Sale', 
-                batching_enabled = False
+                batching_enabled = False, 
+                batch_size = 1000
             )
         else :
             return TierDowngradeNotificationPolicy(

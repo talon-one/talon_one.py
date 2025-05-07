@@ -36,7 +36,8 @@ class TestCatalogsStrikethroughNotificationPolicy(unittest.TestCase):
         # model = talon_one.models.catalogs_strikethrough_notification_policy.CatalogsStrikethroughNotificationPolicy()  # noqa: E501
         if include_optional :
             return CatalogsStrikethroughNotificationPolicy(
-                name = 'Christmas Sale'
+                name = 'Christmas Sale', 
+                ahead_of_days_trigger = 1
             )
         else :
             return CatalogsStrikethroughNotificationPolicy(

@@ -34,15 +34,17 @@ class AddFreeItemEffectProps(object):
     """
     openapi_types = {
         'sku': 'str',
-        'name': 'str'
+        'name': 'str',
+        'desired_quantity': 'int'
     }
 
     attribute_map = {
         'sku': 'sku',
-        'name': 'name'
+        'name': 'name',
+        'desired_quantity': 'desiredQuantity'
     }
 
-    def __init__(self, sku=None, name=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, sku=None, name=None, desired_quantity=None, local_vars_configuration=None):  # noqa: E501
         """AddFreeItemEffectProps - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -50,10 +52,13 @@ class AddFreeItemEffectProps(object):
 
         self._sku = None
         self._name = None
+        self._desired_quantity = None
         self.discriminator = None
 
         self.sku = sku
         self.name = name
+        if desired_quantity is not None:
+            self.desired_quantity = desired_quantity
 
     @property
     def sku(self):
@@ -104,6 +109,29 @@ class AddFreeItemEffectProps(object):
             raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
 
         self._name = name
+
+    @property
+    def desired_quantity(self):
+        """Gets the desired_quantity of this AddFreeItemEffectProps.  # noqa: E501
+
+        The original quantity in case a partial reward was applied.  # noqa: E501
+
+        :return: The desired_quantity of this AddFreeItemEffectProps.  # noqa: E501
+        :rtype: int
+        """
+        return self._desired_quantity
+
+    @desired_quantity.setter
+    def desired_quantity(self, desired_quantity):
+        """Sets the desired_quantity of this AddFreeItemEffectProps.
+
+        The original quantity in case a partial reward was applied.  # noqa: E501
+
+        :param desired_quantity: The desired_quantity of this AddFreeItemEffectProps.  # noqa: E501
+        :type: int
+        """
+
+        self._desired_quantity = desired_quantity
 
     def to_dict(self):
         """Returns the model properties as a dict"""

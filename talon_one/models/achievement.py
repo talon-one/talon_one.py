@@ -48,7 +48,8 @@ class Achievement(object):
         'campaign_id': 'int',
         'user_id': 'int',
         'created_by': 'str',
-        'has_progress': 'bool'
+        'has_progress': 'bool',
+        'status': 'str'
     }
 
     attribute_map = {
@@ -67,10 +68,11 @@ class Achievement(object):
         'campaign_id': 'campaignId',
         'user_id': 'userId',
         'created_by': 'createdBy',
-        'has_progress': 'hasProgress'
+        'has_progress': 'hasProgress',
+        'status': 'status'
     }
 
-    def __init__(self, id=None, created=None, name=None, title=None, description=None, target=None, period=None, period_end_override=None, recurrence_policy=None, activation_policy=None, fixed_start_date=None, end_date=None, campaign_id=None, user_id=None, created_by=None, has_progress=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, created=None, name=None, title=None, description=None, target=None, period=None, period_end_override=None, recurrence_policy=None, activation_policy=None, fixed_start_date=None, end_date=None, campaign_id=None, user_id=None, created_by=None, has_progress=None, status=None, local_vars_configuration=None):  # noqa: E501
         """Achievement - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -92,6 +94,7 @@ class Achievement(object):
         self._user_id = None
         self._created_by = None
         self._has_progress = None
+        self._status = None
         self.discriminator = None
 
         self.id = id
@@ -100,7 +103,8 @@ class Achievement(object):
         self.title = title
         self.description = description
         self.target = target
-        self.period = period
+        if period is not None:
+            self.period = period
         if period_end_override is not None:
             self.period_end_override = period_end_override
         if recurrence_policy is not None:
@@ -113,9 +117,12 @@ class Achievement(object):
             self.end_date = end_date
         self.campaign_id = campaign_id
         self.user_id = user_id
-        self.created_by = created_by
+        if created_by is not None:
+            self.created_by = created_by
         if has_progress is not None:
             self.has_progress = has_progress
+        if status is not None:
+            self.status = status
 
     @property
     def id(self):
@@ -296,8 +303,6 @@ class Achievement(object):
         :param period: The period of this Achievement.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and period is None:  # noqa: E501
-            raise ValueError("Invalid value for `period`, must not be `None`")  # noqa: E501
 
         self._period = period
 
@@ -430,7 +435,7 @@ class Achievement(object):
     def campaign_id(self):
         """Gets the campaign_id of this Achievement.  # noqa: E501
 
-        ID of the campaign, to which the achievement belongs to  # noqa: E501
+        The ID of the campaign the achievement belongs to.  # noqa: E501
 
         :return: The campaign_id of this Achievement.  # noqa: E501
         :rtype: int
@@ -441,7 +446,7 @@ class Achievement(object):
     def campaign_id(self, campaign_id):
         """Sets the campaign_id of this Achievement.
 
-        ID of the campaign, to which the achievement belongs to  # noqa: E501
+        The ID of the campaign the achievement belongs to.  # noqa: E501
 
         :param campaign_id: The campaign_id of this Achievement.  # noqa: E501
         :type: int
@@ -496,8 +501,6 @@ class Achievement(object):
         :param created_by: The created_by of this Achievement.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and created_by is None:  # noqa: E501
-            raise ValueError("Invalid value for `created_by`, must not be `None`")  # noqa: E501
 
         self._created_by = created_by
 
@@ -523,6 +526,35 @@ class Achievement(object):
         """
 
         self._has_progress = has_progress
+
+    @property
+    def status(self):
+        """Gets the status of this Achievement.  # noqa: E501
+
+        The status of the achievement.  # noqa: E501
+
+        :return: The status of this Achievement.  # noqa: E501
+        :rtype: str
+        """
+        return self._status
+
+    @status.setter
+    def status(self, status):
+        """Sets the status of this Achievement.
+
+        The status of the achievement.  # noqa: E501
+
+        :param status: The status of this Achievement.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["inprogress", "expired", "not_started", "completed"]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and status not in allowed_values:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `status` ({0}), must be one of {1}"  # noqa: E501
+                .format(status, allowed_values)
+            )
+
+        self._status = status
 
     def to_dict(self):
         """Returns the model properties as a dict"""

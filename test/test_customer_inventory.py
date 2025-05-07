@@ -76,10 +76,12 @@ class TestCustomerInventory(unittest.TestCase):
                             ledger = talon_one.models.ledger_info.LedgerInfo(
                                 current_balance = 100.0, 
                                 pending_balance = 10.0, 
+                                negative_balance = 10.0, 
                                 expired_balance = 0.0, 
                                 spent_balance = 0.0, 
                                 tentative_current_balance = 100.0, 
                                 tentative_pending_balance = 20.0, 
+                                tentative_negative_balance = 100.0, 
                                 current_tier = talon_one.models.tier.Tier(
                                     id = 11, 
                                     name = 'bronze', 
@@ -91,10 +93,12 @@ class TestCustomerInventory(unittest.TestCase):
                                 'key' : talon_one.models.ledger_info.LedgerInfo(
                                     current_balance = 100.0, 
                                     pending_balance = 10.0, 
+                                    negative_balance = 10.0, 
                                     expired_balance = 0.0, 
                                     spent_balance = 0.0, 
                                     tentative_current_balance = 100.0, 
                                     tentative_pending_balance = 20.0, 
+                                    tentative_negative_balance = 100.0, 
                                     points_to_next_tier = 20.0, )
                                 }, 
                             modified = '2021-09-12T10:12:42Z', 
@@ -111,19 +115,23 @@ class TestCustomerInventory(unittest.TestCase):
                             ledger = talon_one.models.ledger_info.LedgerInfo(
                                 current_balance = 100.0, 
                                 pending_balance = 10.0, 
+                                negative_balance = 10.0, 
                                 expired_balance = 0.0, 
                                 spent_balance = 0.0, 
                                 tentative_current_balance = 100.0, 
                                 tentative_pending_balance = 20.0, 
+                                tentative_negative_balance = 100.0, 
                                 points_to_next_tier = 20.0, ), 
                             sub_ledgers = {
                                 'key' : talon_one.models.ledger_info.LedgerInfo(
                                     current_balance = 100.0, 
                                     pending_balance = 10.0, 
+                                    negative_balance = 10.0, 
                                     expired_balance = 0.0, 
                                     spent_balance = 0.0, 
                                     tentative_current_balance = 100.0, 
                                     tentative_pending_balance = 20.0, 
+                                    tentative_negative_balance = 100.0, 
                                     points_to_next_tier = 20.0, )
                                 }, )
                         }, ), 
@@ -194,18 +202,22 @@ class TestCustomerInventory(unittest.TestCase):
                         profile_id = 1, )
                     ], 
                 achievements = [
-                    talon_one.models.achievement_progress.AchievementProgress(
+                    talon_one.models.achievement_progress_with_definition.AchievementProgressWithDefinition(
+                        status = 'completed', 
+                        progress = 10.0, 
+                        start_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        completion_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        end_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                         achievement_id = 3, 
                         name = 'FreeCoffee10Orders', 
                         title = '50% off on 50th purchase.', 
                         description = '50% off for every 50th purchase in a year.', 
                         campaign_id = 3, 
-                        status = 'completed', 
                         target = 10.0, 
-                        progress = 10.0, 
-                        start_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        completion_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        end_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), )
+                        achievement_recurrence_policy = 'no_recurrence', 
+                        achievement_activation_policy = 'fixed_schedule', 
+                        achievement_fixed_start_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        achievement_end_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), )
                     ]
             )
         else :

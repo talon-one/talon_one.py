@@ -36,13 +36,7 @@ class TestAchievementProgress(unittest.TestCase):
         # model = talon_one.models.achievement_progress.AchievementProgress()  # noqa: E501
         if include_optional :
             return AchievementProgress(
-                achievement_id = 3, 
-                name = 'FreeCoffee10Orders', 
-                title = '50% off on 50th purchase.', 
-                description = '50% off for every 50th purchase in a year.', 
-                campaign_id = 3, 
                 status = 'completed', 
-                target = 10.0, 
                 progress = 10.0, 
                 start_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                 completion_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
@@ -50,15 +44,8 @@ class TestAchievementProgress(unittest.TestCase):
             )
         else :
             return AchievementProgress(
-                achievement_id = 3,
-                name = 'FreeCoffee10Orders',
-                title = '50% off on 50th purchase.',
-                description = '50% off for every 50th purchase in a year.',
-                campaign_id = 3,
                 status = 'completed',
                 progress = 10.0,
-                start_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
-                end_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
         )
 
     def testAchievementProgress(self):

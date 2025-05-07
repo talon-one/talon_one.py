@@ -38,52 +38,52 @@ class TestInlineResponse20036(unittest.TestCase):
             return InlineResponse20036(
                 total_result_size = 1, 
                 data = [
-                    talon_one.models.webhook_with_outgoing_integration_details.WebhookWithOutgoingIntegrationDetails(
+                    talon_one.models.attribute.Attribute(
                         id = 6, 
                         created = '2020-06-10T09:05:27.993483Z', 
-                        modified = '2021-09-12T10:12:42Z', 
-                        application_ids = [
-                            56
+                        account_id = 3886, 
+                        entity = 'Event', 
+                        event_type = 'pageViewed', 
+                        name = 'pageViewed', 
+                        title = 'Page view event', 
+                        type = 'string', 
+                        description = 'Event triggered when a customer displays a page.', 
+                        suggestions = [
+                            '0'
                             ], 
-                        title = 'Send message', 
-                        description = 'A webhook to send a coupon to the user.', 
-                        verb = 'POST', 
-                        url = 'www.my-company.com/my-endpoint-name', 
-                        headers = [{"Authorization": "Basic bmF2ZWVua3VtYXIU="}, {"Content-Type": "application/json"}], 
-                        payload = '{
-	"message": "${message}"
-}', 
-                        params = [], 
-                        enabled = True, 
-                        outgoing_integration_template_id = 1, 
-                        outgoing_integration_type_id = 1, 
-                        outgoing_integration_type_name = 'Braze', )
+                        has_allowed_list = False, 
+                        restricted_by_suggestions = False, 
+                        editable = True, 
+                        subscribed_applications_ids = [1, 4, 9], 
+                        subscribed_catalogs_ids = [2, 5], 
+                        allowed_subscriptions = [application, catalog], 
+                        event_type_id = 22, )
                     ]
             )
         else :
             return InlineResponse20036(
                 total_result_size = 1,
                 data = [
-                    talon_one.models.webhook_with_outgoing_integration_details.WebhookWithOutgoingIntegrationDetails(
+                    talon_one.models.attribute.Attribute(
                         id = 6, 
                         created = '2020-06-10T09:05:27.993483Z', 
-                        modified = '2021-09-12T10:12:42Z', 
-                        application_ids = [
-                            56
+                        account_id = 3886, 
+                        entity = 'Event', 
+                        event_type = 'pageViewed', 
+                        name = 'pageViewed', 
+                        title = 'Page view event', 
+                        type = 'string', 
+                        description = 'Event triggered when a customer displays a page.', 
+                        suggestions = [
+                            '0'
                             ], 
-                        title = 'Send message', 
-                        description = 'A webhook to send a coupon to the user.', 
-                        verb = 'POST', 
-                        url = 'www.my-company.com/my-endpoint-name', 
-                        headers = [{"Authorization": "Basic bmF2ZWVua3VtYXIU="}, {"Content-Type": "application/json"}], 
-                        payload = '{
-	"message": "${message}"
-}', 
-                        params = [], 
-                        enabled = True, 
-                        outgoing_integration_template_id = 1, 
-                        outgoing_integration_type_id = 1, 
-                        outgoing_integration_type_name = 'Braze', )
+                        has_allowed_list = False, 
+                        restricted_by_suggestions = False, 
+                        editable = True, 
+                        subscribed_applications_ids = [1, 4, 9], 
+                        subscribed_catalogs_ids = [2, 5], 
+                        allowed_subscriptions = [application, catalog], 
+                        event_type_id = 22, )
                     ],
         )
 

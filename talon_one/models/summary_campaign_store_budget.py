@@ -35,16 +35,18 @@ class SummaryCampaignStoreBudget(object):
     openapi_types = {
         'action': 'str',
         'period': 'str',
-        'store_count': 'int'
+        'store_count': 'int',
+        'imported': 'bool'
     }
 
     attribute_map = {
         'action': 'action',
         'period': 'period',
-        'store_count': 'storeCount'
+        'store_count': 'storeCount',
+        'imported': 'imported'
     }
 
-    def __init__(self, action=None, period=None, store_count=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, action=None, period=None, store_count=None, imported=None, local_vars_configuration=None):  # noqa: E501
         """SummaryCampaignStoreBudget - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -53,12 +55,14 @@ class SummaryCampaignStoreBudget(object):
         self._action = None
         self._period = None
         self._store_count = None
+        self._imported = None
         self.discriminator = None
 
         self.action = action
         if period is not None:
             self.period = period
         self.store_count = store_count
+        self.imported = imported
 
     @property
     def action(self):
@@ -138,6 +142,29 @@ class SummaryCampaignStoreBudget(object):
             raise ValueError("Invalid value for `store_count`, must not be `None`")  # noqa: E501
 
         self._store_count = store_count
+
+    @property
+    def imported(self):
+        """Gets the imported of this SummaryCampaignStoreBudget.  # noqa: E501
+
+
+        :return: The imported of this SummaryCampaignStoreBudget.  # noqa: E501
+        :rtype: bool
+        """
+        return self._imported
+
+    @imported.setter
+    def imported(self, imported):
+        """Sets the imported of this SummaryCampaignStoreBudget.
+
+
+        :param imported: The imported of this SummaryCampaignStoreBudget.  # noqa: E501
+        :type: bool
+        """
+        if self.local_vars_configuration.client_side_validation and imported is None:  # noqa: E501
+            raise ValueError("Invalid value for `imported`, must not be `None`")  # noqa: E501
+
+        self._imported = imported
 
     def to_dict(self):
         """Returns the model properties as a dict"""

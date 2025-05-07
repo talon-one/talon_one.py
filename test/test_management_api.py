@@ -679,6 +679,13 @@ class TestManagementApi(unittest.TestCase):
         """
         pass
 
+    def test_get_dashboard_statistics(self):
+        """Test case for get_dashboard_statistics
+
+        Get statistics for loyalty dashboard  # noqa: E501
+        """
+        pass
+
     def test_get_event_types(self):
         """Test case for get_event_types
 
@@ -746,6 +753,13 @@ class TestManagementApi(unittest.TestCase):
         """Test case for get_loyalty_statistics
 
         Get loyalty program statistics  # noqa: E501
+        """
+        pass
+
+    def test_get_message_logs(self):
+        """Test case for get_message_logs
+
+        List message log entries  # noqa: E501
         """
         pass
 
@@ -959,38 +973,10 @@ class TestManagementApi(unittest.TestCase):
         """
         pass
 
-    def test_notification_activation(self):
-        """Test case for notification_activation
-
-        Activate or deactivate notification  # noqa: E501
-        """
-        pass
-
     def test_okta_event_handler_challenge(self):
         """Test case for okta_event_handler_challenge
 
         Validate Okta API ownership  # noqa: E501
-        """
-        pass
-
-    def test_post_added_deducted_points_notification(self):
-        """Test case for post_added_deducted_points_notification
-
-        Create notification about added or deducted loyalty points  # noqa: E501
-        """
-        pass
-
-    def test_post_catalogs_strikethrough_notification(self):
-        """Test case for post_catalogs_strikethrough_notification
-
-        Create strikethrough notification  # noqa: E501
-        """
-        pass
-
-    def test_post_pending_points_notification(self):
-        """Test case for post_pending_points_notification
-
-        Create notification about pending loyalty points  # noqa: E501
         """
         pass
 

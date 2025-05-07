@@ -38,34 +38,40 @@ class TestInlineResponse2003(unittest.TestCase):
             return InlineResponse2003(
                 has_more = True, 
                 data = [
-                    talon_one.models.card_ledger_points_entry_integration_api.CardLedgerPointsEntryIntegrationAPI(
-                        id = 123, 
+                    talon_one.models.card_ledger_transaction_log_entry_integration_api.CardLedgerTransactionLogEntryIntegrationAPI(
                         created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                         program_id = 324, 
-                        customer_profile_id = 'URNGV8294NV', 
+                        card_identifier = 'summer-loyalty-card-0543', 
                         customer_session_id = '05c2da0d-48fa-4aa1-b629-898f58f1584d', 
+                        type = 'addition', 
                         name = 'Reward 10% points of a purchase's current total', 
                         start_date = '2022-01-02T15:04:05Z07:00', 
                         expiry_date = '2022-08-02T15:04:05Z07:00', 
                         subledger_id = 'sub-123', 
-                        amount = 10.25, )
+                        amount = 10.25, 
+                        id = 123, 
+                        ruleset_id = 11, 
+                        rule_name = 'Add 2 points', )
                     ]
             )
         else :
             return InlineResponse2003(
                 has_more = True,
                 data = [
-                    talon_one.models.card_ledger_points_entry_integration_api.CardLedgerPointsEntryIntegrationAPI(
-                        id = 123, 
+                    talon_one.models.card_ledger_transaction_log_entry_integration_api.CardLedgerTransactionLogEntryIntegrationAPI(
                         created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                         program_id = 324, 
-                        customer_profile_id = 'URNGV8294NV', 
+                        card_identifier = 'summer-loyalty-card-0543', 
                         customer_session_id = '05c2da0d-48fa-4aa1-b629-898f58f1584d', 
+                        type = 'addition', 
                         name = 'Reward 10% points of a purchase's current total', 
                         start_date = '2022-01-02T15:04:05Z07:00', 
                         expiry_date = '2022-08-02T15:04:05Z07:00', 
                         subledger_id = 'sub-123', 
-                        amount = 10.25, )
+                        amount = 10.25, 
+                        id = 123, 
+                        ruleset_id = 11, 
+                        rule_name = 'Add 2 points', )
                     ],
         )
 

@@ -41,6 +41,7 @@ class TestLoyaltySubLedger(unittest.TestCase):
                 total_pending_points = 1.337, 
                 total_spent_points = 1.337, 
                 total_expired_points = 1.337, 
+                total_negative_points = 1.337, 
                 transactions = [
                     talon_one.models.loyalty_ledger_entry.LoyaltyLedgerEntry(
                         created = '2021-07-20T22:00Z', 
@@ -56,7 +57,9 @@ class TestLoyaltySubLedger(unittest.TestCase):
                         name = 'Add points on purchase', 
                         sub_ledger_id = 'mysubledger', 
                         user_id = 499, 
-                        archived = False, )
+                        archived = False, 
+                        flags = talon_one.models.loyalty_ledger_entry_flags.LoyaltyLedgerEntryFlags(
+                            creates_negative_balance = True, ), )
                     ], 
                 expiring_points = [
                     talon_one.models.loyalty_ledger_entry.LoyaltyLedgerEntry(
@@ -73,7 +76,9 @@ class TestLoyaltySubLedger(unittest.TestCase):
                         name = 'Add points on purchase', 
                         sub_ledger_id = 'mysubledger', 
                         user_id = 499, 
-                        archived = False, )
+                        archived = False, 
+                        flags = talon_one.models.loyalty_ledger_entry_flags.LoyaltyLedgerEntryFlags(
+                            creates_negative_balance = True, ), )
                     ], 
                 active_points = [
                     talon_one.models.loyalty_ledger_entry.LoyaltyLedgerEntry(
@@ -90,7 +95,9 @@ class TestLoyaltySubLedger(unittest.TestCase):
                         name = 'Add points on purchase', 
                         sub_ledger_id = 'mysubledger', 
                         user_id = 499, 
-                        archived = False, )
+                        archived = False, 
+                        flags = talon_one.models.loyalty_ledger_entry_flags.LoyaltyLedgerEntryFlags(
+                            creates_negative_balance = True, ), )
                     ], 
                 pending_points = [
                     talon_one.models.loyalty_ledger_entry.LoyaltyLedgerEntry(
@@ -107,7 +114,9 @@ class TestLoyaltySubLedger(unittest.TestCase):
                         name = 'Add points on purchase', 
                         sub_ledger_id = 'mysubledger', 
                         user_id = 499, 
-                        archived = False, )
+                        archived = False, 
+                        flags = talon_one.models.loyalty_ledger_entry_flags.LoyaltyLedgerEntryFlags(
+                            creates_negative_balance = True, ), )
                     ], 
                 expired_points = [
                     talon_one.models.loyalty_ledger_entry.LoyaltyLedgerEntry(
@@ -124,7 +133,9 @@ class TestLoyaltySubLedger(unittest.TestCase):
                         name = 'Add points on purchase', 
                         sub_ledger_id = 'mysubledger', 
                         user_id = 499, 
-                        archived = False, )
+                        archived = False, 
+                        flags = talon_one.models.loyalty_ledger_entry_flags.LoyaltyLedgerEntryFlags(
+                            creates_negative_balance = True, ), )
                     ], 
                 current_tier = talon_one.models.tier.Tier(
                     id = 11, 
@@ -140,6 +151,7 @@ class TestLoyaltySubLedger(unittest.TestCase):
                 total_pending_points = 1.337,
                 total_spent_points = 1.337,
                 total_expired_points = 1.337,
+                total_negative_points = 1.337,
         )
 
     def testLoyaltySubLedger(self):

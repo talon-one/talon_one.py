@@ -37,37 +37,55 @@ class TestInlineResponse20017(unittest.TestCase):
         if include_optional :
             return InlineResponse20017(
                 has_more = True, 
-                total_result_size = 1, 
                 data = [
-                    talon_one.models.collection_without_payload.CollectionWithoutPayload(
-                        id = 6, 
-                        created = '2020-06-10T09:05:27.993483Z', 
-                        account_id = 3886, 
-                        modified = '2021-09-12T10:12:42Z', 
-                        description = 'My collection of SKUs', 
-                        subscribed_applications_ids = [1, 2, 3], 
-                        name = 'My collection', 
-                        modified_by = 48, 
-                        created_by = 134, 
-                        application_id = 1, 
-                        campaign_id = 7, )
+                    talon_one.models.loyalty_program_transaction.LoyaltyProgramTransaction(
+                        id = 123, 
+                        program_id = 324, 
+                        campaign_id = 324, 
+                        created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        type = 'addition', 
+                        amount = 10.25, 
+                        name = 'Reward 50 points for each $500 purchase', 
+                        start_date = '2022-01-02T15:04:05Z07:00', 
+                        expiry_date = '2022-01-02T15:04:05Z07:00', 
+                        customer_profile_id = 'kda0fajs0-fad9f-fd9dfsa9-fd9dasjf9', 
+                        card_identifier = 'summer-loyalty-card-0543', 
+                        subledger_id = 'sub-123', 
+                        customer_session_id = '05c2da0d-48fa-4aa1-b629-898f58f1584d', 
+                        import_id = 4, 
+                        user_id = 5, 
+                        user_email = 'john.doe@example.com', 
+                        ruleset_id = 11, 
+                        rule_name = '10 points for every $100 spent', 
+                        flags = talon_one.models.loyalty_ledger_entry_flags.LoyaltyLedgerEntryFlags(
+                            creates_negative_balance = True, ), )
                     ]
             )
         else :
             return InlineResponse20017(
+                has_more = True,
                 data = [
-                    talon_one.models.collection_without_payload.CollectionWithoutPayload(
-                        id = 6, 
-                        created = '2020-06-10T09:05:27.993483Z', 
-                        account_id = 3886, 
-                        modified = '2021-09-12T10:12:42Z', 
-                        description = 'My collection of SKUs', 
-                        subscribed_applications_ids = [1, 2, 3], 
-                        name = 'My collection', 
-                        modified_by = 48, 
-                        created_by = 134, 
-                        application_id = 1, 
-                        campaign_id = 7, )
+                    talon_one.models.loyalty_program_transaction.LoyaltyProgramTransaction(
+                        id = 123, 
+                        program_id = 324, 
+                        campaign_id = 324, 
+                        created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        type = 'addition', 
+                        amount = 10.25, 
+                        name = 'Reward 50 points for each $500 purchase', 
+                        start_date = '2022-01-02T15:04:05Z07:00', 
+                        expiry_date = '2022-01-02T15:04:05Z07:00', 
+                        customer_profile_id = 'kda0fajs0-fad9f-fd9dfsa9-fd9dasjf9', 
+                        card_identifier = 'summer-loyalty-card-0543', 
+                        subledger_id = 'sub-123', 
+                        customer_session_id = '05c2da0d-48fa-4aa1-b629-898f58f1584d', 
+                        import_id = 4, 
+                        user_id = 5, 
+                        user_email = 'john.doe@example.com', 
+                        ruleset_id = 11, 
+                        rule_name = '10 points for every $100 spent', 
+                        flags = talon_one.models.loyalty_ledger_entry_flags.LoyaltyLedgerEntryFlags(
+                            creates_negative_balance = True, ), )
                     ],
         )
 

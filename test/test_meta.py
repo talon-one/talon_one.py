@@ -36,8 +36,8 @@ class TestMeta(unittest.TestCase):
         # model = talon_one.models.meta.Meta()  # noqa: E501
         if include_optional :
             return Meta(
-                campaigns = talon_one.models.campaigns.campaigns(), 
-                coupons = talon_one.models.coupons.coupons(), 
+                campaigns = None, 
+                coupons = None, 
                 coupon_rejection_reason = talon_one.models.coupon_rejection_reason.CouponRejectionReason(
                     campaign_id = 244, 
                     coupon_id = 4928, 
@@ -46,7 +46,7 @@ class TestMeta(unittest.TestCase):
                     campaign_id = 56, 
                     referral_id = 56, 
                     reason = 'ReferralNotFound', ), 
-                warnings = talon_one.models.warnings.warnings()
+                warnings = None
             )
         else :
             return Meta(

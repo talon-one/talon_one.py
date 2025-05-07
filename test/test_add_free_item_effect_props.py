@@ -37,7 +37,8 @@ class TestAddFreeItemEffectProps(unittest.TestCase):
         if include_optional :
             return AddFreeItemEffectProps(
                 sku = 'SKU1241028', 
-                name = '0'
+                name = '0', 
+                desired_quantity = 56
             )
         else :
             return AddFreeItemEffectProps(

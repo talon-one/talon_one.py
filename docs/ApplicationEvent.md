@@ -5,7 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** | Internal ID of this entity. | 
 **created** | **datetime** | The time this entity was created. | 
-**application_id** | **int** | The ID of the application that owns this entity. | 
+**application_id** | **int** | The ID of the Application that owns this entity. | 
 **profile_id** | **int** | The globally unique Talon.One ID of the customer that created this entity. | [optional] 
 **store_id** | **int** | The ID of the store. | [optional] 
 **store_integration_id** | **str** | The integration ID of the store. You choose this ID when you create a store. | [optional] 

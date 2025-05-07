@@ -37,15 +37,17 @@ class TestAnalyticsProduct(unittest.TestCase):
         if include_optional :
             return AnalyticsProduct(
                 id = 1, 
-                is_preliminary = False, 
                 name = 'MyProduct', 
-                catalog_id = 1
+                catalog_id = 1, 
+                units_sold = talon_one.models.analytics_data_point_with_trend.AnalyticsDataPointWithTrend(
+                    value = 12.0, 
+                    trend = 3.25, )
             )
         else :
             return AnalyticsProduct(
                 id = 1,
-                is_preliminary = False,
                 name = 'MyProduct',
+                catalog_id = 1,
         )
 
     def testAnalyticsProduct(self):

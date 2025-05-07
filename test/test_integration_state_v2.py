@@ -75,8 +75,7 @@ class TestIntegrationStateV2(unittest.TestCase):
                     total = 119.99, 
                     cart_item_total = 99.99, 
                     additional_cost_total = 20.0, 
-                    updated = '2020-02-08T14:15:22Z', 
-                    closure_prediction = 0.283, ), 
+                    updated = '2020-02-08T14:15:22Z', ), 
                 customer_profile = talon_one.models.customer_profile.CustomerProfile(
                     id = 6, 
                     created = '2020-02-07T08:15:22Z', 
@@ -154,10 +153,12 @@ class TestIntegrationStateV2(unittest.TestCase):
                             ledger = talon_one.models.ledger_info.LedgerInfo(
                                 current_balance = 100.0, 
                                 pending_balance = 10.0, 
+                                negative_balance = 10.0, 
                                 expired_balance = 0.0, 
                                 spent_balance = 0.0, 
                                 tentative_current_balance = 100.0, 
                                 tentative_pending_balance = 20.0, 
+                                tentative_negative_balance = 100.0, 
                                 current_tier = talon_one.models.tier.Tier(
                                     id = 11, 
                                     name = 'bronze', 
@@ -169,10 +170,12 @@ class TestIntegrationStateV2(unittest.TestCase):
                                 'key' : talon_one.models.ledger_info.LedgerInfo(
                                     current_balance = 100.0, 
                                     pending_balance = 10.0, 
+                                    negative_balance = 10.0, 
                                     expired_balance = 0.0, 
                                     spent_balance = 0.0, 
                                     tentative_current_balance = 100.0, 
                                     tentative_pending_balance = 20.0, 
+                                    tentative_negative_balance = 100.0, 
                                     points_to_next_tier = 20.0, )
                                 }, 
                             modified = '2021-09-12T10:12:42Z', 
@@ -189,19 +192,23 @@ class TestIntegrationStateV2(unittest.TestCase):
                             ledger = talon_one.models.ledger_info.LedgerInfo(
                                 current_balance = 100.0, 
                                 pending_balance = 10.0, 
+                                negative_balance = 10.0, 
                                 expired_balance = 0.0, 
                                 spent_balance = 0.0, 
                                 tentative_current_balance = 100.0, 
                                 tentative_pending_balance = 20.0, 
+                                tentative_negative_balance = 100.0, 
                                 points_to_next_tier = 20.0, ), 
                             sub_ledgers = {
                                 'key' : talon_one.models.ledger_info.LedgerInfo(
                                     current_balance = 100.0, 
                                     pending_balance = 10.0, 
+                                    negative_balance = 10.0, 
                                     expired_balance = 0.0, 
                                     spent_balance = 0.0, 
                                     tentative_current_balance = 100.0, 
                                     tentative_pending_balance = 20.0, 
+                                    tentative_negative_balance = 100.0, 
                                     points_to_next_tier = 20.0, )
                                 }, )
                         }, ), 
@@ -313,6 +320,7 @@ class TestIntegrationStateV2(unittest.TestCase):
                         template_id = 3, 
                         frontend_state = 'running', 
                         stores_imported = True, 
+                        value_maps_ids = [100, 215], 
                         revision_frontend_state = 'revised', 
                         active_revision_id = 6, 
                         active_revision_version_id = 6, 
@@ -335,7 +343,7 @@ class TestIntegrationStateV2(unittest.TestCase):
                         evaluation_group_mode = 'stackable', 
                         campaign_revision_id = 1, 
                         campaign_revision_version_id = 5, 
-                        props = talon_one.models.effect_props.EffectProps(), )
+                        props = talon_one.models.props.props(), )
                     ], 
                 rule_failure_reasons = [
                     talon_one.models.rule_failure_reason.RuleFailureReason(
@@ -466,7 +474,7 @@ class TestIntegrationStateV2(unittest.TestCase):
                         evaluation_group_mode = 'stackable', 
                         campaign_revision_id = 1, 
                         campaign_revision_version_id = 5, 
-                        props = talon_one.models.effect_props.EffectProps(), )
+                        props = talon_one.models.props.props(), )
                     ],
                 created_coupons = [
                     talon_one.models.coupon.Coupon(

@@ -34,7 +34,7 @@ class InlineResponse2004(object):
     """
     openapi_types = {
         'has_more': 'bool',
-        'data': 'list[LedgerPointsEntryIntegrationAPI]'
+        'data': 'list[LedgerTransactionLogEntryIntegrationAPI]'
     }
 
     attribute_map = {
@@ -84,7 +84,7 @@ class InlineResponse2004(object):
 
 
         :return: The data of this InlineResponse2004.  # noqa: E501
-        :rtype: list[LedgerPointsEntryIntegrationAPI]
+        :rtype: list[LedgerTransactionLogEntryIntegrationAPI]
         """
         return self._data
 
@@ -94,7 +94,7 @@ class InlineResponse2004(object):
 
 
         :param data: The data of this InlineResponse2004.  # noqa: E501
-        :type: list[LedgerPointsEntryIntegrationAPI]
+        :type: list[LedgerTransactionLogEntryIntegrationAPI]
         """
         if self.local_vars_configuration.client_side_validation and data is None:  # noqa: E501
             raise ValueError("Invalid value for `data`, must not be `None`")  # noqa: E501

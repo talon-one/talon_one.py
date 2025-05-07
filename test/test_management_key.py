@@ -46,7 +46,8 @@ class TestManagementKey(unittest.TestCase):
                 id = 34, 
                 created_by = 280, 
                 account_id = 13, 
-                created = '2022-03-02T16:46:17.758585Z'
+                created = '2022-03-02T16:46:17.758585Z', 
+                disabled = True
             )
         else :
             return ManagementKey(

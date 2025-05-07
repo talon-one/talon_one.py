@@ -94,6 +94,7 @@ class TestCampaignEditedNotification(unittest.TestCase):
                     template_id = 3, 
                     frontend_state = 'running', 
                     stores_imported = True, 
+                    value_maps_ids = [100, 215], 
                     revision_frontend_state = 'revised', 
                     active_revision_id = 6, 
                     active_revision_version_id = 6, 
@@ -159,6 +160,7 @@ class TestCampaignEditedNotification(unittest.TestCase):
                     template_id = 3, 
                     frontend_state = 'running', 
                     stores_imported = True, 
+                    value_maps_ids = [100, 215], 
                     revision_frontend_state = 'revised', 
                     active_revision_id = 6, 
                     active_revision_version_id = 6, 
@@ -180,9 +182,7 @@ class TestCampaignEditedNotification(unittest.TestCase):
                                 talon_one.models.binding.Binding(
                                     name = 'my property', 
                                     type = 'templateParameter', 
-                                    expression = [
-                                        None
-                                        ], 
+                                    expression = [string1, string2], 
                                     value_type = 'string', )
                                 ], 
                             condition = [and, [couponValid]], 
@@ -264,6 +264,7 @@ class TestCampaignEditedNotification(unittest.TestCase):
                     template_id = 3, 
                     frontend_state = 'running', 
                     stores_imported = True, 
+                    value_maps_ids = [100, 215], 
                     revision_frontend_state = 'revised', 
                     active_revision_id = 6, 
                     active_revision_version_id = 6, 
@@ -329,6 +330,7 @@ class TestCampaignEditedNotification(unittest.TestCase):
                     template_id = 3, 
                     frontend_state = 'running', 
                     stores_imported = True, 
+                    value_maps_ids = [100, 215], 
                     revision_frontend_state = 'revised', 
                     active_revision_id = 6, 
                     active_revision_version_id = 6, 

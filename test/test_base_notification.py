@@ -36,7 +36,7 @@ class TestBaseNotification(unittest.TestCase):
         # model = talon_one.models.base_notification.BaseNotification()  # noqa: E501
         if include_optional :
             return BaseNotification(
-                policy = talon_one.models.base_notification_policy.BaseNotificationPolicy(), 
+                policy = None, 
                 enabled = True, 
                 webhook = talon_one.models.base_notification_webhook.BaseNotificationWebhook(
                     id = 6, 
@@ -52,7 +52,7 @@ class TestBaseNotification(unittest.TestCase):
             )
         else :
             return BaseNotification(
-                policy = talon_one.models.base_notification_policy.BaseNotificationPolicy(),
+                policy = None,
                 webhook = talon_one.models.base_notification_webhook.BaseNotificationWebhook(
                     id = 6, 
                     created = '2020-06-10T09:05:27.993483Z', 

@@ -38,7 +38,9 @@ class StrikethroughEffect(object):
         'rule_index': 'int',
         'rule_name': 'str',
         'type': 'str',
-        'props': 'object'
+        'props': 'object',
+        'start_time': 'datetime',
+        'end_time': 'datetime'
     }
 
     attribute_map = {
@@ -47,10 +49,12 @@ class StrikethroughEffect(object):
         'rule_index': 'ruleIndex',
         'rule_name': 'ruleName',
         'type': 'type',
-        'props': 'props'
+        'props': 'props',
+        'start_time': 'startTime',
+        'end_time': 'endTime'
     }
 
-    def __init__(self, campaign_id=None, ruleset_id=None, rule_index=None, rule_name=None, type=None, props=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, campaign_id=None, ruleset_id=None, rule_index=None, rule_name=None, type=None, props=None, start_time=None, end_time=None, local_vars_configuration=None):  # noqa: E501
         """StrikethroughEffect - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -62,6 +66,8 @@ class StrikethroughEffect(object):
         self._rule_name = None
         self._type = None
         self._props = None
+        self._start_time = None
+        self._end_time = None
         self.discriminator = None
 
         self.campaign_id = campaign_id
@@ -70,6 +76,10 @@ class StrikethroughEffect(object):
         self.rule_name = rule_name
         self.type = type
         self.props = props
+        if start_time is not None:
+            self.start_time = start_time
+        if end_time is not None:
+            self.end_time = end_time
 
     @property
     def campaign_id(self):
@@ -218,6 +228,52 @@ class StrikethroughEffect(object):
             raise ValueError("Invalid value for `props`, must not be `None`")  # noqa: E501
 
         self._props = props
+
+    @property
+    def start_time(self):
+        """Gets the start_time of this StrikethroughEffect.  # noqa: E501
+
+        The start of the time frame where the effect is active in UTC.  # noqa: E501
+
+        :return: The start_time of this StrikethroughEffect.  # noqa: E501
+        :rtype: datetime
+        """
+        return self._start_time
+
+    @start_time.setter
+    def start_time(self, start_time):
+        """Sets the start_time of this StrikethroughEffect.
+
+        The start of the time frame where the effect is active in UTC.  # noqa: E501
+
+        :param start_time: The start_time of this StrikethroughEffect.  # noqa: E501
+        :type: datetime
+        """
+
+        self._start_time = start_time
+
+    @property
+    def end_time(self):
+        """Gets the end_time of this StrikethroughEffect.  # noqa: E501
+
+        The end of the time frame where the effect is active in UTC.  # noqa: E501
+
+        :return: The end_time of this StrikethroughEffect.  # noqa: E501
+        :rtype: datetime
+        """
+        return self._end_time
+
+    @end_time.setter
+    def end_time(self, end_time):
+        """Sets the end_time of this StrikethroughEffect.
+
+        The end of the time frame where the effect is active in UTC.  # noqa: E501
+
+        :param end_time: The end_time of this StrikethroughEffect.  # noqa: E501
+        :type: datetime
+        """
+
+        self._end_time = end_time
 
     def to_dict(self):
         """Returns the model properties as a dict"""

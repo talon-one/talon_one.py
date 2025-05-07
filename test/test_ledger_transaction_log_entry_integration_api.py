@@ -47,7 +47,9 @@ class TestLedgerTransactionLogEntryIntegrationAPI(unittest.TestCase):
                 amount = 10.25, 
                 id = 123, 
                 ruleset_id = 11, 
-                rule_name = 'Add 2 points'
+                rule_name = 'Add 2 points', 
+                flags = talon_one.models.loyalty_ledger_entry_flags.LoyaltyLedgerEntryFlags(
+                    creates_negative_balance = True, )
             )
         else :
             return LedgerTransactionLogEntryIntegrationAPI(

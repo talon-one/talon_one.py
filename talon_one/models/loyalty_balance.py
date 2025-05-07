@@ -36,17 +36,19 @@ class LoyaltyBalance(object):
         'active_points': 'float',
         'pending_points': 'float',
         'spent_points': 'float',
-        'expired_points': 'float'
+        'expired_points': 'float',
+        'negative_points': 'float'
     }
 
     attribute_map = {
         'active_points': 'activePoints',
         'pending_points': 'pendingPoints',
         'spent_points': 'spentPoints',
-        'expired_points': 'expiredPoints'
+        'expired_points': 'expiredPoints',
+        'negative_points': 'negativePoints'
     }
 
-    def __init__(self, active_points=None, pending_points=None, spent_points=None, expired_points=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, active_points=None, pending_points=None, spent_points=None, expired_points=None, negative_points=None, local_vars_configuration=None):  # noqa: E501
         """LoyaltyBalance - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -56,6 +58,7 @@ class LoyaltyBalance(object):
         self._pending_points = None
         self._spent_points = None
         self._expired_points = None
+        self._negative_points = None
         self.discriminator = None
 
         if active_points is not None:
@@ -66,6 +69,8 @@ class LoyaltyBalance(object):
             self.spent_points = spent_points
         if expired_points is not None:
             self.expired_points = expired_points
+        if negative_points is not None:
+            self.negative_points = negative_points
 
     @property
     def active_points(self):
@@ -158,6 +163,29 @@ class LoyaltyBalance(object):
         """
 
         self._expired_points = expired_points
+
+    @property
+    def negative_points(self):
+        """Gets the negative_points of this LoyaltyBalance.  # noqa: E501
+
+        Total amount of negative points. This implies that `activePoints` is `0`.  # noqa: E501
+
+        :return: The negative_points of this LoyaltyBalance.  # noqa: E501
+        :rtype: float
+        """
+        return self._negative_points
+
+    @negative_points.setter
+    def negative_points(self, negative_points):
+        """Sets the negative_points of this LoyaltyBalance.
+
+        Total amount of negative points. This implies that `activePoints` is `0`.  # noqa: E501
+
+        :param negative_points: The negative_points of this LoyaltyBalance.  # noqa: E501
+        :type: float
+        """
+
+        self._negative_points = negative_points
 
     def to_dict(self):
         """Returns the model properties as a dict"""

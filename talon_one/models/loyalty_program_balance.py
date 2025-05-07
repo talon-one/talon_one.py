@@ -35,22 +35,26 @@ class LoyaltyProgramBalance(object):
     openapi_types = {
         'current_balance': 'float',
         'pending_balance': 'float',
+        'negative_balance': 'float',
         'expired_balance': 'float',
         'spent_balance': 'float',
         'tentative_current_balance': 'float',
-        'tentative_pending_balance': 'float'
+        'tentative_pending_balance': 'float',
+        'tentative_negative_balance': 'float'
     }
 
     attribute_map = {
         'current_balance': 'currentBalance',
         'pending_balance': 'pendingBalance',
+        'negative_balance': 'negativeBalance',
         'expired_balance': 'expiredBalance',
         'spent_balance': 'spentBalance',
         'tentative_current_balance': 'tentativeCurrentBalance',
-        'tentative_pending_balance': 'tentativePendingBalance'
+        'tentative_pending_balance': 'tentativePendingBalance',
+        'tentative_negative_balance': 'tentativeNegativeBalance'
     }
 
-    def __init__(self, current_balance=None, pending_balance=None, expired_balance=None, spent_balance=None, tentative_current_balance=None, tentative_pending_balance=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, current_balance=None, pending_balance=None, negative_balance=None, expired_balance=None, spent_balance=None, tentative_current_balance=None, tentative_pending_balance=None, tentative_negative_balance=None, local_vars_configuration=None):  # noqa: E501
         """LoyaltyProgramBalance - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -58,19 +62,23 @@ class LoyaltyProgramBalance(object):
 
         self._current_balance = None
         self._pending_balance = None
+        self._negative_balance = None
         self._expired_balance = None
         self._spent_balance = None
         self._tentative_current_balance = None
         self._tentative_pending_balance = None
+        self._tentative_negative_balance = None
         self.discriminator = None
 
         self.current_balance = current_balance
         self.pending_balance = pending_balance
+        self.negative_balance = negative_balance
         self.expired_balance = expired_balance
         self.spent_balance = spent_balance
         self.tentative_current_balance = tentative_current_balance
         if tentative_pending_balance is not None:
             self.tentative_pending_balance = tentative_pending_balance
+        self.tentative_negative_balance = tentative_negative_balance
 
     @property
     def current_balance(self):
@@ -121,6 +129,31 @@ class LoyaltyProgramBalance(object):
             raise ValueError("Invalid value for `pending_balance`, must not be `None`")  # noqa: E501
 
         self._pending_balance = pending_balance
+
+    @property
+    def negative_balance(self):
+        """Gets the negative_balance of this LoyaltyProgramBalance.  # noqa: E501
+
+        Sum of negative points. This implies that `currentBalance` is `0`.  # noqa: E501
+
+        :return: The negative_balance of this LoyaltyProgramBalance.  # noqa: E501
+        :rtype: float
+        """
+        return self._negative_balance
+
+    @negative_balance.setter
+    def negative_balance(self, negative_balance):
+        """Sets the negative_balance of this LoyaltyProgramBalance.
+
+        Sum of negative points. This implies that `currentBalance` is `0`.  # noqa: E501
+
+        :param negative_balance: The negative_balance of this LoyaltyProgramBalance.  # noqa: E501
+        :type: float
+        """
+        if self.local_vars_configuration.client_side_validation and negative_balance is None:  # noqa: E501
+            raise ValueError("Invalid value for `negative_balance`, must not be `None`")  # noqa: E501
+
+        self._negative_balance = negative_balance
 
     @property
     def expired_balance(self):
@@ -219,6 +252,31 @@ class LoyaltyProgramBalance(object):
         """
 
         self._tentative_pending_balance = tentative_pending_balance
+
+    @property
+    def tentative_negative_balance(self):
+        """Gets the tentative_negative_balance of this LoyaltyProgramBalance.  # noqa: E501
+
+        The tentative negative balance after all additions and deductions from the current customer session are applied to `negativeBalance`. When the session is closed, the tentative effects are applied and `negativeBalance` is updated to this value.  **Note:** Tentative balances are specific to the current session and do not take into account other open sessions for the given customer.   # noqa: E501
+
+        :return: The tentative_negative_balance of this LoyaltyProgramBalance.  # noqa: E501
+        :rtype: float
+        """
+        return self._tentative_negative_balance
+
+    @tentative_negative_balance.setter
+    def tentative_negative_balance(self, tentative_negative_balance):
+        """Sets the tentative_negative_balance of this LoyaltyProgramBalance.
+
+        The tentative negative balance after all additions and deductions from the current customer session are applied to `negativeBalance`. When the session is closed, the tentative effects are applied and `negativeBalance` is updated to this value.  **Note:** Tentative balances are specific to the current session and do not take into account other open sessions for the given customer.   # noqa: E501
+
+        :param tentative_negative_balance: The tentative_negative_balance of this LoyaltyProgramBalance.  # noqa: E501
+        :type: float
+        """
+        if self.local_vars_configuration.client_side_validation and tentative_negative_balance is None:  # noqa: E501
+            raise ValueError("Invalid value for `tentative_negative_balance`, must not be `None`")  # noqa: E501
+
+        self._tentative_negative_balance = tentative_negative_balance
 
     def to_dict(self):
         """Returns the model properties as a dict"""

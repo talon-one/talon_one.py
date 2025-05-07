@@ -46,7 +46,8 @@ class LoyaltyLedgerEntry(object):
         'name': 'str',
         'sub_ledger_id': 'str',
         'user_id': 'int',
-        'archived': 'bool'
+        'archived': 'bool',
+        'flags': 'LoyaltyLedgerEntryFlags'
     }
 
     attribute_map = {
@@ -63,10 +64,11 @@ class LoyaltyLedgerEntry(object):
         'name': 'name',
         'sub_ledger_id': 'subLedgerID',
         'user_id': 'userID',
-        'archived': 'archived'
+        'archived': 'archived',
+        'flags': 'flags'
     }
 
-    def __init__(self, created=None, program_id=None, customer_profile_id=None, card_id=None, customer_session_id=None, event_id=None, type=None, amount=None, start_date=None, expiry_date=None, name=None, sub_ledger_id=None, user_id=None, archived=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, created=None, program_id=None, customer_profile_id=None, card_id=None, customer_session_id=None, event_id=None, type=None, amount=None, start_date=None, expiry_date=None, name=None, sub_ledger_id=None, user_id=None, archived=None, flags=None, local_vars_configuration=None):  # noqa: E501
         """LoyaltyLedgerEntry - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -86,6 +88,7 @@ class LoyaltyLedgerEntry(object):
         self._sub_ledger_id = None
         self._user_id = None
         self._archived = None
+        self._flags = None
         self.discriminator = None
 
         self.created = created
@@ -110,6 +113,8 @@ class LoyaltyLedgerEntry(object):
             self.user_id = user_id
         if archived is not None:
             self.archived = archived
+        if flags is not None:
+            self.flags = flags
 
     @property
     def created(self):
@@ -426,6 +431,27 @@ class LoyaltyLedgerEntry(object):
         """
 
         self._archived = archived
+
+    @property
+    def flags(self):
+        """Gets the flags of this LoyaltyLedgerEntry.  # noqa: E501
+
+
+        :return: The flags of this LoyaltyLedgerEntry.  # noqa: E501
+        :rtype: LoyaltyLedgerEntryFlags
+        """
+        return self._flags
+
+    @flags.setter
+    def flags(self, flags):
+        """Sets the flags of this LoyaltyLedgerEntry.
+
+
+        :param flags: The flags of this LoyaltyLedgerEntry.  # noqa: E501
+        :type: LoyaltyLedgerEntryFlags
+        """
+
+        self._flags = flags
 
     def to_dict(self):
         """Returns the model properties as a dict"""

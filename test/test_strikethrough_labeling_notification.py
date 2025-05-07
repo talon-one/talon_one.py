@@ -36,6 +36,8 @@ class TestStrikethroughLabelingNotification(unittest.TestCase):
         # model = talon_one.models.strikethrough_labeling_notification.StrikethroughLabelingNotification()  # noqa: E501
         if include_optional :
             return StrikethroughLabelingNotification(
+                version = 'v2', 
+                valid_from = '2021-07-20T22:00Z', 
                 application_id = 322, 
                 current_batch = 1, 
                 total_batches = 10, 
@@ -60,7 +62,9 @@ class TestStrikethroughLabelingNotification(unittest.TestCase):
                                 rule_index = 2, 
                                 rule_name = 'Add 2 points', 
                                 type = 'setDiscountPerItem', 
-                                props = talon_one.models.strikethrough_effect_props.StrikethroughEffectProps(), )
+                                props = talon_one.models.strikethrough_effect_props.StrikethroughEffectProps(), 
+                                start_time = '2021-07-20T22:00Z', 
+                                end_time = '2021-10-01T02:00Z', )
                             ], )
                     ]
             )
@@ -90,7 +94,9 @@ class TestStrikethroughLabelingNotification(unittest.TestCase):
                                 rule_index = 2, 
                                 rule_name = 'Add 2 points', 
                                 type = 'setDiscountPerItem', 
-                                props = talon_one.models.strikethrough_effect_props.StrikethroughEffectProps(), )
+                                props = talon_one.models.strikethrough_effect_props.StrikethroughEffectProps(), 
+                                start_time = '2021-07-20T22:00Z', 
+                                end_time = '2021-10-01T02:00Z', )
                             ], )
                     ],
         )

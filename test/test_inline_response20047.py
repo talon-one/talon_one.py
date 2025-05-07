@@ -37,35 +37,33 @@ class TestInlineResponse20047(unittest.TestCase):
         if include_optional :
             return InlineResponse20047(
                 has_more = True, 
+                total_result_size = 1, 
                 data = [
-                    talon_one.models.achievement_progress.AchievementProgress(
-                        achievement_id = 3, 
-                        name = 'FreeCoffee10Orders', 
-                        title = '50% off on 50th purchase.', 
-                        campaign_id = 3, 
-                        status = 'completed', 
-                        target = 10.0, 
-                        progress = 10.0, 
-                        start_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        completion_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        end_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), )
+                    talon_one.models.store.Store(
+                        id = 6, 
+                        created = '2020-02-07T08:15:22Z', 
+                        name = 'South US store', 
+                        description = 'This is the description of the store in south US.', 
+                        attributes = {"country":"USA","code":1234}, 
+                        integration_id = 'STORE-001', 
+                        application_id = 322, 
+                        updated = '2021-09-23T10:12:42Z', 
+                        linked_campaign_ids = [4, 6, 8], )
                     ]
             )
         else :
             return InlineResponse20047(
-                has_more = True,
                 data = [
-                    talon_one.models.achievement_progress.AchievementProgress(
-                        achievement_id = 3, 
-                        name = 'FreeCoffee10Orders', 
-                        title = '50% off on 50th purchase.', 
-                        campaign_id = 3, 
-                        status = 'completed', 
-                        target = 10.0, 
-                        progress = 10.0, 
-                        start_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        completion_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        end_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), )
+                    talon_one.models.store.Store(
+                        id = 6, 
+                        created = '2020-02-07T08:15:22Z', 
+                        name = 'South US store', 
+                        description = 'This is the description of the store in south US.', 
+                        attributes = {"country":"USA","code":1234}, 
+                        integration_id = 'STORE-001', 
+                        application_id = 322, 
+                        updated = '2021-09-23T10:12:42Z', 
+                        linked_campaign_ids = [4, 6, 8], )
                     ],
         )
 

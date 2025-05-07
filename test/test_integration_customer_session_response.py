@@ -75,8 +75,7 @@ class TestIntegrationCustomerSessionResponse(unittest.TestCase):
                     total = 119.99, 
                     cart_item_total = 99.99, 
                     additional_cost_total = 20.0, 
-                    updated = '2020-02-08T14:15:22Z', 
-                    closure_prediction = 0.283, ), 
+                    updated = '2020-02-08T14:15:22Z', ), 
                 effects = [
                     talon_one.models.effect.Effect(
                         campaign_id = 244, 
@@ -91,7 +90,7 @@ class TestIntegrationCustomerSessionResponse(unittest.TestCase):
                         evaluation_group_mode = 'stackable', 
                         campaign_revision_id = 1, 
                         campaign_revision_version_id = 5, 
-                        props = talon_one.models.effect_props.EffectProps(), )
+                        props = talon_one.models.props.props(), )
                     ]
             )
         else :

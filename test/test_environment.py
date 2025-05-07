@@ -148,7 +148,8 @@ class TestEnvironment(unittest.TestCase):
                         campaign_id = 1, 
                         user_id = 1234, 
                         created_by = 'John Doe', 
-                        has_progress = True, )
+                        has_progress = True, 
+                        status = 'inprogress', )
                     ], 
                 attributes = [
                     talon_one.models.attribute.Attribute(

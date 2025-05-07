@@ -37,7 +37,8 @@ class TestCampaignNotificationPolicy(unittest.TestCase):
         if include_optional :
             return CampaignNotificationPolicy(
                 name = 'Christmas Sale', 
-                batching_enabled = False
+                batching_enabled = False, 
+                batch_size = 5
             )
         else :
             return CampaignNotificationPolicy(

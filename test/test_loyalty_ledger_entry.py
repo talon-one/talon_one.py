@@ -49,7 +49,9 @@ class TestLoyaltyLedgerEntry(unittest.TestCase):
                 name = 'Add points on purchase', 
                 sub_ledger_id = 'mysubledger', 
                 user_id = 499, 
-                archived = False
+                archived = False, 
+                flags = talon_one.models.loyalty_ledger_entry_flags.LoyaltyLedgerEntryFlags(
+                    creates_negative_balance = True, )
             )
         else :
             return LoyaltyLedgerEntry(

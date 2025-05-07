@@ -36,42 +36,42 @@ class TestInlineResponse20016(unittest.TestCase):
         # model = talon_one.models.inline_response20016.InlineResponse20016()  # noqa: E501
         if include_optional :
             return InlineResponse20016(
-                has_more = True, 
+                total_result_size = 1, 
                 data = [
-                    talon_one.models.card_ledger_transaction_log_entry.CardLedgerTransactionLogEntry(
-                        created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        program_id = 324, 
-                        card_identifier = 'summer-loyalty-card-0543', 
-                        application_id = 322, 
-                        session_id = 233, 
-                        customer_session_id = '05c2da0d-48fa-4aa1-b629-898f58f1584d', 
-                        type = 'addition', 
-                        name = 'Reward 10% points of a purchase's current total', 
-                        start_date = '2022-01-02T15:04:05Z07:00', 
-                        expiry_date = '2022-08-02T15:04:05Z07:00', 
-                        subledger_id = 'sub-123', 
-                        amount = 10.25, 
-                        id = 123, )
+                    talon_one.models.loyalty_dashboard_data.LoyaltyDashboardData(
+                        date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        total_active_points = 9756.0, 
+                        total_pending_points = 548.0, 
+                        total_spent_points = 25668.0, 
+                        total_expired_points = 1156.0, 
+                        total_members = 2582.0, 
+                        new_members = 3.0, 
+                        spent_points = talon_one.models.loyalty_dashboard_points_breakdown.LoyaltyDashboardPointsBreakdown(
+                            created_manually = 125.0, 
+                            created_via_rule_engine = 9631.0, ), 
+                        earned_points = talon_one.models.loyalty_dashboard_points_breakdown.LoyaltyDashboardPointsBreakdown(
+                            created_manually = 125.0, 
+                            created_via_rule_engine = 9631.0, ), )
                     ]
             )
         else :
             return InlineResponse20016(
-                has_more = True,
+                total_result_size = 1,
                 data = [
-                    talon_one.models.card_ledger_transaction_log_entry.CardLedgerTransactionLogEntry(
-                        created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        program_id = 324, 
-                        card_identifier = 'summer-loyalty-card-0543', 
-                        application_id = 322, 
-                        session_id = 233, 
-                        customer_session_id = '05c2da0d-48fa-4aa1-b629-898f58f1584d', 
-                        type = 'addition', 
-                        name = 'Reward 10% points of a purchase's current total', 
-                        start_date = '2022-01-02T15:04:05Z07:00', 
-                        expiry_date = '2022-08-02T15:04:05Z07:00', 
-                        subledger_id = 'sub-123', 
-                        amount = 10.25, 
-                        id = 123, )
+                    talon_one.models.loyalty_dashboard_data.LoyaltyDashboardData(
+                        date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        total_active_points = 9756.0, 
+                        total_pending_points = 548.0, 
+                        total_spent_points = 25668.0, 
+                        total_expired_points = 1156.0, 
+                        total_members = 2582.0, 
+                        new_members = 3.0, 
+                        spent_points = talon_one.models.loyalty_dashboard_points_breakdown.LoyaltyDashboardPointsBreakdown(
+                            created_manually = 125.0, 
+                            created_via_rule_engine = 9631.0, ), 
+                        earned_points = talon_one.models.loyalty_dashboard_points_breakdown.LoyaltyDashboardPointsBreakdown(
+                            created_manually = 125.0, 
+                            created_via_rule_engine = 9631.0, ), )
                     ],
         )
 

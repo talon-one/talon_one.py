@@ -46,9 +46,7 @@ class TestNewRuleset(unittest.TestCase):
                             talon_one.models.binding.Binding(
                                 name = 'my property', 
                                 type = 'templateParameter', 
-                                expression = [
-                                    None
-                                    ], 
+                                expression = [string1, string2], 
                                 value_type = 'string', )
                             ], 
                         condition = [and, [couponValid]], 
@@ -64,9 +62,7 @@ class TestNewRuleset(unittest.TestCase):
                             talon_one.models.binding.Binding(
                                 name = 'my property', 
                                 type = 'templateParameter', 
-                                expression = [
-                                    None
-                                    ], 
+                                expression = [string1, string2], 
                                 value_type = 'string', )
                             ], 
                         condition = [and, [couponValid]], 
@@ -88,9 +84,7 @@ class TestNewRuleset(unittest.TestCase):
                             talon_one.models.binding.Binding(
                                 name = 'my property', 
                                 type = 'templateParameter', 
-                                expression = [
-                                    None
-                                    ], 
+                                expression = [string1, string2], 
                                 value_type = 'string', )
                             ], 
                         condition = [and, [couponValid]], 

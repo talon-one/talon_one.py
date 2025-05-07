@@ -34,41 +34,41 @@ class AnalyticsProduct(object):
     """
     openapi_types = {
         'id': 'int',
-        'is_preliminary': 'bool',
         'name': 'str',
-        'catalog_id': 'int'
+        'catalog_id': 'int',
+        'units_sold': 'AnalyticsDataPointWithTrend'
     }
 
     attribute_map = {
         'id': 'id',
-        'is_preliminary': 'isPreliminary',
         'name': 'name',
-        'catalog_id': 'catalogId'
+        'catalog_id': 'catalogId',
+        'units_sold': 'unitsSold'
     }
 
-    def __init__(self, id=None, is_preliminary=None, name=None, catalog_id=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, name=None, catalog_id=None, units_sold=None, local_vars_configuration=None):  # noqa: E501
         """AnalyticsProduct - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._id = None
-        self._is_preliminary = None
         self._name = None
         self._catalog_id = None
+        self._units_sold = None
         self.discriminator = None
 
         self.id = id
-        self.is_preliminary = is_preliminary
         self.name = name
-        if catalog_id is not None:
-            self.catalog_id = catalog_id
+        self.catalog_id = catalog_id
+        if units_sold is not None:
+            self.units_sold = units_sold
 
     @property
     def id(self):
         """Gets the id of this AnalyticsProduct.  # noqa: E501
 
-        The ID of the analytics-level product.  # noqa: E501
+        The ID of the product.  # noqa: E501
 
         :return: The id of this AnalyticsProduct.  # noqa: E501
         :rtype: int
@@ -79,7 +79,7 @@ class AnalyticsProduct(object):
     def id(self, id):
         """Sets the id of this AnalyticsProduct.
 
-        The ID of the analytics-level product.  # noqa: E501
+        The ID of the product.  # noqa: E501
 
         :param id: The id of this AnalyticsProduct.  # noqa: E501
         :type: int
@@ -90,35 +90,10 @@ class AnalyticsProduct(object):
         self._id = id
 
     @property
-    def is_preliminary(self):
-        """Gets the is_preliminary of this AnalyticsProduct.  # noqa: E501
-
-        Indicates whether the analytics-level product is connected to a catalog and also has a product name.  # noqa: E501
-
-        :return: The is_preliminary of this AnalyticsProduct.  # noqa: E501
-        :rtype: bool
-        """
-        return self._is_preliminary
-
-    @is_preliminary.setter
-    def is_preliminary(self, is_preliminary):
-        """Sets the is_preliminary of this AnalyticsProduct.
-
-        Indicates whether the analytics-level product is connected to a catalog and also has a product name.  # noqa: E501
-
-        :param is_preliminary: The is_preliminary of this AnalyticsProduct.  # noqa: E501
-        :type: bool
-        """
-        if self.local_vars_configuration.client_side_validation and is_preliminary is None:  # noqa: E501
-            raise ValueError("Invalid value for `is_preliminary`, must not be `None`")  # noqa: E501
-
-        self._is_preliminary = is_preliminary
-
-    @property
     def name(self):
         """Gets the name of this AnalyticsProduct.  # noqa: E501
 
-        The name of the analytics-level product.  # noqa: E501
+        The name of the product.  # noqa: E501
 
         :return: The name of this AnalyticsProduct.  # noqa: E501
         :rtype: str
@@ -129,7 +104,7 @@ class AnalyticsProduct(object):
     def name(self, name):
         """Sets the name of this AnalyticsProduct.
 
-        The name of the analytics-level product.  # noqa: E501
+        The name of the product.  # noqa: E501
 
         :param name: The name of this AnalyticsProduct.  # noqa: E501
         :type: str
@@ -159,8 +134,31 @@ class AnalyticsProduct(object):
         :param catalog_id: The catalog_id of this AnalyticsProduct.  # noqa: E501
         :type: int
         """
+        if self.local_vars_configuration.client_side_validation and catalog_id is None:  # noqa: E501
+            raise ValueError("Invalid value for `catalog_id`, must not be `None`")  # noqa: E501
 
         self._catalog_id = catalog_id
+
+    @property
+    def units_sold(self):
+        """Gets the units_sold of this AnalyticsProduct.  # noqa: E501
+
+
+        :return: The units_sold of this AnalyticsProduct.  # noqa: E501
+        :rtype: AnalyticsDataPointWithTrend
+        """
+        return self._units_sold
+
+    @units_sold.setter
+    def units_sold(self, units_sold):
+        """Sets the units_sold of this AnalyticsProduct.
+
+
+        :param units_sold: The units_sold of this AnalyticsProduct.  # noqa: E501
+        :type: AnalyticsDataPointWithTrend
+        """
+
+        self._units_sold = units_sold
 
     def to_dict(self):
         """Returns the model properties as a dict"""
