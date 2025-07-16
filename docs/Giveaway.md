@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **int** | Internal ID of this entity. | 
+**id** | **int** | The internal ID of this entity. | 
 **created** | **datetime** | The time this entity was created. | 
 **code** | **str** | The code value of this giveaway. | 
 **pool_id** | **int** | The ID of the pool to return giveaway codes from. | 

@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **int** | Internal ID of this entity. | 
+**id** | **int** | The internal ID of this entity. | 
 **created** | **datetime** | The time this entity was created. | 
 **application_id** | **int** | The ID of the Application that owns this entity. | 
 **title** | **str** | Campaigner-friendly name for the template that will be shown in the rule editor. | 

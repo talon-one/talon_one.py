@@ -36,6 +36,7 @@ class NewWebhook(object):
         'application_ids': 'list[int]',
         'title': 'str',
         'description': 'str',
+        'draft': 'bool',
         'verb': 'str',
         'url': 'str',
         'headers': 'list[str]',
@@ -48,6 +49,7 @@ class NewWebhook(object):
         'application_ids': 'applicationIds',
         'title': 'title',
         'description': 'description',
+        'draft': 'draft',
         'verb': 'verb',
         'url': 'url',
         'headers': 'headers',
@@ -56,7 +58,7 @@ class NewWebhook(object):
         'enabled': 'enabled'
     }
 
-    def __init__(self, application_ids=None, title=None, description=None, verb=None, url=None, headers=None, payload=None, params=None, enabled=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, application_ids=None, title=None, description=None, draft=None, verb=None, url=None, headers=None, payload=None, params=None, enabled=None, local_vars_configuration=None):  # noqa: E501
         """NewWebhook - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -65,6 +67,7 @@ class NewWebhook(object):
         self._application_ids = None
         self._title = None
         self._description = None
+        self._draft = None
         self._verb = None
         self._url = None
         self._headers = None
@@ -77,6 +80,7 @@ class NewWebhook(object):
         self.title = title
         if description is not None:
             self.description = description
+        self.draft = draft
         self.verb = verb
         self.url = url
         self.headers = headers
@@ -160,6 +164,31 @@ class NewWebhook(object):
         """
 
         self._description = description
+
+    @property
+    def draft(self):
+        """Gets the draft of this NewWebhook.  # noqa: E501
+
+        Indicates if the webhook is a draft.  # noqa: E501
+
+        :return: The draft of this NewWebhook.  # noqa: E501
+        :rtype: bool
+        """
+        return self._draft
+
+    @draft.setter
+    def draft(self, draft):
+        """Sets the draft of this NewWebhook.
+
+        Indicates if the webhook is a draft.  # noqa: E501
+
+        :param draft: The draft of this NewWebhook.  # noqa: E501
+        :type: bool
+        """
+        if self.local_vars_configuration.client_side_validation and draft is None:  # noqa: E501
+            raise ValueError("Invalid value for `draft`, must not be `None`")  # noqa: E501
+
+        self._draft = draft
 
     @property
     def verb(self):

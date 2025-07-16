@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **int** | Internal ID of this entity. | 
+**id** | **int** | The internal ID of this entity. | 
 **created** | **datetime** | The time this entity was created. | 
 **name** | **str** | The name of the Application cart item filter used in API requests. | 
 **description** | **str** | A short description of the Application cart item filter. | [optional] 

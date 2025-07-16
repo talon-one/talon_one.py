@@ -56,11 +56,9 @@ class TestLedgerInfo(unittest.TestCase):
             return LedgerInfo(
                 current_balance = 100.0,
                 pending_balance = 10.0,
-                negative_balance = 10.0,
                 expired_balance = 0.0,
                 spent_balance = 0.0,
                 tentative_current_balance = 100.0,
-                tentative_negative_balance = 100.0,
         )
 
     def testLedgerInfo(self):

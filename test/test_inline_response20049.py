@@ -36,47 +36,16 @@ class TestInlineResponse20049(unittest.TestCase):
         # model = talon_one.models.inline_response20049.InlineResponse20049()  # noqa: E501
         if include_optional :
             return InlineResponse20049(
-                has_more = True, 
                 data = [
-                    talon_one.models.achievement_progress_with_definition.AchievementProgressWithDefinition(
-                        status = 'completed', 
-                        progress = 10.0, 
-                        start_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        completion_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        end_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        achievement_id = 3, 
-                        name = 'FreeCoffee10Orders', 
-                        title = '50% off on 50th purchase.', 
-                        description = '50% off for every 50th purchase in a year.', 
-                        campaign_id = 3, 
-                        target = 10.0, 
-                        achievement_recurrence_policy = 'no_recurrence', 
-                        achievement_activation_policy = 'fixed_schedule', 
-                        achievement_fixed_start_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        achievement_end_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), )
+                    talon_one.models.summary_campaign_store_budget.SummaryCampaignStoreBudget(
+                        action = 'redeemCoupon', 
+                        period = 'overall', 
+                        store_count = 56, 
+                        imported = True, )
                     ]
             )
         else :
             return InlineResponse20049(
-                has_more = True,
-                data = [
-                    talon_one.models.achievement_progress_with_definition.AchievementProgressWithDefinition(
-                        status = 'completed', 
-                        progress = 10.0, 
-                        start_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        completion_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        end_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        achievement_id = 3, 
-                        name = 'FreeCoffee10Orders', 
-                        title = '50% off on 50th purchase.', 
-                        description = '50% off for every 50th purchase in a year.', 
-                        campaign_id = 3, 
-                        target = 10.0, 
-                        achievement_recurrence_policy = 'no_recurrence', 
-                        achievement_activation_policy = 'fixed_schedule', 
-                        achievement_fixed_start_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        achievement_end_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), )
-                    ],
         )
 
     def testInlineResponse20049(self):

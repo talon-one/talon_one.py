@@ -399,7 +399,7 @@ class AchievementProgressWithDefinition(object):
     def achievement_recurrence_policy(self):
         """Gets the achievement_recurrence_policy of this AchievementProgressWithDefinition.  # noqa: E501
 
-        The policy that determines if and how the achievement recurs. - `no_recurrence`: The achievement can be completed only once. - `on_expiration`: The achievement resets after it expires and becomes available again.   # noqa: E501
+        The policy that determines if and how the achievement recurs. - `no_recurrence`: The achievement can be completed only once. - `on_expiration`: The achievement resets after it expires and becomes available again. - `on_completion`: When the customer progress status reaches `completed`, the achievement resets and becomes available again.   # noqa: E501
 
         :return: The achievement_recurrence_policy of this AchievementProgressWithDefinition.  # noqa: E501
         :rtype: str
@@ -410,14 +410,14 @@ class AchievementProgressWithDefinition(object):
     def achievement_recurrence_policy(self, achievement_recurrence_policy):
         """Sets the achievement_recurrence_policy of this AchievementProgressWithDefinition.
 
-        The policy that determines if and how the achievement recurs. - `no_recurrence`: The achievement can be completed only once. - `on_expiration`: The achievement resets after it expires and becomes available again.   # noqa: E501
+        The policy that determines if and how the achievement recurs. - `no_recurrence`: The achievement can be completed only once. - `on_expiration`: The achievement resets after it expires and becomes available again. - `on_completion`: When the customer progress status reaches `completed`, the achievement resets and becomes available again.   # noqa: E501
 
         :param achievement_recurrence_policy: The achievement_recurrence_policy of this AchievementProgressWithDefinition.  # noqa: E501
         :type: str
         """
         if self.local_vars_configuration.client_side_validation and achievement_recurrence_policy is None:  # noqa: E501
             raise ValueError("Invalid value for `achievement_recurrence_policy`, must not be `None`")  # noqa: E501
-        allowed_values = ["no_recurrence", "on_expiration"]  # noqa: E501
+        allowed_values = ["no_recurrence", "on_expiration", "on_completion"]  # noqa: E501
         if self.local_vars_configuration.client_side_validation and achievement_recurrence_policy not in allowed_values:  # noqa: E501
             raise ValueError(
                 "Invalid value for `achievement_recurrence_policy` ({0}), must be one of {1}"  # noqa: E501

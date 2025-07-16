@@ -117,7 +117,11 @@ class TestCampaignRulesetChangedNotification(unittest.TestCase):
                                     name = 'my property', 
                                     type = 'templateParameter', 
                                     expression = [string1, string2], 
-                                    value_type = 'string', )
+                                    value_type = 'string', 
+                                    min_value = 0.0, 
+                                    max_value = 19.9, 
+                                    attribute_id = 100, 
+                                    description = 'This is a template parameter of type `number`.', )
                                 ], 
                             condition = [and, [couponValid]], 
                             effects = [catch, [noop], [setDiscount, 10% off, [*, [., Session, Total], [/, 10, 100]]]], )
@@ -152,7 +156,11 @@ class TestCampaignRulesetChangedNotification(unittest.TestCase):
                                     name = 'my property', 
                                     type = 'templateParameter', 
                                     expression = [string1, string2], 
-                                    value_type = 'string', )
+                                    value_type = 'string', 
+                                    min_value = 0.0, 
+                                    max_value = 19.9, 
+                                    attribute_id = 100, 
+                                    description = 'This is a template parameter of type `number`.', )
                                 ], 
                             condition = [and, [couponValid]], 
                             effects = [catch, [noop], [setDiscount, 10% off, [*, [., Session, Total], [/, 10, 100]]]], )

@@ -115,7 +115,7 @@ class ApplicationSession(object):
     def id(self):
         """Gets the id of this ApplicationSession.  # noqa: E501
 
-        Internal ID of this entity.  # noqa: E501
+        The internal ID of this entity.  # noqa: E501
 
         :return: The id of this ApplicationSession.  # noqa: E501
         :rtype: int
@@ -126,7 +126,7 @@ class ApplicationSession(object):
     def id(self, id):
         """Sets the id of this ApplicationSession.
 
-        Internal ID of this entity.  # noqa: E501
+        The internal ID of this entity.  # noqa: E501
 
         :param id: The id of this ApplicationSession.  # noqa: E501
         :type: int

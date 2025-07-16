@@ -48,6 +48,9 @@ class TestEffect(unittest.TestCase):
                 evaluation_group_mode = 'stackable', 
                 campaign_revision_id = 1, 
                 campaign_revision_version_id = 5, 
+                selected_price_type = 'member', 
+                selected_price = 100.0, 
+                adjustment_reference_id = '68851723-e6fa-488f-ace9-112581e6c19b', 
                 props = None
             )
         else :

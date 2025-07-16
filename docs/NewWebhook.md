@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 **application_ids** | **list[int]** | The IDs of the Applications in which this webhook is available. An empty array means the webhook is available in &#x60;All Applications&#x60;.  | 
 **title** | **str** | Name or title for this webhook. | 
 **description** | **str** | A description of the webhook. | [optional] 
+**draft** | **bool** | Indicates if the webhook is a draft. | 
 **verb** | **str** | API method for this webhook. | 
 **url** | **str** | API URL (supports templating using parameters) for this webhook. | 
 **headers** | **list[str]** | List of API HTTP headers for this webhook. | 

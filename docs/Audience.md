@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **account_id** | **int** | The ID of the account that owns this entity. | 
-**id** | **int** | Internal ID of this entity. | 
+**id** | **int** | The internal ID of this entity. | 
 **created** | **datetime** | The time this entity was created. | 
 **name** | **str** | The human-friendly display name for this audience. | 
 **sandbox** | **bool** | Indicates if this is a live or sandbox Application. | [optional] 

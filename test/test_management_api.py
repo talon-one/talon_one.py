@@ -98,6 +98,13 @@ class TestManagementApi(unittest.TestCase):
         """
         pass
 
+    def test_create_campaign_store_budget(self):
+        """Test case for create_campaign_store_budget
+
+        Create campaign store budget  # noqa: E501
+        """
+        pass
+
     def test_create_collection(self):
         """Test case for create_collection
 
@@ -203,6 +210,13 @@ class TestManagementApi(unittest.TestCase):
         """
         pass
 
+    def test_delete_campaign_store_budgets(self):
+        """Test case for delete_campaign_store_budgets
+
+        Delete campaign store budgets  # noqa: E501
+        """
+        pass
+
     def test_delete_collection(self):
         """Test case for delete_collection
 
@@ -291,6 +305,13 @@ class TestManagementApi(unittest.TestCase):
         """Test case for export_audiences_memberships
 
         Export audience members  # noqa: E501
+        """
+        pass
+
+    def test_export_campaign_store_budgets(self):
+        """Test case for export_campaign_store_budgets
+
+        Export campaign store budgets  # noqa: E501
         """
         pass
 
@@ -861,6 +882,13 @@ class TestManagementApi(unittest.TestCase):
         """
         pass
 
+    def test_import_campaign_store_budget(self):
+        """Test case for import_campaign_store_budget
+
+        Import campaign store budgets  # noqa: E501
+        """
+        pass
+
     def test_import_campaign_stores(self):
         """Test case for import_campaign_stores
 
@@ -945,6 +973,13 @@ class TestManagementApi(unittest.TestCase):
         """
         pass
 
+    def test_list_campaign_store_budget_limits(self):
+        """Test case for list_campaign_store_budget_limits
+
+        List campaign store budget limits  # noqa: E501
+        """
+        pass
+
     def test_list_catalog_items(self):
         """Test case for list_catalog_items
 
@@ -994,6 +1029,13 @@ class TestManagementApi(unittest.TestCase):
         """
         pass
 
+    def test_scim_create_group(self):
+        """Test case for scim_create_group
+
+        Create SCIM group  # noqa: E501
+        """
+        pass
+
     def test_scim_create_user(self):
         """Test case for scim_create_user
 
@@ -1001,10 +1043,31 @@ class TestManagementApi(unittest.TestCase):
         """
         pass
 
+    def test_scim_delete_group(self):
+        """Test case for scim_delete_group
+
+        Delete SCIM group  # noqa: E501
+        """
+        pass
+
     def test_scim_delete_user(self):
         """Test case for scim_delete_user
 
         Delete SCIM user  # noqa: E501
+        """
+        pass
+
+    def test_scim_get_group(self):
+        """Test case for scim_get_group
+
+        Get SCIM group  # noqa: E501
+        """
+        pass
+
+    def test_scim_get_groups(self):
+        """Test case for scim_get_groups
+
+        List SCIM groups  # noqa: E501
         """
         pass
 
@@ -1043,10 +1106,24 @@ class TestManagementApi(unittest.TestCase):
         """
         pass
 
+    def test_scim_patch_group(self):
+        """Test case for scim_patch_group
+
+        Update SCIM group attributes  # noqa: E501
+        """
+        pass
+
     def test_scim_patch_user(self):
         """Test case for scim_patch_user
 
         Update SCIM user attributes  # noqa: E501
+        """
+        pass
+
+    def test_scim_replace_group_attributes(self):
+        """Test case for scim_replace_group_attributes
+
+        Update SCIM group  # noqa: E501
         """
         pass
 
@@ -1068,6 +1145,13 @@ class TestManagementApi(unittest.TestCase):
         """Test case for search_coupons_advanced_without_total_count
 
         List coupons that match the given attributes in campaign (without total count)  # noqa: E501
+        """
+        pass
+
+    def test_summarize_campaign_store_budget(self):
+        """Test case for summarize_campaign_store_budget
+
+        Get summary of campaign store budgets  # noqa: E501
         """
         pass
 

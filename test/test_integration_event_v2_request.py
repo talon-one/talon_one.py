@@ -41,6 +41,7 @@ class TestIntegrationEventV2Request(unittest.TestCase):
                 evaluable_campaign_ids = [10, 12], 
                 type = 'pageViewed', 
                 attributes = {"myAttribute":"myValue"}, 
+                loyalty_cards = [loyalty-card-1], 
                 response_content = [triggeredCampaigns, customerProfile]
             )
         else :

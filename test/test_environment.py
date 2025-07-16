@@ -223,6 +223,18 @@ class TestEnvironment(unittest.TestCase):
                         created_by = 216, 
                         modified = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                         application_id = 322, )
+                    ], 
+                price_types = [
+                    talon_one.models.price_type.PriceType(
+                        id = 6, 
+                        created = '2020-06-10T09:05:27.993483Z', 
+                        account_id = 1, 
+                        name = 'member', 
+                        title = 'Member Price', 
+                        description = 'Price available exclusively to members.', 
+                        modified = '2021-09-12T10:12:42Z', 
+                        subscribed_catalogs_ids = [1, 2, 3], 
+                        targeted_audiences_ids = [1, 2, 3], )
                     ]
             )
         else :
