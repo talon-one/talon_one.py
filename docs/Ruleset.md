@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **int** | Internal ID of this entity. | 
+**id** | **int** | The internal ID of this entity. | 
 **created** | **datetime** | The time this entity was created. | 
 **user_id** | **int** | The ID of the user associated with this entity. | 
 **rules** | [**list[Rule]**](Rule.md) | Set of rules to apply. | 

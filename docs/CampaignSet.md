@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **application_id** | **int** | The ID of the Application that owns this entity. | 
-**id** | **int** | Internal ID of this entity. | 
+**id** | **int** | The internal ID of this entity. | 
 **version** | **int** | Version of the campaign set. | 
 **set** | [**CampaignSetBranchNode**](CampaignSetBranchNode.md) |  | 
 **updated_by** | **str** | Name of the user who last updated this campaign set, if available. | [optional] 

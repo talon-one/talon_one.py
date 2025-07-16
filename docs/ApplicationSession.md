@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **int** | Internal ID of this entity. | 
+**id** | **int** | The internal ID of this entity. | 
 **created** | **datetime** | The time this entity was created. | 
 **integration_id** | **str** | The integration ID set by your integration layer. | 
 **store_integration_id** | **str** | The integration ID of the store. You choose this ID when you create a store. | [optional] 

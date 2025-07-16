@@ -41,6 +41,7 @@ class TestNewWebhook(unittest.TestCase):
                     ], 
                 title = 'Send message', 
                 description = 'A webhook to send a coupon to the user.', 
+                draft = False, 
                 verb = 'POST', 
                 url = 'www.my-company.com/my-endpoint-name', 
                 headers = [{"Authorization": "Basic bmF2ZWVua3VtYXIU="}, {"Content-Type": "application/json"}], 
@@ -56,6 +57,7 @@ class TestNewWebhook(unittest.TestCase):
                     56
                     ],
                 title = 'Send message',
+                draft = False,
                 verb = 'POST',
                 url = 'www.my-company.com/my-endpoint-name',
                 headers = [{"Authorization": "Basic bmF2ZWVua3VtYXIU="}, {"Content-Type": "application/json"}],

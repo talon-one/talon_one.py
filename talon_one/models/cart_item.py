@@ -48,7 +48,12 @@ class CartItem(object):
         'position': 'float',
         'attributes': 'object',
         'additional_costs': 'dict(str, AdditionalCost)',
-        'catalog_item_id': 'int'
+        'catalog_item_id': 'int',
+        'selected_price_type': 'str',
+        'adjustment_reference_id': 'str',
+        'adjustment_effective_from': 'datetime',
+        'adjustment_effective_until': 'datetime',
+        'prices': 'dict(str, PriceDetail)'
     }
 
     attribute_map = {
@@ -67,10 +72,15 @@ class CartItem(object):
         'position': 'position',
         'attributes': 'attributes',
         'additional_costs': 'additionalCosts',
-        'catalog_item_id': 'catalogItemID'
+        'catalog_item_id': 'catalogItemID',
+        'selected_price_type': 'selectedPriceType',
+        'adjustment_reference_id': 'adjustmentReferenceId',
+        'adjustment_effective_from': 'adjustmentEffectiveFrom',
+        'adjustment_effective_until': 'adjustmentEffectiveUntil',
+        'prices': 'prices'
     }
 
-    def __init__(self, name=None, sku=None, quantity=None, returned_quantity=None, remaining_quantity=None, price=None, category=None, product=None, weight=None, height=None, width=None, length=None, position=None, attributes=None, additional_costs=None, catalog_item_id=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, name=None, sku=None, quantity=None, returned_quantity=None, remaining_quantity=None, price=None, category=None, product=None, weight=None, height=None, width=None, length=None, position=None, attributes=None, additional_costs=None, catalog_item_id=None, selected_price_type=None, adjustment_reference_id=None, adjustment_effective_from=None, adjustment_effective_until=None, prices=None, local_vars_configuration=None):  # noqa: E501
         """CartItem - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -92,6 +102,11 @@ class CartItem(object):
         self._attributes = None
         self._additional_costs = None
         self._catalog_item_id = None
+        self._selected_price_type = None
+        self._adjustment_reference_id = None
+        self._adjustment_effective_from = None
+        self._adjustment_effective_until = None
+        self._prices = None
         self.discriminator = None
 
         if name is not None:
@@ -124,6 +139,16 @@ class CartItem(object):
             self.additional_costs = additional_costs
         if catalog_item_id is not None:
             self.catalog_item_id = catalog_item_id
+        if selected_price_type is not None:
+            self.selected_price_type = selected_price_type
+        if adjustment_reference_id is not None:
+            self.adjustment_reference_id = adjustment_reference_id
+        if adjustment_effective_from is not None:
+            self.adjustment_effective_from = adjustment_effective_from
+        if adjustment_effective_until is not None:
+            self.adjustment_effective_until = adjustment_effective_until
+        if prices is not None:
+            self.prices = prices
 
     @property
     def name(self):
@@ -482,7 +507,7 @@ class CartItem(object):
     def catalog_item_id(self):
         """Gets the catalog_item_id of this CartItem.  # noqa: E501
 
-        The [catalog item ID](https://docs.talon.one/docs/product/account/dev-tools/managing-cart-item-catalogs/#synchronizing-a-cart-item-catalog).  # noqa: E501
+        The catalog item ID.  # noqa: E501
 
         :return: The catalog_item_id of this CartItem.  # noqa: E501
         :rtype: int
@@ -493,13 +518,128 @@ class CartItem(object):
     def catalog_item_id(self, catalog_item_id):
         """Sets the catalog_item_id of this CartItem.
 
-        The [catalog item ID](https://docs.talon.one/docs/product/account/dev-tools/managing-cart-item-catalogs/#synchronizing-a-cart-item-catalog).  # noqa: E501
+        The catalog item ID.  # noqa: E501
 
         :param catalog_item_id: The catalog_item_id of this CartItem.  # noqa: E501
         :type: int
         """
 
         self._catalog_item_id = catalog_item_id
+
+    @property
+    def selected_price_type(self):
+        """Gets the selected_price_type of this CartItem.  # noqa: E501
+
+        The selected price type for this cart item (e.g. the price for members only).  # noqa: E501
+
+        :return: The selected_price_type of this CartItem.  # noqa: E501
+        :rtype: str
+        """
+        return self._selected_price_type
+
+    @selected_price_type.setter
+    def selected_price_type(self, selected_price_type):
+        """Sets the selected_price_type of this CartItem.
+
+        The selected price type for this cart item (e.g. the price for members only).  # noqa: E501
+
+        :param selected_price_type: The selected_price_type of this CartItem.  # noqa: E501
+        :type: str
+        """
+
+        self._selected_price_type = selected_price_type
+
+    @property
+    def adjustment_reference_id(self):
+        """Gets the adjustment_reference_id of this CartItem.  # noqa: E501
+
+        The reference ID of the selected price adjustment for this cart item. Only returned if the selected price resulted from a price adjustment.  # noqa: E501
+
+        :return: The adjustment_reference_id of this CartItem.  # noqa: E501
+        :rtype: str
+        """
+        return self._adjustment_reference_id
+
+    @adjustment_reference_id.setter
+    def adjustment_reference_id(self, adjustment_reference_id):
+        """Sets the adjustment_reference_id of this CartItem.
+
+        The reference ID of the selected price adjustment for this cart item. Only returned if the selected price resulted from a price adjustment.  # noqa: E501
+
+        :param adjustment_reference_id: The adjustment_reference_id of this CartItem.  # noqa: E501
+        :type: str
+        """
+
+        self._adjustment_reference_id = adjustment_reference_id
+
+    @property
+    def adjustment_effective_from(self):
+        """Gets the adjustment_effective_from of this CartItem.  # noqa: E501
+
+        The date and time from which the price adjustment is effective. Only returned if the selected price resulted from a price adjustment that contains this field.  # noqa: E501
+
+        :return: The adjustment_effective_from of this CartItem.  # noqa: E501
+        :rtype: datetime
+        """
+        return self._adjustment_effective_from
+
+    @adjustment_effective_from.setter
+    def adjustment_effective_from(self, adjustment_effective_from):
+        """Sets the adjustment_effective_from of this CartItem.
+
+        The date and time from which the price adjustment is effective. Only returned if the selected price resulted from a price adjustment that contains this field.  # noqa: E501
+
+        :param adjustment_effective_from: The adjustment_effective_from of this CartItem.  # noqa: E501
+        :type: datetime
+        """
+
+        self._adjustment_effective_from = adjustment_effective_from
+
+    @property
+    def adjustment_effective_until(self):
+        """Gets the adjustment_effective_until of this CartItem.  # noqa: E501
+
+        The date and time until which the price adjustment is effective. Only returned if the selected price resulted from a price adjustment that contains this field.  # noqa: E501
+
+        :return: The adjustment_effective_until of this CartItem.  # noqa: E501
+        :rtype: datetime
+        """
+        return self._adjustment_effective_until
+
+    @adjustment_effective_until.setter
+    def adjustment_effective_until(self, adjustment_effective_until):
+        """Sets the adjustment_effective_until of this CartItem.
+
+        The date and time until which the price adjustment is effective. Only returned if the selected price resulted from a price adjustment that contains this field.  # noqa: E501
+
+        :param adjustment_effective_until: The adjustment_effective_until of this CartItem.  # noqa: E501
+        :type: datetime
+        """
+
+        self._adjustment_effective_until = adjustment_effective_until
+
+    @property
+    def prices(self):
+        """Gets the prices of this CartItem.  # noqa: E501
+
+        A map of keys and values representing the price types and related price adjustment details for this cart item. The keys correspond to the `priceType` names.   # noqa: E501
+
+        :return: The prices of this CartItem.  # noqa: E501
+        :rtype: dict(str, PriceDetail)
+        """
+        return self._prices
+
+    @prices.setter
+    def prices(self, prices):
+        """Sets the prices of this CartItem.
+
+        A map of keys and values representing the price types and related price adjustment details for this cart item. The keys correspond to the `priceType` names.   # noqa: E501
+
+        :param prices: The prices of this CartItem.  # noqa: E501
+        :type: dict(str, PriceDetail)
+        """
+
+        self._prices = prices
 
     def to_dict(self):
         """Returns the model properties as a dict"""

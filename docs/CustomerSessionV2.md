@@ -4,7 +4,7 @@ The representation of the customer session.
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **int** | Internal ID of this entity. | 
+**id** | **int** | The internal ID of this entity. | 
 **created** | **datetime** | The time this entity was created. | 
 **integration_id** | **str** | The integration ID set by your integration layer. | 
 **application_id** | **int** | The ID of the Application that owns this entity. | 

@@ -103,7 +103,7 @@ class ApplicationCustomer(object):
     def id(self):
         """Gets the id of this ApplicationCustomer.  # noqa: E501
 
-        Internal ID of this entity.  # noqa: E501
+        The internal ID of the customer profile.  # noqa: E501
 
         :return: The id of this ApplicationCustomer.  # noqa: E501
         :rtype: int
@@ -114,7 +114,7 @@ class ApplicationCustomer(object):
     def id(self, id):
         """Sets the id of this ApplicationCustomer.
 
-        Internal ID of this entity.  # noqa: E501
+        The internal ID of the customer profile.  # noqa: E501
 
         :param id: The id of this ApplicationCustomer.  # noqa: E501
         :type: int
@@ -231,7 +231,7 @@ class ApplicationCustomer(object):
     def closed_sessions(self):
         """Gets the closed_sessions of this ApplicationCustomer.  # noqa: E501
 
-        The total amount of closed sessions by a customer. A closed session is a successful purchase.  # noqa: E501
+        The total number of closed sessions. Does not include closed sessions that have been cancelled or reopened. See the [docs](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions#customer-session-states).  # noqa: E501
 
         :return: The closed_sessions of this ApplicationCustomer.  # noqa: E501
         :rtype: int
@@ -242,7 +242,7 @@ class ApplicationCustomer(object):
     def closed_sessions(self, closed_sessions):
         """Sets the closed_sessions of this ApplicationCustomer.
 
-        The total amount of closed sessions by a customer. A closed session is a successful purchase.  # noqa: E501
+        The total number of closed sessions. Does not include closed sessions that have been cancelled or reopened. See the [docs](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions#customer-session-states).  # noqa: E501
 
         :param closed_sessions: The closed_sessions of this ApplicationCustomer.  # noqa: E501
         :type: int

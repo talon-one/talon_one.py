@@ -77,7 +77,7 @@ class CatalogAction(object):
         """
         if self.local_vars_configuration.client_side_validation and type is None:  # noqa: E501
             raise ValueError("Invalid value for `type`, must not be `None`")  # noqa: E501
-        allowed_values = ["ADD", "PATCH", "PATCH_MANY", "REMOVE", "REMOVE_MANY"]  # noqa: E501
+        allowed_values = ["ADD", "PATCH", "PATCH_MANY", "REMOVE", "REMOVE_MANY", "ADD_PRICE_ADJUSTMENT"]  # noqa: E501
         if self.local_vars_configuration.client_side_validation and type not in allowed_values:  # noqa: E501
             raise ValueError(
                 "Invalid value for `type` ({0}), must be one of {1}"  # noqa: E501

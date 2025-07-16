@@ -4,7 +4,7 @@ A tier in a loyalty program.
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **int** | Internal ID of this entity. | 
+**id** | **int** | The internal ID of this entity. | 
 **created** | **datetime** | The time this entity was created. | 
 **program_id** | **int** | The ID of the loyalty program that owns this entity. | 
 **program_name** | **str** | The integration name of the loyalty program that owns this entity. | [optional] 

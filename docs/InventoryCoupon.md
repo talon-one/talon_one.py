@@ -3,8 +3,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **int** | Internal ID of this entity. | 
-**created** | **datetime** | The time this entity was created. | 
+**id** | **int** | The internal ID of the coupon. | 
+**created** | **datetime** | The time the coupon was created. | 
 **campaign_id** | **int** | The ID of the campaign that owns this entity. | 
 **value** | **str** | The coupon code. | 
 **usage_limit** | **int** | The number of times the coupon code can be redeemed. &#x60;0&#x60; means unlimited redemptions but any campaign usage limits will still apply.  | 

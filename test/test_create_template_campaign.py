@@ -45,7 +45,11 @@ class TestCreateTemplateCampaign(unittest.TestCase):
                         name = 'my property', 
                         type = 'templateParameter', 
                         expression = [string1, string2], 
-                        value_type = 'string', )
+                        value_type = 'string', 
+                        min_value = 0.0, 
+                        max_value = 19.9, 
+                        attribute_id = 100, 
+                        description = 'This is a template parameter of type `number`.', )
                     ], 
                 limit_overrides = [
                     talon_one.models.limit_config.LimitConfig(

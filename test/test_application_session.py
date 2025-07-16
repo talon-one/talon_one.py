@@ -64,7 +64,12 @@ class TestApplicationSession(unittest.TestCase):
                         position = 1.337, 
                         attributes = {"image":"11.jpeg","material":"leather"}, 
                         additional_costs = {"shipping":{"price":9}}, 
-                        catalog_item_id = 56, )
+                        catalog_item_id = 56, 
+                        selected_price_type = 'member', 
+                        adjustment_reference_id = '68851723-e6fa-488f-ace9-112581e6c19b', 
+                        adjustment_effective_from = '2021-09-12T10:12:42Z', 
+                        adjustment_effective_until = '2021-09-12T10:12:42Z', 
+                        prices = {"member":{"price":90,"adjustmentReferenceId":"68851723-e6fa-488f-ace9-112581e6c19b","effectiveFrom":"2025-05-25T00:00:00Z","effectiveUntil":"2025-05-30T00:00:00Z"},"base":{"price":100}}, )
                     ], 
                 discounts = {
                     'key' : 1.337
@@ -100,7 +105,12 @@ class TestApplicationSession(unittest.TestCase):
                         position = 1.337, 
                         attributes = {"image":"11.jpeg","material":"leather"}, 
                         additional_costs = {"shipping":{"price":9}}, 
-                        catalog_item_id = 56, )
+                        catalog_item_id = 56, 
+                        selected_price_type = 'member', 
+                        adjustment_reference_id = '68851723-e6fa-488f-ace9-112581e6c19b', 
+                        adjustment_effective_from = '2021-09-12T10:12:42Z', 
+                        adjustment_effective_until = '2021-09-12T10:12:42Z', 
+                        prices = {"member":{"price":90,"adjustmentReferenceId":"68851723-e6fa-488f-ace9-112581e6c19b","effectiveFrom":"2025-05-25T00:00:00Z","effectiveUntil":"2025-05-30T00:00:00Z"},"base":{"price":100}}, )
                     ],
                 discounts = {
                     'key' : 1.337

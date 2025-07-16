@@ -250,7 +250,7 @@ class CreateAchievement(object):
     def recurrence_policy(self):
         """Gets the recurrence_policy of this CreateAchievement.  # noqa: E501
 
-        The policy that determines if and how the achievement recurs. - `no_recurrence`: The achievement can be completed only once. - `on_expiration`: The achievement resets after it expires and becomes available again.   # noqa: E501
+        The policy that determines if and how the achievement recurs. - `no_recurrence`: The achievement can be completed only once. - `on_expiration`: The achievement resets after it expires and becomes available again. - `on_completion`: When the customer progress status reaches `completed`, the achievement resets and becomes available again.   # noqa: E501
 
         :return: The recurrence_policy of this CreateAchievement.  # noqa: E501
         :rtype: str
@@ -261,12 +261,12 @@ class CreateAchievement(object):
     def recurrence_policy(self, recurrence_policy):
         """Sets the recurrence_policy of this CreateAchievement.
 
-        The policy that determines if and how the achievement recurs. - `no_recurrence`: The achievement can be completed only once. - `on_expiration`: The achievement resets after it expires and becomes available again.   # noqa: E501
+        The policy that determines if and how the achievement recurs. - `no_recurrence`: The achievement can be completed only once. - `on_expiration`: The achievement resets after it expires and becomes available again. - `on_completion`: When the customer progress status reaches `completed`, the achievement resets and becomes available again.   # noqa: E501
 
         :param recurrence_policy: The recurrence_policy of this CreateAchievement.  # noqa: E501
         :type: str
         """
-        allowed_values = ["no_recurrence", "on_expiration"]  # noqa: E501
+        allowed_values = ["no_recurrence", "on_expiration", "on_completion"]  # noqa: E501
         if self.local_vars_configuration.client_side_validation and recurrence_policy not in allowed_values:  # noqa: E501
             raise ValueError(
                 "Invalid value for `recurrence_policy` ({0}), must be one of {1}"  # noqa: E501

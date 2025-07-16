@@ -36,17 +36,25 @@ class Binding(object):
         'name': 'str',
         'type': 'str',
         'expression': 'list[object]',
-        'value_type': 'str'
+        'value_type': 'str',
+        'min_value': 'float',
+        'max_value': 'float',
+        'attribute_id': 'int',
+        'description': 'str'
     }
 
     attribute_map = {
         'name': 'name',
         'type': 'type',
         'expression': 'expression',
-        'value_type': 'valueType'
+        'value_type': 'valueType',
+        'min_value': 'minValue',
+        'max_value': 'maxValue',
+        'attribute_id': 'attributeId',
+        'description': 'description'
     }
 
-    def __init__(self, name=None, type=None, expression=None, value_type=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, name=None, type=None, expression=None, value_type=None, min_value=None, max_value=None, attribute_id=None, description=None, local_vars_configuration=None):  # noqa: E501
         """Binding - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -56,6 +64,10 @@ class Binding(object):
         self._type = None
         self._expression = None
         self._value_type = None
+        self._min_value = None
+        self._max_value = None
+        self._attribute_id = None
+        self._description = None
         self.discriminator = None
 
         self.name = name
@@ -64,6 +76,14 @@ class Binding(object):
         self.expression = expression
         if value_type is not None:
             self.value_type = value_type
+        if min_value is not None:
+            self.min_value = min_value
+        if max_value is not None:
+            self.max_value = max_value
+        if attribute_id is not None:
+            self.attribute_id = attribute_id
+        if description is not None:
+            self.description = description
 
     @property
     def name(self):
@@ -160,6 +180,98 @@ class Binding(object):
         """
 
         self._value_type = value_type
+
+    @property
+    def min_value(self):
+        """Gets the min_value of this Binding.  # noqa: E501
+
+        The minimum value allowed for this placeholder.  # noqa: E501
+
+        :return: The min_value of this Binding.  # noqa: E501
+        :rtype: float
+        """
+        return self._min_value
+
+    @min_value.setter
+    def min_value(self, min_value):
+        """Sets the min_value of this Binding.
+
+        The minimum value allowed for this placeholder.  # noqa: E501
+
+        :param min_value: The min_value of this Binding.  # noqa: E501
+        :type: float
+        """
+
+        self._min_value = min_value
+
+    @property
+    def max_value(self):
+        """Gets the max_value of this Binding.  # noqa: E501
+
+        The maximum value allowed for this placeholder.  # noqa: E501
+
+        :return: The max_value of this Binding.  # noqa: E501
+        :rtype: float
+        """
+        return self._max_value
+
+    @max_value.setter
+    def max_value(self, max_value):
+        """Sets the max_value of this Binding.
+
+        The maximum value allowed for this placeholder.  # noqa: E501
+
+        :param max_value: The max_value of this Binding.  # noqa: E501
+        :type: float
+        """
+
+        self._max_value = max_value
+
+    @property
+    def attribute_id(self):
+        """Gets the attribute_id of this Binding.  # noqa: E501
+
+        Id of the attribute attached to the placeholder.  # noqa: E501
+
+        :return: The attribute_id of this Binding.  # noqa: E501
+        :rtype: int
+        """
+        return self._attribute_id
+
+    @attribute_id.setter
+    def attribute_id(self, attribute_id):
+        """Sets the attribute_id of this Binding.
+
+        Id of the attribute attached to the placeholder.  # noqa: E501
+
+        :param attribute_id: The attribute_id of this Binding.  # noqa: E501
+        :type: int
+        """
+
+        self._attribute_id = attribute_id
+
+    @property
+    def description(self):
+        """Gets the description of this Binding.  # noqa: E501
+
+        Describes the placeholder field and value in the template. This description can be used when creating campaigns from this template.  # noqa: E501
+
+        :return: The description of this Binding.  # noqa: E501
+        :rtype: str
+        """
+        return self._description
+
+    @description.setter
+    def description(self, description):
+        """Sets the description of this Binding.
+
+        Describes the placeholder field and value in the template. This description can be used when creating campaigns from this template.  # noqa: E501
+
+        :param description: The description of this Binding.  # noqa: E501
+        :type: str
+        """
+
+        self._description = description
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -39,6 +39,7 @@ class Webhook(object):
         'application_ids': 'list[int]',
         'title': 'str',
         'description': 'str',
+        'draft': 'bool',
         'verb': 'str',
         'url': 'str',
         'headers': 'list[str]',
@@ -54,6 +55,7 @@ class Webhook(object):
         'application_ids': 'applicationIds',
         'title': 'title',
         'description': 'description',
+        'draft': 'draft',
         'verb': 'verb',
         'url': 'url',
         'headers': 'headers',
@@ -62,7 +64,7 @@ class Webhook(object):
         'enabled': 'enabled'
     }
 
-    def __init__(self, id=None, created=None, modified=None, application_ids=None, title=None, description=None, verb=None, url=None, headers=None, payload=None, params=None, enabled=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, created=None, modified=None, application_ids=None, title=None, description=None, draft=None, verb=None, url=None, headers=None, payload=None, params=None, enabled=None, local_vars_configuration=None):  # noqa: E501
         """Webhook - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -74,6 +76,7 @@ class Webhook(object):
         self._application_ids = None
         self._title = None
         self._description = None
+        self._draft = None
         self._verb = None
         self._url = None
         self._headers = None
@@ -89,6 +92,7 @@ class Webhook(object):
         self.title = title
         if description is not None:
             self.description = description
+        self.draft = draft
         self.verb = verb
         self.url = url
         self.headers = headers
@@ -101,7 +105,7 @@ class Webhook(object):
     def id(self):
         """Gets the id of this Webhook.  # noqa: E501
 
-        Internal ID of this entity.  # noqa: E501
+        The internal ID of this entity.  # noqa: E501
 
         :return: The id of this Webhook.  # noqa: E501
         :rtype: int
@@ -112,7 +116,7 @@ class Webhook(object):
     def id(self, id):
         """Sets the id of this Webhook.
 
-        Internal ID of this entity.  # noqa: E501
+        The internal ID of this entity.  # noqa: E501
 
         :param id: The id of this Webhook.  # noqa: E501
         :type: int
@@ -247,6 +251,31 @@ class Webhook(object):
         """
 
         self._description = description
+
+    @property
+    def draft(self):
+        """Gets the draft of this Webhook.  # noqa: E501
+
+        Indicates if the webhook is a draft.  # noqa: E501
+
+        :return: The draft of this Webhook.  # noqa: E501
+        :rtype: bool
+        """
+        return self._draft
+
+    @draft.setter
+    def draft(self, draft):
+        """Sets the draft of this Webhook.
+
+        Indicates if the webhook is a draft.  # noqa: E501
+
+        :param draft: The draft of this Webhook.  # noqa: E501
+        :type: bool
+        """
+        if self.local_vars_configuration.client_side_validation and draft is None:  # noqa: E501
+            raise ValueError("Invalid value for `draft`, must not be `None`")  # noqa: E501
+
+        self._draft = draft
 
     @property
     def verb(self):

@@ -78,13 +78,15 @@ class LedgerInfo(object):
 
         self.current_balance = current_balance
         self.pending_balance = pending_balance
-        self.negative_balance = negative_balance
+        if negative_balance is not None:
+            self.negative_balance = negative_balance
         self.expired_balance = expired_balance
         self.spent_balance = spent_balance
         self.tentative_current_balance = tentative_current_balance
         if tentative_pending_balance is not None:
             self.tentative_pending_balance = tentative_pending_balance
-        self.tentative_negative_balance = tentative_negative_balance
+        if tentative_negative_balance is not None:
+            self.tentative_negative_balance = tentative_negative_balance
         if current_tier is not None:
             self.current_tier = current_tier
         if points_to_next_tier is not None:
@@ -160,8 +162,6 @@ class LedgerInfo(object):
         :param negative_balance: The negative_balance of this LedgerInfo.  # noqa: E501
         :type: float
         """
-        if self.local_vars_configuration.client_side_validation and negative_balance is None:  # noqa: E501
-            raise ValueError("Invalid value for `negative_balance`, must not be `None`")  # noqa: E501
 
         self._negative_balance = negative_balance
 
@@ -283,8 +283,6 @@ class LedgerInfo(object):
         :param tentative_negative_balance: The tentative_negative_balance of this LedgerInfo.  # noqa: E501
         :type: float
         """
-        if self.local_vars_configuration.client_side_validation and tentative_negative_balance is None:  # noqa: E501
-            raise ValueError("Invalid value for `tentative_negative_balance`, must not be `None`")  # noqa: E501
 
         self._tentative_negative_balance = tentative_negative_balance
 

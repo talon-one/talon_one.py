@@ -44,7 +44,10 @@ class EffectEntity(object):
         'evaluation_group_id': 'int',
         'evaluation_group_mode': 'str',
         'campaign_revision_id': 'int',
-        'campaign_revision_version_id': 'int'
+        'campaign_revision_version_id': 'int',
+        'selected_price_type': 'str',
+        'selected_price': 'float',
+        'adjustment_reference_id': 'str'
     }
 
     attribute_map = {
@@ -59,10 +62,13 @@ class EffectEntity(object):
         'evaluation_group_id': 'evaluationGroupID',
         'evaluation_group_mode': 'evaluationGroupMode',
         'campaign_revision_id': 'campaignRevisionId',
-        'campaign_revision_version_id': 'campaignRevisionVersionId'
+        'campaign_revision_version_id': 'campaignRevisionVersionId',
+        'selected_price_type': 'selectedPriceType',
+        'selected_price': 'selectedPrice',
+        'adjustment_reference_id': 'adjustmentReferenceId'
     }
 
-    def __init__(self, campaign_id=None, ruleset_id=None, rule_index=None, rule_name=None, effect_type=None, triggered_by_coupon=None, triggered_for_catalog_item=None, condition_index=None, evaluation_group_id=None, evaluation_group_mode=None, campaign_revision_id=None, campaign_revision_version_id=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, campaign_id=None, ruleset_id=None, rule_index=None, rule_name=None, effect_type=None, triggered_by_coupon=None, triggered_for_catalog_item=None, condition_index=None, evaluation_group_id=None, evaluation_group_mode=None, campaign_revision_id=None, campaign_revision_version_id=None, selected_price_type=None, selected_price=None, adjustment_reference_id=None, local_vars_configuration=None):  # noqa: E501
         """EffectEntity - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -80,6 +86,9 @@ class EffectEntity(object):
         self._evaluation_group_mode = None
         self._campaign_revision_id = None
         self._campaign_revision_version_id = None
+        self._selected_price_type = None
+        self._selected_price = None
+        self._adjustment_reference_id = None
         self.discriminator = None
 
         self.campaign_id = campaign_id
@@ -101,6 +110,12 @@ class EffectEntity(object):
             self.campaign_revision_id = campaign_revision_id
         if campaign_revision_version_id is not None:
             self.campaign_revision_version_id = campaign_revision_version_id
+        if selected_price_type is not None:
+            self.selected_price_type = selected_price_type
+        if selected_price is not None:
+            self.selected_price = selected_price
+        if adjustment_reference_id is not None:
+            self.adjustment_reference_id = adjustment_reference_id
 
     @property
     def campaign_id(self):
@@ -387,6 +402,75 @@ class EffectEntity(object):
         """
 
         self._campaign_revision_version_id = campaign_revision_version_id
+
+    @property
+    def selected_price_type(self):
+        """Gets the selected_price_type of this EffectEntity.  # noqa: E501
+
+        The selected price type for the SKU targeted by this effect.  # noqa: E501
+
+        :return: The selected_price_type of this EffectEntity.  # noqa: E501
+        :rtype: str
+        """
+        return self._selected_price_type
+
+    @selected_price_type.setter
+    def selected_price_type(self, selected_price_type):
+        """Sets the selected_price_type of this EffectEntity.
+
+        The selected price type for the SKU targeted by this effect.  # noqa: E501
+
+        :param selected_price_type: The selected_price_type of this EffectEntity.  # noqa: E501
+        :type: str
+        """
+
+        self._selected_price_type = selected_price_type
+
+    @property
+    def selected_price(self):
+        """Gets the selected_price of this EffectEntity.  # noqa: E501
+
+        The value of the selected price type to apply to the SKU targeted by this effect, before any discounts are applied.  # noqa: E501
+
+        :return: The selected_price of this EffectEntity.  # noqa: E501
+        :rtype: float
+        """
+        return self._selected_price
+
+    @selected_price.setter
+    def selected_price(self, selected_price):
+        """Sets the selected_price of this EffectEntity.
+
+        The value of the selected price type to apply to the SKU targeted by this effect, before any discounts are applied.  # noqa: E501
+
+        :param selected_price: The selected_price of this EffectEntity.  # noqa: E501
+        :type: float
+        """
+
+        self._selected_price = selected_price
+
+    @property
+    def adjustment_reference_id(self):
+        """Gets the adjustment_reference_id of this EffectEntity.  # noqa: E501
+
+        The reference identifier of the selected price adjustment for this SKU. This is only returned if the `selectedPrice` resulted from a price adjustment.  # noqa: E501
+
+        :return: The adjustment_reference_id of this EffectEntity.  # noqa: E501
+        :rtype: str
+        """
+        return self._adjustment_reference_id
+
+    @adjustment_reference_id.setter
+    def adjustment_reference_id(self, adjustment_reference_id):
+        """Sets the adjustment_reference_id of this EffectEntity.
+
+        The reference identifier of the selected price adjustment for this SKU. This is only returned if the `selectedPrice` resulted from a price adjustment.  # noqa: E501
+
+        :param adjustment_reference_id: The adjustment_reference_id of this EffectEntity.  # noqa: E501
+        :type: str
+        """
+
+        self._adjustment_reference_id = adjustment_reference_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

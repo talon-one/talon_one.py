@@ -163,7 +163,7 @@ class InventoryCoupon(object):
     def id(self):
         """Gets the id of this InventoryCoupon.  # noqa: E501
 
-        Internal ID of this entity.  # noqa: E501
+        The internal ID of the coupon.  # noqa: E501
 
         :return: The id of this InventoryCoupon.  # noqa: E501
         :rtype: int
@@ -174,7 +174,7 @@ class InventoryCoupon(object):
     def id(self, id):
         """Sets the id of this InventoryCoupon.
 
-        Internal ID of this entity.  # noqa: E501
+        The internal ID of the coupon.  # noqa: E501
 
         :param id: The id of this InventoryCoupon.  # noqa: E501
         :type: int
@@ -188,7 +188,7 @@ class InventoryCoupon(object):
     def created(self):
         """Gets the created of this InventoryCoupon.  # noqa: E501
 
-        The time this entity was created.  # noqa: E501
+        The time the coupon was created.  # noqa: E501
 
         :return: The created of this InventoryCoupon.  # noqa: E501
         :rtype: datetime
@@ -199,7 +199,7 @@ class InventoryCoupon(object):
     def created(self, created):
         """Sets the created of this InventoryCoupon.
 
-        The time this entity was created.  # noqa: E501
+        The time the coupon was created.  # noqa: E501
 
         :param created: The created of this InventoryCoupon.  # noqa: E501
         :type: datetime
@@ -314,8 +314,8 @@ class InventoryCoupon(object):
         :type: float
         """
         if (self.local_vars_configuration.client_side_validation and
-                discount_limit is not None and discount_limit > 999999):  # noqa: E501
-            raise ValueError("Invalid value for `discount_limit`, must be a value less than or equal to `999999`")  # noqa: E501
+                discount_limit is not None and discount_limit > 1E+15):  # noqa: E501
+            raise ValueError("Invalid value for `discount_limit`, must be a value less than or equal to `1E+15`")  # noqa: E501
         if (self.local_vars_configuration.client_side_validation and
                 discount_limit is not None and discount_limit < 0):  # noqa: E501
             raise ValueError("Invalid value for `discount_limit`, must be a value greater than or equal to `0`")  # noqa: E501

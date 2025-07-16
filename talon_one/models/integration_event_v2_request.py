@@ -38,6 +38,7 @@ class IntegrationEventV2Request(object):
         'evaluable_campaign_ids': 'list[int]',
         'type': 'str',
         'attributes': 'object',
+        'loyalty_cards': 'list[str]',
         'response_content': 'list[str]'
     }
 
@@ -47,10 +48,11 @@ class IntegrationEventV2Request(object):
         'evaluable_campaign_ids': 'evaluableCampaignIds',
         'type': 'type',
         'attributes': 'attributes',
+        'loyalty_cards': 'loyaltyCards',
         'response_content': 'responseContent'
     }
 
-    def __init__(self, profile_id=None, store_integration_id=None, evaluable_campaign_ids=None, type=None, attributes=None, response_content=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, profile_id=None, store_integration_id=None, evaluable_campaign_ids=None, type=None, attributes=None, loyalty_cards=None, response_content=None, local_vars_configuration=None):  # noqa: E501
         """IntegrationEventV2Request - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -61,6 +63,7 @@ class IntegrationEventV2Request(object):
         self._evaluable_campaign_ids = None
         self._type = None
         self._attributes = None
+        self._loyalty_cards = None
         self._response_content = None
         self.discriminator = None
 
@@ -73,6 +76,8 @@ class IntegrationEventV2Request(object):
         self.type = type
         if attributes is not None:
             self.attributes = attributes
+        if loyalty_cards is not None:
+            self.loyalty_cards = loyalty_cards
         if response_content is not None:
             self.response_content = response_content
 
@@ -201,6 +206,29 @@ class IntegrationEventV2Request(object):
         """
 
         self._attributes = attributes
+
+    @property
+    def loyalty_cards(self):
+        """Gets the loyalty_cards of this IntegrationEventV2Request.  # noqa: E501
+
+        Identifier of the loyalty card used during this event.  # noqa: E501
+
+        :return: The loyalty_cards of this IntegrationEventV2Request.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._loyalty_cards
+
+    @loyalty_cards.setter
+    def loyalty_cards(self, loyalty_cards):
+        """Sets the loyalty_cards of this IntegrationEventV2Request.
+
+        Identifier of the loyalty card used during this event.  # noqa: E501
+
+        :param loyalty_cards: The loyalty_cards of this IntegrationEventV2Request.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._loyalty_cards = loyalty_cards
 
     @property
     def response_content(self):

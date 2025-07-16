@@ -66,7 +66,12 @@ class TestIntegrationStateV2(unittest.TestCase):
                             position = 1.337, 
                             attributes = {"image":"11.jpeg","material":"leather"}, 
                             additional_costs = {"shipping":{"price":9}}, 
-                            catalog_item_id = 56, )
+                            catalog_item_id = 56, 
+                            selected_price_type = 'member', 
+                            adjustment_reference_id = '68851723-e6fa-488f-ace9-112581e6c19b', 
+                            adjustment_effective_from = '2021-09-12T10:12:42Z', 
+                            adjustment_effective_until = '2021-09-12T10:12:42Z', 
+                            prices = {"member":{"price":90,"adjustmentReferenceId":"68851723-e6fa-488f-ace9-112581e6c19b","effectiveFrom":"2025-05-25T00:00:00Z","effectiveUntil":"2025-05-30T00:00:00Z"},"base":{"price":100}}, )
                         ], 
                     additional_costs = {"shipping":{"price":9}}, 
                     identifiers = [d41306257915f83fe01e54092ae470f631161ea16fcf4415842eed41470386ea], 
@@ -343,6 +348,9 @@ class TestIntegrationStateV2(unittest.TestCase):
                         evaluation_group_mode = 'stackable', 
                         campaign_revision_id = 1, 
                         campaign_revision_version_id = 5, 
+                        selected_price_type = 'member', 
+                        selected_price = 100.0, 
+                        adjustment_reference_id = '68851723-e6fa-488f-ace9-112581e6c19b', 
                         props = talon_one.models.props.props(), )
                     ], 
                 rule_failure_reasons = [
@@ -474,6 +482,9 @@ class TestIntegrationStateV2(unittest.TestCase):
                         evaluation_group_mode = 'stackable', 
                         campaign_revision_id = 1, 
                         campaign_revision_version_id = 5, 
+                        selected_price_type = 'member', 
+                        selected_price = 100.0, 
+                        adjustment_reference_id = '68851723-e6fa-488f-ace9-112581e6c19b', 
                         props = talon_one.models.props.props(), )
                     ],
                 created_coupons = [

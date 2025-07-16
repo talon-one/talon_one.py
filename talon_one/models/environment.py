@@ -47,7 +47,8 @@ class Environment(object):
         'additional_costs': 'list[AccountAdditionalCost]',
         'audiences': 'list[Audience]',
         'collections': 'list[Collection]',
-        'application_cart_item_filters': 'list[ApplicationCIF]'
+        'application_cart_item_filters': 'list[ApplicationCIF]',
+        'price_types': 'list[PriceType]'
     }
 
     attribute_map = {
@@ -65,10 +66,11 @@ class Environment(object):
         'additional_costs': 'additionalCosts',
         'audiences': 'audiences',
         'collections': 'collections',
-        'application_cart_item_filters': 'applicationCartItemFilters'
+        'application_cart_item_filters': 'applicationCartItemFilters',
+        'price_types': 'priceTypes'
     }
 
-    def __init__(self, id=None, created=None, application_id=None, slots=None, functions=None, templates=None, variables=None, giveaways_pools=None, loyalty_programs=None, achievements=None, attributes=None, additional_costs=None, audiences=None, collections=None, application_cart_item_filters=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, created=None, application_id=None, slots=None, functions=None, templates=None, variables=None, giveaways_pools=None, loyalty_programs=None, achievements=None, attributes=None, additional_costs=None, audiences=None, collections=None, application_cart_item_filters=None, price_types=None, local_vars_configuration=None):  # noqa: E501
         """Environment - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -89,6 +91,7 @@ class Environment(object):
         self._audiences = None
         self._collections = None
         self._application_cart_item_filters = None
+        self._price_types = None
         self.discriminator = None
 
         self.id = id
@@ -114,12 +117,14 @@ class Environment(object):
             self.collections = collections
         if application_cart_item_filters is not None:
             self.application_cart_item_filters = application_cart_item_filters
+        if price_types is not None:
+            self.price_types = price_types
 
     @property
     def id(self):
         """Gets the id of this Environment.  # noqa: E501
 
-        Internal ID of this entity.  # noqa: E501
+        The internal ID of this entity.  # noqa: E501
 
         :return: The id of this Environment.  # noqa: E501
         :rtype: int
@@ -130,7 +135,7 @@ class Environment(object):
     def id(self, id):
         """Sets the id of this Environment.
 
-        Internal ID of this entity.  # noqa: E501
+        The internal ID of this entity.  # noqa: E501
 
         :param id: The id of this Environment.  # noqa: E501
         :type: int
@@ -473,6 +478,29 @@ class Environment(object):
         """
 
         self._application_cart_item_filters = application_cart_item_filters
+
+    @property
+    def price_types(self):
+        """Gets the price_types of this Environment.  # noqa: E501
+
+        The price types that this Application can use.  # noqa: E501
+
+        :return: The price_types of this Environment.  # noqa: E501
+        :rtype: list[PriceType]
+        """
+        return self._price_types
+
+    @price_types.setter
+    def price_types(self, price_types):
+        """Sets the price_types of this Environment.
+
+        The price types that this Application can use.  # noqa: E501
+
+        :param price_types: The price_types of this Environment.  # noqa: E501
+        :type: list[PriceType]
+        """
+
+        self._price_types = price_types
 
     def to_dict(self):
         """Returns the model properties as a dict"""
