@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **total_pending_points** | **float** | Total of pending points for this loyalty program. | 
 **total_spent_points** | **float** | Total of spent points for this loyalty program. | 
 **total_expired_points** | **float** | Total of expired points for this loyalty program. | 
+**total_negative_points** | **float** | Total of negative points for this loyalty program. | 
 **total_members** | **float** | Number of loyalty program members. | 
 **new_members** | **float** | Number of members who joined on this day. | 
 **spent_points** | [**LoyaltyDashboardPointsBreakdown**](LoyaltyDashboardPointsBreakdown.md) |  | 

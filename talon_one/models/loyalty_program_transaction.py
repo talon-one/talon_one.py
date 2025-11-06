@@ -34,6 +34,7 @@ class LoyaltyProgramTransaction(object):
     """
     openapi_types = {
         'id': 'int',
+        'transaction_uuid': 'str',
         'program_id': 'int',
         'campaign_id': 'int',
         'created': 'datetime',
@@ -56,6 +57,7 @@ class LoyaltyProgramTransaction(object):
 
     attribute_map = {
         'id': 'id',
+        'transaction_uuid': 'transactionUUID',
         'program_id': 'programId',
         'campaign_id': 'campaignId',
         'created': 'created',
@@ -76,13 +78,14 @@ class LoyaltyProgramTransaction(object):
         'flags': 'flags'
     }
 
-    def __init__(self, id=None, program_id=None, campaign_id=None, created=None, type=None, amount=None, name=None, start_date=None, expiry_date=None, customer_profile_id=None, card_identifier=None, subledger_id=None, customer_session_id=None, import_id=None, user_id=None, user_email=None, ruleset_id=None, rule_name=None, flags=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, transaction_uuid=None, program_id=None, campaign_id=None, created=None, type=None, amount=None, name=None, start_date=None, expiry_date=None, customer_profile_id=None, card_identifier=None, subledger_id=None, customer_session_id=None, import_id=None, user_id=None, user_email=None, ruleset_id=None, rule_name=None, flags=None, local_vars_configuration=None):  # noqa: E501
         """LoyaltyProgramTransaction - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._id = None
+        self._transaction_uuid = None
         self._program_id = None
         self._campaign_id = None
         self._created = None
@@ -104,6 +107,7 @@ class LoyaltyProgramTransaction(object):
         self.discriminator = None
 
         self.id = id
+        self.transaction_uuid = transaction_uuid
         self.program_id = program_id
         if campaign_id is not None:
             self.campaign_id = campaign_id
@@ -157,6 +161,31 @@ class LoyaltyProgramTransaction(object):
             raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
 
         self._id = id
+
+    @property
+    def transaction_uuid(self):
+        """Gets the transaction_uuid of this LoyaltyProgramTransaction.  # noqa: E501
+
+        Unique identifier of the transaction in the UUID format.  # noqa: E501
+
+        :return: The transaction_uuid of this LoyaltyProgramTransaction.  # noqa: E501
+        :rtype: str
+        """
+        return self._transaction_uuid
+
+    @transaction_uuid.setter
+    def transaction_uuid(self, transaction_uuid):
+        """Sets the transaction_uuid of this LoyaltyProgramTransaction.
+
+        Unique identifier of the transaction in the UUID format.  # noqa: E501
+
+        :param transaction_uuid: The transaction_uuid of this LoyaltyProgramTransaction.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and transaction_uuid is None:  # noqa: E501
+            raise ValueError("Invalid value for `transaction_uuid`, must not be `None`")  # noqa: E501
+
+        self._transaction_uuid = transaction_uuid
 
     @property
     def program_id(self):

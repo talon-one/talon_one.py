@@ -36,28 +36,34 @@ class TestInlineResponse20045(unittest.TestCase):
         # model = talon_one.models.inline_response20045.InlineResponse20045()  # noqa: E501
         if include_optional :
             return InlineResponse20045(
+                has_more = True, 
                 total_result_size = 1, 
                 data = [
-                    talon_one.models.export.Export(
+                    talon_one.models.store.Store(
                         id = 6, 
-                        created = '2020-06-10T09:05:27.993483Z', 
-                        account_id = 3886, 
-                        user_id = 388, 
-                        entity = 'Coupon', 
-                        filter = talon_one.models.filter.filter(), )
+                        created = '2020-02-07T08:15:22Z', 
+                        name = 'South US store', 
+                        description = 'This is the description of the store in south US.', 
+                        attributes = {"country":"USA","code":1234}, 
+                        integration_id = 'STORE-001', 
+                        application_id = 322, 
+                        updated = '2021-09-23T10:12:42Z', 
+                        linked_campaign_ids = [4, 6, 8], )
                     ]
             )
         else :
             return InlineResponse20045(
-                total_result_size = 1,
                 data = [
-                    talon_one.models.export.Export(
+                    talon_one.models.store.Store(
                         id = 6, 
-                        created = '2020-06-10T09:05:27.993483Z', 
-                        account_id = 3886, 
-                        user_id = 388, 
-                        entity = 'Coupon', 
-                        filter = talon_one.models.filter.filter(), )
+                        created = '2020-02-07T08:15:22Z', 
+                        name = 'South US store', 
+                        description = 'This is the description of the store in south US.', 
+                        attributes = {"country":"USA","code":1234}, 
+                        integration_id = 'STORE-001', 
+                        application_id = 322, 
+                        updated = '2021-09-23T10:12:42Z', 
+                        linked_campaign_ids = [4, 6, 8], )
                     ],
         )
 

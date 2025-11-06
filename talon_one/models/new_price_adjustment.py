@@ -38,7 +38,8 @@ class NewPriceAdjustment(object):
         'reference_id': 'str',
         'calculated_at': 'datetime',
         'effective_from': 'datetime',
-        'effective_until': 'datetime'
+        'effective_until': 'datetime',
+        'context_id': 'str'
     }
 
     attribute_map = {
@@ -47,10 +48,11 @@ class NewPriceAdjustment(object):
         'reference_id': 'referenceId',
         'calculated_at': 'calculatedAt',
         'effective_from': 'effectiveFrom',
-        'effective_until': 'effectiveUntil'
+        'effective_until': 'effectiveUntil',
+        'context_id': 'contextId'
     }
 
-    def __init__(self, price_type=None, price=None, reference_id=None, calculated_at=None, effective_from=None, effective_until=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, price_type=None, price=None, reference_id=None, calculated_at=None, effective_from=None, effective_until=None, context_id=None, local_vars_configuration=None):  # noqa: E501
         """NewPriceAdjustment - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -62,6 +64,7 @@ class NewPriceAdjustment(object):
         self._calculated_at = None
         self._effective_from = None
         self._effective_until = None
+        self._context_id = None
         self.discriminator = None
 
         self.price_type = price_type
@@ -73,6 +76,8 @@ class NewPriceAdjustment(object):
             self.effective_from = effective_from
         if effective_until is not None:
             self.effective_until = effective_until
+        if context_id is not None:
+            self.context_id = context_id
 
     @property
     def price_type(self):
@@ -144,6 +149,9 @@ class NewPriceAdjustment(object):
         """
         if self.local_vars_configuration.client_side_validation and reference_id is None:  # noqa: E501
             raise ValueError("Invalid value for `reference_id`, must not be `None`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                reference_id is not None and len(reference_id) < 1):
+            raise ValueError("Invalid value for `reference_id`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._reference_id = reference_id
 
@@ -215,6 +223,29 @@ class NewPriceAdjustment(object):
         """
 
         self._effective_until = effective_until
+
+    @property
+    def context_id(self):
+        """Gets the context_id of this NewPriceAdjustment.  # noqa: E501
+
+        Identifier of the context of this price adjustment (e.g. summer sale).  # noqa: E501
+
+        :return: The context_id of this NewPriceAdjustment.  # noqa: E501
+        :rtype: str
+        """
+        return self._context_id
+
+    @context_id.setter
+    def context_id(self, context_id):
+        """Sets the context_id of this NewPriceAdjustment.
+
+        Identifier of the context of this price adjustment (e.g. summer sale).  # noqa: E501
+
+        :param context_id: The context_id of this NewPriceAdjustment.  # noqa: E501
+        :type: str
+        """
+
+        self._context_id = context_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -145,6 +145,7 @@ class TestEnvironment(unittest.TestCase):
                         activation_policy = 'fixed_schedule', 
                         fixed_start_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                         end_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        allow_rollback_after_completion = False, 
                         campaign_id = 1, 
                         user_id = 1234, 
                         created_by = 'John Doe', 
@@ -231,7 +232,7 @@ class TestEnvironment(unittest.TestCase):
                         account_id = 1, 
                         name = 'member', 
                         title = 'Member Price', 
-                        description = 'Price available exclusively to members.', 
+                        description = 'The price available exclusively to members.', 
                         modified = '2021-09-12T10:12:42Z', 
                         subscribed_catalogs_ids = [1, 2, 3], 
                         targeted_audiences_ids = [1, 2, 3], )

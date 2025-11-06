@@ -34,6 +34,7 @@ class PriceDetail(object):
     """
     openapi_types = {
         'price': 'float',
+        'adjustment_context_id': 'str',
         'adjustment_reference_id': 'str',
         'adjustment_effective_from': 'datetime',
         'adjustment_effective_until': 'datetime'
@@ -41,18 +42,20 @@ class PriceDetail(object):
 
     attribute_map = {
         'price': 'price',
+        'adjustment_context_id': 'adjustmentContextId',
         'adjustment_reference_id': 'adjustmentReferenceId',
         'adjustment_effective_from': 'adjustmentEffectiveFrom',
         'adjustment_effective_until': 'adjustmentEffectiveUntil'
     }
 
-    def __init__(self, price=None, adjustment_reference_id=None, adjustment_effective_from=None, adjustment_effective_until=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, price=None, adjustment_context_id=None, adjustment_reference_id=None, adjustment_effective_from=None, adjustment_effective_until=None, local_vars_configuration=None):  # noqa: E501
         """PriceDetail - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._price = None
+        self._adjustment_context_id = None
         self._adjustment_reference_id = None
         self._adjustment_effective_from = None
         self._adjustment_effective_until = None
@@ -60,6 +63,8 @@ class PriceDetail(object):
 
         if price is not None:
             self.price = price
+        if adjustment_context_id is not None:
+            self.adjustment_context_id = adjustment_context_id
         if adjustment_reference_id is not None:
             self.adjustment_reference_id = adjustment_reference_id
         if adjustment_effective_from is not None:
@@ -89,6 +94,29 @@ class PriceDetail(object):
         """
 
         self._price = price
+
+    @property
+    def adjustment_context_id(self):
+        """Gets the adjustment_context_id of this PriceDetail.  # noqa: E501
+
+        The context identifier of the selected price adjustment.  # noqa: E501
+
+        :return: The adjustment_context_id of this PriceDetail.  # noqa: E501
+        :rtype: str
+        """
+        return self._adjustment_context_id
+
+    @adjustment_context_id.setter
+    def adjustment_context_id(self, adjustment_context_id):
+        """Sets the adjustment_context_id of this PriceDetail.
+
+        The context identifier of the selected price adjustment.  # noqa: E501
+
+        :param adjustment_context_id: The adjustment_context_id of this PriceDetail.  # noqa: E501
+        :type: str
+        """
+
+        self._adjustment_context_id = adjustment_context_id
 
     @property
     def adjustment_reference_id(self):

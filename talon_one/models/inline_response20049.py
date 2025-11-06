@@ -33,24 +33,50 @@ class InlineResponse20049(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'data': 'list[SummaryCampaignStoreBudget]'
+        'has_more': 'bool',
+        'data': 'list[AchievementProgressWithDefinition]'
     }
 
     attribute_map = {
+        'has_more': 'hasMore',
         'data': 'data'
     }
 
-    def __init__(self, data=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, has_more=None, data=None, local_vars_configuration=None):  # noqa: E501
         """InlineResponse20049 - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
+        self._has_more = None
         self._data = None
         self.discriminator = None
 
-        if data is not None:
-            self.data = data
+        self.has_more = has_more
+        self.data = data
+
+    @property
+    def has_more(self):
+        """Gets the has_more of this InlineResponse20049.  # noqa: E501
+
+
+        :return: The has_more of this InlineResponse20049.  # noqa: E501
+        :rtype: bool
+        """
+        return self._has_more
+
+    @has_more.setter
+    def has_more(self, has_more):
+        """Sets the has_more of this InlineResponse20049.
+
+
+        :param has_more: The has_more of this InlineResponse20049.  # noqa: E501
+        :type: bool
+        """
+        if self.local_vars_configuration.client_side_validation and has_more is None:  # noqa: E501
+            raise ValueError("Invalid value for `has_more`, must not be `None`")  # noqa: E501
+
+        self._has_more = has_more
 
     @property
     def data(self):
@@ -58,7 +84,7 @@ class InlineResponse20049(object):
 
 
         :return: The data of this InlineResponse20049.  # noqa: E501
-        :rtype: list[SummaryCampaignStoreBudget]
+        :rtype: list[AchievementProgressWithDefinition]
         """
         return self._data
 
@@ -68,8 +94,10 @@ class InlineResponse20049(object):
 
 
         :param data: The data of this InlineResponse20049.  # noqa: E501
-        :type: list[SummaryCampaignStoreBudget]
+        :type: list[AchievementProgressWithDefinition]
         """
+        if self.local_vars_configuration.client_side_validation and data is None:  # noqa: E501
+            raise ValueError("Invalid value for `data`, must not be `None`")  # noqa: E501
 
         self._data = data
 

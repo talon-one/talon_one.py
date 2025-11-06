@@ -4,6 +4,7 @@ All URIs are relative to *https://yourbaseurl.talon.one*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**best_prior_price**](IntegrationApi.md#best_prior_price) | **POST** /v1/best_prior_price | Fetch best prior price
 [**create_audience_v2**](IntegrationApi.md#create_audience_v2) | **POST** /v2/audiences | Create audience
 [**create_coupon_reservation**](IntegrationApi.md#create_coupon_reservation) | **POST** /v1/coupon_reservations/{couponValue} | Create coupon reservation
 [**create_referral**](IntegrationApi.md#create_referral) | **POST** /v1/referrals | Create referral code for an advocate
@@ -36,6 +37,227 @@ Method | HTTP request | Description
 [**update_customer_profiles_v2**](IntegrationApi.md#update_customer_profiles_v2) | **PUT** /v2/customer_profiles | Update multiple customer profiles
 [**update_customer_session_v2**](IntegrationApi.md#update_customer_session_v2) | **PUT** /v2/customer_sessions/{customerSessionId} | Update customer session
 
+
+# **best_prior_price**
+> list[BestPriorPrice] best_prior_price(body)
+
+Fetch best prior price
+
+Returns the best prior price based on historical pricing data for the specified SKUs within a defined timeframe. 
+
+### Example
+
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.IntegrationApi(api_client)
+    body = talon_one.BestPriorPriceRequest() # BestPriorPriceRequest | body
+
+    try:
+        # Fetch best prior price
+        api_response = api_instance.best_prior_price(body)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling IntegrationApi->best_prior_price: %s\n" % e)
+```
+
+* Api Key Authentication (management_key):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.IntegrationApi(api_client)
+    body = talon_one.BestPriorPriceRequest() # BestPriorPriceRequest | body
+
+    try:
+        # Fetch best prior price
+        api_response = api_instance.best_prior_price(body)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling IntegrationApi->best_prior_price: %s\n" % e)
+```
+
+* Api Key Authentication (manager_auth):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.IntegrationApi(api_client)
+    body = talon_one.BestPriorPriceRequest() # BestPriorPriceRequest | body
+
+    try:
+        # Fetch best prior price
+        api_response = api_instance.best_prior_price(body)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling IntegrationApi->best_prior_price: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**BestPriorPriceRequest**](BestPriorPriceRequest.md)| body | 
+
+### Return type
+
+[**list[BestPriorPrice]**](BestPriorPrice.md)
+
+### Authorization
+
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Ok |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_audience_v2**
 > Audience create_audience_v2(body)
@@ -1288,7 +1510,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_loyalty_card_points**
-> InlineResponse2005 get_loyalty_card_points(loyalty_program_id, loyalty_card_id, status=status, subledger_id=subledger_id, page_size=page_size, skip=skip)
+> InlineResponse2005 get_loyalty_card_points(loyalty_program_id, loyalty_card_id, status=status, subledger_id=subledger_id, customer_session_i_ds=customer_session_i_ds, transaction_uui_ds=transaction_uui_ds, page_size=page_size, skip=skip, sort=sort)
 
 List card's unused loyalty points
 
@@ -1332,12 +1554,15 @@ with talon_one.ApiClient(configuration) as api_client:
 loyalty_card_id = 'loyalty_card_id_example' # str | Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint. 
 status = 'active' # str | Filter points based on their status. (optional) (default to 'active')
 subledger_id = ['subledger_id_example'] # list[str] | Filter results by one or more subledger IDs. Must be exact match. (optional)
+customer_session_i_ds = ['customer_session_i_ds_example'] # list[str] | Filter the results by a list of customer session IDs.   To include multiple IDs, repeat the parameter for each one, for example,  `?customerSessionIDs=id1&customerSessionIDs=id2`.  The response contains only data associated with the specified sessions.  (optional)
+transaction_uui_ds = ['transaction_uui_ds_example'] # list[str] | Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example,  `?transactionUUIDs=uuid1&transactionUUIDs=uuid2`.  The response contains only data associated with the specified transactions.  (optional)
 page_size = 50 # int | The number of items in the response. (optional) (default to 50)
 skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
+sort = 'sort_example' # str | The field by which results should be sorted. You can enter one of the following values:  - `startDate`: Sorts the results by the start date of the points. - `expiryDate`: Sorts the results by the expiry date of the points.  By default, results are sorted in ascending order.  To sort them in descending order, prefix the field name with `-`.  **Note:** You can only sort by one field at a time.  (optional)
 
     try:
         # List card's unused loyalty points
-        api_response = api_instance.get_loyalty_card_points(loyalty_program_id, loyalty_card_id, status=status, subledger_id=subledger_id, page_size=page_size, skip=skip)
+        api_response = api_instance.get_loyalty_card_points(loyalty_program_id, loyalty_card_id, status=status, subledger_id=subledger_id, customer_session_i_ds=customer_session_i_ds, transaction_uui_ds=transaction_uui_ds, page_size=page_size, skip=skip, sort=sort)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling IntegrationApi->get_loyalty_card_points: %s\n" % e)
@@ -1351,8 +1576,11 @@ Name | Type | Description  | Notes
  **loyalty_card_id** | **str**| Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint.  | 
  **status** | **str**| Filter points based on their status. | [optional] [default to &#39;active&#39;]
  **subledger_id** | [**list[str]**](str.md)| Filter results by one or more subledger IDs. Must be exact match. | [optional] 
+ **customer_session_i_ds** | [**list[str]**](str.md)| Filter the results by a list of customer session IDs.   To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?customerSessionIDs&#x3D;id1&amp;customerSessionIDs&#x3D;id2&#x60;.  The response contains only data associated with the specified sessions.  | [optional] 
+ **transaction_uui_ds** | [**list[str]**](str.md)| Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?transactionUUIDs&#x3D;uuid1&amp;transactionUUIDs&#x3D;uuid2&#x60;.  The response contains only data associated with the specified transactions.  | [optional] 
  **page_size** | **int**| The number of items in the response. | [optional] [default to 50]
  **skip** | **int**| The number of items to skip when paging through large result sets. | [optional] 
+ **sort** | **str**| The field by which results should be sorted. You can enter one of the following values:  - &#x60;startDate&#x60;: Sorts the results by the start date of the points. - &#x60;expiryDate&#x60;: Sorts the results by the expiry date of the points.  By default, results are sorted in ascending order.  To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You can only sort by one field at a time.  | [optional] 
 
 ### Return type
 
@@ -1378,7 +1606,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_loyalty_card_transactions**
-> InlineResponse2003 get_loyalty_card_transactions(loyalty_program_id, loyalty_card_id, subledger_id=subledger_id, loyalty_transaction_type=loyalty_transaction_type, start_date=start_date, end_date=end_date, page_size=page_size, skip=skip)
+> InlineResponse2003 get_loyalty_card_transactions(loyalty_program_id, loyalty_card_id, subledger_id=subledger_id, loyalty_transaction_type=loyalty_transaction_type, start_date=start_date, end_date=end_date, customer_session_i_ds=customer_session_i_ds, transaction_uui_ds=transaction_uui_ds, page_size=page_size, skip=skip)
 
 List card's transactions
 
@@ -1424,12 +1652,14 @@ subledger_id = ['subledger_id_example'] # list[str] | Filter results by one or m
 loyalty_transaction_type = 'loyalty_transaction_type_example' # str | Filter results by loyalty transaction type: - `manual`: Loyalty transaction that was done manually. - `session`: Loyalty transaction that resulted from a customer session. - `import`: Loyalty transaction that was imported from a CSV file.  (optional)
 start_date = '2013-10-20T19:20:30+01:00' # datetime | Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.  (optional)
 end_date = '2013-10-20T19:20:30+01:00' # datetime | Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.  (optional)
+customer_session_i_ds = ['customer_session_i_ds_example'] # list[str] | Filter the results by a list of customer session IDs.   To include multiple IDs, repeat the parameter for each one, for example,  `?customerSessionIDs=id1&customerSessionIDs=id2`.  The response contains only data associated with the specified sessions.  (optional)
+transaction_uui_ds = ['transaction_uui_ds_example'] # list[str] | Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example,  `?transactionUUIDs=uuid1&transactionUUIDs=uuid2`.  The response contains only data associated with the specified transactions.  (optional)
 page_size = 50 # int | The number of items in the response. (optional) (default to 50)
 skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
 
     try:
         # List card's transactions
-        api_response = api_instance.get_loyalty_card_transactions(loyalty_program_id, loyalty_card_id, subledger_id=subledger_id, loyalty_transaction_type=loyalty_transaction_type, start_date=start_date, end_date=end_date, page_size=page_size, skip=skip)
+        api_response = api_instance.get_loyalty_card_transactions(loyalty_program_id, loyalty_card_id, subledger_id=subledger_id, loyalty_transaction_type=loyalty_transaction_type, start_date=start_date, end_date=end_date, customer_session_i_ds=customer_session_i_ds, transaction_uui_ds=transaction_uui_ds, page_size=page_size, skip=skip)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling IntegrationApi->get_loyalty_card_transactions: %s\n" % e)
@@ -1445,6 +1675,8 @@ Name | Type | Description  | Notes
  **loyalty_transaction_type** | **str**| Filter results by loyalty transaction type: - &#x60;manual&#x60;: Loyalty transaction that was done manually. - &#x60;session&#x60;: Loyalty transaction that resulted from a customer session. - &#x60;import&#x60;: Loyalty transaction that was imported from a CSV file.  | [optional] 
  **start_date** | **datetime**| Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  | [optional] 
  **end_date** | **datetime**| Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  | [optional] 
+ **customer_session_i_ds** | [**list[str]**](str.md)| Filter the results by a list of customer session IDs.   To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?customerSessionIDs&#x3D;id1&amp;customerSessionIDs&#x3D;id2&#x60;.  The response contains only data associated with the specified sessions.  | [optional] 
+ **transaction_uui_ds** | [**list[str]**](str.md)| Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?transactionUUIDs&#x3D;uuid1&amp;transactionUUIDs&#x3D;uuid2&#x60;.  The response contains only data associated with the specified transactions.  | [optional] 
  **page_size** | **int**| The number of items in the response. | [optional] [default to 50]
  **skip** | **int**| The number of items to skip when paging through large result sets. | [optional] 
 
@@ -1472,7 +1704,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_loyalty_program_profile_points**
-> InlineResponse2006 get_loyalty_program_profile_points(loyalty_program_id, integration_id, status=status, subledger_id=subledger_id, page_size=page_size, skip=skip)
+> InlineResponse2006 get_loyalty_program_profile_points(loyalty_program_id, integration_id, status=status, subledger_id=subledger_id, customer_session_i_ds=customer_session_i_ds, transaction_uui_ds=transaction_uui_ds, page_size=page_size, skip=skip, sort=sort)
 
 List customer's unused loyalty points
 
@@ -1516,12 +1748,15 @@ with talon_one.ApiClient(configuration) as api_client:
 integration_id = 'integration_id_example' # str | The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. 
 status = 'active' # str | Filter points based on their status. (optional) (default to 'active')
 subledger_id = 'subledger_id_example' # str | The ID of the subledger by which we filter the data. (optional)
+customer_session_i_ds = ['customer_session_i_ds_example'] # list[str] | Filter the results by a list of customer session IDs.   To include multiple IDs, repeat the parameter for each one, for example,  `?customerSessionIDs=id1&customerSessionIDs=id2`.  The response contains only data associated with the specified sessions.  (optional)
+transaction_uui_ds = ['transaction_uui_ds_example'] # list[str] | Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example,  `?transactionUUIDs=uuid1&transactionUUIDs=uuid2`.  The response contains only data associated with the specified transactions.  (optional)
 page_size = 50 # int | The number of items in the response. (optional) (default to 50)
 skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
+sort = 'sort_example' # str | The field by which results should be sorted. You can enter one of the following values:  - `startDate`: Sorts the results by the start date of the points. - `expiryDate`: Sorts the results by the expiry date of the points.  By default, results are sorted in ascending order.  To sort them in descending order, prefix the field name with `-`.  **Note:** You can only sort by one field at a time.  (optional)
 
     try:
         # List customer's unused loyalty points
-        api_response = api_instance.get_loyalty_program_profile_points(loyalty_program_id, integration_id, status=status, subledger_id=subledger_id, page_size=page_size, skip=skip)
+        api_response = api_instance.get_loyalty_program_profile_points(loyalty_program_id, integration_id, status=status, subledger_id=subledger_id, customer_session_i_ds=customer_session_i_ds, transaction_uui_ds=transaction_uui_ds, page_size=page_size, skip=skip, sort=sort)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling IntegrationApi->get_loyalty_program_profile_points: %s\n" % e)
@@ -1535,8 +1770,11 @@ Name | Type | Description  | Notes
  **integration_id** | **str**| The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier.  | 
  **status** | **str**| Filter points based on their status. | [optional] [default to &#39;active&#39;]
  **subledger_id** | **str**| The ID of the subledger by which we filter the data. | [optional] 
+ **customer_session_i_ds** | [**list[str]**](str.md)| Filter the results by a list of customer session IDs.   To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?customerSessionIDs&#x3D;id1&amp;customerSessionIDs&#x3D;id2&#x60;.  The response contains only data associated with the specified sessions.  | [optional] 
+ **transaction_uui_ds** | [**list[str]**](str.md)| Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?transactionUUIDs&#x3D;uuid1&amp;transactionUUIDs&#x3D;uuid2&#x60;.  The response contains only data associated with the specified transactions.  | [optional] 
  **page_size** | **int**| The number of items in the response. | [optional] [default to 50]
  **skip** | **int**| The number of items to skip when paging through large result sets. | [optional] 
+ **sort** | **str**| The field by which results should be sorted. You can enter one of the following values:  - &#x60;startDate&#x60;: Sorts the results by the start date of the points. - &#x60;expiryDate&#x60;: Sorts the results by the expiry date of the points.  By default, results are sorted in ascending order.  To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You can only sort by one field at a time.  | [optional] 
 
 ### Return type
 
@@ -1562,7 +1800,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_loyalty_program_profile_transactions**
-> InlineResponse2004 get_loyalty_program_profile_transactions(loyalty_program_id, integration_id, subledger_id=subledger_id, loyalty_transaction_type=loyalty_transaction_type, start_date=start_date, end_date=end_date, page_size=page_size, skip=skip)
+> InlineResponse2004 get_loyalty_program_profile_transactions(loyalty_program_id, integration_id, customer_session_i_ds=customer_session_i_ds, transaction_uui_ds=transaction_uui_ds, subledger_id=subledger_id, loyalty_transaction_type=loyalty_transaction_type, start_date=start_date, end_date=end_date, page_size=page_size, skip=skip)
 
 List customer's loyalty transactions
 
@@ -1604,6 +1842,8 @@ with talon_one.ApiClient(configuration) as api_client:
     api_instance = talon_one.IntegrationApi(api_client)
     loyalty_program_id = 56 # int | Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. 
 integration_id = 'integration_id_example' # str | The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. 
+customer_session_i_ds = ['customer_session_i_ds_example'] # list[str] | Filter the results by a list of customer session IDs.   To include multiple IDs, repeat the parameter for each one, for example,  `?customerSessionIDs=id1&customerSessionIDs=id2`.  The response contains only data associated with the specified sessions.  (optional)
+transaction_uui_ds = ['transaction_uui_ds_example'] # list[str] | Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example,  `?transactionUUIDs=uuid1&transactionUUIDs=uuid2`.  The response contains only data associated with the specified transactions.  (optional)
 subledger_id = 'subledger_id_example' # str | The ID of the subledger by which we filter the data. (optional)
 loyalty_transaction_type = 'loyalty_transaction_type_example' # str | Filter results by loyalty transaction type: - `manual`: Loyalty transaction that was done manually. - `session`: Loyalty transaction that resulted from a customer session. - `import`: Loyalty transaction that was imported from a CSV file.  (optional)
 start_date = '2013-10-20T19:20:30+01:00' # datetime | Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.  (optional)
@@ -1613,7 +1853,7 @@ skip = 56 # int | The number of items to skip when paging through large result s
 
     try:
         # List customer's loyalty transactions
-        api_response = api_instance.get_loyalty_program_profile_transactions(loyalty_program_id, integration_id, subledger_id=subledger_id, loyalty_transaction_type=loyalty_transaction_type, start_date=start_date, end_date=end_date, page_size=page_size, skip=skip)
+        api_response = api_instance.get_loyalty_program_profile_transactions(loyalty_program_id, integration_id, customer_session_i_ds=customer_session_i_ds, transaction_uui_ds=transaction_uui_ds, subledger_id=subledger_id, loyalty_transaction_type=loyalty_transaction_type, start_date=start_date, end_date=end_date, page_size=page_size, skip=skip)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling IntegrationApi->get_loyalty_program_profile_transactions: %s\n" % e)
@@ -1625,6 +1865,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **loyalty_program_id** | **int**| Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  | 
  **integration_id** | **str**| The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier.  | 
+ **customer_session_i_ds** | [**list[str]**](str.md)| Filter the results by a list of customer session IDs.   To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?customerSessionIDs&#x3D;id1&amp;customerSessionIDs&#x3D;id2&#x60;.  The response contains only data associated with the specified sessions.  | [optional] 
+ **transaction_uui_ds** | [**list[str]**](str.md)| Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?transactionUUIDs&#x3D;uuid1&amp;transactionUUIDs&#x3D;uuid2&#x60;.  The response contains only data associated with the specified transactions.  | [optional] 
  **subledger_id** | **str**| The ID of the subledger by which we filter the data. | [optional] 
  **loyalty_transaction_type** | **str**| Filter results by loyalty transaction type: - &#x60;manual&#x60;: Loyalty transaction that was done manually. - &#x60;session&#x60;: Loyalty transaction that resulted from a customer session. - &#x60;import&#x60;: Loyalty transaction that was imported from a CSV file.  | [optional] 
  **start_date** | **datetime**| Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  | [optional] 
@@ -1824,7 +2066,7 @@ Name | Type | Description  | Notes
 
 Reopen customer session
 
-Reopen a closed [customer session](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions). For example, if a session has been completed but still needs to be edited, you can reopen it with this endpoint. A reopen session is treated like a standard open session.  When reopening a session: - The `talon_session_reopened` event is triggered. You can see it in the **Events** view in the Campaign Manager. - The session state is updated to `open`. - Modified budgets and triggered effects when the session was closed are rolled back except for the list below.  <details>   <summary><strong>Effects and budgets unimpacted by a session reopening</strong></summary>   <div>     <p>The following effects and budgets are left the way they were once the session was originally closed:</p>     <ul>       <li>Add free item effect</li>       <li>Any <strong>non-pending</strong> loyalty points</li>       <li>Award giveaway</li>       <li>Coupon and referral creation</li>       <li>Coupon reservation</li>       <li>Custom effect</li>       <li>Update attribute value</li>       <li>Update cart item attribute value</li>     </ul>   </div> <p>To see an example of roll back, see the <a href=\"https://docs.talon.one/docs/dev/tutorials/rolling-back-effects\">Cancelling a session with campaign budgets tutorial</a>.</p> </details>  **Note:** If your order workflow requires you to create a new session instead of reopening a session, use the [Update customer session](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint to cancel a closed session and create a new one. 
+Reopen a closed [customer session](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions). For example, if a session has been completed but still needs to be edited, you can reopen it with this endpoint. A reopen session is treated like a standard open session.  When reopening a session: - The `talon_session_reopened` event is triggered. You can see it in the **Events** view in the Campaign Manager. - The session state is updated to `open`. - Any modified budgets and triggered effects are rolled back when the session closes. - Depending on the [return policy](https://docs.talon.one/docs/product/loyalty-programs/managing-loyalty-programs#return-policy)  in your loyalty programs, points are rolled back in the following ways:   - Pending points are rolled back automatically.   - If **Active points deduction** setting is enabled, any points that were earned and activated when the session closed    are rolled back.   - If **Negative balance** is enabled, the rollback can create a negative points balance.   <details>   <summary><strong>Effects and budgets unimpacted by a session reopening</strong></summary>   <div>     <p>The following effects and budgets remain in the state they were in when the session closed:</p>     <ul>       <li>Add free item effect</li>       <li>Award giveaway</li>       <li>Coupon and referral creation</li>       <li>Coupon reservation</li>       <li>Custom effect</li>       <li>Update attribute value</li>       <li>Update cart item attribute value</li>     </ul>   </div>   </details> <p>To see an example of a rollback, see the <a href=\"https://docs.talon.one/docs/dev/tutorials/rolling-back-effects\">Cancelling a session with campaign budgets</a>tutorial.</p>  **Note:** If your order workflow requires you to create a new session instead of reopening a session, use the [Update customer session](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint to cancel a closed session and create a new one. 
 
 ### Example
 

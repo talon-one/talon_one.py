@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **payload** | **str** | API payload (supports templating using parameters) for this webhook. | [optional] 
 **params** | [**list[TemplateArgDef]**](TemplateArgDef.md) | Array of template argument definitions. | 
 **enabled** | **bool** | Enables or disables webhook from showing in the Rule Builder. | 
+**authentication_id** | **int** | The ID of the credential that this webhook is using. | [optional] 
 **outgoing_integration_template_id** | **int** | Identifier of the outgoing integration template. | [optional] 
 **outgoing_integration_type_id** | **int** | Identifier of the outgoing integration type. | [optional] 
 **outgoing_integration_type_name** | **str** | Name of the outgoing integration. | [optional] 

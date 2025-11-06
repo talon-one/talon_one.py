@@ -49,7 +49,9 @@ class TestAccountLimits(unittest.TestCase):
                 api_volume = 56, 
                 promotion_types = [
                     '0'
-                    ]
+                    ], 
+                secondary_deployment_price = 56, 
+                currency_code = '0'
             )
         else :
             return AccountLimits(
@@ -67,6 +69,8 @@ class TestAccountLimits(unittest.TestCase):
                 promotion_types = [
                     '0'
                     ],
+                secondary_deployment_price = 56,
+                currency_code = '0',
         )
 
     def testAccountLimits(self):

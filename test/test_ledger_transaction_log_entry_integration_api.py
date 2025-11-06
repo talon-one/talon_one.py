@@ -36,6 +36,7 @@ class TestLedgerTransactionLogEntryIntegrationAPI(unittest.TestCase):
         # model = talon_one.models.ledger_transaction_log_entry_integration_api.LedgerTransactionLogEntryIntegrationAPI()  # noqa: E501
         if include_optional :
             return LedgerTransactionLogEntryIntegrationAPI(
+                transaction_uuid = 'ce59f12a-f53b-4014-a745-636d93f2bd3f', 
                 created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                 program_id = 324, 
                 customer_session_id = '05c2da0d-48fa-4aa1-b629-898f58f1584d', 
@@ -53,6 +54,7 @@ class TestLedgerTransactionLogEntryIntegrationAPI(unittest.TestCase):
             )
         else :
             return LedgerTransactionLogEntryIntegrationAPI(
+                transaction_uuid = 'ce59f12a-f53b-4014-a745-636d93f2bd3f',
                 created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 program_id = 324,
                 type = 'addition',

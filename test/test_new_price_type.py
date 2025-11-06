@@ -38,7 +38,7 @@ class TestNewPriceType(unittest.TestCase):
             return NewPriceType(
                 name = 'member', 
                 title = 'Member Price', 
-                description = 'Price available exclusively to members.', 
+                description = 'The price available exclusively to members.', 
                 targeted_audiences_ids = [1, 2, 3]
             )
         else :

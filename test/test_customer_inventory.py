@@ -217,7 +217,8 @@ class TestCustomerInventory(unittest.TestCase):
                         achievement_recurrence_policy = 'no_recurrence', 
                         achievement_activation_policy = 'fixed_schedule', 
                         achievement_fixed_start_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        achievement_end_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), )
+                        achievement_end_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        achievement_allow_rollback_after_completion = False, )
                     ]
             )
         else :

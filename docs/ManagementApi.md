@@ -120,8 +120,6 @@ Method | HTTP request | Description
 [**get_user**](ManagementApi.md#get_user) | **GET** /v1/users/{userId} | Get user
 [**get_users**](ManagementApi.md#get_users) | **GET** /v1/users | List users in account
 [**get_webhook**](ManagementApi.md#get_webhook) | **GET** /v1/webhooks/{webhookId} | Get webhook
-[**get_webhook_activation_logs**](ManagementApi.md#get_webhook_activation_logs) | **GET** /v1/webhook_activation_logs | List webhook activation log entries
-[**get_webhook_logs**](ManagementApi.md#get_webhook_logs) | **GET** /v1/webhook_logs | List webhook log entries
 [**get_webhooks**](ManagementApi.md#get_webhooks) | **GET** /v1/webhooks | List webhooks
 [**import_account_collection**](ManagementApi.md#import_account_collection) | **POST** /v1/collections/{collectionId}/import | Import data into existing account-level collection
 [**import_allowed_list**](ManagementApi.md#import_allowed_list) | **POST** /v1/attributes/{attributeId}/allowed_list/import | Import allowed values for attribute
@@ -190,6 +188,67 @@ Enable a [disabled user](https://docs.talon.one/docs/product/account/account-set
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    body = talon_one.DeleteUserRequest() # DeleteUserRequest | body
+
+    try:
+        # Enable user by email address
+        api_instance.activate_user_by_email(body)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->activate_user_by_email: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -207,6 +266,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -259,6 +328,16 @@ configuration = talon_one.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
     host = "https://yourbaseurl.talon.one",
@@ -304,7 +383,7 @@ void (empty response body)
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -327,6 +406,69 @@ Add points to the given loyalty card in the specified card-based loyalty program
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    loyalty_program_id = 56 # int | Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. 
+loyalty_card_id = 'loyalty_card_id_example' # str | Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint. 
+body = talon_one.AddLoyaltyPoints() # AddLoyaltyPoints | body
+
+    try:
+        # Add points to card
+        api_instance.add_loyalty_card_points(loyalty_program_id, loyalty_card_id, body)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->add_loyalty_card_points: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -344,6 +486,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -397,6 +549,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -447,7 +609,7 @@ void (empty response body)
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -473,6 +635,69 @@ Add points in the specified loyalty program for the given customer.  To get the 
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    loyalty_program_id = 'loyalty_program_id_example' # str | The identifier for the loyalty program.
+integration_id = 'integration_id_example' # str | The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. 
+body = talon_one.AddLoyaltyPoints() # AddLoyaltyPoints | body
+
+    try:
+        # Add points to customer profile
+        api_instance.add_loyalty_points(loyalty_program_id, integration_id, body)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->add_loyalty_points: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -490,6 +715,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -544,6 +779,16 @@ configuration = talon_one.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
     host = "https://yourbaseurl.talon.one",
@@ -593,7 +838,7 @@ void (empty response body)
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -619,6 +864,70 @@ Copy the campaign into all specified Applications.
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
+campaign_id = 56 # int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
+body = talon_one.CampaignCopy() # CampaignCopy | body
+
+    try:
+        # Copy the campaign into the specified Application
+        api_response = api_instance.copy_campaign_to_applications(application_id, campaign_id, body)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->copy_campaign_to_applications: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -636,6 +945,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -690,6 +1009,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -741,7 +1070,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -764,6 +1093,68 @@ Create an account-level collection.
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    body = talon_one.NewCollection() # NewCollection | body
+
+    try:
+        # Create account-level collection
+        api_response = api_instance.create_account_collection(body)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->create_account_collection: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -781,6 +1172,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -834,6 +1235,16 @@ configuration = talon_one.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
     host = "https://yourbaseurl.talon.one",
@@ -880,7 +1291,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -906,6 +1317,70 @@ Create a new achievement in a specific campaign.
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
+campaign_id = 56 # int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
+body = talon_one.CreateAchievement() # CreateAchievement | body
+
+    try:
+        # Create achievement
+        api_response = api_instance.create_achievement(application_id, campaign_id, body)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->create_achievement: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -923,6 +1398,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -977,6 +1462,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -1028,7 +1523,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -1054,6 +1549,68 @@ Create an [additional cost](https://docs.talon.one/docs/product/account/dev-tool
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    body = talon_one.NewAdditionalCost() # NewAdditionalCost | body
+
+    try:
+        # Create additional cost
+        api_response = api_instance.create_additional_cost(body)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->create_additional_cost: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -1071,6 +1628,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -1123,6 +1690,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -1170,7 +1747,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -1193,6 +1770,68 @@ Create a _custom attribute_ in this account. [Custom attributes](https://docs.ta
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    body = talon_one.NewAttribute() # NewAttribute | body
+
+    try:
+        # Create custom attribute
+        api_response = api_instance.create_attribute(body)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->create_attribute: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -1210,6 +1849,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -1263,6 +1912,16 @@ configuration = talon_one.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
     host = "https://yourbaseurl.talon.one",
@@ -1309,7 +1968,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -1332,6 +1991,69 @@ Create a batch of loyalty cards in a specified [card-based loyalty program](http
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    loyalty_program_id = 56 # int | Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. 
+body = talon_one.LoyaltyCardBatch() # LoyaltyCardBatch | body
+
+    try:
+        # Create loyalty cards
+        api_response = api_instance.create_batch_loyalty_cards(loyalty_program_id, body)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->create_batch_loyalty_cards: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -1349,6 +2071,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -1402,6 +2134,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -1451,7 +2193,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -1477,6 +2219,69 @@ Use the campaign template referenced in the request body to create a new campaig
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
+body = talon_one.CreateTemplateCampaign() # CreateTemplateCampaign | body
+
+    try:
+        # Create campaign from campaign template
+        api_response = api_instance.create_campaign_from_template(application_id, body)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->create_campaign_from_template: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -1494,6 +2299,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -1548,6 +2363,16 @@ configuration = talon_one.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
     host = "https://yourbaseurl.talon.one",
@@ -1596,7 +2421,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -1619,6 +2444,69 @@ Create a new store budget for a given campaign.
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
+campaign_id = 56 # int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
+body = talon_one.NewCampaignStoreBudget() # NewCampaignStoreBudget | body
+
+    try:
+        # Create campaign store budget
+        api_instance.create_campaign_store_budget(application_id, campaign_id, body)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->create_campaign_store_budget: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -1636,6 +2524,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -1689,6 +2587,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -1739,7 +2647,7 @@ void (empty response body)
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -1764,6 +2672,70 @@ Create a campaign-level collection in a given campaign.
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
+campaign_id = 56 # int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
+body = talon_one.NewCampaignCollection() # NewCampaignCollection | body
+
+    try:
+        # Create campaign-level collection
+        api_response = api_instance.create_collection(application_id, campaign_id, body)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->create_collection: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -1781,6 +2753,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -1835,6 +2817,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -1886,7 +2878,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -1909,6 +2901,71 @@ Create coupons according to some pattern. Up to 20.000 coupons can be created wi
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
+campaign_id = 56 # int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
+body = talon_one.NewCoupons() # NewCoupons | body
+silent = 'yes' # str | Possible values: `yes` or `no`. - `yes`: Increases the performance of the API call by returning a 204 response. - `no`: Returns a 200 response that contains the updated customer profiles.  (optional) (default to 'yes')
+
+    try:
+        # Create coupons
+        api_response = api_instance.create_coupons(application_id, campaign_id, body, silent=silent)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->create_coupons: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -1926,6 +2983,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -1981,6 +3048,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -2034,7 +3111,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -2058,6 +3135,70 @@ Create up to 5,000,000 coupons asynchronously. You should typically use this enp
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
+campaign_id = 56 # int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
+body = talon_one.NewCouponCreationJob() # NewCouponCreationJob | body
+
+    try:
+        # Create coupons asynchronously
+        api_response = api_instance.create_coupons_async(application_id, campaign_id, body)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->create_coupons_async: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -2075,6 +3216,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -2129,6 +3280,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -2180,7 +3341,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -2203,6 +3364,70 @@ This endpoint handles creating a job to delete coupons asynchronously.
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
+campaign_id = 56 # int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
+body = talon_one.NewCouponDeletionJob() # NewCouponDeletionJob | body
+
+    try:
+        # Creates a coupon deletion job
+        api_response = api_instance.create_coupons_deletion_job(application_id, campaign_id, body)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->create_coupons_deletion_job: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -2220,6 +3445,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -2275,6 +3510,16 @@ configuration = talon_one.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
     host = "https://yourbaseurl.talon.one",
@@ -2325,7 +3570,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -2348,6 +3593,71 @@ Create coupons according to some pattern for up to 1000 recipients.
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
+campaign_id = 56 # int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
+body = talon_one.NewCouponsForMultipleRecipients() # NewCouponsForMultipleRecipients | body
+silent = 'yes' # str | Possible values: `yes` or `no`. - `yes`: Increases the performance of the API call by returning a 204 response. - `no`: Returns a 200 response that contains the updated customer profiles.  (optional) (default to 'yes')
+
+    try:
+        # Create coupons for multiple recipients
+        api_response = api_instance.create_coupons_for_multiple_recipients(application_id, campaign_id, body, silent=silent)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->create_coupons_for_multiple_recipients: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -2365,6 +3675,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -2420,6 +3740,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -2473,7 +3803,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -2497,6 +3827,68 @@ Resend an email invitation to an existing user.  **Note:** The invitation token 
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    body = talon_one.NewInviteEmail() # NewInviteEmail | body
+
+    try:
+        # Resend invitation email
+        api_response = api_instance.create_invite_email(body)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->create_invite_email: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -2514,6 +3906,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -2566,6 +3968,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -2613,7 +4025,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -2636,6 +4048,68 @@ Create a new user in the account and send an invitation to their email address. 
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    body = talon_one.NewInvitation() # NewInvitation | body
+
+    try:
+        # Invite user
+        api_response = api_instance.create_invite_v2(body)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->create_invite_v2: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -2653,6 +4127,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -2705,6 +4189,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -2752,7 +4246,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -2775,6 +4269,68 @@ Send an email with a password recovery link to the email address of an existing 
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    body = talon_one.NewPasswordEmail() # NewPasswordEmail | body
+
+    try:
+        # Request a password reset
+        api_response = api_instance.create_password_recovery_email(body)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->create_password_recovery_email: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -2792,6 +4348,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -2844,6 +4410,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -2891,7 +4467,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -2914,6 +4490,68 @@ Create a session to use the Management API endpoints. Use the value of the `toke
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    body = talon_one.LoginParams() # LoginParams | body
+
+    try:
+        # Create session
+        api_response = api_instance.create_session(body)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->create_session: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -2931,6 +4569,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -2984,6 +4632,16 @@ configuration = talon_one.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
     host = "https://yourbaseurl.talon.one",
@@ -3030,7 +4688,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -3053,6 +4711,69 @@ Create a new store in a specific Application.
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
+body = talon_one.NewStore() # NewStore | body
+
+    try:
+        # Create store
+        api_response = api_instance.create_store(application_id, body)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->create_store: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -3070,6 +4791,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -3123,6 +4854,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -3172,7 +4913,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -3197,6 +4938,67 @@ Disable user by email address
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    body = talon_one.DeleteUserRequest() # DeleteUserRequest | body
+
+    try:
+        # Disable user by email address
+        api_instance.deactivate_user_by_email(body)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->deactivate_user_by_email: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -3214,6 +5016,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -3266,6 +5078,16 @@ configuration = talon_one.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
     host = "https://yourbaseurl.talon.one",
@@ -3311,7 +5133,7 @@ void (empty response body)
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -3334,6 +5156,69 @@ Deduct points from the given loyalty card in the specified card-based loyalty pr
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    loyalty_program_id = 56 # int | Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. 
+loyalty_card_id = 'loyalty_card_id_example' # str | Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint. 
+body = talon_one.DeductLoyaltyPoints() # DeductLoyaltyPoints | body
+
+    try:
+        # Deduct points from card
+        api_instance.deduct_loyalty_card_points(loyalty_program_id, loyalty_card_id, body)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->deduct_loyalty_card_points: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -3351,6 +5236,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -3404,6 +5299,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -3454,7 +5359,7 @@ void (empty response body)
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -3480,6 +5385,67 @@ Delete a given account-level collection.
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    collection_id = 56 # int | The ID of the collection. You can get it with the [List collections in account](#operation/listAccountCollections) endpoint.
+
+    try:
+        # Delete account-level collection
+        api_instance.delete_account_collection(collection_id)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->delete_account_collection: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -3497,6 +5463,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -3549,6 +5525,16 @@ configuration = talon_one.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
     host = "https://yourbaseurl.talon.one",
@@ -3594,7 +5580,7 @@ void (empty response body)
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -3618,6 +5604,69 @@ Delete the specified achievement.
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
+campaign_id = 56 # int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
+achievement_id = 56 # int | The ID of the achievement. You can get this ID with the [List achievement](https://docs.talon.one/management-api#tag/Achievements/operation/listAchievements) endpoint.
+
+    try:
+        # Delete achievement
+        api_instance.delete_achievement(application_id, campaign_id, achievement_id)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->delete_achievement: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -3635,6 +5684,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -3688,6 +5747,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -3738,7 +5807,7 @@ void (empty response body)
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -3763,6 +5832,68 @@ Delete the given campaign.
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
+campaign_id = 56 # int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
+
+    try:
+        # Delete campaign
+        api_instance.delete_campaign(application_id, campaign_id)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->delete_campaign: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -3780,6 +5911,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -3833,6 +5974,16 @@ configuration = talon_one.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
     host = "https://yourbaseurl.talon.one",
@@ -3880,7 +6031,7 @@ void (empty response body)
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -3903,6 +6054,70 @@ Delete the store budgets for a given campaign.
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
+campaign_id = 56 # int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
+action = 'action_example' # str | The action that this budget is limiting. (optional)
+period = 'period_example' # str | The period to which the limit applies.  **Note**: For budgets with no period, set this to `overall`.  (optional)
+
+    try:
+        # Delete campaign store budgets
+        api_instance.delete_campaign_store_budgets(application_id, campaign_id, action=action, period=period)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->delete_campaign_store_budgets: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -3920,6 +6135,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -3974,6 +6199,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -4026,7 +6261,7 @@ void (empty response body)
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -4050,6 +6285,69 @@ Delete a given campaign-level collection.
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
+campaign_id = 56 # int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
+collection_id = 56 # int | The ID of the collection. You can get it with the [List collections in Application](#operation/listCollectionsInApplication) endpoint.
+
+    try:
+        # Delete campaign-level collection
+        api_instance.delete_collection(application_id, campaign_id, collection_id)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->delete_collection: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -4067,6 +6365,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -4120,6 +6428,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -4170,7 +6488,7 @@ void (empty response body)
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -4194,6 +6512,69 @@ Delete the specified coupon.
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
+campaign_id = 56 # int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
+coupon_id = 'coupon_id_example' # str | The internal ID of the coupon code. You can find this value in the `id` property from the [List coupons](https://docs.talon.one/management-api#tag/Coupons/operation/getCouponsWithoutTotalCount) endpoint response. 
+
+    try:
+        # Delete coupon
+        api_instance.delete_coupon(application_id, campaign_id, coupon_id)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->delete_coupon: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -4211,6 +6592,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -4265,6 +6656,16 @@ configuration = talon_one.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
     host = "https://yourbaseurl.talon.one",
@@ -4314,7 +6715,7 @@ void (empty response body)
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -4337,6 +6738,81 @@ Deletes all the coupons matching the specified criteria.
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
+campaign_id = 56 # int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
+value = 'value_example' # str | Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
+created_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
+created_after = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
+starts_after = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon start date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
+starts_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon start date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
+expires_after = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon expiration date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
+expires_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon expiration date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
+valid = 'valid_example' # str | - `expired`: Matches coupons in which the expiration date is set and in the past. - `validNow`: Matches coupons in which start date is null or in the past and expiration date is null or in the future. - `validFuture`: Matches coupons in which start date is set and in the future.  (optional)
+batch_id = 'batch_id_example' # str | Filter results by batches of coupons (optional)
+usable = 'usable_example' # str | - `true`: only coupons where `usageCounter < usageLimit` will be returned. - `false`: only coupons where `usageCounter >= usageLimit` will be returned.  (optional)
+referral_id = 56 # int | Filter the results by matching them with the ID of a referral. This filter shows the coupons created by redeeming a referral code. (optional)
+recipient_integration_id = 'recipient_integration_id_example' # str | Filter results by match with a profile ID specified in the coupon's `RecipientIntegrationId` field.  (optional)
+exact_match = False # bool | Filter results to an exact case-insensitive matching against the coupon code (optional) (default to False)
+
+    try:
+        # Delete coupons
+        api_instance.delete_coupons(application_id, campaign_id, value=value, created_before=created_before, created_after=created_after, starts_after=starts_after, starts_before=starts_before, expires_after=expires_after, expires_before=expires_before, valid=valid, batch_id=batch_id, usable=usable, referral_id=referral_id, recipient_integration_id=recipient_integration_id, exact_match=exact_match)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->delete_coupons: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -4354,6 +6830,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -4419,6 +6905,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -4493,7 +6989,7 @@ void (empty response body)
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -4516,6 +7012,68 @@ Delete the given loyalty card.
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    loyalty_program_id = 56 # int | Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. 
+loyalty_card_id = 'loyalty_card_id_example' # str | Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint. 
+
+    try:
+        # Delete loyalty card
+        api_instance.delete_loyalty_card(loyalty_program_id, loyalty_card_id)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->delete_loyalty_card: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -4533,6 +7091,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -4586,6 +7154,16 @@ configuration = talon_one.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
     host = "https://yourbaseurl.talon.one",
@@ -4633,7 +7211,7 @@ void (empty response body)
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -4658,6 +7236,69 @@ Delete the specified referral.
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
+campaign_id = 56 # int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
+referral_id = 'referral_id_example' # str | The ID of the referral code.
+
+    try:
+        # Delete referral
+        api_instance.delete_referral(application_id, campaign_id, referral_id)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->delete_referral: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -4675,6 +7316,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -4728,6 +7379,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -4778,7 +7439,7 @@ void (empty response body)
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -4801,6 +7462,68 @@ Delete the specified store.
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
+store_id = 'store_id_example' # str | The ID of the store. You can get this ID with the [List stores](#tag/Stores/operation/listStores) endpoint. 
+
+    try:
+        # Delete store
+        api_instance.delete_store(application_id, store_id)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->delete_store: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -4818,6 +7541,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -4870,6 +7603,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -4918,7 +7661,7 @@ void (empty response body)
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -4942,6 +7685,67 @@ Delete a specific user.
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    user_id = 56 # int | The ID of the user.
+
+    try:
+        # Delete user
+        api_instance.delete_user(user_id)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->delete_user: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -4959,6 +7763,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -5010,6 +7824,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -5056,7 +7880,7 @@ void (empty response body)
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -5079,6 +7903,67 @@ Delete user by email address
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    body = talon_one.DeleteUserRequest() # DeleteUserRequest | body
+
+    try:
+        # Delete user by email address
+        api_instance.delete_user_by_email(body)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->delete_user_by_email: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -5096,6 +7981,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -5147,6 +8042,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -5193,7 +8098,7 @@ void (empty response body)
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -5216,6 +8121,66 @@ Destroys the session.
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    
+    try:
+        # Destroy session
+        api_instance.destroy_session()
+    except ApiException as e:
+        print("Exception when calling ManagementApi->destroy_session: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -5233,6 +8198,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -5284,6 +8259,16 @@ configuration = talon_one.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
     host = "https://yourbaseurl.talon.one",
@@ -5325,7 +8310,7 @@ void (empty response body)
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -5348,6 +8333,68 @@ Disconnect the stores linked to a specific campaign.
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
+campaign_id = 56 # int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
+
+    try:
+        # Disconnect stores
+        api_instance.disconnect_campaign_stores(application_id, campaign_id)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->disconnect_campaign_stores: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -5365,6 +8412,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -5417,6 +8474,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -5465,7 +8532,7 @@ void (empty response body)
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -5491,6 +8558,68 @@ Download a CSV file containing items from a given account-level collection.  **T
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    collection_id = 56 # int | The ID of the collection. You can get it with the [List collections in account](#operation/listAccountCollections) endpoint.
+
+    try:
+        # Export account-level collection's items
+        api_response = api_instance.export_account_collection_items(collection_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->export_account_collection_items: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -5508,6 +8637,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -5561,6 +8700,16 @@ configuration = talon_one.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
     host = "https://yourbaseurl.talon.one",
@@ -5607,7 +8756,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -5632,6 +8781,70 @@ Download a CSV file containing a list of all the customers who have participated
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
+campaign_id = 56 # int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
+achievement_id = 56 # int | The ID of the achievement. You can get this ID with the [List achievement](https://docs.talon.one/management-api#tag/Achievements/operation/listAchievements) endpoint.
+
+    try:
+        # Export achievement customer data
+        api_response = api_instance.export_achievements(application_id, campaign_id, achievement_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->export_achievements: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -5649,6 +8862,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -5703,6 +8926,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -5754,7 +8987,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -5780,6 +9013,68 @@ Download a CSV file containing the integration IDs of the members of an audience
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    audience_id = 56 # int | The ID of the audience.
+
+    try:
+        # Export audience members
+        api_response = api_instance.export_audiences_memberships(audience_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->export_audiences_memberships: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -5797,6 +9092,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -5850,6 +9155,16 @@ configuration = talon_one.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
     host = "https://yourbaseurl.talon.one",
@@ -5896,7 +9211,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -5922,6 +9237,71 @@ Download a CSV file containing the store budgets for a given campaign.  **Tip:**
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
+campaign_id = 56 # int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
+action = 'action_example' # str | The action that this budget is limiting. (optional)
+period = 'period_example' # str | The period to which the limit applies.  **Note**: For budgets with no period, set this to `overall`.  (optional)
+
+    try:
+        # Export campaign store budgets
+        api_response = api_instance.export_campaign_store_budgets(application_id, campaign_id, action=action, period=period)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->export_campaign_store_budgets: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -5939,6 +9319,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -5994,6 +9384,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -6047,7 +9447,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -6073,6 +9473,69 @@ Download a CSV file containing the stores linked to a specific campaign.  **Tip:
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
+campaign_id = 56 # int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
+
+    try:
+        # Export stores
+        api_response = api_instance.export_campaign_stores(application_id, campaign_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->export_campaign_stores: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -6090,6 +9553,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -6144,6 +9617,16 @@ configuration = talon_one.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
     host = "https://yourbaseurl.talon.one",
@@ -6192,7 +9675,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -6218,6 +9701,70 @@ Download a CSV file containing items from a given campaign-level collection.  **
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
+campaign_id = 56 # int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
+collection_id = 56 # int | The ID of the collection. You can get it with the [List collections in Application](#operation/listCollectionsInApplication) endpoint.
+
+    try:
+        # Export campaign-level collection's items
+        api_response = api_instance.export_collection_items(application_id, campaign_id, collection_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->export_collection_items: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -6235,6 +9782,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -6289,6 +9846,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -6340,7 +9907,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -6365,6 +9932,82 @@ Download a CSV file containing the coupons that match the given properties.  **T
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
+campaign_id = 3.4 # float | Filter results by campaign ID. (optional)
+sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
+value = 'value_example' # str | Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
+created_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
+created_after = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
+valid = 'valid_example' # str | Either \"expired\", \"validNow\", or \"validFuture\". The first option matches coupons in which the expiration date is set and in the past. The second matches coupons in which start date is null or in the past and expiration date is null or in the future, the third matches coupons in which start date is set and in the future.  (optional)
+usable = 'usable_example' # str | Either \"true\" or \"false\". If \"true\", only coupons where `usageCounter < usageLimit` will be returned, \"false\" will return only coupons where `usageCounter >= usageLimit`.  (optional)
+referral_id = 56 # int | Filter the results by matching them with the ID of a referral. This filter shows the coupons created by redeeming a referral code. (optional)
+recipient_integration_id = 'recipient_integration_id_example' # str | Filter results by match with a profile id specified in the coupon's RecipientIntegrationId field. (optional)
+batch_id = 'batch_id_example' # str | Filter results by batches of coupons (optional)
+exact_match = False # bool | Filter results to an exact case-insensitive matching against the coupon code. (optional) (default to False)
+date_format = 'date_format_example' # str | Determines the format of dates in the export document. (optional)
+campaign_state = 'campaign_state_example' # str | Filter results by the state of the campaign.  - `enabled`: Campaigns that are scheduled, running (activated), or expired. - `running`: Campaigns that are running (activated). - `disabled`: Campaigns that are disabled. - `expired`: Campaigns that are expired. - `archived`: Campaigns that are archived.  (optional)
+values_only = False # bool | Filter results to only return the coupon codes (`value` column) without the associated coupon data. (optional) (default to False)
+
+    try:
+        # Export coupons
+        api_response = api_instance.export_coupons(application_id, campaign_id=campaign_id, sort=sort, value=value, created_before=created_before, created_after=created_after, valid=valid, usable=usable, referral_id=referral_id, recipient_integration_id=recipient_integration_id, batch_id=batch_id, exact_match=exact_match, date_format=date_format, campaign_state=campaign_state, values_only=values_only)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->export_coupons: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -6382,6 +10025,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -6448,6 +10101,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -6523,7 +10186,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -6546,6 +10209,73 @@ Download a CSV file containing the customer sessions that match the request.  **
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
+created_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string. (optional)
+created_after = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string. (optional)
+profile_integration_id = 'profile_integration_id_example' # str | Only return sessions for the customer that matches this customer integration ID. (optional)
+date_format = 'date_format_example' # str | Determines the format of dates in the export document. (optional)
+customer_session_state = 'customer_session_state_example' # str | Filter results by state. (optional)
+
+    try:
+        # Export customer sessions
+        api_response = api_instance.export_customer_sessions(application_id, created_before=created_before, created_after=created_after, profile_integration_id=profile_integration_id, date_format=date_format, customer_session_state=customer_session_state)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->export_customer_sessions: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -6563,6 +10293,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -6620,6 +10360,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -6677,7 +10427,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -6700,6 +10450,70 @@ Download a CSV file containing the tier information for customers of the specifi
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    loyalty_program_id = 'loyalty_program_id_example' # str | The identifier for the loyalty program.
+subledger_ids = ['subledger_ids_example'] # list[str] | An array of subledgers IDs to filter the export by. (optional)
+tier_names = ['tier_names_example'] # list[str] | An array of tier names to filter the export by. (optional)
+
+    try:
+        # Export customers' tier data
+        api_response = api_instance.export_customers_tiers(loyalty_program_id, subledger_ids=subledger_ids, tier_names=tier_names)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->export_customers_tiers: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -6717,6 +10531,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -6772,6 +10596,16 @@ configuration = talon_one.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
     host = "https://yourbaseurl.talon.one",
@@ -6822,7 +10656,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -6845,6 +10679,72 @@ Download a CSV file containing the triggered effects that match the given attrib
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
+campaign_id = 3.4 # float | Filter results by campaign ID. (optional)
+created_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
+created_after = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
+date_format = 'date_format_example' # str | Determines the format of dates in the export document. (optional)
+
+    try:
+        # Export triggered effects
+        api_response = api_instance.export_effects(application_id, campaign_id=campaign_id, created_before=created_before, created_after=created_after, date_format=date_format)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->export_effects: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -6862,6 +10762,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -6918,6 +10828,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -6973,7 +10893,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -6996,6 +10916,69 @@ Export customer loyalty balance to CSV
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    loyalty_program_id = 'loyalty_program_id_example' # str | The identifier for the loyalty program.
+end_date = '2013-10-20T19:20:30+01:00' # datetime | Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.  (optional)
+
+    try:
+        # Export customer loyalty balance to CSV
+        api_response = api_instance.export_loyalty_balance(loyalty_program_id, end_date=end_date)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->export_loyalty_balance: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -7013,6 +10996,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -7067,6 +11060,16 @@ configuration = talon_one.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
     host = "https://yourbaseurl.talon.one",
@@ -7115,7 +11118,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -7140,6 +11143,69 @@ Download a CSV file containing the balance of each customer in the loyalty progr
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    loyalty_program_id = 'loyalty_program_id_example' # str | The identifier for the loyalty program.
+end_date = '2013-10-20T19:20:30+01:00' # datetime | Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.  (optional)
+
+    try:
+        # Export customer loyalty balances
+        api_response = api_instance.export_loyalty_balances(loyalty_program_id, end_date=end_date)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->export_loyalty_balances: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -7157,6 +11223,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -7211,6 +11287,16 @@ configuration = talon_one.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
     host = "https://yourbaseurl.talon.one",
@@ -7259,7 +11345,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -7284,6 +11370,69 @@ Download a CSV file containing the balances of all cards in the loyalty program.
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    loyalty_program_id = 56 # int | Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. 
+end_date = '2013-10-20T19:20:30+01:00' # datetime | Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.  (optional)
+
+    try:
+        # Export all card transaction logs
+        api_response = api_instance.export_loyalty_card_balances(loyalty_program_id, end_date=end_date)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->export_loyalty_card_balances: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -7301,6 +11450,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -7354,6 +11513,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -7403,7 +11572,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -7428,6 +11597,72 @@ Download a CSV file containing a loyalty card ledger log of the loyalty program.
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    loyalty_program_id = 56 # int | Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. 
+loyalty_card_id = 'loyalty_card_id_example' # str | Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint. 
+range_start = '2013-10-20T19:20:30+01:00' # datetime | Only return results from after this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
+range_end = '2013-10-20T19:20:30+01:00' # datetime | Only return results from before this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
+date_format = 'date_format_example' # str | Determines the format of dates in the export document. (optional)
+
+    try:
+        # Export card's ledger log
+        api_response = api_instance.export_loyalty_card_ledger(loyalty_program_id, loyalty_card_id, range_start, range_end, date_format=date_format)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->export_loyalty_card_ledger: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -7445,6 +11680,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -7501,6 +11746,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -7556,7 +11811,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -7581,6 +11836,72 @@ Download a CSV file containing the loyalty cards from a specified loyalty progra
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    loyalty_program_id = 56 # int | Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. 
+batch_id = 'batch_id_example' # str | Filter results by loyalty card batch ID. (optional)
+created_before = '2013-10-20T19:20:30+01:00' # datetime | Only return loyalty cards created before this timestamp.  **Note:** - This must be an RFC3339 timestamp string.  (optional)
+created_after = '2013-10-20T19:20:30+01:00' # datetime | Only return loyalty cards created after this timestamp.  **Note:** - This must be an RFC3339 timestamp string.  (optional)
+date_format = 'date_format_example' # str | Determines the format of dates in the export document. (optional)
+
+    try:
+        # Export loyalty cards
+        api_response = api_instance.export_loyalty_cards(loyalty_program_id, batch_id=batch_id, created_before=created_before, created_after=created_after, date_format=date_format)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->export_loyalty_cards: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -7598,6 +11919,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -7654,6 +11985,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -7709,7 +12050,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -7730,9 +12071,75 @@ Name | Type | Description  | Notes
 
 Export customer's transaction logs
 
-Download a CSV file containing a customer's transaction logs in the loyalty program.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The generated file can contain the following columns:  - `customerprofileid`: The ID of the profile. - `customersessionid`: The ID of the customer session. - `rulesetid`: The ID of the rule set. - `rulename`: The name of the rule. - `programid`: The ID of the loyalty program. - `type`: The transaction type, such as `addition` or `subtraction`. - `name`: The reason for the transaction. - `subledgerid`: The ID of the subledger, when applicable. - `startdate`: The start date of the program. - `expirydate`: The expiration date of the program. - `id`: The ID of the transaction. - `created`: The timestamp of the creation of the loyalty program. - `amount`: The number of points in that transaction. - `archived`: Whether the session related to the transaction is archived. - `campaignid`: The ID of the campaign. - `flags`: The flags of the transaction, when applicable. The `createsNegativeBalance` flag indicates whether the transaction results in a negative balance. 
+Download a CSV file containing a customer's transaction logs in the loyalty program.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The generated file can contain the following columns:  - `customerprofileid`: The ID of the profile. - `customersessionid`: The ID of the customer session. - `rulesetid`: The ID of the rule set. - `rulename`: The name of the rule. - `programid`: The ID of the loyalty program. - `type`: The transaction type, such as `addition` or `subtraction`. - `name`: The reason for the transaction. - `subledgerid`: The ID of the subledger, when applicable. - `startdate`: The start date of the program. - `expirydate`: The expiration date of the program. - `id`: The ID of the transaction. - `created`: The timestamp of the creation of the loyalty program. - `amount`: The number of points in that transaction. - `archived`: Whether the session related to the transaction is archived. - `campaignid`: The ID of the campaign. - `flags`: The flags of the transaction, when applicable. The `createsNegativeBalance` flag indicates whether the transaction results in a negative balance. - `transactionUUID`: Unique identifier of the transaction in the UUID format. 
 
 ### Example
+
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    range_start = '2013-10-20T19:20:30+01:00' # datetime | Only return results from after this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
+range_end = '2013-10-20T19:20:30+01:00' # datetime | Only return results from before this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
+loyalty_program_id = 'loyalty_program_id_example' # str | The identifier for the loyalty program.
+integration_id = 'integration_id_example' # str | The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. 
+date_format = 'date_format_example' # str | Determines the format of dates in the export document. (optional)
+
+    try:
+        # Export customer's transaction logs
+        api_response = api_instance.export_loyalty_ledger(range_start, range_end, loyalty_program_id, integration_id, date_format=date_format)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->export_loyalty_ledger: %s\n" % e)
+```
 
 * Api Key Authentication (management_key):
 ```python
@@ -7751,6 +12158,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -7807,6 +12224,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -7862,7 +12289,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -7885,6 +12312,70 @@ Download a CSV file containing the giveaway codes of a specific giveaway pool.  
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    pool_id = 56 # int | The ID of the pool. You can find it in the Campaign Manager, in the **Giveaways** section.
+created_before = '2013-10-20T19:20:30+01:00' # datetime | Timestamp that filters the results to only contain giveaways created before this date. Must be an RFC3339 timestamp string. (optional)
+created_after = '2013-10-20T19:20:30+01:00' # datetime | Timestamp that filters the results to only contain giveaways created after this date. Must be an RFC3339 timestamp string. (optional)
+
+    try:
+        # Export giveaway codes of a giveaway pool
+        api_response = api_instance.export_pool_giveaways(pool_id, created_before=created_before, created_after=created_after)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->export_pool_giveaways: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -7902,6 +12393,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -7957,6 +12458,16 @@ configuration = talon_one.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
     host = "https://yourbaseurl.talon.one",
@@ -8007,7 +12518,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -8031,6 +12542,75 @@ Download a CSV file containing the referrals that match the given parameters.  *
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
+campaign_id = 3.4 # float | Filter results by campaign ID. (optional)
+created_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
+created_after = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
+valid = 'valid_example' # str | - `expired`: Matches referrals in which the expiration date is set and in the past. - `validNow`: Matches referrals in which start date is null or in the past and expiration date is null or in the future. - `validFuture`: Matches referrals in which start date is set and in the future.  (optional)
+usable = 'usable_example' # str | - `true`, only referrals where `usageCounter < usageLimit` will be returned. - `false`, only referrals where `usageCounter >= usageLimit` will be returned.  (optional)
+batch_id = 'batch_id_example' # str | Filter results by batches of referrals (optional)
+date_format = 'date_format_example' # str | Determines the format of dates in the export document. (optional)
+
+    try:
+        # Export referrals
+        api_response = api_instance.export_referrals(application_id, campaign_id=campaign_id, created_before=created_before, created_after=created_after, valid=valid, usable=usable, batch_id=batch_id, date_format=date_format)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->export_referrals: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -8048,6 +12628,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -8107,6 +12697,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -8168,7 +12768,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -8191,6 +12791,76 @@ Retrieve the list of API calls sent to the specified Application.
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
+range_start = '2013-10-20T19:20:30+01:00' # datetime | Only return results from after this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
+range_end = '2013-10-20T19:20:30+01:00' # datetime | Only return results from before this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
+path = 'path_example' # str | Only return results where the request path matches the given regular expression. (optional)
+method = 'method_example' # str | Only return results where the request method matches the given regular expression. (optional)
+status = 'status_example' # str | Filter results by HTTP status codes. (optional)
+page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
+sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
+
+    try:
+        # Get access logs for Application
+        api_response = api_instance.get_access_logs_without_total_count(application_id, range_start, range_end, path=path, method=method, status=status, page_size=page_size, skip=skip, sort=sort)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_access_logs_without_total_count: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -8208,6 +12878,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -8268,6 +12948,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -8331,7 +13021,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -8354,6 +13044,68 @@ Return the details of your companies Talon.One account.
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    account_id = 56 # int | The identifier of the account. Retrieve it via the [List users in account](https://docs.talon.one/management-api#operation/getUsers) endpoint in the `accountId` property. 
+
+    try:
+        # Get account details
+        api_response = api_instance.get_account(account_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_account: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -8371,6 +13123,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -8423,6 +13185,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -8470,7 +13242,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -8493,6 +13265,68 @@ Return the analytics of your Talon.One account.
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    account_id = 56 # int | The identifier of the account. Retrieve it via the [List users in account](https://docs.talon.one/management-api#operation/getUsers) endpoint in the `accountId` property. 
+
+    try:
+        # Get account analytics
+        api_response = api_instance.get_account_analytics(account_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_account_analytics: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -8510,6 +13344,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -8562,6 +13406,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -8609,7 +13463,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -8632,6 +13486,68 @@ Retrieve a given account-level collection.
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    collection_id = 56 # int | The ID of the collection. You can get it with the [List collections in account](#operation/listAccountCollections) endpoint.
+
+    try:
+        # Get account-level collection
+        api_response = api_instance.get_account_collection(collection_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_account_collection: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -8649,6 +13565,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -8702,6 +13628,16 @@ configuration = talon_one.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
     host = "https://yourbaseurl.talon.one",
@@ -8748,7 +13684,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -8772,6 +13708,70 @@ Get the details of a specific achievement.
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
+campaign_id = 56 # int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
+achievement_id = 56 # int | The ID of the achievement. You can get this ID with the [List achievement](https://docs.talon.one/management-api#tag/Achievements/operation/listAchievements) endpoint.
+
+    try:
+        # Get achievement
+        api_response = api_instance.get_achievement(application_id, campaign_id, achievement_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_achievement: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -8789,6 +13789,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -8843,6 +13853,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -8894,7 +13914,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -8919,6 +13939,68 @@ Returns the additional cost.
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    additional_cost_id = 56 # int | The ID of the additional cost. You can find the ID the the Campaign Manager's URL when you display the details of the cost in **Account** > **Tools** > **Additional costs**. 
+
+    try:
+        # Get additional cost
+        api_response = api_instance.get_additional_cost(additional_cost_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_additional_cost: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -8936,6 +14018,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -8989,6 +14081,16 @@ configuration = talon_one.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
     host = "https://yourbaseurl.talon.one",
@@ -9035,7 +14137,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -9058,6 +14160,70 @@ Returns all the defined additional costs for the account.
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
+sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
+
+    try:
+        # List additional costs
+        api_response = api_instance.get_additional_costs(page_size=page_size, skip=skip, sort=sort)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_additional_costs: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -9075,6 +14241,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -9129,6 +14305,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -9180,7 +14366,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -9203,6 +14389,68 @@ Get the application specified by the ID.
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
+
+    try:
+        # Get Application
+        api_response = api_instance.get_application(application_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_application: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -9220,6 +14468,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -9272,6 +14530,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -9319,7 +14587,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -9342,6 +14610,68 @@ Display the health of the Application and show the last time the Application was
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
+
+    try:
+        # Get Application health
+        api_response = api_instance.get_application_api_health(application_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_application_api_health: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -9359,6 +14689,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -9412,6 +14752,16 @@ configuration = talon_one.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
     host = "https://yourbaseurl.talon.one",
@@ -9458,7 +14808,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -9481,6 +14831,69 @@ Retrieve the customers of the specified application.
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
+customer_id = 56 # int | The value of the `id` property of a customer profile. Get it with the [List Application's customers](https://docs.talon.one/management-api#operation/getApplicationCustomers) endpoint. 
+
+    try:
+        # Get application's customer
+        api_response = api_instance.get_application_customer(application_id, customer_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_application_customer: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -9498,6 +14911,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -9551,6 +14974,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -9600,7 +15033,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -9623,6 +15056,73 @@ List the friends referred by the specified customer profile in this Application.
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
+integration_id = 'integration_id_example' # str | The Integration ID of the Advocate's Profile.
+page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
+sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
+with_total_result_size = True # bool | When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When `true`: `hasMore` is true when there is a next page. `totalResultSize` is always zero. - When `false`: `hasMore` is always false. `totalResultSize` contains the total number of results for this query.  (optional)
+
+    try:
+        # List friends referred by customer profile
+        api_response = api_instance.get_application_customer_friends(application_id, integration_id, page_size=page_size, skip=skip, sort=sort, with_total_result_size=with_total_result_size)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_application_customer_friends: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -9640,6 +15140,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -9697,6 +15207,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -9754,7 +15274,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -9777,6 +15297,72 @@ List all the customers of the specified application.
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
+integration_id = 'integration_id_example' # str | Filter results performing an exact matching against the profile integration identifier. (optional)
+page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
+with_total_result_size = True # bool | When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When `true`: `hasMore` is true when there is a next page. `totalResultSize` is always zero. - When `false`: `hasMore` is always false. `totalResultSize` contains the total number of results for this query.  (optional)
+
+    try:
+        # List application's customers
+        api_response = api_instance.get_application_customers(application_id, integration_id=integration_id, page_size=page_size, skip=skip, with_total_result_size=with_total_result_size)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_application_customers: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -9794,6 +15380,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -9850,6 +15446,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -9905,7 +15511,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -9928,6 +15534,72 @@ Get a list of the application customers matching the provided criteria.  The mat
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
+body = talon_one.CustomerProfileSearchQuery() # CustomerProfileSearchQuery | body
+page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
+with_total_result_size = True # bool | When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When `true`: `hasMore` is true when there is a next page. `totalResultSize` is always zero. - When `false`: `hasMore` is always false. `totalResultSize` contains the total number of results for this query.  (optional)
+
+    try:
+        # List application customers matching the given attributes
+        api_response = api_instance.get_application_customers_by_attributes(application_id, body, page_size=page_size, skip=skip, with_total_result_size=with_total_result_size)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_application_customers_by_attributes: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -9945,6 +15617,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -10001,6 +15683,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -10056,7 +15748,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -10079,6 +15771,71 @@ Get all of the distinct values of the Event `type` property for events recorded 
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
+page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
+sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
+
+    try:
+        # List Applications event types
+        api_response = api_instance.get_application_event_types(application_id, page_size=page_size, skip=skip, sort=sort)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_application_event_types: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -10096,6 +15853,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -10151,6 +15918,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -10204,7 +15981,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -10219,7 +15996,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_application_events_without_total_count**
-> InlineResponse20030 get_application_events_without_total_count(application_id, page_size=page_size, skip=skip, sort=sort, type=type, created_before=created_before, created_after=created_after, session=session, profile=profile, customer_name=customer_name, customer_email=customer_email, coupon_code=coupon_code, referral_code=referral_code, rule_query=rule_query, campaign_query=campaign_query)
+> InlineResponse20030 get_application_events_without_total_count(application_id, page_size=page_size, skip=skip, sort=sort, type=type, created_before=created_before, created_after=created_after, session=session, profile=profile, customer_name=customer_name, customer_email=customer_email, coupon_code=coupon_code, referral_code=referral_code, rule_query=rule_query, campaign_query=campaign_query, effect_type=effect_type)
 
 List Applications events
 
@@ -10227,7 +16004,7 @@ Lists all events recorded for an application. Instead of having the total number
 
 ### Example
 
-* Api Key Authentication (management_key):
+* Api Key Authentication (api_key_v1):
 ```python
 from __future__ import print_function
 import time
@@ -10244,6 +16021,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -10284,10 +16071,88 @@ coupon_code = 'coupon_code_example' # str | Coupon code (optional)
 referral_code = 'referral_code_example' # str | Referral code (optional)
 rule_query = 'rule_query_example' # str | Rule name filter for events (optional)
 campaign_query = 'campaign_query_example' # str | Campaign name filter for events (optional)
+effect_type = 'effect_type_example' # str | The type of effect that was triggered. See [API effects](https://docs.talon.one/docs/dev/integration-api/api-effects). (optional)
 
     try:
         # List Applications events
-        api_response = api_instance.get_application_events_without_total_count(application_id, page_size=page_size, skip=skip, sort=sort, type=type, created_before=created_before, created_after=created_after, session=session, profile=profile, customer_name=customer_name, customer_email=customer_email, coupon_code=coupon_code, referral_code=referral_code, rule_query=rule_query, campaign_query=campaign_query)
+        api_response = api_instance.get_application_events_without_total_count(application_id, page_size=page_size, skip=skip, sort=sort, type=type, created_before=created_before, created_after=created_after, session=session, profile=profile, customer_name=customer_name, customer_email=customer_email, coupon_code=coupon_code, referral_code=referral_code, rule_query=rule_query, campaign_query=campaign_query, effect_type=effect_type)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_application_events_without_total_count: %s\n" % e)
+```
+
+* Api Key Authentication (management_key):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
+page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
+sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
+type = 'type_example' # str | Comma-separated list of types by which to filter events. Must be exact match(es). (optional)
+created_before = '2013-10-20T19:20:30+01:00' # datetime | Only return events created before this date. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
+created_after = '2013-10-20T19:20:30+01:00' # datetime | Only return events created after this date. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
+session = 'session_example' # str | Session integration ID filter for events. Must be exact match. (optional)
+profile = 'profile_example' # str | Profile integration ID filter for events. Must be exact match. (optional)
+customer_name = 'customer_name_example' # str | Customer name filter for events. Will match substrings case-insensitively. (optional)
+customer_email = 'customer_email_example' # str | Customer e-mail address filter for events. Will match substrings case-insensitively. (optional)
+coupon_code = 'coupon_code_example' # str | Coupon code (optional)
+referral_code = 'referral_code_example' # str | Referral code (optional)
+rule_query = 'rule_query_example' # str | Rule name filter for events (optional)
+campaign_query = 'campaign_query_example' # str | Campaign name filter for events (optional)
+effect_type = 'effect_type_example' # str | The type of effect that was triggered. See [API effects](https://docs.talon.one/docs/dev/integration-api/api-effects). (optional)
+
+    try:
+        # List Applications events
+        api_response = api_instance.get_application_events_without_total_count(application_id, page_size=page_size, skip=skip, sort=sort, type=type, created_before=created_before, created_after=created_after, session=session, profile=profile, customer_name=customer_name, customer_email=customer_email, coupon_code=coupon_code, referral_code=referral_code, rule_query=rule_query, campaign_query=campaign_query, effect_type=effect_type)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling ManagementApi->get_application_events_without_total_count: %s\n" % e)
@@ -10311,6 +16176,16 @@ configuration = talon_one.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
     host = "https://yourbaseurl.talon.one",
@@ -10350,10 +16225,11 @@ coupon_code = 'coupon_code_example' # str | Coupon code (optional)
 referral_code = 'referral_code_example' # str | Referral code (optional)
 rule_query = 'rule_query_example' # str | Rule name filter for events (optional)
 campaign_query = 'campaign_query_example' # str | Campaign name filter for events (optional)
+effect_type = 'effect_type_example' # str | The type of effect that was triggered. See [API effects](https://docs.talon.one/docs/dev/integration-api/api-effects). (optional)
 
     try:
         # List Applications events
-        api_response = api_instance.get_application_events_without_total_count(application_id, page_size=page_size, skip=skip, sort=sort, type=type, created_before=created_before, created_after=created_after, session=session, profile=profile, customer_name=customer_name, customer_email=customer_email, coupon_code=coupon_code, referral_code=referral_code, rule_query=rule_query, campaign_query=campaign_query)
+        api_response = api_instance.get_application_events_without_total_count(application_id, page_size=page_size, skip=skip, sort=sort, type=type, created_before=created_before, created_after=created_after, session=session, profile=profile, customer_name=customer_name, customer_email=customer_email, coupon_code=coupon_code, referral_code=referral_code, rule_query=rule_query, campaign_query=campaign_query, effect_type=effect_type)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling ManagementApi->get_application_events_without_total_count: %s\n" % e)
@@ -10378,6 +16254,7 @@ Name | Type | Description  | Notes
  **referral_code** | **str**| Referral code | [optional] 
  **rule_query** | **str**| Rule name filter for events | [optional] 
  **campaign_query** | **str**| Campaign name filter for events | [optional] 
+ **effect_type** | **str**| The type of effect that was triggered. See [API effects](https://docs.talon.one/docs/dev/integration-api/api-effects). | [optional] 
 
 ### Return type
 
@@ -10385,7 +16262,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -10408,6 +16285,69 @@ Get the details of the given session. You can list the sessions with the [List A
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
+session_id = 56 # int | The **internal** ID of the session. You can get the ID with the [List Application sessions](https://docs.talon.one/management-api#tag/Customer-data/operation/getApplicationSessions) endpoint. 
+
+    try:
+        # Get Application session
+        api_response = api_instance.get_application_session(application_id, session_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_application_session: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -10425,6 +16365,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -10478,6 +16428,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -10527,7 +16487,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -10550,6 +16510,79 @@ List all the sessions of the specified Application.
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
+page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
+sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
+profile = 'profile_example' # str | Profile integration ID filter for sessions. Must be exact match. (optional)
+state = 'state_example' # str | Filter by sessions with this state. Must be exact match. (optional)
+created_before = '2013-10-20T19:20:30+01:00' # datetime | Only return events created before this date. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
+created_after = '2013-10-20T19:20:30+01:00' # datetime | Only return events created after this date. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
+coupon = 'coupon_example' # str | Filter by sessions with this coupon. Must be exact match. (optional)
+referral = 'referral_example' # str | Filter by sessions with this referral. Must be exact match. (optional)
+integration_id = 'integration_id_example' # str | Filter by sessions with this integration ID. Must be exact match. (optional)
+store_integration_id = 'store_integration_id_example' # str | The integration ID of the store. You choose this ID when you create a store. (optional)
+
+    try:
+        # List Application sessions
+        api_response = api_instance.get_application_sessions(application_id, page_size=page_size, skip=skip, sort=sort, profile=profile, state=state, created_before=created_before, created_after=created_after, coupon=coupon, referral=referral, integration_id=integration_id, store_integration_id=store_integration_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_application_sessions: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -10567,6 +16600,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -10630,6 +16673,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -10699,7 +16752,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -10722,6 +16775,70 @@ List all applications in the current account.
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
+sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
+
+    try:
+        # List Applications
+        api_response = api_instance.get_applications(page_size=page_size, skip=skip, sort=sort)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_applications: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -10739,6 +16856,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -10793,6 +16920,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -10844,7 +16981,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -10867,6 +17004,68 @@ Retrieve the specified custom attribute.
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    attribute_id = 56 # int | The ID of the attribute. You can find the ID in the Campaign Manager's URL when you display the details of an attribute in **Account** > **Tools** > **Attributes**.
+
+    try:
+        # Get custom attribute
+        api_response = api_instance.get_attribute(attribute_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_attribute: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -10884,6 +17083,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -10937,6 +17146,16 @@ configuration = talon_one.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
     host = "https://yourbaseurl.talon.one",
@@ -10983,7 +17202,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -11006,6 +17225,71 @@ Return all the custom attributes for the account.
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
+sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
+entity = 'entity_example' # str | Returned attributes will be filtered by supplied entity. (optional)
+
+    try:
+        # List custom attributes
+        api_response = api_instance.get_attributes(page_size=page_size, skip=skip, sort=sort, entity=entity)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_attributes: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -11023,6 +17307,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -11078,6 +17372,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -11131,7 +17435,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -11154,6 +17458,72 @@ Get a paginated list of the customer profiles in a given audience.  A maximum of
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    audience_id = 56 # int | The ID of the audience.
+page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
+sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
+profile_query = 'profile_query_example' # str | The filter to select a profile. (optional)
+
+    try:
+        # List audience members
+        api_response = api_instance.get_audience_memberships(audience_id, page_size=page_size, skip=skip, sort=sort, profile_query=profile_query)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_audience_memberships: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -11171,6 +17541,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -11227,6 +17607,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -11282,7 +17672,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -11306,6 +17696,71 @@ Get all audiences created in the account. To create an audience, use [Create aud
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
+sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
+with_total_result_size = True # bool | When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When `true`: `hasMore` is true when there is a next page. `totalResultSize` is always zero. - When `false`: `hasMore` is always false. `totalResultSize` contains the total number of results for this query.  (optional)
+
+    try:
+        # List audiences
+        api_response = api_instance.get_audiences(page_size=page_size, skip=skip, sort=sort, with_total_result_size=with_total_result_size)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_audiences: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -11323,6 +17778,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -11378,6 +17843,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -11431,7 +17906,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -11454,6 +17929,69 @@ Get a list of audience IDs and their member count.
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    audience_ids = 'audience_ids_example' # str | The IDs of one or more audiences, separated by commas, by which to filter results.
+sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
+
+    try:
+        # List audience analytics
+        api_response = api_instance.get_audiences_analytics(audience_ids, sort=sort)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_audiences_analytics: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -11471,6 +18009,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -11524,6 +18072,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -11573,7 +18131,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -11596,6 +18154,69 @@ Retrieve the given campaign.
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
+campaign_id = 56 # int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
+
+    try:
+        # Get campaign
+        api_response = api_instance.get_campaign(application_id, campaign_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_campaign: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -11613,6 +18234,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -11667,6 +18298,16 @@ configuration = talon_one.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
     host = "https://yourbaseurl.talon.one",
@@ -11715,7 +18356,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -11738,6 +18379,72 @@ Retrieve statistical data about the performance of the given campaign.
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
+campaign_id = 56 # int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
+range_start = '2013-10-20T19:20:30+01:00' # datetime | Only return results from after this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
+range_end = '2013-10-20T19:20:30+01:00' # datetime | Only return results from before this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
+granularity = 'granularity_example' # str | The time interval between the results in the returned time-series. (optional)
+
+    try:
+        # Get analytics of campaigns
+        api_response = api_instance.get_campaign_analytics(application_id, campaign_id, range_start, range_end, granularity=granularity)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_campaign_analytics: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -11755,6 +18462,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -11811,6 +18528,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -11866,7 +18593,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -11889,6 +18616,73 @@ Get a list of all the campaigns that match a set of attributes.
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
+body = talon_one.CampaignSearch() # CampaignSearch | body
+page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
+sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
+campaign_state = 'campaign_state_example' # str | Filter results by the state of the campaign.  - `enabled`: Campaigns that are scheduled, running (activated), or expired. - `running`: Campaigns that are running (activated). - `disabled`: Campaigns that are disabled. - `expired`: Campaigns that are expired. - `archived`: Campaigns that are archived.  (optional)
+
+    try:
+        # List campaigns that match the given attributes
+        api_response = api_instance.get_campaign_by_attributes(application_id, body, page_size=page_size, skip=skip, sort=sort, campaign_state=campaign_state)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_campaign_by_attributes: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -11906,6 +18700,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -11963,6 +18767,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -12020,7 +18834,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -12043,6 +18857,68 @@ Get a campaign access group specified by its ID.
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    campaign_group_id = 56 # int | The ID of the campaign access group.
+
+    try:
+        # Get campaign access group
+        api_response = api_instance.get_campaign_group(campaign_group_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_campaign_group: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -12060,6 +18936,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -12113,6 +18999,16 @@ configuration = talon_one.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
     host = "https://yourbaseurl.talon.one",
@@ -12159,7 +19055,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -12182,6 +19078,70 @@ List the campaign access groups in the current account.
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
+sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
+
+    try:
+        # List campaign access groups
+        api_response = api_instance.get_campaign_groups(page_size=page_size, skip=skip, sort=sort)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_campaign_groups: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -12199,6 +19159,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -12253,6 +19223,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -12304,7 +19284,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -12327,6 +19307,74 @@ Retrieve a list of campaign templates.
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
+sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
+state = 'state_example' # str | Filter results by the state of the campaign template. (optional)
+name = 'name_example' # str | Filter results performing case-insensitive matching against the name of the campaign template. (optional)
+tags = 'tags_example' # str | Filter results performing case-insensitive matching against the tags of the campaign template. When used in conjunction with the \"name\" query parameter, a logical OR will be performed to search both tags and name for the provided values.  (optional)
+user_id = 56 # int | Filter results by user ID. (optional)
+
+    try:
+        # List campaign templates
+        api_response = api_instance.get_campaign_templates(page_size=page_size, skip=skip, sort=sort, state=state, name=name, tags=tags, user_id=user_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_campaign_templates: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -12344,6 +19392,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -12402,6 +19460,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -12461,7 +19529,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -12484,6 +19552,79 @@ List the campaigns of the specified application that match your filter criteria.
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
+page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
+sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
+campaign_state = 'campaign_state_example' # str | Filter results by the state of the campaign.  - `enabled`: Campaigns that are scheduled, running (activated), or expired. - `running`: Campaigns that are running (activated). - `disabled`: Campaigns that are disabled. - `expired`: Campaigns that are expired. - `archived`: Campaigns that are archived.  (optional)
+name = 'name_example' # str | Filter results performing case-insensitive matching against the name of the campaign. (optional)
+tags = 'tags_example' # str | Filter results performing case-insensitive matching against the tags of the campaign. When used in conjunction with the \"name\" query parameter, a logical OR will be performed to search both tags and name for the provided values  (optional)
+created_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
+created_after = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
+campaign_group_id = 56 # int | Filter results to campaigns owned by the specified campaign access group ID. (optional)
+template_id = 56 # int | The ID of the campaign template this campaign was created from. (optional)
+store_id = 56 # int | Filter results to campaigns linked to the specified store ID. (optional)
+
+    try:
+        # List campaigns
+        api_response = api_instance.get_campaigns(application_id, page_size=page_size, skip=skip, sort=sort, campaign_state=campaign_state, name=name, tags=tags, created_before=created_before, created_after=created_after, campaign_group_id=campaign_group_id, template_id=template_id, store_id=store_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_campaigns: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -12501,6 +19642,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -12564,6 +19715,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -12633,7 +19794,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -12649,13 +19810,85 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_changes**
-> InlineResponse20044 get_changes(page_size=page_size, skip=skip, sort=sort, application_id=application_id, entity_path=entity_path, user_id=user_id, created_before=created_before, created_after=created_after, with_total_result_size=with_total_result_size, management_key_id=management_key_id, include_old=include_old)
+> InlineResponse20042 get_changes(page_size=page_size, skip=skip, sort=sort, application_id=application_id, entity_path=entity_path, user_id=user_id, created_before=created_before, created_after=created_after, with_total_result_size=with_total_result_size, management_key_id=management_key_id, include_old=include_old)
 
 Get audit logs for an account
 
 Retrieve the audit logs displayed in **Accounts > Audit logs**. 
 
 ### Example
+
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
+sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
+application_id = 3.4 # float | Filter results by Application ID. (optional)
+entity_path = 'entity_path_example' # str | Filter results on a case insensitive matching of the url path of the entity (optional)
+user_id = 56 # int | Filter results by user ID. (optional)
+created_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
+created_after = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
+with_total_result_size = True # bool | When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When `true`: `hasMore` is true when there is a next page. `totalResultSize` is always zero. - When `false`: `hasMore` is always false. `totalResultSize` contains the total number of results for this query.  (optional)
+management_key_id = 56 # int | Filter results that match the given management key ID. (optional)
+include_old = True # bool | When this flag is set to false, the state without the change will not be returned. The default value is true. (optional)
+
+    try:
+        # Get audit logs for an account
+        api_response = api_instance.get_changes(page_size=page_size, skip=skip, sort=sort, application_id=application_id, entity_path=entity_path, user_id=user_id, created_before=created_before, created_after=created_after, with_total_result_size=with_total_result_size, management_key_id=management_key_id, include_old=include_old)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_changes: %s\n" % e)
+```
 
 * Api Key Authentication (management_key):
 ```python
@@ -12674,6 +19907,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -12736,6 +19979,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -12799,11 +20052,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20044**](InlineResponse20044.md)
+[**InlineResponse20042**](InlineResponse20042.md)
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -12826,6 +20079,70 @@ Retrieve a given campaign-level collection.
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
+campaign_id = 56 # int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
+collection_id = 56 # int | The ID of the collection. You can get it with the [List collections in Application](#operation/listCollectionsInApplication) endpoint.
+
+    try:
+        # Get campaign-level collection
+        api_response = api_instance.get_collection(application_id, campaign_id, collection_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_collection: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -12843,6 +20160,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -12897,6 +20224,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -12948,7 +20285,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -12972,6 +20309,70 @@ Retrieve items from a given collection.  You can retrieve items from both accoun
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    collection_id = 56 # int | The ID of the collection. You can get it with the [List collections in account](#operation/listAccountCollections) endpoint.
+page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
+
+    try:
+        # Get collection items
+        api_response = api_instance.get_collection_items(collection_id, page_size=page_size, skip=skip)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_collection_items: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -12989,6 +20390,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -13044,6 +20455,16 @@ configuration = talon_one.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
     host = "https://yourbaseurl.talon.one",
@@ -13094,7 +20515,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -13118,6 +20539,87 @@ List all the coupons matching the specified criteria.
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
+campaign_id = 56 # int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
+page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
+sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
+value = 'value_example' # str | Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
+created_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
+created_after = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
+valid = 'valid_example' # str | Either \"expired\", \"validNow\", or \"validFuture\". The first option matches coupons in which the expiration date is set and in the past. The second matches coupons in which start date is null or in the past and expiration date is null or in the future, the third matches coupons in which start date is set and in the future.  (optional)
+usable = 'usable_example' # str | Either \"true\" or \"false\". If \"true\", only coupons where `usageCounter < usageLimit` will be returned, \"false\" will return only coupons where `usageCounter >= usageLimit`.  (optional)
+redeemed = 'redeemed_example' # str | - `true`: only coupons where `usageCounter > 0` will be returned. - `false`: only coupons where `usageCounter = 0` will be returned. - This field cannot be used in conjunction with the `usable` query parameter.  (optional)
+referral_id = 56 # int | Filter the results by matching them with the ID of a referral. This filter shows the coupons created by redeeming a referral code. (optional)
+recipient_integration_id = 'recipient_integration_id_example' # str | Filter results by match with a profile ID specified in the coupon's RecipientIntegrationId field. (optional)
+batch_id = 'batch_id_example' # str | Filter results by batches of coupons (optional)
+exact_match = False # bool | Filter results to an exact case-insensitive matching against the coupon code. (optional) (default to False)
+expires_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon expiration date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
+expires_after = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon expiration date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
+starts_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon start date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
+starts_after = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon start date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
+values_only = False # bool | Filter results to only return the coupon codes (`value` column) without the associated coupon data. (optional) (default to False)
+
+    try:
+        # List coupons
+        api_response = api_instance.get_coupons_without_total_count(application_id, campaign_id, page_size=page_size, skip=skip, sort=sort, value=value, created_before=created_before, created_after=created_after, valid=valid, usable=usable, redeemed=redeemed, referral_id=referral_id, recipient_integration_id=recipient_integration_id, batch_id=batch_id, exact_match=exact_match, expires_before=expires_before, expires_after=expires_after, starts_before=starts_before, starts_after=starts_after, values_only=values_only)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_coupons_without_total_count: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -13135,6 +20637,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -13206,6 +20718,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -13291,7 +20813,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -13314,6 +20836,73 @@ Fetch the summary report of a given customer in the given application, in a time
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    range_start = '2013-10-20T19:20:30+01:00' # datetime | Only return results from after this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
+range_end = '2013-10-20T19:20:30+01:00' # datetime | Only return results from before this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
+application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
+customer_id = 56 # int | The value of the `id` property of a customer profile. Get it with the [List Application's customers](https://docs.talon.one/management-api#operation/getApplicationCustomers) endpoint. 
+page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
+
+    try:
+        # Get customer's activity report
+        api_response = api_instance.get_customer_activity_report(range_start, range_end, application_id, customer_id, page_size=page_size, skip=skip)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_customer_activity_report: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -13331,6 +20920,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -13389,6 +20988,16 @@ configuration = talon_one.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
     host = "https://yourbaseurl.talon.one",
@@ -13445,7 +21054,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -13468,6 +21077,77 @@ Fetch summary reports for all application customers based on a time range. Inste
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    range_start = '2013-10-20T19:20:30+01:00' # datetime | Only return results from after this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
+range_end = '2013-10-20T19:20:30+01:00' # datetime | Only return results from before this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
+application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
+page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
+sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
+name = 'name_example' # str | Only return reports matching the customer name. (optional)
+integration_id = 'integration_id_example' # str | Filter results performing an exact matching against the profile integration identifier. (optional)
+campaign_name = 'campaign_name_example' # str | Only return reports matching the campaign name. (optional)
+advocate_name = 'advocate_name_example' # str | Only return reports matching the current customer referrer name. (optional)
+
+    try:
+        # Get Activity Reports for Application Customers
+        api_response = api_instance.get_customer_activity_reports_without_total_count(range_start, range_end, application_id, page_size=page_size, skip=skip, sort=sort, name=name, integration_id=integration_id, campaign_name=campaign_name, advocate_name=advocate_name)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_customer_activity_reports_without_total_count: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -13485,6 +21165,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -13546,6 +21236,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -13611,7 +21311,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -13634,6 +21334,72 @@ Fetch analytics for a given customer in the given application.
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
+customer_id = 56 # int | The value of the `id` property of a customer profile. Get it with the [List Application's customers](https://docs.talon.one/management-api#operation/getApplicationCustomers) endpoint. 
+page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
+sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
+
+    try:
+        # Get customer's analytics report
+        api_response = api_instance.get_customer_analytics(application_id, customer_id, page_size=page_size, skip=skip, sort=sort)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_customer_analytics: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -13651,6 +21417,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -13707,6 +21483,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -13762,7 +21548,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -13785,6 +21571,68 @@ Return the details of the specified customer profile.  <div class=\"redoc-sectio
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    customer_id = 56 # int | The value of the `id` property of a customer profile. Get it with the [List Application's customers](https://docs.talon.one/management-api#operation/getApplicationCustomers) endpoint. 
+
+    try:
+        # Get customer profile
+        api_response = api_instance.get_customer_profile(customer_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_customer_profile: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -13802,6 +21650,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -13855,6 +21713,16 @@ configuration = talon_one.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
     host = "https://yourbaseurl.talon.one",
@@ -13901,7 +21769,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -13916,13 +21784,80 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_customer_profile_achievement_progress**
-> InlineResponse20051 get_customer_profile_achievement_progress(application_id, integration_id, page_size=page_size, skip=skip, achievement_id=achievement_id, title=title)
+> InlineResponse20049 get_customer_profile_achievement_progress(application_id, integration_id, page_size=page_size, skip=skip, achievement_id=achievement_id, title=title)
 
 List customer achievements
 
 For the given customer profile, list all the achievements that match your filter criteria. 
 
 ### Example
+
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
+integration_id = 'integration_id_example' # str | The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. 
+page_size = 50 # int | The number of items in the response. (optional) (default to 50)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
+achievement_id = 56 # int | The ID of the achievement. You can get this ID with the [List achievement](https://docs.talon.one/management-api#tag/Achievements/operation/listAchievements) endpoint. (optional)
+title = 'title_example' # str | Filter results by the `title` of an achievement. (optional)
+
+    try:
+        # List customer achievements
+        api_response = api_instance.get_customer_profile_achievement_progress(application_id, integration_id, page_size=page_size, skip=skip, achievement_id=achievement_id, title=title)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_customer_profile_achievement_progress: %s\n" % e)
+```
 
 * Api Key Authentication (management_key):
 ```python
@@ -13941,6 +21876,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -13998,6 +21943,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -14051,11 +22006,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20051**](InlineResponse20051.md)
+[**InlineResponse20049**](InlineResponse20049.md)
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -14080,6 +22035,70 @@ List all customer profiles.
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
+sandbox = False # bool | Indicates whether you are pointing to a sandbox or live customer. (optional) (default to False)
+
+    try:
+        # List customer profiles
+        api_response = api_instance.get_customer_profiles(page_size=page_size, skip=skip, sandbox=sandbox)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_customer_profiles: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -14097,6 +22116,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -14152,6 +22181,16 @@ configuration = talon_one.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
     host = "https://yourbaseurl.talon.one",
@@ -14202,7 +22241,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -14225,6 +22264,71 @@ Get a list of the customer profiles matching the provided criteria.  The match i
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    body = talon_one.CustomerProfileSearchQuery() # CustomerProfileSearchQuery | body
+page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
+sandbox = False # bool | Indicates whether you are pointing to a sandbox or live customer. (optional) (default to False)
+
+    try:
+        # List customer profiles matching the given attributes
+        api_response = api_instance.get_customers_by_attributes(body, page_size=page_size, skip=skip, sandbox=sandbox)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_customers_by_attributes: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -14242,6 +22346,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -14297,6 +22411,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -14350,7 +22474,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -14373,6 +22497,71 @@ Retrieve the statistics displayed on the specified loyalty program's dashboard, 
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    loyalty_program_id = 56 # int | Identifier of the loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. 
+range_start = '2013-10-20T19:20:30+01:00' # datetime | Only return results from after this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
+range_end = '2013-10-20T19:20:30+01:00' # datetime | Only return results from before this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
+subledger_id = 'subledger_id_example' # str | The ID of the subledger by which we filter the data. (optional)
+
+    try:
+        # Get statistics for loyalty dashboard
+        api_response = api_instance.get_dashboard_statistics(loyalty_program_id, range_start, range_end, subledger_id=subledger_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_dashboard_statistics: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -14390,6 +22579,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -14445,6 +22644,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -14498,7 +22707,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -14513,13 +22722,79 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_event_types**
-> InlineResponse20042 get_event_types(name=name, include_old_versions=include_old_versions, page_size=page_size, skip=skip, sort=sort)
+> InlineResponse20040 get_event_types(name=name, include_old_versions=include_old_versions, page_size=page_size, skip=skip, sort=sort)
 
 List event types
 
 Fetch all event type definitions for your account. 
 
 ### Example
+
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    name = 'name_example' # str | Filter results to event types with the given name. This parameter implies `includeOldVersions`. (optional)
+include_old_versions = False # bool | Include all versions of every event type. (optional) (default to False)
+page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
+sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
+
+    try:
+        # List event types
+        api_response = api_instance.get_event_types(name=name, include_old_versions=include_old_versions, page_size=page_size, skip=skip, sort=sort)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_event_types: %s\n" % e)
+```
 
 * Api Key Authentication (management_key):
 ```python
@@ -14538,6 +22813,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -14594,6 +22879,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -14645,11 +22940,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20042**](InlineResponse20042.md)
+[**InlineResponse20040**](InlineResponse20040.md)
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -14664,13 +22959,79 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_exports**
-> InlineResponse20045 get_exports(page_size=page_size, skip=skip, application_id=application_id, campaign_id=campaign_id, entity=entity)
+> InlineResponse20043 get_exports(page_size=page_size, skip=skip, application_id=application_id, campaign_id=campaign_id, entity=entity)
 
 Get exports
 
 List all past exports 
 
 ### Example
+
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
+application_id = 3.4 # float | Filter results by Application ID. (optional)
+campaign_id = 56 # int | Filter by the campaign ID on which the limit counters are used. (optional)
+entity = 'entity_example' # str | The name of the entity type that was exported. (optional)
+
+    try:
+        # Get exports
+        api_response = api_instance.get_exports(page_size=page_size, skip=skip, application_id=application_id, campaign_id=campaign_id, entity=entity)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_exports: %s\n" % e)
+```
 
 * Api Key Authentication (management_key):
 ```python
@@ -14689,6 +23050,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -14745,6 +23116,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -14796,11 +23177,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20045**](InlineResponse20045.md)
+[**InlineResponse20043**](InlineResponse20043.md)
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -14823,6 +23204,69 @@ Get the given loyalty card.
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    loyalty_program_id = 56 # int | Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. 
+loyalty_card_id = 'loyalty_card_id_example' # str | Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint. 
+
+    try:
+        # Get loyalty card
+        api_response = api_instance.get_loyalty_card(loyalty_program_id, loyalty_card_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_loyalty_card: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -14840,6 +23284,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -14893,6 +23347,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -14942,7 +23406,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -14960,7 +23424,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_loyalty_card_transaction_logs**
-> InlineResponse20019 get_loyalty_card_transaction_logs(loyalty_program_id, loyalty_card_id, start_date=start_date, end_date=end_date, page_size=page_size, skip=skip, subledger_id=subledger_id)
+> InlineResponse20019 get_loyalty_card_transaction_logs(loyalty_program_id, loyalty_card_id, start_date=start_date, end_date=end_date, page_size=page_size, skip=skip, subledger_id=subledger_id, customer_session_i_ds=customer_session_i_ds, transaction_uui_ds=transaction_uui_ds)
 
 List card's transactions
 
@@ -14968,7 +23432,7 @@ Retrieve the transaction logs for the given [loyalty card](https://docs.talon.on
 
 ### Example
 
-* Api Key Authentication (management_key):
+* Api Key Authentication (api_key_v1):
 ```python
 from __future__ import print_function
 import time
@@ -14985,6 +23449,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -15017,10 +23491,82 @@ end_date = '2013-10-20T19:20:30+01:00' # datetime | Date and time by which resul
 page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
 skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
 subledger_id = 'subledger_id_example' # str | The ID of the subledger by which we filter the data. (optional)
+customer_session_i_ds = ['customer_session_i_ds_example'] # list[str] | Filter the results by a list of customer session IDs.   To include multiple IDs, repeat the parameter for each one, for example,  `?customerSessionIDs=id1&customerSessionIDs=id2`.  The response contains only data associated with the specified sessions.  (optional)
+transaction_uui_ds = ['transaction_uui_ds_example'] # list[str] | Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example,  `?transactionUUIDs=uuid1&transactionUUIDs=uuid2`.  The response contains only data associated with the specified transactions.  (optional)
 
     try:
         # List card's transactions
-        api_response = api_instance.get_loyalty_card_transaction_logs(loyalty_program_id, loyalty_card_id, start_date=start_date, end_date=end_date, page_size=page_size, skip=skip, subledger_id=subledger_id)
+        api_response = api_instance.get_loyalty_card_transaction_logs(loyalty_program_id, loyalty_card_id, start_date=start_date, end_date=end_date, page_size=page_size, skip=skip, subledger_id=subledger_id, customer_session_i_ds=customer_session_i_ds, transaction_uui_ds=transaction_uui_ds)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_loyalty_card_transaction_logs: %s\n" % e)
+```
+
+* Api Key Authentication (management_key):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    loyalty_program_id = 56 # int | Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. 
+loyalty_card_id = 'loyalty_card_id_example' # str | Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint. 
+start_date = '2013-10-20T19:20:30+01:00' # datetime | Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.  (optional)
+end_date = '2013-10-20T19:20:30+01:00' # datetime | Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.  (optional)
+page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
+subledger_id = 'subledger_id_example' # str | The ID of the subledger by which we filter the data. (optional)
+customer_session_i_ds = ['customer_session_i_ds_example'] # list[str] | Filter the results by a list of customer session IDs.   To include multiple IDs, repeat the parameter for each one, for example,  `?customerSessionIDs=id1&customerSessionIDs=id2`.  The response contains only data associated with the specified sessions.  (optional)
+transaction_uui_ds = ['transaction_uui_ds_example'] # list[str] | Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example,  `?transactionUUIDs=uuid1&transactionUUIDs=uuid2`.  The response contains only data associated with the specified transactions.  (optional)
+
+    try:
+        # List card's transactions
+        api_response = api_instance.get_loyalty_card_transaction_logs(loyalty_program_id, loyalty_card_id, start_date=start_date, end_date=end_date, page_size=page_size, skip=skip, subledger_id=subledger_id, customer_session_i_ds=customer_session_i_ds, transaction_uui_ds=transaction_uui_ds)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling ManagementApi->get_loyalty_card_transaction_logs: %s\n" % e)
@@ -15044,6 +23590,16 @@ configuration = talon_one.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
     host = "https://yourbaseurl.talon.one",
@@ -15075,10 +23631,12 @@ end_date = '2013-10-20T19:20:30+01:00' # datetime | Date and time by which resul
 page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
 skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
 subledger_id = 'subledger_id_example' # str | The ID of the subledger by which we filter the data. (optional)
+customer_session_i_ds = ['customer_session_i_ds_example'] # list[str] | Filter the results by a list of customer session IDs.   To include multiple IDs, repeat the parameter for each one, for example,  `?customerSessionIDs=id1&customerSessionIDs=id2`.  The response contains only data associated with the specified sessions.  (optional)
+transaction_uui_ds = ['transaction_uui_ds_example'] # list[str] | Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example,  `?transactionUUIDs=uuid1&transactionUUIDs=uuid2`.  The response contains only data associated with the specified transactions.  (optional)
 
     try:
         # List card's transactions
-        api_response = api_instance.get_loyalty_card_transaction_logs(loyalty_program_id, loyalty_card_id, start_date=start_date, end_date=end_date, page_size=page_size, skip=skip, subledger_id=subledger_id)
+        api_response = api_instance.get_loyalty_card_transaction_logs(loyalty_program_id, loyalty_card_id, start_date=start_date, end_date=end_date, page_size=page_size, skip=skip, subledger_id=subledger_id, customer_session_i_ds=customer_session_i_ds, transaction_uui_ds=transaction_uui_ds)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling ManagementApi->get_loyalty_card_transaction_logs: %s\n" % e)
@@ -15095,6 +23653,8 @@ Name | Type | Description  | Notes
  **page_size** | **int**| The number of items in the response. | [optional] [default to 1000]
  **skip** | **int**| The number of items to skip when paging through large result sets. | [optional] 
  **subledger_id** | **str**| The ID of the subledger by which we filter the data. | [optional] 
+ **customer_session_i_ds** | [**list[str]**](str.md)| Filter the results by a list of customer session IDs.   To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?customerSessionIDs&#x3D;id1&amp;customerSessionIDs&#x3D;id2&#x60;.  The response contains only data associated with the specified sessions.  | [optional] 
+ **transaction_uui_ds** | [**list[str]**](str.md)| Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?transactionUUIDs&#x3D;uuid1&amp;transactionUUIDs&#x3D;uuid2&#x60;.  The response contains only data associated with the specified transactions.  | [optional] 
 
 ### Return type
 
@@ -15102,7 +23662,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -15127,6 +23687,74 @@ For the given card-based loyalty program, list the loyalty cards that match your
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    loyalty_program_id = 56 # int | Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. 
+page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
+sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
+identifier = 'identifier_example' # str | The card code by which to filter loyalty cards in the response. (optional)
+profile_id = 56 # int | Filter results by customer profile ID. (optional)
+batch_id = 'batch_id_example' # str | Filter results by loyalty card batch ID. (optional)
+
+    try:
+        # List loyalty cards
+        api_response = api_instance.get_loyalty_cards(loyalty_program_id, page_size=page_size, skip=skip, sort=sort, identifier=identifier, profile_id=profile_id, batch_id=batch_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_loyalty_cards: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -15144,6 +23772,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -15202,6 +23840,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -15261,7 +23909,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -15286,6 +23934,69 @@ Get the loyalty ledger for this profile integration ID.  To get the `integration
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    loyalty_program_id = 'loyalty_program_id_example' # str | The identifier for the loyalty program.
+integration_id = 'integration_id_example' # str | The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. 
+
+    try:
+        # Get customer's full loyalty ledger
+        api_response = api_instance.get_loyalty_points(loyalty_program_id, integration_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_loyalty_points: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -15303,6 +24014,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -15356,6 +24077,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -15405,7 +24136,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -15428,6 +24159,68 @@ Get the specified [loyalty program](https://docs.talon.one/docs/product/loyalty-
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    loyalty_program_id = 56 # int | Identifier of the loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. 
+
+    try:
+        # Get loyalty program
+        api_response = api_instance.get_loyalty_program(loyalty_program_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_loyalty_program: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -15445,6 +24238,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -15497,6 +24300,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -15544,7 +24357,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -15559,7 +24372,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_loyalty_program_transactions**
-> InlineResponse20017 get_loyalty_program_transactions(loyalty_program_id, loyalty_transaction_type=loyalty_transaction_type, subledger_id=subledger_id, start_date=start_date, end_date=end_date, page_size=page_size, skip=skip)
+> InlineResponse20017 get_loyalty_program_transactions(loyalty_program_id, loyalty_transaction_type=loyalty_transaction_type, subledger_id=subledger_id, customer_session_i_ds=customer_session_i_ds, transaction_uui_ds=transaction_uui_ds, start_date=start_date, end_date=end_date, page_size=page_size, skip=skip)
 
 List loyalty program transactions
 
@@ -15567,7 +24380,7 @@ Retrieve loyalty program transaction logs in a given loyalty program with filter
 
 ### Example
 
-* Api Key Authentication (management_key):
+* Api Key Authentication (api_key_v1):
 ```python
 from __future__ import print_function
 import time
@@ -15584,6 +24397,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -15612,6 +24435,8 @@ with talon_one.ApiClient(configuration) as api_client:
     loyalty_program_id = 56 # int | Identifier of the loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. 
 loyalty_transaction_type = 'loyalty_transaction_type_example' # str | Filter results by loyalty transaction type: - `manual`: Loyalty transaction that was done manually. - `session`: Loyalty transaction that resulted from a customer session. - `import`: Loyalty transaction that was imported from a CSV file.  (optional)
 subledger_id = 'subledger_id_example' # str | The ID of the subledger by which we filter the data. (optional)
+customer_session_i_ds = ['customer_session_i_ds_example'] # list[str] | Filter the results by a list of customer session IDs.   To include multiple IDs, repeat the parameter for each one, for example,  `?customerSessionIDs=id1&customerSessionIDs=id2`.  The response contains only data associated with the specified sessions.  (optional)
+transaction_uui_ds = ['transaction_uui_ds_example'] # list[str] | Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example,  `?transactionUUIDs=uuid1&transactionUUIDs=uuid2`.  The response contains only data associated with the specified transactions.  (optional)
 start_date = '2013-10-20T19:20:30+01:00' # datetime | Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.  (optional)
 end_date = '2013-10-20T19:20:30+01:00' # datetime | Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.  (optional)
 page_size = 50 # int | The number of items in the response. (optional) (default to 50)
@@ -15619,7 +24444,77 @@ skip = 56 # int | The number of items to skip when paging through large result s
 
     try:
         # List loyalty program transactions
-        api_response = api_instance.get_loyalty_program_transactions(loyalty_program_id, loyalty_transaction_type=loyalty_transaction_type, subledger_id=subledger_id, start_date=start_date, end_date=end_date, page_size=page_size, skip=skip)
+        api_response = api_instance.get_loyalty_program_transactions(loyalty_program_id, loyalty_transaction_type=loyalty_transaction_type, subledger_id=subledger_id, customer_session_i_ds=customer_session_i_ds, transaction_uui_ds=transaction_uui_ds, start_date=start_date, end_date=end_date, page_size=page_size, skip=skip)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_loyalty_program_transactions: %s\n" % e)
+```
+
+* Api Key Authentication (management_key):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    loyalty_program_id = 56 # int | Identifier of the loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. 
+loyalty_transaction_type = 'loyalty_transaction_type_example' # str | Filter results by loyalty transaction type: - `manual`: Loyalty transaction that was done manually. - `session`: Loyalty transaction that resulted from a customer session. - `import`: Loyalty transaction that was imported from a CSV file.  (optional)
+subledger_id = 'subledger_id_example' # str | The ID of the subledger by which we filter the data. (optional)
+customer_session_i_ds = ['customer_session_i_ds_example'] # list[str] | Filter the results by a list of customer session IDs.   To include multiple IDs, repeat the parameter for each one, for example,  `?customerSessionIDs=id1&customerSessionIDs=id2`.  The response contains only data associated with the specified sessions.  (optional)
+transaction_uui_ds = ['transaction_uui_ds_example'] # list[str] | Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example,  `?transactionUUIDs=uuid1&transactionUUIDs=uuid2`.  The response contains only data associated with the specified transactions.  (optional)
+start_date = '2013-10-20T19:20:30+01:00' # datetime | Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.  (optional)
+end_date = '2013-10-20T19:20:30+01:00' # datetime | Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.  (optional)
+page_size = 50 # int | The number of items in the response. (optional) (default to 50)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
+
+    try:
+        # List loyalty program transactions
+        api_response = api_instance.get_loyalty_program_transactions(loyalty_program_id, loyalty_transaction_type=loyalty_transaction_type, subledger_id=subledger_id, customer_session_i_ds=customer_session_i_ds, transaction_uui_ds=transaction_uui_ds, start_date=start_date, end_date=end_date, page_size=page_size, skip=skip)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling ManagementApi->get_loyalty_program_transactions: %s\n" % e)
@@ -15643,6 +24538,16 @@ configuration = talon_one.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
     host = "https://yourbaseurl.talon.one",
@@ -15670,6 +24575,8 @@ with talon_one.ApiClient(configuration) as api_client:
     loyalty_program_id = 56 # int | Identifier of the loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. 
 loyalty_transaction_type = 'loyalty_transaction_type_example' # str | Filter results by loyalty transaction type: - `manual`: Loyalty transaction that was done manually. - `session`: Loyalty transaction that resulted from a customer session. - `import`: Loyalty transaction that was imported from a CSV file.  (optional)
 subledger_id = 'subledger_id_example' # str | The ID of the subledger by which we filter the data. (optional)
+customer_session_i_ds = ['customer_session_i_ds_example'] # list[str] | Filter the results by a list of customer session IDs.   To include multiple IDs, repeat the parameter for each one, for example,  `?customerSessionIDs=id1&customerSessionIDs=id2`.  The response contains only data associated with the specified sessions.  (optional)
+transaction_uui_ds = ['transaction_uui_ds_example'] # list[str] | Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example,  `?transactionUUIDs=uuid1&transactionUUIDs=uuid2`.  The response contains only data associated with the specified transactions.  (optional)
 start_date = '2013-10-20T19:20:30+01:00' # datetime | Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.  (optional)
 end_date = '2013-10-20T19:20:30+01:00' # datetime | Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.  (optional)
 page_size = 50 # int | The number of items in the response. (optional) (default to 50)
@@ -15677,7 +24584,7 @@ skip = 56 # int | The number of items to skip when paging through large result s
 
     try:
         # List loyalty program transactions
-        api_response = api_instance.get_loyalty_program_transactions(loyalty_program_id, loyalty_transaction_type=loyalty_transaction_type, subledger_id=subledger_id, start_date=start_date, end_date=end_date, page_size=page_size, skip=skip)
+        api_response = api_instance.get_loyalty_program_transactions(loyalty_program_id, loyalty_transaction_type=loyalty_transaction_type, subledger_id=subledger_id, customer_session_i_ds=customer_session_i_ds, transaction_uui_ds=transaction_uui_ds, start_date=start_date, end_date=end_date, page_size=page_size, skip=skip)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling ManagementApi->get_loyalty_program_transactions: %s\n" % e)
@@ -15690,6 +24597,8 @@ Name | Type | Description  | Notes
  **loyalty_program_id** | **int**| Identifier of the loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  | 
  **loyalty_transaction_type** | **str**| Filter results by loyalty transaction type: - &#x60;manual&#x60;: Loyalty transaction that was done manually. - &#x60;session&#x60;: Loyalty transaction that resulted from a customer session. - &#x60;import&#x60;: Loyalty transaction that was imported from a CSV file.  | [optional] 
  **subledger_id** | **str**| The ID of the subledger by which we filter the data. | [optional] 
+ **customer_session_i_ds** | [**list[str]**](str.md)| Filter the results by a list of customer session IDs.   To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?customerSessionIDs&#x3D;id1&amp;customerSessionIDs&#x3D;id2&#x60;.  The response contains only data associated with the specified sessions.  | [optional] 
+ **transaction_uui_ds** | [**list[str]**](str.md)| Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?transactionUUIDs&#x3D;uuid1&amp;transactionUUIDs&#x3D;uuid2&#x60;.  The response contains only data associated with the specified transactions.  | [optional] 
  **start_date** | **datetime**| Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  | [optional] 
  **end_date** | **datetime**| Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  | [optional] 
  **page_size** | **int**| The number of items in the response. | [optional] [default to 50]
@@ -15701,7 +24610,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -15727,6 +24636,67 @@ List the loyalty programs of the account.
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    
+    try:
+        # List loyalty programs
+        api_response = api_instance.get_loyalty_programs()
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_loyalty_programs: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -15744,6 +24714,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -15795,6 +24775,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -15838,7 +24828,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -15861,6 +24851,68 @@ Get loyalty program statistics
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    loyalty_program_id = 56 # int | Identifier of the loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. 
+
+    try:
+        # Get loyalty program statistics
+        api_response = api_instance.get_loyalty_statistics(loyalty_program_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_loyalty_statistics: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -15878,6 +24930,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -15930,6 +24992,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -15977,7 +25049,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -16000,7 +25072,7 @@ Retrieve all message log entries.
 
 ### Example
 
-* Api Key Authentication (management_key):
+* Api Key Authentication (api_key_v1):
 ```python
 from __future__ import print_function
 import time
@@ -16017,6 +25089,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -16046,8 +25128,83 @@ with talon_one.ApiClient(configuration) as api_client:
 message_id = 'message_id_example' # str | Filter results by message ID. (optional)
 change_type = 'change_type_example' # str | Filter results by change type. (optional)
 notification_i_ds = 'notification_i_ds_example' # str | Filter results by notification ID (include up to 30 values, separated by a comma). (optional)
-created_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
-created_after = '2013-10-20T19:20:30+01:00' # datetime | Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
+created_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. Use UTC time. (optional)
+created_after = '2013-10-20T19:20:30+01:00' # datetime | Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. Use UTC time. (optional)
+cursor = 'cursor_example' # str | A specific unique value in the database. If this value is not given, the server fetches results starting with the first record.  (optional)
+period = 'period_example' # str | Filter results by time period. Choose between the available relative time frames.  (optional)
+is_successful = True # bool | Indicates whether to return log entries with either successful or unsuccessful HTTP response codes. When set to`true`, only log entries with `2xx` response codes are returned. When set to `false`, only log entries with `4xx` and `5xx` response codes are returned.  (optional)
+application_id = 3.4 # float | Filter results by Application ID. (optional)
+campaign_id = 3.4 # float | Filter results by campaign ID. (optional)
+loyalty_program_id = 56 # int | Identifier of the loyalty program. (optional)
+response_code = 56 # int | Filter results by response status code. (optional)
+webhook_i_ds = 'webhook_i_ds_example' # str | Filter results by webhook ID (include up to 30 values, separated by a comma). (optional)
+
+    try:
+        # List message log entries
+        api_response = api_instance.get_message_logs(entity_type, message_id=message_id, change_type=change_type, notification_i_ds=notification_i_ds, created_before=created_before, created_after=created_after, cursor=cursor, period=period, is_successful=is_successful, application_id=application_id, campaign_id=campaign_id, loyalty_program_id=loyalty_program_id, response_code=response_code, webhook_i_ds=webhook_i_ds)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_message_logs: %s\n" % e)
+```
+
+* Api Key Authentication (management_key):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    entity_type = 'entity_type_example' # str | The entity type the log is related to. 
+message_id = 'message_id_example' # str | Filter results by message ID. (optional)
+change_type = 'change_type_example' # str | Filter results by change type. (optional)
+notification_i_ds = 'notification_i_ds_example' # str | Filter results by notification ID (include up to 30 values, separated by a comma). (optional)
+created_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. Use UTC time. (optional)
+created_after = '2013-10-20T19:20:30+01:00' # datetime | Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. Use UTC time. (optional)
 cursor = 'cursor_example' # str | A specific unique value in the database. If this value is not given, the server fetches results starting with the first record.  (optional)
 period = 'period_example' # str | Filter results by time period. Choose between the available relative time frames.  (optional)
 is_successful = True # bool | Indicates whether to return log entries with either successful or unsuccessful HTTP response codes. When set to`true`, only log entries with `2xx` response codes are returned. When set to `false`, only log entries with `4xx` and `5xx` response codes are returned.  (optional)
@@ -16083,6 +25240,16 @@ configuration = talon_one.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
     host = "https://yourbaseurl.talon.one",
@@ -16111,8 +25278,8 @@ with talon_one.ApiClient(configuration) as api_client:
 message_id = 'message_id_example' # str | Filter results by message ID. (optional)
 change_type = 'change_type_example' # str | Filter results by change type. (optional)
 notification_i_ds = 'notification_i_ds_example' # str | Filter results by notification ID (include up to 30 values, separated by a comma). (optional)
-created_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
-created_after = '2013-10-20T19:20:30+01:00' # datetime | Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
+created_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. Use UTC time. (optional)
+created_after = '2013-10-20T19:20:30+01:00' # datetime | Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. Use UTC time. (optional)
 cursor = 'cursor_example' # str | A specific unique value in the database. If this value is not given, the server fetches results starting with the first record.  (optional)
 period = 'period_example' # str | Filter results by time period. Choose between the available relative time frames.  (optional)
 is_successful = True # bool | Indicates whether to return log entries with either successful or unsuccessful HTTP response codes. When set to`true`, only log entries with `2xx` response codes are returned. When set to `false`, only log entries with `4xx` and `5xx` response codes are returned.  (optional)
@@ -16138,8 +25305,8 @@ Name | Type | Description  | Notes
  **message_id** | **str**| Filter results by message ID. | [optional] 
  **change_type** | **str**| Filter results by change type. | [optional] 
  **notification_i_ds** | **str**| Filter results by notification ID (include up to 30 values, separated by a comma). | [optional] 
- **created_before** | **datetime**| Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally. | [optional] 
- **created_after** | **datetime**| Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally. | [optional] 
+ **created_before** | **datetime**| Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. Use UTC time. | [optional] 
+ **created_after** | **datetime**| Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. Use UTC time. | [optional] 
  **cursor** | **str**| A specific unique value in the database. If this value is not given, the server fetches results starting with the first record.  | [optional] 
  **period** | **str**| Filter results by time period. Choose between the available relative time frames.  | [optional] 
  **is_successful** | **bool**| Indicates whether to return log entries with either successful or unsuccessful HTTP response codes. When set to&#x60;true&#x60;, only log entries with &#x60;2xx&#x60; response codes are returned. When set to &#x60;false&#x60;, only log entries with &#x60;4xx&#x60; and &#x60;5xx&#x60; response codes are returned.  | [optional] 
@@ -16155,7 +25322,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -16178,6 +25345,78 @@ List all referrals of the specified campaign.
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
+campaign_id = 56 # int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
+page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
+sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
+code = 'code_example' # str | Filter results performing case-insensitive matching against the referral code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
+created_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
+created_after = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
+valid = 'valid_example' # str | Either \"expired\", \"validNow\", or \"validFuture\". The first option matches referrals in which the expiration date is set and in the past. The second matches referrals in which start date is null or in the past and expiration date is null or in the future, the third matches referrals in which start date is set and in the future.  (optional)
+usable = 'usable_example' # str | Either \"true\" or \"false\". If \"true\", only referrals where `usageCounter < usageLimit` will be returned, \"false\" will return only referrals where `usageCounter >= usageLimit`.  (optional)
+advocate = 'advocate_example' # str | Filter results by match with a profile ID specified in the referral's AdvocateProfileIntegrationId field. (optional)
+
+    try:
+        # List referrals
+        api_response = api_instance.get_referrals_without_total_count(application_id, campaign_id, page_size=page_size, skip=skip, sort=sort, code=code, created_before=created_before, created_after=created_after, valid=valid, usable=usable, advocate=advocate)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_referrals_without_total_count: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -16195,6 +25434,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -16257,6 +25506,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -16324,7 +25583,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -16347,6 +25606,68 @@ Get the details of a specific role. To see all the roles, use the [List roles](/
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    role_id = 56 # int | The ID of role.  **Note**: To find the ID of a role, use the [List roles](/management-api#tag/Roles/operation/listAllRolesV2) endpoint. 
+
+    try:
+        # Get role
+        api_response = api_instance.get_role_v2(role_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_role_v2: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -16364,6 +25685,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -16417,6 +25748,16 @@ configuration = talon_one.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
     host = "https://yourbaseurl.talon.one",
@@ -16463,7 +25804,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -16486,6 +25827,70 @@ Retrieve the specified ruleset.
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
+campaign_id = 56 # int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
+ruleset_id = 56 # int | The ID of the ruleset.
+
+    try:
+        # Get ruleset
+        api_response = api_instance.get_ruleset(application_id, campaign_id, ruleset_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_ruleset: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -16503,6 +25908,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -16557,6 +25972,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -16608,7 +26033,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -16631,6 +26056,72 @@ List all rulesets of this campaign. A ruleset is a revision of the rules of a ca
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
+campaign_id = 56 # int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
+page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
+sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
+
+    try:
+        # List campaign rulesets
+        api_response = api_instance.get_rulesets(application_id, campaign_id, page_size=page_size, skip=skip, sort=sort)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_rulesets: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -16648,6 +26139,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -16704,6 +26205,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -16759,7 +26270,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -16782,6 +26293,69 @@ Get store details for a specific store ID.
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
+store_id = 'store_id_example' # str | The ID of the store. You can get this ID with the [List stores](#tag/Stores/operation/listStores) endpoint. 
+
+    try:
+        # Get store
+        api_response = api_instance.get_store(application_id, store_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_store: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -16799,6 +26373,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -16852,6 +26436,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -16901,7 +26495,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -16925,6 +26519,68 @@ Retrieve the data (including an invitation code) for a user. Non-admin users can
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    user_id = 56 # int | The ID of the user.
+
+    try:
+        # Get user
+        api_response = api_instance.get_user(user_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_user: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -16942,6 +26598,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -16994,6 +26660,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -17041,7 +26717,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -17056,13 +26732,77 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_users**
-> InlineResponse20043 get_users(page_size=page_size, skip=skip, sort=sort)
+> InlineResponse20041 get_users(page_size=page_size, skip=skip, sort=sort)
 
 List users in account
 
 Retrieve all users in your account. 
 
 ### Example
+
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
+sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
+
+    try:
+        # List users in account
+        api_response = api_instance.get_users(page_size=page_size, skip=skip, sort=sort)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_users: %s\n" % e)
+```
 
 * Api Key Authentication (management_key):
 ```python
@@ -17081,6 +26821,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -17136,6 +26886,16 @@ configuration = talon_one.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
     host = "https://yourbaseurl.talon.one",
@@ -17182,11 +26942,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20043**](InlineResponse20043.md)
+[**InlineResponse20041**](InlineResponse20041.md)
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -17209,6 +26969,68 @@ Returns a webhook by its id.
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    webhook_id = 56 # int | The ID of the webhook. You can find the ID in the Campaign Manager's URL when you display the details of the webhook in **Account** > **Webhooks**. 
+
+    try:
+        # Get webhook
+        api_response = api_instance.get_webhook(webhook_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_webhook: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -17226,6 +27048,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -17278,6 +27110,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -17325,336 +27167,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | OK |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **get_webhook_activation_logs**
-> InlineResponse20040 get_webhook_activation_logs(page_size=page_size, skip=skip, sort=sort, integration_request_uuid=integration_request_uuid, webhook_id=webhook_id, application_id=application_id, campaign_id=campaign_id, created_before=created_before, created_after=created_after)
-
-List webhook activation log entries
-
-Webhook activation log entries are created as soon as an integration request triggers a webhook effect. See the [docs](https://docs.talon.one/docs/dev/getting-started/webhooks). 
-
-### Example
-
-* Api Key Authentication (management_key):
-```python
-from __future__ import print_function
-import time
-import talon_one
-from talon_one.rest import ApiException
-from pprint import pprint
-# Defining the host is optional and defaults to https://yourbaseurl.talon.one
-# See configuration.py for a list of all supported configuration parameters.
-configuration = talon_one.Configuration(
-    host = "https://yourbaseurl.talon.one"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: management_key
-configuration = talon_one.Configuration(
-    host = "https://yourbaseurl.talon.one",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
-)
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
-
-# Configure API key authorization: manager_auth
-configuration = talon_one.Configuration(
-    host = "https://yourbaseurl.talon.one",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
-)
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with talon_one.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = talon_one.ManagementApi(api_client)
-    page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
-skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
-sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
-integration_request_uuid = 'integration_request_uuid_example' # str | Filter results by integration request UUID. (optional)
-webhook_id = 3.4 # float | Filter results by webhook id. (optional)
-application_id = 3.4 # float | Filter results by Application ID. (optional)
-campaign_id = 3.4 # float | Filter results by campaign ID. (optional)
-created_before = '2013-10-20T19:20:30+01:00' # datetime | Only return events created before this date. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
-created_after = '2013-10-20T19:20:30+01:00' # datetime | Only return events created after this date. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
-
-    try:
-        # List webhook activation log entries
-        api_response = api_instance.get_webhook_activation_logs(page_size=page_size, skip=skip, sort=sort, integration_request_uuid=integration_request_uuid, webhook_id=webhook_id, application_id=application_id, campaign_id=campaign_id, created_before=created_before, created_after=created_after)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling ManagementApi->get_webhook_activation_logs: %s\n" % e)
-```
-
-* Api Key Authentication (manager_auth):
-```python
-from __future__ import print_function
-import time
-import talon_one
-from talon_one.rest import ApiException
-from pprint import pprint
-# Defining the host is optional and defaults to https://yourbaseurl.talon.one
-# See configuration.py for a list of all supported configuration parameters.
-configuration = talon_one.Configuration(
-    host = "https://yourbaseurl.talon.one"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: management_key
-configuration = talon_one.Configuration(
-    host = "https://yourbaseurl.talon.one",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
-)
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
-
-# Configure API key authorization: manager_auth
-configuration = talon_one.Configuration(
-    host = "https://yourbaseurl.talon.one",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
-)
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with talon_one.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = talon_one.ManagementApi(api_client)
-    page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
-skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
-sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
-integration_request_uuid = 'integration_request_uuid_example' # str | Filter results by integration request UUID. (optional)
-webhook_id = 3.4 # float | Filter results by webhook id. (optional)
-application_id = 3.4 # float | Filter results by Application ID. (optional)
-campaign_id = 3.4 # float | Filter results by campaign ID. (optional)
-created_before = '2013-10-20T19:20:30+01:00' # datetime | Only return events created before this date. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
-created_after = '2013-10-20T19:20:30+01:00' # datetime | Only return events created after this date. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
-
-    try:
-        # List webhook activation log entries
-        api_response = api_instance.get_webhook_activation_logs(page_size=page_size, skip=skip, sort=sort, integration_request_uuid=integration_request_uuid, webhook_id=webhook_id, application_id=application_id, campaign_id=campaign_id, created_before=created_before, created_after=created_after)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling ManagementApi->get_webhook_activation_logs: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **page_size** | **int**| The number of items in the response. | [optional] [default to 1000]
- **skip** | **int**| The number of items to skip when paging through large result sets. | [optional] 
- **sort** | **str**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  | [optional] 
- **integration_request_uuid** | **str**| Filter results by integration request UUID. | [optional] 
- **webhook_id** | **float**| Filter results by webhook id. | [optional] 
- **application_id** | **float**| Filter results by Application ID. | [optional] 
- **campaign_id** | **float**| Filter results by campaign ID. | [optional] 
- **created_before** | **datetime**| Only return events created before this date. You can use any time zone setting. Talon.One will convert to UTC internally. | [optional] 
- **created_after** | **datetime**| Only return events created after this date. You can use any time zone setting. Talon.One will convert to UTC internally. | [optional] 
-
-### Return type
-
-[**InlineResponse20040**](InlineResponse20040.md)
-
-### Authorization
-
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | OK |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **get_webhook_logs**
-> InlineResponse20041 get_webhook_logs(page_size=page_size, skip=skip, sort=sort, status=status, webhook_id=webhook_id, application_id=application_id, campaign_id=campaign_id, request_uuid=request_uuid, created_before=created_before, created_after=created_after)
-
-List webhook log entries
-
-Retrieve all webhook log entries.
-
-### Example
-
-* Api Key Authentication (management_key):
-```python
-from __future__ import print_function
-import time
-import talon_one
-from talon_one.rest import ApiException
-from pprint import pprint
-# Defining the host is optional and defaults to https://yourbaseurl.talon.one
-# See configuration.py for a list of all supported configuration parameters.
-configuration = talon_one.Configuration(
-    host = "https://yourbaseurl.talon.one"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: management_key
-configuration = talon_one.Configuration(
-    host = "https://yourbaseurl.talon.one",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
-)
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
-
-# Configure API key authorization: manager_auth
-configuration = talon_one.Configuration(
-    host = "https://yourbaseurl.talon.one",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
-)
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with talon_one.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = talon_one.ManagementApi(api_client)
-    page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
-skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
-sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
-status = 'status_example' # str | Filter results by HTTP status codes. (optional)
-webhook_id = 3.4 # float | Filter results by webhook id. (optional)
-application_id = 3.4 # float | Filter results by Application ID. (optional)
-campaign_id = 3.4 # float | Filter results by campaign ID. (optional)
-request_uuid = 'request_uuid_example' # str | Filter results by request UUID. (optional)
-created_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
-created_after = '2013-10-20T19:20:30+01:00' # datetime | Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
-
-    try:
-        # List webhook log entries
-        api_response = api_instance.get_webhook_logs(page_size=page_size, skip=skip, sort=sort, status=status, webhook_id=webhook_id, application_id=application_id, campaign_id=campaign_id, request_uuid=request_uuid, created_before=created_before, created_after=created_after)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling ManagementApi->get_webhook_logs: %s\n" % e)
-```
-
-* Api Key Authentication (manager_auth):
-```python
-from __future__ import print_function
-import time
-import talon_one
-from talon_one.rest import ApiException
-from pprint import pprint
-# Defining the host is optional and defaults to https://yourbaseurl.talon.one
-# See configuration.py for a list of all supported configuration parameters.
-configuration = talon_one.Configuration(
-    host = "https://yourbaseurl.talon.one"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: management_key
-configuration = talon_one.Configuration(
-    host = "https://yourbaseurl.talon.one",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
-)
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
-
-# Configure API key authorization: manager_auth
-configuration = talon_one.Configuration(
-    host = "https://yourbaseurl.talon.one",
-    api_key = {
-        'Authorization': 'YOUR_API_KEY'
-    }
-)
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with talon_one.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = talon_one.ManagementApi(api_client)
-    page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
-skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
-sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
-status = 'status_example' # str | Filter results by HTTP status codes. (optional)
-webhook_id = 3.4 # float | Filter results by webhook id. (optional)
-application_id = 3.4 # float | Filter results by Application ID. (optional)
-campaign_id = 3.4 # float | Filter results by campaign ID. (optional)
-request_uuid = 'request_uuid_example' # str | Filter results by request UUID. (optional)
-created_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
-created_after = '2013-10-20T19:20:30+01:00' # datetime | Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
-
-    try:
-        # List webhook log entries
-        api_response = api_instance.get_webhook_logs(page_size=page_size, skip=skip, sort=sort, status=status, webhook_id=webhook_id, application_id=application_id, campaign_id=campaign_id, request_uuid=request_uuid, created_before=created_before, created_after=created_after)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling ManagementApi->get_webhook_logs: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **page_size** | **int**| The number of items in the response. | [optional] [default to 1000]
- **skip** | **int**| The number of items to skip when paging through large result sets. | [optional] 
- **sort** | **str**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  | [optional] 
- **status** | **str**| Filter results by HTTP status codes. | [optional] 
- **webhook_id** | **float**| Filter results by webhook id. | [optional] 
- **application_id** | **float**| Filter results by Application ID. | [optional] 
- **campaign_id** | **float**| Filter results by campaign ID. | [optional] 
- **request_uuid** | **str**| Filter results by request UUID. | [optional] 
- **created_before** | **datetime**| Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally. | [optional] 
- **created_after** | **datetime**| Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally. | [optional] 
-
-### Return type
-
-[**InlineResponse20041**](InlineResponse20041.md)
-
-### Authorization
-
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -17677,6 +27190,75 @@ List all webhooks.
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_ids = 'application_ids_example' # str | Checks if the given catalog or its attributes are referenced in the specified Application ID.  **Note**: If no Application ID is provided, we check for all connected Applications.  (optional)
+sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
+page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
+creation_type = 'creation_type_example' # str | Filter results by creation type. (optional)
+visibility = 'visibility_example' # str | Filter results by visibility. (optional)
+outgoing_integrations_type_id = 56 # int | Filter results by outgoing integration type ID. (optional)
+title = 'title_example' # str | Filter results performing case-insensitive matching against the webhook title. (optional)
+
+    try:
+        # List webhooks
+        api_response = api_instance.get_webhooks(application_ids=application_ids, sort=sort, page_size=page_size, skip=skip, creation_type=creation_type, visibility=visibility, outgoing_integrations_type_id=outgoing_integrations_type_id, title=title)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_webhooks: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -17694,6 +27276,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -17753,6 +27345,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -17814,7 +27416,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -17837,6 +27439,69 @@ Upload a CSV file containing the collection of string values that should be atta
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    collection_id = 56 # int | The ID of the collection. You can get it with the [List collections in account](#operation/listAccountCollections) endpoint.
+up_file = 'up_file_example' # str | The file containing the data that is being imported. (optional)
+
+    try:
+        # Import data into existing account-level collection
+        api_response = api_instance.import_account_collection(collection_id, up_file=up_file)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->import_account_collection: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -17854,6 +27519,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -17907,6 +27582,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -17956,7 +27641,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -17981,6 +27666,69 @@ Upload a CSV file containing a list of [picklist values](https://docs.talon.one/
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    attribute_id = 56 # int | The ID of the attribute. You can find the ID in the Campaign Manager's URL when you display the details of an attribute in **Account** > **Tools** > **Attributes**.
+up_file = 'up_file_example' # str | The file containing the data that is being imported. (optional)
+
+    try:
+        # Import allowed values for attribute
+        api_response = api_instance.import_allowed_list(attribute_id, up_file=up_file)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->import_allowed_list: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -17998,6 +27746,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -18051,6 +27809,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -18100,7 +27868,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -18126,6 +27894,69 @@ Upload a CSV file containing the integration IDs of the members you want to add 
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    audience_id = 56 # int | The ID of the audience.
+up_file = 'up_file_example' # str | The file containing the data that is being imported. (optional)
+
+    try:
+        # Import audience members
+        api_response = api_instance.import_audiences_memberships(audience_id, up_file=up_file)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->import_audiences_memberships: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -18143,6 +27974,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -18197,6 +28038,16 @@ configuration = talon_one.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
     host = "https://yourbaseurl.talon.one",
@@ -18245,7 +28096,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -18271,6 +28122,72 @@ Upload a CSV file containing store budgets for a given campaign.  Send the file 
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
+campaign_id = 56 # int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
+action = 'action_example' # str | The action that this budget is limiting. (optional)
+period = 'period_example' # str | The period to which the limit applies.  **Note**: For budgets with no period, set this to `overall`.  (optional)
+up_file = 'up_file_example' # str | The file containing the data that is being imported. (optional)
+
+    try:
+        # Import campaign store budgets
+        api_response = api_instance.import_campaign_store_budget(application_id, campaign_id, action=action, period=period, up_file=up_file)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->import_campaign_store_budget: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -18288,6 +28205,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -18344,6 +28271,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -18399,7 +28336,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -18423,6 +28360,70 @@ Upload a CSV file containing the stores you want to link to a specific campaign.
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
+campaign_id = 56 # int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
+up_file = 'up_file_example' # str | The file containing the data that is being imported. (optional)
+
+    try:
+        # Import stores
+        api_response = api_instance.import_campaign_stores(application_id, campaign_id, up_file=up_file)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->import_campaign_stores: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -18440,6 +28441,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -18495,6 +28506,16 @@ configuration = talon_one.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
     host = "https://yourbaseurl.talon.one",
@@ -18545,7 +28566,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -18571,6 +28592,71 @@ Upload a CSV file containing the collection of string values that should be atta
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
+campaign_id = 56 # int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
+collection_id = 56 # int | The ID of the collection. You can get it with the [List collections in Application](#operation/listCollectionsInApplication) endpoint.
+up_file = 'up_file_example' # str | The file containing the data that is being imported. (optional)
+
+    try:
+        # Import data into existing campaign-level collection
+        api_response = api_instance.import_collection(application_id, campaign_id, collection_id, up_file=up_file)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->import_collection: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -18588,6 +28674,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -18643,6 +28739,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -18696,7 +28802,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -18720,6 +28826,71 @@ Upload a CSV file containing the coupons that should be created. The file should
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
+campaign_id = 56 # int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
+skip_duplicates = True # bool | An indicator of whether to skip duplicate coupon values instead of causing an error. Duplicate values are ignored when `skipDuplicates=true`.  (optional)
+up_file = 'up_file_example' # str | The file containing the data that is being imported. (optional)
+
+    try:
+        # Import coupons
+        api_response = api_instance.import_coupons(application_id, campaign_id, skip_duplicates=skip_duplicates, up_file=up_file)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->import_coupons: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -18737,6 +28908,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -18792,6 +28973,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -18845,7 +29036,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -18868,6 +29059,69 @@ Upload a CSV file containing the loyalty cards that you want to use in your card
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    loyalty_program_id = 56 # int | Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. 
+up_file = 'up_file_example' # str | The file containing the data that is being imported. (optional)
+
+    try:
+        # Import loyalty cards
+        api_response = api_instance.import_loyalty_cards(loyalty_program_id, up_file=up_file)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->import_loyalty_cards: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -18885,6 +29139,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -18938,6 +29202,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -18987,7 +29261,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -19012,6 +29286,69 @@ Upload a CSV file containing existing customers to be assigned to existing tiers
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    loyalty_program_id = 56 # int | Identifier of the loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. 
+up_file = 'up_file_example' # str | The file containing the data that is being imported. (optional)
+
+    try:
+        # Import customers into loyalty tiers
+        api_response = api_instance.import_loyalty_customers_tiers(loyalty_program_id, up_file=up_file)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->import_loyalty_customers_tiers: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -19029,6 +29366,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -19083,6 +29430,16 @@ configuration = talon_one.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
     host = "https://yourbaseurl.talon.one",
@@ -19131,7 +29488,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -19157,6 +29514,70 @@ Upload a CSV file containing the loyalty points you want to import into a given 
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    loyalty_program_id = 56 # int | Identifier of the loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. 
+notifications_enabled = True # bool | Indicates whether the points import triggers notifications about its effects. For example, a notification is sent if the import upgrades a customer's tier or offsets their negative points balance.  This parameter is optional and defaults to `true`.  (optional)
+up_file = 'up_file_example' # str | The file containing the data that is being imported. (optional)
+
+    try:
+        # Import loyalty points
+        api_response = api_instance.import_loyalty_points(loyalty_program_id, notifications_enabled=notifications_enabled, up_file=up_file)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->import_loyalty_points: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -19174,6 +29595,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -19228,6 +29659,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -19279,7 +29720,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -19302,6 +29743,69 @@ Upload a CSV file containing the giveaway codes that should be created. Send the
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    pool_id = 56 # int | The ID of the pool. You can find it in the Campaign Manager, in the **Giveaways** section.
+up_file = 'up_file_example' # str | The file containing the data that is being imported. (optional)
+
+    try:
+        # Import giveaway codes into a giveaway pool
+        api_response = api_instance.import_pool_giveaways(pool_id, up_file=up_file)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->import_pool_giveaways: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -19319,6 +29823,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -19373,6 +29887,16 @@ configuration = talon_one.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
     host = "https://yourbaseurl.talon.one",
@@ -19421,7 +29945,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -19444,6 +29968,70 @@ Upload a CSV file containing the referrals that should be created. The file shou
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
+campaign_id = 56 # int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
+up_file = 'up_file_example' # str | The file containing the data that is being imported. (optional)
+
+    try:
+        # Import referrals
+        api_response = api_instance.import_referrals(application_id, campaign_id, up_file=up_file)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->import_referrals: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -19461,6 +30049,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -19515,6 +30113,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -19566,7 +30174,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -19589,6 +30197,67 @@ Invite user from identity provider
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    body = talon_one.NewExternalInvitation() # NewExternalInvitation | body
+
+    try:
+        # Invite user from identity provider
+        api_instance.invite_user_external(body)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->invite_user_external: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -19606,6 +30275,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -19658,6 +30337,16 @@ configuration = talon_one.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
     host = "https://yourbaseurl.talon.one",
@@ -19703,7 +30392,7 @@ void (empty response body)
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -19726,6 +30415,72 @@ List account-level collections in the account.
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
+sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
+with_total_result_size = True # bool | When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When `true`: `hasMore` is true when there is a next page. `totalResultSize` is always zero. - When `false`: `hasMore` is always false. `totalResultSize` contains the total number of results for this query.  (optional)
+name = 'name_example' # str | Filter by collection name. (optional)
+
+    try:
+        # List collections in account
+        api_response = api_instance.list_account_collections(page_size=page_size, skip=skip, sort=sort, with_total_result_size=with_total_result_size, name=name)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->list_account_collections: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -19743,6 +30498,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -19799,6 +30564,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -19854,7 +30629,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -19872,13 +30647,79 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_achievements**
-> InlineResponse20050 list_achievements(application_id, campaign_id, page_size=page_size, skip=skip, title=title)
+> InlineResponse20048 list_achievements(application_id, campaign_id, page_size=page_size, skip=skip, title=title)
 
 List achievements
 
 List all the achievements for a specific campaign.
 
 ### Example
+
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
+campaign_id = 56 # int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
+page_size = 50 # int | The number of items in the response. (optional) (default to 50)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
+title = 'title_example' # str | Filter by the display name for the achievement in the campaign manager.  **Note**: If no `title` is provided, all the achievements from the campaign are returned.  (optional)
+
+    try:
+        # List achievements
+        api_response = api_instance.list_achievements(application_id, campaign_id, page_size=page_size, skip=skip, title=title)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->list_achievements: %s\n" % e)
+```
 
 * Api Key Authentication (management_key):
 ```python
@@ -19897,6 +30738,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -19953,6 +30804,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -20004,11 +30865,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20050**](InlineResponse20050.md)
+[**InlineResponse20048**](InlineResponse20048.md)
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -20023,13 +30884,74 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_all_roles_v2**
-> InlineResponse20046 list_all_roles_v2()
+> InlineResponse20044 list_all_roles_v2()
 
 List roles
 
 List all roles.
 
 ### Example
+
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    
+    try:
+        # List roles
+        api_response = api_instance.list_all_roles_v2()
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->list_all_roles_v2: %s\n" % e)
+```
 
 * Api Key Authentication (management_key):
 ```python
@@ -20048,6 +30970,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -20100,6 +31032,16 @@ configuration = talon_one.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
     host = "https://yourbaseurl.talon.one",
@@ -20138,11 +31080,11 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**InlineResponse20046**](InlineResponse20046.md)
+[**InlineResponse20044**](InlineResponse20044.md)
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -20157,13 +31099,78 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_campaign_store_budget_limits**
-> InlineResponse20048 list_campaign_store_budget_limits(application_id, campaign_id, action=action, period=period)
+> InlineResponse20046 list_campaign_store_budget_limits(application_id, campaign_id, action=action, period=period)
 
 List campaign store budget limits
 
 Return the store budget limits for a given campaign.
 
 ### Example
+
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
+campaign_id = 56 # int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
+action = 'action_example' # str | The action that this budget is limiting. (optional)
+period = 'period_example' # str | The period to which the limit applies.  **Note**: For budgets with no period, set this to `overall`.  (optional)
+
+    try:
+        # List campaign store budget limits
+        api_response = api_instance.list_campaign_store_budget_limits(application_id, campaign_id, action=action, period=period)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->list_campaign_store_budget_limits: %s\n" % e)
+```
 
 * Api Key Authentication (management_key):
 ```python
@@ -20182,6 +31189,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -20237,6 +31254,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -20286,11 +31313,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20048**](InlineResponse20048.md)
+[**InlineResponse20046**](InlineResponse20046.md)
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -20316,6 +31343,73 @@ Return a paginated list of cart items in the given catalog.
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    catalog_id = 56 # int | The ID of the catalog. You can find the ID in the Campaign Manager in **Account** > **Tools** > **Cart item catalogs**.
+page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
+with_total_result_size = True # bool | When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When `true`: `hasMore` is true when there is a next page. `totalResultSize` is always zero. - When `false`: `hasMore` is always false. `totalResultSize` contains the total number of results for this query.  (optional)
+sku = ['sku_example'] # list[str] | Filter results by one or more SKUs. Must be exact match. (optional)
+product_names = ['product_names_example'] # list[str] | Filter results by one or more product names. Must be exact match. (optional)
+
+    try:
+        # List items in a catalog
+        api_response = api_instance.list_catalog_items(catalog_id, page_size=page_size, skip=skip, with_total_result_size=with_total_result_size, sku=sku, product_names=product_names)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->list_catalog_items: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -20333,6 +31427,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -20390,6 +31494,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -20447,7 +31561,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -20470,6 +31584,74 @@ List collections in a given campaign.
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
+campaign_id = 56 # int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
+page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
+sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
+with_total_result_size = True # bool | When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When `true`: `hasMore` is true when there is a next page. `totalResultSize` is always zero. - When `false`: `hasMore` is always false. `totalResultSize` contains the total number of results for this query.  (optional)
+name = 'name_example' # str | Filter by collection name. (optional)
+
+    try:
+        # List collections in campaign
+        api_response = api_instance.list_collections(application_id, campaign_id, page_size=page_size, skip=skip, sort=sort, with_total_result_size=with_total_result_size, name=name)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->list_collections: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -20487,6 +31669,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -20545,6 +31737,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -20604,7 +31806,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -20628,6 +31830,73 @@ List campaign-level collections from all campaigns in a given Application.
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
+page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
+sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
+with_total_result_size = True # bool | When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When `true`: `hasMore` is true when there is a next page. `totalResultSize` is always zero. - When `false`: `hasMore` is always false. `totalResultSize` contains the total number of results for this query.  (optional)
+name = 'name_example' # str | Filter by collection name. (optional)
+
+    try:
+        # List collections in Application
+        api_response = api_instance.list_collections_in_application(application_id, page_size=page_size, skip=skip, sort=sort, with_total_result_size=with_total_result_size, name=name)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->list_collections_in_application: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -20645,6 +31914,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -20703,6 +31982,16 @@ configuration = talon_one.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
     host = "https://yourbaseurl.talon.one",
@@ -20759,7 +32048,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -20775,13 +32064,83 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_stores**
-> InlineResponse20047 list_stores(application_id, page_size=page_size, skip=skip, sort=sort, with_total_result_size=with_total_result_size, campaign_id=campaign_id, name=name, integration_id=integration_id, query=query)
+> InlineResponse20045 list_stores(application_id, page_size=page_size, skip=skip, sort=sort, with_total_result_size=with_total_result_size, campaign_id=campaign_id, name=name, integration_id=integration_id, query=query)
 
 List stores
 
 List all stores for a specific Application.
 
 ### Example
+
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
+page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
+sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
+with_total_result_size = True # bool | When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When `true`: `hasMore` is true when there is a next page. `totalResultSize` is always zero. - When `false`: `hasMore` is always false. `totalResultSize` contains the total number of results for this query.  (optional)
+campaign_id = 3.4 # float | Filter results by campaign ID. (optional)
+name = 'name_example' # str | The name of the store. (optional)
+integration_id = 'integration_id_example' # str | The integration ID of the store. (optional)
+query = 'query_example' # str | Filter results by `name` or `integrationId`. (optional)
+
+    try:
+        # List stores
+        api_response = api_instance.list_stores(application_id, page_size=page_size, skip=skip, sort=sort, with_total_result_size=with_total_result_size, campaign_id=campaign_id, name=name, integration_id=integration_id, query=query)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->list_stores: %s\n" % e)
+```
 
 * Api Key Authentication (management_key):
 ```python
@@ -20800,6 +32159,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -20860,6 +32229,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -20919,11 +32298,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20047**](InlineResponse20047.md)
+[**InlineResponse20045**](InlineResponse20045.md)
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -20946,6 +32325,66 @@ Validate the ownership of the API through a challenge-response mechanism.  This 
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    
+    try:
+        # Validate Okta API ownership
+        api_instance.okta_event_handler_challenge()
+    except ApiException as e:
+        print("Exception when calling ManagementApi->okta_event_handler_challenge: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -20963,6 +32402,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -21014,6 +32463,16 @@ configuration = talon_one.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
     host = "https://yourbaseurl.talon.one",
@@ -21055,7 +32514,7 @@ void (empty response body)
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -21078,6 +32537,69 @@ Deduct points from the specified loyalty program and specified customer profile.
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    loyalty_program_id = 'loyalty_program_id_example' # str | The identifier for the loyalty program.
+integration_id = 'integration_id_example' # str | The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. 
+body = talon_one.DeductLoyaltyPoints() # DeductLoyaltyPoints | body
+
+    try:
+        # Deduct points from customer profile
+        api_instance.remove_loyalty_points(loyalty_program_id, integration_id, body)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->remove_loyalty_points: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -21095,6 +32617,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -21148,6 +32680,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -21198,7 +32740,7 @@ void (empty response body)
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -21224,6 +32766,68 @@ Consumes the supplied password reset token and updates the password for the asso
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    body = talon_one.NewPassword() # NewPassword | body
+
+    try:
+        # Reset password
+        api_response = api_instance.reset_password(body)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->reset_password: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -21241,6 +32845,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -21293,6 +32907,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -21340,7 +32964,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -21363,6 +32987,68 @@ Create a new Talon.One group using the SCIM Group provisioning protocol with an 
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    body = talon_one.ScimBaseGroup() # ScimBaseGroup | body
+
+    try:
+        # Create SCIM group
+        api_response = api_instance.scim_create_group(body)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->scim_create_group: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -21380,6 +33066,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -21432,6 +33128,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -21479,7 +33185,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -21502,6 +33208,68 @@ Create a new Talon.One user using the SCIM provisioning protocol with an identit
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    body = talon_one.ScimNewUser() # ScimNewUser | body
+
+    try:
+        # Create SCIM user
+        api_response = api_instance.scim_create_user(body)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->scim_create_user: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -21519,6 +33287,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -21571,6 +33349,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -21618,7 +33406,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -21641,6 +33429,67 @@ Delete a specific group created using the SCIM provisioning protocol with an ide
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    group_id = 56 # int | The ID of the group.
+
+    try:
+        # Delete SCIM group
+        api_instance.scim_delete_group(group_id)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->scim_delete_group: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -21658,6 +33507,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -21709,6 +33568,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -21755,7 +33624,7 @@ void (empty response body)
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -21778,6 +33647,67 @@ Delete a specific Talon.One user created using the SCIM provisioning protocol wi
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    user_id = 56 # int | The ID of the user.
+
+    try:
+        # Delete SCIM user
+        api_instance.scim_delete_user(user_id)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->scim_delete_user: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -21795,6 +33725,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -21847,6 +33787,16 @@ configuration = talon_one.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
     host = "https://yourbaseurl.talon.one",
@@ -21892,7 +33842,7 @@ void (empty response body)
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -21915,6 +33865,68 @@ Retrieve data for a specific group created using the SCIM provisioning protocol 
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    group_id = 56 # int | The ID of the group.
+
+    try:
+        # Get SCIM group
+        api_response = api_instance.scim_get_group(group_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->scim_get_group: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -21932,6 +33944,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -21984,6 +34006,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -22031,7 +34063,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -22054,6 +34086,67 @@ Retrieve a paginated list of groups created using the SCIM protocol with an iden
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    
+    try:
+        # List SCIM groups
+        api_response = api_instance.scim_get_groups()
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->scim_get_groups: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -22071,6 +34164,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -22122,6 +34225,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -22165,7 +34278,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -22188,6 +34301,67 @@ Retrieve a list of resource types supported by the SCIM provisioning protocol.  
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    
+    try:
+        # List supported SCIM resource types
+        api_response = api_instance.scim_get_resource_types()
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->scim_get_resource_types: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -22205,6 +34379,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -22256,6 +34440,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -22299,7 +34493,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -22322,6 +34516,67 @@ Retrieve a list of schemas supported by the SCIM provisioning protocol.  Schemas
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    
+    try:
+        # List supported SCIM schemas
+        api_response = api_instance.scim_get_schemas()
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->scim_get_schemas: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -22339,6 +34594,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -22390,6 +34655,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -22433,7 +34708,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -22456,6 +34731,67 @@ Retrieve the configuration settings of the SCIM service provider. It provides de
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    
+    try:
+        # Get SCIM service provider configuration
+        api_response = api_instance.scim_get_service_provider_config()
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->scim_get_service_provider_config: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -22473,6 +34809,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -22525,6 +34871,16 @@ configuration = talon_one.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
     host = "https://yourbaseurl.talon.one",
@@ -22567,7 +34923,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -22590,6 +34946,68 @@ Retrieve data for a specific Talon.One user created using the SCIM provisioning 
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    user_id = 56 # int | The ID of the user.
+
+    try:
+        # Get SCIM user
+        api_response = api_instance.scim_get_user(user_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->scim_get_user: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -22607,6 +35025,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -22659,6 +35087,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -22706,7 +35144,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -22729,6 +35167,67 @@ Retrieve a paginated list of users that have been provisioned using the SCIM pro
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    
+    try:
+        # List SCIM users
+        api_response = api_instance.scim_get_users()
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->scim_get_users: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -22746,6 +35245,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -22798,6 +35307,16 @@ configuration = talon_one.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
     host = "https://yourbaseurl.talon.one",
@@ -22840,7 +35359,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -22863,6 +35382,69 @@ Update certain attributes of a group created using the SCIM provisioning protoco
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    group_id = 56 # int | The ID of the group.
+body = talon_one.ScimPatchRequest() # ScimPatchRequest | body
+
+    try:
+        # Update SCIM group attributes
+        api_response = api_instance.scim_patch_group(group_id, body)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->scim_patch_group: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -22880,6 +35462,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -22933,6 +35525,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -22982,7 +35584,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -23005,6 +35607,69 @@ Update certain attributes of a specific Talon.One user created using the SCIM pr
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    user_id = 56 # int | The ID of the user.
+body = talon_one.ScimPatchRequest() # ScimPatchRequest | body
+
+    try:
+        # Update SCIM user attributes
+        api_response = api_instance.scim_patch_user(user_id, body)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->scim_patch_user: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -23022,6 +35687,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -23076,6 +35751,16 @@ configuration = talon_one.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
     host = "https://yourbaseurl.talon.one",
@@ -23124,7 +35809,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -23147,6 +35832,69 @@ Update the details of a specific group created using the SCIM provisioning proto
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    group_id = 56 # int | The ID of the group.
+body = talon_one.ScimBaseGroup() # ScimBaseGroup | body
+
+    try:
+        # Update SCIM group
+        api_response = api_instance.scim_replace_group_attributes(group_id, body)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->scim_replace_group_attributes: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -23164,6 +35912,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -23217,6 +35975,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -23266,7 +36034,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -23289,6 +36057,69 @@ Update the details of a specific Talon.One user created using the SCIM provision
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    user_id = 56 # int | The ID of the user.
+body = talon_one.ScimNewUser() # ScimNewUser | body
+
+    try:
+        # Update SCIM user
+        api_response = api_instance.scim_replace_user_attributes(user_id, body)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->scim_replace_user_attributes: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -23306,6 +36137,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -23360,6 +36201,16 @@ configuration = talon_one.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
     host = "https://yourbaseurl.talon.one",
@@ -23408,7 +36259,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -23431,6 +36282,82 @@ List the coupons whose attributes match the query criteria in all the campaigns 
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
+body = None # object | body
+page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
+sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
+value = 'value_example' # str | Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
+created_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
+created_after = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
+valid = 'valid_example' # str | Either \"expired\", \"validNow\", or \"validFuture\". The first option matches coupons in which the expiration date is set and in the past. The second matches coupons in which start date is null or in the past and expiration date is null or in the future, the third matches coupons in which start date is set and in the future.  (optional)
+usable = 'usable_example' # str | Either \"true\" or \"false\". If \"true\", only coupons where `usageCounter < usageLimit` will be returned, \"false\" will return only coupons where `usageCounter >= usageLimit`.  (optional)
+referral_id = 56 # int | Filter the results by matching them with the ID of a referral. This filter shows the coupons created by redeeming a referral code. (optional)
+recipient_integration_id = 'recipient_integration_id_example' # str | Filter results by match with a profile ID specified in the coupon's RecipientIntegrationId field. (optional)
+batch_id = 'batch_id_example' # str | Filter results by batches of coupons (optional)
+exact_match = False # bool | Filter results to an exact case-insensitive matching against the coupon code. (optional) (default to False)
+campaign_state = 'campaign_state_example' # str | Filter results by the state of the campaign.  - `enabled`: Campaigns that are scheduled, running (activated), or expired. - `running`: Campaigns that are running (activated). - `disabled`: Campaigns that are disabled. - `expired`: Campaigns that are expired. - `archived`: Campaigns that are archived.  (optional)
+
+    try:
+        # List coupons that match the given attributes (without total count)
+        api_response = api_instance.search_coupons_advanced_application_wide_without_total_count(application_id, body, page_size=page_size, skip=skip, sort=sort, value=value, created_before=created_before, created_after=created_after, valid=valid, usable=usable, referral_id=referral_id, recipient_integration_id=recipient_integration_id, batch_id=batch_id, exact_match=exact_match, campaign_state=campaign_state)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->search_coupons_advanced_application_wide_without_total_count: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -23448,6 +36375,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -23514,6 +36451,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -23589,7 +36536,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -23612,6 +36559,82 @@ List the coupons whose attributes match the query criteria in the given campaign
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
+campaign_id = 56 # int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
+body = None # object | body
+page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
+sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
+value = 'value_example' # str | Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)
+created_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
+created_after = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
+valid = 'valid_example' # str | Either \"expired\", \"validNow\", or \"validFuture\". The first option matches coupons in which the expiration date is set and in the past. The second matches coupons in which start date is null or in the past and expiration date is null or in the future, the third matches coupons in which start date is set and in the future.  (optional)
+usable = 'usable_example' # str | Either \"true\" or \"false\". If \"true\", only coupons where `usageCounter < usageLimit` will be returned, \"false\" will return only coupons where `usageCounter >= usageLimit`.  (optional)
+referral_id = 56 # int | Filter the results by matching them with the ID of a referral. This filter shows the coupons created by redeeming a referral code. (optional)
+recipient_integration_id = 'recipient_integration_id_example' # str | Filter results by match with a profile ID specified in the coupon's RecipientIntegrationId field. (optional)
+exact_match = False # bool | Filter results to an exact case-insensitive matching against the coupon code. (optional) (default to False)
+batch_id = 'batch_id_example' # str | Filter results by batches of coupons (optional)
+
+    try:
+        # List coupons that match the given attributes in campaign (without total count)
+        api_response = api_instance.search_coupons_advanced_without_total_count(application_id, campaign_id, body, page_size=page_size, skip=skip, sort=sort, value=value, created_before=created_before, created_after=created_after, valid=valid, usable=usable, referral_id=referral_id, recipient_integration_id=recipient_integration_id, exact_match=exact_match, batch_id=batch_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->search_coupons_advanced_without_total_count: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -23629,6 +36652,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -23695,6 +36728,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -23770,7 +36813,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -23785,13 +36828,76 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **summarize_campaign_store_budget**
-> InlineResponse20049 summarize_campaign_store_budget(application_id, campaign_id)
+> InlineResponse20047 summarize_campaign_store_budget(application_id, campaign_id)
 
 Get summary of campaign store budgets
 
 Fetch a summary of all store budget information for a given campaign.
 
 ### Example
+
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
+campaign_id = 56 # int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
+
+    try:
+        # Get summary of campaign store budgets
+        api_response = api_instance.summarize_campaign_store_budget(application_id, campaign_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->summarize_campaign_store_budget: %s\n" % e)
+```
 
 * Api Key Authentication (management_key):
 ```python
@@ -23810,6 +36916,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -23864,6 +36980,16 @@ configuration = talon_one.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
     host = "https://yourbaseurl.talon.one",
@@ -23908,11 +37034,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20049**](InlineResponse20049.md)
+[**InlineResponse20047**](InlineResponse20047.md)
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -23938,6 +37064,69 @@ Transfer loyalty card data, such as linked customers, loyalty balances and trans
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    loyalty_program_id = 56 # int | Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. 
+loyalty_card_id = 'loyalty_card_id_example' # str | Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint. 
+body = talon_one.TransferLoyaltyCard() # TransferLoyaltyCard | body
+
+    try:
+        # Transfer card data
+        api_instance.transfer_loyalty_card(loyalty_program_id, loyalty_card_id, body)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->transfer_loyalty_card: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -23955,6 +37144,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -24008,6 +37207,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -24058,7 +37267,7 @@ void (empty response body)
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -24084,6 +37293,69 @@ Edit the description of a given account-level collection and enable or disable t
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    collection_id = 56 # int | The ID of the collection. You can get it with the [List collections in account](#operation/listAccountCollections) endpoint.
+body = talon_one.UpdateCollection() # UpdateCollection | body
+
+    try:
+        # Update account-level collection
+        api_response = api_instance.update_account_collection(collection_id, body)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->update_account_collection: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -24101,6 +37373,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -24155,6 +37437,16 @@ configuration = talon_one.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
     host = "https://yourbaseurl.talon.one",
@@ -24203,7 +37495,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -24229,6 +37521,71 @@ Update the details of a specific achievement.
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
+campaign_id = 56 # int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
+achievement_id = 56 # int | The ID of the achievement. You can get this ID with the [List achievement](https://docs.talon.one/management-api#tag/Achievements/operation/listAchievements) endpoint.
+body = talon_one.UpdateAchievement() # UpdateAchievement | body
+
+    try:
+        # Update achievement
+        api_response = api_instance.update_achievement(application_id, campaign_id, achievement_id, body)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->update_achievement: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -24246,6 +37603,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -24301,6 +37668,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -24354,7 +37731,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -24380,6 +37757,69 @@ Updates an existing additional cost. Once created, the only property of an addit
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    additional_cost_id = 56 # int | The ID of the additional cost. You can find the ID the the Campaign Manager's URL when you display the details of the cost in **Account** > **Tools** > **Additional costs**. 
+body = talon_one.NewAdditionalCost() # NewAdditionalCost | body
+
+    try:
+        # Update additional cost
+        api_response = api_instance.update_additional_cost(additional_cost_id, body)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->update_additional_cost: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -24397,6 +37837,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -24450,6 +37900,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -24499,7 +37959,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -24522,6 +37982,69 @@ Update an existing custom attribute. Once created, the only property of a custom
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    attribute_id = 56 # int | The ID of the attribute. You can find the ID in the Campaign Manager's URL when you display the details of an attribute in **Account** > **Tools** > **Attributes**.
+body = talon_one.NewAttribute() # NewAttribute | body
+
+    try:
+        # Update custom attribute
+        api_response = api_instance.update_attribute(attribute_id, body)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->update_attribute: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -24539,6 +38062,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -24593,6 +38126,16 @@ configuration = talon_one.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
     host = "https://yourbaseurl.talon.one",
@@ -24641,7 +38184,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -24664,6 +38207,70 @@ Update the given campaign.  **Important:** You cannot use this endpoint to updat
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
+campaign_id = 56 # int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
+body = talon_one.UpdateCampaign() # UpdateCampaign | body
+
+    try:
+        # Update campaign
+        api_response = api_instance.update_campaign(application_id, campaign_id, body)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->update_campaign: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -24681,6 +38288,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -24735,6 +38352,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -24786,7 +38413,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -24809,6 +38436,71 @@ Edit the description of a given campaign-level collection.
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
+campaign_id = 56 # int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
+collection_id = 56 # int | The ID of the collection. You can get it with the [List collections in Application](#operation/listCollectionsInApplication) endpoint.
+body = talon_one.UpdateCampaignCollection() # UpdateCampaignCollection | body
+
+    try:
+        # Update campaign-level collection's description
+        api_response = api_instance.update_collection(application_id, campaign_id, collection_id, body)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->update_collection: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -24826,6 +38518,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -24881,6 +38583,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -24934,7 +38646,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -24958,6 +38670,71 @@ Update the specified coupon.  <div class=\"redoc-section\">   <p class=\"title\"
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
+campaign_id = 56 # int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
+coupon_id = 'coupon_id_example' # str | The internal ID of the coupon code. You can find this value in the `id` property from the [List coupons](https://docs.talon.one/management-api#tag/Coupons/operation/getCouponsWithoutTotalCount) endpoint response. 
+body = talon_one.UpdateCoupon() # UpdateCoupon | body
+
+    try:
+        # Update coupon
+        api_response = api_instance.update_coupon(application_id, campaign_id, coupon_id, body)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->update_coupon: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -24975,6 +38752,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -25030,6 +38817,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -25083,7 +38880,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -25106,6 +38903,69 @@ Update all coupons or a specific batch of coupons in the given campaign. You can
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
+campaign_id = 56 # int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
+body = talon_one.UpdateCouponBatch() # UpdateCouponBatch | body
+
+    try:
+        # Update coupons
+        api_instance.update_coupon_batch(application_id, campaign_id, body)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->update_coupon_batch: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -25123,6 +38983,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -25177,6 +39047,16 @@ configuration = talon_one.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
     host = "https://yourbaseurl.talon.one",
@@ -25226,7 +39106,7 @@ void (empty response body)
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -25249,6 +39129,70 @@ Update the status of the given loyalty card. A card can be _active_ or _inactive
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    loyalty_program_id = 56 # int | Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. 
+loyalty_card_id = 'loyalty_card_id_example' # str | Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint. 
+body = talon_one.UpdateLoyaltyCard() # UpdateLoyaltyCard | body
+
+    try:
+        # Update loyalty card status
+        api_response = api_instance.update_loyalty_card(loyalty_program_id, loyalty_card_id, body)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->update_loyalty_card: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -25266,6 +39210,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -25320,6 +39274,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -25371,7 +39335,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -25397,6 +39361,71 @@ Update the specified referral.
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
+campaign_id = 56 # int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
+referral_id = 'referral_id_example' # str | The ID of the referral code.
+body = talon_one.UpdateReferral() # UpdateReferral | body
+
+    try:
+        # Update referral
+        api_response = api_instance.update_referral(application_id, campaign_id, referral_id, body)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->update_referral: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -25414,6 +39443,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -25469,6 +39508,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -25522,7 +39571,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -25545,6 +39594,69 @@ Update a specific role.
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    role_id = 56 # int | The ID of role.  **Note**: To find the ID of a role, use the [List roles](/management-api#tag/Roles/operation/listAllRolesV2) endpoint. 
+body = talon_one.RoleV2Base() # RoleV2Base | body
+
+    try:
+        # Update role
+        api_response = api_instance.update_role_v2(role_id, body)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->update_role_v2: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -25562,6 +39674,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -25616,6 +39738,16 @@ configuration = talon_one.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
     host = "https://yourbaseurl.talon.one",
@@ -25664,7 +39796,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -25687,6 +39819,70 @@ Update store details for a specific store ID.
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
+store_id = 'store_id_example' # str | The ID of the store. You can get this ID with the [List stores](#tag/Stores/operation/listStores) endpoint. 
+body = talon_one.NewStore() # NewStore | body
+
+    try:
+        # Update store
+        api_response = api_instance.update_store(application_id, store_id, body)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->update_store: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -25704,6 +39900,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -25758,6 +39964,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -25809,7 +40025,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -25834,6 +40050,69 @@ Update the details of a specific user.
 
 ### Example
 
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    user_id = 56 # int | The ID of the user.
+body = talon_one.UpdateUser() # UpdateUser | body
+
+    try:
+        # Update user
+        api_response = api_instance.update_user(user_id, body)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->update_user: %s\n" % e)
+```
+
 * Api Key Authentication (management_key):
 ```python
 from __future__ import print_function
@@ -25851,6 +40130,16 @@ configuration = talon_one.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
@@ -25905,6 +40194,16 @@ configuration = talon_one.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
 # Configure API key authorization: management_key
 configuration = talon_one.Configuration(
     host = "https://yourbaseurl.talon.one",
@@ -25953,7 +40252,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 

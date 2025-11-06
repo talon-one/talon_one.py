@@ -234,7 +234,7 @@ class NewLoyaltyProgram(object):
     def default_pending(self):
         """Gets the default_pending of this NewLoyaltyProgram.  # noqa: E501
 
-        The default duration of the pending time after which points should be valid. Can be 'immediate' or a specific time. The time format is a number followed by one letter indicating the time unit, like '30s', '40m', '1h', '5D', '7W', or 10M'. These rounding suffixes are also supported: - '_D' for rounding down. Can be used as a suffix after 'D', and signifies the start of the day. - '_U' for rounding up. Can be used as a suffix after 'D', 'W', and 'M', and signifies the end of the day, week, and month.   # noqa: E501
+        The default duration of the pending time after which points should be valid. Accepted values: 'immediate', 'on_action' or a specific time. The time format is a number followed by one letter indicating the time unit, like '30s', '40m', '1h', '5D', '7W', or 10M'. These rounding suffixes are also supported: - '_D' for rounding down. Can be used as a suffix after 'D', and signifies the start of the day. - '_U' for rounding up. Can be used as a suffix after 'D', 'W', and 'M', and signifies the end of the day, week, and month.   # noqa: E501
 
         :return: The default_pending of this NewLoyaltyProgram.  # noqa: E501
         :rtype: str
@@ -245,7 +245,7 @@ class NewLoyaltyProgram(object):
     def default_pending(self, default_pending):
         """Sets the default_pending of this NewLoyaltyProgram.
 
-        The default duration of the pending time after which points should be valid. Can be 'immediate' or a specific time. The time format is a number followed by one letter indicating the time unit, like '30s', '40m', '1h', '5D', '7W', or 10M'. These rounding suffixes are also supported: - '_D' for rounding down. Can be used as a suffix after 'D', and signifies the start of the day. - '_U' for rounding up. Can be used as a suffix after 'D', 'W', and 'M', and signifies the end of the day, week, and month.   # noqa: E501
+        The default duration of the pending time after which points should be valid. Accepted values: 'immediate', 'on_action' or a specific time. The time format is a number followed by one letter indicating the time unit, like '30s', '40m', '1h', '5D', '7W', or 10M'. These rounding suffixes are also supported: - '_D' for rounding down. Can be used as a suffix after 'D', and signifies the start of the day. - '_U' for rounding up. Can be used as a suffix after 'D', 'W', and 'M', and signifies the end of the day, week, and month.   # noqa: E501
 
         :param default_pending: The default_pending of this NewLoyaltyProgram.  # noqa: E501
         :type: str

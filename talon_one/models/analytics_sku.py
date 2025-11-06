@@ -36,6 +36,8 @@ class AnalyticsSKU(object):
         'id': 'int',
         'sku': 'str',
         'last_updated': 'datetime',
+        'catalog_id': 'int',
+        'product_id': 'int',
         'units_sold': 'AnalyticsDataPointWithTrend'
     }
 
@@ -43,10 +45,12 @@ class AnalyticsSKU(object):
         'id': 'id',
         'sku': 'sku',
         'last_updated': 'lastUpdated',
+        'catalog_id': 'catalogId',
+        'product_id': 'productId',
         'units_sold': 'unitsSold'
     }
 
-    def __init__(self, id=None, sku=None, last_updated=None, units_sold=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, sku=None, last_updated=None, catalog_id=None, product_id=None, units_sold=None, local_vars_configuration=None):  # noqa: E501
         """AnalyticsSKU - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -55,6 +59,8 @@ class AnalyticsSKU(object):
         self._id = None
         self._sku = None
         self._last_updated = None
+        self._catalog_id = None
+        self._product_id = None
         self._units_sold = None
         self.discriminator = None
 
@@ -62,6 +68,10 @@ class AnalyticsSKU(object):
         self.sku = sku
         if last_updated is not None:
             self.last_updated = last_updated
+        if catalog_id is not None:
+            self.catalog_id = catalog_id
+        if product_id is not None:
+            self.product_id = product_id
         if units_sold is not None:
             self.units_sold = units_sold
 
@@ -69,7 +79,7 @@ class AnalyticsSKU(object):
     def id(self):
         """Gets the id of this AnalyticsSKU.  # noqa: E501
 
-        The ID of the SKU linked to the application.  # noqa: E501
+        The ID of the SKU linked to the Application.  # noqa: E501
 
         :return: The id of this AnalyticsSKU.  # noqa: E501
         :rtype: int
@@ -80,7 +90,7 @@ class AnalyticsSKU(object):
     def id(self, id):
         """Sets the id of this AnalyticsSKU.
 
-        The ID of the SKU linked to the application.  # noqa: E501
+        The ID of the SKU linked to the Application.  # noqa: E501
 
         :param id: The id of this AnalyticsSKU.  # noqa: E501
         :type: int
@@ -94,7 +104,7 @@ class AnalyticsSKU(object):
     def sku(self):
         """Gets the sku of this AnalyticsSKU.  # noqa: E501
 
-        The SKU linked to the application.  # noqa: E501
+        The SKU linked to the Application.  # noqa: E501
 
         :return: The sku of this AnalyticsSKU.  # noqa: E501
         :rtype: str
@@ -105,7 +115,7 @@ class AnalyticsSKU(object):
     def sku(self, sku):
         """Sets the sku of this AnalyticsSKU.
 
-        The SKU linked to the application.  # noqa: E501
+        The SKU linked to the Application.  # noqa: E501
 
         :param sku: The sku of this AnalyticsSKU.  # noqa: E501
         :type: str
@@ -137,6 +147,52 @@ class AnalyticsSKU(object):
         """
 
         self._last_updated = last_updated
+
+    @property
+    def catalog_id(self):
+        """Gets the catalog_id of this AnalyticsSKU.  # noqa: E501
+
+        The ID of the catalog that contains the SKU.  # noqa: E501
+
+        :return: The catalog_id of this AnalyticsSKU.  # noqa: E501
+        :rtype: int
+        """
+        return self._catalog_id
+
+    @catalog_id.setter
+    def catalog_id(self, catalog_id):
+        """Sets the catalog_id of this AnalyticsSKU.
+
+        The ID of the catalog that contains the SKU.  # noqa: E501
+
+        :param catalog_id: The catalog_id of this AnalyticsSKU.  # noqa: E501
+        :type: int
+        """
+
+        self._catalog_id = catalog_id
+
+    @property
+    def product_id(self):
+        """Gets the product_id of this AnalyticsSKU.  # noqa: E501
+
+        The ID of the product that the SKU belongs to.  # noqa: E501
+
+        :return: The product_id of this AnalyticsSKU.  # noqa: E501
+        :rtype: int
+        """
+        return self._product_id
+
+    @product_id.setter
+    def product_id(self, product_id):
+        """Sets the product_id of this AnalyticsSKU.
+
+        The ID of the product that the SKU belongs to.  # noqa: E501
+
+        :param product_id: The product_id of this AnalyticsSKU.  # noqa: E501
+        :type: int
+        """
+
+        self._product_id = product_id
 
     @property
     def units_sold(self):

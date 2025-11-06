@@ -35,16 +35,18 @@ class RoleV2RolesGroup(object):
     openapi_types = {
         'applications': 'dict(str, RoleV2ApplicationDetails)',
         'loyalty_programs': 'dict(str, str)',
-        'campaign_access_groups': 'dict(str, str)'
+        'campaign_access_groups': 'dict(str, str)',
+        'account': 'str'
     }
 
     attribute_map = {
         'applications': 'applications',
         'loyalty_programs': 'loyaltyPrograms',
-        'campaign_access_groups': 'campaignAccessGroups'
+        'campaign_access_groups': 'campaignAccessGroups',
+        'account': 'account'
     }
 
-    def __init__(self, applications=None, loyalty_programs=None, campaign_access_groups=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, applications=None, loyalty_programs=None, campaign_access_groups=None, account=None, local_vars_configuration=None):  # noqa: E501
         """RoleV2RolesGroup - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -53,6 +55,7 @@ class RoleV2RolesGroup(object):
         self._applications = None
         self._loyalty_programs = None
         self._campaign_access_groups = None
+        self._account = None
         self.discriminator = None
 
         if applications is not None:
@@ -61,6 +64,8 @@ class RoleV2RolesGroup(object):
             self.loyalty_programs = loyalty_programs
         if campaign_access_groups is not None:
             self.campaign_access_groups = campaign_access_groups
+        if account is not None:
+            self.account = account
 
     @property
     def applications(self):
@@ -130,6 +135,29 @@ class RoleV2RolesGroup(object):
         """
 
         self._campaign_access_groups = campaign_access_groups
+
+    @property
+    def account(self):
+        """Gets the account of this RoleV2RolesGroup.  # noqa: E501
+
+        Name of the account-level permission set  # noqa: E501
+
+        :return: The account of this RoleV2RolesGroup.  # noqa: E501
+        :rtype: str
+        """
+        return self._account
+
+    @account.setter
+    def account(self, account):
+        """Sets the account of this RoleV2RolesGroup.
+
+        Name of the account-level permission set  # noqa: E501
+
+        :param account: The account of this RoleV2RolesGroup.  # noqa: E501
+        :type: str
+        """
+
+        self._account = account
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -33,27 +33,56 @@ class GenerateCampaignDescription(object):
                             and the value is json key in definition.
     """
     openapi_types = {
+        'campaign_id': 'int',
         'ruleset_id': 'int',
         'currency': 'str'
     }
 
     attribute_map = {
+        'campaign_id': 'campaignID',
         'ruleset_id': 'rulesetID',
         'currency': 'currency'
     }
 
-    def __init__(self, ruleset_id=None, currency=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, campaign_id=None, ruleset_id=None, currency=None, local_vars_configuration=None):  # noqa: E501
         """GenerateCampaignDescription - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
+        self._campaign_id = None
         self._ruleset_id = None
         self._currency = None
         self.discriminator = None
 
+        self.campaign_id = campaign_id
         self.ruleset_id = ruleset_id
         self.currency = currency
+
+    @property
+    def campaign_id(self):
+        """Gets the campaign_id of this GenerateCampaignDescription.  # noqa: E501
+
+        ID of a campaign.  # noqa: E501
+
+        :return: The campaign_id of this GenerateCampaignDescription.  # noqa: E501
+        :rtype: int
+        """
+        return self._campaign_id
+
+    @campaign_id.setter
+    def campaign_id(self, campaign_id):
+        """Sets the campaign_id of this GenerateCampaignDescription.
+
+        ID of a campaign.  # noqa: E501
+
+        :param campaign_id: The campaign_id of this GenerateCampaignDescription.  # noqa: E501
+        :type: int
+        """
+        if self.local_vars_configuration.client_side_validation and campaign_id is None:  # noqa: E501
+            raise ValueError("Invalid value for `campaign_id`, must not be `None`")  # noqa: E501
+
+        self._campaign_id = campaign_id
 
     @property
     def ruleset_id(self):

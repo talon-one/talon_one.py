@@ -33,100 +33,47 @@ class NewMessageTest(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'type': 'str',
-        '_query_params': 'dict(str, str)',
         'headers': 'dict(str, str)',
         'verb': 'str',
         'url': 'str',
-        'payload': 'str'
+        'payload': 'str',
+        'params': 'list[TemplateArgDef]',
+        'application_ids': 'list[int]'
     }
 
     attribute_map = {
-        'type': 'type',
-        '_query_params': 'queryParams',
         'headers': 'headers',
         'verb': 'verb',
         'url': 'url',
-        'payload': 'payload'
+        'payload': 'payload',
+        'params': 'params',
+        'application_ids': 'applicationIds'
     }
 
-    def __init__(self, type=None, _query_params=None, headers=None, verb=None, url=None, payload=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, headers=None, verb=None, url=None, payload=None, params=None, application_ids=None, local_vars_configuration=None):  # noqa: E501
         """NewMessageTest - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
-        self._type = None
-        self.__query_params = None
         self._headers = None
         self._verb = None
         self._url = None
         self._payload = None
+        self._params = None
+        self._application_ids = None
         self.discriminator = None
 
-        self.type = type
-        if _query_params is not None:
-            self._query_params = _query_params
         if headers is not None:
             self.headers = headers
         self.verb = verb
         self.url = url
         if payload is not None:
             self.payload = payload
-
-    @property
-    def type(self):
-        """Gets the type of this NewMessageTest.  # noqa: E501
-
-        The message type.  # noqa: E501
-
-        :return: The type of this NewMessageTest.  # noqa: E501
-        :rtype: str
-        """
-        return self._type
-
-    @type.setter
-    def type(self, type):
-        """Sets the type of this NewMessageTest.
-
-        The message type.  # noqa: E501
-
-        :param type: The type of this NewMessageTest.  # noqa: E501
-        :type: str
-        """
-        if self.local_vars_configuration.client_side_validation and type is None:  # noqa: E501
-            raise ValueError("Invalid value for `type`, must not be `None`")  # noqa: E501
-        allowed_values = ["campaign", "loyalty_added_deducted_points", "card_added_deducted_points", "loyalty_added_deducted_points_balances", "loyalty_card_added_deducted_points_balances", "coupon", "expiring_coupons", "expiring_points", "pending_to_active_points", "strikethrough_pricing", "tier_downgrade", "tier_upgrade", "tier_will_downgrade", "card_expiring_points", "rule_engine_webhook"]  # noqa: E501
-        if self.local_vars_configuration.client_side_validation and type not in allowed_values:  # noqa: E501
-            raise ValueError(
-                "Invalid value for `type` ({0}), must be one of {1}"  # noqa: E501
-                .format(type, allowed_values)
-            )
-
-        self._type = type
-
-    @property
-    def _query_params(self):
-        """Gets the _query_params of this NewMessageTest.  # noqa: E501
-
-        Array of query parameters.  # noqa: E501
-
-        :return: The _query_params of this NewMessageTest.  # noqa: E501
-        :rtype: dict(str, str)
-        """
-        return self.__query_params
-
-    @_query_params.setter
-    def _query_params(self, _query_params):
-        """Sets the _query_params of this NewMessageTest.
-
-        Array of query parameters.  # noqa: E501
-
-        :param _query_params: The _query_params of this NewMessageTest.  # noqa: E501
-        :type: dict(str, str)
-        """
-
-        self.__query_params = _query_params
+        if params is not None:
+            self.params = params
+        if application_ids is not None:
+            self.application_ids = application_ids
 
     @property
     def headers(self):
@@ -229,6 +176,52 @@ class NewMessageTest(object):
         """
 
         self._payload = payload
+
+    @property
+    def params(self):
+        """Gets the params of this NewMessageTest.  # noqa: E501
+
+        Array of template argument definitions.  # noqa: E501
+
+        :return: The params of this NewMessageTest.  # noqa: E501
+        :rtype: list[TemplateArgDef]
+        """
+        return self._params
+
+    @params.setter
+    def params(self, params):
+        """Sets the params of this NewMessageTest.
+
+        Array of template argument definitions.  # noqa: E501
+
+        :param params: The params of this NewMessageTest.  # noqa: E501
+        :type: list[TemplateArgDef]
+        """
+
+        self._params = params
+
+    @property
+    def application_ids(self):
+        """Gets the application_ids of this NewMessageTest.  # noqa: E501
+
+        The IDs of the Applications in which this webhook is available. An empty array means the webhook is available in `All Applications`.   # noqa: E501
+
+        :return: The application_ids of this NewMessageTest.  # noqa: E501
+        :rtype: list[int]
+        """
+        return self._application_ids
+
+    @application_ids.setter
+    def application_ids(self, application_ids):
+        """Sets the application_ids of this NewMessageTest.
+
+        The IDs of the Applications in which this webhook is available. An empty array means the webhook is available in `All Applications`.   # noqa: E501
+
+        :param application_ids: The application_ids of this NewMessageTest.  # noqa: E501
+        :type: list[int]
+        """
+
+        self._application_ids = application_ids
 
     def to_dict(self):
         """Returns the model properties as a dict"""

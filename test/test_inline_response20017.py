@@ -40,6 +40,7 @@ class TestInlineResponse20017(unittest.TestCase):
                 data = [
                     talon_one.models.loyalty_program_transaction.LoyaltyProgramTransaction(
                         id = 123, 
+                        transaction_uuid = 'ce59f12a-f53b-4014-a745-636d93f2bd3f', 
                         program_id = 324, 
                         campaign_id = 324, 
                         created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
@@ -67,6 +68,7 @@ class TestInlineResponse20017(unittest.TestCase):
                 data = [
                     talon_one.models.loyalty_program_transaction.LoyaltyProgramTransaction(
                         id = 123, 
+                        transaction_uuid = 'ce59f12a-f53b-4014-a745-636d93f2bd3f', 
                         program_id = 324, 
                         campaign_id = 324, 
                         created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 

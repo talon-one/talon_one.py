@@ -44,7 +44,8 @@ class TestAddPriceAdjustmentCatalogAction(unittest.TestCase):
                         reference_id = '68851723-e6fa-488f-ace9-112581e6c19b', 
                         calculated_at = '2021-09-12T10:12:42Z', 
                         effective_from = '2021-09-12T10:12:42Z', 
-                        effective_until = '2021-09-12T10:12:42Z', )
+                        effective_until = '2021-09-12T10:12:42Z', 
+                        context_id = 'Summer2025', )
                     ]
             )
         else :
@@ -57,7 +58,8 @@ class TestAddPriceAdjustmentCatalogAction(unittest.TestCase):
                         reference_id = '68851723-e6fa-488f-ace9-112581e6c19b', 
                         calculated_at = '2021-09-12T10:12:42Z', 
                         effective_from = '2021-09-12T10:12:42Z', 
-                        effective_until = '2021-09-12T10:12:42Z', )
+                        effective_until = '2021-09-12T10:12:42Z', 
+                        context_id = 'Summer2025', )
                     ],
         )
 

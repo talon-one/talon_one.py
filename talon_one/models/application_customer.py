@@ -281,7 +281,7 @@ class ApplicationCustomer(object):
     def loyalty_memberships(self):
         """Gets the loyalty_memberships of this ApplicationCustomer.  # noqa: E501
 
-        **DEPRECATED** A list of loyalty programs joined by the customer.   # noqa: E501
+        **DEPRECATED. Always returns `null`.** A list of loyalty programs joined by the customer.   # noqa: E501
 
         :return: The loyalty_memberships of this ApplicationCustomer.  # noqa: E501
         :rtype: list[LoyaltyMembership]
@@ -292,7 +292,7 @@ class ApplicationCustomer(object):
     def loyalty_memberships(self, loyalty_memberships):
         """Sets the loyalty_memberships of this ApplicationCustomer.
 
-        **DEPRECATED** A list of loyalty programs joined by the customer.   # noqa: E501
+        **DEPRECATED. Always returns `null`.** A list of loyalty programs joined by the customer.   # noqa: E501
 
         :param loyalty_memberships: The loyalty_memberships of this ApplicationCustomer.  # noqa: E501
         :type: list[LoyaltyMembership]

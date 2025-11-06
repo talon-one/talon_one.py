@@ -11,7 +11,7 @@ import pathlib
 # http://pypi.python.org/pypi/setuptools
 
 NAME = "talon-one-python-sdk"
-VERSION = "9.0.0"
+VERSION = "11.0.0"
 
 # Get the long description from the README.md file
 here = pathlib.Path(__file__).parent.resolve()

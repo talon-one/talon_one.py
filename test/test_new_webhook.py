@@ -49,7 +49,8 @@ class TestNewWebhook(unittest.TestCase):
 	"message": "${message}"
 }', 
                 params = [], 
-                enabled = True
+                enabled = True, 
+                authentication_id = 1
             )
         else :
             return NewWebhook(

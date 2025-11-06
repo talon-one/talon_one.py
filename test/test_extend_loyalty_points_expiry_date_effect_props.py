@@ -39,17 +39,18 @@ class TestExtendLoyaltyPointsExpiryDateEffectProps(unittest.TestCase):
                 program_id = 56, 
                 sub_ledger_id = '0', 
                 extension_duration = '12h', 
-                transaction_uui_ds = [
-                    '0'
-                    ], 
-                previous_expiration_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f')
+                affected_transactions = [
+                    talon_one.models.loyalty_ledger_entry_expiry_date_change.LoyaltyLedgerEntryExpiryDateChange(
+                        transaction_uuid = '0', 
+                        previous_expiry_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        new_expiry_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), )
+                    ]
             )
         else :
             return ExtendLoyaltyPointsExpiryDateEffectProps(
                 program_id = 56,
                 sub_ledger_id = '0',
                 extension_duration = '12h',
-                previous_expiration_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
         )
 
     def testExtendLoyaltyPointsExpiryDateEffectProps(self):

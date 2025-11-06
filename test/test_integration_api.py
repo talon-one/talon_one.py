@@ -28,6 +28,13 @@ class TestIntegrationApi(unittest.TestCase):
     def tearDown(self):
         pass
 
+    def test_best_prior_price(self):
+        """Test case for best_prior_price
+
+        Fetch best prior price  # noqa: E501
+        """
+        pass
+
     def test_create_audience_v2(self):
         """Test case for create_audience_v2
 

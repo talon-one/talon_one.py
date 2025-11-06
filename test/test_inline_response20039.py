@@ -56,6 +56,7 @@ class TestInlineResponse20039(unittest.TestCase):
 }', 
                         params = [], 
                         enabled = True, 
+                        authentication_id = 1, 
                         outgoing_integration_template_id = 1, 
                         outgoing_integration_type_id = 1, 
                         outgoing_integration_type_name = 'Braze', )
@@ -83,6 +84,7 @@ class TestInlineResponse20039(unittest.TestCase):
 }', 
                         params = [], 
                         enabled = True, 
+                        authentication_id = 1, 
                         outgoing_integration_template_id = 1, 
                         outgoing_integration_type_id = 1, 
                         outgoing_integration_type_name = 'Braze', )

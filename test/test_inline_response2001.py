@@ -51,6 +51,7 @@ class TestInlineResponse2001(unittest.TestCase):
                         activation_policy = 'fixed_schedule', 
                         fixed_start_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                         end_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        allow_rollback_after_completion = False, 
                         campaign_id = 1, 
                         status = 'active', 
                         current_progress = talon_one.models.achievement_progress.AchievementProgress(
@@ -78,6 +79,7 @@ class TestInlineResponse2001(unittest.TestCase):
                         activation_policy = 'fixed_schedule', 
                         fixed_start_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                         end_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        allow_rollback_after_completion = False, 
                         campaign_id = 1, 
                         status = 'active', 
                         current_progress = talon_one.models.achievement_progress.AchievementProgress(

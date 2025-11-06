@@ -39,6 +39,8 @@ class TestAnalyticsSKU(unittest.TestCase):
                 id = 1, 
                 sku = 'SKU-123', 
                 last_updated = '2024-02-01T00:00Z', 
+                catalog_id = 1, 
+                product_id = 1, 
                 units_sold = talon_one.models.analytics_data_point_with_trend.AnalyticsDataPointWithTrend(
                     value = 12.0, 
                     trend = 3.25, )

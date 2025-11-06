@@ -38,6 +38,7 @@ class StrikethroughChangedItem(object):
         'sku': 'str',
         'version': 'int',
         'price': 'float',
+        'prices': 'dict(str, PriceDetail)',
         'evaluated_at': 'datetime',
         'effects': 'list[StrikethroughEffect]'
     }
@@ -48,11 +49,12 @@ class StrikethroughChangedItem(object):
         'sku': 'sku',
         'version': 'version',
         'price': 'price',
+        'prices': 'prices',
         'evaluated_at': 'evaluatedAt',
         'effects': 'effects'
     }
 
-    def __init__(self, id=None, catalog_id=None, sku=None, version=None, price=None, evaluated_at=None, effects=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, catalog_id=None, sku=None, version=None, price=None, prices=None, evaluated_at=None, effects=None, local_vars_configuration=None):  # noqa: E501
         """StrikethroughChangedItem - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -63,6 +65,7 @@ class StrikethroughChangedItem(object):
         self._sku = None
         self._version = None
         self._price = None
+        self._prices = None
         self._evaluated_at = None
         self._effects = None
         self.discriminator = None
@@ -72,6 +75,8 @@ class StrikethroughChangedItem(object):
         self.sku = sku
         self.version = version
         self.price = price
+        if prices is not None:
+            self.prices = prices
         self.evaluated_at = evaluated_at
         if effects is not None:
             self.effects = effects
@@ -203,6 +208,29 @@ class StrikethroughChangedItem(object):
             raise ValueError("Invalid value for `price`, must not be `None`")  # noqa: E501
 
         self._price = price
+
+    @property
+    def prices(self):
+        """Gets the prices of this StrikethroughChangedItem.  # noqa: E501
+
+        A map of keys and values representing the price types and related price adjustment details for this cart item.       The keys correspond to the `priceType` names.   # noqa: E501
+
+        :return: The prices of this StrikethroughChangedItem.  # noqa: E501
+        :rtype: dict(str, PriceDetail)
+        """
+        return self._prices
+
+    @prices.setter
+    def prices(self, prices):
+        """Sets the prices of this StrikethroughChangedItem.
+
+        A map of keys and values representing the price types and related price adjustment details for this cart item.       The keys correspond to the `priceType` names.   # noqa: E501
+
+        :param prices: The prices of this StrikethroughChangedItem.  # noqa: E501
+        :type: dict(str, PriceDetail)
+        """
+
+        self._prices = prices
 
     @property
     def evaluated_at(self):

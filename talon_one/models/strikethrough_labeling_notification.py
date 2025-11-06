@@ -39,7 +39,8 @@ class StrikethroughLabelingNotification(object):
         'current_batch': 'int',
         'total_batches': 'int',
         'trigger': 'StrikethroughTrigger',
-        'changed_items': 'list[StrikethroughChangedItem]'
+        'changed_items': 'list[StrikethroughChangedItem]',
+        'notification_type': 'str'
     }
 
     attribute_map = {
@@ -49,10 +50,11 @@ class StrikethroughLabelingNotification(object):
         'current_batch': 'currentBatch',
         'total_batches': 'totalBatches',
         'trigger': 'trigger',
-        'changed_items': 'changedItems'
+        'changed_items': 'changedItems',
+        'notification_type': 'NotificationType'
     }
 
-    def __init__(self, version=None, valid_from=None, application_id=None, current_batch=None, total_batches=None, trigger=None, changed_items=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, version=None, valid_from=None, application_id=None, current_batch=None, total_batches=None, trigger=None, changed_items=None, notification_type=None, local_vars_configuration=None):  # noqa: E501
         """StrikethroughLabelingNotification - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -65,6 +67,7 @@ class StrikethroughLabelingNotification(object):
         self._total_batches = None
         self._trigger = None
         self._changed_items = None
+        self._notification_type = None
         self.discriminator = None
 
         if version is not None:
@@ -76,6 +79,7 @@ class StrikethroughLabelingNotification(object):
         self.total_batches = total_batches
         self.trigger = trigger
         self.changed_items = changed_items
+        self.notification_type = notification_type
 
     @property
     def version(self):
@@ -249,6 +253,31 @@ class StrikethroughLabelingNotification(object):
             raise ValueError("Invalid value for `changed_items`, must not be `None`")  # noqa: E501
 
         self._changed_items = changed_items
+
+    @property
+    def notification_type(self):
+        """Gets the notification_type of this StrikethroughLabelingNotification.  # noqa: E501
+
+        The type of the notification  # noqa: E501
+
+        :return: The notification_type of this StrikethroughLabelingNotification.  # noqa: E501
+        :rtype: str
+        """
+        return self._notification_type
+
+    @notification_type.setter
+    def notification_type(self, notification_type):
+        """Sets the notification_type of this StrikethroughLabelingNotification.
+
+        The type of the notification  # noqa: E501
+
+        :param notification_type: The notification_type of this StrikethroughLabelingNotification.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and notification_type is None:  # noqa: E501
+            raise ValueError("Invalid value for `notification_type`, must not be `None`")  # noqa: E501
+
+        self._notification_type = notification_type
 
     def to_dict(self):
         """Returns the model properties as a dict"""

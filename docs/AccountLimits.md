@@ -15,6 +15,8 @@ Name | Type | Description | Notes
 **users** | **int** | Total number of allowed users in the account. | 
 **api_volume** | **int** | Allowed volume of API requests to the account. | 
 **promotion_types** | **list[str]** | Array of promotion types that are employed in the account. | 
+**secondary_deployment_price** | **int** | The price for a secondary deployment according to contractual agreements. | 
+**currency_code** | **str** | The currency of the contract. | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

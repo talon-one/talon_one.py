@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **calculated_at** | **datetime** | The time at which this price was calculated. If provided, this is used to determine the most recent price adjustment to choose if price adjustments overlap. Defaults to internal creation time if not provided. | [optional] 
 **effective_from** | **datetime** | The date and time from which the price adjustment is effective. | [optional] 
 **effective_until** | **datetime** | The date and time until which the price adjustment is effective. | [optional] 
+**context_id** | **str** | Identifier of the context of this price adjustment (e.g. summer sale). | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

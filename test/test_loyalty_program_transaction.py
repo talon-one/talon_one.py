@@ -37,6 +37,7 @@ class TestLoyaltyProgramTransaction(unittest.TestCase):
         if include_optional :
             return LoyaltyProgramTransaction(
                 id = 123, 
+                transaction_uuid = 'ce59f12a-f53b-4014-a745-636d93f2bd3f', 
                 program_id = 324, 
                 campaign_id = 324, 
                 created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
@@ -60,6 +61,7 @@ class TestLoyaltyProgramTransaction(unittest.TestCase):
         else :
             return LoyaltyProgramTransaction(
                 id = 123,
+                transaction_uuid = 'ce59f12a-f53b-4014-a745-636d93f2bd3f',
                 program_id = 324,
                 created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 type = 'addition',

@@ -38,6 +38,7 @@ class LoyaltyDashboardData(object):
         'total_pending_points': 'float',
         'total_spent_points': 'float',
         'total_expired_points': 'float',
+        'total_negative_points': 'float',
         'total_members': 'float',
         'new_members': 'float',
         'spent_points': 'LoyaltyDashboardPointsBreakdown',
@@ -50,13 +51,14 @@ class LoyaltyDashboardData(object):
         'total_pending_points': 'totalPendingPoints',
         'total_spent_points': 'totalSpentPoints',
         'total_expired_points': 'totalExpiredPoints',
+        'total_negative_points': 'totalNegativePoints',
         'total_members': 'totalMembers',
         'new_members': 'newMembers',
         'spent_points': 'spentPoints',
         'earned_points': 'earnedPoints'
     }
 
-    def __init__(self, date=None, total_active_points=None, total_pending_points=None, total_spent_points=None, total_expired_points=None, total_members=None, new_members=None, spent_points=None, earned_points=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, date=None, total_active_points=None, total_pending_points=None, total_spent_points=None, total_expired_points=None, total_negative_points=None, total_members=None, new_members=None, spent_points=None, earned_points=None, local_vars_configuration=None):  # noqa: E501
         """LoyaltyDashboardData - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -67,6 +69,7 @@ class LoyaltyDashboardData(object):
         self._total_pending_points = None
         self._total_spent_points = None
         self._total_expired_points = None
+        self._total_negative_points = None
         self._total_members = None
         self._new_members = None
         self._spent_points = None
@@ -78,6 +81,7 @@ class LoyaltyDashboardData(object):
         self.total_pending_points = total_pending_points
         self.total_spent_points = total_spent_points
         self.total_expired_points = total_expired_points
+        self.total_negative_points = total_negative_points
         self.total_members = total_members
         self.new_members = new_members
         self.spent_points = spent_points
@@ -207,6 +211,31 @@ class LoyaltyDashboardData(object):
             raise ValueError("Invalid value for `total_expired_points`, must not be `None`")  # noqa: E501
 
         self._total_expired_points = total_expired_points
+
+    @property
+    def total_negative_points(self):
+        """Gets the total_negative_points of this LoyaltyDashboardData.  # noqa: E501
+
+        Total of negative points for this loyalty program.  # noqa: E501
+
+        :return: The total_negative_points of this LoyaltyDashboardData.  # noqa: E501
+        :rtype: float
+        """
+        return self._total_negative_points
+
+    @total_negative_points.setter
+    def total_negative_points(self, total_negative_points):
+        """Sets the total_negative_points of this LoyaltyDashboardData.
+
+        Total of negative points for this loyalty program.  # noqa: E501
+
+        :param total_negative_points: The total_negative_points of this LoyaltyDashboardData.  # noqa: E501
+        :type: float
+        """
+        if self.local_vars_configuration.client_side_validation and total_negative_points is None:  # noqa: E501
+            raise ValueError("Invalid value for `total_negative_points`, must not be `None`")  # noqa: E501
+
+        self._total_negative_points = total_negative_points
 
     @property
     def total_members(self):

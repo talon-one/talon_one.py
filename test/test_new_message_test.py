@@ -36,18 +36,19 @@ class TestNewMessageTest(unittest.TestCase):
         # model = talon_one.models.new_message_test.NewMessageTest()  # noqa: E501
         if include_optional :
             return NewMessageTest(
-                type = 'loyalty_added_deducted_points', 
-                _query_params = {"param1":"value1","param2":"value2"}, 
                 headers = {"content-type":"application/json"}, 
                 verb = 'POST', 
                 url = 'www.my-company.com/my-endpoint-name', 
                 payload = '{
 	"integrationId": "${$Profile.IntegrationId}"
-}'
+}', 
+                params = [], 
+                application_ids = [
+                    56
+                    ]
             )
         else :
             return NewMessageTest(
-                type = 'loyalty_added_deducted_points',
                 verb = 'POST',
                 url = 'www.my-company.com/my-endpoint-name',
         )

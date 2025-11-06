@@ -33,6 +33,7 @@ class LedgerTransactionLogEntryIntegrationAPI(object):
                             and the value is json key in definition.
     """
     openapi_types = {
+        'transaction_uuid': 'str',
         'created': 'datetime',
         'program_id': 'int',
         'customer_session_id': 'str',
@@ -49,6 +50,7 @@ class LedgerTransactionLogEntryIntegrationAPI(object):
     }
 
     attribute_map = {
+        'transaction_uuid': 'transactionUUID',
         'created': 'created',
         'program_id': 'programId',
         'customer_session_id': 'customerSessionId',
@@ -64,12 +66,13 @@ class LedgerTransactionLogEntryIntegrationAPI(object):
         'flags': 'flags'
     }
 
-    def __init__(self, created=None, program_id=None, customer_session_id=None, type=None, name=None, start_date=None, expiry_date=None, subledger_id=None, amount=None, id=None, ruleset_id=None, rule_name=None, flags=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, transaction_uuid=None, created=None, program_id=None, customer_session_id=None, type=None, name=None, start_date=None, expiry_date=None, subledger_id=None, amount=None, id=None, ruleset_id=None, rule_name=None, flags=None, local_vars_configuration=None):  # noqa: E501
         """LedgerTransactionLogEntryIntegrationAPI - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
+        self._transaction_uuid = None
         self._created = None
         self._program_id = None
         self._customer_session_id = None
@@ -85,6 +88,7 @@ class LedgerTransactionLogEntryIntegrationAPI(object):
         self._flags = None
         self.discriminator = None
 
+        self.transaction_uuid = transaction_uuid
         self.created = created
         self.program_id = program_id
         if customer_session_id is not None:
@@ -102,6 +106,31 @@ class LedgerTransactionLogEntryIntegrationAPI(object):
             self.rule_name = rule_name
         if flags is not None:
             self.flags = flags
+
+    @property
+    def transaction_uuid(self):
+        """Gets the transaction_uuid of this LedgerTransactionLogEntryIntegrationAPI.  # noqa: E501
+
+        Unique identifier of the transaction in the UUID format.  # noqa: E501
+
+        :return: The transaction_uuid of this LedgerTransactionLogEntryIntegrationAPI.  # noqa: E501
+        :rtype: str
+        """
+        return self._transaction_uuid
+
+    @transaction_uuid.setter
+    def transaction_uuid(self, transaction_uuid):
+        """Sets the transaction_uuid of this LedgerTransactionLogEntryIntegrationAPI.
+
+        Unique identifier of the transaction in the UUID format.  # noqa: E501
+
+        :param transaction_uuid: The transaction_uuid of this LedgerTransactionLogEntryIntegrationAPI.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and transaction_uuid is None:  # noqa: E501
+            raise ValueError("Invalid value for `transaction_uuid`, must not be `None`")  # noqa: E501
+
+        self._transaction_uuid = transaction_uuid
 
     @property
     def created(self):

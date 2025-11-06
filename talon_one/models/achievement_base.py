@@ -42,7 +42,8 @@ class AchievementBase(object):
         'recurrence_policy': 'str',
         'activation_policy': 'str',
         'fixed_start_date': 'datetime',
-        'end_date': 'datetime'
+        'end_date': 'datetime',
+        'allow_rollback_after_completion': 'bool'
     }
 
     attribute_map = {
@@ -55,10 +56,11 @@ class AchievementBase(object):
         'recurrence_policy': 'recurrencePolicy',
         'activation_policy': 'activationPolicy',
         'fixed_start_date': 'fixedStartDate',
-        'end_date': 'endDate'
+        'end_date': 'endDate',
+        'allow_rollback_after_completion': 'allowRollbackAfterCompletion'
     }
 
-    def __init__(self, name=None, title=None, description=None, target=None, period=None, period_end_override=None, recurrence_policy=None, activation_policy=None, fixed_start_date=None, end_date=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, name=None, title=None, description=None, target=None, period=None, period_end_override=None, recurrence_policy=None, activation_policy=None, fixed_start_date=None, end_date=None, allow_rollback_after_completion=None, local_vars_configuration=None):  # noqa: E501
         """AchievementBase - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -74,6 +76,7 @@ class AchievementBase(object):
         self._activation_policy = None
         self._fixed_start_date = None
         self._end_date = None
+        self._allow_rollback_after_completion = None
         self.discriminator = None
 
         if name is not None:
@@ -96,6 +99,8 @@ class AchievementBase(object):
             self.fixed_start_date = fixed_start_date
         if end_date is not None:
             self.end_date = end_date
+        if allow_rollback_after_completion is not None:
+            self.allow_rollback_after_completion = allow_rollback_after_completion
 
     @property
     def name(self):
@@ -345,6 +350,29 @@ class AchievementBase(object):
         """
 
         self._end_date = end_date
+
+    @property
+    def allow_rollback_after_completion(self):
+        """Gets the allow_rollback_after_completion of this AchievementBase.  # noqa: E501
+
+        When `true`, customer progress can be rolled back in completed achievements.  # noqa: E501
+
+        :return: The allow_rollback_after_completion of this AchievementBase.  # noqa: E501
+        :rtype: bool
+        """
+        return self._allow_rollback_after_completion
+
+    @allow_rollback_after_completion.setter
+    def allow_rollback_after_completion(self, allow_rollback_after_completion):
+        """Sets the allow_rollback_after_completion of this AchievementBase.
+
+        When `true`, customer progress can be rolled back in completed achievements.  # noqa: E501
+
+        :param allow_rollback_after_completion: The allow_rollback_after_completion of this AchievementBase.  # noqa: E501
+        :type: bool
+        """
+
+        self._allow_rollback_after_completion = allow_rollback_after_completion
 
     def to_dict(self):
         """Returns the model properties as a dict"""

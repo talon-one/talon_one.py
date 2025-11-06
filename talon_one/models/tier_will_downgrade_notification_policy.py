@@ -46,7 +46,7 @@ class TierWillDowngradeNotificationPolicy(object):
         'triggers': 'triggers'
     }
 
-    def __init__(self, name=None, batching_enabled=True, batch_size=None, triggers=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, name=None, batching_enabled=True, batch_size=1000, triggers=None, local_vars_configuration=None):  # noqa: E501
         """TierWillDowngradeNotificationPolicy - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()

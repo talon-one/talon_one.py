@@ -41,6 +41,7 @@ class TestLoyaltyDashboardData(unittest.TestCase):
                 total_pending_points = 548.0, 
                 total_spent_points = 25668.0, 
                 total_expired_points = 1156.0, 
+                total_negative_points = 32.0, 
                 total_members = 2582.0, 
                 new_members = 3.0, 
                 spent_points = talon_one.models.loyalty_dashboard_points_breakdown.LoyaltyDashboardPointsBreakdown(
@@ -57,6 +58,7 @@ class TestLoyaltyDashboardData(unittest.TestCase):
                 total_pending_points = 548.0,
                 total_spent_points = 25668.0,
                 total_expired_points = 1156.0,
+                total_negative_points = 32.0,
                 total_members = 2582.0,
                 new_members = 3.0,
                 spent_points = talon_one.models.loyalty_dashboard_points_breakdown.LoyaltyDashboardPointsBreakdown(

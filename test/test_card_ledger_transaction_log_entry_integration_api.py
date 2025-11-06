@@ -36,6 +36,7 @@ class TestCardLedgerTransactionLogEntryIntegrationAPI(unittest.TestCase):
         # model = talon_one.models.card_ledger_transaction_log_entry_integration_api.CardLedgerTransactionLogEntryIntegrationAPI()  # noqa: E501
         if include_optional :
             return CardLedgerTransactionLogEntryIntegrationAPI(
+                transaction_uuid = 'ce59f12a-f53b-4014-a745-636d93f2bd3f', 
                 created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                 program_id = 324, 
                 card_identifier = 'summer-loyalty-card-0543', 
@@ -52,6 +53,7 @@ class TestCardLedgerTransactionLogEntryIntegrationAPI(unittest.TestCase):
             )
         else :
             return CardLedgerTransactionLogEntryIntegrationAPI(
+                transaction_uuid = 'ce59f12a-f53b-4014-a745-636d93f2bd3f',
                 created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 program_id = 324,
                 card_identifier = 'summer-loyalty-card-0543',

@@ -34,15 +34,17 @@ class CatalogsStrikethroughNotificationPolicy(object):
     """
     openapi_types = {
         'name': 'str',
-        'ahead_of_days_trigger': 'int'
+        'ahead_of_days_trigger': 'int',
+        'batch_size': 'int'
     }
 
     attribute_map = {
         'name': 'name',
-        'ahead_of_days_trigger': 'aheadOfDaysTrigger'
+        'ahead_of_days_trigger': 'aheadOfDaysTrigger',
+        'batch_size': 'batchSize'
     }
 
-    def __init__(self, name=None, ahead_of_days_trigger=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, name=None, ahead_of_days_trigger=None, batch_size=1000, local_vars_configuration=None):  # noqa: E501
         """CatalogsStrikethroughNotificationPolicy - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -50,11 +52,14 @@ class CatalogsStrikethroughNotificationPolicy(object):
 
         self._name = None
         self._ahead_of_days_trigger = None
+        self._batch_size = None
         self.discriminator = None
 
         self.name = name
         if ahead_of_days_trigger is not None:
             self.ahead_of_days_trigger = ahead_of_days_trigger
+        if batch_size is not None:
+            self.batch_size = batch_size
 
     @property
     def name(self):
@@ -112,6 +117,29 @@ class CatalogsStrikethroughNotificationPolicy(object):
             raise ValueError("Invalid value for `ahead_of_days_trigger`, must be a value greater than or equal to `1`")  # noqa: E501
 
         self._ahead_of_days_trigger = ahead_of_days_trigger
+
+    @property
+    def batch_size(self):
+        """Gets the batch_size of this CatalogsStrikethroughNotificationPolicy.  # noqa: E501
+
+        The required size of each batch of data.  # noqa: E501
+
+        :return: The batch_size of this CatalogsStrikethroughNotificationPolicy.  # noqa: E501
+        :rtype: int
+        """
+        return self._batch_size
+
+    @batch_size.setter
+    def batch_size(self, batch_size):
+        """Sets the batch_size of this CatalogsStrikethroughNotificationPolicy.
+
+        The required size of each batch of data.  # noqa: E501
+
+        :param batch_size: The batch_size of this CatalogsStrikethroughNotificationPolicy.  # noqa: E501
+        :type: int
+        """
+
+        self._batch_size = batch_size
 
     def to_dict(self):
         """Returns the model properties as a dict"""

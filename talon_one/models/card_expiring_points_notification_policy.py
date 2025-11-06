@@ -46,7 +46,7 @@ class CardExpiringPointsNotificationPolicy(object):
         'batch_size': 'batchSize'
     }
 
-    def __init__(self, name=None, triggers=None, batching_enabled=True, batch_size=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, name=None, triggers=None, batching_enabled=True, batch_size=1000, local_vars_configuration=None):  # noqa: E501
         """CardExpiringPointsNotificationPolicy - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()

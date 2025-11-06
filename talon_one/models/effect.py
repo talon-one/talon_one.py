@@ -480,7 +480,6 @@ class Effect(object):
     def props(self):
         """Gets the props of this Effect.  # noqa: E501
 
-        The properties of the effect. See [API effects](https://docs.talon.one/docs/dev/integration-api/api-effects).  # noqa: E501
 
         :return: The props of this Effect.  # noqa: E501
         :rtype: object
@@ -491,7 +490,6 @@ class Effect(object):
     def props(self, props):
         """Sets the props of this Effect.
 
-        The properties of the effect. See [API effects](https://docs.talon.one/docs/dev/integration-api/api-effects).  # noqa: E501
 
         :param props: The props of this Effect.  # noqa: E501
         :type: object

@@ -40,7 +40,11 @@ class StrikethroughEffect(object):
         'type': 'str',
         'props': 'object',
         'start_time': 'datetime',
-        'end_time': 'datetime'
+        'end_time': 'datetime',
+        'selected_price_type': 'str',
+        'selected_price': 'float',
+        'adjustment_reference_id': 'str',
+        'targets': 'list[object]'
     }
 
     attribute_map = {
@@ -51,10 +55,14 @@ class StrikethroughEffect(object):
         'type': 'type',
         'props': 'props',
         'start_time': 'startTime',
-        'end_time': 'endTime'
+        'end_time': 'endTime',
+        'selected_price_type': 'selectedPriceType',
+        'selected_price': 'selectedPrice',
+        'adjustment_reference_id': 'adjustmentReferenceId',
+        'targets': 'targets'
     }
 
-    def __init__(self, campaign_id=None, ruleset_id=None, rule_index=None, rule_name=None, type=None, props=None, start_time=None, end_time=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, campaign_id=None, ruleset_id=None, rule_index=None, rule_name=None, type=None, props=None, start_time=None, end_time=None, selected_price_type=None, selected_price=None, adjustment_reference_id=None, targets=None, local_vars_configuration=None):  # noqa: E501
         """StrikethroughEffect - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -68,6 +76,10 @@ class StrikethroughEffect(object):
         self._props = None
         self._start_time = None
         self._end_time = None
+        self._selected_price_type = None
+        self._selected_price = None
+        self._adjustment_reference_id = None
+        self._targets = None
         self.discriminator = None
 
         self.campaign_id = campaign_id
@@ -80,6 +92,14 @@ class StrikethroughEffect(object):
             self.start_time = start_time
         if end_time is not None:
             self.end_time = end_time
+        if selected_price_type is not None:
+            self.selected_price_type = selected_price_type
+        if selected_price is not None:
+            self.selected_price = selected_price
+        if adjustment_reference_id is not None:
+            self.adjustment_reference_id = adjustment_reference_id
+        if targets is not None:
+            self.targets = targets
 
     @property
     def campaign_id(self):
@@ -274,6 +294,98 @@ class StrikethroughEffect(object):
         """
 
         self._end_time = end_time
+
+    @property
+    def selected_price_type(self):
+        """Gets the selected_price_type of this StrikethroughEffect.  # noqa: E501
+
+        The selected price type for this cart item (e.g. the price for members only).  # noqa: E501
+
+        :return: The selected_price_type of this StrikethroughEffect.  # noqa: E501
+        :rtype: str
+        """
+        return self._selected_price_type
+
+    @selected_price_type.setter
+    def selected_price_type(self, selected_price_type):
+        """Sets the selected_price_type of this StrikethroughEffect.
+
+        The selected price type for this cart item (e.g. the price for members only).  # noqa: E501
+
+        :param selected_price_type: The selected_price_type of this StrikethroughEffect.  # noqa: E501
+        :type: str
+        """
+
+        self._selected_price_type = selected_price_type
+
+    @property
+    def selected_price(self):
+        """Gets the selected_price of this StrikethroughEffect.  # noqa: E501
+
+        The value of the selected price type to apply to the SKU targeted by this effect, before any discounts are applied.  # noqa: E501
+
+        :return: The selected_price of this StrikethroughEffect.  # noqa: E501
+        :rtype: float
+        """
+        return self._selected_price
+
+    @selected_price.setter
+    def selected_price(self, selected_price):
+        """Sets the selected_price of this StrikethroughEffect.
+
+        The value of the selected price type to apply to the SKU targeted by this effect, before any discounts are applied.  # noqa: E501
+
+        :param selected_price: The selected_price of this StrikethroughEffect.  # noqa: E501
+        :type: float
+        """
+
+        self._selected_price = selected_price
+
+    @property
+    def adjustment_reference_id(self):
+        """Gets the adjustment_reference_id of this StrikethroughEffect.  # noqa: E501
+
+        The reference identifier of the selected price adjustment for this cart item.  # noqa: E501
+
+        :return: The adjustment_reference_id of this StrikethroughEffect.  # noqa: E501
+        :rtype: str
+        """
+        return self._adjustment_reference_id
+
+    @adjustment_reference_id.setter
+    def adjustment_reference_id(self, adjustment_reference_id):
+        """Sets the adjustment_reference_id of this StrikethroughEffect.
+
+        The reference identifier of the selected price adjustment for this cart item.  # noqa: E501
+
+        :param adjustment_reference_id: The adjustment_reference_id of this StrikethroughEffect.  # noqa: E501
+        :type: str
+        """
+
+        self._adjustment_reference_id = adjustment_reference_id
+
+    @property
+    def targets(self):
+        """Gets the targets of this StrikethroughEffect.  # noqa: E501
+
+        A list of entities (e.g. audiences) targeted by this effect.  # noqa: E501
+
+        :return: The targets of this StrikethroughEffect.  # noqa: E501
+        :rtype: list[object]
+        """
+        return self._targets
+
+    @targets.setter
+    def targets(self, targets):
+        """Sets the targets of this StrikethroughEffect.
+
+        A list of entities (e.g. audiences) targeted by this effect.  # noqa: E501
+
+        :param targets: The targets of this StrikethroughEffect.  # noqa: E501
+        :type: list[object]
+        """
+
+        self._targets = targets
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -40,6 +40,7 @@ class TestInlineResponse2005(unittest.TestCase):
                 data = [
                     talon_one.models.card_ledger_points_entry_integration_api.CardLedgerPointsEntryIntegrationAPI(
                         id = 123, 
+                        transaction_uuid = 'ce59f12a-f53b-4014-a745-636d93f2bd3f', 
                         created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                         program_id = 324, 
                         customer_profile_id = 'URNGV8294NV', 
@@ -57,6 +58,7 @@ class TestInlineResponse2005(unittest.TestCase):
                 data = [
                     talon_one.models.card_ledger_points_entry_integration_api.CardLedgerPointsEntryIntegrationAPI(
                         id = 123, 
+                        transaction_uuid = 'ce59f12a-f53b-4014-a745-636d93f2bd3f', 
                         created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                         program_id = 324, 
                         customer_profile_id = 'URNGV8294NV', 
