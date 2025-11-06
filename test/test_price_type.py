@@ -41,7 +41,7 @@ class TestPriceType(unittest.TestCase):
                 account_id = 1, 
                 name = 'member', 
                 title = 'Member Price', 
-                description = 'Price available exclusively to members.', 
+                description = 'The price available exclusively to members.', 
                 modified = '2021-09-12T10:12:42Z', 
                 subscribed_catalogs_ids = [1, 2, 3], 
                 targeted_audiences_ids = [1, 2, 3]

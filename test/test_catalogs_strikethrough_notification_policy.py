@@ -37,7 +37,8 @@ class TestCatalogsStrikethroughNotificationPolicy(unittest.TestCase):
         if include_optional :
             return CatalogsStrikethroughNotificationPolicy(
                 name = 'Christmas Sale', 
-                ahead_of_days_trigger = 1
+                ahead_of_days_trigger = 1, 
+                batch_size = 1000
             )
         else :
             return CatalogsStrikethroughNotificationPolicy(

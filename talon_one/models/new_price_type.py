@@ -97,7 +97,7 @@ class NewPriceType(object):
     def title(self):
         """Gets the title of this NewPriceType.  # noqa: E501
 
-        The title of the price type.  # noqa: E501
+        The name displayed in the Campaign Manager for the price type.  # noqa: E501
 
         :return: The title of this NewPriceType.  # noqa: E501
         :rtype: str
@@ -108,7 +108,7 @@ class NewPriceType(object):
     def title(self, title):
         """Sets the title of this NewPriceType.
 
-        The title of the price type.  # noqa: E501
+        The name displayed in the Campaign Manager for the price type.  # noqa: E501
 
         :param title: The title of this NewPriceType.  # noqa: E501
         :type: str
@@ -122,7 +122,7 @@ class NewPriceType(object):
     def description(self):
         """Gets the description of this NewPriceType.  # noqa: E501
 
-        The description of the price type.  # noqa: E501
+        A description of the price type.  # noqa: E501
 
         :return: The description of this NewPriceType.  # noqa: E501
         :rtype: str
@@ -133,7 +133,7 @@ class NewPriceType(object):
     def description(self, description):
         """Sets the description of this NewPriceType.
 
-        The description of the price type.  # noqa: E501
+        A description of the price type.  # noqa: E501
 
         :param description: The description of this NewPriceType.  # noqa: E501
         :type: str
@@ -145,7 +145,7 @@ class NewPriceType(object):
     def targeted_audiences_ids(self):
         """Gets the targeted_audiences_ids of this NewPriceType.  # noqa: E501
 
-        A list of the IDs of the audiences that are targeted by this price type.  # noqa: E501
+        A list of the IDs of the audiences targeted by this price type.  # noqa: E501
 
         :return: The targeted_audiences_ids of this NewPriceType.  # noqa: E501
         :rtype: list[int]
@@ -156,7 +156,7 @@ class NewPriceType(object):
     def targeted_audiences_ids(self, targeted_audiences_ids):
         """Sets the targeted_audiences_ids of this NewPriceType.
 
-        A list of the IDs of the audiences that are targeted by this price type.  # noqa: E501
+        A list of the IDs of the audiences targeted by this price type.  # noqa: E501
 
         :param targeted_audiences_ids: The targeted_audiences_ids of this NewPriceType.  # noqa: E501
         :type: list[int]

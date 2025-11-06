@@ -48,7 +48,13 @@ class TestStrikethroughDebugResponse(unittest.TestCase):
                         type = 'setDiscountPerItem', 
                         props = talon_one.models.strikethrough_effect_props.StrikethroughEffectProps(), 
                         start_time = '2021-07-20T22:00Z', 
-                        end_time = '2021-10-01T02:00Z', )
+                        end_time = '2021-10-01T02:00Z', 
+                        selected_price_type = 'member', 
+                        selected_price = 100.0, 
+                        adjustment_reference_id = '68851723-e6fa-488f-ace9-112581e6c19b', 
+                        targets = [
+                            talon_one.models.label_target.LabelTarget()
+                            ], )
                     ]
             )
         else :

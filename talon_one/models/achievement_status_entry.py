@@ -45,6 +45,7 @@ class AchievementStatusEntry(object):
         'activation_policy': 'str',
         'fixed_start_date': 'datetime',
         'end_date': 'datetime',
+        'allow_rollback_after_completion': 'bool',
         'campaign_id': 'int',
         'status': 'str',
         'current_progress': 'AchievementProgress'
@@ -63,12 +64,13 @@ class AchievementStatusEntry(object):
         'activation_policy': 'activationPolicy',
         'fixed_start_date': 'fixedStartDate',
         'end_date': 'endDate',
+        'allow_rollback_after_completion': 'allowRollbackAfterCompletion',
         'campaign_id': 'campaignId',
         'status': 'status',
         'current_progress': 'currentProgress'
     }
 
-    def __init__(self, id=None, created=None, name=None, title=None, description=None, target=None, period=None, period_end_override=None, recurrence_policy=None, activation_policy=None, fixed_start_date=None, end_date=None, campaign_id=None, status=None, current_progress=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, created=None, name=None, title=None, description=None, target=None, period=None, period_end_override=None, recurrence_policy=None, activation_policy=None, fixed_start_date=None, end_date=None, allow_rollback_after_completion=None, campaign_id=None, status=None, current_progress=None, local_vars_configuration=None):  # noqa: E501
         """AchievementStatusEntry - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -86,6 +88,7 @@ class AchievementStatusEntry(object):
         self._activation_policy = None
         self._fixed_start_date = None
         self._end_date = None
+        self._allow_rollback_after_completion = None
         self._campaign_id = None
         self._status = None
         self._current_progress = None
@@ -109,6 +112,8 @@ class AchievementStatusEntry(object):
             self.fixed_start_date = fixed_start_date
         if end_date is not None:
             self.end_date = end_date
+        if allow_rollback_after_completion is not None:
+            self.allow_rollback_after_completion = allow_rollback_after_completion
         if campaign_id is not None:
             self.campaign_id = campaign_id
         if status is not None:
@@ -422,6 +427,29 @@ class AchievementStatusEntry(object):
         """
 
         self._end_date = end_date
+
+    @property
+    def allow_rollback_after_completion(self):
+        """Gets the allow_rollback_after_completion of this AchievementStatusEntry.  # noqa: E501
+
+        When `true`, customer progress can be rolled back in completed achievements.  # noqa: E501
+
+        :return: The allow_rollback_after_completion of this AchievementStatusEntry.  # noqa: E501
+        :rtype: bool
+        """
+        return self._allow_rollback_after_completion
+
+    @allow_rollback_after_completion.setter
+    def allow_rollback_after_completion(self, allow_rollback_after_completion):
+        """Sets the allow_rollback_after_completion of this AchievementStatusEntry.
+
+        When `true`, customer progress can be rolled back in completed achievements.  # noqa: E501
+
+        :param allow_rollback_after_completion: The allow_rollback_after_completion of this AchievementStatusEntry.  # noqa: E501
+        :type: bool
+        """
+
+        self._allow_rollback_after_completion = allow_rollback_after_completion
 
     @property
     def campaign_id(self):

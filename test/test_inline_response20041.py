@@ -38,40 +38,48 @@ class TestInlineResponse20041(unittest.TestCase):
             return InlineResponse20041(
                 total_result_size = 1, 
                 data = [
-                    talon_one.models.webhook_log_entry.WebhookLogEntry(
-                        id = '2', 
-                        integration_request_uuid = '472075793', 
-                        webhook_id = 5, 
-                        application_id = 12, 
-                        url = 'www.my-company.com/my-endpoint-name', 
-                        request = '{
-  mydata: "somevalue"
-}
-', 
-                        response = '0', 
-                        status = 204, 
-                        request_time = '2021-07-20T22:00Z', 
-                        response_time = '2021-07-20T22:00:50Z', )
+                    talon_one.models.user.User(
+                        id = 6, 
+                        created = '2020-06-10T09:05:27.993483Z', 
+                        modified = '2021-09-12T10:12:42Z', 
+                        email = 'john.doe@example.com', 
+                        account_id = 3886, 
+                        name = 'John Doe', 
+                        state = 'invited', 
+                        invite_token = 'Gy9b8w1irmQtEPo5RmbMmSPheL5h4', 
+                        is_admin = False, 
+                        policy = {"Role":127}, 
+                        roles = [71], 
+                        auth_method = 'basic_auth', 
+                        application_notification_subscriptions = {}, 
+                        last_signed_in = '2021-09-12T10:12:42Z', 
+                        last_accessed = '2021-09-12T10:14:42Z', 
+                        latest_feed_timestamp = '2020-06-01T00:00Z', 
+                        additional_attributes = {}, )
                     ]
             )
         else :
             return InlineResponse20041(
                 total_result_size = 1,
                 data = [
-                    talon_one.models.webhook_log_entry.WebhookLogEntry(
-                        id = '2', 
-                        integration_request_uuid = '472075793', 
-                        webhook_id = 5, 
-                        application_id = 12, 
-                        url = 'www.my-company.com/my-endpoint-name', 
-                        request = '{
-  mydata: "somevalue"
-}
-', 
-                        response = '0', 
-                        status = 204, 
-                        request_time = '2021-07-20T22:00Z', 
-                        response_time = '2021-07-20T22:00:50Z', )
+                    talon_one.models.user.User(
+                        id = 6, 
+                        created = '2020-06-10T09:05:27.993483Z', 
+                        modified = '2021-09-12T10:12:42Z', 
+                        email = 'john.doe@example.com', 
+                        account_id = 3886, 
+                        name = 'John Doe', 
+                        state = 'invited', 
+                        invite_token = 'Gy9b8w1irmQtEPo5RmbMmSPheL5h4', 
+                        is_admin = False, 
+                        policy = {"Role":127}, 
+                        roles = [71], 
+                        auth_method = 'basic_auth', 
+                        application_notification_subscriptions = {}, 
+                        last_signed_in = '2021-09-12T10:12:42Z', 
+                        last_accessed = '2021-09-12T10:14:42Z', 
+                        latest_feed_timestamp = '2020-06-01T00:00Z', 
+                        additional_attributes = {}, )
                     ],
         )
 

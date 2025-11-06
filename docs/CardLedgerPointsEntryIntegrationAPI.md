@@ -5,6 +5,7 @@ Loyalty card points with start and expiry dates.
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** | ID of the transaction that adds loyalty points. | 
+**transaction_uuid** | **str** | Unique identifier of the transaction in the UUID format. | 
 **created** | **datetime** | Date and time the loyalty card points were added. | 
 **program_id** | **int** | ID of the loyalty program. | 
 **customer_profile_id** | **str** | Integration ID of the customer profile linked to the card. | [optional] 

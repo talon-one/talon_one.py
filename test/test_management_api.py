@@ -840,20 +840,6 @@ class TestManagementApi(unittest.TestCase):
         """
         pass
 
-    def test_get_webhook_activation_logs(self):
-        """Test case for get_webhook_activation_logs
-
-        List webhook activation log entries  # noqa: E501
-        """
-        pass
-
-    def test_get_webhook_logs(self):
-        """Test case for get_webhook_logs
-
-        List webhook log entries  # noqa: E501
-        """
-        pass
-
     def test_get_webhooks(self):
         """Test case for get_webhooks
 

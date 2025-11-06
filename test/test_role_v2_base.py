@@ -43,7 +43,8 @@ class TestRoleV2Base(unittest.TestCase):
                     roles = talon_one.models.role_v2_roles_group.RoleV2RolesGroup(
                         applications = {1={application=Application permission set}, 3={campaign=Campaign manager permission set}, 4={draftCampaign=Campaign read-only permission set}, 5={tools=Tools permission set}}, 
                         loyalty_programs = {10=Loyalty program manager permission set}, 
-                        campaign_access_groups = {5=Campaign access group manager permission set}, ), ), 
+                        campaign_access_groups = {5=Campaign access group manager permission set}, 
+                        account = '0', ), ), 
                 members = [10, 12]
             )
         else :

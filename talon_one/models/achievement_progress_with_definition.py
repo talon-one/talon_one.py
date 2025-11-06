@@ -47,7 +47,8 @@ class AchievementProgressWithDefinition(object):
         'achievement_recurrence_policy': 'str',
         'achievement_activation_policy': 'str',
         'achievement_fixed_start_date': 'datetime',
-        'achievement_end_date': 'datetime'
+        'achievement_end_date': 'datetime',
+        'achievement_allow_rollback_after_completion': 'bool'
     }
 
     attribute_map = {
@@ -65,10 +66,11 @@ class AchievementProgressWithDefinition(object):
         'achievement_recurrence_policy': 'achievementRecurrencePolicy',
         'achievement_activation_policy': 'achievementActivationPolicy',
         'achievement_fixed_start_date': 'achievementFixedStartDate',
-        'achievement_end_date': 'achievementEndDate'
+        'achievement_end_date': 'achievementEndDate',
+        'achievement_allow_rollback_after_completion': 'achievementAllowRollbackAfterCompletion'
     }
 
-    def __init__(self, status=None, progress=None, start_date=None, completion_date=None, end_date=None, achievement_id=None, name=None, title=None, description=None, campaign_id=None, target=None, achievement_recurrence_policy=None, achievement_activation_policy=None, achievement_fixed_start_date=None, achievement_end_date=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, status=None, progress=None, start_date=None, completion_date=None, end_date=None, achievement_id=None, name=None, title=None, description=None, campaign_id=None, target=None, achievement_recurrence_policy=None, achievement_activation_policy=None, achievement_fixed_start_date=None, achievement_end_date=None, achievement_allow_rollback_after_completion=None, local_vars_configuration=None):  # noqa: E501
         """AchievementProgressWithDefinition - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -89,6 +91,7 @@ class AchievementProgressWithDefinition(object):
         self._achievement_activation_policy = None
         self._achievement_fixed_start_date = None
         self._achievement_end_date = None
+        self._achievement_allow_rollback_after_completion = None
         self.discriminator = None
 
         self.status = status
@@ -112,6 +115,8 @@ class AchievementProgressWithDefinition(object):
             self.achievement_fixed_start_date = achievement_fixed_start_date
         if achievement_end_date is not None:
             self.achievement_end_date = achievement_end_date
+        if achievement_allow_rollback_after_completion is not None:
+            self.achievement_allow_rollback_after_completion = achievement_allow_rollback_after_completion
 
     @property
     def status(self):
@@ -502,6 +507,29 @@ class AchievementProgressWithDefinition(object):
         """
 
         self._achievement_end_date = achievement_end_date
+
+    @property
+    def achievement_allow_rollback_after_completion(self):
+        """Gets the achievement_allow_rollback_after_completion of this AchievementProgressWithDefinition.  # noqa: E501
+
+        When `true`, customer progress can be rolled back in completed achievements.  # noqa: E501
+
+        :return: The achievement_allow_rollback_after_completion of this AchievementProgressWithDefinition.  # noqa: E501
+        :rtype: bool
+        """
+        return self._achievement_allow_rollback_after_completion
+
+    @achievement_allow_rollback_after_completion.setter
+    def achievement_allow_rollback_after_completion(self, achievement_allow_rollback_after_completion):
+        """Sets the achievement_allow_rollback_after_completion of this AchievementProgressWithDefinition.
+
+        When `true`, customer progress can be rolled back in completed achievements.  # noqa: E501
+
+        :param achievement_allow_rollback_after_completion: The achievement_allow_rollback_after_completion of this AchievementProgressWithDefinition.  # noqa: E501
+        :type: bool
+        """
+
+        self._achievement_allow_rollback_after_completion = achievement_allow_rollback_after_completion
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -132,7 +132,7 @@ class ManagementApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/users/activate', 'POST',
@@ -271,7 +271,7 @@ class ManagementApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/loyalty_programs/{loyaltyProgramId}/cards/{loyaltyCardId}/add_points', 'PUT',
@@ -407,7 +407,7 @@ class ManagementApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/loyalty_programs/{loyaltyProgramId}/profile/{integrationId}/add_points', 'PUT',
@@ -543,7 +543,7 @@ class ManagementApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/applications/{applicationId}/campaigns/{campaignId}/copy', 'POST',
@@ -661,7 +661,7 @@ class ManagementApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/collections', 'POST',
@@ -797,7 +797,7 @@ class ManagementApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/applications/{applicationId}/campaigns/{campaignId}/achievements', 'POST',
@@ -915,7 +915,7 @@ class ManagementApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/additional_costs', 'POST',
@@ -1033,7 +1033,7 @@ class ManagementApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/attributes', 'POST',
@@ -1160,7 +1160,7 @@ class ManagementApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/loyalty_programs/{loyaltyProgramId}/cards/batch', 'POST',
@@ -1287,7 +1287,7 @@ class ManagementApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/applications/{applicationId}/create_campaign_from_template', 'POST',
@@ -1423,7 +1423,7 @@ class ManagementApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/applications/{applicationId}/campaigns/{campaignId}/stores/budgets', 'POST',
@@ -1559,7 +1559,7 @@ class ManagementApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/applications/{applicationId}/campaigns/{campaignId}/collections', 'POST',
@@ -1700,7 +1700,7 @@ class ManagementApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/applications/{applicationId}/campaigns/{campaignId}/coupons', 'POST',
@@ -1836,7 +1836,7 @@ class ManagementApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/applications/{applicationId}/campaigns/{campaignId}/coupons_async', 'POST',
@@ -1972,7 +1972,7 @@ class ManagementApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/applications/{applicationId}/campaigns/{campaignId}/coupons_deletion_jobs', 'POST',
@@ -2113,7 +2113,7 @@ class ManagementApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/applications/{applicationId}/campaigns/{campaignId}/coupons_with_recipients', 'POST',
@@ -2231,7 +2231,7 @@ class ManagementApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/invite_emails', 'POST',
@@ -2349,7 +2349,7 @@ class ManagementApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v2/invites', 'POST',
@@ -2467,7 +2467,7 @@ class ManagementApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/password_recovery_emails', 'POST',
@@ -2585,7 +2585,7 @@ class ManagementApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/sessions', 'POST',
@@ -2712,7 +2712,7 @@ class ManagementApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/applications/{applicationId}/stores', 'POST',
@@ -2826,7 +2826,7 @@ class ManagementApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/users/deactivate', 'POST',
@@ -2965,7 +2965,7 @@ class ManagementApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/loyalty_programs/{loyaltyProgramId}/cards/{loyaltyCardId}/deduct_points', 'PUT',
@@ -3079,7 +3079,7 @@ class ManagementApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/collections/{collectionId}', 'DELETE',
@@ -3211,7 +3211,7 @@ class ManagementApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/applications/{applicationId}/campaigns/{campaignId}/achievements/{achievementId}', 'DELETE',
@@ -3330,7 +3330,7 @@ class ManagementApi(object):
 
         body_params = None
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/applications/{applicationId}/campaigns/{campaignId}', 'DELETE',
@@ -3463,7 +3463,7 @@ class ManagementApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/applications/{applicationId}/campaigns/{campaignId}/stores/budgets', 'DELETE',
@@ -3595,7 +3595,7 @@ class ManagementApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/applications/{applicationId}/campaigns/{campaignId}/collections/{collectionId}', 'DELETE',
@@ -3723,7 +3723,7 @@ class ManagementApi(object):
 
         body_params = None
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/applications/{applicationId}/campaigns/{campaignId}/coupons/{couponId}', 'DELETE',
@@ -3907,7 +3907,7 @@ class ManagementApi(object):
 
         body_params = None
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/applications/{applicationId}/campaigns/{campaignId}/coupons', 'DELETE',
@@ -4033,7 +4033,7 @@ class ManagementApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/loyalty_programs/{loyaltyProgramId}/cards/{loyaltyCardId}', 'DELETE',
@@ -4161,7 +4161,7 @@ class ManagementApi(object):
 
         body_params = None
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/applications/{applicationId}/campaigns/{campaignId}/referrals/{referralId}', 'DELETE',
@@ -4284,7 +4284,7 @@ class ManagementApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/applications/{applicationId}/stores/{storeId}', 'DELETE',
@@ -4394,7 +4394,7 @@ class ManagementApi(object):
 
         body_params = None
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/users/{userId}', 'DELETE',
@@ -4508,7 +4508,7 @@ class ManagementApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/users/delete', 'POST',
@@ -4609,7 +4609,7 @@ class ManagementApi(object):
 
         body_params = None
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/sessions', 'DELETE',
@@ -4732,7 +4732,7 @@ class ManagementApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/applications/{applicationId}/campaigns/{campaignId}/stores', 'DELETE',
@@ -4846,7 +4846,7 @@ class ManagementApi(object):
             ['application/csv'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/collections/{collectionId}/export', 'GET',
@@ -4978,7 +4978,7 @@ class ManagementApi(object):
             ['application/csv'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/applications/{applicationId}/campaigns/{campaignId}/achievements/{achievementId}/export', 'GET',
@@ -5092,7 +5092,7 @@ class ManagementApi(object):
             ['application/csv'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/audiences/{audienceId}/memberships/export', 'GET',
@@ -5225,7 +5225,7 @@ class ManagementApi(object):
             ['application/csv'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/applications/{applicationId}/campaigns/{campaignId}/stores/budgets/export', 'GET',
@@ -5348,7 +5348,7 @@ class ManagementApi(object):
             ['application/csv'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/applications/{applicationId}/campaigns/{campaignId}/stores/export', 'GET',
@@ -5480,7 +5480,7 @@ class ManagementApi(object):
             ['application/csv'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/applications/{applicationId}/campaigns/{campaignId}/collections/{collectionId}/export', 'GET',
@@ -5664,7 +5664,7 @@ class ManagementApi(object):
             ['application/csv'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/applications/{applicationId}/export_coupons', 'GET',
@@ -5803,7 +5803,7 @@ class ManagementApi(object):
             ['application/csv'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/applications/{applicationId}/export_customer_sessions', 'GET',
@@ -5929,7 +5929,7 @@ class ManagementApi(object):
             ['application/csv'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/loyalty_programs/{loyaltyProgramId}/export_customers_tiers', 'GET',
@@ -6063,7 +6063,7 @@ class ManagementApi(object):
             ['application/csv'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/applications/{applicationId}/export_effects', 'GET',
@@ -6182,7 +6182,7 @@ class ManagementApi(object):
             ['application/csv'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/loyalty_programs/{loyaltyProgramId}/export_customer_balance', 'GET',
@@ -6301,7 +6301,7 @@ class ManagementApi(object):
             ['application/csv'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/loyalty_programs/{loyaltyProgramId}/export_customer_balances', 'GET',
@@ -6420,7 +6420,7 @@ class ManagementApi(object):
             ['application/csv'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/loyalty_programs/{loyaltyProgramId}/export_card_balances', 'GET',
@@ -6569,7 +6569,7 @@ class ManagementApi(object):
             ['application/csv'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/loyalty_programs/{loyaltyProgramId}/cards/{loyaltyCardId}/export_log', 'GET',
@@ -6703,7 +6703,7 @@ class ManagementApi(object):
             ['application/csv'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/loyalty_programs/{loyaltyProgramId}/cards/export', 'GET',
@@ -6724,7 +6724,7 @@ class ManagementApi(object):
     def export_loyalty_ledger(self, range_start, range_end, loyalty_program_id, integration_id, **kwargs):  # noqa: E501
         """Export customer's transaction logs  # noqa: E501
 
-        Download a CSV file containing a customer's transaction logs in the loyalty program.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The generated file can contain the following columns:  - `customerprofileid`: The ID of the profile. - `customersessionid`: The ID of the customer session. - `rulesetid`: The ID of the rule set. - `rulename`: The name of the rule. - `programid`: The ID of the loyalty program. - `type`: The transaction type, such as `addition` or `subtraction`. - `name`: The reason for the transaction. - `subledgerid`: The ID of the subledger, when applicable. - `startdate`: The start date of the program. - `expirydate`: The expiration date of the program. - `id`: The ID of the transaction. - `created`: The timestamp of the creation of the loyalty program. - `amount`: The number of points in that transaction. - `archived`: Whether the session related to the transaction is archived. - `campaignid`: The ID of the campaign. - `flags`: The flags of the transaction, when applicable. The `createsNegativeBalance` flag indicates whether the transaction results in a negative balance.   # noqa: E501
+        Download a CSV file containing a customer's transaction logs in the loyalty program.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The generated file can contain the following columns:  - `customerprofileid`: The ID of the profile. - `customersessionid`: The ID of the customer session. - `rulesetid`: The ID of the rule set. - `rulename`: The name of the rule. - `programid`: The ID of the loyalty program. - `type`: The transaction type, such as `addition` or `subtraction`. - `name`: The reason for the transaction. - `subledgerid`: The ID of the subledger, when applicable. - `startdate`: The start date of the program. - `expirydate`: The expiration date of the program. - `id`: The ID of the transaction. - `created`: The timestamp of the creation of the loyalty program. - `amount`: The number of points in that transaction. - `archived`: Whether the session related to the transaction is archived. - `campaignid`: The ID of the campaign. - `flags`: The flags of the transaction, when applicable. The `createsNegativeBalance` flag indicates whether the transaction results in a negative balance. - `transactionUUID`: Unique identifier of the transaction in the UUID format.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.export_loyalty_ledger(range_start, range_end, loyalty_program_id, integration_id, async_req=True)
@@ -6753,7 +6753,7 @@ class ManagementApi(object):
     def export_loyalty_ledger_with_http_info(self, range_start, range_end, loyalty_program_id, integration_id, **kwargs):  # noqa: E501
         """Export customer's transaction logs  # noqa: E501
 
-        Download a CSV file containing a customer's transaction logs in the loyalty program.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The generated file can contain the following columns:  - `customerprofileid`: The ID of the profile. - `customersessionid`: The ID of the customer session. - `rulesetid`: The ID of the rule set. - `rulename`: The name of the rule. - `programid`: The ID of the loyalty program. - `type`: The transaction type, such as `addition` or `subtraction`. - `name`: The reason for the transaction. - `subledgerid`: The ID of the subledger, when applicable. - `startdate`: The start date of the program. - `expirydate`: The expiration date of the program. - `id`: The ID of the transaction. - `created`: The timestamp of the creation of the loyalty program. - `amount`: The number of points in that transaction. - `archived`: Whether the session related to the transaction is archived. - `campaignid`: The ID of the campaign. - `flags`: The flags of the transaction, when applicable. The `createsNegativeBalance` flag indicates whether the transaction results in a negative balance.   # noqa: E501
+        Download a CSV file containing a customer's transaction logs in the loyalty program.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The generated file can contain the following columns:  - `customerprofileid`: The ID of the profile. - `customersessionid`: The ID of the customer session. - `rulesetid`: The ID of the rule set. - `rulename`: The name of the rule. - `programid`: The ID of the loyalty program. - `type`: The transaction type, such as `addition` or `subtraction`. - `name`: The reason for the transaction. - `subledgerid`: The ID of the subledger, when applicable. - `startdate`: The start date of the program. - `expirydate`: The expiration date of the program. - `id`: The ID of the transaction. - `created`: The timestamp of the creation of the loyalty program. - `amount`: The number of points in that transaction. - `archived`: Whether the session related to the transaction is archived. - `campaignid`: The ID of the campaign. - `flags`: The flags of the transaction, when applicable. The `createsNegativeBalance` flag indicates whether the transaction results in a negative balance. - `transactionUUID`: Unique identifier of the transaction in the UUID format.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.export_loyalty_ledger_with_http_info(range_start, range_end, loyalty_program_id, integration_id, async_req=True)
@@ -6849,7 +6849,7 @@ class ManagementApi(object):
             ['application/csv'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/loyalty_programs/{loyaltyProgramId}/profile/{integrationId}/export_log', 'GET',
@@ -6973,7 +6973,7 @@ class ManagementApi(object):
             ['application/csv'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/giveaways/pools/{poolId}/export', 'GET',
@@ -7122,7 +7122,7 @@ class ManagementApi(object):
             ['application/csv'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/applications/{applicationId}/export_referrals', 'GET',
@@ -7288,7 +7288,7 @@ class ManagementApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/applications/{applicationId}/access_logs/no_total', 'GET',
@@ -7402,7 +7402,7 @@ class ManagementApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/accounts/{accountId}', 'GET',
@@ -7516,7 +7516,7 @@ class ManagementApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/accounts/{accountId}/analytics', 'GET',
@@ -7630,7 +7630,7 @@ class ManagementApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/collections/{collectionId}', 'GET',
@@ -7762,7 +7762,7 @@ class ManagementApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/applications/{applicationId}/campaigns/{campaignId}/achievements/{achievementId}', 'GET',
@@ -7876,7 +7876,7 @@ class ManagementApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/additional_costs/{additionalCostId}', 'GET',
@@ -8000,7 +8000,7 @@ class ManagementApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/additional_costs', 'GET',
@@ -8114,7 +8114,7 @@ class ManagementApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/applications/{applicationId}', 'GET',
@@ -8228,7 +8228,7 @@ class ManagementApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/applications/{applicationId}/health_report', 'GET',
@@ -8351,7 +8351,7 @@ class ManagementApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/applications/{applicationId}/customers/{customerId}', 'GET',
@@ -8498,7 +8498,7 @@ class ManagementApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/applications/{applicationId}/profile/{integrationId}/friends', 'GET',
@@ -8636,7 +8636,7 @@ class ManagementApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/applications/{applicationId}/customers', 'GET',
@@ -8782,7 +8782,7 @@ class ManagementApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/applications/{applicationId}/customer_search', 'POST',
@@ -8915,7 +8915,7 @@ class ManagementApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/applications/{applicationId}/event_types', 'GET',
@@ -8958,6 +8958,7 @@ class ManagementApi(object):
         :param str referral_code: Referral code
         :param str rule_query: Rule name filter for events
         :param str campaign_query: Campaign name filter for events
+        :param str effect_type: The type of effect that was triggered. See [API effects](https://docs.talon.one/docs/dev/integration-api/api-effects).
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -8997,6 +8998,7 @@ class ManagementApi(object):
         :param str referral_code: Referral code
         :param str rule_query: Rule name filter for events
         :param str campaign_query: Campaign name filter for events
+        :param str effect_type: The type of effect that was triggered. See [API effects](https://docs.talon.one/docs/dev/integration-api/api-effects).
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -9028,7 +9030,8 @@ class ManagementApi(object):
             'coupon_code',
             'referral_code',
             'rule_query',
-            'campaign_query'
+            'campaign_query',
+            'effect_type'
         ]
         all_params.extend(
             [
@@ -9097,6 +9100,8 @@ class ManagementApi(object):
             query_params.append(('ruleQuery', local_var_params['rule_query']))  # noqa: E501
         if 'campaign_query' in local_var_params and local_var_params['campaign_query'] is not None:  # noqa: E501
             query_params.append(('campaignQuery', local_var_params['campaign_query']))  # noqa: E501
+        if 'effect_type' in local_var_params and local_var_params['effect_type'] is not None:  # noqa: E501
+            query_params.append(('effectType', local_var_params['effect_type']))  # noqa: E501
 
         header_params = {}
 
@@ -9109,7 +9114,7 @@ class ManagementApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/applications/{applicationId}/events/no_total', 'GET',
@@ -9232,7 +9237,7 @@ class ManagementApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/applications/{applicationId}/sessions/{sessionId}', 'GET',
@@ -9405,7 +9410,7 @@ class ManagementApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/applications/{applicationId}/sessions', 'GET',
@@ -9529,7 +9534,7 @@ class ManagementApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/applications', 'GET',
@@ -9643,7 +9648,7 @@ class ManagementApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/attributes/{attributeId}', 'GET',
@@ -9772,7 +9777,7 @@ class ManagementApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/attributes', 'GET',
@@ -9910,7 +9915,7 @@ class ManagementApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/audiences/{audienceId}/memberships', 'GET',
@@ -10039,7 +10044,7 @@ class ManagementApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/audiences', 'GET',
@@ -10158,7 +10163,7 @@ class ManagementApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/audiences/analytics', 'GET',
@@ -10281,7 +10286,7 @@ class ManagementApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/applications/{applicationId}/campaigns/{campaignId}', 'GET',
@@ -10427,7 +10432,7 @@ class ManagementApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/applications/{applicationId}/campaigns/{campaignId}/analytics', 'GET',
@@ -10578,7 +10583,7 @@ class ManagementApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/applications/{applicationId}/campaigns_search', 'POST',
@@ -10692,7 +10697,7 @@ class ManagementApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/campaign_groups/{campaignGroupId}', 'GET',
@@ -10816,7 +10821,7 @@ class ManagementApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/campaign_groups', 'GET',
@@ -10960,7 +10965,7 @@ class ManagementApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/campaign_templates', 'GET',
@@ -11133,7 +11138,7 @@ class ManagementApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/applications/{applicationId}/campaigns', 'GET',
@@ -11179,7 +11184,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20044
+        :return: InlineResponse20042
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -11216,7 +11221,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20044, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20042, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -11297,7 +11302,7 @@ class ManagementApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/changes', 'GET',
@@ -11307,7 +11312,7 @@ class ManagementApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20044',  # noqa: E501
+            response_type='InlineResponse20042',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -11429,7 +11434,7 @@ class ManagementApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/applications/{applicationId}/campaigns/{campaignId}/collections/{collectionId}', 'GET',
@@ -11557,7 +11562,7 @@ class ManagementApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/collections/{collectionId}/items', 'GET',
@@ -11774,7 +11779,7 @@ class ManagementApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/applications/{applicationId}/campaigns/{campaignId}/coupons/no_total', 'GET',
@@ -11929,7 +11934,7 @@ class ManagementApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/applications/{applicationId}/customer_activity_reports/{customerId}', 'GET',
@@ -12100,7 +12105,7 @@ class ManagementApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/applications/{applicationId}/customer_activity_reports/no_total', 'GET',
@@ -12242,7 +12247,7 @@ class ManagementApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/applications/{applicationId}/customers/{customerId}/analytics', 'GET',
@@ -12356,7 +12361,7 @@ class ManagementApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/customers/{customerId}', 'GET',
@@ -12397,7 +12402,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20051
+        :return: InlineResponse20049
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -12429,7 +12434,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20051, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20049, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -12503,7 +12508,7 @@ class ManagementApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/applications/{applicationId}/achievement_progress/{integrationId}', 'GET',
@@ -12513,7 +12518,7 @@ class ManagementApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20051',  # noqa: E501
+            response_type='InlineResponse20049',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -12627,7 +12632,7 @@ class ManagementApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/customers/no_total', 'GET',
@@ -12764,7 +12769,7 @@ class ManagementApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/customer_search/no_total', 'POST',
@@ -12901,7 +12906,7 @@ class ManagementApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/loyalty_programs/{loyaltyProgramId}/dashboard', 'GET',
@@ -12941,7 +12946,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20042
+        :return: InlineResponse20040
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -12972,7 +12977,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20042, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20040, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -13035,7 +13040,7 @@ class ManagementApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/event_types', 'GET',
@@ -13045,7 +13050,7 @@ class ManagementApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20042',  # noqa: E501
+            response_type='InlineResponse20040',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -13075,7 +13080,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20045
+        :return: InlineResponse20043
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -13106,7 +13111,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20045, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20043, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -13169,7 +13174,7 @@ class ManagementApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/exports', 'GET',
@@ -13179,7 +13184,7 @@ class ManagementApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20045',  # noqa: E501
+            response_type='InlineResponse20043',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -13295,7 +13300,7 @@ class ManagementApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/loyalty_programs/{loyaltyProgramId}/cards/{loyaltyCardId}', 'GET',
@@ -13330,6 +13335,8 @@ class ManagementApi(object):
         :param int page_size: The number of items in the response.
         :param int skip: The number of items to skip when paging through large result sets.
         :param str subledger_id: The ID of the subledger by which we filter the data.
+        :param list[str] customer_session_i_ds: Filter the results by a list of customer session IDs.   To include multiple IDs, repeat the parameter for each one, for example,  `?customerSessionIDs=id1&customerSessionIDs=id2`.  The response contains only data associated with the specified sessions. 
+        :param list[str] transaction_uui_ds: Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example,  `?transactionUUIDs=uuid1&transactionUUIDs=uuid2`.  The response contains only data associated with the specified transactions. 
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -13361,6 +13368,8 @@ class ManagementApi(object):
         :param int page_size: The number of items in the response.
         :param int skip: The number of items to skip when paging through large result sets.
         :param str subledger_id: The ID of the subledger by which we filter the data.
+        :param list[str] customer_session_i_ds: Filter the results by a list of customer session IDs.   To include multiple IDs, repeat the parameter for each one, for example,  `?customerSessionIDs=id1&customerSessionIDs=id2`.  The response contains only data associated with the specified sessions. 
+        :param list[str] transaction_uui_ds: Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example,  `?transactionUUIDs=uuid1&transactionUUIDs=uuid2`.  The response contains only data associated with the specified transactions. 
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -13384,7 +13393,9 @@ class ManagementApi(object):
             'end_date',
             'page_size',
             'skip',
-            'subledger_id'
+            'subledger_id',
+            'customer_session_i_ds',
+            'transaction_uui_ds'
         ]
         all_params.extend(
             [
@@ -13438,6 +13449,12 @@ class ManagementApi(object):
             query_params.append(('skip', local_var_params['skip']))  # noqa: E501
         if 'subledger_id' in local_var_params and local_var_params['subledger_id'] is not None:  # noqa: E501
             query_params.append(('subledgerId', local_var_params['subledger_id']))  # noqa: E501
+        if 'customer_session_i_ds' in local_var_params and local_var_params['customer_session_i_ds'] is not None:  # noqa: E501
+            query_params.append(('customerSessionIDs', local_var_params['customer_session_i_ds']))  # noqa: E501
+            collection_formats['customerSessionIDs'] = 'multi'  # noqa: E501
+        if 'transaction_uui_ds' in local_var_params and local_var_params['transaction_uui_ds'] is not None:  # noqa: E501
+            query_params.append(('transactionUUIDs', local_var_params['transaction_uui_ds']))  # noqa: E501
+            collection_formats['transactionUUIDs'] = 'multi'  # noqa: E501
 
         header_params = {}
 
@@ -13450,7 +13467,7 @@ class ManagementApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/loyalty_programs/{loyaltyProgramId}/cards/{loyaltyCardId}/logs', 'GET',
@@ -13603,7 +13620,7 @@ class ManagementApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/loyalty_programs/{loyaltyProgramId}/cards', 'GET',
@@ -13726,7 +13743,7 @@ class ManagementApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/loyalty_programs/{loyaltyProgramId}/profile/{integrationId}', 'GET',
@@ -13840,7 +13857,7 @@ class ManagementApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/loyalty_programs/{loyaltyProgramId}', 'GET',
@@ -13871,6 +13888,8 @@ class ManagementApi(object):
         :param int loyalty_program_id: Identifier of the loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  (required)
         :param str loyalty_transaction_type: Filter results by loyalty transaction type: - `manual`: Loyalty transaction that was done manually. - `session`: Loyalty transaction that resulted from a customer session. - `import`: Loyalty transaction that was imported from a CSV file. 
         :param str subledger_id: The ID of the subledger by which we filter the data.
+        :param list[str] customer_session_i_ds: Filter the results by a list of customer session IDs.   To include multiple IDs, repeat the parameter for each one, for example,  `?customerSessionIDs=id1&customerSessionIDs=id2`.  The response contains only data associated with the specified sessions. 
+        :param list[str] transaction_uui_ds: Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example,  `?transactionUUIDs=uuid1&transactionUUIDs=uuid2`.  The response contains only data associated with the specified transactions. 
         :param datetime start_date: Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
         :param datetime end_date: Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
         :param int page_size: The number of items in the response.
@@ -13902,6 +13921,8 @@ class ManagementApi(object):
         :param int loyalty_program_id: Identifier of the loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  (required)
         :param str loyalty_transaction_type: Filter results by loyalty transaction type: - `manual`: Loyalty transaction that was done manually. - `session`: Loyalty transaction that resulted from a customer session. - `import`: Loyalty transaction that was imported from a CSV file. 
         :param str subledger_id: The ID of the subledger by which we filter the data.
+        :param list[str] customer_session_i_ds: Filter the results by a list of customer session IDs.   To include multiple IDs, repeat the parameter for each one, for example,  `?customerSessionIDs=id1&customerSessionIDs=id2`.  The response contains only data associated with the specified sessions. 
+        :param list[str] transaction_uui_ds: Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example,  `?transactionUUIDs=uuid1&transactionUUIDs=uuid2`.  The response contains only data associated with the specified transactions. 
         :param datetime start_date: Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
         :param datetime end_date: Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
         :param int page_size: The number of items in the response.
@@ -13926,6 +13947,8 @@ class ManagementApi(object):
             'loyalty_program_id',
             'loyalty_transaction_type',
             'subledger_id',
+            'customer_session_i_ds',
+            'transaction_uui_ds',
             'start_date',
             'end_date',
             'page_size',
@@ -13953,8 +13976,8 @@ class ManagementApi(object):
                                                         local_var_params['loyalty_program_id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `loyalty_program_id` when calling `get_loyalty_program_transactions`")  # noqa: E501
 
-        if self.api_client.client_side_validation and 'page_size' in local_var_params and local_var_params['page_size'] > 50:  # noqa: E501
-            raise ApiValueError("Invalid value for parameter `page_size` when calling `get_loyalty_program_transactions`, must be a value less than or equal to `50`")  # noqa: E501
+        if self.api_client.client_side_validation and 'page_size' in local_var_params and local_var_params['page_size'] > 1000:  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `page_size` when calling `get_loyalty_program_transactions`, must be a value less than or equal to `1000`")  # noqa: E501
         if self.api_client.client_side_validation and 'page_size' in local_var_params and local_var_params['page_size'] < 1:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `page_size` when calling `get_loyalty_program_transactions`, must be a value greater than or equal to `1`")  # noqa: E501
         collection_formats = {}
@@ -13968,6 +13991,12 @@ class ManagementApi(object):
             query_params.append(('loyaltyTransactionType', local_var_params['loyalty_transaction_type']))  # noqa: E501
         if 'subledger_id' in local_var_params and local_var_params['subledger_id'] is not None:  # noqa: E501
             query_params.append(('subledgerId', local_var_params['subledger_id']))  # noqa: E501
+        if 'customer_session_i_ds' in local_var_params and local_var_params['customer_session_i_ds'] is not None:  # noqa: E501
+            query_params.append(('customerSessionIDs', local_var_params['customer_session_i_ds']))  # noqa: E501
+            collection_formats['customerSessionIDs'] = 'multi'  # noqa: E501
+        if 'transaction_uui_ds' in local_var_params and local_var_params['transaction_uui_ds'] is not None:  # noqa: E501
+            query_params.append(('transactionUUIDs', local_var_params['transaction_uui_ds']))  # noqa: E501
+            collection_formats['transactionUUIDs'] = 'multi'  # noqa: E501
         if 'start_date' in local_var_params and local_var_params['start_date'] is not None:  # noqa: E501
             query_params.append(('startDate', local_var_params['start_date']))  # noqa: E501
         if 'end_date' in local_var_params and local_var_params['end_date'] is not None:  # noqa: E501
@@ -13988,7 +14017,7 @@ class ManagementApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/loyalty_programs/{loyaltyProgramId}/transactions', 'GET',
@@ -14093,7 +14122,7 @@ class ManagementApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/loyalty_programs', 'GET',
@@ -14207,7 +14236,7 @@ class ManagementApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/loyalty_programs/{loyaltyProgramId}/statistics', 'GET',
@@ -14239,8 +14268,8 @@ class ManagementApi(object):
         :param str message_id: Filter results by message ID.
         :param str change_type: Filter results by change type.
         :param str notification_i_ds: Filter results by notification ID (include up to 30 values, separated by a comma).
-        :param datetime created_before: Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally.
-        :param datetime created_after: Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally.
+        :param datetime created_before: Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. Use UTC time.
+        :param datetime created_after: Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. Use UTC time.
         :param str cursor: A specific unique value in the database. If this value is not given, the server fetches results starting with the first record. 
         :param str period: Filter results by time period. Choose between the available relative time frames. 
         :param bool is_successful: Indicates whether to return log entries with either successful or unsuccessful HTTP response codes. When set to`true`, only log entries with `2xx` response codes are returned. When set to `false`, only log entries with `4xx` and `5xx` response codes are returned. 
@@ -14277,8 +14306,8 @@ class ManagementApi(object):
         :param str message_id: Filter results by message ID.
         :param str change_type: Filter results by change type.
         :param str notification_i_ds: Filter results by notification ID (include up to 30 values, separated by a comma).
-        :param datetime created_before: Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally.
-        :param datetime created_after: Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally.
+        :param datetime created_before: Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. Use UTC time.
+        :param datetime created_after: Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. Use UTC time.
         :param str cursor: A specific unique value in the database. If this value is not given, the server fetches results starting with the first record. 
         :param str period: Filter results by time period. Choose between the available relative time frames. 
         :param bool is_successful: Indicates whether to return log entries with either successful or unsuccessful HTTP response codes. When set to`true`, only log entries with `2xx` response codes are returned. When set to `false`, only log entries with `4xx` and `5xx` response codes are returned. 
@@ -14386,7 +14415,7 @@ class ManagementApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/message_logs', 'GET',
@@ -14558,7 +14587,7 @@ class ManagementApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/applications/{applicationId}/campaigns/{campaignId}/referrals/no_total', 'GET',
@@ -14672,7 +14701,7 @@ class ManagementApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v2/roles/{roleId}', 'GET',
@@ -14804,7 +14833,7 @@ class ManagementApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/applications/{applicationId}/campaigns/{campaignId}/rulesets/{rulesetId}', 'GET',
@@ -14946,7 +14975,7 @@ class ManagementApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/applications/{applicationId}/campaigns/{campaignId}/rulesets', 'GET',
@@ -15069,7 +15098,7 @@ class ManagementApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/applications/{applicationId}/stores/{storeId}', 'GET',
@@ -15183,7 +15212,7 @@ class ManagementApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/users/{userId}', 'GET',
@@ -15221,7 +15250,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20043
+        :return: InlineResponse20041
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -15250,7 +15279,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20043, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20041, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -15307,7 +15336,7 @@ class ManagementApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/users', 'GET',
@@ -15317,7 +15346,7 @@ class ManagementApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20043',  # noqa: E501
+            response_type='InlineResponse20041',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -15421,7 +15450,7 @@ class ManagementApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/webhooks/{webhookId}', 'GET',
@@ -15432,319 +15461,6 @@ class ManagementApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='Webhook',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def get_webhook_activation_logs(self, **kwargs):  # noqa: E501
-        """List webhook activation log entries  # noqa: E501
-
-        Webhook activation log entries are created as soon as an integration request triggers a webhook effect. See the [docs](https://docs.talon.one/docs/dev/getting-started/webhooks).   # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_webhook_activation_logs(async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param int page_size: The number of items in the response.
-        :param int skip: The number of items to skip when paging through large result sets.
-        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations. 
-        :param str integration_request_uuid: Filter results by integration request UUID.
-        :param float webhook_id: Filter results by webhook id.
-        :param float application_id: Filter results by Application ID.
-        :param float campaign_id: Filter results by campaign ID.
-        :param datetime created_before: Only return events created before this date. You can use any time zone setting. Talon.One will convert to UTC internally.
-        :param datetime created_after: Only return events created after this date. You can use any time zone setting. Talon.One will convert to UTC internally.
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: InlineResponse20040
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        return self.get_webhook_activation_logs_with_http_info(**kwargs)  # noqa: E501
-
-    def get_webhook_activation_logs_with_http_info(self, **kwargs):  # noqa: E501
-        """List webhook activation log entries  # noqa: E501
-
-        Webhook activation log entries are created as soon as an integration request triggers a webhook effect. See the [docs](https://docs.talon.one/docs/dev/getting-started/webhooks).   # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_webhook_activation_logs_with_http_info(async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param int page_size: The number of items in the response.
-        :param int skip: The number of items to skip when paging through large result sets.
-        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations. 
-        :param str integration_request_uuid: Filter results by integration request UUID.
-        :param float webhook_id: Filter results by webhook id.
-        :param float application_id: Filter results by Application ID.
-        :param float campaign_id: Filter results by campaign ID.
-        :param datetime created_before: Only return events created before this date. You can use any time zone setting. Talon.One will convert to UTC internally.
-        :param datetime created_after: Only return events created after this date. You can use any time zone setting. Talon.One will convert to UTC internally.
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(InlineResponse20040, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = [
-            'page_size',
-            'skip',
-            'sort',
-            'integration_request_uuid',
-            'webhook_id',
-            'application_id',
-            'campaign_id',
-            'created_before',
-            'created_after'
-        ]
-        all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
-            ]
-        )
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_webhook_activation_logs" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-
-        if self.api_client.client_side_validation and 'page_size' in local_var_params and local_var_params['page_size'] > 1000:  # noqa: E501
-            raise ApiValueError("Invalid value for parameter `page_size` when calling `get_webhook_activation_logs`, must be a value less than or equal to `1000`")  # noqa: E501
-        if self.api_client.client_side_validation and 'page_size' in local_var_params and local_var_params['page_size'] < 1:  # noqa: E501
-            raise ApiValueError("Invalid value for parameter `page_size` when calling `get_webhook_activation_logs`, must be a value greater than or equal to `1`")  # noqa: E501
-        collection_formats = {}
-
-        path_params = {}
-
-        query_params = []
-        if 'page_size' in local_var_params and local_var_params['page_size'] is not None:  # noqa: E501
-            query_params.append(('pageSize', local_var_params['page_size']))  # noqa: E501
-        if 'skip' in local_var_params and local_var_params['skip'] is not None:  # noqa: E501
-            query_params.append(('skip', local_var_params['skip']))  # noqa: E501
-        if 'sort' in local_var_params and local_var_params['sort'] is not None:  # noqa: E501
-            query_params.append(('sort', local_var_params['sort']))  # noqa: E501
-        if 'integration_request_uuid' in local_var_params and local_var_params['integration_request_uuid'] is not None:  # noqa: E501
-            query_params.append(('integrationRequestUuid', local_var_params['integration_request_uuid']))  # noqa: E501
-        if 'webhook_id' in local_var_params and local_var_params['webhook_id'] is not None:  # noqa: E501
-            query_params.append(('webhookId', local_var_params['webhook_id']))  # noqa: E501
-        if 'application_id' in local_var_params and local_var_params['application_id'] is not None:  # noqa: E501
-            query_params.append(('applicationId', local_var_params['application_id']))  # noqa: E501
-        if 'campaign_id' in local_var_params and local_var_params['campaign_id'] is not None:  # noqa: E501
-            query_params.append(('campaignId', local_var_params['campaign_id']))  # noqa: E501
-        if 'created_before' in local_var_params and local_var_params['created_before'] is not None:  # noqa: E501
-            query_params.append(('createdBefore', local_var_params['created_before']))  # noqa: E501
-        if 'created_after' in local_var_params and local_var_params['created_after'] is not None:  # noqa: E501
-            query_params.append(('createdAfter', local_var_params['created_after']))  # noqa: E501
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/v1/webhook_activation_logs', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='InlineResponse20040',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def get_webhook_logs(self, **kwargs):  # noqa: E501
-        """List webhook log entries  # noqa: E501
-
-        Retrieve all webhook log entries.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_webhook_logs(async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param int page_size: The number of items in the response.
-        :param int skip: The number of items to skip when paging through large result sets.
-        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations. 
-        :param str status: Filter results by HTTP status codes.
-        :param float webhook_id: Filter results by webhook id.
-        :param float application_id: Filter results by Application ID.
-        :param float campaign_id: Filter results by campaign ID.
-        :param str request_uuid: Filter results by request UUID.
-        :param datetime created_before: Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally.
-        :param datetime created_after: Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally.
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: InlineResponse20041
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        return self.get_webhook_logs_with_http_info(**kwargs)  # noqa: E501
-
-    def get_webhook_logs_with_http_info(self, **kwargs):  # noqa: E501
-        """List webhook log entries  # noqa: E501
-
-        Retrieve all webhook log entries.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_webhook_logs_with_http_info(async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param int page_size: The number of items in the response.
-        :param int skip: The number of items to skip when paging through large result sets.
-        :param str sort: The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations. 
-        :param str status: Filter results by HTTP status codes.
-        :param float webhook_id: Filter results by webhook id.
-        :param float application_id: Filter results by Application ID.
-        :param float campaign_id: Filter results by campaign ID.
-        :param str request_uuid: Filter results by request UUID.
-        :param datetime created_before: Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally.
-        :param datetime created_after: Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally.
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(InlineResponse20041, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = [
-            'page_size',
-            'skip',
-            'sort',
-            'status',
-            'webhook_id',
-            'application_id',
-            'campaign_id',
-            'request_uuid',
-            'created_before',
-            'created_after'
-        ]
-        all_params.extend(
-            [
-                'async_req',
-                '_return_http_data_only',
-                '_preload_content',
-                '_request_timeout'
-            ]
-        )
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_webhook_logs" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-
-        if self.api_client.client_side_validation and 'page_size' in local_var_params and local_var_params['page_size'] > 1000:  # noqa: E501
-            raise ApiValueError("Invalid value for parameter `page_size` when calling `get_webhook_logs`, must be a value less than or equal to `1000`")  # noqa: E501
-        if self.api_client.client_side_validation and 'page_size' in local_var_params and local_var_params['page_size'] < 1:  # noqa: E501
-            raise ApiValueError("Invalid value for parameter `page_size` when calling `get_webhook_logs`, must be a value greater than or equal to `1`")  # noqa: E501
-        collection_formats = {}
-
-        path_params = {}
-
-        query_params = []
-        if 'page_size' in local_var_params and local_var_params['page_size'] is not None:  # noqa: E501
-            query_params.append(('pageSize', local_var_params['page_size']))  # noqa: E501
-        if 'skip' in local_var_params and local_var_params['skip'] is not None:  # noqa: E501
-            query_params.append(('skip', local_var_params['skip']))  # noqa: E501
-        if 'sort' in local_var_params and local_var_params['sort'] is not None:  # noqa: E501
-            query_params.append(('sort', local_var_params['sort']))  # noqa: E501
-        if 'status' in local_var_params and local_var_params['status'] is not None:  # noqa: E501
-            query_params.append(('status', local_var_params['status']))  # noqa: E501
-        if 'webhook_id' in local_var_params and local_var_params['webhook_id'] is not None:  # noqa: E501
-            query_params.append(('webhookId', local_var_params['webhook_id']))  # noqa: E501
-        if 'application_id' in local_var_params and local_var_params['application_id'] is not None:  # noqa: E501
-            query_params.append(('applicationId', local_var_params['application_id']))  # noqa: E501
-        if 'campaign_id' in local_var_params and local_var_params['campaign_id'] is not None:  # noqa: E501
-            query_params.append(('campaignId', local_var_params['campaign_id']))  # noqa: E501
-        if 'request_uuid' in local_var_params and local_var_params['request_uuid'] is not None:  # noqa: E501
-            query_params.append(('requestUuid', local_var_params['request_uuid']))  # noqa: E501
-        if 'created_before' in local_var_params and local_var_params['created_before'] is not None:  # noqa: E501
-            query_params.append(('createdBefore', local_var_params['created_before']))  # noqa: E501
-        if 'created_after' in local_var_params and local_var_params['created_after'] is not None:  # noqa: E501
-            query_params.append(('createdAfter', local_var_params['created_after']))  # noqa: E501
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/v1/webhook_logs', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='InlineResponse20041',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -15883,7 +15599,7 @@ class ManagementApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/webhooks', 'GET',
@@ -16006,7 +15722,7 @@ class ManagementApi(object):
             ['multipart/form-data'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/collections/{collectionId}/import', 'POST',
@@ -16129,7 +15845,7 @@ class ManagementApi(object):
             ['multipart/form-data'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/attributes/{attributeId}/allowed_list/import', 'POST',
@@ -16252,7 +15968,7 @@ class ManagementApi(object):
             ['multipart/form-data'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/audiences/{audienceId}/memberships/import', 'POST',
@@ -16394,7 +16110,7 @@ class ManagementApi(object):
             ['multipart/form-data'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/applications/{applicationId}/campaigns/{campaignId}/stores/budgets/import', 'POST',
@@ -16526,7 +16242,7 @@ class ManagementApi(object):
             ['multipart/form-data'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/applications/{applicationId}/campaigns/{campaignId}/stores/import', 'POST',
@@ -16667,7 +16383,7 @@ class ManagementApi(object):
             ['multipart/form-data'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/applications/{applicationId}/campaigns/{campaignId}/collections/{collectionId}/import', 'POST',
@@ -16804,7 +16520,7 @@ class ManagementApi(object):
             ['multipart/form-data'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/applications/{applicationId}/campaigns/{campaignId}/import_coupons', 'POST',
@@ -16927,7 +16643,7 @@ class ManagementApi(object):
             ['multipart/form-data'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/loyalty_programs/{loyaltyProgramId}/import_cards', 'POST',
@@ -17050,7 +16766,7 @@ class ManagementApi(object):
             ['multipart/form-data'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/loyalty_programs/{loyaltyProgramId}/import_customers_tiers', 'POST',
@@ -17178,7 +16894,7 @@ class ManagementApi(object):
             ['multipart/form-data'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/loyalty_programs/{loyaltyProgramId}/import_points', 'POST',
@@ -17301,7 +17017,7 @@ class ManagementApi(object):
             ['multipart/form-data'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/giveaways/pools/{poolId}/import', 'POST',
@@ -17433,7 +17149,7 @@ class ManagementApi(object):
             ['multipart/form-data'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/applications/{applicationId}/campaigns/{campaignId}/import_referrals', 'POST',
@@ -17547,7 +17263,7 @@ class ManagementApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/users/invite', 'POST',
@@ -17681,7 +17397,7 @@ class ManagementApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/collections', 'GET',
@@ -17721,7 +17437,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20050
+        :return: InlineResponse20048
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -17752,7 +17468,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20050, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20048, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -17823,7 +17539,7 @@ class ManagementApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/applications/{applicationId}/campaigns/{campaignId}/achievements', 'GET',
@@ -17833,7 +17549,7 @@ class ManagementApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20050',  # noqa: E501
+            response_type='InlineResponse20048',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -17858,7 +17574,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20046
+        :return: InlineResponse20044
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -17884,7 +17600,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20046, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20044, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -17928,7 +17644,7 @@ class ManagementApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v2/roles', 'GET',
@@ -17938,7 +17654,7 @@ class ManagementApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20046',  # noqa: E501
+            response_type='InlineResponse20044',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -17967,7 +17683,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20048
+        :return: InlineResponse20046
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -17997,7 +17713,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20048, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20046, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -18061,7 +17777,7 @@ class ManagementApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/applications/{applicationId}/campaigns/{campaignId}/stores/budgets', 'GET',
@@ -18071,7 +17787,7 @@ class ManagementApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20048',  # noqa: E501
+            response_type='InlineResponse20046',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -18206,7 +17922,7 @@ class ManagementApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/catalogs/{catalogId}/items', 'GET',
@@ -18358,7 +18074,7 @@ class ManagementApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/applications/{applicationId}/campaigns/{campaignId}/collections', 'GET',
@@ -18501,7 +18217,7 @@ class ManagementApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/applications/{applicationId}/collections', 'GET',
@@ -18545,7 +18261,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20047
+        :return: InlineResponse20045
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -18580,7 +18296,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20047, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20045, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -18659,7 +18375,7 @@ class ManagementApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/applications/{applicationId}/stores', 'GET',
@@ -18669,7 +18385,7 @@ class ManagementApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20047',  # noqa: E501
+            response_type='InlineResponse20045',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -18760,7 +18476,7 @@ class ManagementApi(object):
 
         body_params = None
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/provisioning/okta', 'GET',
@@ -18896,7 +18612,7 @@ class ManagementApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/loyalty_programs/{loyaltyProgramId}/profile/{integrationId}/deduct_points', 'PUT',
@@ -19014,7 +18730,7 @@ class ManagementApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/reset_password', 'POST',
@@ -19132,7 +18848,7 @@ class ManagementApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/provisioning/scim/Groups', 'POST',
@@ -19250,7 +18966,7 @@ class ManagementApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/provisioning/scim/Users', 'POST',
@@ -19360,7 +19076,7 @@ class ManagementApi(object):
 
         body_params = None
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/provisioning/scim/Groups/{groupId}', 'DELETE',
@@ -19470,7 +19186,7 @@ class ManagementApi(object):
 
         body_params = None
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/provisioning/scim/Users/{userId}', 'DELETE',
@@ -19584,7 +19300,7 @@ class ManagementApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/provisioning/scim/Groups/{groupId}', 'GET',
@@ -19689,7 +19405,7 @@ class ManagementApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/provisioning/scim/Groups', 'GET',
@@ -19794,7 +19510,7 @@ class ManagementApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/provisioning/scim/ResourceTypes', 'GET',
@@ -19899,7 +19615,7 @@ class ManagementApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/provisioning/scim/Schemas', 'GET',
@@ -20004,7 +19720,7 @@ class ManagementApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/provisioning/scim/ServiceProviderConfig', 'GET',
@@ -20118,7 +19834,7 @@ class ManagementApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/provisioning/scim/Users/{userId}', 'GET',
@@ -20223,7 +19939,7 @@ class ManagementApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/provisioning/scim/Users', 'GET',
@@ -20350,7 +20066,7 @@ class ManagementApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/provisioning/scim/Groups/{groupId}', 'PATCH',
@@ -20477,7 +20193,7 @@ class ManagementApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/provisioning/scim/Users/{userId}', 'PATCH',
@@ -20604,7 +20320,7 @@ class ManagementApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/provisioning/scim/Groups/{groupId}', 'PUT',
@@ -20731,7 +20447,7 @@ class ManagementApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/provisioning/scim/Users/{userId}', 'PUT',
@@ -20927,7 +20643,7 @@ class ManagementApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/applications/{applicationId}/coupons_search_advanced/no_total', 'POST',
@@ -21127,7 +20843,7 @@ class ManagementApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/applications/{applicationId}/campaigns/{campaignId}/coupons_search_advanced/no_total', 'POST',
@@ -21164,7 +20880,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: InlineResponse20049
+        :return: InlineResponse20047
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -21192,7 +20908,7 @@ class ManagementApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(InlineResponse20049, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(InlineResponse20047, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -21250,7 +20966,7 @@ class ManagementApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/applications/{applicationId}/campaigns/{campaignId}/stores/budgets/summary', 'GET',
@@ -21260,7 +20976,7 @@ class ManagementApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20049',  # noqa: E501
+            response_type='InlineResponse20047',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -21389,7 +21105,7 @@ class ManagementApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/loyalty_programs/{loyaltyProgramId}/cards/{loyaltyCardId}/transfer', 'PUT',
@@ -21516,7 +21232,7 @@ class ManagementApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/collections/{collectionId}', 'PUT',
@@ -21661,7 +21377,7 @@ class ManagementApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/applications/{applicationId}/campaigns/{campaignId}/achievements/{achievementId}', 'PUT',
@@ -21788,7 +21504,7 @@ class ManagementApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/additional_costs/{additionalCostId}', 'PUT',
@@ -21915,7 +21631,7 @@ class ManagementApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/attributes/{attributeId}', 'PUT',
@@ -22051,7 +21767,7 @@ class ManagementApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/applications/{applicationId}/campaigns/{campaignId}', 'PUT',
@@ -22196,7 +21912,7 @@ class ManagementApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/applications/{applicationId}/campaigns/{campaignId}/collections/{collectionId}', 'PUT',
@@ -22341,7 +22057,7 @@ class ManagementApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/applications/{applicationId}/campaigns/{campaignId}/coupons/{couponId}', 'PUT',
@@ -22473,7 +22189,7 @@ class ManagementApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/applications/{applicationId}/campaigns/{campaignId}/coupons', 'PUT',
@@ -22612,7 +22328,7 @@ class ManagementApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/loyalty_programs/{loyaltyProgramId}/cards/{loyaltyCardId}', 'PUT',
@@ -22757,7 +22473,7 @@ class ManagementApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/applications/{applicationId}/campaigns/{campaignId}/referrals/{referralId}', 'PUT',
@@ -22884,7 +22600,7 @@ class ManagementApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v2/roles/{roleId}', 'PUT',
@@ -23020,7 +22736,7 @@ class ManagementApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/applications/{applicationId}/stores/{storeId}', 'PUT',
@@ -23147,7 +22863,7 @@ class ManagementApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['management_key', 'manager_auth']  # noqa: E501
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/users/{userId}', 'PUT',

@@ -44,7 +44,9 @@ class AccountLimits(object):
         'webhooks': 'int',
         'users': 'int',
         'api_volume': 'int',
-        'promotion_types': 'list[str]'
+        'promotion_types': 'list[str]',
+        'secondary_deployment_price': 'int',
+        'currency_code': 'str'
     }
 
     attribute_map = {
@@ -59,10 +61,12 @@ class AccountLimits(object):
         'webhooks': 'webhooks',
         'users': 'users',
         'api_volume': 'apiVolume',
-        'promotion_types': 'promotionTypes'
+        'promotion_types': 'promotionTypes',
+        'secondary_deployment_price': 'SecondaryDeploymentPrice',
+        'currency_code': 'currencyCode'
     }
 
-    def __init__(self, live_applications=None, sandbox_applications=None, active_campaigns=None, coupons=None, referral_codes=None, active_rules=None, live_loyalty_programs=None, sandbox_loyalty_programs=None, webhooks=None, users=None, api_volume=None, promotion_types=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, live_applications=None, sandbox_applications=None, active_campaigns=None, coupons=None, referral_codes=None, active_rules=None, live_loyalty_programs=None, sandbox_loyalty_programs=None, webhooks=None, users=None, api_volume=None, promotion_types=None, secondary_deployment_price=None, currency_code=None, local_vars_configuration=None):  # noqa: E501
         """AccountLimits - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -80,6 +84,8 @@ class AccountLimits(object):
         self._users = None
         self._api_volume = None
         self._promotion_types = None
+        self._secondary_deployment_price = None
+        self._currency_code = None
         self.discriminator = None
 
         self.live_applications = live_applications
@@ -94,6 +100,8 @@ class AccountLimits(object):
         self.users = users
         self.api_volume = api_volume
         self.promotion_types = promotion_types
+        self.secondary_deployment_price = secondary_deployment_price
+        self.currency_code = currency_code
 
     @property
     def live_applications(self):
@@ -394,6 +402,56 @@ class AccountLimits(object):
             raise ValueError("Invalid value for `promotion_types`, must not be `None`")  # noqa: E501
 
         self._promotion_types = promotion_types
+
+    @property
+    def secondary_deployment_price(self):
+        """Gets the secondary_deployment_price of this AccountLimits.  # noqa: E501
+
+        The price for a secondary deployment according to contractual agreements.  # noqa: E501
+
+        :return: The secondary_deployment_price of this AccountLimits.  # noqa: E501
+        :rtype: int
+        """
+        return self._secondary_deployment_price
+
+    @secondary_deployment_price.setter
+    def secondary_deployment_price(self, secondary_deployment_price):
+        """Sets the secondary_deployment_price of this AccountLimits.
+
+        The price for a secondary deployment according to contractual agreements.  # noqa: E501
+
+        :param secondary_deployment_price: The secondary_deployment_price of this AccountLimits.  # noqa: E501
+        :type: int
+        """
+        if self.local_vars_configuration.client_side_validation and secondary_deployment_price is None:  # noqa: E501
+            raise ValueError("Invalid value for `secondary_deployment_price`, must not be `None`")  # noqa: E501
+
+        self._secondary_deployment_price = secondary_deployment_price
+
+    @property
+    def currency_code(self):
+        """Gets the currency_code of this AccountLimits.  # noqa: E501
+
+        The currency of the contract.  # noqa: E501
+
+        :return: The currency_code of this AccountLimits.  # noqa: E501
+        :rtype: str
+        """
+        return self._currency_code
+
+    @currency_code.setter
+    def currency_code(self, currency_code):
+        """Sets the currency_code of this AccountLimits.
+
+        The currency of the contract.  # noqa: E501
+
+        :param currency_code: The currency_code of this AccountLimits.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and currency_code is None:  # noqa: E501
+            raise ValueError("Invalid value for `currency_code`, must not be `None`")  # noqa: E501
+
+        self._currency_code = currency_code
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -46,6 +46,7 @@ class WebhookWithOutgoingIntegrationDetails(object):
         'payload': 'str',
         'params': 'list[TemplateArgDef]',
         'enabled': 'bool',
+        'authentication_id': 'int',
         'outgoing_integration_template_id': 'int',
         'outgoing_integration_type_id': 'int',
         'outgoing_integration_type_name': 'str'
@@ -65,12 +66,13 @@ class WebhookWithOutgoingIntegrationDetails(object):
         'payload': 'payload',
         'params': 'params',
         'enabled': 'enabled',
+        'authentication_id': 'authenticationId',
         'outgoing_integration_template_id': 'outgoingIntegrationTemplateId',
         'outgoing_integration_type_id': 'outgoingIntegrationTypeId',
         'outgoing_integration_type_name': 'outgoingIntegrationTypeName'
     }
 
-    def __init__(self, id=None, created=None, modified=None, application_ids=None, title=None, description=None, draft=None, verb=None, url=None, headers=None, payload=None, params=None, enabled=None, outgoing_integration_template_id=None, outgoing_integration_type_id=None, outgoing_integration_type_name=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, created=None, modified=None, application_ids=None, title=None, description=None, draft=None, verb=None, url=None, headers=None, payload=None, params=None, enabled=None, authentication_id=None, outgoing_integration_template_id=None, outgoing_integration_type_id=None, outgoing_integration_type_name=None, local_vars_configuration=None):  # noqa: E501
         """WebhookWithOutgoingIntegrationDetails - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -89,6 +91,7 @@ class WebhookWithOutgoingIntegrationDetails(object):
         self._payload = None
         self._params = None
         self._enabled = None
+        self._authentication_id = None
         self._outgoing_integration_template_id = None
         self._outgoing_integration_type_id = None
         self._outgoing_integration_type_name = None
@@ -109,6 +112,8 @@ class WebhookWithOutgoingIntegrationDetails(object):
             self.payload = payload
         self.params = params
         self.enabled = enabled
+        if authentication_id is not None:
+            self.authentication_id = authentication_id
         if outgoing_integration_template_id is not None:
             self.outgoing_integration_template_id = outgoing_integration_template_id
         if outgoing_integration_type_id is not None:
@@ -445,6 +450,29 @@ class WebhookWithOutgoingIntegrationDetails(object):
             raise ValueError("Invalid value for `enabled`, must not be `None`")  # noqa: E501
 
         self._enabled = enabled
+
+    @property
+    def authentication_id(self):
+        """Gets the authentication_id of this WebhookWithOutgoingIntegrationDetails.  # noqa: E501
+
+        The ID of the credential that this webhook is using.  # noqa: E501
+
+        :return: The authentication_id of this WebhookWithOutgoingIntegrationDetails.  # noqa: E501
+        :rtype: int
+        """
+        return self._authentication_id
+
+    @authentication_id.setter
+    def authentication_id(self, authentication_id):
+        """Sets the authentication_id of this WebhookWithOutgoingIntegrationDetails.
+
+        The ID of the credential that this webhook is using.  # noqa: E501
+
+        :param authentication_id: The authentication_id of this WebhookWithOutgoingIntegrationDetails.  # noqa: E501
+        :type: int
+        """
+
+        self._authentication_id = authentication_id
 
     @property
     def outgoing_integration_template_id(self):

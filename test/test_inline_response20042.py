@@ -37,25 +37,31 @@ class TestInlineResponse20042(unittest.TestCase):
         if include_optional :
             return InlineResponse20042(
                 total_result_size = 1, 
+                has_more = True, 
                 data = [
-                    talon_one.models.event_type.EventType(
+                    talon_one.models.change.Change(
                         id = 6, 
                         created = '2020-06-10T09:05:27.993483Z', 
-                        title = 'Survey Completed', 
-                        name = 'surveyCompleted', 
-                        description = 'The survey was submitted by the customer.', )
+                        user_id = 388, 
+                        application_id = 359, 
+                        entity = '/v1/applications/359/campaigns/6727', 
+                        old = {}, 
+                        new = {"applicationId\"":359,"attributes\"":{},"campaignGroups\"":[],"created\"":"2022-07-08T13:04:02.972762328Z","description\"":"","features\"":["referrals","loyalty"],"id":6727}, 
+                        management_key_id = 3, )
                     ]
             )
         else :
             return InlineResponse20042(
-                total_result_size = 1,
                 data = [
-                    talon_one.models.event_type.EventType(
+                    talon_one.models.change.Change(
                         id = 6, 
                         created = '2020-06-10T09:05:27.993483Z', 
-                        title = 'Survey Completed', 
-                        name = 'surveyCompleted', 
-                        description = 'The survey was submitted by the customer.', )
+                        user_id = 388, 
+                        application_id = 359, 
+                        entity = '/v1/applications/359/campaigns/6727', 
+                        old = {}, 
+                        new = {"applicationId\"":359,"attributes\"":{},"campaignGroups\"":[],"created\"":"2022-07-08T13:04:02.972762328Z","description\"":"","features\"":["referrals","loyalty"],"id":6727}, 
+                        management_key_id = 3, )
                     ],
         )
 

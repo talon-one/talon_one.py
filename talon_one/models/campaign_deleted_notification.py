@@ -33,75 +33,105 @@ class CampaignDeletedNotification(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'campaign': 'Campaign',
-        'deleted_at': 'datetime'
+        'notification_type': 'str',
+        'total_result_size': 'int',
+        'data': 'list[CampaignDeletedNotificationItem]'
     }
 
     attribute_map = {
-        'campaign': 'campaign',
-        'deleted_at': 'deletedAt'
+        'notification_type': 'NotificationType',
+        'total_result_size': 'TotalResultSize',
+        'data': 'Data'
     }
 
-    def __init__(self, campaign=None, deleted_at=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, notification_type=None, total_result_size=None, data=None, local_vars_configuration=None):  # noqa: E501
         """CampaignDeletedNotification - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
-        self._campaign = None
-        self._deleted_at = None
+        self._notification_type = None
+        self._total_result_size = None
+        self._data = None
         self.discriminator = None
 
-        self.campaign = campaign
-        self.deleted_at = deleted_at
+        self.notification_type = notification_type
+        self.total_result_size = total_result_size
+        if data is not None:
+            self.data = data
 
     @property
-    def campaign(self):
-        """Gets the campaign of this CampaignDeletedNotification.  # noqa: E501
+    def notification_type(self):
+        """Gets the notification_type of this CampaignDeletedNotification.  # noqa: E501
 
+        The type of the notification  # noqa: E501
 
-        :return: The campaign of this CampaignDeletedNotification.  # noqa: E501
-        :rtype: Campaign
+        :return: The notification_type of this CampaignDeletedNotification.  # noqa: E501
+        :rtype: str
         """
-        return self._campaign
+        return self._notification_type
 
-    @campaign.setter
-    def campaign(self, campaign):
-        """Sets the campaign of this CampaignDeletedNotification.
+    @notification_type.setter
+    def notification_type(self, notification_type):
+        """Sets the notification_type of this CampaignDeletedNotification.
 
+        The type of the notification  # noqa: E501
 
-        :param campaign: The campaign of this CampaignDeletedNotification.  # noqa: E501
-        :type: Campaign
+        :param notification_type: The notification_type of this CampaignDeletedNotification.  # noqa: E501
+        :type: str
         """
-        if self.local_vars_configuration.client_side_validation and campaign is None:  # noqa: E501
-            raise ValueError("Invalid value for `campaign`, must not be `None`")  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and notification_type is None:  # noqa: E501
+            raise ValueError("Invalid value for `notification_type`, must not be `None`")  # noqa: E501
 
-        self._campaign = campaign
+        self._notification_type = notification_type
 
     @property
-    def deleted_at(self):
-        """Gets the deleted_at of this CampaignDeletedNotification.  # noqa: E501
+    def total_result_size(self):
+        """Gets the total_result_size of this CampaignDeletedNotification.  # noqa: E501
 
-        Time when the campaign was deleted.  # noqa: E501
+        The total size of the result set.  # noqa: E501
 
-        :return: The deleted_at of this CampaignDeletedNotification.  # noqa: E501
-        :rtype: datetime
+        :return: The total_result_size of this CampaignDeletedNotification.  # noqa: E501
+        :rtype: int
         """
-        return self._deleted_at
+        return self._total_result_size
 
-    @deleted_at.setter
-    def deleted_at(self, deleted_at):
-        """Sets the deleted_at of this CampaignDeletedNotification.
+    @total_result_size.setter
+    def total_result_size(self, total_result_size):
+        """Sets the total_result_size of this CampaignDeletedNotification.
 
-        Time when the campaign was deleted.  # noqa: E501
+        The total size of the result set.  # noqa: E501
 
-        :param deleted_at: The deleted_at of this CampaignDeletedNotification.  # noqa: E501
-        :type: datetime
+        :param total_result_size: The total_result_size of this CampaignDeletedNotification.  # noqa: E501
+        :type: int
         """
-        if self.local_vars_configuration.client_side_validation and deleted_at is None:  # noqa: E501
-            raise ValueError("Invalid value for `deleted_at`, must not be `None`")  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and total_result_size is None:  # noqa: E501
+            raise ValueError("Invalid value for `total_result_size`, must not be `None`")  # noqa: E501
 
-        self._deleted_at = deleted_at
+        self._total_result_size = total_result_size
+
+    @property
+    def data(self):
+        """Gets the data of this CampaignDeletedNotification.  # noqa: E501
+
+        A list of campaign notification data.  # noqa: E501
+
+        :return: The data of this CampaignDeletedNotification.  # noqa: E501
+        :rtype: list[CampaignDeletedNotificationItem]
+        """
+        return self._data
+
+    @data.setter
+    def data(self, data):
+        """Sets the data of this CampaignDeletedNotification.
+
+        A list of campaign notification data.  # noqa: E501
+
+        :param data: The data of this CampaignDeletedNotification.  # noqa: E501
+        :type: list[CampaignDeletedNotificationItem]
+        """
+
+        self._data = data
 
     def to_dict(self):
         """Returns the model properties as a dict"""

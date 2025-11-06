@@ -37,6 +37,7 @@ class TestPriceDetail(unittest.TestCase):
         if include_optional :
             return PriceDetail(
                 price = 90.0, 
+                adjustment_context_id = 'summer25', 
                 adjustment_reference_id = '68851723-e6fa-488f-ace9-112581e6c19b', 
                 adjustment_effective_from = '2025-05-25T00:00Z', 
                 adjustment_effective_until = '2025-05-30T00:00Z'

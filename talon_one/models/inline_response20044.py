@@ -34,31 +34,25 @@ class InlineResponse20044(object):
     """
     openapi_types = {
         'total_result_size': 'int',
-        'has_more': 'bool',
-        'data': 'list[Change]'
+        'data': 'list[RoleV2]'
     }
 
     attribute_map = {
         'total_result_size': 'totalResultSize',
-        'has_more': 'hasMore',
         'data': 'data'
     }
 
-    def __init__(self, total_result_size=None, has_more=None, data=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, total_result_size=None, data=None, local_vars_configuration=None):  # noqa: E501
         """InlineResponse20044 - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._total_result_size = None
-        self._has_more = None
         self._data = None
         self.discriminator = None
 
-        if total_result_size is not None:
-            self.total_result_size = total_result_size
-        if has_more is not None:
-            self.has_more = has_more
+        self.total_result_size = total_result_size
         self.data = data
 
     @property
@@ -79,29 +73,10 @@ class InlineResponse20044(object):
         :param total_result_size: The total_result_size of this InlineResponse20044.  # noqa: E501
         :type: int
         """
+        if self.local_vars_configuration.client_side_validation and total_result_size is None:  # noqa: E501
+            raise ValueError("Invalid value for `total_result_size`, must not be `None`")  # noqa: E501
 
         self._total_result_size = total_result_size
-
-    @property
-    def has_more(self):
-        """Gets the has_more of this InlineResponse20044.  # noqa: E501
-
-
-        :return: The has_more of this InlineResponse20044.  # noqa: E501
-        :rtype: bool
-        """
-        return self._has_more
-
-    @has_more.setter
-    def has_more(self, has_more):
-        """Sets the has_more of this InlineResponse20044.
-
-
-        :param has_more: The has_more of this InlineResponse20044.  # noqa: E501
-        :type: bool
-        """
-
-        self._has_more = has_more
 
     @property
     def data(self):
@@ -109,7 +84,7 @@ class InlineResponse20044(object):
 
 
         :return: The data of this InlineResponse20044.  # noqa: E501
-        :rtype: list[Change]
+        :rtype: list[RoleV2]
         """
         return self._data
 
@@ -119,7 +94,7 @@ class InlineResponse20044(object):
 
 
         :param data: The data of this InlineResponse20044.  # noqa: E501
-        :type: list[Change]
+        :type: list[RoleV2]
         """
         if self.local_vars_configuration.client_side_validation and data is None:  # noqa: E501
             raise ValueError("Invalid value for `data`, must not be `None`")  # noqa: E501

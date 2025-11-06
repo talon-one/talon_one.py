@@ -45,7 +45,8 @@ class Webhook(object):
         'headers': 'list[str]',
         'payload': 'str',
         'params': 'list[TemplateArgDef]',
-        'enabled': 'bool'
+        'enabled': 'bool',
+        'authentication_id': 'int'
     }
 
     attribute_map = {
@@ -61,10 +62,11 @@ class Webhook(object):
         'headers': 'headers',
         'payload': 'payload',
         'params': 'params',
-        'enabled': 'enabled'
+        'enabled': 'enabled',
+        'authentication_id': 'authenticationId'
     }
 
-    def __init__(self, id=None, created=None, modified=None, application_ids=None, title=None, description=None, draft=None, verb=None, url=None, headers=None, payload=None, params=None, enabled=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, created=None, modified=None, application_ids=None, title=None, description=None, draft=None, verb=None, url=None, headers=None, payload=None, params=None, enabled=None, authentication_id=None, local_vars_configuration=None):  # noqa: E501
         """Webhook - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -83,6 +85,7 @@ class Webhook(object):
         self._payload = None
         self._params = None
         self._enabled = None
+        self._authentication_id = None
         self.discriminator = None
 
         self.id = id
@@ -100,6 +103,8 @@ class Webhook(object):
             self.payload = payload
         self.params = params
         self.enabled = enabled
+        if authentication_id is not None:
+            self.authentication_id = authentication_id
 
     @property
     def id(self):
@@ -430,6 +435,29 @@ class Webhook(object):
             raise ValueError("Invalid value for `enabled`, must not be `None`")  # noqa: E501
 
         self._enabled = enabled
+
+    @property
+    def authentication_id(self):
+        """Gets the authentication_id of this Webhook.  # noqa: E501
+
+        The ID of the credential that this webhook is using.  # noqa: E501
+
+        :return: The authentication_id of this Webhook.  # noqa: E501
+        :rtype: int
+        """
+        return self._authentication_id
+
+    @authentication_id.setter
+    def authentication_id(self, authentication_id):
+        """Sets the authentication_id of this Webhook.
+
+        The ID of the credential that this webhook is using.  # noqa: E501
+
+        :param authentication_id: The authentication_id of this Webhook.  # noqa: E501
+        :type: int
+        """
+
+        self._authentication_id = authentication_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

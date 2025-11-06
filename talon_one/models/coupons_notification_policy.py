@@ -48,7 +48,7 @@ class CouponsNotificationPolicy(object):
         'batch_size': 'batchSize'
     }
 
-    def __init__(self, name=None, scopes=None, batching_enabled=True, include_data=None, batch_size=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, name=None, scopes=None, batching_enabled=True, include_data=None, batch_size=1000, local_vars_configuration=None):  # noqa: E501
         """CouponsNotificationPolicy - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()

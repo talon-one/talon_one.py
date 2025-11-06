@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **sku** | **str** | The unique SKU of the changed item. | 
 **version** | **int** | The version of the changed item. | 
 **price** | **float** | The price of the changed item. | 
+**prices** | [**dict(str, PriceDetail)**](PriceDetail.md) | A map of keys and values representing the price types and related price adjustment details for this cart item.       The keys correspond to the &#x60;priceType&#x60; names.  | [optional] 
 **evaluated_at** | **datetime** | The evaluation time of the changed item. | 
 **effects** | [**list[StrikethroughEffect]**](StrikethroughEffect.md) |  | [optional] 
 

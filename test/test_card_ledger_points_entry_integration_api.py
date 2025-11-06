@@ -37,6 +37,7 @@ class TestCardLedgerPointsEntryIntegrationAPI(unittest.TestCase):
         if include_optional :
             return CardLedgerPointsEntryIntegrationAPI(
                 id = 123, 
+                transaction_uuid = 'ce59f12a-f53b-4014-a745-636d93f2bd3f', 
                 created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                 program_id = 324, 
                 customer_profile_id = 'URNGV8294NV', 
@@ -50,6 +51,7 @@ class TestCardLedgerPointsEntryIntegrationAPI(unittest.TestCase):
         else :
             return CardLedgerPointsEntryIntegrationAPI(
                 id = 123,
+                transaction_uuid = 'ce59f12a-f53b-4014-a745-636d93f2bd3f',
                 created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 program_id = 324,
                 name = 'Reward 10% points of a purchase's current total',

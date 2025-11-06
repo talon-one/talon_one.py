@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **payload** | **str** | API payload (supports templating using parameters) for this webhook. | [optional] 
 **params** | [**list[TemplateArgDef]**](TemplateArgDef.md) | Array of template argument definitions. | 
 **enabled** | **bool** | Enables or disables webhook from showing in the Rule Builder. | 
+**authentication_id** | **int** | The ID of the credential that this webhook is using. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

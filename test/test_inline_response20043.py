@@ -38,48 +38,26 @@ class TestInlineResponse20043(unittest.TestCase):
             return InlineResponse20043(
                 total_result_size = 1, 
                 data = [
-                    talon_one.models.user.User(
+                    talon_one.models.export.Export(
                         id = 6, 
                         created = '2020-06-10T09:05:27.993483Z', 
-                        modified = '2021-09-12T10:12:42Z', 
-                        email = 'john.doe@example.com', 
                         account_id = 3886, 
-                        name = 'John Doe', 
-                        state = 'invited', 
-                        invite_token = 'Gy9b8w1irmQtEPo5RmbMmSPheL5h4', 
-                        is_admin = False, 
-                        policy = {"Role":127}, 
-                        roles = [71], 
-                        auth_method = 'basic_auth', 
-                        application_notification_subscriptions = {}, 
-                        last_signed_in = '2021-09-12T10:12:42Z', 
-                        last_accessed = '2021-09-12T10:14:42Z', 
-                        latest_feed_timestamp = '2020-06-01T00:00Z', 
-                        additional_attributes = {}, )
+                        user_id = 388, 
+                        entity = 'Coupon', 
+                        filter = talon_one.models.filter.filter(), )
                     ]
             )
         else :
             return InlineResponse20043(
                 total_result_size = 1,
                 data = [
-                    talon_one.models.user.User(
+                    talon_one.models.export.Export(
                         id = 6, 
                         created = '2020-06-10T09:05:27.993483Z', 
-                        modified = '2021-09-12T10:12:42Z', 
-                        email = 'john.doe@example.com', 
                         account_id = 3886, 
-                        name = 'John Doe', 
-                        state = 'invited', 
-                        invite_token = 'Gy9b8w1irmQtEPo5RmbMmSPheL5h4', 
-                        is_admin = False, 
-                        policy = {"Role":127}, 
-                        roles = [71], 
-                        auth_method = 'basic_auth', 
-                        application_notification_subscriptions = {}, 
-                        last_signed_in = '2021-09-12T10:12:42Z', 
-                        last_accessed = '2021-09-12T10:14:42Z', 
-                        latest_feed_timestamp = '2020-06-01T00:00Z', 
-                        additional_attributes = {}, )
+                        user_id = 388, 
+                        entity = 'Coupon', 
+                        filter = talon_one.models.filter.filter(), )
                     ],
         )
 

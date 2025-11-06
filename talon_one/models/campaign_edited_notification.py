@@ -33,99 +33,105 @@ class CampaignEditedNotification(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'campaign': 'Campaign',
-        'old_campaign': 'Campaign',
-        'ruleset': 'Ruleset'
+        'notification_type': 'str',
+        'total_result_size': 'int',
+        'data': 'list[CampaignEditedNotificationItem]'
     }
 
     attribute_map = {
-        'campaign': 'campaign',
-        'old_campaign': 'oldCampaign',
-        'ruleset': 'ruleset'
+        'notification_type': 'NotificationType',
+        'total_result_size': 'TotalResultSize',
+        'data': 'Data'
     }
 
-    def __init__(self, campaign=None, old_campaign=None, ruleset=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, notification_type=None, total_result_size=None, data=None, local_vars_configuration=None):  # noqa: E501
         """CampaignEditedNotification - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
-        self._campaign = None
-        self._old_campaign = None
-        self._ruleset = None
+        self._notification_type = None
+        self._total_result_size = None
+        self._data = None
         self.discriminator = None
 
-        self.campaign = campaign
-        self.old_campaign = old_campaign
-        if ruleset is not None:
-            self.ruleset = ruleset
+        self.notification_type = notification_type
+        self.total_result_size = total_result_size
+        if data is not None:
+            self.data = data
 
     @property
-    def campaign(self):
-        """Gets the campaign of this CampaignEditedNotification.  # noqa: E501
+    def notification_type(self):
+        """Gets the notification_type of this CampaignEditedNotification.  # noqa: E501
 
+        The type of the notification  # noqa: E501
 
-        :return: The campaign of this CampaignEditedNotification.  # noqa: E501
-        :rtype: Campaign
+        :return: The notification_type of this CampaignEditedNotification.  # noqa: E501
+        :rtype: str
         """
-        return self._campaign
+        return self._notification_type
 
-    @campaign.setter
-    def campaign(self, campaign):
-        """Sets the campaign of this CampaignEditedNotification.
+    @notification_type.setter
+    def notification_type(self, notification_type):
+        """Sets the notification_type of this CampaignEditedNotification.
 
+        The type of the notification  # noqa: E501
 
-        :param campaign: The campaign of this CampaignEditedNotification.  # noqa: E501
-        :type: Campaign
+        :param notification_type: The notification_type of this CampaignEditedNotification.  # noqa: E501
+        :type: str
         """
-        if self.local_vars_configuration.client_side_validation and campaign is None:  # noqa: E501
-            raise ValueError("Invalid value for `campaign`, must not be `None`")  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and notification_type is None:  # noqa: E501
+            raise ValueError("Invalid value for `notification_type`, must not be `None`")  # noqa: E501
 
-        self._campaign = campaign
+        self._notification_type = notification_type
 
     @property
-    def old_campaign(self):
-        """Gets the old_campaign of this CampaignEditedNotification.  # noqa: E501
+    def total_result_size(self):
+        """Gets the total_result_size of this CampaignEditedNotification.  # noqa: E501
 
+        The total size of the result set.  # noqa: E501
 
-        :return: The old_campaign of this CampaignEditedNotification.  # noqa: E501
-        :rtype: Campaign
+        :return: The total_result_size of this CampaignEditedNotification.  # noqa: E501
+        :rtype: int
         """
-        return self._old_campaign
+        return self._total_result_size
 
-    @old_campaign.setter
-    def old_campaign(self, old_campaign):
-        """Sets the old_campaign of this CampaignEditedNotification.
+    @total_result_size.setter
+    def total_result_size(self, total_result_size):
+        """Sets the total_result_size of this CampaignEditedNotification.
 
+        The total size of the result set.  # noqa: E501
 
-        :param old_campaign: The old_campaign of this CampaignEditedNotification.  # noqa: E501
-        :type: Campaign
+        :param total_result_size: The total_result_size of this CampaignEditedNotification.  # noqa: E501
+        :type: int
         """
-        if self.local_vars_configuration.client_side_validation and old_campaign is None:  # noqa: E501
-            raise ValueError("Invalid value for `old_campaign`, must not be `None`")  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and total_result_size is None:  # noqa: E501
+            raise ValueError("Invalid value for `total_result_size`, must not be `None`")  # noqa: E501
 
-        self._old_campaign = old_campaign
+        self._total_result_size = total_result_size
 
     @property
-    def ruleset(self):
-        """Gets the ruleset of this CampaignEditedNotification.  # noqa: E501
+    def data(self):
+        """Gets the data of this CampaignEditedNotification.  # noqa: E501
 
+        A list of campaign notification data.  # noqa: E501
 
-        :return: The ruleset of this CampaignEditedNotification.  # noqa: E501
-        :rtype: Ruleset
+        :return: The data of this CampaignEditedNotification.  # noqa: E501
+        :rtype: list[CampaignEditedNotificationItem]
         """
-        return self._ruleset
+        return self._data
 
-    @ruleset.setter
-    def ruleset(self, ruleset):
-        """Sets the ruleset of this CampaignEditedNotification.
+    @data.setter
+    def data(self, data):
+        """Sets the data of this CampaignEditedNotification.
 
+        A list of campaign notification data.  # noqa: E501
 
-        :param ruleset: The ruleset of this CampaignEditedNotification.  # noqa: E501
-        :type: Ruleset
+        :param data: The data of this CampaignEditedNotification.  # noqa: E501
+        :type: list[CampaignEditedNotificationItem]
         """
 
-        self._ruleset = ruleset
+        self._data = data
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -36,19 +36,17 @@ class ExtendLoyaltyPointsExpiryDateEffectProps(object):
         'program_id': 'int',
         'sub_ledger_id': 'str',
         'extension_duration': 'str',
-        'transaction_uui_ds': 'list[str]',
-        'previous_expiration_date': 'datetime'
+        'affected_transactions': 'list[LoyaltyLedgerEntryExpiryDateChange]'
     }
 
     attribute_map = {
         'program_id': 'programId',
         'sub_ledger_id': 'subLedgerId',
         'extension_duration': 'extensionDuration',
-        'transaction_uui_ds': 'transactionUUIDs',
-        'previous_expiration_date': 'previousExpirationDate'
+        'affected_transactions': 'affectedTransactions'
     }
 
-    def __init__(self, program_id=None, sub_ledger_id=None, extension_duration=None, transaction_uui_ds=None, previous_expiration_date=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, program_id=None, sub_ledger_id=None, extension_duration=None, affected_transactions=None, local_vars_configuration=None):  # noqa: E501
         """ExtendLoyaltyPointsExpiryDateEffectProps - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -57,16 +55,14 @@ class ExtendLoyaltyPointsExpiryDateEffectProps(object):
         self._program_id = None
         self._sub_ledger_id = None
         self._extension_duration = None
-        self._transaction_uui_ds = None
-        self._previous_expiration_date = None
+        self._affected_transactions = None
         self.discriminator = None
 
         self.program_id = program_id
         self.sub_ledger_id = sub_ledger_id
         self.extension_duration = extension_duration
-        if transaction_uui_ds is not None:
-            self.transaction_uui_ds = transaction_uui_ds
-        self.previous_expiration_date = previous_expiration_date
+        if affected_transactions is not None:
+            self.affected_transactions = affected_transactions
 
     @property
     def program_id(self):
@@ -144,52 +140,27 @@ class ExtendLoyaltyPointsExpiryDateEffectProps(object):
         self._extension_duration = extension_duration
 
     @property
-    def transaction_uui_ds(self):
-        """Gets the transaction_uui_ds of this ExtendLoyaltyPointsExpiryDateEffectProps.  # noqa: E501
+    def affected_transactions(self):
+        """Gets the affected_transactions of this ExtendLoyaltyPointsExpiryDateEffectProps.  # noqa: E501
 
-        The list of identifiers of transactions affected affected by the extension.  # noqa: E501
+        List of transactions affected by the expiry date update.  # noqa: E501
 
-        :return: The transaction_uui_ds of this ExtendLoyaltyPointsExpiryDateEffectProps.  # noqa: E501
-        :rtype: list[str]
+        :return: The affected_transactions of this ExtendLoyaltyPointsExpiryDateEffectProps.  # noqa: E501
+        :rtype: list[LoyaltyLedgerEntryExpiryDateChange]
         """
-        return self._transaction_uui_ds
+        return self._affected_transactions
 
-    @transaction_uui_ds.setter
-    def transaction_uui_ds(self, transaction_uui_ds):
-        """Sets the transaction_uui_ds of this ExtendLoyaltyPointsExpiryDateEffectProps.
+    @affected_transactions.setter
+    def affected_transactions(self, affected_transactions):
+        """Sets the affected_transactions of this ExtendLoyaltyPointsExpiryDateEffectProps.
 
-        The list of identifiers of transactions affected affected by the extension.  # noqa: E501
+        List of transactions affected by the expiry date update.  # noqa: E501
 
-        :param transaction_uui_ds: The transaction_uui_ds of this ExtendLoyaltyPointsExpiryDateEffectProps.  # noqa: E501
-        :type: list[str]
+        :param affected_transactions: The affected_transactions of this ExtendLoyaltyPointsExpiryDateEffectProps.  # noqa: E501
+        :type: list[LoyaltyLedgerEntryExpiryDateChange]
         """
 
-        self._transaction_uui_ds = transaction_uui_ds
-
-    @property
-    def previous_expiration_date(self):
-        """Gets the previous_expiration_date of this ExtendLoyaltyPointsExpiryDateEffectProps.  # noqa: E501
-
-        Expiry date before applying the extension.  # noqa: E501
-
-        :return: The previous_expiration_date of this ExtendLoyaltyPointsExpiryDateEffectProps.  # noqa: E501
-        :rtype: datetime
-        """
-        return self._previous_expiration_date
-
-    @previous_expiration_date.setter
-    def previous_expiration_date(self, previous_expiration_date):
-        """Sets the previous_expiration_date of this ExtendLoyaltyPointsExpiryDateEffectProps.
-
-        Expiry date before applying the extension.  # noqa: E501
-
-        :param previous_expiration_date: The previous_expiration_date of this ExtendLoyaltyPointsExpiryDateEffectProps.  # noqa: E501
-        :type: datetime
-        """
-        if self.local_vars_configuration.client_side_validation and previous_expiration_date is None:  # noqa: E501
-            raise ValueError("Invalid value for `previous_expiration_date`, must not be `None`")  # noqa: E501
-
-        self._previous_expiration_date = previous_expiration_date
+        self._affected_transactions = affected_transactions
 
     def to_dict(self):
         """Returns the model properties as a dict"""

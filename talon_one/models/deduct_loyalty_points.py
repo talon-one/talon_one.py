@@ -91,9 +91,6 @@ class DeductLoyaltyPoints(object):
         if (self.local_vars_configuration.client_side_validation and
                 points is not None and points > 999999999999.99):  # noqa: E501
             raise ValueError("Invalid value for `points`, must be a value less than or equal to `999999999999.99`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                points is not None and points <= 0):  # noqa: E501
-            raise ValueError("Invalid value for `points`, must be a value greater than `0`")  # noqa: E501
 
         self._points = points
 

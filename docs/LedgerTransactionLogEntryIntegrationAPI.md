@@ -1,9 +1,10 @@
 # LedgerTransactionLogEntryIntegrationAPI
 
-Log entry for a given loyalty card transaction.
+Log entry for a given loyalty profile transaction.
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**transaction_uuid** | **str** | Unique identifier of the transaction in the UUID format. | 
 **created** | **datetime** | Date and time the loyalty transaction occurred. | 
 **program_id** | **int** | ID of the loyalty program. | 
 **customer_session_id** | **str** | ID of the customer session where the transaction occurred. | [optional] 

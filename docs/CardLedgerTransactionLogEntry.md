@@ -4,6 +4,7 @@ Log entry for a given loyalty card transaction.
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**transaction_uuid** | **str** | Unique identifier of the transaction in the UUID format. | 
 **created** | **datetime** | Date and time the loyalty card transaction occurred. | 
 **program_id** | **int** | ID of the loyalty program. | 
 **card_identifier** | **str** | The alphanumeric identifier of the loyalty card.  | 

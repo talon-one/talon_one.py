@@ -38,24 +38,24 @@ class TestInlineResponse20040(unittest.TestCase):
             return InlineResponse20040(
                 total_result_size = 1, 
                 data = [
-                    talon_one.models.webhook_activation_log_entry.WebhookActivationLogEntry(
-                        integration_request_uuid = '6d3699cf-95bd-444a-b62f-80d6e8391dc9', 
-                        webhook_id = 1, 
-                        application_id = 13, 
-                        campaign_id = 86, 
-                        created = '2023-03-21T13:55:08.571144Z', )
+                    talon_one.models.event_type.EventType(
+                        id = 6, 
+                        created = '2020-06-10T09:05:27.993483Z', 
+                        title = 'Survey Completed', 
+                        name = 'surveyCompleted', 
+                        description = 'The survey was submitted by the customer.', )
                     ]
             )
         else :
             return InlineResponse20040(
                 total_result_size = 1,
                 data = [
-                    talon_one.models.webhook_activation_log_entry.WebhookActivationLogEntry(
-                        integration_request_uuid = '6d3699cf-95bd-444a-b62f-80d6e8391dc9', 
-                        webhook_id = 1, 
-                        application_id = 13, 
-                        campaign_id = 86, 
-                        created = '2023-03-21T13:55:08.571144Z', )
+                    talon_one.models.event_type.EventType(
+                        id = 6, 
+                        created = '2020-06-10T09:05:27.993483Z', 
+                        title = 'Survey Completed', 
+                        name = 'surveyCompleted', 
+                        description = 'The survey was submitted by the customer.', )
                     ],
         )
 

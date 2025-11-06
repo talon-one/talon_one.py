@@ -33,6 +33,7 @@ class CardLedgerTransactionLogEntryIntegrationAPI(object):
                             and the value is json key in definition.
     """
     openapi_types = {
+        'transaction_uuid': 'str',
         'created': 'datetime',
         'program_id': 'int',
         'card_identifier': 'str',
@@ -49,6 +50,7 @@ class CardLedgerTransactionLogEntryIntegrationAPI(object):
     }
 
     attribute_map = {
+        'transaction_uuid': 'transactionUUID',
         'created': 'created',
         'program_id': 'programId',
         'card_identifier': 'cardIdentifier',
@@ -64,12 +66,13 @@ class CardLedgerTransactionLogEntryIntegrationAPI(object):
         'rule_name': 'ruleName'
     }
 
-    def __init__(self, created=None, program_id=None, card_identifier=None, customer_session_id=None, type=None, name=None, start_date=None, expiry_date=None, subledger_id=None, amount=None, id=None, ruleset_id=None, rule_name=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, transaction_uuid=None, created=None, program_id=None, card_identifier=None, customer_session_id=None, type=None, name=None, start_date=None, expiry_date=None, subledger_id=None, amount=None, id=None, ruleset_id=None, rule_name=None, local_vars_configuration=None):  # noqa: E501
         """CardLedgerTransactionLogEntryIntegrationAPI - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
+        self._transaction_uuid = None
         self._created = None
         self._program_id = None
         self._card_identifier = None
@@ -85,6 +88,7 @@ class CardLedgerTransactionLogEntryIntegrationAPI(object):
         self._rule_name = None
         self.discriminator = None
 
+        self.transaction_uuid = transaction_uuid
         self.created = created
         self.program_id = program_id
         self.card_identifier = card_identifier
@@ -101,6 +105,31 @@ class CardLedgerTransactionLogEntryIntegrationAPI(object):
             self.ruleset_id = ruleset_id
         if rule_name is not None:
             self.rule_name = rule_name
+
+    @property
+    def transaction_uuid(self):
+        """Gets the transaction_uuid of this CardLedgerTransactionLogEntryIntegrationAPI.  # noqa: E501
+
+        Unique identifier of the transaction in the UUID format.  # noqa: E501
+
+        :return: The transaction_uuid of this CardLedgerTransactionLogEntryIntegrationAPI.  # noqa: E501
+        :rtype: str
+        """
+        return self._transaction_uuid
+
+    @transaction_uuid.setter
+    def transaction_uuid(self, transaction_uuid):
+        """Sets the transaction_uuid of this CardLedgerTransactionLogEntryIntegrationAPI.
+
+        Unique identifier of the transaction in the UUID format.  # noqa: E501
+
+        :param transaction_uuid: The transaction_uuid of this CardLedgerTransactionLogEntryIntegrationAPI.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and transaction_uuid is None:  # noqa: E501
+            raise ValueError("Invalid value for `transaction_uuid`, must not be `None`")  # noqa: E501
+
+        self._transaction_uuid = transaction_uuid
 
     @property
     def created(self):

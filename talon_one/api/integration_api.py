@@ -36,6 +36,124 @@ class IntegrationApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
+    def best_prior_price(self, body, **kwargs):  # noqa: E501
+        """Fetch best prior price  # noqa: E501
+
+        Returns the best prior price based on historical pricing data for the specified SKUs within a defined timeframe.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.best_prior_price(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param BestPriorPriceRequest body: body (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: list[BestPriorPrice]
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.best_prior_price_with_http_info(body, **kwargs)  # noqa: E501
+
+    def best_prior_price_with_http_info(self, body, **kwargs):  # noqa: E501
+        """Fetch best prior price  # noqa: E501
+
+        Returns the best prior price based on historical pricing data for the specified SKUs within a defined timeframe.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.best_prior_price_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param BestPriorPriceRequest body: body (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(list[BestPriorPrice], status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'body'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method best_prior_price" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in local_var_params or  # noqa: E501
+                                                        local_var_params['body'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `body` when calling `best_prior_price`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in local_var_params:
+            body_params = local_var_params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['api_key_v1', 'management_key', 'manager_auth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/v1/best_prior_price', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='list[BestPriorPrice]',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def create_audience_v2(self, body, **kwargs):  # noqa: E501
         """Create audience  # noqa: E501
 
@@ -1975,8 +2093,11 @@ class IntegrationApi(object):
         :param str loyalty_card_id: Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint.  (required)
         :param str status: Filter points based on their status.
         :param list[str] subledger_id: Filter results by one or more subledger IDs. Must be exact match.
+        :param list[str] customer_session_i_ds: Filter the results by a list of customer session IDs.   To include multiple IDs, repeat the parameter for each one, for example,  `?customerSessionIDs=id1&customerSessionIDs=id2`.  The response contains only data associated with the specified sessions. 
+        :param list[str] transaction_uui_ds: Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example,  `?transactionUUIDs=uuid1&transactionUUIDs=uuid2`.  The response contains only data associated with the specified transactions. 
         :param int page_size: The number of items in the response.
         :param int skip: The number of items to skip when paging through large result sets.
+        :param str sort: The field by which results should be sorted. You can enter one of the following values:  - `startDate`: Sorts the results by the start date of the points. - `expiryDate`: Sorts the results by the expiry date of the points.  By default, results are sorted in ascending order.  To sort them in descending order, prefix the field name with `-`.  **Note:** You can only sort by one field at a time. 
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -2005,8 +2126,11 @@ class IntegrationApi(object):
         :param str loyalty_card_id: Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint.  (required)
         :param str status: Filter points based on their status.
         :param list[str] subledger_id: Filter results by one or more subledger IDs. Must be exact match.
+        :param list[str] customer_session_i_ds: Filter the results by a list of customer session IDs.   To include multiple IDs, repeat the parameter for each one, for example,  `?customerSessionIDs=id1&customerSessionIDs=id2`.  The response contains only data associated with the specified sessions. 
+        :param list[str] transaction_uui_ds: Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example,  `?transactionUUIDs=uuid1&transactionUUIDs=uuid2`.  The response contains only data associated with the specified transactions. 
         :param int page_size: The number of items in the response.
         :param int skip: The number of items to skip when paging through large result sets.
+        :param str sort: The field by which results should be sorted. You can enter one of the following values:  - `startDate`: Sorts the results by the start date of the points. - `expiryDate`: Sorts the results by the expiry date of the points.  By default, results are sorted in ascending order.  To sort them in descending order, prefix the field name with `-`.  **Note:** You can only sort by one field at a time. 
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -2028,8 +2152,11 @@ class IntegrationApi(object):
             'loyalty_card_id',
             'status',
             'subledger_id',
+            'customer_session_i_ds',
+            'transaction_uui_ds',
             'page_size',
-            'skip'
+            'skip',
+            'sort'
         ]
         all_params.extend(
             [
@@ -2078,10 +2205,18 @@ class IntegrationApi(object):
         if 'subledger_id' in local_var_params and local_var_params['subledger_id'] is not None:  # noqa: E501
             query_params.append(('subledgerId', local_var_params['subledger_id']))  # noqa: E501
             collection_formats['subledgerId'] = 'multi'  # noqa: E501
+        if 'customer_session_i_ds' in local_var_params and local_var_params['customer_session_i_ds'] is not None:  # noqa: E501
+            query_params.append(('customerSessionIDs', local_var_params['customer_session_i_ds']))  # noqa: E501
+            collection_formats['customerSessionIDs'] = 'multi'  # noqa: E501
+        if 'transaction_uui_ds' in local_var_params and local_var_params['transaction_uui_ds'] is not None:  # noqa: E501
+            query_params.append(('transactionUUIDs', local_var_params['transaction_uui_ds']))  # noqa: E501
+            collection_formats['transactionUUIDs'] = 'multi'  # noqa: E501
         if 'page_size' in local_var_params and local_var_params['page_size'] is not None:  # noqa: E501
             query_params.append(('pageSize', local_var_params['page_size']))  # noqa: E501
         if 'skip' in local_var_params and local_var_params['skip'] is not None:  # noqa: E501
             query_params.append(('skip', local_var_params['skip']))  # noqa: E501
+        if 'sort' in local_var_params and local_var_params['sort'] is not None:  # noqa: E501
+            query_params.append(('sort', local_var_params['sort']))  # noqa: E501
 
         header_params = {}
 
@@ -2128,6 +2263,8 @@ class IntegrationApi(object):
         :param str loyalty_transaction_type: Filter results by loyalty transaction type: - `manual`: Loyalty transaction that was done manually. - `session`: Loyalty transaction that resulted from a customer session. - `import`: Loyalty transaction that was imported from a CSV file. 
         :param datetime start_date: Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
         :param datetime end_date: Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
+        :param list[str] customer_session_i_ds: Filter the results by a list of customer session IDs.   To include multiple IDs, repeat the parameter for each one, for example,  `?customerSessionIDs=id1&customerSessionIDs=id2`.  The response contains only data associated with the specified sessions. 
+        :param list[str] transaction_uui_ds: Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example,  `?transactionUUIDs=uuid1&transactionUUIDs=uuid2`.  The response contains only data associated with the specified transactions. 
         :param int page_size: The number of items in the response.
         :param int skip: The number of items to skip when paging through large result sets.
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -2160,6 +2297,8 @@ class IntegrationApi(object):
         :param str loyalty_transaction_type: Filter results by loyalty transaction type: - `manual`: Loyalty transaction that was done manually. - `session`: Loyalty transaction that resulted from a customer session. - `import`: Loyalty transaction that was imported from a CSV file. 
         :param datetime start_date: Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
         :param datetime end_date: Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
+        :param list[str] customer_session_i_ds: Filter the results by a list of customer session IDs.   To include multiple IDs, repeat the parameter for each one, for example,  `?customerSessionIDs=id1&customerSessionIDs=id2`.  The response contains only data associated with the specified sessions. 
+        :param list[str] transaction_uui_ds: Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example,  `?transactionUUIDs=uuid1&transactionUUIDs=uuid2`.  The response contains only data associated with the specified transactions. 
         :param int page_size: The number of items in the response.
         :param int skip: The number of items to skip when paging through large result sets.
         :param _return_http_data_only: response data without head status code
@@ -2185,6 +2324,8 @@ class IntegrationApi(object):
             'loyalty_transaction_type',
             'start_date',
             'end_date',
+            'customer_session_i_ds',
+            'transaction_uui_ds',
             'page_size',
             'skip'
         ]
@@ -2239,6 +2380,12 @@ class IntegrationApi(object):
             query_params.append(('startDate', local_var_params['start_date']))  # noqa: E501
         if 'end_date' in local_var_params and local_var_params['end_date'] is not None:  # noqa: E501
             query_params.append(('endDate', local_var_params['end_date']))  # noqa: E501
+        if 'customer_session_i_ds' in local_var_params and local_var_params['customer_session_i_ds'] is not None:  # noqa: E501
+            query_params.append(('customerSessionIDs', local_var_params['customer_session_i_ds']))  # noqa: E501
+            collection_formats['customerSessionIDs'] = 'multi'  # noqa: E501
+        if 'transaction_uui_ds' in local_var_params and local_var_params['transaction_uui_ds'] is not None:  # noqa: E501
+            query_params.append(('transactionUUIDs', local_var_params['transaction_uui_ds']))  # noqa: E501
+            collection_formats['transactionUUIDs'] = 'multi'  # noqa: E501
         if 'page_size' in local_var_params and local_var_params['page_size'] is not None:  # noqa: E501
             query_params.append(('pageSize', local_var_params['page_size']))  # noqa: E501
         if 'skip' in local_var_params and local_var_params['skip'] is not None:  # noqa: E501
@@ -2287,8 +2434,11 @@ class IntegrationApi(object):
         :param str integration_id: The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier.  (required)
         :param str status: Filter points based on their status.
         :param str subledger_id: The ID of the subledger by which we filter the data.
+        :param list[str] customer_session_i_ds: Filter the results by a list of customer session IDs.   To include multiple IDs, repeat the parameter for each one, for example,  `?customerSessionIDs=id1&customerSessionIDs=id2`.  The response contains only data associated with the specified sessions. 
+        :param list[str] transaction_uui_ds: Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example,  `?transactionUUIDs=uuid1&transactionUUIDs=uuid2`.  The response contains only data associated with the specified transactions. 
         :param int page_size: The number of items in the response.
         :param int skip: The number of items to skip when paging through large result sets.
+        :param str sort: The field by which results should be sorted. You can enter one of the following values:  - `startDate`: Sorts the results by the start date of the points. - `expiryDate`: Sorts the results by the expiry date of the points.  By default, results are sorted in ascending order.  To sort them in descending order, prefix the field name with `-`.  **Note:** You can only sort by one field at a time. 
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -2317,8 +2467,11 @@ class IntegrationApi(object):
         :param str integration_id: The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier.  (required)
         :param str status: Filter points based on their status.
         :param str subledger_id: The ID of the subledger by which we filter the data.
+        :param list[str] customer_session_i_ds: Filter the results by a list of customer session IDs.   To include multiple IDs, repeat the parameter for each one, for example,  `?customerSessionIDs=id1&customerSessionIDs=id2`.  The response contains only data associated with the specified sessions. 
+        :param list[str] transaction_uui_ds: Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example,  `?transactionUUIDs=uuid1&transactionUUIDs=uuid2`.  The response contains only data associated with the specified transactions. 
         :param int page_size: The number of items in the response.
         :param int skip: The number of items to skip when paging through large result sets.
+        :param str sort: The field by which results should be sorted. You can enter one of the following values:  - `startDate`: Sorts the results by the start date of the points. - `expiryDate`: Sorts the results by the expiry date of the points.  By default, results are sorted in ascending order.  To sort them in descending order, prefix the field name with `-`.  **Note:** You can only sort by one field at a time. 
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -2340,8 +2493,11 @@ class IntegrationApi(object):
             'integration_id',
             'status',
             'subledger_id',
+            'customer_session_i_ds',
+            'transaction_uui_ds',
             'page_size',
-            'skip'
+            'skip',
+            'sort'
         ]
         all_params.extend(
             [
@@ -2386,10 +2542,18 @@ class IntegrationApi(object):
             query_params.append(('status', local_var_params['status']))  # noqa: E501
         if 'subledger_id' in local_var_params and local_var_params['subledger_id'] is not None:  # noqa: E501
             query_params.append(('subledgerId', local_var_params['subledger_id']))  # noqa: E501
+        if 'customer_session_i_ds' in local_var_params and local_var_params['customer_session_i_ds'] is not None:  # noqa: E501
+            query_params.append(('customerSessionIDs', local_var_params['customer_session_i_ds']))  # noqa: E501
+            collection_formats['customerSessionIDs'] = 'multi'  # noqa: E501
+        if 'transaction_uui_ds' in local_var_params and local_var_params['transaction_uui_ds'] is not None:  # noqa: E501
+            query_params.append(('transactionUUIDs', local_var_params['transaction_uui_ds']))  # noqa: E501
+            collection_formats['transactionUUIDs'] = 'multi'  # noqa: E501
         if 'page_size' in local_var_params and local_var_params['page_size'] is not None:  # noqa: E501
             query_params.append(('pageSize', local_var_params['page_size']))  # noqa: E501
         if 'skip' in local_var_params and local_var_params['skip'] is not None:  # noqa: E501
             query_params.append(('skip', local_var_params['skip']))  # noqa: E501
+        if 'sort' in local_var_params and local_var_params['sort'] is not None:  # noqa: E501
+            query_params.append(('sort', local_var_params['sort']))  # noqa: E501
 
         header_params = {}
 
@@ -2432,6 +2596,8 @@ class IntegrationApi(object):
         :param async_req bool: execute request asynchronously
         :param int loyalty_program_id: Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  (required)
         :param str integration_id: The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier.  (required)
+        :param list[str] customer_session_i_ds: Filter the results by a list of customer session IDs.   To include multiple IDs, repeat the parameter for each one, for example,  `?customerSessionIDs=id1&customerSessionIDs=id2`.  The response contains only data associated with the specified sessions. 
+        :param list[str] transaction_uui_ds: Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example,  `?transactionUUIDs=uuid1&transactionUUIDs=uuid2`.  The response contains only data associated with the specified transactions. 
         :param str subledger_id: The ID of the subledger by which we filter the data.
         :param str loyalty_transaction_type: Filter results by loyalty transaction type: - `manual`: Loyalty transaction that was done manually. - `session`: Loyalty transaction that resulted from a customer session. - `import`: Loyalty transaction that was imported from a CSV file. 
         :param datetime start_date: Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
@@ -2464,6 +2630,8 @@ class IntegrationApi(object):
         :param async_req bool: execute request asynchronously
         :param int loyalty_program_id: Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  (required)
         :param str integration_id: The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier.  (required)
+        :param list[str] customer_session_i_ds: Filter the results by a list of customer session IDs.   To include multiple IDs, repeat the parameter for each one, for example,  `?customerSessionIDs=id1&customerSessionIDs=id2`.  The response contains only data associated with the specified sessions. 
+        :param list[str] transaction_uui_ds: Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example,  `?transactionUUIDs=uuid1&transactionUUIDs=uuid2`.  The response contains only data associated with the specified transactions. 
         :param str subledger_id: The ID of the subledger by which we filter the data.
         :param str loyalty_transaction_type: Filter results by loyalty transaction type: - `manual`: Loyalty transaction that was done manually. - `session`: Loyalty transaction that resulted from a customer session. - `import`: Loyalty transaction that was imported from a CSV file. 
         :param datetime start_date: Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
@@ -2489,6 +2657,8 @@ class IntegrationApi(object):
         all_params = [
             'loyalty_program_id',
             'integration_id',
+            'customer_session_i_ds',
+            'transaction_uui_ds',
             'subledger_id',
             'loyalty_transaction_type',
             'start_date',
@@ -2535,6 +2705,12 @@ class IntegrationApi(object):
             path_params['integrationId'] = local_var_params['integration_id']  # noqa: E501
 
         query_params = []
+        if 'customer_session_i_ds' in local_var_params and local_var_params['customer_session_i_ds'] is not None:  # noqa: E501
+            query_params.append(('customerSessionIDs', local_var_params['customer_session_i_ds']))  # noqa: E501
+            collection_formats['customerSessionIDs'] = 'multi'  # noqa: E501
+        if 'transaction_uui_ds' in local_var_params and local_var_params['transaction_uui_ds'] is not None:  # noqa: E501
+            query_params.append(('transactionUUIDs', local_var_params['transaction_uui_ds']))  # noqa: E501
+            collection_formats['transactionUUIDs'] = 'multi'  # noqa: E501
         if 'subledger_id' in local_var_params and local_var_params['subledger_id'] is not None:  # noqa: E501
             query_params.append(('subledgerId', local_var_params['subledger_id']))  # noqa: E501
         if 'loyalty_transaction_type' in local_var_params and local_var_params['loyalty_transaction_type'] is not None:  # noqa: E501
@@ -2833,7 +3009,7 @@ class IntegrationApi(object):
     def reopen_customer_session(self, customer_session_id, **kwargs):  # noqa: E501
         """Reopen customer session  # noqa: E501
 
-        Reopen a closed [customer session](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions). For example, if a session has been completed but still needs to be edited, you can reopen it with this endpoint. A reopen session is treated like a standard open session.  When reopening a session: - The `talon_session_reopened` event is triggered. You can see it in the **Events** view in the Campaign Manager. - The session state is updated to `open`. - Modified budgets and triggered effects when the session was closed are rolled back except for the list below.  <details>   <summary><strong>Effects and budgets unimpacted by a session reopening</strong></summary>   <div>     <p>The following effects and budgets are left the way they were once the session was originally closed:</p>     <ul>       <li>Add free item effect</li>       <li>Any <strong>non-pending</strong> loyalty points</li>       <li>Award giveaway</li>       <li>Coupon and referral creation</li>       <li>Coupon reservation</li>       <li>Custom effect</li>       <li>Update attribute value</li>       <li>Update cart item attribute value</li>     </ul>   </div> <p>To see an example of roll back, see the <a href=\"https://docs.talon.one/docs/dev/tutorials/rolling-back-effects\">Cancelling a session with campaign budgets tutorial</a>.</p> </details>  **Note:** If your order workflow requires you to create a new session instead of reopening a session, use the [Update customer session](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint to cancel a closed session and create a new one.   # noqa: E501
+        Reopen a closed [customer session](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions). For example, if a session has been completed but still needs to be edited, you can reopen it with this endpoint. A reopen session is treated like a standard open session.  When reopening a session: - The `talon_session_reopened` event is triggered. You can see it in the **Events** view in the Campaign Manager. - The session state is updated to `open`. - Any modified budgets and triggered effects are rolled back when the session closes. - Depending on the [return policy](https://docs.talon.one/docs/product/loyalty-programs/managing-loyalty-programs#return-policy)  in your loyalty programs, points are rolled back in the following ways:   - Pending points are rolled back automatically.   - If **Active points deduction** setting is enabled, any points that were earned and activated when the session closed    are rolled back.   - If **Negative balance** is enabled, the rollback can create a negative points balance.   <details>   <summary><strong>Effects and budgets unimpacted by a session reopening</strong></summary>   <div>     <p>The following effects and budgets remain in the state they were in when the session closed:</p>     <ul>       <li>Add free item effect</li>       <li>Award giveaway</li>       <li>Coupon and referral creation</li>       <li>Coupon reservation</li>       <li>Custom effect</li>       <li>Update attribute value</li>       <li>Update cart item attribute value</li>     </ul>   </div>   </details> <p>To see an example of a rollback, see the <a href=\"https://docs.talon.one/docs/dev/tutorials/rolling-back-effects\">Cancelling a session with campaign budgets</a>tutorial.</p>  **Note:** If your order workflow requires you to create a new session instead of reopening a session, use the [Update customer session](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint to cancel a closed session and create a new one.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.reopen_customer_session(customer_session_id, async_req=True)
@@ -2858,7 +3034,7 @@ class IntegrationApi(object):
     def reopen_customer_session_with_http_info(self, customer_session_id, **kwargs):  # noqa: E501
         """Reopen customer session  # noqa: E501
 
-        Reopen a closed [customer session](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions). For example, if a session has been completed but still needs to be edited, you can reopen it with this endpoint. A reopen session is treated like a standard open session.  When reopening a session: - The `talon_session_reopened` event is triggered. You can see it in the **Events** view in the Campaign Manager. - The session state is updated to `open`. - Modified budgets and triggered effects when the session was closed are rolled back except for the list below.  <details>   <summary><strong>Effects and budgets unimpacted by a session reopening</strong></summary>   <div>     <p>The following effects and budgets are left the way they were once the session was originally closed:</p>     <ul>       <li>Add free item effect</li>       <li>Any <strong>non-pending</strong> loyalty points</li>       <li>Award giveaway</li>       <li>Coupon and referral creation</li>       <li>Coupon reservation</li>       <li>Custom effect</li>       <li>Update attribute value</li>       <li>Update cart item attribute value</li>     </ul>   </div> <p>To see an example of roll back, see the <a href=\"https://docs.talon.one/docs/dev/tutorials/rolling-back-effects\">Cancelling a session with campaign budgets tutorial</a>.</p> </details>  **Note:** If your order workflow requires you to create a new session instead of reopening a session, use the [Update customer session](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint to cancel a closed session and create a new one.   # noqa: E501
+        Reopen a closed [customer session](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions). For example, if a session has been completed but still needs to be edited, you can reopen it with this endpoint. A reopen session is treated like a standard open session.  When reopening a session: - The `talon_session_reopened` event is triggered. You can see it in the **Events** view in the Campaign Manager. - The session state is updated to `open`. - Any modified budgets and triggered effects are rolled back when the session closes. - Depending on the [return policy](https://docs.talon.one/docs/product/loyalty-programs/managing-loyalty-programs#return-policy)  in your loyalty programs, points are rolled back in the following ways:   - Pending points are rolled back automatically.   - If **Active points deduction** setting is enabled, any points that were earned and activated when the session closed    are rolled back.   - If **Negative balance** is enabled, the rollback can create a negative points balance.   <details>   <summary><strong>Effects and budgets unimpacted by a session reopening</strong></summary>   <div>     <p>The following effects and budgets remain in the state they were in when the session closed:</p>     <ul>       <li>Add free item effect</li>       <li>Award giveaway</li>       <li>Coupon and referral creation</li>       <li>Coupon reservation</li>       <li>Custom effect</li>       <li>Update attribute value</li>       <li>Update cart item attribute value</li>     </ul>   </div>   </details> <p>To see an example of a rollback, see the <a href=\"https://docs.talon.one/docs/dev/tutorials/rolling-back-effects\">Cancelling a session with campaign budgets</a>tutorial.</p>  **Note:** If your order workflow requires you to create a new session instead of reopening a session, use the [Update customer session](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint to cancel a closed session and create a new one.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.reopen_customer_session_with_http_info(customer_session_id, async_req=True)

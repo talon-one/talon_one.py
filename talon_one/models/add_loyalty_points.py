@@ -111,9 +111,6 @@ class AddLoyaltyPoints(object):
         if (self.local_vars_configuration.client_side_validation and
                 points is not None and points > 999999999999.99):  # noqa: E501
             raise ValueError("Invalid value for `points`, must be a value less than or equal to `999999999999.99`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                points is not None and points <= 0):  # noqa: E501
-            raise ValueError("Invalid value for `points`, must be a value greater than `0`")  # noqa: E501
 
         self._points = points
 
@@ -190,7 +187,7 @@ class AddLoyaltyPoints(object):
     def pending_duration(self):
         """Gets the pending_duration of this AddLoyaltyPoints.  # noqa: E501
 
-        The amount of time before the points are considered valid.  The time format is either: - `immediate` or, - an **integer** followed by one letter indicating the time unit.  Examples: `immediate`, `30s`, `40m`, `1h`, `5D`, `7W`, `10M`, `15Y`.  Available units:  - `s`: seconds - `m`: minutes - `h`: hours - `D`: days - `W`: weeks - `M`: months - `Y`: years  You can round certain units up or down: - `_D` for rounding down days only. Signifies the start of the day. - `_U` for rounding up days, weeks, months and years. Signifies the end of the day, week, month or year.   # noqa: E501
+        The amount of time before the points are considered valid.  The time format is either: - `immediate` or, - `on_action` or, - an **integer** followed by one letter indicating the time unit.  Examples: `immediate`, `30s`, `40m`, `1h`, `5D`, `7W`, `10M`, `15Y`, `on_action`.  Available units:  - `s`: seconds - `m`: minutes - `h`: hours - `D`: days - `W`: weeks - `M`: months - `Y`: years  You can round certain units up or down: - `_D` for rounding down days only. Signifies the start of the day. - `_U` for rounding up days, weeks, months and years. Signifies the end of the day, week, month or year.   # noqa: E501
 
         :return: The pending_duration of this AddLoyaltyPoints.  # noqa: E501
         :rtype: str
@@ -201,7 +198,7 @@ class AddLoyaltyPoints(object):
     def pending_duration(self, pending_duration):
         """Sets the pending_duration of this AddLoyaltyPoints.
 
-        The amount of time before the points are considered valid.  The time format is either: - `immediate` or, - an **integer** followed by one letter indicating the time unit.  Examples: `immediate`, `30s`, `40m`, `1h`, `5D`, `7W`, `10M`, `15Y`.  Available units:  - `s`: seconds - `m`: minutes - `h`: hours - `D`: days - `W`: weeks - `M`: months - `Y`: years  You can round certain units up or down: - `_D` for rounding down days only. Signifies the start of the day. - `_U` for rounding up days, weeks, months and years. Signifies the end of the day, week, month or year.   # noqa: E501
+        The amount of time before the points are considered valid.  The time format is either: - `immediate` or, - `on_action` or, - an **integer** followed by one letter indicating the time unit.  Examples: `immediate`, `30s`, `40m`, `1h`, `5D`, `7W`, `10M`, `15Y`, `on_action`.  Available units:  - `s`: seconds - `m`: minutes - `h`: hours - `D`: days - `W`: weeks - `M`: months - `Y`: years  You can round certain units up or down: - `_D` for rounding down days only. Signifies the start of the day. - `_U` for rounding up days, weeks, months and years. Signifies the end of the day, week, month or year.   # noqa: E501
 
         :param pending_duration: The pending_duration of this AddLoyaltyPoints.  # noqa: E501
         :type: str
