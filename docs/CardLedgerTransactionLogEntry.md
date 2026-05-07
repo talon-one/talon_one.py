@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **transaction_uuid** | **str** | Unique identifier of the transaction in the UUID format. | 
 **created** | **datetime** | Date and time the loyalty card transaction occurred. | 
 **program_id** | **int** | ID of the loyalty program. | 
-**card_identifier** | **str** | The alphanumeric identifier of the loyalty card.  | 
+**card_identifier** | **str** | The identifier of the loyalty card, which must match the regular expression &#x60;^[A-Za-z0-9._%+@-]+$&#x60;.  | 
 **application_id** | **int** | The ID of the Application that owns this entity. | [optional] 
 **session_id** | **int** | The **internal** ID of the session.  | [optional] 
 **customer_session_id** | **str** | ID of the customer session where the transaction occurred. | [optional] 

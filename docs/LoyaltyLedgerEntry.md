@@ -19,6 +19,7 @@ Name | Type | Description | Notes
 **user_id** | **int** | This is the ID of the user who created this entry, if the addition or subtraction was done manually. | [optional] 
 **archived** | **bool** | Indicates if the entry belongs to the archived session. | [optional] 
 **flags** | [**LoyaltyLedgerEntryFlags**](LoyaltyLedgerEntryFlags.md) |  | [optional] 
+**validity_duration** | **str** | The duration for which the points remain active, relative to the  activation date.  **Note**: This only applies to points for which &#x60;awaitsActivation&#x60; is &#x60;true&#x60; and &#x60;expiryDate&#x60; is not set.  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
