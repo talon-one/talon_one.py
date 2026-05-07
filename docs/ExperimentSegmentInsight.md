@@ -1,0 +1,14 @@
+# ExperimentSegmentInsight
+
+## Properties
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**dimension** | **str** | The segmentation dimension used to group customers or purchases for analysis. | 
+**bucket** | **str** | The specific group within the segmentation dimension. | 
+**confidence** | **float** | The raw (unadjusted) confidence score expressed as a percentage. Only segments with a confidence score greater than or equal to 95% are returned.  | 
+**winner_variant_id** | **int** | The ID of the variant that performed better in this segment. | 
+**variants** | [**list[ExperimentSegmentInsightVariant]**](ExperimentSegmentInsightVariant.md) | Per-variant metric values for this segment. | 
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+
