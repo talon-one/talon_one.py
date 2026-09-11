@@ -137,7 +137,7 @@ class Binding(object):
     def expression(self):
         """Gets the expression of this Binding.  # noqa: E501
 
-        A Talang expression that will be evaluated and its result attached to the name of the binding.  # noqa: E501
+        A Talang expression that is evaluated, and its result is bound to the name of the binding. The first element must be one of the functions or operators supported by Talang, followed by its arguments. The arguments can be strings, numbers, or nested expressions. For example: - `[\"list\", \"10014\", \"10015\"]` calls the `list` function to build a list of strings. - `[\"+\", 2, 0]` uses the `+` operator to add two numbers.   # noqa: E501
 
         :return: The expression of this Binding.  # noqa: E501
         :rtype: list[object]
@@ -148,7 +148,7 @@ class Binding(object):
     def expression(self, expression):
         """Sets the expression of this Binding.
 
-        A Talang expression that will be evaluated and its result attached to the name of the binding.  # noqa: E501
+        A Talang expression that is evaluated, and its result is bound to the name of the binding. The first element must be one of the functions or operators supported by Talang, followed by its arguments. The arguments can be strings, numbers, or nested expressions. For example: - `[\"list\", \"10014\", \"10015\"]` calls the `list` function to build a list of strings. - `[\"+\", 2, 0]` uses the `+` operator to add two numbers.   # noqa: E501
 
         :param expression: The expression of this Binding.  # noqa: E501
         :type: list[object]
@@ -162,7 +162,7 @@ class Binding(object):
     def value_type(self):
         """Gets the value_type of this Binding.  # noqa: E501
 
-        Can be one of the following: - `string` - `number` - `boolean`   # noqa: E501
+        The data type of the value. One of the following: - `string` - `number` - `boolean`   # noqa: E501
 
         :return: The value_type of this Binding.  # noqa: E501
         :rtype: str
@@ -173,7 +173,7 @@ class Binding(object):
     def value_type(self, value_type):
         """Sets the value_type of this Binding.
 
-        Can be one of the following: - `string` - `number` - `boolean`   # noqa: E501
+        The data type of the value. One of the following: - `string` - `number` - `boolean`   # noqa: E501
 
         :param value_type: The value_type of this Binding.  # noqa: E501
         :type: str
@@ -231,7 +231,7 @@ class Binding(object):
     def attribute_id(self):
         """Gets the attribute_id of this Binding.  # noqa: E501
 
-        Id of the attribute attached to the placeholder.  # noqa: E501
+        Identifier of the attribute attached to the placeholder.  # noqa: E501
 
         :return: The attribute_id of this Binding.  # noqa: E501
         :rtype: int
@@ -242,7 +242,7 @@ class Binding(object):
     def attribute_id(self, attribute_id):
         """Sets the attribute_id of this Binding.
 
-        Id of the attribute attached to the placeholder.  # noqa: E501
+        Identifier of the attribute attached to the placeholder.  # noqa: E501
 
         :param attribute_id: The attribute_id of this Binding.  # noqa: E501
         :type: int
@@ -254,7 +254,7 @@ class Binding(object):
     def description(self):
         """Gets the description of this Binding.  # noqa: E501
 
-        Describes the placeholder field and value in the template. This description can be used when creating campaigns from this template.  # noqa: E501
+        Description of the placeholder field and its value in the template. This text can be shown when creating campaigns from this template.  # noqa: E501
 
         :return: The description of this Binding.  # noqa: E501
         :rtype: str
@@ -265,7 +265,7 @@ class Binding(object):
     def description(self, description):
         """Sets the description of this Binding.
 
-        Describes the placeholder field and value in the template. This description can be used when creating campaigns from this template.  # noqa: E501
+        Description of the placeholder field and its value in the template. This text can be shown when creating campaigns from this template.  # noqa: E501
 
         :param description: The description of this Binding.  # noqa: E501
         :type: str

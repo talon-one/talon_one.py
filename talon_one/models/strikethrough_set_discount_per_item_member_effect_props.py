@@ -59,7 +59,7 @@ class StrikethroughSetDiscountPerItemMemberEffectProps(object):
     def name(self):
         """Gets the name of this StrikethroughSetDiscountPerItemMemberEffectProps.  # noqa: E501
 
-        effect name.  # noqa: E501
+        The effect name.  # noqa: E501
 
         :return: The name of this StrikethroughSetDiscountPerItemMemberEffectProps.  # noqa: E501
         :rtype: str
@@ -70,7 +70,7 @@ class StrikethroughSetDiscountPerItemMemberEffectProps(object):
     def name(self, name):
         """Sets the name of this StrikethroughSetDiscountPerItemMemberEffectProps.
 
-        effect name.  # noqa: E501
+        The effect name.  # noqa: E501
 
         :param name: The name of this StrikethroughSetDiscountPerItemMemberEffectProps.  # noqa: E501
         :type: str
@@ -84,7 +84,7 @@ class StrikethroughSetDiscountPerItemMemberEffectProps(object):
     def value(self):
         """Gets the value of this StrikethroughSetDiscountPerItemMemberEffectProps.  # noqa: E501
 
-        discount value.  # noqa: E501
+        The discount value.  # noqa: E501
 
         :return: The value of this StrikethroughSetDiscountPerItemMemberEffectProps.  # noqa: E501
         :rtype: object
@@ -95,7 +95,7 @@ class StrikethroughSetDiscountPerItemMemberEffectProps(object):
     def value(self, value):
         """Sets the value of this StrikethroughSetDiscountPerItemMemberEffectProps.
 
-        discount value.  # noqa: E501
+        The discount value.  # noqa: E501
 
         :param value: The value of this StrikethroughSetDiscountPerItemMemberEffectProps.  # noqa: E501
         :type: object

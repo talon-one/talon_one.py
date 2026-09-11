@@ -64,6 +64,7 @@ class TestCustomerProfileIntegrationResponseV2(unittest.TestCase):
                     store_integration_id = 'STORE-001', 
                     type = 'pageViewed', 
                     attributes = {"myAttribute":"myValue"}, 
+                    integration_id = '175KJPS947296', 
                     session_id = '175KJPS947296', 
                     effects = [
                         None
@@ -231,7 +232,7 @@ class TestCustomerProfileIntegrationResponseV2(unittest.TestCase):
                         call_api_effect_count = 0, 
                         reservecoupon_effect_count = 9, 
                         last_activity = '2022-11-10T23:00Z', 
-                        updated = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        updated = '2022-10-27T15:00Z', 
                         created_by = 'John Doe', 
                         updated_by = 'Jane Doe', 
                         template_id = 3, 
@@ -256,6 +257,8 @@ class TestCustomerProfileIntegrationResponseV2(unittest.TestCase):
                         coupon_value = '0', 
                         referral_id = 56, 
                         referral_value = '0', 
+                        reward_id = 7, 
+                        reward_integration_id = '5c0b5e6d-3f8a-4c2b-9f1e-2a7d6b4c8e90', 
                         rule_index = 56, 
                         rule_name = '0', 
                         condition_index = 56, 
@@ -263,6 +266,41 @@ class TestCustomerProfileIntegrationResponseV2(unittest.TestCase):
                         details = '0', 
                         evaluation_group_id = 3, 
                         evaluation_group_mode = 'stackable', )
+                    ], 
+                campaign_eligibility = [
+                    talon_one.models.campaign_eligibility.CampaignEligibility(
+                        application_id = 322, 
+                        id = 4, 
+                        name = 'Summer promotions', 
+                        description = 'Campaign for all summer 2021 promotions', 
+                        start_time = '2021-07-20T22:00Z', 
+                        end_time = '2021-09-22T22:00Z', 
+                        attributes = talon_one.models.attributes.attributes(), 
+                        state = 'enabled', 
+                        tags = [summer], 
+                        features = [coupons, referrals], 
+                        eligibility = [
+                            talon_one.models.campaign_eligibility_details.CampaignEligibilityDetails(
+                                passed = True, 
+                                coupon_code = '0', 
+                                details = talon_one.models.campaign_eligibility_failure_details.CampaignEligibilityFailureDetails(
+                                    failure_code = 'ALL_RULES_FAILED', ), )
+                            ], 
+                        rules = [
+                            talon_one.models.rule_metadata_eligibility.RuleMetadataEligibility(
+                                title = 'Give discount via coupon', 
+                                display_name = '20% off all shoes!', 
+                                display_description = 'Get a 20% discount on all shoes during Thanksgiving! Offer valid till Dec 5 only.', 
+                                related_data = 'https://example.com/discounts/20-off-shoes.png', 
+                                eligibility = [
+                                    talon_one.models.rule_eligibility.RuleEligibility(
+                                        passed = True, 
+                                        coupon_code = '0', )
+                                    ], )
+                            ], 
+                        experiment = talon_one.models.campaign_eligibility_experiment.CampaignEligibilityExperiment(
+                            id = 56, 
+                            variant_id = 56, ), )
                     ], 
                 awarded_giveaways = [
                     talon_one.models.giveaway.Giveaway(
@@ -277,6 +315,26 @@ class TestCustomerProfileIntegrationResponseV2(unittest.TestCase):
                         import_id = 4, 
                         profile_integration_id = 'R195412', 
                         profile_id = 1, )
+                    ], 
+                rewards = [
+                    talon_one.models.reward_with_unlocks.RewardWithUnlocks(
+                        id = 42, 
+                        integration_id = 'free-coffee', 
+                        name = '10% Off Coupon', 
+                        description = 'Applies to next order', 
+                        rule = talon_one.models.rule_metadata.RuleMetadata(
+                            title = 'Give discount via coupon', 
+                            display_name = '20% off all shoes!', 
+                            display_description = 'Get a 20% discount on all shoes during Thanksgiving! Offer valid till Dec 5 only.', 
+                            related_data = 'https://example.com/discounts/20-off-shoes.png', ), 
+                        unlocked = [
+                            talon_one.models.customer_reward.CustomerReward(
+                                application_id = 3, 
+                                profile_integration_id = 'customer1', 
+                                integration_id = 'reward-unlock-123', 
+                                unlocked_at = '2024-01-01T00:00Z', 
+                                used_at = '2024-01-02T00:00Z', )
+                            ], )
                     ], 
                 effects = [
                     talon_one.models.effect.Effect(
@@ -296,6 +354,7 @@ class TestCustomerProfileIntegrationResponseV2(unittest.TestCase):
                         selected_price_type = 'member', 
                         selected_price = 100.0, 
                         adjustment_reference_id = '68851723-e6fa-488f-ace9-112581e6c19b', 
+                        reward_id = 7, 
                         props = talon_one.models.props.props(), )
                     ], 
                 created_coupons = [
@@ -366,6 +425,7 @@ class TestCustomerProfileIntegrationResponseV2(unittest.TestCase):
                         selected_price_type = 'member', 
                         selected_price = 100.0, 
                         adjustment_reference_id = '68851723-e6fa-488f-ace9-112581e6c19b', 
+                        reward_id = 7, 
                         props = talon_one.models.props.props(), )
                     ],
                 created_coupons = [

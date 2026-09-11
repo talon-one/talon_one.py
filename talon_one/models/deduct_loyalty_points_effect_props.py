@@ -105,7 +105,7 @@ class DeductLoyaltyPointsEffectProps(object):
     def program_id(self):
         """Gets the program_id of this DeductLoyaltyPointsEffectProps.  # noqa: E501
 
-        The ID of the loyalty program where these points were added.  # noqa: E501
+        The ID of the loyalty program from which these points were deducted.  # noqa: E501
 
         :return: The program_id of this DeductLoyaltyPointsEffectProps.  # noqa: E501
         :rtype: int
@@ -116,7 +116,7 @@ class DeductLoyaltyPointsEffectProps(object):
     def program_id(self, program_id):
         """Sets the program_id of this DeductLoyaltyPointsEffectProps.
 
-        The ID of the loyalty program where these points were added.  # noqa: E501
+        The ID of the loyalty program from which these points were deducted.  # noqa: E501
 
         :param program_id: The program_id of this DeductLoyaltyPointsEffectProps.  # noqa: E501
         :type: int
@@ -130,7 +130,7 @@ class DeductLoyaltyPointsEffectProps(object):
     def sub_ledger_id(self):
         """Gets the sub_ledger_id of this DeductLoyaltyPointsEffectProps.  # noqa: E501
 
-        The ID of the subledger within the loyalty program where these points were added.  # noqa: E501
+        The ID of the subledger within the loyalty program from which these points were deducted.  # noqa: E501
 
         :return: The sub_ledger_id of this DeductLoyaltyPointsEffectProps.  # noqa: E501
         :rtype: str
@@ -141,7 +141,7 @@ class DeductLoyaltyPointsEffectProps(object):
     def sub_ledger_id(self, sub_ledger_id):
         """Sets the sub_ledger_id of this DeductLoyaltyPointsEffectProps.
 
-        The ID of the subledger within the loyalty program where these points were added.  # noqa: E501
+        The ID of the subledger within the loyalty program from which these points were deducted.  # noqa: E501
 
         :param sub_ledger_id: The sub_ledger_id of this DeductLoyaltyPointsEffectProps.  # noqa: E501
         :type: str
@@ -180,7 +180,7 @@ class DeductLoyaltyPointsEffectProps(object):
     def transaction_uuid(self):
         """Gets the transaction_uuid of this DeductLoyaltyPointsEffectProps.  # noqa: E501
 
-        The identifier of this deduction in the loyalty ledger.  # noqa: E501
+        The identifier of this loyalty point transaction.  # noqa: E501
 
         :return: The transaction_uuid of this DeductLoyaltyPointsEffectProps.  # noqa: E501
         :rtype: str
@@ -191,7 +191,7 @@ class DeductLoyaltyPointsEffectProps(object):
     def transaction_uuid(self, transaction_uuid):
         """Sets the transaction_uuid of this DeductLoyaltyPointsEffectProps.
 
-        The identifier of this deduction in the loyalty ledger.  # noqa: E501
+        The identifier of this loyalty point transaction.  # noqa: E501
 
         :param transaction_uuid: The transaction_uuid of this DeductLoyaltyPointsEffectProps.  # noqa: E501
         :type: str
@@ -205,7 +205,7 @@ class DeductLoyaltyPointsEffectProps(object):
     def name(self):
         """Gets the name of this DeductLoyaltyPointsEffectProps.  # noqa: E501
 
-        The name property gets one of the following two values. It can be the loyalty program name or it can represent a reason for the respective deduction of loyalty points. The latter is an optional value defined in a deduction rule.   # noqa: E501
+        The reason of this loyalty points deduction.  # noqa: E501
 
         :return: The name of this DeductLoyaltyPointsEffectProps.  # noqa: E501
         :rtype: str
@@ -216,7 +216,7 @@ class DeductLoyaltyPointsEffectProps(object):
     def name(self, name):
         """Sets the name of this DeductLoyaltyPointsEffectProps.
 
-        The name property gets one of the following two values. It can be the loyalty program name or it can represent a reason for the respective deduction of loyalty points. The latter is an optional value defined in a deduction rule.   # noqa: E501
+        The reason of this loyalty points deduction.  # noqa: E501
 
         :param name: The name of this DeductLoyaltyPointsEffectProps.  # noqa: E501
         :type: str

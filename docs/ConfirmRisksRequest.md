@@ -1,0 +1,11 @@
+# ConfirmRisksRequest
+
+## Properties
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**risk_ids** | **list[int]** | The IDs of the risks to confirm. | 
+**comment** | **str** | Free-text description of how the risk was resolved. | 
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+

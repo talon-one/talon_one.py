@@ -41,8 +41,6 @@ class TestCatalogAction(unittest.TestCase):
             )
         else :
             return CatalogAction(
-                type = 'ADD',
-                payload = None,
         )
 
     def testCatalogAction(self):

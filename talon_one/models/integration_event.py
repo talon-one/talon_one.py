@@ -121,7 +121,7 @@ class IntegrationEvent(object):
     def type(self):
         """Gets the type of this IntegrationEvent.  # noqa: E501
 
-        A string representing the event. Must not be a reserved event name.  # noqa: E501
+        The name of the event. Must be a [custom event](https://docs.talon.one/docs/dev/concepts/entities/events#custom-events), not a built-in event.  # noqa: E501
 
         :return: The type of this IntegrationEvent.  # noqa: E501
         :rtype: str
@@ -132,7 +132,7 @@ class IntegrationEvent(object):
     def type(self, type):
         """Sets the type of this IntegrationEvent.
 
-        A string representing the event. Must not be a reserved event name.  # noqa: E501
+        The name of the event. Must be a [custom event](https://docs.talon.one/docs/dev/concepts/entities/events#custom-events), not a built-in event.  # noqa: E501
 
         :param type: The type of this IntegrationEvent.  # noqa: E501
         :type: str

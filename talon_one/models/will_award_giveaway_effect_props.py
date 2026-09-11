@@ -63,7 +63,7 @@ class WillAwardGiveawayEffectProps(object):
     def pool_id(self):
         """Gets the pool_id of this WillAwardGiveawayEffectProps.  # noqa: E501
 
-        The ID of the giveaways pool the code will be taken from.  # noqa: E501
+        The internal ID of the giveaway pool.  # noqa: E501
 
         :return: The pool_id of this WillAwardGiveawayEffectProps.  # noqa: E501
         :rtype: int
@@ -74,7 +74,7 @@ class WillAwardGiveawayEffectProps(object):
     def pool_id(self, pool_id):
         """Sets the pool_id of this WillAwardGiveawayEffectProps.
 
-        The ID of the giveaways pool the code will be taken from.  # noqa: E501
+        The internal ID of the giveaway pool.  # noqa: E501
 
         :param pool_id: The pool_id of this WillAwardGiveawayEffectProps.  # noqa: E501
         :type: int
@@ -88,7 +88,7 @@ class WillAwardGiveawayEffectProps(object):
     def pool_name(self):
         """Gets the pool_name of this WillAwardGiveawayEffectProps.  # noqa: E501
 
-        The name of the giveaways pool the code will be taken from.  # noqa: E501
+        The name of the giveaway pool.  # noqa: E501
 
         :return: The pool_name of this WillAwardGiveawayEffectProps.  # noqa: E501
         :rtype: str
@@ -99,7 +99,7 @@ class WillAwardGiveawayEffectProps(object):
     def pool_name(self, pool_name):
         """Sets the pool_name of this WillAwardGiveawayEffectProps.
 
-        The name of the giveaways pool the code will be taken from.  # noqa: E501
+        The name of the giveaway pool.  # noqa: E501
 
         :param pool_name: The pool_name of this WillAwardGiveawayEffectProps.  # noqa: E501
         :type: str
@@ -113,7 +113,7 @@ class WillAwardGiveawayEffectProps(object):
     def recipient_integration_id(self):
         """Gets the recipient_integration_id of this WillAwardGiveawayEffectProps.  # noqa: E501
 
-        The integration ID of the profile that will be awarded the giveaway.  # noqa: E501
+        The integration ID of the customer that receives the giveaway.  # noqa: E501
 
         :return: The recipient_integration_id of this WillAwardGiveawayEffectProps.  # noqa: E501
         :rtype: str
@@ -124,7 +124,7 @@ class WillAwardGiveawayEffectProps(object):
     def recipient_integration_id(self, recipient_integration_id):
         """Sets the recipient_integration_id of this WillAwardGiveawayEffectProps.
 
-        The integration ID of the profile that will be awarded the giveaway.  # noqa: E501
+        The integration ID of the customer that receives the giveaway.  # noqa: E501
 
         :param recipient_integration_id: The recipient_integration_id of this WillAwardGiveawayEffectProps.  # noqa: E501
         :type: str

@@ -3,6 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**event_id** | **int** | The ID of the integration hub event. Return this value in the delivery-status callback to mark the event delivered or failed. | 
 **id** | **int** |  | 
 **created** | **datetime** |  | 
 **campaign_id** | **int** |  | 

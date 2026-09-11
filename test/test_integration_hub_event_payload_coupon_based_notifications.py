@@ -36,6 +36,7 @@ class TestIntegrationHubEventPayloadCouponBasedNotifications(unittest.TestCase):
         # model = talon_one.models.integration_hub_event_payload_coupon_based_notifications.IntegrationHubEventPayloadCouponBasedNotifications()  # noqa: E501
         if include_optional :
             return IntegrationHubEventPayloadCouponBasedNotifications(
+                event_id = 123, 
                 id = 56, 
                 created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                 campaign_id = 56, 
@@ -68,6 +69,7 @@ class TestIntegrationHubEventPayloadCouponBasedNotifications(unittest.TestCase):
             )
         else :
             return IntegrationHubEventPayloadCouponBasedNotifications(
+                event_id = 123,
                 id = 56,
                 created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 campaign_id = 56,

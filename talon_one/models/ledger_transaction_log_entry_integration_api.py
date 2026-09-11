@@ -37,6 +37,7 @@ class LedgerTransactionLogEntryIntegrationAPI(object):
         'created': 'datetime',
         'program_id': 'int',
         'customer_session_id': 'str',
+        'store_integration_id': 'str',
         'type': 'str',
         'name': 'str',
         'start_date': 'str',
@@ -55,6 +56,7 @@ class LedgerTransactionLogEntryIntegrationAPI(object):
         'created': 'created',
         'program_id': 'programId',
         'customer_session_id': 'customerSessionId',
+        'store_integration_id': 'storeIntegrationId',
         'type': 'type',
         'name': 'name',
         'start_date': 'startDate',
@@ -68,7 +70,7 @@ class LedgerTransactionLogEntryIntegrationAPI(object):
         'validity_duration': 'validityDuration'
     }
 
-    def __init__(self, transaction_uuid=None, created=None, program_id=None, customer_session_id=None, type=None, name=None, start_date=None, expiry_date=None, subledger_id=None, amount=None, id=None, ruleset_id=None, rule_name=None, flags=None, validity_duration=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, transaction_uuid=None, created=None, program_id=None, customer_session_id=None, store_integration_id=None, type=None, name=None, start_date=None, expiry_date=None, subledger_id=None, amount=None, id=None, ruleset_id=None, rule_name=None, flags=None, validity_duration=None, local_vars_configuration=None):  # noqa: E501
         """LedgerTransactionLogEntryIntegrationAPI - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -78,6 +80,7 @@ class LedgerTransactionLogEntryIntegrationAPI(object):
         self._created = None
         self._program_id = None
         self._customer_session_id = None
+        self._store_integration_id = None
         self._type = None
         self._name = None
         self._start_date = None
@@ -96,6 +99,8 @@ class LedgerTransactionLogEntryIntegrationAPI(object):
         self.program_id = program_id
         if customer_session_id is not None:
             self.customer_session_id = customer_session_id
+        if store_integration_id is not None:
+            self.store_integration_id = store_integration_id
         self.type = type
         self.name = name
         self.start_date = start_date
@@ -212,6 +217,35 @@ class LedgerTransactionLogEntryIntegrationAPI(object):
             raise ValueError("Invalid value for `customer_session_id`, length must be less than or equal to `255`")  # noqa: E501
 
         self._customer_session_id = customer_session_id
+
+    @property
+    def store_integration_id(self):
+        """Gets the store_integration_id of this LedgerTransactionLogEntryIntegrationAPI.  # noqa: E501
+
+        The integration ID of the store where the transaction occurred. Only set for transactions created by a customer session or event that referenced a store.  # noqa: E501
+
+        :return: The store_integration_id of this LedgerTransactionLogEntryIntegrationAPI.  # noqa: E501
+        :rtype: str
+        """
+        return self._store_integration_id
+
+    @store_integration_id.setter
+    def store_integration_id(self, store_integration_id):
+        """Sets the store_integration_id of this LedgerTransactionLogEntryIntegrationAPI.
+
+        The integration ID of the store where the transaction occurred. Only set for transactions created by a customer session or event that referenced a store.  # noqa: E501
+
+        :param store_integration_id: The store_integration_id of this LedgerTransactionLogEntryIntegrationAPI.  # noqa: E501
+        :type: str
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                store_integration_id is not None and len(store_integration_id) > 1000):
+            raise ValueError("Invalid value for `store_integration_id`, length must be less than or equal to `1000`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                store_integration_id is not None and len(store_integration_id) < 1):
+            raise ValueError("Invalid value for `store_integration_id`, length must be greater than or equal to `1`")  # noqa: E501
+
+        self._store_integration_id = store_integration_id
 
     @property
     def type(self):
@@ -474,7 +508,7 @@ class LedgerTransactionLogEntryIntegrationAPI(object):
     def validity_duration(self):
         """Gets the validity_duration of this LedgerTransactionLogEntryIntegrationAPI.  # noqa: E501
 
-        The duration for which the points remain active, relative to the  activation date.  **Note**: This only applies to points for which `awaitsActivation` is `true` and `expiryDate` is not set.   # noqa: E501
+        The duration for which the points remain active, relative to the activation date.  **Note**: This only applies to points for which `awaitsActivation` is `true` and `expiryDate` is not set.   # noqa: E501
 
         :return: The validity_duration of this LedgerTransactionLogEntryIntegrationAPI.  # noqa: E501
         :rtype: str
@@ -485,7 +519,7 @@ class LedgerTransactionLogEntryIntegrationAPI(object):
     def validity_duration(self, validity_duration):
         """Sets the validity_duration of this LedgerTransactionLogEntryIntegrationAPI.
 
-        The duration for which the points remain active, relative to the  activation date.  **Note**: This only applies to points for which `awaitsActivation` is `true` and `expiryDate` is not set.   # noqa: E501
+        The duration for which the points remain active, relative to the activation date.  **Note**: This only applies to points for which `awaitsActivation` is `true` and `expiryDate` is not set.   # noqa: E501
 
         :param validity_duration: The validity_duration of this LedgerTransactionLogEntryIntegrationAPI.  # noqa: E501
         :type: str

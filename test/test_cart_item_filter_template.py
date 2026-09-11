@@ -37,12 +37,12 @@ class TestCartItemFilterTemplate(unittest.TestCase):
         if include_optional :
             return CartItemFilterTemplate(
                 name = 'Filter items by product', 
-                expression = [filter, [., Session, CartItems], [[Item], [catch, false, [=, [., Item, Category], Kitchen]]]]
+                expression = [filter, [., Session, CartItems], [[Item], [catch, false, [contains, [., Item, Category], Kitchen]]]]
             )
         else :
             return CartItemFilterTemplate(
                 name = 'Filter items by product',
-                expression = [filter, [., Session, CartItems], [[Item], [catch, false, [=, [., Item, Category], Kitchen]]]],
+                expression = [filter, [., Session, CartItems], [[Item], [catch, false, [contains, [., Item, Category], Kitchen]]]],
         )
 
     def testCartItemFilterTemplate(self):

@@ -198,7 +198,7 @@ class LoyaltyProgramLedgers(object):
     def sub_ledgers(self):
         """Gets the sub_ledgers of this LoyaltyProgramLedgers.  # noqa: E501
 
-        A map containing information about each loyalty subledger.  # noqa: E501
+        A map containing information about each loyalty subledger. Subledgers for which all balances are zero are excluded from the response.  # noqa: E501
 
         :return: The sub_ledgers of this LoyaltyProgramLedgers.  # noqa: E501
         :rtype: dict(str, LedgerInfo)
@@ -209,7 +209,7 @@ class LoyaltyProgramLedgers(object):
     def sub_ledgers(self, sub_ledgers):
         """Sets the sub_ledgers of this LoyaltyProgramLedgers.
 
-        A map containing information about each loyalty subledger.  # noqa: E501
+        A map containing information about each loyalty subledger. Subledgers for which all balances are zero are excluded from the response.  # noqa: E501
 
         :param sub_ledgers: The sub_ledgers of this LoyaltyProgramLedgers.  # noqa: E501
         :type: dict(str, LedgerInfo)

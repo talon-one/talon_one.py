@@ -40,6 +40,8 @@ class RuleFailureReason(object):
         'coupon_value': 'str',
         'referral_id': 'int',
         'referral_value': 'str',
+        'reward_id': 'int',
+        'reward_integration_id': 'str',
         'rule_index': 'int',
         'rule_name': 'str',
         'condition_index': 'int',
@@ -57,6 +59,8 @@ class RuleFailureReason(object):
         'coupon_value': 'couponValue',
         'referral_id': 'referralID',
         'referral_value': 'referralValue',
+        'reward_id': 'rewardId',
+        'reward_integration_id': 'rewardIntegrationId',
         'rule_index': 'ruleIndex',
         'rule_name': 'ruleName',
         'condition_index': 'conditionIndex',
@@ -66,7 +70,7 @@ class RuleFailureReason(object):
         'evaluation_group_mode': 'evaluationGroupMode'
     }
 
-    def __init__(self, campaign_id=None, campaign_name=None, ruleset_id=None, coupon_id=None, coupon_value=None, referral_id=None, referral_value=None, rule_index=None, rule_name=None, condition_index=None, effect_index=None, details=None, evaluation_group_id=None, evaluation_group_mode=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, campaign_id=None, campaign_name=None, ruleset_id=None, coupon_id=None, coupon_value=None, referral_id=None, referral_value=None, reward_id=None, reward_integration_id=None, rule_index=None, rule_name=None, condition_index=None, effect_index=None, details=None, evaluation_group_id=None, evaluation_group_mode=None, local_vars_configuration=None):  # noqa: E501
         """RuleFailureReason - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -79,6 +83,8 @@ class RuleFailureReason(object):
         self._coupon_value = None
         self._referral_id = None
         self._referral_value = None
+        self._reward_id = None
+        self._reward_integration_id = None
         self._rule_index = None
         self._rule_name = None
         self._condition_index = None
@@ -99,6 +105,10 @@ class RuleFailureReason(object):
             self.referral_id = referral_id
         if referral_value is not None:
             self.referral_value = referral_value
+        if reward_id is not None:
+            self.reward_id = reward_id
+        if reward_integration_id is not None:
+            self.reward_integration_id = reward_integration_id
         self.rule_index = rule_index
         self.rule_name = rule_name
         if condition_index is not None:
@@ -278,6 +288,52 @@ class RuleFailureReason(object):
         """
 
         self._referral_value = referral_value
+
+    @property
+    def reward_id(self):
+        """Gets the reward_id of this RuleFailureReason.  # noqa: E501
+
+        The ID of the reward that was being evaluated at the time of the rule failure.  # noqa: E501
+
+        :return: The reward_id of this RuleFailureReason.  # noqa: E501
+        :rtype: int
+        """
+        return self._reward_id
+
+    @reward_id.setter
+    def reward_id(self, reward_id):
+        """Sets the reward_id of this RuleFailureReason.
+
+        The ID of the reward that was being evaluated at the time of the rule failure.  # noqa: E501
+
+        :param reward_id: The reward_id of this RuleFailureReason.  # noqa: E501
+        :type: int
+        """
+
+        self._reward_id = reward_id
+
+    @property
+    def reward_integration_id(self):
+        """Gets the reward_integration_id of this RuleFailureReason.  # noqa: E501
+
+        The integration ID of the reward that was being evaluated at the time of the rule failure.  # noqa: E501
+
+        :return: The reward_integration_id of this RuleFailureReason.  # noqa: E501
+        :rtype: str
+        """
+        return self._reward_integration_id
+
+    @reward_integration_id.setter
+    def reward_integration_id(self, reward_integration_id):
+        """Sets the reward_integration_id of this RuleFailureReason.
+
+        The integration ID of the reward that was being evaluated at the time of the rule failure.  # noqa: E501
+
+        :param reward_integration_id: The reward_integration_id of this RuleFailureReason.  # noqa: E501
+        :type: str
+        """
+
+        self._reward_integration_id = reward_integration_id
 
     @property
     def rule_index(self):

@@ -36,6 +36,7 @@ class MultipleAudiencesItem(object):
         'id': 'int',
         'created': 'datetime',
         'name': 'str',
+        'subscribed_applications_ids': 'list[int]',
         'integration_id': 'str',
         'status': 'str'
     }
@@ -44,11 +45,12 @@ class MultipleAudiencesItem(object):
         'id': 'id',
         'created': 'created',
         'name': 'name',
+        'subscribed_applications_ids': 'subscribedApplicationsIds',
         'integration_id': 'integrationId',
         'status': 'status'
     }
 
-    def __init__(self, id=None, created=None, name=None, integration_id=None, status=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, created=None, name=None, subscribed_applications_ids=None, integration_id=None, status=None, local_vars_configuration=None):  # noqa: E501
         """MultipleAudiencesItem - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -57,6 +59,7 @@ class MultipleAudiencesItem(object):
         self._id = None
         self._created = None
         self._name = None
+        self._subscribed_applications_ids = None
         self._integration_id = None
         self._status = None
         self.discriminator = None
@@ -64,6 +67,8 @@ class MultipleAudiencesItem(object):
         self.id = id
         self.created = created
         self.name = name
+        if subscribed_applications_ids is not None:
+            self.subscribed_applications_ids = subscribed_applications_ids
         self.integration_id = integration_id
         self.status = status
 
@@ -144,6 +149,29 @@ class MultipleAudiencesItem(object):
             raise ValueError("Invalid value for `name`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._name = name
+
+    @property
+    def subscribed_applications_ids(self):
+        """Gets the subscribed_applications_ids of this MultipleAudiencesItem.  # noqa: E501
+
+        A list of the IDs of the Applications that are connected to this audience.  # noqa: E501
+
+        :return: The subscribed_applications_ids of this MultipleAudiencesItem.  # noqa: E501
+        :rtype: list[int]
+        """
+        return self._subscribed_applications_ids
+
+    @subscribed_applications_ids.setter
+    def subscribed_applications_ids(self, subscribed_applications_ids):
+        """Sets the subscribed_applications_ids of this MultipleAudiencesItem.
+
+        A list of the IDs of the Applications that are connected to this audience.  # noqa: E501
+
+        :param subscribed_applications_ids: The subscribed_applications_ids of this MultipleAudiencesItem.  # noqa: E501
+        :type: list[int]
+        """
+
+        self._subscribed_applications_ids = subscribed_applications_ids
 
     @property
     def integration_id(self):

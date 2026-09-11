@@ -42,14 +42,14 @@ class TestCreateTemplateCampaign(unittest.TestCase):
                 campaign_attributes_overrides = None, 
                 template_param_values = [
                     talon_one.models.binding.Binding(
-                        name = 'my property', 
+                        name = 'Discount percentage', 
                         type = 'templateParameter', 
-                        expression = [string1, string2], 
-                        value_type = 'string', 
+                        expression = [identity, 10], 
+                        value_type = 'number', 
                         min_value = 0.0, 
                         max_value = 19.9, 
                         attribute_id = 100, 
-                        description = 'This is a template parameter of type `number`.', )
+                        description = 'The percentage discount applied to the cart total.', )
                     ], 
                 limit_overrides = [
                     talon_one.models.limit_config.LimitConfig(

@@ -34,15 +34,17 @@ class RoleV2Permissions(object):
     """
     openapi_types = {
         'permission_sets': 'list[RoleV2PermissionSet]',
-        'roles': 'RoleV2RolesGroup'
+        'roles': 'RoleV2RolesGroup',
+        'thresholds': 'list[RolesV2Thresholds]'
     }
 
     attribute_map = {
         'permission_sets': 'permissionSets',
-        'roles': 'roles'
+        'roles': 'roles',
+        'thresholds': 'thresholds'
     }
 
-    def __init__(self, permission_sets=None, roles=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, permission_sets=None, roles=None, thresholds=None, local_vars_configuration=None):  # noqa: E501
         """RoleV2Permissions - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -50,12 +52,15 @@ class RoleV2Permissions(object):
 
         self._permission_sets = None
         self._roles = None
+        self._thresholds = None
         self.discriminator = None
 
         if permission_sets is not None:
             self.permission_sets = permission_sets
         if roles is not None:
             self.roles = roles
+        if thresholds is not None:
+            self.thresholds = thresholds
 
     @property
     def permission_sets(self):
@@ -100,6 +105,29 @@ class RoleV2Permissions(object):
         """
 
         self._roles = roles
+
+    @property
+    def thresholds(self):
+        """Gets the thresholds of this RoleV2Permissions.  # noqa: E501
+
+        Support user limits for actions that require admin approval within the given application.  # noqa: E501
+
+        :return: The thresholds of this RoleV2Permissions.  # noqa: E501
+        :rtype: list[RolesV2Thresholds]
+        """
+        return self._thresholds
+
+    @thresholds.setter
+    def thresholds(self, thresholds):
+        """Sets the thresholds of this RoleV2Permissions.
+
+        Support user limits for actions that require admin approval within the given application.  # noqa: E501
+
+        :param thresholds: The thresholds of this RoleV2Permissions.  # noqa: E501
+        :type: list[RolesV2Thresholds]
+        """
+
+        self._thresholds = thresholds
 
     def to_dict(self):
         """Returns the model properties as a dict"""

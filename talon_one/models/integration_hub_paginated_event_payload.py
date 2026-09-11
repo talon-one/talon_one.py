@@ -35,7 +35,7 @@ class IntegrationHubPaginatedEventPayload(object):
     openapi_types = {
         'total_result_size': 'int',
         'batched_at': 'datetime',
-        'event_type': 'str',
+        'event_type': 'IntegrationHubEventType',
         'data': 'list[object]'
     }
 
@@ -116,7 +116,7 @@ class IntegrationHubPaginatedEventPayload(object):
 
 
         :return: The event_type of this IntegrationHubPaginatedEventPayload.  # noqa: E501
-        :rtype: str
+        :rtype: IntegrationHubEventType
         """
         return self._event_type
 
@@ -126,16 +126,10 @@ class IntegrationHubPaginatedEventPayload(object):
 
 
         :param event_type: The event_type of this IntegrationHubPaginatedEventPayload.  # noqa: E501
-        :type: str
+        :type: IntegrationHubEventType
         """
         if self.local_vars_configuration.client_side_validation and event_type is None:  # noqa: E501
             raise ValueError("Invalid value for `event_type`, must not be `None`")  # noqa: E501
-        allowed_values = ["LoyaltyPointsChanged", "LoyaltyTierDowngrade", "LoyaltyTierUpgrade", "CouponCreated", "CouponUpdated", "CouponDeleted"]  # noqa: E501
-        if self.local_vars_configuration.client_side_validation and event_type not in allowed_values:  # noqa: E501
-            raise ValueError(
-                "Invalid value for `event_type` ({0}), must be one of {1}"  # noqa: E501
-                .format(event_type, allowed_values)
-            )
 
         self._event_type = event_type
 

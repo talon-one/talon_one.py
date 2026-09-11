@@ -46,9 +46,7 @@ class TestAchievementBaseV2(unittest.TestCase):
                 fixed_start_date = '2024-01-15T15:04:05+07:00', 
                 end_date = '2024-01-15T15:04:05+07:00', 
                 allow_rollback_after_completion = False, 
-                sandbox = True, 
-                subscribed_applications = [132, 97], 
-                timezone = 'Europe/Berlin'
+                subscribed_applications = [132, 97]
             )
         else :
             return AchievementBaseV2(

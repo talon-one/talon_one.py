@@ -40,6 +40,7 @@ class Event(object):
         'store_integration_id': 'str',
         'type': 'str',
         'attributes': 'object',
+        'integration_id': 'str',
         'session_id': 'str',
         'effects': 'list[object]',
         'ledger_entries': 'list[LedgerEntry]',
@@ -54,13 +55,14 @@ class Event(object):
         'store_integration_id': 'storeIntegrationId',
         'type': 'type',
         'attributes': 'attributes',
+        'integration_id': 'integrationId',
         'session_id': 'sessionId',
         'effects': 'effects',
         'ledger_entries': 'ledgerEntries',
         'meta': 'meta'
     }
 
-    def __init__(self, id=None, created=None, application_id=None, profile_id=None, store_integration_id=None, type=None, attributes=None, session_id=None, effects=None, ledger_entries=None, meta=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, created=None, application_id=None, profile_id=None, store_integration_id=None, type=None, attributes=None, integration_id=None, session_id=None, effects=None, ledger_entries=None, meta=None, local_vars_configuration=None):  # noqa: E501
         """Event - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -73,6 +75,7 @@ class Event(object):
         self._store_integration_id = None
         self._type = None
         self._attributes = None
+        self._integration_id = None
         self._session_id = None
         self._effects = None
         self._ledger_entries = None
@@ -88,6 +91,8 @@ class Event(object):
             self.store_integration_id = store_integration_id
         self.type = type
         self.attributes = attributes
+        if integration_id is not None:
+            self.integration_id = integration_id
         if session_id is not None:
             self.session_id = session_id
         self.effects = effects
@@ -227,7 +232,7 @@ class Event(object):
     def type(self):
         """Gets the type of this Event.  # noqa: E501
 
-        A string representing the event. Must not be a reserved event name.  # noqa: E501
+        The name of the event. Must be a [custom event](https://docs.talon.one/docs/dev/concepts/entities/events#custom-events), not a built-in event.  # noqa: E501
 
         :return: The type of this Event.  # noqa: E501
         :rtype: str
@@ -238,7 +243,7 @@ class Event(object):
     def type(self, type):
         """Sets the type of this Event.
 
-        A string representing the event. Must not be a reserved event name.  # noqa: E501
+        The name of the event. Must be a [custom event](https://docs.talon.one/docs/dev/concepts/entities/events#custom-events), not a built-in event.  # noqa: E501
 
         :param type: The type of this Event.  # noqa: E501
         :type: str
@@ -275,6 +280,32 @@ class Event(object):
             raise ValueError("Invalid value for `attributes`, must not be `None`")  # noqa: E501
 
         self._attributes = attributes
+
+    @property
+    def integration_id(self):
+        """Gets the integration_id of this Event.  # noqa: E501
+
+        The unique ID of the event. Only one event with this ID can be registered.   # noqa: E501
+
+        :return: The integration_id of this Event.  # noqa: E501
+        :rtype: str
+        """
+        return self._integration_id
+
+    @integration_id.setter
+    def integration_id(self, integration_id):
+        """Sets the integration_id of this Event.
+
+        The unique ID of the event. Only one event with this ID can be registered.   # noqa: E501
+
+        :param integration_id: The integration_id of this Event.  # noqa: E501
+        :type: str
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                integration_id is not None and len(integration_id) < 1):
+            raise ValueError("Invalid value for `integration_id`, length must be greater than or equal to `1`")  # noqa: E501
+
+        self._integration_id = integration_id
 
     @property
     def session_id(self):

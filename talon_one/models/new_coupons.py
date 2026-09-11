@@ -40,13 +40,16 @@ class NewCoupons(object):
         'expiry_date': 'datetime',
         'limits': 'list[LimitConfig]',
         'number_of_coupons': 'int',
+        'batch_id': 'str',
         'unique_prefix': 'str',
         'attributes': 'object',
         'recipient_integration_id': 'str',
         'valid_characters': 'list[str]',
         'coupon_pattern': 'str',
         'is_reservation_mandatory': 'bool',
-        'implicitly_reserved': 'bool'
+        'implicitly_reserved': 'bool',
+        'support_request_id': 'int',
+        'support_request_note': 'str'
     }
 
     attribute_map = {
@@ -57,16 +60,19 @@ class NewCoupons(object):
         'expiry_date': 'expiryDate',
         'limits': 'limits',
         'number_of_coupons': 'numberOfCoupons',
+        'batch_id': 'batchId',
         'unique_prefix': 'uniquePrefix',
         'attributes': 'attributes',
         'recipient_integration_id': 'recipientIntegrationId',
         'valid_characters': 'validCharacters',
         'coupon_pattern': 'couponPattern',
         'is_reservation_mandatory': 'isReservationMandatory',
-        'implicitly_reserved': 'implicitlyReserved'
+        'implicitly_reserved': 'implicitlyReserved',
+        'support_request_id': 'supportRequestId',
+        'support_request_note': 'supportRequestNote'
     }
 
-    def __init__(self, usage_limit=None, discount_limit=None, reservation_limit=None, start_date=None, expiry_date=None, limits=None, number_of_coupons=None, unique_prefix=None, attributes=None, recipient_integration_id=None, valid_characters=None, coupon_pattern=None, is_reservation_mandatory=False, implicitly_reserved=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, usage_limit=None, discount_limit=None, reservation_limit=None, start_date=None, expiry_date=None, limits=None, number_of_coupons=None, batch_id=None, unique_prefix=None, attributes=None, recipient_integration_id=None, valid_characters=None, coupon_pattern=None, is_reservation_mandatory=False, implicitly_reserved=None, support_request_id=None, support_request_note=None, local_vars_configuration=None):  # noqa: E501
         """NewCoupons - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -79,6 +85,7 @@ class NewCoupons(object):
         self._expiry_date = None
         self._limits = None
         self._number_of_coupons = None
+        self._batch_id = None
         self._unique_prefix = None
         self._attributes = None
         self._recipient_integration_id = None
@@ -86,6 +93,8 @@ class NewCoupons(object):
         self._coupon_pattern = None
         self._is_reservation_mandatory = None
         self._implicitly_reserved = None
+        self._support_request_id = None
+        self._support_request_note = None
         self.discriminator = None
 
         self.usage_limit = usage_limit
@@ -100,6 +109,8 @@ class NewCoupons(object):
         if limits is not None:
             self.limits = limits
         self.number_of_coupons = number_of_coupons
+        if batch_id is not None:
+            self.batch_id = batch_id
         if unique_prefix is not None:
             self.unique_prefix = unique_prefix
         if attributes is not None:
@@ -114,6 +125,10 @@ class NewCoupons(object):
             self.is_reservation_mandatory = is_reservation_mandatory
         if implicitly_reserved is not None:
             self.implicitly_reserved = implicitly_reserved
+        if support_request_id is not None:
+            self.support_request_id = support_request_id
+        if support_request_note is not None:
+            self.support_request_note = support_request_note
 
     @property
     def usage_limit(self):
@@ -299,6 +314,29 @@ class NewCoupons(object):
         self._number_of_coupons = number_of_coupons
 
     @property
+    def batch_id(self):
+        """Gets the batch_id of this NewCoupons.  # noqa: E501
+
+        The batch ID that all coupons created by the request will bear. If omitted, a batch ID is generated automatically.  # noqa: E501
+
+        :return: The batch_id of this NewCoupons.  # noqa: E501
+        :rtype: str
+        """
+        return self._batch_id
+
+    @batch_id.setter
+    def batch_id(self, batch_id):
+        """Sets the batch_id of this NewCoupons.
+
+        The batch ID that all coupons created by the request will bear. If omitted, a batch ID is generated automatically.  # noqa: E501
+
+        :param batch_id: The batch_id of this NewCoupons.  # noqa: E501
+        :type: str
+        """
+
+        self._batch_id = batch_id
+
+    @property
     def unique_prefix(self):
         """Gets the unique_prefix of this NewCoupons.  # noqa: E501
 
@@ -467,6 +505,52 @@ class NewCoupons(object):
         """
 
         self._implicitly_reserved = implicitly_reserved
+
+    @property
+    def support_request_id(self):
+        """Gets the support_request_id of this NewCoupons.  # noqa: E501
+
+        The identifier of the support request to link to the coupon creation. The request must exist and not yet be processed.  # noqa: E501
+
+        :return: The support_request_id of this NewCoupons.  # noqa: E501
+        :rtype: int
+        """
+        return self._support_request_id
+
+    @support_request_id.setter
+    def support_request_id(self, support_request_id):
+        """Sets the support_request_id of this NewCoupons.
+
+        The identifier of the support request to link to the coupon creation. The request must exist and not yet be processed.  # noqa: E501
+
+        :param support_request_id: The support_request_id of this NewCoupons.  # noqa: E501
+        :type: int
+        """
+
+        self._support_request_id = support_request_id
+
+    @property
+    def support_request_note(self):
+        """Gets the support_request_note of this NewCoupons.  # noqa: E501
+
+        A note recorded when the linked support request is approved or rejected. Applied when `supportRequestId` is provided.  # noqa: E501
+
+        :return: The support_request_note of this NewCoupons.  # noqa: E501
+        :rtype: str
+        """
+        return self._support_request_note
+
+    @support_request_note.setter
+    def support_request_note(self, support_request_note):
+        """Sets the support_request_note of this NewCoupons.
+
+        A note recorded when the linked support request is approved or rejected. Applied when `supportRequestId` is provided.  # noqa: E501
+
+        :param support_request_note: The support_request_note of this NewCoupons.  # noqa: E501
+        :type: str
+        """
+
+        self._support_request_note = support_request_note
 
     def to_dict(self):
         """Returns the model properties as a dict"""

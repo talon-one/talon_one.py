@@ -884,7 +884,7 @@ class IntegrationApi(object):
     def delete_audience_v2(self, audience_id, **kwargs):  # noqa: E501
         """Delete audience  # noqa: E501
 
-        Delete an audience created by a third-party integration.  > [!warning] This endpoint also removes any associations recorded between a customer profile and this audience.  > [!note] Audiences can also be deleted via the Campaign Manager. See the [docs](https://docs.talon.one/docs/product/audiences/managing-audiences#deleting-an-audience).   # noqa: E501
+        Delete an audience.  > [!warning] This endpoint also removes any associations recorded between a customer profile and this audience.  > [!note] Audiences can also be deleted via the Campaign Manager. See the [docs](https://docs.talon.one/docs/product/audiences/managing-audiences#deleting-an-audience).  The audience isn't deleted if any experiment variant uses it. The response identifies each blocking experiment by its Campaign Manager path.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.delete_audience_v2(audience_id, async_req=True)
@@ -909,7 +909,7 @@ class IntegrationApi(object):
     def delete_audience_v2_with_http_info(self, audience_id, **kwargs):  # noqa: E501
         """Delete audience  # noqa: E501
 
-        Delete an audience created by a third-party integration.  > [!warning] This endpoint also removes any associations recorded between a customer profile and this audience.  > [!note] Audiences can also be deleted via the Campaign Manager. See the [docs](https://docs.talon.one/docs/product/audiences/managing-audiences#deleting-an-audience).   # noqa: E501
+        Delete an audience.  > [!warning] This endpoint also removes any associations recorded between a customer profile and this audience.  > [!note] Audiences can also be deleted via the Campaign Manager. See the [docs](https://docs.talon.one/docs/product/audiences/managing-audiences#deleting-an-audience).  The audience isn't deleted if any experiment variant uses it. The response identifies each blocking experiment by its Campaign Manager path.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.delete_audience_v2_with_http_info(audience_id, async_req=True)
@@ -1821,6 +1821,7 @@ class IntegrationApi(object):
         :param bool loyalty: Set to `true` to include loyalty information in the response.
         :param bool giveaways: Set to `true` to include giveaways information in the response.
         :param bool achievements: Set to `true` to include achievement information in the response.
+        :param bool unlocked_rewards: Set to `true` to include `unlocked` rewards that have not been `used` in the response.
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -1852,6 +1853,7 @@ class IntegrationApi(object):
         :param bool loyalty: Set to `true` to include loyalty information in the response.
         :param bool giveaways: Set to `true` to include giveaways information in the response.
         :param bool achievements: Set to `true` to include achievement information in the response.
+        :param bool unlocked_rewards: Set to `true` to include `unlocked` rewards that have not been `used` in the response.
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -1875,7 +1877,8 @@ class IntegrationApi(object):
             'coupons',
             'loyalty',
             'giveaways',
-            'achievements'
+            'achievements',
+            'unlocked_rewards'
         ]
         all_params.extend(
             [
@@ -1918,6 +1921,8 @@ class IntegrationApi(object):
             query_params.append(('giveaways', local_var_params['giveaways']))  # noqa: E501
         if 'achievements' in local_var_params and local_var_params['achievements'] is not None:  # noqa: E501
             query_params.append(('achievements', local_var_params['achievements']))  # noqa: E501
+        if 'unlocked_rewards' in local_var_params and local_var_params['unlocked_rewards'] is not None:  # noqa: E501
+            query_params.append(('unlockedRewards', local_var_params['unlocked_rewards']))  # noqa: E501
 
         header_params = {}
 
@@ -1958,7 +1963,7 @@ class IntegrationApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str customer_session_id: The `integration ID` of the customer session. You set this ID when you create a customer session.  You can see existing customer session integration IDs in the Campaign Manager's **Sessions** menu, or via the [List Application session](https://docs.talon.one/management-api#tag/Customer-data/operation/getApplicationSessions) endpoint.  (required)
+        :param str customer_session_id: The `integration ID` of the customer session. You set this ID when you create a customer session.  You can see existing customer session integration IDs in the Campaign Manager's **Sessions** menu, or via the [List Application session](https://docs.talon.one/management-api#tag/Customer-data/operation/getApplicationSessions) endpoint. **Notes**: - There is no length limit for this ID. - It must be URL-encoded. For example, replace spaces with `%20`. [Learn more](https://www.w3schools.com/tags/ref_urlencode.asp).  (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -1983,7 +1988,7 @@ class IntegrationApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str customer_session_id: The `integration ID` of the customer session. You set this ID when you create a customer session.  You can see existing customer session integration IDs in the Campaign Manager's **Sessions** menu, or via the [List Application session](https://docs.talon.one/management-api#tag/Customer-data/operation/getApplicationSessions) endpoint.  (required)
+        :param str customer_session_id: The `integration ID` of the customer session. You set this ID when you create a customer session.  You can see existing customer session integration IDs in the Campaign Manager's **Sessions** menu, or via the [List Application session](https://docs.talon.one/management-api#tag/Customer-data/operation/getApplicationSessions) endpoint. **Notes**: - There is no length limit for this ID. - It must be URL-encoded. For example, replace spaces with `%20`. [Learn more](https://www.w3schools.com/tags/ref_urlencode.asp).  (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -2055,6 +2060,120 @@ class IntegrationApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='IntegrationCustomerSessionResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def get_event_v3(self, integration_id, **kwargs):  # noqa: E501
+        """Get advanced event  # noqa: E501
+
+        Retrieve an advanced event by its identifier.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_event_v3(integration_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str integration_id: The unique ID of the advanced event. (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: EventV3
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.get_event_v3_with_http_info(integration_id, **kwargs)  # noqa: E501
+
+    def get_event_v3_with_http_info(self, integration_id, **kwargs):  # noqa: E501
+        """Get advanced event  # noqa: E501
+
+        Retrieve an advanced event by its identifier.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_event_v3_with_http_info(integration_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str integration_id: The unique ID of the advanced event. (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(EventV3, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'integration_id'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_event_v3" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'integration_id' is set
+        if self.api_client.client_side_validation and ('integration_id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['integration_id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `integration_id` when calling `get_event_v3`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'integration_id' in local_var_params:
+            path_params['integrationId'] = local_var_params['integration_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['api_key_v1']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/v3/events/{integrationId}', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='EventV3',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -2710,12 +2829,12 @@ class IntegrationApi(object):
         :param int loyalty_program_id: Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  (required)
         :param str integration_id: The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier.  (required)
         :param str status: Filter points based on their status.
-        :param str subledger_id: The ID of the subledger by which we filter the data.
-        :param list[str] customer_session_i_ds: Filter the results by a list of customer session IDs.   To include multiple IDs, repeat the parameter for each one, for example,  `?customerSessionIDs=id1&customerSessionIDs=id2`.  The response contains only data associated with the specified sessions. 
-        :param list[str] transaction_uui_ds: Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example,  `?transactionUUIDs=uuid1&transactionUUIDs=uuid2`.  The response contains only data associated with the specified transactions. 
+        :param list[str] subledger_id: Filter the results by a list of subledger IDs.  To include multiple IDs, repeat the parameter for each one, for example, `?subledgerId=id1&subledgerId=id2`.  The response contains only data associated with the specified subledgers. 
+        :param list[str] customer_session_i_ds: Filter the results by a list of customer session IDs.  To include multiple IDs, repeat the parameter for each one, for example, `?customerSessionIDs=id1&customerSessionIDs=id2`.  The response contains only data associated with the specified sessions. 
+        :param list[str] transaction_uui_ds: Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example, `?transactionUUIDs=uuid1&transactionUUIDs=uuid2`.  The response contains only data associated with the specified transactions. 
         :param int page_size: The number of items in the response.
         :param int skip: The number of items to skip when paging through large result sets.
-        :param str sort: The field by which results should be sorted. You can enter one of the following values:  - `startDate`: Sorts the results by the start date of the points. - `expiryDate`: Sorts the results by the expiry date of the points.  By default, results are sorted in ascending order.  To sort them in descending order, prefix the field name with `-`.  **Note:** You can only sort by one field at a time. 
+        :param str sort: The field by which results should be sorted. You can enter one of the following values:  - `startDate`: Sorts the results by the start date of the points. - `expiryDate`: Sorts the results by the expiry date of the points.  By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You can only sort by one field at a time. 
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -2743,12 +2862,12 @@ class IntegrationApi(object):
         :param int loyalty_program_id: Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  (required)
         :param str integration_id: The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier.  (required)
         :param str status: Filter points based on their status.
-        :param str subledger_id: The ID of the subledger by which we filter the data.
-        :param list[str] customer_session_i_ds: Filter the results by a list of customer session IDs.   To include multiple IDs, repeat the parameter for each one, for example,  `?customerSessionIDs=id1&customerSessionIDs=id2`.  The response contains only data associated with the specified sessions. 
-        :param list[str] transaction_uui_ds: Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example,  `?transactionUUIDs=uuid1&transactionUUIDs=uuid2`.  The response contains only data associated with the specified transactions. 
+        :param list[str] subledger_id: Filter the results by a list of subledger IDs.  To include multiple IDs, repeat the parameter for each one, for example, `?subledgerId=id1&subledgerId=id2`.  The response contains only data associated with the specified subledgers. 
+        :param list[str] customer_session_i_ds: Filter the results by a list of customer session IDs.  To include multiple IDs, repeat the parameter for each one, for example, `?customerSessionIDs=id1&customerSessionIDs=id2`.  The response contains only data associated with the specified sessions. 
+        :param list[str] transaction_uui_ds: Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example, `?transactionUUIDs=uuid1&transactionUUIDs=uuid2`.  The response contains only data associated with the specified transactions. 
         :param int page_size: The number of items in the response.
         :param int skip: The number of items to skip when paging through large result sets.
-        :param str sort: The field by which results should be sorted. You can enter one of the following values:  - `startDate`: Sorts the results by the start date of the points. - `expiryDate`: Sorts the results by the expiry date of the points.  By default, results are sorted in ascending order.  To sort them in descending order, prefix the field name with `-`.  **Note:** You can only sort by one field at a time. 
+        :param str sort: The field by which results should be sorted. You can enter one of the following values:  - `startDate`: Sorts the results by the start date of the points. - `expiryDate`: Sorts the results by the expiry date of the points.  By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You can only sort by one field at a time. 
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -2819,6 +2938,7 @@ class IntegrationApi(object):
             query_params.append(('status', local_var_params['status']))  # noqa: E501
         if 'subledger_id' in local_var_params and local_var_params['subledger_id'] is not None:  # noqa: E501
             query_params.append(('subledgerId', local_var_params['subledger_id']))  # noqa: E501
+            collection_formats['subledgerId'] = 'multi'  # noqa: E501
         if 'customer_session_i_ds' in local_var_params and local_var_params['customer_session_i_ds'] is not None:  # noqa: E501
             query_params.append(('customerSessionIDs', local_var_params['customer_session_i_ds']))  # noqa: E501
             collection_formats['customerSessionIDs'] = 'multi'  # noqa: E501
@@ -2875,7 +2995,7 @@ class IntegrationApi(object):
         :param str integration_id: The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier.  (required)
         :param list[str] customer_session_i_ds: Filter the results by a list of customer session IDs.  To include multiple IDs, repeat the parameter for each one, for example, `?customerSessionIDs=id1&customerSessionIDs=id2`.  The response contains only data associated with the specified sessions. 
         :param list[str] transaction_uui_ds: Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example, `?transactionUUIDs=uuid1&transactionUUIDs=uuid2`.  The response contains only data associated with the specified transactions. 
-        :param str subledger_id: The ID of the subledger by which we filter the data.
+        :param list[str] subledger_id: Filter the results by a list of subledger IDs.  To include multiple IDs, repeat the parameter for each one, for example, `?subledgerId=id1&subledgerId=id2`.  The response contains only data associated with the specified subledgers. 
         :param str loyalty_transaction_type: Filter results by loyalty transaction type: - `manual`: Loyalty transaction that was done manually. - `session`: Loyalty transaction that resulted from a customer session. - `import`: Loyalty transaction that was imported from a CSV file. 
         :param datetime start_date: Date and time from which results are returned. Results are filtered by transaction creation date.  > [!note] **Note** > - This must be an RFC3339 timestamp string. > - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting >   considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
         :param datetime end_date: Date and time by which results are returned. Results are filtered by transaction creation date.  > [!note] **Note** > - This must be an RFC3339 timestamp string. > - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting >   considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
@@ -2910,7 +3030,7 @@ class IntegrationApi(object):
         :param str integration_id: The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier.  (required)
         :param list[str] customer_session_i_ds: Filter the results by a list of customer session IDs.  To include multiple IDs, repeat the parameter for each one, for example, `?customerSessionIDs=id1&customerSessionIDs=id2`.  The response contains only data associated with the specified sessions. 
         :param list[str] transaction_uui_ds: Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example, `?transactionUUIDs=uuid1&transactionUUIDs=uuid2`.  The response contains only data associated with the specified transactions. 
-        :param str subledger_id: The ID of the subledger by which we filter the data.
+        :param list[str] subledger_id: Filter the results by a list of subledger IDs.  To include multiple IDs, repeat the parameter for each one, for example, `?subledgerId=id1&subledgerId=id2`.  The response contains only data associated with the specified subledgers. 
         :param str loyalty_transaction_type: Filter results by loyalty transaction type: - `manual`: Loyalty transaction that was done manually. - `session`: Loyalty transaction that resulted from a customer session. - `import`: Loyalty transaction that was imported from a CSV file. 
         :param datetime start_date: Date and time from which results are returned. Results are filtered by transaction creation date.  > [!note] **Note** > - This must be an RFC3339 timestamp string. > - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting >   considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
         :param datetime end_date: Date and time by which results are returned. Results are filtered by transaction creation date.  > [!note] **Note** > - This must be an RFC3339 timestamp string. > - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting >   considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
@@ -2993,6 +3113,7 @@ class IntegrationApi(object):
             collection_formats['transactionUUIDs'] = 'multi'  # noqa: E501
         if 'subledger_id' in local_var_params and local_var_params['subledger_id'] is not None:  # noqa: E501
             query_params.append(('subledgerId', local_var_params['subledger_id']))  # noqa: E501
+            collection_formats['subledgerId'] = 'multi'  # noqa: E501
         if 'loyalty_transaction_type' in local_var_params and local_var_params['loyalty_transaction_type'] is not None:  # noqa: E501
             query_params.append(('loyaltyTransactionType', local_var_params['loyalty_transaction_type']))  # noqa: E501
         if 'start_date' in local_var_params and local_var_params['start_date'] is not None:  # noqa: E501
@@ -3045,7 +3166,7 @@ class IntegrationApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str coupon_value: The code of the coupon.  **Important:** The coupon code requires [URL encoding](https://www.w3schools.com/tags//ref_urlencode.asp)  if it contains special characters. For example, you must encode `SUMMER25%OFF` as `SUMMER25%25OFF`.  (required)
+        :param str coupon_value: The code of the coupon.  **Important:** The coupon code requires [URL encoding](https://www.w3schools.com/tags//ref_urlencode.asp) if it contains special characters. For example, you must encode `SUMMER25%OFF` as `SUMMER25%25OFF`.  (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -3070,7 +3191,7 @@ class IntegrationApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str coupon_value: The code of the coupon.  **Important:** The coupon code requires [URL encoding](https://www.w3schools.com/tags//ref_urlencode.asp)  if it contains special characters. For example, you must encode `SUMMER25%OFF` as `SUMMER25%25OFF`.  (required)
+        :param str coupon_value: The code of the coupon.  **Important:** The coupon code requires [URL encoding](https://www.w3schools.com/tags//ref_urlencode.asp) if it contains special characters. For example, you must encode `SUMMER25%OFF` as `SUMMER25%25OFF`.  (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -3166,6 +3287,8 @@ class IntegrationApi(object):
         :param datetime start_before: Filter results to only include campaigns that start on or before  the specified timestamp.  **Note:**  - It must be an RFC3339 timestamp string.  - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
         :param datetime end_after: Filter results to only include campaigns that end on or after  the specified timestamp.  **Note:**  - It must be an RFC3339 timestamp string.  - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
         :param datetime end_before: Filter results to only include campaigns that end on or before  the specified timestamp.  **Note:**  - It must be an RFC3339 timestamp string.  - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
+        :param int store_id: Filter results to campaigns linked to the specified store ID.
+        :param int audience_id: Filter results to campaigns linked to the specified audience ID.
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -3197,6 +3320,8 @@ class IntegrationApi(object):
         :param datetime start_before: Filter results to only include campaigns that start on or before  the specified timestamp.  **Note:**  - It must be an RFC3339 timestamp string.  - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
         :param datetime end_after: Filter results to only include campaigns that end on or after  the specified timestamp.  **Note:**  - It must be an RFC3339 timestamp string.  - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
         :param datetime end_before: Filter results to only include campaigns that end on or before  the specified timestamp.  **Note:**  - It must be an RFC3339 timestamp string.  - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. 
+        :param int store_id: Filter results to campaigns linked to the specified store ID.
+        :param int audience_id: Filter results to campaigns linked to the specified audience ID.
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -3220,7 +3345,9 @@ class IntegrationApi(object):
             'start_after',
             'start_before',
             'end_after',
-            'end_before'
+            'end_before',
+            'store_id',
+            'audience_id'
         ]
         all_params.extend(
             [
@@ -3264,6 +3391,10 @@ class IntegrationApi(object):
             query_params.append(('endAfter', local_var_params['end_after']))  # noqa: E501
         if 'end_before' in local_var_params and local_var_params['end_before'] is not None:  # noqa: E501
             query_params.append(('endBefore', local_var_params['end_before']))  # noqa: E501
+        if 'store_id' in local_var_params and local_var_params['store_id'] is not None:  # noqa: E501
+            query_params.append(('storeId', local_var_params['store_id']))  # noqa: E501
+        if 'audience_id' in local_var_params and local_var_params['audience_id'] is not None:  # noqa: E501
+            query_params.append(('audienceId', local_var_params['audience_id']))  # noqa: E501
 
         header_params = {}
 
@@ -3287,6 +3418,283 @@ class IntegrationApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='InlineResponse200',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def integration_rewards_catalog(self, **kwargs):  # noqa: E501
+        """List rewards in the catalog  # noqa: E501
+
+        Retrieve the rewards catalog for the Application. Returns a paginated list of rewards.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.integration_rewards_catalog(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int page_size: The number of items in the response.
+        :param int skip: The number of items to skip when paging through large result sets.
+        :param float points_from: Return only rewards whose points required is greater than or equal to this value.
+        :param float points_to: Return only rewards whose points required is less than or equal to this value.
+        :param bool include_free: Whether to include rewards that have no `pointsRequired`. These rewards are treated as free and available to all customers. 
+        :param int loyalty_program_id: Return only rewards available in this loyalty program. 
+        :param str subledger_id: Return only rewards available in this subledger. Must be combined with `loyaltyProgramId`. To specify the main ledger, provide an empty string (\"\"). 
+        :param str profile_integration_id: The integration ID of the customer profile whose loyalty balances to include in the response. Balances are returned only when `loyaltyProgramId` is also provided.  **Note:** `profileIntegrationId` and `loyaltyCardId` are mutually exclusive. Do not send both in the same request. 
+        :param str loyalty_card_id: The identifier of the loyalty card whose loyalty balances to include in the response. Balances are returned only when `loyaltyProgramId` is also provided.  **Note:** `profileIntegrationId` and `loyaltyCardId` are mutually exclusive. Do not send both in the same request. 
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: InlineResponse20056
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.integration_rewards_catalog_with_http_info(**kwargs)  # noqa: E501
+
+    def integration_rewards_catalog_with_http_info(self, **kwargs):  # noqa: E501
+        """List rewards in the catalog  # noqa: E501
+
+        Retrieve the rewards catalog for the Application. Returns a paginated list of rewards.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.integration_rewards_catalog_with_http_info(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int page_size: The number of items in the response.
+        :param int skip: The number of items to skip when paging through large result sets.
+        :param float points_from: Return only rewards whose points required is greater than or equal to this value.
+        :param float points_to: Return only rewards whose points required is less than or equal to this value.
+        :param bool include_free: Whether to include rewards that have no `pointsRequired`. These rewards are treated as free and available to all customers. 
+        :param int loyalty_program_id: Return only rewards available in this loyalty program. 
+        :param str subledger_id: Return only rewards available in this subledger. Must be combined with `loyaltyProgramId`. To specify the main ledger, provide an empty string (\"\"). 
+        :param str profile_integration_id: The integration ID of the customer profile whose loyalty balances to include in the response. Balances are returned only when `loyaltyProgramId` is also provided.  **Note:** `profileIntegrationId` and `loyaltyCardId` are mutually exclusive. Do not send both in the same request. 
+        :param str loyalty_card_id: The identifier of the loyalty card whose loyalty balances to include in the response. Balances are returned only when `loyaltyProgramId` is also provided.  **Note:** `profileIntegrationId` and `loyaltyCardId` are mutually exclusive. Do not send both in the same request. 
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(InlineResponse20056, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'page_size',
+            'skip',
+            'points_from',
+            'points_to',
+            'include_free',
+            'loyalty_program_id',
+            'subledger_id',
+            'profile_integration_id',
+            'loyalty_card_id'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method integration_rewards_catalog" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+
+        if self.api_client.client_side_validation and 'page_size' in local_var_params and local_var_params['page_size'] > 1000:  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `page_size` when calling `integration_rewards_catalog`, must be a value less than or equal to `1000`")  # noqa: E501
+        if self.api_client.client_side_validation and 'page_size' in local_var_params and local_var_params['page_size'] < 1:  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `page_size` when calling `integration_rewards_catalog`, must be a value greater than or equal to `1`")  # noqa: E501
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+        if 'page_size' in local_var_params and local_var_params['page_size'] is not None:  # noqa: E501
+            query_params.append(('pageSize', local_var_params['page_size']))  # noqa: E501
+        if 'skip' in local_var_params and local_var_params['skip'] is not None:  # noqa: E501
+            query_params.append(('skip', local_var_params['skip']))  # noqa: E501
+        if 'points_from' in local_var_params and local_var_params['points_from'] is not None:  # noqa: E501
+            query_params.append(('pointsFrom', local_var_params['points_from']))  # noqa: E501
+        if 'points_to' in local_var_params and local_var_params['points_to'] is not None:  # noqa: E501
+            query_params.append(('pointsTo', local_var_params['points_to']))  # noqa: E501
+        if 'include_free' in local_var_params and local_var_params['include_free'] is not None:  # noqa: E501
+            query_params.append(('includeFree', local_var_params['include_free']))  # noqa: E501
+        if 'loyalty_program_id' in local_var_params and local_var_params['loyalty_program_id'] is not None:  # noqa: E501
+            query_params.append(('loyaltyProgramId', local_var_params['loyalty_program_id']))  # noqa: E501
+        if 'subledger_id' in local_var_params and local_var_params['subledger_id'] is not None:  # noqa: E501
+            query_params.append(('subledgerId', local_var_params['subledger_id']))  # noqa: E501
+        if 'profile_integration_id' in local_var_params and local_var_params['profile_integration_id'] is not None:  # noqa: E501
+            query_params.append(('profileIntegrationId', local_var_params['profile_integration_id']))  # noqa: E501
+        if 'loyalty_card_id' in local_var_params and local_var_params['loyalty_card_id'] is not None:  # noqa: E501
+            query_params.append(('loyaltyCardId', local_var_params['loyalty_card_id']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['api_key_v1']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/v1/rewards/catalog', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='InlineResponse20056',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def join_loyalty_program(self, loyalty_program_id, integration_id, **kwargs):  # noqa: E501
+        """Join customer profile to loyalty program  # noqa: E501
+
+        Join a customer profile to the specified loyalty program.  If the customer profile does not exist, it will be created first using the provided `integrationId`, then joined to the loyalty program.  > [!note] This endpoint only works with profile-based loyalty programs.  **Behavior**: - If the loyalty program does not exist, the request fails. - If the customer profile is already joined to the loyalty program, the request fails. - If the customer profile does not exist, it is created and then joined to the loyalty program.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.join_loyalty_program(loyalty_program_id, integration_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int loyalty_program_id: Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  (required)
+        :param str integration_id: The integration ID of the customer profile. You can get the `integrationId` of a profile using: - A customer session integration ID with the [Update customer session](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint. - The Management API with the [List application's customers](https://docs.talon.one/management-api#tag/Customer-data/operation/getApplicationCustomers) endpoint.  (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.join_loyalty_program_with_http_info(loyalty_program_id, integration_id, **kwargs)  # noqa: E501
+
+    def join_loyalty_program_with_http_info(self, loyalty_program_id, integration_id, **kwargs):  # noqa: E501
+        """Join customer profile to loyalty program  # noqa: E501
+
+        Join a customer profile to the specified loyalty program.  If the customer profile does not exist, it will be created first using the provided `integrationId`, then joined to the loyalty program.  > [!note] This endpoint only works with profile-based loyalty programs.  **Behavior**: - If the loyalty program does not exist, the request fails. - If the customer profile is already joined to the loyalty program, the request fails. - If the customer profile does not exist, it is created and then joined to the loyalty program.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.join_loyalty_program_with_http_info(loyalty_program_id, integration_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int loyalty_program_id: Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  (required)
+        :param str integration_id: The integration ID of the customer profile. You can get the `integrationId` of a profile using: - A customer session integration ID with the [Update customer session](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint. - The Management API with the [List application's customers](https://docs.talon.one/management-api#tag/Customer-data/operation/getApplicationCustomers) endpoint.  (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'loyalty_program_id',
+            'integration_id'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method join_loyalty_program" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'loyalty_program_id' is set
+        if self.api_client.client_side_validation and ('loyalty_program_id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['loyalty_program_id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `loyalty_program_id` when calling `join_loyalty_program`")  # noqa: E501
+        # verify the required parameter 'integration_id' is set
+        if self.api_client.client_side_validation and ('integration_id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['integration_id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `integration_id` when calling `join_loyalty_program`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'loyalty_program_id' in local_var_params:
+            path_params['loyaltyProgramId'] = local_var_params['loyalty_program_id']  # noqa: E501
+        if 'integration_id' in local_var_params:
+            path_params['integrationId'] = local_var_params['integration_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['api_key_v1']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/v1/loyalty_programs/{loyaltyProgramId}/profile/{integrationId}/join', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type=None,  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -3553,7 +3961,7 @@ class IntegrationApi(object):
     def return_cart_items(self, customer_session_id, body, **kwargs):  # noqa: E501
         """Return cart items  # noqa: E501
 
-        Create a new return request for the specified cart items.  This endpoint automatically changes the session state from `closed` to `partially_returned`.  > [!note] This will roll back any effects associated with these cart items. > For more information, see [our documentation on session > states](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions#customer-session-states) > and [this tutorial](https://docs.talon.one/docs/dev/tutorials/partially-returning-a-session).  > [!note] To make request processing idempotent for this endpoint, include the `Idempotency-Key` header with an idempotency key in requests. Also: > - Requests with the `Idempotency-Key` header are logged in the Talon.One access logs. > - Responses for idempotent requests are stored in the database and expire 24 hours after the request is sent. > - Idempotency keys are typically UUID keys and should not exceed 255 characters in length.   # noqa: E501
+        Create a new return request for the specified cart items.  This endpoint automatically changes the session state from `closed` to `partially_returned`.  > [!note] This will roll back any effects associated with these cart items. > For more information, see [our documentation on session > states](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions#customer-session-states) > and [this tutorial](https://docs.talon.one/docs/dev/tutorials/partially-returning-a-session).   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.return_cart_items(customer_session_id, body, async_req=True)
@@ -3581,7 +3989,7 @@ class IntegrationApi(object):
     def return_cart_items_with_http_info(self, customer_session_id, body, **kwargs):  # noqa: E501
         """Return cart items  # noqa: E501
 
-        Create a new return request for the specified cart items.  This endpoint automatically changes the session state from `closed` to `partially_returned`.  > [!note] This will roll back any effects associated with these cart items. > For more information, see [our documentation on session > states](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions#customer-session-states) > and [this tutorial](https://docs.talon.one/docs/dev/tutorials/partially-returning-a-session).  > [!note] To make request processing idempotent for this endpoint, include the `Idempotency-Key` header with an idempotency key in requests. Also: > - Requests with the `Idempotency-Key` header are logged in the Talon.One access logs. > - Responses for idempotent requests are stored in the database and expire 24 hours after the request is sent. > - Idempotency keys are typically UUID keys and should not exceed 255 characters in length.   # noqa: E501
+        Create a new return request for the specified cart items.  This endpoint automatically changes the session state from `closed` to `partially_returned`.  > [!note] This will roll back any effects associated with these cart items. > For more information, see [our documentation on session > states](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions#customer-session-states) > and [this tutorial](https://docs.talon.one/docs/dev/tutorials/partially-returning-a-session).   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.return_cart_items_with_http_info(customer_session_id, body, async_req=True)
@@ -3690,7 +4098,7 @@ class IntegrationApi(object):
     def sync_catalog(self, catalog_id, body, **kwargs):  # noqa: E501
         """Sync cart item catalog  # noqa: E501
 
-        Perform the following actions for a given cart item catalog:  - Add an item to the catalog. - Add multiple items to the catalog. - Update the attributes of an item in the catalog. - Update the attributes of multiple items in the catalog. - Remove an item from the catalog. - Remove multiple items from the catalog.  You can either add, update, or delete up to 1000 cart items in a single request. Each item synced to a catalog must have a unique `SKU`.  > [!important] You can perform only one type of action in a single sync request. Syncing items with duplicate `SKU` values in a single request returns an error message with a `400` status code.  For more information, read [managing cart item catalogs](https://docs.talon.one/docs/product/account/dev-tools/managing-cart-item-catalogs).  ### Filtering cart items  Use [cart item attributes](https://docs.talon.one/docs/product/account/dev-tools/managing-attributes) to filter items and select the ones you want to edit or delete when editing or deleting more than one item at a time.  The `filters` array contains an object with the following properties:  - `attr`: A [cart item attribute](https://docs.talon.one/docs/product/account/dev-tools/managing-attributes)   connected to the catalog. It is applied to all items in the catalog. - `op`: The filtering operator indicating the relationship between the value   of each cart item in the catalog and the value of the `value` property for the attribute selected   in `attr`.    The value of `op` can be one of the following:    - `EQ`: Equal to `value`   - `LT`: Less than `value`   - `LE`: Less than or equal to `value`   - `GT`: Greater than `value`   - `GE`: Greater than or equal to `value`   - `IN`: One of the comma-separated values that `value` is set to.    **Note:** `GE`, `LE`, `GT`, `LT` are for numeric values only. - `value`: The value of the attribute selected in `attr`.  ### Payload examples  Synchronization actions are sent as `PUT` requests. See the structure for each action:  <details>   <summary><strong>Adding an item to the catalog</strong></summary>   <div>    ```json   {     \"actions\": [       {         \"payload\": {           \"attributes\": {             \"color\": \"Navy blue\",             \"type\": \"shoes\"           },           \"replaceIfExists\": true,           \"sku\": \"SKU1241028\",           \"price\": 100,           \"product\": {             \"name\": \"sneakers\"           }         },         \"type\": \"ADD\"       }     ]   }   ```   </div> </details>  <details>   <summary><strong>Adding multiple items to the catalog</strong></summary>   <div>    ```json   {     \"actions\": [       {         \"payload\": {           \"attributes\": {             \"color\": \"Navy blue\",             \"type\": \"shoes\"           },           \"replaceIfExists\": true,           \"sku\": \"SKU1241027\",           \"price\": 100,           \"product\": {             \"name\": \"sneakers\"           }         },         \"type\": \"ADD\"       },       {         \"payload\": {           \"attributes\": {             \"color\": \"Navy blue\",             \"type\": \"shoes\"           },           \"replaceIfExists\": true,           \"sku\": \"SKU1241028\",           \"price\": 100,           \"product\": {             \"name\": \"sneakers\"           }         },         \"type\": \"ADD\"       }     ]   }   ```   </div> </details>  <details>   <summary><strong>Updating the attributes of an item in the catalog</strong></summary>   <div>    ```json   {     \"actions\": [       {         \"payload\": {           \"attributes\": {             \"age\": 11,             \"origin\": \"germany\"           },           \"createIfNotExists\": false,           \"sku\": \"SKU1241028\",           \"product\": {             \"name\": \"sneakers\"           }         },         \"type\": \"PATCH\"       }     ]   }   ```   </div> </details>  <details>   <summary><strong>Updating the attributes of multiple items in the catalog</strong></summary>   <div>    ```json   {     \"actions\": [       {         \"payload\": {           \"attributes\": {             \"color\": \"red\"           },           \"filters\": [             {               \"attr\": \"color\",               \"op\": \"EQ\",               \"value\": \"blue\"             }           ]         },         \"type\": \"PATCH_MANY\"       }     ]   }   ```    </div> </details>  <details>   <summary><strong>Removing an item from the catalog</strong></summary>   <div>    ```json   {     \"actions\": [       {         \"payload\": {           \"sku\": \"SKU1241028\"         },         \"type\": \"REMOVE\"       }     ]   }   ```    </div> </details>  <details>   <summary><strong>Removing multiple items from the catalog</strong></summary>   <div>    ```json   {     \"actions\": [       {         \"payload\": {           \"filters\": [             {               \"attr\": \"color\",               \"op\": \"EQ\",               \"value\": \"blue\"             }           ]         },         \"type\": \"REMOVE_MANY\"       }     ]   }   ```   </div> </details>  <details>   <summary><strong>Removing shoes of sizes above 45 from the catalog</strong></summary>   <div>   <p>   Let's imagine that we have a shoe store and we have decided to stop selling   shoes larger than size 45. We can remove from the catalog all the shoes of sizes above 45   with a single action:</p>    ```json   {     \"actions\": [       {         \"payload\": {           \"filters\": [             {               \"attr\": \"size\",               \"op\": \"GT\",               \"value\": \"45\"             }           ]         },         \"type\": \"REMOVE_MANY\"       }     ]   }   ```   </div> </details>   # noqa: E501
+        Perform the following actions for a given cart item catalog:  - Add an item to the catalog. - Add multiple items to the catalog. - Update the attributes of an item in the catalog. - Update the attributes of multiple items in the catalog. - Remove an item from the catalog. - Remove multiple items from the catalog.  You can either add, update, or delete up to 1000 cart items in a single request. Each item synced to a catalog must have a unique `SKU`.  > [!important] You can perform only one type of action in a single sync request. Syncing items with duplicate `SKU` values in a single request returns an error message with a `400` status code.  For more information, read [managing cart item catalogs](https://docs.talon.one/docs/product/account/dev-tools/managing-cart-item-catalogs).  ### Filtering cart items  Use [cart item attributes](https://docs.talon.one/docs/product/account/dev-tools/managing-attributes) to filter items and select the ones you want to edit or delete when editing or deleting more than one item at a time.  The `filters` array contains an object with the following properties:  - `attr`: A [cart item attribute](https://docs.talon.one/docs/product/account/dev-tools/managing-attributes)   connected to the catalog. It is applied to all items in the catalog. - `op`: The filtering operator indicating the relationship between the value   of each cart item in the catalog and the value of the `value` property for the attribute selected   in `attr`.    The value of `op` can be one of the following:    - `EQ`: Equal to `value`   - `LT`: Less than `value`   - `LE`: Less than or equal to `value`   - `GT`: Greater than `value`   - `GE`: Greater than or equal to `value`   - `IN`: One of the comma-separated values that `value` is set to.    **Note:** `GE`, `LE`, `GT`, `LT` are for numeric values only. - `value`: The value of the attribute selected in `attr`.  For request examples of each action, see the **Request Body** examples.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.sync_catalog(catalog_id, body, async_req=True)
@@ -3716,7 +4124,7 @@ class IntegrationApi(object):
     def sync_catalog_with_http_info(self, catalog_id, body, **kwargs):  # noqa: E501
         """Sync cart item catalog  # noqa: E501
 
-        Perform the following actions for a given cart item catalog:  - Add an item to the catalog. - Add multiple items to the catalog. - Update the attributes of an item in the catalog. - Update the attributes of multiple items in the catalog. - Remove an item from the catalog. - Remove multiple items from the catalog.  You can either add, update, or delete up to 1000 cart items in a single request. Each item synced to a catalog must have a unique `SKU`.  > [!important] You can perform only one type of action in a single sync request. Syncing items with duplicate `SKU` values in a single request returns an error message with a `400` status code.  For more information, read [managing cart item catalogs](https://docs.talon.one/docs/product/account/dev-tools/managing-cart-item-catalogs).  ### Filtering cart items  Use [cart item attributes](https://docs.talon.one/docs/product/account/dev-tools/managing-attributes) to filter items and select the ones you want to edit or delete when editing or deleting more than one item at a time.  The `filters` array contains an object with the following properties:  - `attr`: A [cart item attribute](https://docs.talon.one/docs/product/account/dev-tools/managing-attributes)   connected to the catalog. It is applied to all items in the catalog. - `op`: The filtering operator indicating the relationship between the value   of each cart item in the catalog and the value of the `value` property for the attribute selected   in `attr`.    The value of `op` can be one of the following:    - `EQ`: Equal to `value`   - `LT`: Less than `value`   - `LE`: Less than or equal to `value`   - `GT`: Greater than `value`   - `GE`: Greater than or equal to `value`   - `IN`: One of the comma-separated values that `value` is set to.    **Note:** `GE`, `LE`, `GT`, `LT` are for numeric values only. - `value`: The value of the attribute selected in `attr`.  ### Payload examples  Synchronization actions are sent as `PUT` requests. See the structure for each action:  <details>   <summary><strong>Adding an item to the catalog</strong></summary>   <div>    ```json   {     \"actions\": [       {         \"payload\": {           \"attributes\": {             \"color\": \"Navy blue\",             \"type\": \"shoes\"           },           \"replaceIfExists\": true,           \"sku\": \"SKU1241028\",           \"price\": 100,           \"product\": {             \"name\": \"sneakers\"           }         },         \"type\": \"ADD\"       }     ]   }   ```   </div> </details>  <details>   <summary><strong>Adding multiple items to the catalog</strong></summary>   <div>    ```json   {     \"actions\": [       {         \"payload\": {           \"attributes\": {             \"color\": \"Navy blue\",             \"type\": \"shoes\"           },           \"replaceIfExists\": true,           \"sku\": \"SKU1241027\",           \"price\": 100,           \"product\": {             \"name\": \"sneakers\"           }         },         \"type\": \"ADD\"       },       {         \"payload\": {           \"attributes\": {             \"color\": \"Navy blue\",             \"type\": \"shoes\"           },           \"replaceIfExists\": true,           \"sku\": \"SKU1241028\",           \"price\": 100,           \"product\": {             \"name\": \"sneakers\"           }         },         \"type\": \"ADD\"       }     ]   }   ```   </div> </details>  <details>   <summary><strong>Updating the attributes of an item in the catalog</strong></summary>   <div>    ```json   {     \"actions\": [       {         \"payload\": {           \"attributes\": {             \"age\": 11,             \"origin\": \"germany\"           },           \"createIfNotExists\": false,           \"sku\": \"SKU1241028\",           \"product\": {             \"name\": \"sneakers\"           }         },         \"type\": \"PATCH\"       }     ]   }   ```   </div> </details>  <details>   <summary><strong>Updating the attributes of multiple items in the catalog</strong></summary>   <div>    ```json   {     \"actions\": [       {         \"payload\": {           \"attributes\": {             \"color\": \"red\"           },           \"filters\": [             {               \"attr\": \"color\",               \"op\": \"EQ\",               \"value\": \"blue\"             }           ]         },         \"type\": \"PATCH_MANY\"       }     ]   }   ```    </div> </details>  <details>   <summary><strong>Removing an item from the catalog</strong></summary>   <div>    ```json   {     \"actions\": [       {         \"payload\": {           \"sku\": \"SKU1241028\"         },         \"type\": \"REMOVE\"       }     ]   }   ```    </div> </details>  <details>   <summary><strong>Removing multiple items from the catalog</strong></summary>   <div>    ```json   {     \"actions\": [       {         \"payload\": {           \"filters\": [             {               \"attr\": \"color\",               \"op\": \"EQ\",               \"value\": \"blue\"             }           ]         },         \"type\": \"REMOVE_MANY\"       }     ]   }   ```   </div> </details>  <details>   <summary><strong>Removing shoes of sizes above 45 from the catalog</strong></summary>   <div>   <p>   Let's imagine that we have a shoe store and we have decided to stop selling   shoes larger than size 45. We can remove from the catalog all the shoes of sizes above 45   with a single action:</p>    ```json   {     \"actions\": [       {         \"payload\": {           \"filters\": [             {               \"attr\": \"size\",               \"op\": \"GT\",               \"value\": \"45\"             }           ]         },         \"type\": \"REMOVE_MANY\"       }     ]   }   ```   </div> </details>   # noqa: E501
+        Perform the following actions for a given cart item catalog:  - Add an item to the catalog. - Add multiple items to the catalog. - Update the attributes of an item in the catalog. - Update the attributes of multiple items in the catalog. - Remove an item from the catalog. - Remove multiple items from the catalog.  You can either add, update, or delete up to 1000 cart items in a single request. Each item synced to a catalog must have a unique `SKU`.  > [!important] You can perform only one type of action in a single sync request. Syncing items with duplicate `SKU` values in a single request returns an error message with a `400` status code.  For more information, read [managing cart item catalogs](https://docs.talon.one/docs/product/account/dev-tools/managing-cart-item-catalogs).  ### Filtering cart items  Use [cart item attributes](https://docs.talon.one/docs/product/account/dev-tools/managing-attributes) to filter items and select the ones you want to edit or delete when editing or deleting more than one item at a time.  The `filters` array contains an object with the following properties:  - `attr`: A [cart item attribute](https://docs.talon.one/docs/product/account/dev-tools/managing-attributes)   connected to the catalog. It is applied to all items in the catalog. - `op`: The filtering operator indicating the relationship between the value   of each cart item in the catalog and the value of the `value` property for the attribute selected   in `attr`.    The value of `op` can be one of the following:    - `EQ`: Equal to `value`   - `LT`: Less than `value`   - `LE`: Less than or equal to `value`   - `GT`: Greater than `value`   - `GE`: Greater than or equal to `value`   - `IN`: One of the comma-separated values that `value` is set to.    **Note:** `GE`, `LE`, `GT`, `LT` are for numeric values only. - `value`: The value of the attribute selected in `attr`.  For request examples of each action, see the **Request Body** examples.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.sync_catalog_with_http_info(catalog_id, body, async_req=True)
@@ -3817,7 +4225,7 @@ class IntegrationApi(object):
     def track_event_v2(self, body, **kwargs):  # noqa: E501
         """Track event  # noqa: E501
 
-        Triggers a custom event.  To use this endpoint:  1. Define a [custom event](https://docs.talon.one/docs/dev/concepts/entities/events#creating-a-custom-event) in the Campaign Manager. 1. Update or create a rule to check for this event. 1. Trigger the event with this endpoint. After you have successfully sent an event to Talon.One, you can list the received events in the **Events** view in the Campaign Manager.  Talon.One also offers a set of [built-in events](https://docs.talon.one/docs/dev/concepts/entities/events). Ensure you do not create a custom event when you can use a built-in event.  For example, use this endpoint to trigger an event when a customer shares a link to a product.  See the [tutorial](https://docs.talon.one/docs/product/tutorials/referrals/incentivizing-product-link-sharing).  > [!note] **Note** > - `profileId` is required even though the schema does not specify it. > - If the customer profile ID is new, a new profile is automatically created but the `customer_profile_created` [built-in event ](https://docs.talon.one/docs/dev/concepts/entities/events) is **not** triggered. > - We recommend sending requests sequentially. See [Managing parallel requests](https://docs.talon.one/docs/dev/getting-started/integration-tutorial#managing-parallel-requests). > - [Archived campaigns](https://docs.talon.one/docs/product/campaigns/managing-campaigns#archiving-a-campaign) are not considered in rule evaluation.   # noqa: E501
+        Trigger a [custom event](https://docs.talon.one/docs/dev/concepts/entities/events#custom-events).  To use this endpoint:  1. [Create](https://docs.talon.one/docs/dev/concepts/entities/events#create-an-event) an event in the Campaign Manager. 1. In a rule, add the **Check for event types** [condition](https://docs.talon.one/docs/dev/concepts/entities/events#use-an-event-in-a-rule) and select the event you created. 1. Trigger the event with this endpoint.  You can [list](https://docs.talon.one/docs/product/applications/display-events#list-events) the received events in the **Events** view of the Campaign Manager.  For example, you can use this endpoint to trigger an event when a customer shares a link to a product. See our [tutorial](https://docs.talon.one/docs/product/tutorials/referrals/incentivizing-product-link-sharing).  > [!note] **Note** > - `profileId` is required even though the schema does not specify it. > - If the customer profile ID is new, a new profile is automatically created but the `customer_profile_created` [built-in event ](https://docs.talon.one/docs/dev/concepts/entities/events) is **not** triggered. > - We recommend sending requests sequentially. See [Manage parallel requests](https://docs.talon.one/docs/dev/getting-started/integration-tutorial#manage-parallel-requests). > - [Archived campaigns](https://docs.talon.one/docs/product/campaigns/managing-campaigns#archive-a-campaign) are not considered in rule evaluation.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.track_event_v2(body, async_req=True)
@@ -3845,7 +4253,7 @@ class IntegrationApi(object):
     def track_event_v2_with_http_info(self, body, **kwargs):  # noqa: E501
         """Track event  # noqa: E501
 
-        Triggers a custom event.  To use this endpoint:  1. Define a [custom event](https://docs.talon.one/docs/dev/concepts/entities/events#creating-a-custom-event) in the Campaign Manager. 1. Update or create a rule to check for this event. 1. Trigger the event with this endpoint. After you have successfully sent an event to Talon.One, you can list the received events in the **Events** view in the Campaign Manager.  Talon.One also offers a set of [built-in events](https://docs.talon.one/docs/dev/concepts/entities/events). Ensure you do not create a custom event when you can use a built-in event.  For example, use this endpoint to trigger an event when a customer shares a link to a product.  See the [tutorial](https://docs.talon.one/docs/product/tutorials/referrals/incentivizing-product-link-sharing).  > [!note] **Note** > - `profileId` is required even though the schema does not specify it. > - If the customer profile ID is new, a new profile is automatically created but the `customer_profile_created` [built-in event ](https://docs.talon.one/docs/dev/concepts/entities/events) is **not** triggered. > - We recommend sending requests sequentially. See [Managing parallel requests](https://docs.talon.one/docs/dev/getting-started/integration-tutorial#managing-parallel-requests). > - [Archived campaigns](https://docs.talon.one/docs/product/campaigns/managing-campaigns#archiving-a-campaign) are not considered in rule evaluation.   # noqa: E501
+        Trigger a [custom event](https://docs.talon.one/docs/dev/concepts/entities/events#custom-events).  To use this endpoint:  1. [Create](https://docs.talon.one/docs/dev/concepts/entities/events#create-an-event) an event in the Campaign Manager. 1. In a rule, add the **Check for event types** [condition](https://docs.talon.one/docs/dev/concepts/entities/events#use-an-event-in-a-rule) and select the event you created. 1. Trigger the event with this endpoint.  You can [list](https://docs.talon.one/docs/product/applications/display-events#list-events) the received events in the **Events** view of the Campaign Manager.  For example, you can use this endpoint to trigger an event when a customer shares a link to a product. See our [tutorial](https://docs.talon.one/docs/product/tutorials/referrals/incentivizing-product-link-sharing).  > [!note] **Note** > - `profileId` is required even though the schema does not specify it. > - If the customer profile ID is new, a new profile is automatically created but the `customer_profile_created` [built-in event ](https://docs.talon.one/docs/dev/concepts/entities/events) is **not** triggered. > - We recommend sending requests sequentially. See [Manage parallel requests](https://docs.talon.one/docs/dev/getting-started/integration-tutorial#manage-parallel-requests). > - [Archived campaigns](https://docs.talon.one/docs/product/campaigns/managing-campaigns#archive-a-campaign) are not considered in rule evaluation.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.track_event_v2_with_http_info(body, async_req=True)
@@ -3940,6 +4348,139 @@ class IntegrationApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='IntegrationEventV2Response',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def track_event_v3(self, body, **kwargs):  # noqa: E501
+        """Track advanced event  # noqa: E501
+
+        Trigger an [advanced event](https://docs.talon.one/docs/dev/concepts/entities/events#advanced-events).  Advanced events are idempotent, uniquely identifiable events. They can also reference a previously closed session to add more context for rule evaluation.  To use this endpoint:  1. [Create](https://docs.talon.one/docs/dev/concepts/entities/events#create-an-event) an event in the Campaign Manager. 1. In a rule, add the **Check for event types** [condition](https://docs.talon.one/docs/dev/concepts/entities/events#use-an-event-in-a-rule) and select the event you created. 1. Trigger the event with this endpoint.  You can [list](https://docs.talon.one/docs/product/applications/display-events#list-events) the received events in the **Events** view of the Campaign Manager.  For example, you can use this endpoint to award loyalty points after an order is delivered. See our [tutorial](https://docs.talon.one/docs/dev/tutorials/award-loyalty-points-after-delivery).  > [!note] **Note** > - If the customer profile does not exist, it will be created. However, the `customer_profile_created` [built-in event](https://docs.talon.one/docs/dev/concepts/entities/events#built-in-events) is **not** triggered. > - We recommend sending requests sequentially. See [Manage parallel requests](https://docs.talon.one/docs/dev/getting-started/integration-tutorial#manage-parallel-requests). > - [Archived campaigns](https://docs.talon.one/docs/product/campaigns/managing-campaigns#archive-a-campaign) are not considered in rule evaluation.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.track_event_v3(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param IntegrationEventV3Request body: body (required)
+        :param str silent: Possible values: `yes` or `no`. - `yes`: Increases the performance of the API call by returning a 204 response. - `no`: Returns a 200 response that contains the updated customer profiles. 
+        :param bool dry: Indicates whether to persist the changes. Changes are ignored when `dry=true`. 
+        :param bool force_complete_evaluation: Forces evaluation for all matching campaigns regardless of the [campaign evaluation mode](https://docs.talon.one/docs/product/applications/managing-campaign-evaluation#setting-campaign-evaluation-mode). Requires `dry=true`. 
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: IntegrationEventV3Response
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.track_event_v3_with_http_info(body, **kwargs)  # noqa: E501
+
+    def track_event_v3_with_http_info(self, body, **kwargs):  # noqa: E501
+        """Track advanced event  # noqa: E501
+
+        Trigger an [advanced event](https://docs.talon.one/docs/dev/concepts/entities/events#advanced-events).  Advanced events are idempotent, uniquely identifiable events. They can also reference a previously closed session to add more context for rule evaluation.  To use this endpoint:  1. [Create](https://docs.talon.one/docs/dev/concepts/entities/events#create-an-event) an event in the Campaign Manager. 1. In a rule, add the **Check for event types** [condition](https://docs.talon.one/docs/dev/concepts/entities/events#use-an-event-in-a-rule) and select the event you created. 1. Trigger the event with this endpoint.  You can [list](https://docs.talon.one/docs/product/applications/display-events#list-events) the received events in the **Events** view of the Campaign Manager.  For example, you can use this endpoint to award loyalty points after an order is delivered. See our [tutorial](https://docs.talon.one/docs/dev/tutorials/award-loyalty-points-after-delivery).  > [!note] **Note** > - If the customer profile does not exist, it will be created. However, the `customer_profile_created` [built-in event](https://docs.talon.one/docs/dev/concepts/entities/events#built-in-events) is **not** triggered. > - We recommend sending requests sequentially. See [Manage parallel requests](https://docs.talon.one/docs/dev/getting-started/integration-tutorial#manage-parallel-requests). > - [Archived campaigns](https://docs.talon.one/docs/product/campaigns/managing-campaigns#archive-a-campaign) are not considered in rule evaluation.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.track_event_v3_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param IntegrationEventV3Request body: body (required)
+        :param str silent: Possible values: `yes` or `no`. - `yes`: Increases the performance of the API call by returning a 204 response. - `no`: Returns a 200 response that contains the updated customer profiles. 
+        :param bool dry: Indicates whether to persist the changes. Changes are ignored when `dry=true`. 
+        :param bool force_complete_evaluation: Forces evaluation for all matching campaigns regardless of the [campaign evaluation mode](https://docs.talon.one/docs/product/applications/managing-campaign-evaluation#setting-campaign-evaluation-mode). Requires `dry=true`. 
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(IntegrationEventV3Response, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'body',
+            'silent',
+            'dry',
+            'force_complete_evaluation'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method track_event_v3" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in local_var_params or  # noqa: E501
+                                                        local_var_params['body'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `body` when calling `track_event_v3`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+        if 'silent' in local_var_params and local_var_params['silent'] is not None:  # noqa: E501
+            query_params.append(('silent', local_var_params['silent']))  # noqa: E501
+        if 'dry' in local_var_params and local_var_params['dry'] is not None:  # noqa: E501
+            query_params.append(('dry', local_var_params['dry']))  # noqa: E501
+        if 'force_complete_evaluation' in local_var_params and local_var_params['force_complete_evaluation'] is not None:  # noqa: E501
+            query_params.append(('forceCompleteEvaluation', local_var_params['force_complete_evaluation']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in local_var_params:
+            body_params = local_var_params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['api_key_v1']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/v3/events', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='IntegrationEventV3Response',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -4082,6 +4623,138 @@ class IntegrationApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='LoyaltyCard',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def unlock_reward(self, reward_id, body, **kwargs):  # noqa: E501
+        """Unlock a reward  # noqa: E501
+
+        Unlock a reward for a customer. If the reward has `pointsRequired` configured, the corresponding loyalty points are deducted from the customer's balance.  To unlock a reward with the points of a loyalty card, provide the card in `cardIdentifier`. The points are then deducted from the card, and the unlocked reward belongs to the card, which makes it available to all customer profiles linked to that card.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.unlock_reward(reward_id, body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int reward_id: The ID of the reward. You can get the ID with the [List rewards](#tag/Rewards/operation/listRewards) endpoint. (required)
+        :param IntegrationUnlockRewardRequest body: (required)
+        :param bool dry: When set to `true`, the rule evaluation is performed but no changes are persisted. Use this to preview the outcome of an unlocking.
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: IntegrationStateV2
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.unlock_reward_with_http_info(reward_id, body, **kwargs)  # noqa: E501
+
+    def unlock_reward_with_http_info(self, reward_id, body, **kwargs):  # noqa: E501
+        """Unlock a reward  # noqa: E501
+
+        Unlock a reward for a customer. If the reward has `pointsRequired` configured, the corresponding loyalty points are deducted from the customer's balance.  To unlock a reward with the points of a loyalty card, provide the card in `cardIdentifier`. The points are then deducted from the card, and the unlocked reward belongs to the card, which makes it available to all customer profiles linked to that card.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.unlock_reward_with_http_info(reward_id, body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param int reward_id: The ID of the reward. You can get the ID with the [List rewards](#tag/Rewards/operation/listRewards) endpoint. (required)
+        :param IntegrationUnlockRewardRequest body: (required)
+        :param bool dry: When set to `true`, the rule evaluation is performed but no changes are persisted. Use this to preview the outcome of an unlocking.
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(IntegrationStateV2, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'reward_id',
+            'body',
+            'dry'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method unlock_reward" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'reward_id' is set
+        if self.api_client.client_side_validation and ('reward_id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['reward_id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `reward_id` when calling `unlock_reward`")  # noqa: E501
+        # verify the required parameter 'body' is set
+        if self.api_client.client_side_validation and ('body' not in local_var_params or  # noqa: E501
+                                                        local_var_params['body'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `body` when calling `unlock_reward`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'reward_id' in local_var_params:
+            path_params['rewardId'] = local_var_params['reward_id']  # noqa: E501
+
+        query_params = []
+        if 'dry' in local_var_params and local_var_params['dry'] is not None:  # noqa: E501
+            query_params.append(('dry', local_var_params['dry']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in local_var_params:
+            body_params = local_var_params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['api_key_v1']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/v1/rewards/{rewardId}/unlock', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='IntegrationStateV2',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -4464,14 +5137,14 @@ class IntegrationApi(object):
     def update_customer_profile_v2(self, integration_id, body, **kwargs):  # noqa: E501
         """Update customer profile  # noqa: E501
 
-        Update or create a [Customer Profile](https://docs.talon.one/docs/dev/concepts/entities/customer-profiles). This endpoint triggers the Rule Builder.  You can use this endpoint to: - Set attributes on the given customer profile. Ensure you create the attributes in the Campaign Manager, first. - Modify the audience the customer profile is a member of.  > [!note] **Note** > - Updating a customer profile returns a response with the requested integration state. > - You can use the `responseContent` property to save yourself extra API calls. For example, you can get >   the customer profile details directly without extra requests. > - We recommend sending requests sequentially. >   See [Managing parallel requests](https://docs.talon.one/docs/dev/getting-started/integration-tutorial#managing-parallel-requests). > - [Archived campaigns](https://docs.talon.one/docs/product/campaigns/managing-campaigns#archiving-a-campaign) are not considered in rule evaluation when `runRuleEngine` is `true`.   # noqa: E501
+        Update or create a [Customer Profile](https://docs.talon.one/docs/dev/concepts/entities/customer-profiles). This endpoint triggers the Rule Builder.  You can use this endpoint to: - Set attributes on the given customer profile. Ensure you create the attributes in the Campaign Manager, first. - Modify the audience the customer profile is a member of.  > [!note] **Note** > - Updating a customer profile returns a response with the requested integration state. > - The [Has joined an audience](https://docs.talon.one/docs/product/rules/conditions/available-conditions#audience-conditions) and >   [Has left an audience](https://docs.talon.one/docs/product/rules/conditions/available-conditions#audience-conditions) conditions >   only trigger through this endpoint. > - You can use the `responseContent` property to save yourself extra API calls. For example, you can get >   the customer profile details directly without extra requests. > - We recommend sending requests sequentially. >   See [Managing parallel requests](https://docs.talon.one/docs/dev/getting-started/integration-tutorial#managing-parallel-requests). > - [Archived campaigns](https://docs.talon.one/docs/product/campaigns/managing-campaigns#archiving-a-campaign) are not considered in rule evaluation when `runRuleEngine` is `true`.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.update_customer_profile_v2(integration_id, body, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str integration_id: The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier.  (required)
+        :param str integration_id: The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. **Note**: It must be URL-encoded. For example, replace spaces with `%20`. [Learn more](https://www.w3schools.com/tags/ref_urlencode.asp).  (required)
         :param CustomerProfileIntegrationRequestV2 body: body (required)
         :param bool run_rule_engine: Indicates whether to run the Rule Engine.  If `true`, the response includes: - The effects generated by the triggered campaigns are returned in the `effects` property. - The created coupons and referral objects.  If `false`: - The rules are not executed and the `effects` property is always empty. - The response time improves. - You cannot use `responseContent` in the body. 
         :param bool dry: (Only works when `runRuleEngine=true`) Indicates whether to persist the changes. Changes are ignored when `dry=true`.  When set to `true`, you can use the `evaluableCampaignIds` body property to select specific campaigns to run. 
@@ -4492,14 +5165,14 @@ class IntegrationApi(object):
     def update_customer_profile_v2_with_http_info(self, integration_id, body, **kwargs):  # noqa: E501
         """Update customer profile  # noqa: E501
 
-        Update or create a [Customer Profile](https://docs.talon.one/docs/dev/concepts/entities/customer-profiles). This endpoint triggers the Rule Builder.  You can use this endpoint to: - Set attributes on the given customer profile. Ensure you create the attributes in the Campaign Manager, first. - Modify the audience the customer profile is a member of.  > [!note] **Note** > - Updating a customer profile returns a response with the requested integration state. > - You can use the `responseContent` property to save yourself extra API calls. For example, you can get >   the customer profile details directly without extra requests. > - We recommend sending requests sequentially. >   See [Managing parallel requests](https://docs.talon.one/docs/dev/getting-started/integration-tutorial#managing-parallel-requests). > - [Archived campaigns](https://docs.talon.one/docs/product/campaigns/managing-campaigns#archiving-a-campaign) are not considered in rule evaluation when `runRuleEngine` is `true`.   # noqa: E501
+        Update or create a [Customer Profile](https://docs.talon.one/docs/dev/concepts/entities/customer-profiles). This endpoint triggers the Rule Builder.  You can use this endpoint to: - Set attributes on the given customer profile. Ensure you create the attributes in the Campaign Manager, first. - Modify the audience the customer profile is a member of.  > [!note] **Note** > - Updating a customer profile returns a response with the requested integration state. > - The [Has joined an audience](https://docs.talon.one/docs/product/rules/conditions/available-conditions#audience-conditions) and >   [Has left an audience](https://docs.talon.one/docs/product/rules/conditions/available-conditions#audience-conditions) conditions >   only trigger through this endpoint. > - You can use the `responseContent` property to save yourself extra API calls. For example, you can get >   the customer profile details directly without extra requests. > - We recommend sending requests sequentially. >   See [Managing parallel requests](https://docs.talon.one/docs/dev/getting-started/integration-tutorial#managing-parallel-requests). > - [Archived campaigns](https://docs.talon.one/docs/product/campaigns/managing-campaigns#archiving-a-campaign) are not considered in rule evaluation when `runRuleEngine` is `true`.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.update_customer_profile_v2_with_http_info(integration_id, body, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str integration_id: The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier.  (required)
+        :param str integration_id: The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. **Note**: It must be URL-encoded. For example, replace spaces with `%20`. [Learn more](https://www.w3schools.com/tags/ref_urlencode.asp).  (required)
         :param CustomerProfileIntegrationRequestV2 body: body (required)
         :param bool run_rule_engine: Indicates whether to run the Rule Engine.  If `true`, the response includes: - The effects generated by the triggered campaigns are returned in the `effects` property. - The created coupons and referral objects.  If `false`: - The rules are not executed and the `effects` property is always empty. - The response time improves. - You cannot use `responseContent` in the body. 
         :param bool dry: (Only works when `runRuleEngine=true`) Indicates whether to persist the changes. Changes are ignored when `dry=true`.  When set to `true`, you can use the `evaluableCampaignIds` body property to select specific campaigns to run. 
@@ -4731,7 +5404,7 @@ class IntegrationApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str customer_session_id: The `integration ID` of the customer session. You set this ID when you create a customer session.  You can see existing customer session integration IDs in the Campaign Manager's **Sessions** menu, or via the [List Application session](https://docs.talon.one/management-api#tag/Customer-data/operation/getApplicationSessions) endpoint.  (required)
+        :param str customer_session_id: The `integration ID` of the customer session. You set this ID when you create a customer session.  You can see existing customer session integration IDs in the Campaign Manager's **Sessions** menu, or via the [List Application session](https://docs.talon.one/management-api#tag/Customer-data/operation/getApplicationSessions) endpoint. **Notes**: - There is no length limit for this ID. - It must be URL-encoded. For example, replace spaces with `%20`. [Learn more](https://www.w3schools.com/tags/ref_urlencode.asp).  (required)
         :param IntegrationRequest body: body (required)
         :param bool dry: Indicates whether to persist the changes. Changes are ignored when `dry=true`.  When set to `true`: - The endpoint considers **only** the payload that you pass when **closing** the session.   When you do not use the `dry` parameter, the endpoint behaves as a typical PUT endpoint. Each update builds upon the previous ones. - You can use the `evaluableCampaignIds` body property to select specific campaigns to run.  [See the docs](https://docs.talon.one/docs/dev/integration-api/dry-requests). 
         :param datetime now: A timestamp value of a future date that acts as a current date when included in the query.  Use this parameter, for example, to test campaigns that would be evaluated for this customer session in the future (say, [scheduled campaigns](https://docs.talon.one/docs/product/campaigns/settings/managing-campaign-schedule)).  > [!note] **Note** > - It must be an RFC3339 timestamp string. > - It can **only** be a date in the future. > - It can **only** be used if the `dry` parameter in the query is set to `true`. 
@@ -4759,7 +5432,7 @@ class IntegrationApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str customer_session_id: The `integration ID` of the customer session. You set this ID when you create a customer session.  You can see existing customer session integration IDs in the Campaign Manager's **Sessions** menu, or via the [List Application session](https://docs.talon.one/management-api#tag/Customer-data/operation/getApplicationSessions) endpoint.  (required)
+        :param str customer_session_id: The `integration ID` of the customer session. You set this ID when you create a customer session.  You can see existing customer session integration IDs in the Campaign Manager's **Sessions** menu, or via the [List Application session](https://docs.talon.one/management-api#tag/Customer-data/operation/getApplicationSessions) endpoint. **Notes**: - There is no length limit for this ID. - It must be URL-encoded. For example, replace spaces with `%20`. [Learn more](https://www.w3schools.com/tags/ref_urlencode.asp).  (required)
         :param IntegrationRequest body: body (required)
         :param bool dry: Indicates whether to persist the changes. Changes are ignored when `dry=true`.  When set to `true`: - The endpoint considers **only** the payload that you pass when **closing** the session.   When you do not use the `dry` parameter, the endpoint behaves as a typical PUT endpoint. Each update builds upon the previous ones. - You can use the `evaluableCampaignIds` body property to select specific campaigns to run.  [See the docs](https://docs.talon.one/docs/dev/integration-api/dry-requests). 
         :param datetime now: A timestamp value of a future date that acts as a current date when included in the query.  Use this parameter, for example, to test campaigns that would be evaluated for this customer session in the future (say, [scheduled campaigns](https://docs.talon.one/docs/product/campaigns/settings/managing-campaign-schedule)).  > [!note] **Note** > - It must be an RFC3339 timestamp string. > - It can **only** be a date in the future. > - It can **only** be used if the `dry` parameter in the query is set to `true`. 

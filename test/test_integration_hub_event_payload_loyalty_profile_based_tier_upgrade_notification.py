@@ -36,8 +36,10 @@ class TestIntegrationHubEventPayloadLoyaltyProfileBasedTierUpgradeNotification(u
         # model = talon_one.models.integration_hub_event_payload_loyalty_profile_based_tier_upgrade_notification.IntegrationHubEventPayloadLoyaltyProfileBasedTierUpgradeNotification()  # noqa: E501
         if include_optional :
             return IntegrationHubEventPayloadLoyaltyProfileBasedTierUpgradeNotification(
+                event_id = 123, 
                 profile_integration_id = '0', 
                 loyalty_program_id = 56, 
+                loyalty_program_name = '0', 
                 subledger_id = '0', 
                 source_of_event = '0', 
                 current_tier = '0', 
@@ -51,10 +53,13 @@ class TestIntegrationHubEventPayloadLoyaltyProfileBasedTierUpgradeNotification(u
             )
         else :
             return IntegrationHubEventPayloadLoyaltyProfileBasedTierUpgradeNotification(
+                event_id = 123,
                 profile_integration_id = '0',
                 loyalty_program_id = 56,
+                loyalty_program_name = '0',
                 subledger_id = '0',
                 source_of_event = '0',
+                current_tier = '0',
                 current_points = 1.337,
                 published_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
         )

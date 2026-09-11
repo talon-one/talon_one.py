@@ -46,6 +46,7 @@ class TestCustomerSessionV2(unittest.TestCase):
                 coupon_codes = [XMAS-20-2021], 
                 referral_code = 'NT2K54D9', 
                 loyalty_cards = [loyalty-card-1], 
+                reward_integration_ids = [5c0b5e6d-3f8a-4c2b-9f1e-2a7d6b4c8e90], 
                 state = 'open', 
                 cart_items = [
                     talon_one.models.cart_item.CartItem(
@@ -82,9 +83,10 @@ class TestCustomerSessionV2(unittest.TestCase):
                 attributes = {"ShippingCity":"Berlin"}, 
                 first_session = True, 
                 update_count = 3, 
-                total = 119.99, 
+                total = 134.99, 
                 cart_item_total = 99.99, 
                 additional_cost_total = 20.0, 
+                cart_item_additional_cost_total = 15.0, 
                 updated = '2020-02-08T14:15:22Z'
             )
         else :
@@ -123,9 +125,10 @@ class TestCustomerSessionV2(unittest.TestCase):
                 attributes = {"ShippingCity":"Berlin"},
                 first_session = True,
                 update_count = 3,
-                total = 119.99,
+                total = 134.99,
                 cart_item_total = 99.99,
                 additional_cost_total = 20.0,
+                cart_item_additional_cost_total = 15.0,
                 updated = '2020-02-08T14:15:22Z',
         )
 

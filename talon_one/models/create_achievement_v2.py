@@ -43,8 +43,8 @@ class CreateAchievementV2(object):
         'fixed_start_date': 'datetime',
         'end_date': 'datetime',
         'allow_rollback_after_completion': 'bool',
-        'sandbox': 'bool',
         'subscribed_applications': 'list[int]',
+        'sandbox': 'bool',
         'timezone': 'str'
     }
 
@@ -59,12 +59,12 @@ class CreateAchievementV2(object):
         'fixed_start_date': 'fixedStartDate',
         'end_date': 'endDate',
         'allow_rollback_after_completion': 'allowRollbackAfterCompletion',
-        'sandbox': 'sandbox',
         'subscribed_applications': 'subscribedApplications',
+        'sandbox': 'sandbox',
         'timezone': 'timezone'
     }
 
-    def __init__(self, name=None, title=None, description=None, target=None, period=None, recurrence_policy=None, activation_policy=None, fixed_start_date=None, end_date=None, allow_rollback_after_completion=None, sandbox=None, subscribed_applications=None, timezone=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, name=None, title=None, description=None, target=None, period=None, recurrence_policy=None, activation_policy=None, fixed_start_date=None, end_date=None, allow_rollback_after_completion=None, subscribed_applications=None, sandbox=None, timezone=None, local_vars_configuration=None):  # noqa: E501
         """CreateAchievementV2 - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -80,8 +80,8 @@ class CreateAchievementV2(object):
         self._fixed_start_date = None
         self._end_date = None
         self._allow_rollback_after_completion = None
-        self._sandbox = None
         self._subscribed_applications = None
+        self._sandbox = None
         self._timezone = None
         self.discriminator = None
 
@@ -101,9 +101,9 @@ class CreateAchievementV2(object):
             self.end_date = end_date
         if allow_rollback_after_completion is not None:
             self.allow_rollback_after_completion = allow_rollback_after_completion
-        self.sandbox = sandbox
         if subscribed_applications is not None:
             self.subscribed_applications = subscribed_applications
+        self.sandbox = sandbox
         self.timezone = timezone
 
     @property
@@ -366,6 +366,29 @@ class CreateAchievementV2(object):
         self._allow_rollback_after_completion = allow_rollback_after_completion
 
     @property
+    def subscribed_applications(self):
+        """Gets the subscribed_applications of this CreateAchievementV2.  # noqa: E501
+
+        A list containing the IDs of all applications that are subscribed to A list containing the IDs of all Applications that are connected to this achievement.  # noqa: E501
+
+        :return: The subscribed_applications of this CreateAchievementV2.  # noqa: E501
+        :rtype: list[int]
+        """
+        return self._subscribed_applications
+
+    @subscribed_applications.setter
+    def subscribed_applications(self, subscribed_applications):
+        """Sets the subscribed_applications of this CreateAchievementV2.
+
+        A list containing the IDs of all applications that are subscribed to A list containing the IDs of all Applications that are connected to this achievement.  # noqa: E501
+
+        :param subscribed_applications: The subscribed_applications of this CreateAchievementV2.  # noqa: E501
+        :type: list[int]
+        """
+
+        self._subscribed_applications = subscribed_applications
+
+    @property
     def sandbox(self):
         """Gets the sandbox of this CreateAchievementV2.  # noqa: E501
 
@@ -389,29 +412,6 @@ class CreateAchievementV2(object):
             raise ValueError("Invalid value for `sandbox`, must not be `None`")  # noqa: E501
 
         self._sandbox = sandbox
-
-    @property
-    def subscribed_applications(self):
-        """Gets the subscribed_applications of this CreateAchievementV2.  # noqa: E501
-
-        A list containing the IDs of all applications that are subscribed to A list containing the IDs of all Applications that are connected to this achievement.  # noqa: E501
-
-        :return: The subscribed_applications of this CreateAchievementV2.  # noqa: E501
-        :rtype: list[int]
-        """
-        return self._subscribed_applications
-
-    @subscribed_applications.setter
-    def subscribed_applications(self, subscribed_applications):
-        """Sets the subscribed_applications of this CreateAchievementV2.
-
-        A list containing the IDs of all applications that are subscribed to A list containing the IDs of all Applications that are connected to this achievement.  # noqa: E501
-
-        :param subscribed_applications: The subscribed_applications of this CreateAchievementV2.  # noqa: E501
-        :type: list[int]
-        """
-
-        self._subscribed_applications = subscribed_applications
 
     @property
     def timezone(self):

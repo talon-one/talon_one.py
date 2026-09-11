@@ -33,23 +33,28 @@ class UpdateAudience(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'name': 'str'
+        'name': 'str',
+        'subscribed_applications_ids': 'list[int]'
     }
 
     attribute_map = {
-        'name': 'name'
+        'name': 'name',
+        'subscribed_applications_ids': 'subscribedApplicationsIds'
     }
 
-    def __init__(self, name=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, name=None, subscribed_applications_ids=None, local_vars_configuration=None):  # noqa: E501
         """UpdateAudience - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._name = None
+        self._subscribed_applications_ids = None
         self.discriminator = None
 
         self.name = name
+        if subscribed_applications_ids is not None:
+            self.subscribed_applications_ids = subscribed_applications_ids
 
     @property
     def name(self):
@@ -78,6 +83,29 @@ class UpdateAudience(object):
             raise ValueError("Invalid value for `name`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._name = name
+
+    @property
+    def subscribed_applications_ids(self):
+        """Gets the subscribed_applications_ids of this UpdateAudience.  # noqa: E501
+
+        A list of the IDs of the Applications that are connected to this audience.  # noqa: E501
+
+        :return: The subscribed_applications_ids of this UpdateAudience.  # noqa: E501
+        :rtype: list[int]
+        """
+        return self._subscribed_applications_ids
+
+    @subscribed_applications_ids.setter
+    def subscribed_applications_ids(self, subscribed_applications_ids):
+        """Sets the subscribed_applications_ids of this UpdateAudience.
+
+        A list of the IDs of the Applications that are connected to this audience.  # noqa: E501
+
+        :param subscribed_applications_ids: The subscribed_applications_ids of this UpdateAudience.  # noqa: E501
+        :type: list[int]
+        """
+
+        self._subscribed_applications_ids = subscribed_applications_ids
 
     def to_dict(self):
         """Returns the model properties as a dict"""

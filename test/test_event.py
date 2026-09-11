@@ -43,6 +43,7 @@ class TestEvent(unittest.TestCase):
                 store_integration_id = 'STORE-001', 
                 type = 'pageViewed', 
                 attributes = {"myAttribute":"myValue"}, 
+                integration_id = '175KJPS947296', 
                 session_id = '175KJPS947296', 
                 effects = [
                     None

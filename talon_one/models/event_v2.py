@@ -150,7 +150,7 @@ class EventV2(object):
     def type(self):
         """Gets the type of this EventV2.  # noqa: E501
 
-        A string representing the event name. Must not be a reserved event name. You create this value when you [create an attribute](https://docs.talon.one/docs/dev/concepts/entities/events#creating-a-custom-event) of type `event` in the Campaign Manager.   # noqa: E501
+        The name of the event. Must be a [custom event](https://docs.talon.one/docs/dev/concepts/entities/events#custom-events), not a built-in event.  # noqa: E501
 
         :return: The type of this EventV2.  # noqa: E501
         :rtype: str
@@ -161,7 +161,7 @@ class EventV2(object):
     def type(self, type):
         """Sets the type of this EventV2.
 
-        A string representing the event name. Must not be a reserved event name. You create this value when you [create an attribute](https://docs.talon.one/docs/dev/concepts/entities/events#creating-a-custom-event) of type `event` in the Campaign Manager.   # noqa: E501
+        The name of the event. Must be a [custom event](https://docs.talon.one/docs/dev/concepts/entities/events#custom-events), not a built-in event.  # noqa: E501
 
         :param type: The type of this EventV2.  # noqa: E501
         :type: str

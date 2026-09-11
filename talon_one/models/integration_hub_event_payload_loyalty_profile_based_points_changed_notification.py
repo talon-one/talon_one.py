@@ -33,10 +33,14 @@ class IntegrationHubEventPayloadLoyaltyProfileBasedPointsChangedNotification(obj
                             and the value is json key in definition.
     """
     openapi_types = {
+        'event_id': 'int',
         'profile_integration_id': 'str',
         'loyalty_program_id': 'int',
+        'loyalty_program_name': 'str',
         'subledger_id': 'str',
         'source_of_event': 'str',
+        'current_tier': 'str',
+        'session_integration_id': 'str',
         'employee_name': 'str',
         'user_id': 'int',
         'current_points': 'float',
@@ -45,10 +49,14 @@ class IntegrationHubEventPayloadLoyaltyProfileBasedPointsChangedNotification(obj
     }
 
     attribute_map = {
+        'event_id': 'EventId',
         'profile_integration_id': 'ProfileIntegrationID',
         'loyalty_program_id': 'LoyaltyProgramID',
+        'loyalty_program_name': 'LoyaltyProgramName',
         'subledger_id': 'SubledgerID',
         'source_of_event': 'SourceOfEvent',
+        'current_tier': 'CurrentTier',
+        'session_integration_id': 'SessionIntegrationID',
         'employee_name': 'EmployeeName',
         'user_id': 'UserID',
         'current_points': 'CurrentPoints',
@@ -56,16 +64,20 @@ class IntegrationHubEventPayloadLoyaltyProfileBasedPointsChangedNotification(obj
         'published_at': 'PublishedAt'
     }
 
-    def __init__(self, profile_integration_id=None, loyalty_program_id=None, subledger_id=None, source_of_event=None, employee_name=None, user_id=None, current_points=None, actions=None, published_at=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, event_id=None, profile_integration_id=None, loyalty_program_id=None, loyalty_program_name=None, subledger_id=None, source_of_event=None, current_tier=None, session_integration_id=None, employee_name=None, user_id=None, current_points=None, actions=None, published_at=None, local_vars_configuration=None):  # noqa: E501
         """IntegrationHubEventPayloadLoyaltyProfileBasedPointsChangedNotification - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
+        self._event_id = None
         self._profile_integration_id = None
         self._loyalty_program_id = None
+        self._loyalty_program_name = None
         self._subledger_id = None
         self._source_of_event = None
+        self._current_tier = None
+        self._session_integration_id = None
         self._employee_name = None
         self._user_id = None
         self._current_points = None
@@ -73,10 +85,15 @@ class IntegrationHubEventPayloadLoyaltyProfileBasedPointsChangedNotification(obj
         self._published_at = None
         self.discriminator = None
 
+        self.event_id = event_id
         self.profile_integration_id = profile_integration_id
         self.loyalty_program_id = loyalty_program_id
+        self.loyalty_program_name = loyalty_program_name
         self.subledger_id = subledger_id
         self.source_of_event = source_of_event
+        self.current_tier = current_tier
+        if session_integration_id is not None:
+            self.session_integration_id = session_integration_id
         if employee_name is not None:
             self.employee_name = employee_name
         if user_id is not None:
@@ -85,6 +102,31 @@ class IntegrationHubEventPayloadLoyaltyProfileBasedPointsChangedNotification(obj
         if actions is not None:
             self.actions = actions
         self.published_at = published_at
+
+    @property
+    def event_id(self):
+        """Gets the event_id of this IntegrationHubEventPayloadLoyaltyProfileBasedPointsChangedNotification.  # noqa: E501
+
+        The ID of the integration hub event. Return this value in the delivery-status callback to mark the event delivered or failed.  # noqa: E501
+
+        :return: The event_id of this IntegrationHubEventPayloadLoyaltyProfileBasedPointsChangedNotification.  # noqa: E501
+        :rtype: int
+        """
+        return self._event_id
+
+    @event_id.setter
+    def event_id(self, event_id):
+        """Sets the event_id of this IntegrationHubEventPayloadLoyaltyProfileBasedPointsChangedNotification.
+
+        The ID of the integration hub event. Return this value in the delivery-status callback to mark the event delivered or failed.  # noqa: E501
+
+        :param event_id: The event_id of this IntegrationHubEventPayloadLoyaltyProfileBasedPointsChangedNotification.  # noqa: E501
+        :type: int
+        """
+        if self.local_vars_configuration.client_side_validation and event_id is None:  # noqa: E501
+            raise ValueError("Invalid value for `event_id`, must not be `None`")  # noqa: E501
+
+        self._event_id = event_id
 
     @property
     def profile_integration_id(self):
@@ -133,6 +175,31 @@ class IntegrationHubEventPayloadLoyaltyProfileBasedPointsChangedNotification(obj
         self._loyalty_program_id = loyalty_program_id
 
     @property
+    def loyalty_program_name(self):
+        """Gets the loyalty_program_name of this IntegrationHubEventPayloadLoyaltyProfileBasedPointsChangedNotification.  # noqa: E501
+
+        The name of the loyalty program.  # noqa: E501
+
+        :return: The loyalty_program_name of this IntegrationHubEventPayloadLoyaltyProfileBasedPointsChangedNotification.  # noqa: E501
+        :rtype: str
+        """
+        return self._loyalty_program_name
+
+    @loyalty_program_name.setter
+    def loyalty_program_name(self, loyalty_program_name):
+        """Sets the loyalty_program_name of this IntegrationHubEventPayloadLoyaltyProfileBasedPointsChangedNotification.
+
+        The name of the loyalty program.  # noqa: E501
+
+        :param loyalty_program_name: The loyalty_program_name of this IntegrationHubEventPayloadLoyaltyProfileBasedPointsChangedNotification.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and loyalty_program_name is None:  # noqa: E501
+            raise ValueError("Invalid value for `loyalty_program_name`, must not be `None`")  # noqa: E501
+
+        self._loyalty_program_name = loyalty_program_name
+
+    @property
     def subledger_id(self):
         """Gets the subledger_id of this IntegrationHubEventPayloadLoyaltyProfileBasedPointsChangedNotification.  # noqa: E501
 
@@ -177,6 +244,54 @@ class IntegrationHubEventPayloadLoyaltyProfileBasedPointsChangedNotification(obj
             raise ValueError("Invalid value for `source_of_event`, must not be `None`")  # noqa: E501
 
         self._source_of_event = source_of_event
+
+    @property
+    def current_tier(self):
+        """Gets the current_tier of this IntegrationHubEventPayloadLoyaltyProfileBasedPointsChangedNotification.  # noqa: E501
+
+        The name of the customer's current tier.  # noqa: E501
+
+        :return: The current_tier of this IntegrationHubEventPayloadLoyaltyProfileBasedPointsChangedNotification.  # noqa: E501
+        :rtype: str
+        """
+        return self._current_tier
+
+    @current_tier.setter
+    def current_tier(self, current_tier):
+        """Sets the current_tier of this IntegrationHubEventPayloadLoyaltyProfileBasedPointsChangedNotification.
+
+        The name of the customer's current tier.  # noqa: E501
+
+        :param current_tier: The current_tier of this IntegrationHubEventPayloadLoyaltyProfileBasedPointsChangedNotification.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and current_tier is None:  # noqa: E501
+            raise ValueError("Invalid value for `current_tier`, must not be `None`")  # noqa: E501
+
+        self._current_tier = current_tier
+
+    @property
+    def session_integration_id(self):
+        """Gets the session_integration_id of this IntegrationHubEventPayloadLoyaltyProfileBasedPointsChangedNotification.  # noqa: E501
+
+        The integration ID of the session through which the points were earned or lost. Only set when the change results from a rule engine execution; empty otherwise.  # noqa: E501
+
+        :return: The session_integration_id of this IntegrationHubEventPayloadLoyaltyProfileBasedPointsChangedNotification.  # noqa: E501
+        :rtype: str
+        """
+        return self._session_integration_id
+
+    @session_integration_id.setter
+    def session_integration_id(self, session_integration_id):
+        """Sets the session_integration_id of this IntegrationHubEventPayloadLoyaltyProfileBasedPointsChangedNotification.
+
+        The integration ID of the session through which the points were earned or lost. Only set when the change results from a rule engine execution; empty otherwise.  # noqa: E501
+
+        :param session_integration_id: The session_integration_id of this IntegrationHubEventPayloadLoyaltyProfileBasedPointsChangedNotification.  # noqa: E501
+        :type: str
+        """
+
+        self._session_integration_id = session_integration_id
 
     @property
     def employee_name(self):

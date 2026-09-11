@@ -38,7 +38,7 @@ class TestNewApplicationCIFExpression(unittest.TestCase):
             return NewApplicationCIFExpression(
                 cart_item_filter_id = 216, 
                 created_by = 216, 
-                expression = {expr=[filter, [., Session, CartItems], [[Item], [catch, false, [=, [., Item, Category], Kitchen]]]]}
+                expression = {expr=[filter, [., Session, CartItems], [[Item], [catch, false, [contains, [., Item, Category], Kitchen]]]]}
             )
         else :
             return NewApplicationCIFExpression(

@@ -41,6 +41,8 @@ class Experiment(object):
         'activated': 'datetime',
         'state': 'str',
         'variants': 'list[ExperimentVariant]',
+        'goal_type': 'str',
+        'goal_description': 'str',
         'deletedat': 'datetime'
     }
 
@@ -53,10 +55,12 @@ class Experiment(object):
         'activated': 'activated',
         'state': 'state',
         'variants': 'variants',
+        'goal_type': 'goalType',
+        'goal_description': 'goalDescription',
         'deletedat': 'deletedat'
     }
 
-    def __init__(self, id=None, created=None, application_id=None, is_variant_assignment_external=None, campaign=None, activated=None, state='disabled', variants=None, deletedat=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, created=None, application_id=None, is_variant_assignment_external=None, campaign=None, activated=None, state='disabled', variants=None, goal_type=None, goal_description=None, deletedat=None, local_vars_configuration=None):  # noqa: E501
         """Experiment - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -70,6 +74,8 @@ class Experiment(object):
         self._activated = None
         self._state = None
         self._variants = None
+        self._goal_type = None
+        self._goal_description = None
         self._deletedat = None
         self.discriminator = None
 
@@ -85,6 +91,9 @@ class Experiment(object):
         self.state = state
         if variants is not None:
             self.variants = variants
+        self.goal_type = goal_type
+        if goal_description is not None:
+            self.goal_description = goal_description
         if deletedat is not None:
             self.deletedat = deletedat
 
@@ -281,6 +290,60 @@ class Experiment(object):
         """
 
         self._variants = variants
+
+    @property
+    def goal_type(self):
+        """Gets the goal_type of this Experiment.  # noqa: E501
+
+        The goal of the experiment. Determines which single metric is used to decide the winning variant. When set to `other`, multiple metrics are used.   # noqa: E501
+
+        :return: The goal_type of this Experiment.  # noqa: E501
+        :rtype: str
+        """
+        return self._goal_type
+
+    @goal_type.setter
+    def goal_type(self, goal_type):
+        """Sets the goal_type of this Experiment.
+
+        The goal of the experiment. Determines which single metric is used to decide the winning variant. When set to `other`, multiple metrics are used.   # noqa: E501
+
+        :param goal_type: The goal_type of this Experiment.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and goal_type is None:  # noqa: E501
+            raise ValueError("Invalid value for `goal_type`, must not be `None`")  # noqa: E501
+        allowed_values = ["other", "maximize_revenue", "optimize_discount_efficiency", "maximize_items_sold"]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and goal_type not in allowed_values:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `goal_type` ({0}), must be one of {1}"  # noqa: E501
+                .format(goal_type, allowed_values)
+            )
+
+        self._goal_type = goal_type
+
+    @property
+    def goal_description(self):
+        """Gets the goal_description of this Experiment.  # noqa: E501
+
+        A description of the experiment goal. Provides context for the AI summary and helps it interpret the outcome of the experiment against the stated goal.   # noqa: E501
+
+        :return: The goal_description of this Experiment.  # noqa: E501
+        :rtype: str
+        """
+        return self._goal_description
+
+    @goal_description.setter
+    def goal_description(self, goal_description):
+        """Sets the goal_description of this Experiment.
+
+        A description of the experiment goal. Provides context for the AI summary and helps it interpret the outcome of the experiment against the stated goal.   # noqa: E501
+
+        :param goal_description: The goal_description of this Experiment.  # noqa: E501
+        :type: str
+        """
+
+        self._goal_description = goal_description
 
     @property
     def deletedat(self):

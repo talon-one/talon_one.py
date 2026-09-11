@@ -70,6 +70,13 @@ class TestManagementApi(unittest.TestCase):
         """
         pass
 
+    def test_create_achievement_v2(self):
+        """Test case for create_achievement_v2
+
+        Create achievement  # noqa: E501
+        """
+        pass
+
     def test_create_additional_cost(self):
         """Test case for create_additional_cost
 
@@ -161,6 +168,13 @@ class TestManagementApi(unittest.TestCase):
         """
         pass
 
+    def test_create_ruleset_v2(self):
+        """Test case for create_ruleset_v2
+
+        Create ruleset (V2)  # noqa: E501
+        """
+        pass
+
     def test_create_session(self):
         """Test case for create_session
 
@@ -198,6 +212,13 @@ class TestManagementApi(unittest.TestCase):
 
     def test_delete_achievement(self):
         """Test case for delete_achievement
+
+        Delete achievement  # noqa: E501
+        """
+        pass
+
+    def test_delete_achievement_v2(self):
+        """Test case for delete_achievement_v2
 
         Delete achievement  # noqa: E501
         """
@@ -287,10 +308,24 @@ class TestManagementApi(unittest.TestCase):
         """
         pass
 
+    def test_exclude_price_history(self):
+        """Test case for exclude_price_history
+
+        Exclude price records from price history  # noqa: E501
+        """
+        pass
+
     def test_export_account_collection_items(self):
         """Test case for export_account_collection_items
 
         Export account-level collection's items  # noqa: E501
+        """
+        pass
+
+    def test_export_achievement_v2(self):
+        """Test case for export_achievement_v2
+
+        Export achievement customer data  # noqa: E501
         """
         pass
 
@@ -476,6 +511,13 @@ class TestManagementApi(unittest.TestCase):
         """
         pass
 
+    def test_get_achievement_v2(self):
+        """Test case for get_achievement_v2
+
+        Get achievement  # noqa: E501
+        """
+        pass
+
     def test_get_additional_cost(self):
         """Test case for get_additional_cost
 
@@ -564,6 +606,13 @@ class TestManagementApi(unittest.TestCase):
         """Test case for get_application_sessions
 
         List Application sessions  # noqa: E501
+        """
+        pass
+
+    def test_get_application_sessions_by_customer_attributes(self):
+        """Test case for get_application_sessions_by_customer_attributes
+
+        List Application sessions matching the given customer attributes  # noqa: E501
         """
         pass
 
@@ -773,7 +822,7 @@ class TestManagementApi(unittest.TestCase):
     def test_get_loyalty_card_transaction_logs(self):
         """Test case for get_loyalty_card_transaction_logs
 
-        List card's transactions  # noqa: E501
+        List card's transactions (Management API)  # noqa: E501
         """
         pass
 
@@ -787,7 +836,7 @@ class TestManagementApi(unittest.TestCase):
     def test_get_loyalty_ledger_balances(self):
         """Test case for get_loyalty_ledger_balances
 
-        Get customer's loyalty balances  # noqa: E501
+        Get customer's loyalty balances (Management API)  # noqa: E501
         """
         pass
 
@@ -808,7 +857,7 @@ class TestManagementApi(unittest.TestCase):
     def test_get_loyalty_program_profile_ledger_transactions(self):
         """Test case for get_loyalty_program_profile_ledger_transactions
 
-        List customer's loyalty transactions  # noqa: E501
+        List customer's loyalty transactions (Management API)  # noqa: E501
         """
         pass
 
@@ -858,6 +907,13 @@ class TestManagementApi(unittest.TestCase):
         """Test case for get_ruleset
 
         Get ruleset  # noqa: E501
+        """
+        pass
+
+    def test_get_ruleset_v2(self):
+        """Test case for get_ruleset_v2
+
+        Get ruleset (V2)  # noqa: E501
         """
         pass
 
@@ -966,6 +1022,13 @@ class TestManagementApi(unittest.TestCase):
         """
         pass
 
+    def test_import_loyalty_join_dates(self):
+        """Test case for import_loyalty_join_dates
+
+        Import join dates for a loyalty program  # noqa: E501
+        """
+        pass
+
     def test_import_loyalty_points(self):
         """Test case for import_loyalty_points
 
@@ -1003,6 +1066,13 @@ class TestManagementApi(unittest.TestCase):
 
     def test_list_achievements(self):
         """Test case for list_achievements
+
+        List achievements  # noqa: E501
+        """
+        pass
+
+    def test_list_achievements_v2(self):
+        """Test case for list_achievements_v2
 
         List achievements  # noqa: E501
         """
@@ -1234,6 +1304,13 @@ class TestManagementApi(unittest.TestCase):
 
     def test_update_achievement(self):
         """Test case for update_achievement
+
+        Update achievement  # noqa: E501
+        """
+        pass
+
+    def test_update_achievement_v2(self):
+        """Test case for update_achievement_v2
 
         Update achievement  # noqa: E501
         """

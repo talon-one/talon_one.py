@@ -55,7 +55,7 @@ class RollbackCouponEffectProps(object):
     def value(self):
         """Gets the value of this RollbackCouponEffectProps.  # noqa: E501
 
-        The coupon code whose usage has been rolled back.  # noqa: E501
+        The coupon code whose redemption has been rolled back.  # noqa: E501
 
         :return: The value of this RollbackCouponEffectProps.  # noqa: E501
         :rtype: str
@@ -66,7 +66,7 @@ class RollbackCouponEffectProps(object):
     def value(self, value):
         """Sets the value of this RollbackCouponEffectProps.
 
-        The coupon code whose usage has been rolled back.  # noqa: E501
+        The coupon code whose redemption has been rolled back.  # noqa: E501
 
         :param value: The value of this RollbackCouponEffectProps.  # noqa: E501
         :type: str

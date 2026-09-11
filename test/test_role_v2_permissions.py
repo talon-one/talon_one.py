@@ -41,7 +41,12 @@ class TestRoleV2Permissions(unittest.TestCase):
                     applications = {1={application=Application permission set}, 3={campaign=Campaign manager permission set}, 4={draftCampaign=Campaign read-only permission set}, 5={tools=Tools permission set}}, 
                     loyalty_programs = {10=Loyalty program manager permission set}, 
                     campaign_access_groups = {5=Campaign access group manager permission set}, 
-                    account = '0', )
+                    account = '0', ), 
+                thresholds = [
+                    talon_one.models.roles_v2_thresholds.RolesV2Thresholds(
+                        loyalty_program_id = 8, 
+                        loyalty_points_limit = 100, )
+                    ]
             )
         else :
             return RoleV2Permissions(

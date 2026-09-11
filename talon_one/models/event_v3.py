@@ -33,56 +33,169 @@ class EventV3(object):
                             and the value is json key in definition.
     """
     openapi_types = {
+        'connected_session_id': 'str',
+        'id': 'int',
+        'created': 'datetime',
+        'application_id': 'int',
         'profile_id': 'str',
         'store_integration_id': 'str',
-        'evaluable_campaign_ids': 'list[int]',
-        'integration_id': 'str',
         'type': 'str',
         'attributes': 'object',
-        'connected_session_id': 'str',
-        'previous_event_id': 'str'
+        'integration_id': 'str',
+        'referral_code': 'str',
+        'effects': 'list[object]'
     }
 
     attribute_map = {
+        'connected_session_id': 'connectedSessionId',
+        'id': 'id',
+        'created': 'created',
+        'application_id': 'applicationId',
         'profile_id': 'profileId',
         'store_integration_id': 'storeIntegrationId',
-        'evaluable_campaign_ids': 'evaluableCampaignIds',
-        'integration_id': 'integrationId',
         'type': 'type',
         'attributes': 'attributes',
-        'connected_session_id': 'connectedSessionID',
-        'previous_event_id': 'previousEventID'
+        'integration_id': 'integrationId',
+        'referral_code': 'referralCode',
+        'effects': 'effects'
     }
 
-    def __init__(self, profile_id=None, store_integration_id=None, evaluable_campaign_ids=None, integration_id=None, type=None, attributes=None, connected_session_id=None, previous_event_id=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, connected_session_id=None, id=None, created=None, application_id=None, profile_id=None, store_integration_id=None, type=None, attributes=None, integration_id=None, referral_code=None, effects=None, local_vars_configuration=None):  # noqa: E501
         """EventV3 - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
+        self._connected_session_id = None
+        self._id = None
+        self._created = None
+        self._application_id = None
         self._profile_id = None
         self._store_integration_id = None
-        self._evaluable_campaign_ids = None
-        self._integration_id = None
         self._type = None
         self._attributes = None
-        self._connected_session_id = None
-        self._previous_event_id = None
+        self._integration_id = None
+        self._referral_code = None
+        self._effects = None
         self.discriminator = None
 
-        self.profile_id = profile_id
-        if store_integration_id is not None:
-            self.store_integration_id = store_integration_id
-        if evaluable_campaign_ids is not None:
-            self.evaluable_campaign_ids = evaluable_campaign_ids
-        self.integration_id = integration_id
-        self.type = type
-        if attributes is not None:
-            self.attributes = attributes
         if connected_session_id is not None:
             self.connected_session_id = connected_session_id
-        if previous_event_id is not None:
-            self.previous_event_id = previous_event_id
+        self.id = id
+        self.created = created
+        self.application_id = application_id
+        if profile_id is not None:
+            self.profile_id = profile_id
+        if store_integration_id is not None:
+            self.store_integration_id = store_integration_id
+        self.type = type
+        self.attributes = attributes
+        if integration_id is not None:
+            self.integration_id = integration_id
+        if referral_code is not None:
+            self.referral_code = referral_code
+        self.effects = effects
+
+    @property
+    def connected_session_id(self):
+        """Gets the connected_session_id of this EventV3.  # noqa: E501
+
+        The ID of the session to reference. The session must be in `closed` state. Otherwise, the API call will fail.  # noqa: E501
+
+        :return: The connected_session_id of this EventV3.  # noqa: E501
+        :rtype: str
+        """
+        return self._connected_session_id
+
+    @connected_session_id.setter
+    def connected_session_id(self, connected_session_id):
+        """Sets the connected_session_id of this EventV3.
+
+        The ID of the session to reference. The session must be in `closed` state. Otherwise, the API call will fail.  # noqa: E501
+
+        :param connected_session_id: The connected_session_id of this EventV3.  # noqa: E501
+        :type: str
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                connected_session_id is not None and len(connected_session_id) < 1):
+            raise ValueError("Invalid value for `connected_session_id`, length must be greater than or equal to `1`")  # noqa: E501
+
+        self._connected_session_id = connected_session_id
+
+    @property
+    def id(self):
+        """Gets the id of this EventV3.  # noqa: E501
+
+        The internal ID of this entity.  # noqa: E501
+
+        :return: The id of this EventV3.  # noqa: E501
+        :rtype: int
+        """
+        return self._id
+
+    @id.setter
+    def id(self, id):
+        """Sets the id of this EventV3.
+
+        The internal ID of this entity.  # noqa: E501
+
+        :param id: The id of this EventV3.  # noqa: E501
+        :type: int
+        """
+        if self.local_vars_configuration.client_side_validation and id is None:  # noqa: E501
+            raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
+
+        self._id = id
+
+    @property
+    def created(self):
+        """Gets the created of this EventV3.  # noqa: E501
+
+        The time this entity was created.  # noqa: E501
+
+        :return: The created of this EventV3.  # noqa: E501
+        :rtype: datetime
+        """
+        return self._created
+
+    @created.setter
+    def created(self, created):
+        """Sets the created of this EventV3.
+
+        The time this entity was created.  # noqa: E501
+
+        :param created: The created of this EventV3.  # noqa: E501
+        :type: datetime
+        """
+        if self.local_vars_configuration.client_side_validation and created is None:  # noqa: E501
+            raise ValueError("Invalid value for `created`, must not be `None`")  # noqa: E501
+
+        self._created = created
+
+    @property
+    def application_id(self):
+        """Gets the application_id of this EventV3.  # noqa: E501
+
+        The ID of the Application that owns this entity.  # noqa: E501
+
+        :return: The application_id of this EventV3.  # noqa: E501
+        :rtype: int
+        """
+        return self._application_id
+
+    @application_id.setter
+    def application_id(self, application_id):
+        """Sets the application_id of this EventV3.
+
+        The ID of the Application that owns this entity.  # noqa: E501
+
+        :param application_id: The application_id of this EventV3.  # noqa: E501
+        :type: int
+        """
+        if self.local_vars_configuration.client_side_validation and application_id is None:  # noqa: E501
+            raise ValueError("Invalid value for `application_id`, must not be `None`")  # noqa: E501
+
+        self._application_id = application_id
 
     @property
     def profile_id(self):
@@ -104,8 +217,6 @@ class EventV3(object):
         :param profile_id: The profile_id of this EventV3.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and profile_id is None:  # noqa: E501
-            raise ValueError("Invalid value for `profile_id`, must not be `None`")  # noqa: E501
 
         self._profile_id = profile_id
 
@@ -139,61 +250,10 @@ class EventV3(object):
         self._store_integration_id = store_integration_id
 
     @property
-    def evaluable_campaign_ids(self):
-        """Gets the evaluable_campaign_ids of this EventV3.  # noqa: E501
-
-        When using the `dry` query parameter, use this property to list the campaign to be evaluated by the Rule Engine.  These campaigns will be evaluated, even if they are disabled, allowing you to test specific campaigns before activating them.   # noqa: E501
-
-        :return: The evaluable_campaign_ids of this EventV3.  # noqa: E501
-        :rtype: list[int]
-        """
-        return self._evaluable_campaign_ids
-
-    @evaluable_campaign_ids.setter
-    def evaluable_campaign_ids(self, evaluable_campaign_ids):
-        """Sets the evaluable_campaign_ids of this EventV3.
-
-        When using the `dry` query parameter, use this property to list the campaign to be evaluated by the Rule Engine.  These campaigns will be evaluated, even if they are disabled, allowing you to test specific campaigns before activating them.   # noqa: E501
-
-        :param evaluable_campaign_ids: The evaluable_campaign_ids of this EventV3.  # noqa: E501
-        :type: list[int]
-        """
-
-        self._evaluable_campaign_ids = evaluable_campaign_ids
-
-    @property
-    def integration_id(self):
-        """Gets the integration_id of this EventV3.  # noqa: E501
-
-        The unique ID of the current event. Only one event with this ID could be activated, duplicated events are forbidden.   # noqa: E501
-
-        :return: The integration_id of this EventV3.  # noqa: E501
-        :rtype: str
-        """
-        return self._integration_id
-
-    @integration_id.setter
-    def integration_id(self, integration_id):
-        """Sets the integration_id of this EventV3.
-
-        The unique ID of the current event. Only one event with this ID could be activated, duplicated events are forbidden.   # noqa: E501
-
-        :param integration_id: The integration_id of this EventV3.  # noqa: E501
-        :type: str
-        """
-        if self.local_vars_configuration.client_side_validation and integration_id is None:  # noqa: E501
-            raise ValueError("Invalid value for `integration_id`, must not be `None`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                integration_id is not None and len(integration_id) < 1):
-            raise ValueError("Invalid value for `integration_id`, length must be greater than or equal to `1`")  # noqa: E501
-
-        self._integration_id = integration_id
-
-    @property
     def type(self):
         """Gets the type of this EventV3.  # noqa: E501
 
-        A string representing the event name. Must not be a reserved event name. You create this value when you [create an attribute](https://docs.talon.one/docs/dev/concepts/entities/events#creating-a-custom-event) of type `event` in the Campaign Manager.   # noqa: E501
+        The name of the event. Must be a [custom event](https://docs.talon.one/docs/dev/concepts/entities/events#custom-events), not a built-in event.  # noqa: E501
 
         :return: The type of this EventV3.  # noqa: E501
         :rtype: str
@@ -204,7 +264,7 @@ class EventV3(object):
     def type(self, type):
         """Sets the type of this EventV3.
 
-        A string representing the event name. Must not be a reserved event name. You create this value when you [create an attribute](https://docs.talon.one/docs/dev/concepts/entities/events#creating-a-custom-event) of type `event` in the Campaign Manager.   # noqa: E501
+        The name of the event. Must be a [custom event](https://docs.talon.one/docs/dev/concepts/entities/events#custom-events), not a built-in event.  # noqa: E501
 
         :param type: The type of this EventV3.  # noqa: E501
         :type: str
@@ -221,7 +281,7 @@ class EventV3(object):
     def attributes(self):
         """Gets the attributes of this EventV3.  # noqa: E501
 
-        Arbitrary additional JSON properties associated with the event. They must be created in the Campaign Manager before setting them with this property. See [creating custom attributes](https://docs.talon.one/docs/product/account/dev-tools/managing-attributes#creating-a-custom-attribute).  # noqa: E501
+        Arbitrary additional JSON data associated with the event.  # noqa: E501
 
         :return: The attributes of this EventV3.  # noqa: E501
         :rtype: object
@@ -232,65 +292,92 @@ class EventV3(object):
     def attributes(self, attributes):
         """Sets the attributes of this EventV3.
 
-        Arbitrary additional JSON properties associated with the event. They must be created in the Campaign Manager before setting them with this property. See [creating custom attributes](https://docs.talon.one/docs/product/account/dev-tools/managing-attributes#creating-a-custom-attribute).  # noqa: E501
+        Arbitrary additional JSON data associated with the event.  # noqa: E501
 
         :param attributes: The attributes of this EventV3.  # noqa: E501
         :type: object
         """
+        if self.local_vars_configuration.client_side_validation and attributes is None:  # noqa: E501
+            raise ValueError("Invalid value for `attributes`, must not be `None`")  # noqa: E501
 
         self._attributes = attributes
 
     @property
-    def connected_session_id(self):
-        """Gets the connected_session_id of this EventV3.  # noqa: E501
+    def integration_id(self):
+        """Gets the integration_id of this EventV3.  # noqa: E501
 
-        The ID of the session that happened in the past.  # noqa: E501
+        The unique ID of the event. Only one event with this ID can be registered.   # noqa: E501
 
-        :return: The connected_session_id of this EventV3.  # noqa: E501
+        :return: The integration_id of this EventV3.  # noqa: E501
         :rtype: str
         """
-        return self._connected_session_id
+        return self._integration_id
 
-    @connected_session_id.setter
-    def connected_session_id(self, connected_session_id):
-        """Sets the connected_session_id of this EventV3.
+    @integration_id.setter
+    def integration_id(self, integration_id):
+        """Sets the integration_id of this EventV3.
 
-        The ID of the session that happened in the past.  # noqa: E501
+        The unique ID of the event. Only one event with this ID can be registered.   # noqa: E501
 
-        :param connected_session_id: The connected_session_id of this EventV3.  # noqa: E501
+        :param integration_id: The integration_id of this EventV3.  # noqa: E501
         :type: str
         """
         if (self.local_vars_configuration.client_side_validation and
-                connected_session_id is not None and len(connected_session_id) < 1):
-            raise ValueError("Invalid value for `connected_session_id`, length must be greater than or equal to `1`")  # noqa: E501
+                integration_id is not None and len(integration_id) < 1):
+            raise ValueError("Invalid value for `integration_id`, length must be greater than or equal to `1`")  # noqa: E501
 
-        self._connected_session_id = connected_session_id
+        self._integration_id = integration_id
 
     @property
-    def previous_event_id(self):
-        """Gets the previous_event_id of this EventV3.  # noqa: E501
+    def referral_code(self):
+        """Gets the referral_code of this EventV3.  # noqa: E501
 
-        The unique identifier of the event that happened in the past.  # noqa: E501
+        The referral code submitted with the event. The endpoint does not validate the code, and submitting a code does not redeem it. Use the \"Referral code is valid\" condition in the Rule Builder to validate and redeem the code, or \"Referral code is valid (without redemption)\" to validate without redeeming.   # noqa: E501
 
-        :return: The previous_event_id of this EventV3.  # noqa: E501
+        :return: The referral_code of this EventV3.  # noqa: E501
         :rtype: str
         """
-        return self._previous_event_id
+        return self._referral_code
 
-    @previous_event_id.setter
-    def previous_event_id(self, previous_event_id):
-        """Sets the previous_event_id of this EventV3.
+    @referral_code.setter
+    def referral_code(self, referral_code):
+        """Sets the referral_code of this EventV3.
 
-        The unique identifier of the event that happened in the past.  # noqa: E501
+        The referral code submitted with the event. The endpoint does not validate the code, and submitting a code does not redeem it. Use the \"Referral code is valid\" condition in the Rule Builder to validate and redeem the code, or \"Referral code is valid (without redemption)\" to validate without redeeming.   # noqa: E501
 
-        :param previous_event_id: The previous_event_id of this EventV3.  # noqa: E501
+        :param referral_code: The referral_code of this EventV3.  # noqa: E501
         :type: str
         """
         if (self.local_vars_configuration.client_side_validation and
-                previous_event_id is not None and len(previous_event_id) < 1):
-            raise ValueError("Invalid value for `previous_event_id`, length must be greater than or equal to `1`")  # noqa: E501
+                referral_code is not None and len(referral_code) > 100):
+            raise ValueError("Invalid value for `referral_code`, length must be less than or equal to `100`")  # noqa: E501
 
-        self._previous_event_id = previous_event_id
+        self._referral_code = referral_code
+
+    @property
+    def effects(self):
+        """Gets the effects of this EventV3.  # noqa: E501
+
+        An array of effects generated by the rules of the enabled campaigns of the Application.  You decide how to apply them in your system. See the list of [API effects](https://docs.talon.one/docs/dev/integration-api/api-effects).   # noqa: E501
+
+        :return: The effects of this EventV3.  # noqa: E501
+        :rtype: list[object]
+        """
+        return self._effects
+
+    @effects.setter
+    def effects(self, effects):
+        """Sets the effects of this EventV3.
+
+        An array of effects generated by the rules of the enabled campaigns of the Application.  You decide how to apply them in your system. See the list of [API effects](https://docs.talon.one/docs/dev/integration-api/api-effects).   # noqa: E501
+
+        :param effects: The effects of this EventV3.  # noqa: E501
+        :type: list[object]
+        """
+        if self.local_vars_configuration.client_side_validation and effects is None:  # noqa: E501
+            raise ValueError("Invalid value for `effects`, must not be `None`")  # noqa: E501
+
+        self._effects = effects
 
     def to_dict(self):
         """Returns the model properties as a dict"""

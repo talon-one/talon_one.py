@@ -36,7 +36,7 @@ class TestBestPriorPriceRequest(unittest.TestCase):
         # model = talon_one.models.best_prior_price_request.BestPriorPriceRequest()  # noqa: E501
         if include_optional :
             return BestPriorPriceRequest(
-                skus = [comma, period], 
+                skus = [SKU1241028, SKU7345278], 
                 timeframe_end_date = '2020-11-10T23:00Z', 
                 timeframe = '30', 
                 timeframe_end_date_type = 'sale', 
@@ -46,7 +46,7 @@ class TestBestPriorPriceRequest(unittest.TestCase):
             )
         else :
             return BestPriorPriceRequest(
-                skus = [comma, period],
+                skus = [SKU1241028, SKU7345278],
                 timeframe_end_date = '2020-11-10T23:00Z',
                 timeframe = '30',
                 timeframe_end_date_type = 'sale',

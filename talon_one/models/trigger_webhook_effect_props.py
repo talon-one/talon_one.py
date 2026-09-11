@@ -59,7 +59,7 @@ class TriggerWebhookEffectProps(object):
     def webhook_id(self):
         """Gets the webhook_id of this TriggerWebhookEffectProps.  # noqa: E501
 
-        The ID of the webhook that was triggered.  # noqa: E501
+        The internal ID of the webhook.  # noqa: E501
 
         :return: The webhook_id of this TriggerWebhookEffectProps.  # noqa: E501
         :rtype: float
@@ -70,7 +70,7 @@ class TriggerWebhookEffectProps(object):
     def webhook_id(self, webhook_id):
         """Sets the webhook_id of this TriggerWebhookEffectProps.
 
-        The ID of the webhook that was triggered.  # noqa: E501
+        The internal ID of the webhook.  # noqa: E501
 
         :param webhook_id: The webhook_id of this TriggerWebhookEffectProps.  # noqa: E501
         :type: float
@@ -84,7 +84,7 @@ class TriggerWebhookEffectProps(object):
     def webhook_name(self):
         """Gets the webhook_name of this TriggerWebhookEffectProps.  # noqa: E501
 
-        The name of the webhook that was triggered.  # noqa: E501
+        The name of the webhook.  # noqa: E501
 
         :return: The webhook_name of this TriggerWebhookEffectProps.  # noqa: E501
         :rtype: str
@@ -95,7 +95,7 @@ class TriggerWebhookEffectProps(object):
     def webhook_name(self, webhook_name):
         """Sets the webhook_name of this TriggerWebhookEffectProps.
 
-        The name of the webhook that was triggered.  # noqa: E501
+        The name of the webhook.  # noqa: E501
 
         :param webhook_name: The webhook_name of this TriggerWebhookEffectProps.  # noqa: E501
         :type: str

@@ -42,6 +42,9 @@ class CatalogAction(object):
         'payload': 'payload'
     }
 
+    discriminator_value_class_map = {
+    }
+
     def __init__(self, type=None, payload=None, local_vars_configuration=None):  # noqa: E501
         """CatalogAction - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
@@ -50,10 +53,12 @@ class CatalogAction(object):
 
         self._type = None
         self._payload = None
-        self.discriminator = None
+        self.discriminator = 'type'
 
-        self.type = type
-        self.payload = payload
+        if type is not None:
+            self.type = type
+        if payload is not None:
+            self.payload = payload
 
     @property
     def type(self):
@@ -75,8 +80,6 @@ class CatalogAction(object):
         :param type: The type of this CatalogAction.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and type is None:  # noqa: E501
-            raise ValueError("Invalid value for `type`, must not be `None`")  # noqa: E501
         allowed_values = ["ADD", "PATCH", "PATCH_MANY", "REMOVE", "REMOVE_MANY", "ADD_PRICE_ADJUSTMENT"]  # noqa: E501
         if self.local_vars_configuration.client_side_validation and type not in allowed_values:  # noqa: E501
             raise ValueError(
@@ -104,10 +107,14 @@ class CatalogAction(object):
         :param payload: The payload of this CatalogAction.  # noqa: E501
         :type: object
         """
-        if self.local_vars_configuration.client_side_validation and payload is None:  # noqa: E501
-            raise ValueError("Invalid value for `payload`, must not be `None`")  # noqa: E501
 
         self._payload = payload
+
+    def get_real_child_model(self, data):
+        """Returns the real base class specified by the discriminator"""
+        discriminator_key = self.attribute_map[self.discriminator]
+        discriminator_value = data[discriminator_key]
+        return self.discriminator_value_class_map.get(discriminator_value)
 
     def to_dict(self):
         """Returns the model properties as a dict"""

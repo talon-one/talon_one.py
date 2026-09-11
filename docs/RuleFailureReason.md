@@ -11,6 +11,8 @@ Name | Type | Description | Notes
 **coupon_value** | **str** | The code of the coupon that was being evaluated at the time of the rule failure. | [optional] 
 **referral_id** | **int** | The ID of the referral that was being evaluated at the time of the rule failure. | [optional] 
 **referral_value** | **str** | The code of the referral that was being evaluated at the time of the rule failure. | [optional] 
+**reward_id** | **int** | The ID of the reward that was being evaluated at the time of the rule failure. | [optional] 
+**reward_integration_id** | **str** | The integration ID of the reward that was being evaluated at the time of the rule failure. | [optional] 
 **rule_index** | **int** | The index of the rule that failed within the ruleset. | 
 **rule_name** | **str** | The name of the rule that failed within the ruleset. | 
 **condition_index** | **int** | The index of the condition that failed. | [optional] 

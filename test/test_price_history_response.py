@@ -36,12 +36,12 @@ class TestPriceHistoryResponse(unittest.TestCase):
         # model = talon_one.models.price_history_response.PriceHistoryResponse()  # noqa: E501
         if include_optional :
             return PriceHistoryResponse(
-                sku = '0', 
+                sku = 'SKU1241028', 
                 history = [
                     talon_one.models.history.History(
                         id = 1, 
-                        observed_at = '2020-11-10T23:00Z', 
-                        context_id = 'Summer Sale 2025', 
+                        observed_at = '2025-11-10T23:00Z', 
+                        context_ids = [SpringSale, SummerSale2025], 
                         price = 99.99, 
                         metadata = talon_one.models.best_prior_price_metadata.BestPriorPriceMetadata(
                             influencing_campaign_details = [
@@ -53,17 +53,19 @@ class TestPriceHistoryResponse(unittest.TestCase):
                                 reference_id = '68851723-e6fa-488f-ace9-112581e6c19b', 
                                 selected_price_type = 'member', 
                                 value = 1.337, ), ), 
-                        target = talon_one.models.label_target.LabelTarget(), )
+                        target = talon_one.models.label_target.LabelTarget(), 
+                        excluded_at = '2025-11-10T23:00Z', 
+                        exclusion_reason = 'Incorrect contextID value', )
                     ]
             )
         else :
             return PriceHistoryResponse(
-                sku = '0',
+                sku = 'SKU1241028',
                 history = [
                     talon_one.models.history.History(
                         id = 1, 
-                        observed_at = '2020-11-10T23:00Z', 
-                        context_id = 'Summer Sale 2025', 
+                        observed_at = '2025-11-10T23:00Z', 
+                        context_ids = [SpringSale, SummerSale2025], 
                         price = 99.99, 
                         metadata = talon_one.models.best_prior_price_metadata.BestPriorPriceMetadata(
                             influencing_campaign_details = [
@@ -75,7 +77,9 @@ class TestPriceHistoryResponse(unittest.TestCase):
                                 reference_id = '68851723-e6fa-488f-ace9-112581e6c19b', 
                                 selected_price_type = 'member', 
                                 value = 1.337, ), ), 
-                        target = talon_one.models.label_target.LabelTarget(), )
+                        target = talon_one.models.label_target.LabelTarget(), 
+                        excluded_at = '2025-11-10T23:00Z', 
+                        exclusion_reason = 'Incorrect contextID value', )
                     ],
         )
 

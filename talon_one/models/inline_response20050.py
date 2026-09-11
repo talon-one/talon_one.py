@@ -33,7 +33,7 @@ class InlineResponse20050(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'data': 'list[SummaryCampaignStoreBudget]'
+        'data': 'list[ListCampaignStoreBudgets]'
     }
 
     attribute_map = {
@@ -58,7 +58,7 @@ class InlineResponse20050(object):
 
 
         :return: The data of this InlineResponse20050.  # noqa: E501
-        :rtype: list[SummaryCampaignStoreBudget]
+        :rtype: list[ListCampaignStoreBudgets]
         """
         return self._data
 
@@ -68,7 +68,7 @@ class InlineResponse20050(object):
 
 
         :param data: The data of this InlineResponse20050.  # noqa: E501
-        :type: list[SummaryCampaignStoreBudget]
+        :type: list[ListCampaignStoreBudgets]
         """
 
         self._data = data

@@ -38,7 +38,7 @@ class TestIntegrationHubPaginatedEventPayload(unittest.TestCase):
             return IntegrationHubPaginatedEventPayload(
                 total_result_size = 56, 
                 batched_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                event_type = 'LoyaltyPointsChanged', 
+                event_type = 'CouponCreated', 
                 data = [
                     None
                     ]
@@ -46,7 +46,7 @@ class TestIntegrationHubPaginatedEventPayload(unittest.TestCase):
         else :
             return IntegrationHubPaginatedEventPayload(
                 total_result_size = 56,
-                event_type = 'LoyaltyPointsChanged',
+                event_type = 'CouponCreated',
                 data = [
                     None
                     ],

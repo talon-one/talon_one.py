@@ -39,6 +39,7 @@ class ApplicationEvent(object):
         'profile_id': 'int',
         'store_id': 'int',
         'store_integration_id': 'str',
+        'integration_id': 'str',
         'session_id': 'int',
         'type': 'str',
         'attributes': 'object',
@@ -53,6 +54,7 @@ class ApplicationEvent(object):
         'profile_id': 'profileId',
         'store_id': 'storeId',
         'store_integration_id': 'storeIntegrationId',
+        'integration_id': 'integrationId',
         'session_id': 'sessionId',
         'type': 'type',
         'attributes': 'attributes',
@@ -60,7 +62,7 @@ class ApplicationEvent(object):
         'rule_failure_reasons': 'ruleFailureReasons'
     }
 
-    def __init__(self, id=None, created=None, application_id=None, profile_id=None, store_id=None, store_integration_id=None, session_id=None, type=None, attributes=None, effects=None, rule_failure_reasons=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, created=None, application_id=None, profile_id=None, store_id=None, store_integration_id=None, integration_id=None, session_id=None, type=None, attributes=None, effects=None, rule_failure_reasons=None, local_vars_configuration=None):  # noqa: E501
         """ApplicationEvent - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -72,6 +74,7 @@ class ApplicationEvent(object):
         self._profile_id = None
         self._store_id = None
         self._store_integration_id = None
+        self._integration_id = None
         self._session_id = None
         self._type = None
         self._attributes = None
@@ -88,6 +91,8 @@ class ApplicationEvent(object):
             self.store_id = store_id
         if store_integration_id is not None:
             self.store_integration_id = store_integration_id
+        if integration_id is not None:
+            self.integration_id = integration_id
         if session_id is not None:
             self.session_id = session_id
         self.type = type
@@ -247,6 +252,32 @@ class ApplicationEvent(object):
         self._store_integration_id = store_integration_id
 
     @property
+    def integration_id(self):
+        """Gets the integration_id of this ApplicationEvent.  # noqa: E501
+
+        The unique ID of the event. Only one event with this ID can be registered.   # noqa: E501
+
+        :return: The integration_id of this ApplicationEvent.  # noqa: E501
+        :rtype: str
+        """
+        return self._integration_id
+
+    @integration_id.setter
+    def integration_id(self, integration_id):
+        """Sets the integration_id of this ApplicationEvent.
+
+        The unique ID of the event. Only one event with this ID can be registered.   # noqa: E501
+
+        :param integration_id: The integration_id of this ApplicationEvent.  # noqa: E501
+        :type: str
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                integration_id is not None and len(integration_id) < 1):
+            raise ValueError("Invalid value for `integration_id`, length must be greater than or equal to `1`")  # noqa: E501
+
+        self._integration_id = integration_id
+
+    @property
     def session_id(self):
         """Gets the session_id of this ApplicationEvent.  # noqa: E501
 
@@ -273,7 +304,7 @@ class ApplicationEvent(object):
     def type(self):
         """Gets the type of this ApplicationEvent.  # noqa: E501
 
-        A string representing the event. Must not be a reserved event name.  # noqa: E501
+        The name of the event. Must be a [custom event](https://docs.talon.one/docs/dev/concepts/entities/events#custom-events), not a built-in event.  # noqa: E501
 
         :return: The type of this ApplicationEvent.  # noqa: E501
         :rtype: str
@@ -284,7 +315,7 @@ class ApplicationEvent(object):
     def type(self, type):
         """Sets the type of this ApplicationEvent.
 
-        A string representing the event. Must not be a reserved event name.  # noqa: E501
+        The name of the event. Must be a [custom event](https://docs.talon.one/docs/dev/concepts/entities/events#custom-events), not a built-in event.  # noqa: E501
 
         :param type: The type of this ApplicationEvent.  # noqa: E501
         :type: str

@@ -65,7 +65,9 @@ class TestUpdateApplication(unittest.TestCase):
                 default_discount_additional_cost_per_item_scope = 'price', 
                 default_evaluation_group_id = 3, 
                 default_cart_item_filter_id = 3, 
-                enable_campaign_state_management = False
+                enable_campaign_state_management = False, 
+                best_prior_price_settings = talon_one.models.best_prior_price_settings.BestPriorPriceSettings(
+                    enable_best_prior_price = True, )
             )
         else :
             return UpdateApplication(

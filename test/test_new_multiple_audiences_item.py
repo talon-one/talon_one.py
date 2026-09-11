@@ -37,6 +37,7 @@ class TestNewMultipleAudiencesItem(unittest.TestCase):
         if include_optional :
             return NewMultipleAudiencesItem(
                 name = 'Travel audience', 
+                subscribed_applications_ids = [3, 13], 
                 integration_id = '382370BKDB946'
             )
         else :

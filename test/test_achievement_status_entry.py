@@ -50,6 +50,7 @@ class TestAchievementStatusEntry(unittest.TestCase):
                 end_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                 allow_rollback_after_completion = False, 
                 campaign_id = 1, 
+                campaign_ids = [1, 14, 27], 
                 status = 'active', 
                 current_progress = talon_one.models.achievement_progress.AchievementProgress(
                     status = 'completed', 

@@ -36,19 +36,17 @@ class RoleV2ApplicationDetails(object):
         'application': 'str',
         'campaign': 'str',
         'draft_campaign': 'str',
-        'tools': 'str',
-        'thresholds': 'RolesV2Thresholds'
+        'tools': 'str'
     }
 
     attribute_map = {
         'application': 'application',
         'campaign': 'campaign',
         'draft_campaign': 'draftCampaign',
-        'tools': 'tools',
-        'thresholds': 'thresholds'
+        'tools': 'tools'
     }
 
-    def __init__(self, application=None, campaign=None, draft_campaign=None, tools=None, thresholds=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, application=None, campaign=None, draft_campaign=None, tools=None, local_vars_configuration=None):  # noqa: E501
         """RoleV2ApplicationDetails - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -58,7 +56,6 @@ class RoleV2ApplicationDetails(object):
         self._campaign = None
         self._draft_campaign = None
         self._tools = None
-        self._thresholds = None
         self.discriminator = None
 
         if application is not None:
@@ -69,8 +66,6 @@ class RoleV2ApplicationDetails(object):
             self.draft_campaign = draft_campaign
         if tools is not None:
             self.tools = tools
-        if thresholds is not None:
-            self.thresholds = thresholds
 
     @property
     def application(self):
@@ -163,27 +158,6 @@ class RoleV2ApplicationDetails(object):
         """
 
         self._tools = tools
-
-    @property
-    def thresholds(self):
-        """Gets the thresholds of this RoleV2ApplicationDetails.  # noqa: E501
-
-
-        :return: The thresholds of this RoleV2ApplicationDetails.  # noqa: E501
-        :rtype: RolesV2Thresholds
-        """
-        return self._thresholds
-
-    @thresholds.setter
-    def thresholds(self, thresholds):
-        """Sets the thresholds of this RoleV2ApplicationDetails.
-
-
-        :param thresholds: The thresholds of this RoleV2ApplicationDetails.  # noqa: E501
-        :type: RolesV2Thresholds
-        """
-
-        self._thresholds = thresholds
 
     def to_dict(self):
         """Returns the model properties as a dict"""

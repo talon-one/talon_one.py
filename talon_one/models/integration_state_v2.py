@@ -36,11 +36,14 @@ class IntegrationStateV2(object):
         'customer_profile': 'CustomerProfile',
         'loyalty': 'Loyalty',
         'triggered_campaigns': 'list[Campaign]',
+        'campaign_eligibility': 'list[CampaignEligibility]',
         'effects': 'list[Effect]',
         'rule_failure_reasons': 'list[RuleFailureReason]',
         'created_coupons': 'list[Coupon]',
         'created_referrals': 'list[Referral]',
         'awarded_giveaways': 'list[Giveaway]',
+        'achievements': 'list[CustomerAchievement]',
+        'rewards': 'list[RewardWithUnlocks]',
         'referral': 'InventoryReferral',
         'coupons': 'list[IntegrationCoupon]',
         'event': 'Event',
@@ -54,11 +57,14 @@ class IntegrationStateV2(object):
         'customer_profile': 'customerProfile',
         'loyalty': 'loyalty',
         'triggered_campaigns': 'triggeredCampaigns',
+        'campaign_eligibility': 'campaignEligibility',
         'effects': 'effects',
         'rule_failure_reasons': 'ruleFailureReasons',
         'created_coupons': 'createdCoupons',
         'created_referrals': 'createdReferrals',
         'awarded_giveaways': 'awardedGiveaways',
+        'achievements': 'achievements',
+        'rewards': 'rewards',
         'referral': 'referral',
         'coupons': 'coupons',
         'event': 'event',
@@ -68,7 +74,7 @@ class IntegrationStateV2(object):
         'previous_returns': 'previousReturns'
     }
 
-    def __init__(self, customer_profile=None, loyalty=None, triggered_campaigns=None, effects=None, rule_failure_reasons=None, created_coupons=None, created_referrals=None, awarded_giveaways=None, referral=None, coupons=None, event=None, advanced_event=None, customer_session=None, _return=None, previous_returns=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, customer_profile=None, loyalty=None, triggered_campaigns=None, campaign_eligibility=None, effects=None, rule_failure_reasons=None, created_coupons=None, created_referrals=None, awarded_giveaways=None, achievements=None, rewards=None, referral=None, coupons=None, event=None, advanced_event=None, customer_session=None, _return=None, previous_returns=None, local_vars_configuration=None):  # noqa: E501
         """IntegrationStateV2 - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -77,11 +83,14 @@ class IntegrationStateV2(object):
         self._customer_profile = None
         self._loyalty = None
         self._triggered_campaigns = None
+        self._campaign_eligibility = None
         self._effects = None
         self._rule_failure_reasons = None
         self._created_coupons = None
         self._created_referrals = None
         self._awarded_giveaways = None
+        self._achievements = None
+        self._rewards = None
         self._referral = None
         self._coupons = None
         self._event = None
@@ -97,6 +106,8 @@ class IntegrationStateV2(object):
             self.loyalty = loyalty
         if triggered_campaigns is not None:
             self.triggered_campaigns = triggered_campaigns
+        if campaign_eligibility is not None:
+            self.campaign_eligibility = campaign_eligibility
         self.effects = effects
         if rule_failure_reasons is not None:
             self.rule_failure_reasons = rule_failure_reasons
@@ -104,6 +115,10 @@ class IntegrationStateV2(object):
         self.created_referrals = created_referrals
         if awarded_giveaways is not None:
             self.awarded_giveaways = awarded_giveaways
+        if achievements is not None:
+            self.achievements = achievements
+        if rewards is not None:
+            self.rewards = rewards
         if referral is not None:
             self.referral = referral
         if coupons is not None:
@@ -183,6 +198,29 @@ class IntegrationStateV2(object):
         """
 
         self._triggered_campaigns = triggered_campaigns
+
+    @property
+    def campaign_eligibility(self):
+        """Gets the campaign_eligibility of this IntegrationStateV2.  # noqa: E501
+
+        A list of campaigns and their evaluation status for the current customer session.  **Note**:  - This response can **only** be included if the `dry` parameter in the query is set to `true`.  - Do not include `triggeredCampaigns` or `ruleFailureReasons` in `responseContent` to avoid duplicate results.   # noqa: E501
+
+        :return: The campaign_eligibility of this IntegrationStateV2.  # noqa: E501
+        :rtype: list[CampaignEligibility]
+        """
+        return self._campaign_eligibility
+
+    @campaign_eligibility.setter
+    def campaign_eligibility(self, campaign_eligibility):
+        """Sets the campaign_eligibility of this IntegrationStateV2.
+
+        A list of campaigns and their evaluation status for the current customer session.  **Note**:  - This response can **only** be included if the `dry` parameter in the query is set to `true`.  - Do not include `triggeredCampaigns` or `ruleFailureReasons` in `responseContent` to avoid duplicate results.   # noqa: E501
+
+        :param campaign_eligibility: The campaign_eligibility of this IntegrationStateV2.  # noqa: E501
+        :type: list[CampaignEligibility]
+        """
+
+        self._campaign_eligibility = campaign_eligibility
 
     @property
     def effects(self):
@@ -304,6 +342,52 @@ class IntegrationStateV2(object):
         """
 
         self._awarded_giveaways = awarded_giveaways
+
+    @property
+    def achievements(self):
+        """Gets the achievements of this IntegrationStateV2.  # noqa: E501
+
+        The achievements progress of the customer.  # noqa: E501
+
+        :return: The achievements of this IntegrationStateV2.  # noqa: E501
+        :rtype: list[CustomerAchievement]
+        """
+        return self._achievements
+
+    @achievements.setter
+    def achievements(self, achievements):
+        """Sets the achievements of this IntegrationStateV2.
+
+        The achievements progress of the customer.  # noqa: E501
+
+        :param achievements: The achievements of this IntegrationStateV2.  # noqa: E501
+        :type: list[CustomerAchievement]
+        """
+
+        self._achievements = achievements
+
+    @property
+    def rewards(self):
+        """Gets the rewards of this IntegrationStateV2.  # noqa: E501
+
+        The rewards for the customer profile.  # noqa: E501
+
+        :return: The rewards of this IntegrationStateV2.  # noqa: E501
+        :rtype: list[RewardWithUnlocks]
+        """
+        return self._rewards
+
+    @rewards.setter
+    def rewards(self, rewards):
+        """Sets the rewards of this IntegrationStateV2.
+
+        The rewards for the customer profile.  # noqa: E501
+
+        :param rewards: The rewards of this IntegrationStateV2.  # noqa: E501
+        :type: list[RewardWithUnlocks]
+        """
+
+        self._rewards = rewards
 
     @property
     def referral(self):

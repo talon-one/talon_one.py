@@ -113,7 +113,7 @@ class SetDiscountPerItemEffectProps(object):
     def name(self):
         """Gets the name of this SetDiscountPerItemEffectProps.  # noqa: E501
 
-        The name of the discount. Contains a hashtag character indicating the index of the position of the item the discount applies to. It is identical to the value of the `position` property.   # noqa: E501
+        The description of this discount. `#number` is equal to the `position` property.  # noqa: E501
 
         :return: The name of this SetDiscountPerItemEffectProps.  # noqa: E501
         :rtype: str
@@ -124,7 +124,7 @@ class SetDiscountPerItemEffectProps(object):
     def name(self, name):
         """Sets the name of this SetDiscountPerItemEffectProps.
 
-        The name of the discount. Contains a hashtag character indicating the index of the position of the item the discount applies to. It is identical to the value of the `position` property.   # noqa: E501
+        The description of this discount. `#number` is equal to the `position` property.  # noqa: E501
 
         :param name: The name of this SetDiscountPerItemEffectProps.  # noqa: E501
         :type: str
@@ -138,7 +138,7 @@ class SetDiscountPerItemEffectProps(object):
     def value(self):
         """Gets the value of this SetDiscountPerItemEffectProps.  # noqa: E501
 
-        The total monetary value of the discount.  # noqa: E501
+        The monetary value of the effective discount applied to the item.  # noqa: E501
 
         :return: The value of this SetDiscountPerItemEffectProps.  # noqa: E501
         :rtype: float
@@ -149,7 +149,7 @@ class SetDiscountPerItemEffectProps(object):
     def value(self, value):
         """Sets the value of this SetDiscountPerItemEffectProps.
 
-        The total monetary value of the discount.  # noqa: E501
+        The monetary value of the effective discount applied to the item.  # noqa: E501
 
         :param value: The value of this SetDiscountPerItemEffectProps.  # noqa: E501
         :type: float
@@ -163,7 +163,7 @@ class SetDiscountPerItemEffectProps(object):
     def position(self):
         """Gets the position of this SetDiscountPerItemEffectProps.  # noqa: E501
 
-        The index of the item in the cart items list on which this discount should be applied.  # noqa: E501
+        The index of the item in the `cartItem` object on which this discount should be applied.  # noqa: E501
 
         :return: The position of this SetDiscountPerItemEffectProps.  # noqa: E501
         :rtype: float
@@ -174,7 +174,7 @@ class SetDiscountPerItemEffectProps(object):
     def position(self, position):
         """Sets the position of this SetDiscountPerItemEffectProps.
 
-        The index of the item in the cart items list on which this discount should be applied.  # noqa: E501
+        The index of the item in the `cartItem` object on which this discount should be applied.  # noqa: E501
 
         :param position: The position of this SetDiscountPerItemEffectProps.  # noqa: E501
         :type: float
@@ -188,7 +188,7 @@ class SetDiscountPerItemEffectProps(object):
     def sub_position(self):
         """Gets the sub_position of this SetDiscountPerItemEffectProps.  # noqa: E501
 
-        For cart items with `quantity` > 1, the sub position indicates which item the discount applies to.   # noqa: E501
+        The index of the item unit in its line item.  # noqa: E501
 
         :return: The sub_position of this SetDiscountPerItemEffectProps.  # noqa: E501
         :rtype: float
@@ -199,7 +199,7 @@ class SetDiscountPerItemEffectProps(object):
     def sub_position(self, sub_position):
         """Sets the sub_position of this SetDiscountPerItemEffectProps.
 
-        For cart items with `quantity` > 1, the sub position indicates which item the discount applies to.   # noqa: E501
+        The index of the item unit in its line item.  # noqa: E501
 
         :param sub_position: The sub_position of this SetDiscountPerItemEffectProps.  # noqa: E501
         :type: float
@@ -211,7 +211,7 @@ class SetDiscountPerItemEffectProps(object):
     def desired_value(self):
         """Gets the desired_value of this SetDiscountPerItemEffectProps.  # noqa: E501
 
-        The original value of the discount.  # noqa: E501
+        _(Partial discounts enabled only)_ The monetary value of the discount to be applied to the item without considering budget limitations.  # noqa: E501
 
         :return: The desired_value of this SetDiscountPerItemEffectProps.  # noqa: E501
         :rtype: float
@@ -222,7 +222,7 @@ class SetDiscountPerItemEffectProps(object):
     def desired_value(self, desired_value):
         """Sets the desired_value of this SetDiscountPerItemEffectProps.
 
-        The original value of the discount.  # noqa: E501
+        _(Partial discounts enabled only)_ The monetary value of the discount to be applied to the item without considering budget limitations.  # noqa: E501
 
         :param desired_value: The desired_value of this SetDiscountPerItemEffectProps.  # noqa: E501
         :type: float
@@ -234,7 +234,7 @@ class SetDiscountPerItemEffectProps(object):
     def scope(self):
         """Gets the scope of this SetDiscountPerItemEffectProps.  # noqa: E501
 
-        The scope of the discount: - `additionalCosts`: The discount applies to all the additional costs of the item. - `itemTotal`: The discount applies to the price of the item + the additional costs of the item. - `price`: The discount applies to the price of the item.   # noqa: E501
+        What the discount applies to. Possible values:  - `price`: discount on the price of the item. - `additionalCosts`: discount on the [additional cost](https://docs.talon.one/docs/product/account/dev-tools/manage-additional-costs) of the item. - `itemTotal`: discount on the sum of price + additional cost of the item.  # noqa: E501
 
         :return: The scope of this SetDiscountPerItemEffectProps.  # noqa: E501
         :rtype: str
@@ -245,7 +245,7 @@ class SetDiscountPerItemEffectProps(object):
     def scope(self, scope):
         """Sets the scope of this SetDiscountPerItemEffectProps.
 
-        The scope of the discount: - `additionalCosts`: The discount applies to all the additional costs of the item. - `itemTotal`: The discount applies to the price of the item + the additional costs of the item. - `price`: The discount applies to the price of the item.   # noqa: E501
+        What the discount applies to. Possible values:  - `price`: discount on the price of the item. - `additionalCosts`: discount on the [additional cost](https://docs.talon.one/docs/product/account/dev-tools/manage-additional-costs) of the item. - `itemTotal`: discount on the sum of price + additional cost of the item.  # noqa: E501
 
         :param scope: The scope of this SetDiscountPerItemEffectProps.  # noqa: E501
         :type: str
@@ -257,7 +257,7 @@ class SetDiscountPerItemEffectProps(object):
     def total_discount(self):
         """Gets the total_discount of this SetDiscountPerItemEffectProps.  # noqa: E501
 
-        The total discount given if this effect is a result of a prorated discount.  # noqa: E501
+        _(Pro rata discounts only)_ The monetary value of the total effective discount  # noqa: E501
 
         :return: The total_discount of this SetDiscountPerItemEffectProps.  # noqa: E501
         :rtype: float
@@ -268,7 +268,7 @@ class SetDiscountPerItemEffectProps(object):
     def total_discount(self, total_discount):
         """Sets the total_discount of this SetDiscountPerItemEffectProps.
 
-        The total discount given if this effect is a result of a prorated discount.  # noqa: E501
+        _(Pro rata discounts only)_ The monetary value of the total effective discount  # noqa: E501
 
         :param total_discount: The total_discount of this SetDiscountPerItemEffectProps.  # noqa: E501
         :type: float
@@ -280,7 +280,7 @@ class SetDiscountPerItemEffectProps(object):
     def desired_total_discount(self):
         """Gets the desired_total_discount of this SetDiscountPerItemEffectProps.  # noqa: E501
 
-        The original total discount to give if this effect is a result of a prorated discount.  # noqa: E501
+        _(Pro rata discounts only)_ The monetary value of the total discount to be applied without considering budget limitations  # noqa: E501
 
         :return: The desired_total_discount of this SetDiscountPerItemEffectProps.  # noqa: E501
         :rtype: float
@@ -291,7 +291,7 @@ class SetDiscountPerItemEffectProps(object):
     def desired_total_discount(self, desired_total_discount):
         """Sets the desired_total_discount of this SetDiscountPerItemEffectProps.
 
-        The original total discount to give if this effect is a result of a prorated discount.  # noqa: E501
+        _(Pro rata discounts only)_ The monetary value of the total discount to be applied without considering budget limitations  # noqa: E501
 
         :param desired_total_discount: The desired_total_discount of this SetDiscountPerItemEffectProps.  # noqa: E501
         :type: float
@@ -303,7 +303,7 @@ class SetDiscountPerItemEffectProps(object):
     def bundle_index(self):
         """Gets the bundle_index of this SetDiscountPerItemEffectProps.  # noqa: E501
 
-        The position of the bundle in a list of item bundles created from the same bundle definition.  # noqa: E501
+        _(Discounts with bundles only)_ The position of the specific item bundle in the list of bundles created from the same bundle definition.  # noqa: E501
 
         :return: The bundle_index of this SetDiscountPerItemEffectProps.  # noqa: E501
         :rtype: int
@@ -314,7 +314,7 @@ class SetDiscountPerItemEffectProps(object):
     def bundle_index(self, bundle_index):
         """Sets the bundle_index of this SetDiscountPerItemEffectProps.
 
-        The position of the bundle in a list of item bundles created from the same bundle definition.  # noqa: E501
+        _(Discounts with bundles only)_ The position of the specific item bundle in the list of bundles created from the same bundle definition.  # noqa: E501
 
         :param bundle_index: The bundle_index of this SetDiscountPerItemEffectProps.  # noqa: E501
         :type: int
@@ -326,7 +326,7 @@ class SetDiscountPerItemEffectProps(object):
     def bundle_name(self):
         """Gets the bundle_name of this SetDiscountPerItemEffectProps.  # noqa: E501
 
-        The name of the bundle definition.  # noqa: E501
+        _(Discounts with bundles only)_ The name of the bundle definition.  # noqa: E501
 
         :return: The bundle_name of this SetDiscountPerItemEffectProps.  # noqa: E501
         :rtype: str
@@ -337,7 +337,7 @@ class SetDiscountPerItemEffectProps(object):
     def bundle_name(self, bundle_name):
         """Sets the bundle_name of this SetDiscountPerItemEffectProps.
 
-        The name of the bundle definition.  # noqa: E501
+        _(Discounts with bundles only)_ The name of the bundle definition.  # noqa: E501
 
         :param bundle_name: The bundle_name of this SetDiscountPerItemEffectProps.  # noqa: E501
         :type: str
@@ -349,7 +349,7 @@ class SetDiscountPerItemEffectProps(object):
     def targeted_item_position(self):
         """Gets the targeted_item_position of this SetDiscountPerItemEffectProps.  # noqa: E501
 
-        The index of the targeted bundle item on which the applied discount is based.  # noqa: E501
+        _(Discounting individual item in bundles only)_ The index of the targeted bundle item on which the applied discount is based.  # noqa: E501
 
         :return: The targeted_item_position of this SetDiscountPerItemEffectProps.  # noqa: E501
         :rtype: float
@@ -360,7 +360,7 @@ class SetDiscountPerItemEffectProps(object):
     def targeted_item_position(self, targeted_item_position):
         """Sets the targeted_item_position of this SetDiscountPerItemEffectProps.
 
-        The index of the targeted bundle item on which the applied discount is based.  # noqa: E501
+        _(Discounting individual item in bundles only)_ The index of the targeted bundle item on which the applied discount is based.  # noqa: E501
 
         :param targeted_item_position: The targeted_item_position of this SetDiscountPerItemEffectProps.  # noqa: E501
         :type: float
@@ -372,7 +372,7 @@ class SetDiscountPerItemEffectProps(object):
     def targeted_item_sub_position(self):
         """Gets the targeted_item_sub_position of this SetDiscountPerItemEffectProps.  # noqa: E501
 
-        The sub-position of the targeted bundle item on which the applied discount is based.   # noqa: E501
+        _(Discounting individual item in bundles only)_ The sub-position of the targeted bundle item on which the applied discount is based.  # noqa: E501
 
         :return: The targeted_item_sub_position of this SetDiscountPerItemEffectProps.  # noqa: E501
         :rtype: float
@@ -383,7 +383,7 @@ class SetDiscountPerItemEffectProps(object):
     def targeted_item_sub_position(self, targeted_item_sub_position):
         """Sets the targeted_item_sub_position of this SetDiscountPerItemEffectProps.
 
-        The sub-position of the targeted bundle item on which the applied discount is based.   # noqa: E501
+        _(Discounting individual item in bundles only)_ The sub-position of the targeted bundle item on which the applied discount is based.  # noqa: E501
 
         :param targeted_item_sub_position: The targeted_item_sub_position of this SetDiscountPerItemEffectProps.  # noqa: E501
         :type: float

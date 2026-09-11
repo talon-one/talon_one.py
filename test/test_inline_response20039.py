@@ -36,44 +36,54 @@ class TestInlineResponse20039(unittest.TestCase):
         # model = talon_one.models.inline_response20039.InlineResponse20039()  # noqa: E501
         if include_optional :
             return InlineResponse20039(
-                has_more = True, 
                 total_result_size = 1, 
                 data = [
-                    talon_one.models.catalog_item.CatalogItem(
+                    talon_one.models.attribute.Attribute(
                         id = 6, 
                         created = '2020-06-10T09:05:27.993483Z', 
-                        sku = 'SKU1241028', 
-                        price = 99.99, 
-                        catalogid = 6, 
-                        version = 5, 
-                        attributes = [
-                            talon_one.models.item_attribute.ItemAttribute(
-                                attributeid = 6, 
-                                name = '0', 
-                                value = talon_one.models.value.value(), )
+                        account_id = 3886, 
+                        entity = 'Event', 
+                        event_type = 'pageViewed', 
+                        name = 'pageViewed', 
+                        title = 'Page view event', 
+                        type = 'string', 
+                        description = 'Event triggered when a customer displays a page.', 
+                        suggestions = [
+                            '0'
                             ], 
-                        product = talon_one.models.product.Product(
-                            name = 'sample_product', ), )
+                        has_allowed_list = False, 
+                        restricted_by_suggestions = False, 
+                        editable = True, 
+                        subscribed_applications_ids = [1, 4, 9], 
+                        subscribed_catalogs_ids = [2, 5], 
+                        allowed_subscriptions = [application, catalog], 
+                        event_type_id = 22, )
                     ]
             )
         else :
             return InlineResponse20039(
+                total_result_size = 1,
                 data = [
-                    talon_one.models.catalog_item.CatalogItem(
+                    talon_one.models.attribute.Attribute(
                         id = 6, 
                         created = '2020-06-10T09:05:27.993483Z', 
-                        sku = 'SKU1241028', 
-                        price = 99.99, 
-                        catalogid = 6, 
-                        version = 5, 
-                        attributes = [
-                            talon_one.models.item_attribute.ItemAttribute(
-                                attributeid = 6, 
-                                name = '0', 
-                                value = talon_one.models.value.value(), )
+                        account_id = 3886, 
+                        entity = 'Event', 
+                        event_type = 'pageViewed', 
+                        name = 'pageViewed', 
+                        title = 'Page view event', 
+                        type = 'string', 
+                        description = 'Event triggered when a customer displays a page.', 
+                        suggestions = [
+                            '0'
                             ], 
-                        product = talon_one.models.product.Product(
-                            name = 'sample_product', ), )
+                        has_allowed_list = False, 
+                        restricted_by_suggestions = False, 
+                        editable = True, 
+                        subscribed_applications_ids = [1, 4, 9], 
+                        subscribed_catalogs_ids = [2, 5], 
+                        allowed_subscriptions = [application, catalog], 
+                        event_type_id = 22, )
                     ],
         )
 

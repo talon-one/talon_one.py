@@ -35,6 +35,7 @@ class ApplicationReferee(object):
     openapi_types = {
         'application_id': 'int',
         'session_id': 'str',
+        'advanced_event_integration_id': 'str',
         'advocate_integration_id': 'str',
         'friend_integration_id': 'str',
         'code': 'str',
@@ -44,13 +45,14 @@ class ApplicationReferee(object):
     attribute_map = {
         'application_id': 'applicationId',
         'session_id': 'sessionId',
+        'advanced_event_integration_id': 'advancedEventIntegrationId',
         'advocate_integration_id': 'advocateIntegrationId',
         'friend_integration_id': 'friendIntegrationId',
         'code': 'code',
         'created': 'created'
     }
 
-    def __init__(self, application_id=None, session_id=None, advocate_integration_id=None, friend_integration_id=None, code=None, created=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, application_id=None, session_id=None, advanced_event_integration_id=None, advocate_integration_id=None, friend_integration_id=None, code=None, created=None, local_vars_configuration=None):  # noqa: E501
         """ApplicationReferee - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -58,6 +60,7 @@ class ApplicationReferee(object):
 
         self._application_id = None
         self._session_id = None
+        self._advanced_event_integration_id = None
         self._advocate_integration_id = None
         self._friend_integration_id = None
         self._code = None
@@ -66,6 +69,8 @@ class ApplicationReferee(object):
 
         self.application_id = application_id
         self.session_id = session_id
+        if advanced_event_integration_id is not None:
+            self.advanced_event_integration_id = advanced_event_integration_id
         self.advocate_integration_id = advocate_integration_id
         self.friend_integration_id = friend_integration_id
         self.code = code
@@ -120,6 +125,32 @@ class ApplicationReferee(object):
             raise ValueError("Invalid value for `session_id`, must not be `None`")  # noqa: E501
 
         self._session_id = session_id
+
+    @property
+    def advanced_event_integration_id(self):
+        """Gets the advanced_event_integration_id of this ApplicationReferee.  # noqa: E501
+
+        The unique ID of the advanced event in which the customer redeemed the referral. Omitted when the referral was redeemed through a customer session rather than an advanced event.  # noqa: E501
+
+        :return: The advanced_event_integration_id of this ApplicationReferee.  # noqa: E501
+        :rtype: str
+        """
+        return self._advanced_event_integration_id
+
+    @advanced_event_integration_id.setter
+    def advanced_event_integration_id(self, advanced_event_integration_id):
+        """Sets the advanced_event_integration_id of this ApplicationReferee.
+
+        The unique ID of the advanced event in which the customer redeemed the referral. Omitted when the referral was redeemed through a customer session rather than an advanced event.  # noqa: E501
+
+        :param advanced_event_integration_id: The advanced_event_integration_id of this ApplicationReferee.  # noqa: E501
+        :type: str
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                advanced_event_integration_id is not None and len(advanced_event_integration_id) > 1000):
+            raise ValueError("Invalid value for `advanced_event_integration_id`, length must be less than or equal to `1000`")  # noqa: E501
+
+        self._advanced_event_integration_id = advanced_event_integration_id
 
     @property
     def advocate_integration_id(self):

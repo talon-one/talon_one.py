@@ -55,7 +55,7 @@ class RollbackReferralEffectProps(object):
     def value(self):
         """Gets the value of this RollbackReferralEffectProps.  # noqa: E501
 
-        The referral code whose usage has been rolled back.  # noqa: E501
+        The referral code to be rolled back.  # noqa: E501
 
         :return: The value of this RollbackReferralEffectProps.  # noqa: E501
         :rtype: str
@@ -66,7 +66,7 @@ class RollbackReferralEffectProps(object):
     def value(self, value):
         """Sets the value of this RollbackReferralEffectProps.
 
-        The referral code whose usage has been rolled back.  # noqa: E501
+        The referral code to be rolled back.  # noqa: E501
 
         :param value: The value of this RollbackReferralEffectProps.  # noqa: E501
         :type: str

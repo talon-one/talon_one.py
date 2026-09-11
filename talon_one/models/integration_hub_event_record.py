@@ -35,26 +35,32 @@ class IntegrationHubEventRecord(object):
     openapi_types = {
         'id': 'int',
         'flow_id': 'int',
-        'event_type': 'str',
-        'event_data': 'object',
+        'integration_name': 'str',
+        'instance_name': 'str',
+        'event_type': 'IntegrationHubEventType',
         'published_at': 'datetime',
         'processed_at': 'datetime',
-        'process_after': 'datetime',
-        'retry': 'int'
+        'delivered_at': 'datetime',
+        'scheduled_to': 'datetime',
+        'retry': 'int',
+        'payload': 'str'
     }
 
     attribute_map = {
-        'id': 'Id',
-        'flow_id': 'FlowId',
-        'event_type': 'EventType',
-        'event_data': 'EventData',
-        'published_at': 'PublishedAt',
-        'processed_at': 'ProcessedAt',
-        'process_after': 'ProcessAfter',
-        'retry': 'Retry'
+        'id': 'id',
+        'flow_id': 'flowId',
+        'integration_name': 'integrationName',
+        'instance_name': 'instanceName',
+        'event_type': 'eventType',
+        'published_at': 'publishedAt',
+        'processed_at': 'processedAt',
+        'delivered_at': 'deliveredAt',
+        'scheduled_to': 'scheduledTo',
+        'retry': 'retry',
+        'payload': 'payload'
     }
 
-    def __init__(self, id=None, flow_id=None, event_type=None, event_data=None, published_at=None, processed_at=None, process_after=None, retry=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, flow_id=None, integration_name=None, instance_name=None, event_type=None, published_at=None, processed_at=None, delivered_at=None, scheduled_to=None, retry=None, payload=None, local_vars_configuration=None):  # noqa: E501
         """IntegrationHubEventRecord - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -62,28 +68,38 @@ class IntegrationHubEventRecord(object):
 
         self._id = None
         self._flow_id = None
+        self._integration_name = None
+        self._instance_name = None
         self._event_type = None
-        self._event_data = None
         self._published_at = None
         self._processed_at = None
-        self._process_after = None
+        self._delivered_at = None
+        self._scheduled_to = None
         self._retry = None
+        self._payload = None
         self.discriminator = None
 
         self.id = id
         self.flow_id = flow_id
+        if integration_name is not None:
+            self.integration_name = integration_name
+        if instance_name is not None:
+            self.instance_name = instance_name
         self.event_type = event_type
-        self.event_data = event_data
         self.published_at = published_at
         if processed_at is not None:
             self.processed_at = processed_at
-        self.process_after = process_after
+        if delivered_at is not None:
+            self.delivered_at = delivered_at
+        self.scheduled_to = scheduled_to
         self.retry = retry
+        self.payload = payload
 
     @property
     def id(self):
         """Gets the id of this IntegrationHubEventRecord.  # noqa: E501
 
+        ID of the event record.  # noqa: E501
 
         :return: The id of this IntegrationHubEventRecord.  # noqa: E501
         :rtype: int
@@ -94,6 +110,7 @@ class IntegrationHubEventRecord(object):
     def id(self, id):
         """Sets the id of this IntegrationHubEventRecord.
 
+        ID of the event record.  # noqa: E501
 
         :param id: The id of this IntegrationHubEventRecord.  # noqa: E501
         :type: int
@@ -107,6 +124,7 @@ class IntegrationHubEventRecord(object):
     def flow_id(self):
         """Gets the flow_id of this IntegrationHubEventRecord.  # noqa: E501
 
+        ID of the integration hub flow.  # noqa: E501
 
         :return: The flow_id of this IntegrationHubEventRecord.  # noqa: E501
         :rtype: int
@@ -117,6 +135,7 @@ class IntegrationHubEventRecord(object):
     def flow_id(self, flow_id):
         """Sets the flow_id of this IntegrationHubEventRecord.
 
+        ID of the integration hub flow.  # noqa: E501
 
         :param flow_id: The flow_id of this IntegrationHubEventRecord.  # noqa: E501
         :type: int
@@ -127,12 +146,58 @@ class IntegrationHubEventRecord(object):
         self._flow_id = flow_id
 
     @property
+    def integration_name(self):
+        """Gets the integration_name of this IntegrationHubEventRecord.  # noqa: E501
+
+        Name of the integration.  # noqa: E501
+
+        :return: The integration_name of this IntegrationHubEventRecord.  # noqa: E501
+        :rtype: str
+        """
+        return self._integration_name
+
+    @integration_name.setter
+    def integration_name(self, integration_name):
+        """Sets the integration_name of this IntegrationHubEventRecord.
+
+        Name of the integration.  # noqa: E501
+
+        :param integration_name: The integration_name of this IntegrationHubEventRecord.  # noqa: E501
+        :type: str
+        """
+
+        self._integration_name = integration_name
+
+    @property
+    def instance_name(self):
+        """Gets the instance_name of this IntegrationHubEventRecord.  # noqa: E501
+
+        Name of the integration instance.  # noqa: E501
+
+        :return: The instance_name of this IntegrationHubEventRecord.  # noqa: E501
+        :rtype: str
+        """
+        return self._instance_name
+
+    @instance_name.setter
+    def instance_name(self, instance_name):
+        """Sets the instance_name of this IntegrationHubEventRecord.
+
+        Name of the integration instance.  # noqa: E501
+
+        :param instance_name: The instance_name of this IntegrationHubEventRecord.  # noqa: E501
+        :type: str
+        """
+
+        self._instance_name = instance_name
+
+    @property
     def event_type(self):
         """Gets the event_type of this IntegrationHubEventRecord.  # noqa: E501
 
 
         :return: The event_type of this IntegrationHubEventRecord.  # noqa: E501
-        :rtype: str
+        :rtype: IntegrationHubEventType
         """
         return self._event_type
 
@@ -142,7 +207,7 @@ class IntegrationHubEventRecord(object):
 
 
         :param event_type: The event_type of this IntegrationHubEventRecord.  # noqa: E501
-        :type: str
+        :type: IntegrationHubEventType
         """
         if self.local_vars_configuration.client_side_validation and event_type is None:  # noqa: E501
             raise ValueError("Invalid value for `event_type`, must not be `None`")  # noqa: E501
@@ -150,32 +215,10 @@ class IntegrationHubEventRecord(object):
         self._event_type = event_type
 
     @property
-    def event_data(self):
-        """Gets the event_data of this IntegrationHubEventRecord.  # noqa: E501
-
-
-        :return: The event_data of this IntegrationHubEventRecord.  # noqa: E501
-        :rtype: object
-        """
-        return self._event_data
-
-    @event_data.setter
-    def event_data(self, event_data):
-        """Sets the event_data of this IntegrationHubEventRecord.
-
-
-        :param event_data: The event_data of this IntegrationHubEventRecord.  # noqa: E501
-        :type: object
-        """
-        if self.local_vars_configuration.client_side_validation and event_data is None:  # noqa: E501
-            raise ValueError("Invalid value for `event_data`, must not be `None`")  # noqa: E501
-
-        self._event_data = event_data
-
-    @property
     def published_at(self):
         """Gets the published_at of this IntegrationHubEventRecord.  # noqa: E501
 
+        Timestamp when the event was published.  # noqa: E501
 
         :return: The published_at of this IntegrationHubEventRecord.  # noqa: E501
         :rtype: datetime
@@ -186,6 +229,7 @@ class IntegrationHubEventRecord(object):
     def published_at(self, published_at):
         """Sets the published_at of this IntegrationHubEventRecord.
 
+        Timestamp when the event was published.  # noqa: E501
 
         :param published_at: The published_at of this IntegrationHubEventRecord.  # noqa: E501
         :type: datetime
@@ -199,6 +243,7 @@ class IntegrationHubEventRecord(object):
     def processed_at(self):
         """Gets the processed_at of this IntegrationHubEventRecord.  # noqa: E501
 
+        Timestamp when the event was processed.  # noqa: E501
 
         :return: The processed_at of this IntegrationHubEventRecord.  # noqa: E501
         :rtype: datetime
@@ -209,6 +254,7 @@ class IntegrationHubEventRecord(object):
     def processed_at(self, processed_at):
         """Sets the processed_at of this IntegrationHubEventRecord.
 
+        Timestamp when the event was processed.  # noqa: E501
 
         :param processed_at: The processed_at of this IntegrationHubEventRecord.  # noqa: E501
         :type: datetime
@@ -217,32 +263,58 @@ class IntegrationHubEventRecord(object):
         self._processed_at = processed_at
 
     @property
-    def process_after(self):
-        """Gets the process_after of this IntegrationHubEventRecord.  # noqa: E501
+    def delivered_at(self):
+        """Gets the delivered_at of this IntegrationHubEventRecord.  # noqa: E501
 
+        Timestamp when the event was delivered.  # noqa: E501
 
-        :return: The process_after of this IntegrationHubEventRecord.  # noqa: E501
+        :return: The delivered_at of this IntegrationHubEventRecord.  # noqa: E501
         :rtype: datetime
         """
-        return self._process_after
+        return self._delivered_at
 
-    @process_after.setter
-    def process_after(self, process_after):
-        """Sets the process_after of this IntegrationHubEventRecord.
+    @delivered_at.setter
+    def delivered_at(self, delivered_at):
+        """Sets the delivered_at of this IntegrationHubEventRecord.
 
+        Timestamp when the event was delivered.  # noqa: E501
 
-        :param process_after: The process_after of this IntegrationHubEventRecord.  # noqa: E501
+        :param delivered_at: The delivered_at of this IntegrationHubEventRecord.  # noqa: E501
         :type: datetime
         """
-        if self.local_vars_configuration.client_side_validation and process_after is None:  # noqa: E501
-            raise ValueError("Invalid value for `process_after`, must not be `None`")  # noqa: E501
 
-        self._process_after = process_after
+        self._delivered_at = delivered_at
+
+    @property
+    def scheduled_to(self):
+        """Gets the scheduled_to of this IntegrationHubEventRecord.  # noqa: E501
+
+        Timestamp after which the event is scheduled to be processed.  # noqa: E501
+
+        :return: The scheduled_to of this IntegrationHubEventRecord.  # noqa: E501
+        :rtype: datetime
+        """
+        return self._scheduled_to
+
+    @scheduled_to.setter
+    def scheduled_to(self, scheduled_to):
+        """Sets the scheduled_to of this IntegrationHubEventRecord.
+
+        Timestamp after which the event is scheduled to be processed.  # noqa: E501
+
+        :param scheduled_to: The scheduled_to of this IntegrationHubEventRecord.  # noqa: E501
+        :type: datetime
+        """
+        if self.local_vars_configuration.client_side_validation and scheduled_to is None:  # noqa: E501
+            raise ValueError("Invalid value for `scheduled_to`, must not be `None`")  # noqa: E501
+
+        self._scheduled_to = scheduled_to
 
     @property
     def retry(self):
         """Gets the retry of this IntegrationHubEventRecord.  # noqa: E501
 
+        Number of delivery retries attempted.  # noqa: E501
 
         :return: The retry of this IntegrationHubEventRecord.  # noqa: E501
         :rtype: int
@@ -253,6 +325,7 @@ class IntegrationHubEventRecord(object):
     def retry(self, retry):
         """Sets the retry of this IntegrationHubEventRecord.
 
+        Number of delivery retries attempted.  # noqa: E501
 
         :param retry: The retry of this IntegrationHubEventRecord.  # noqa: E501
         :type: int
@@ -261,6 +334,31 @@ class IntegrationHubEventRecord(object):
             raise ValueError("Invalid value for `retry`, must not be `None`")  # noqa: E501
 
         self._retry = retry
+
+    @property
+    def payload(self):
+        """Gets the payload of this IntegrationHubEventRecord.  # noqa: E501
+
+        The event payload as a formatted JSON string.  # noqa: E501
+
+        :return: The payload of this IntegrationHubEventRecord.  # noqa: E501
+        :rtype: str
+        """
+        return self._payload
+
+    @payload.setter
+    def payload(self, payload):
+        """Sets the payload of this IntegrationHubEventRecord.
+
+        The event payload as a formatted JSON string.  # noqa: E501
+
+        :param payload: The payload of this IntegrationHubEventRecord.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and payload is None:  # noqa: E501
+            raise ValueError("Invalid value for `payload`, must not be `None`")  # noqa: E501
+
+        self._payload = payload
 
     def to_dict(self):
         """Returns the model properties as a dict"""

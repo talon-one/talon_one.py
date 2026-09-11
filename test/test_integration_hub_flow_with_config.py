@@ -37,23 +37,28 @@ class TestIntegrationHubFlowWithConfig(unittest.TestCase):
         if include_optional :
             return IntegrationHubFlowWithConfig(
                 application_id = 54, 
-                event_type = '0', 
+                loyalty_program_id = 12, 
+                event_type = 'CouponCreated', 
                 integration_hub_flow_url = '0', 
                 config = talon_one.models.integration_hub_flow_config.IntegrationHubFlowConfig(
                     api_key = '0', 
                     worker_count = 1, 
                     max_events_per_message = 1, 
-                    max_retries = 0, )
+                    max_retries = 0, 
+                    instance_name = '0', 
+                    integration_name = '0', )
             )
         else :
             return IntegrationHubFlowWithConfig(
-                event_type = '0',
+                event_type = 'CouponCreated',
                 integration_hub_flow_url = '0',
                 config = talon_one.models.integration_hub_flow_config.IntegrationHubFlowConfig(
                     api_key = '0', 
                     worker_count = 1, 
                     max_events_per_message = 1, 
-                    max_retries = 0, ),
+                    max_retries = 0, 
+                    instance_name = '0', 
+                    integration_name = '0', ),
         )
 
     def testIntegrationHubFlowWithConfig(self):

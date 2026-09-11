@@ -37,6 +37,7 @@ class TestSamlConnection(unittest.TestCase):
         if include_optional :
             return SamlConnection(
                 assertion_consumer_service_url = '0', 
+                certificate_expiry = '2021-07-20T21:59Z', 
                 account_id = 3885, 
                 name = '0', 
                 enabled = True, 

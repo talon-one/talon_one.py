@@ -69,7 +69,7 @@ class SetDiscountEffectProps(object):
     def name(self):
         """Gets the name of this SetDiscountEffectProps.  # noqa: E501
 
-        The name / description of this discount  # noqa: E501
+        The name or description of this discount.  # noqa: E501
 
         :return: The name of this SetDiscountEffectProps.  # noqa: E501
         :rtype: str
@@ -80,7 +80,7 @@ class SetDiscountEffectProps(object):
     def name(self, name):
         """Sets the name of this SetDiscountEffectProps.
 
-        The name / description of this discount  # noqa: E501
+        The name or description of this discount.  # noqa: E501
 
         :param name: The name of this SetDiscountEffectProps.  # noqa: E501
         :type: str
@@ -94,7 +94,7 @@ class SetDiscountEffectProps(object):
     def value(self):
         """Gets the value of this SetDiscountEffectProps.  # noqa: E501
 
-        The total monetary value of the discount.  # noqa: E501
+        The monetary value of the effective discount.  # noqa: E501
 
         :return: The value of this SetDiscountEffectProps.  # noqa: E501
         :rtype: float
@@ -105,7 +105,7 @@ class SetDiscountEffectProps(object):
     def value(self, value):
         """Sets the value of this SetDiscountEffectProps.
 
-        The total monetary value of the discount.  # noqa: E501
+        The monetary value of the effective discount.  # noqa: E501
 
         :param value: The value of this SetDiscountEffectProps.  # noqa: E501
         :type: float
@@ -119,7 +119,7 @@ class SetDiscountEffectProps(object):
     def scope(self):
         """Gets the scope of this SetDiscountEffectProps.  # noqa: E501
 
-        The scope which the discount was applied on, can be one of (cartItems,additionalCosts,sessionTotal).  # noqa: E501
+        What the discount applies to. Possible values:  - `cartItems`: Discount on the price of the items. - `additionalCosts`: Discount on the [additional costs](https://docs.talon.one/docs/product/account/dev-tools/manage-additional-costs) of the items. - `sessionTotal`: Discount on the total value of the customer session.  **Note:** [Cascading discounts](https://docs.talon.one/docs/product/applications/manage-general-settings#cascading-discounts) must be enabled for this property to be returned.  # noqa: E501
 
         :return: The scope of this SetDiscountEffectProps.  # noqa: E501
         :rtype: str
@@ -130,7 +130,7 @@ class SetDiscountEffectProps(object):
     def scope(self, scope):
         """Sets the scope of this SetDiscountEffectProps.
 
-        The scope which the discount was applied on, can be one of (cartItems,additionalCosts,sessionTotal).  # noqa: E501
+        What the discount applies to. Possible values:  - `cartItems`: Discount on the price of the items. - `additionalCosts`: Discount on the [additional costs](https://docs.talon.one/docs/product/account/dev-tools/manage-additional-costs) of the items. - `sessionTotal`: Discount on the total value of the customer session.  **Note:** [Cascading discounts](https://docs.talon.one/docs/product/applications/manage-general-settings#cascading-discounts) must be enabled for this property to be returned.  # noqa: E501
 
         :param scope: The scope of this SetDiscountEffectProps.  # noqa: E501
         :type: str
@@ -142,7 +142,7 @@ class SetDiscountEffectProps(object):
     def desired_value(self):
         """Gets the desired_value of this SetDiscountEffectProps.  # noqa: E501
 
-        The original value of the discount.  # noqa: E501
+        _(Partial discounts enabled only)_ The monetary value of the discount to be applied without considering budget limitations.  # noqa: E501
 
         :return: The desired_value of this SetDiscountEffectProps.  # noqa: E501
         :rtype: float
@@ -153,7 +153,7 @@ class SetDiscountEffectProps(object):
     def desired_value(self, desired_value):
         """Sets the desired_value of this SetDiscountEffectProps.
 
-        The original value of the discount.  # noqa: E501
+        _(Partial discounts enabled only)_ The monetary value of the discount to be applied without considering budget limitations.  # noqa: E501
 
         :param desired_value: The desired_value of this SetDiscountEffectProps.  # noqa: E501
         :type: float

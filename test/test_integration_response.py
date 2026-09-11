@@ -194,7 +194,7 @@ class TestIntegrationResponse(unittest.TestCase):
                         call_api_effect_count = 0, 
                         reservecoupon_effect_count = 9, 
                         last_activity = '2022-11-10T23:00Z', 
-                        updated = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        updated = '2022-10-27T15:00Z', 
                         created_by = 'John Doe', 
                         updated_by = 'Jane Doe', 
                         template_id = 3, 
@@ -209,6 +209,41 @@ class TestIntegrationResponse(unittest.TestCase):
                         current_revision_id = 6, 
                         current_revision_version_id = 6, 
                         stage_revision = False, )
+                    ], 
+                campaign_eligibility = [
+                    talon_one.models.campaign_eligibility.CampaignEligibility(
+                        application_id = 322, 
+                        id = 4, 
+                        name = 'Summer promotions', 
+                        description = 'Campaign for all summer 2021 promotions', 
+                        start_time = '2021-07-20T22:00Z', 
+                        end_time = '2021-09-22T22:00Z', 
+                        attributes = talon_one.models.attributes.attributes(), 
+                        state = 'enabled', 
+                        tags = [summer], 
+                        features = [coupons, referrals], 
+                        eligibility = [
+                            talon_one.models.campaign_eligibility_details.CampaignEligibilityDetails(
+                                passed = True, 
+                                coupon_code = '0', 
+                                details = talon_one.models.campaign_eligibility_failure_details.CampaignEligibilityFailureDetails(
+                                    failure_code = 'ALL_RULES_FAILED', ), )
+                            ], 
+                        rules = [
+                            talon_one.models.rule_metadata_eligibility.RuleMetadataEligibility(
+                                title = 'Give discount via coupon', 
+                                display_name = '20% off all shoes!', 
+                                display_description = 'Get a 20% discount on all shoes during Thanksgiving! Offer valid till Dec 5 only.', 
+                                related_data = 'https://example.com/discounts/20-off-shoes.png', 
+                                eligibility = [
+                                    talon_one.models.rule_eligibility.RuleEligibility(
+                                        passed = True, 
+                                        coupon_code = '0', )
+                                    ], )
+                            ], 
+                        experiment = talon_one.models.campaign_eligibility_experiment.CampaignEligibilityExperiment(
+                            id = 56, 
+                            variant_id = 56, ), )
                     ], 
                 effects = [
                     talon_one.models.effect.Effect(
@@ -228,6 +263,7 @@ class TestIntegrationResponse(unittest.TestCase):
                         selected_price_type = 'member', 
                         selected_price = 100.0, 
                         adjustment_reference_id = '68851723-e6fa-488f-ace9-112581e6c19b', 
+                        reward_id = 7, 
                         props = talon_one.models.props.props(), )
                     ], 
                 rule_failure_reasons = [
@@ -239,6 +275,8 @@ class TestIntegrationResponse(unittest.TestCase):
                         coupon_value = '0', 
                         referral_id = 56, 
                         referral_value = '0', 
+                        reward_id = 7, 
+                        reward_integration_id = '5c0b5e6d-3f8a-4c2b-9f1e-2a7d6b4c8e90', 
                         rule_index = 56, 
                         rule_name = '0', 
                         condition_index = 56, 
@@ -307,6 +345,52 @@ class TestIntegrationResponse(unittest.TestCase):
                         import_id = 4, 
                         profile_integration_id = 'R195412', 
                         profile_id = 1, )
+                    ], 
+                achievements = [
+                    talon_one.models.customer_achievement.CustomerAchievement(
+                        id = 3, 
+                        name = 'FreeCoffee10Orders', 
+                        title = '50% off on 50th purchase.', 
+                        description = '50% off for every 50th purchase in a year.', 
+                        target = 10.0, 
+                        recurrence_policy = 'no_recurrence', 
+                        activation_policy = 'fixed_schedule', 
+                        fixed_start_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        end_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        allow_rollback_after_completion = False, 
+                        campaign_id = 3, 
+                        campaign_ids = [1, 14, 27], 
+                        referenced_by_campaigns = [
+                            talon_one.models.campaign_reference.CampaignReference(
+                                id = 1, 
+                                application_id = 2, )
+                            ], 
+                        current_progress = talon_one.models.achievement_progress.AchievementProgress(
+                            status = 'completed', 
+                            progress = 10.0, 
+                            start_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                            completion_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                            end_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), ), )
+                    ], 
+                rewards = [
+                    talon_one.models.reward_with_unlocks.RewardWithUnlocks(
+                        id = 42, 
+                        integration_id = 'free-coffee', 
+                        name = '10% Off Coupon', 
+                        description = 'Applies to next order', 
+                        rule = talon_one.models.rule_metadata.RuleMetadata(
+                            title = 'Give discount via coupon', 
+                            display_name = '20% off all shoes!', 
+                            display_description = 'Get a 20% discount on all shoes during Thanksgiving! Offer valid till Dec 5 only.', 
+                            related_data = 'https://example.com/discounts/20-off-shoes.png', ), 
+                        unlocked = [
+                            talon_one.models.customer_reward.CustomerReward(
+                                application_id = 3, 
+                                profile_integration_id = 'customer1', 
+                                integration_id = 'reward-unlock-123', 
+                                unlocked_at = '2024-01-01T00:00Z', 
+                                used_at = '2024-01-02T00:00Z', )
+                            ], )
                     ]
             )
         else :
@@ -329,6 +413,7 @@ class TestIntegrationResponse(unittest.TestCase):
                         selected_price_type = 'member', 
                         selected_price = 100.0, 
                         adjustment_reference_id = '68851723-e6fa-488f-ace9-112581e6c19b', 
+                        reward_id = 7, 
                         props = talon_one.models.props.props(), )
                     ],
                 created_coupons = [

@@ -45,13 +45,16 @@ class AchievementV2(object):
         'fixed_start_date': 'datetime',
         'end_date': 'datetime',
         'allow_rollback_after_completion': 'bool',
-        'sandbox': 'bool',
         'subscribed_applications': 'list[int]',
-        'timezone': 'str',
         'user_id': 'int',
         'created_by': 'str',
+        'period_end_override': 'TimePoint',
         'has_progress': 'bool',
-        'status': 'str'
+        'status': 'str',
+        'sandbox': 'bool',
+        'timezone': 'str',
+        'campaign_id': 'int',
+        'referenced_by_campaigns': 'list[CampaignReference]'
     }
 
     attribute_map = {
@@ -67,16 +70,19 @@ class AchievementV2(object):
         'fixed_start_date': 'fixedStartDate',
         'end_date': 'endDate',
         'allow_rollback_after_completion': 'allowRollbackAfterCompletion',
-        'sandbox': 'sandbox',
         'subscribed_applications': 'subscribedApplications',
-        'timezone': 'timezone',
         'user_id': 'userId',
         'created_by': 'createdBy',
+        'period_end_override': 'periodEndOverride',
         'has_progress': 'hasProgress',
-        'status': 'status'
+        'status': 'status',
+        'sandbox': 'sandbox',
+        'timezone': 'timezone',
+        'campaign_id': 'campaignId',
+        'referenced_by_campaigns': 'referencedByCampaigns'
     }
 
-    def __init__(self, id=None, created=None, name=None, title=None, description=None, target=None, period=None, recurrence_policy=None, activation_policy=None, fixed_start_date=None, end_date=None, allow_rollback_after_completion=None, sandbox=None, subscribed_applications=None, timezone=None, user_id=None, created_by=None, has_progress=None, status=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, created=None, name=None, title=None, description=None, target=None, period=None, recurrence_policy=None, activation_policy=None, fixed_start_date=None, end_date=None, allow_rollback_after_completion=None, subscribed_applications=None, user_id=None, created_by=None, period_end_override=None, has_progress=None, status=None, sandbox=None, timezone=None, campaign_id=None, referenced_by_campaigns=None, local_vars_configuration=None):  # noqa: E501
         """AchievementV2 - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -94,13 +100,16 @@ class AchievementV2(object):
         self._fixed_start_date = None
         self._end_date = None
         self._allow_rollback_after_completion = None
-        self._sandbox = None
         self._subscribed_applications = None
-        self._timezone = None
         self._user_id = None
         self._created_by = None
+        self._period_end_override = None
         self._has_progress = None
         self._status = None
+        self._sandbox = None
+        self._timezone = None
+        self._campaign_id = None
+        self._referenced_by_campaigns = None
         self.discriminator = None
 
         self.id = id
@@ -119,16 +128,21 @@ class AchievementV2(object):
             self.end_date = end_date
         if allow_rollback_after_completion is not None:
             self.allow_rollback_after_completion = allow_rollback_after_completion
-        self.sandbox = sandbox
         self.subscribed_applications = subscribed_applications
-        self.timezone = timezone
         self.user_id = user_id
         if created_by is not None:
             self.created_by = created_by
+        if period_end_override is not None:
+            self.period_end_override = period_end_override
         if has_progress is not None:
             self.has_progress = has_progress
         if status is not None:
             self.status = status
+        self.sandbox = sandbox
+        self.timezone = timezone
+        if campaign_id is not None:
+            self.campaign_id = campaign_id
+        self.referenced_by_campaigns = referenced_by_campaigns
 
     @property
     def id(self):
@@ -444,31 +458,6 @@ class AchievementV2(object):
         self._allow_rollback_after_completion = allow_rollback_after_completion
 
     @property
-    def sandbox(self):
-        """Gets the sandbox of this AchievementV2.  # noqa: E501
-
-        Indicates if this achievement is a live or sandbox achievement. Achievements of a given type can only be connected to Applications of the same type.  # noqa: E501
-
-        :return: The sandbox of this AchievementV2.  # noqa: E501
-        :rtype: bool
-        """
-        return self._sandbox
-
-    @sandbox.setter
-    def sandbox(self, sandbox):
-        """Sets the sandbox of this AchievementV2.
-
-        Indicates if this achievement is a live or sandbox achievement. Achievements of a given type can only be connected to Applications of the same type.  # noqa: E501
-
-        :param sandbox: The sandbox of this AchievementV2.  # noqa: E501
-        :type: bool
-        """
-        if self.local_vars_configuration.client_side_validation and sandbox is None:  # noqa: E501
-            raise ValueError("Invalid value for `sandbox`, must not be `None`")  # noqa: E501
-
-        self._sandbox = sandbox
-
-    @property
     def subscribed_applications(self):
         """Gets the subscribed_applications of this AchievementV2.  # noqa: E501
 
@@ -492,34 +481,6 @@ class AchievementV2(object):
             raise ValueError("Invalid value for `subscribed_applications`, must not be `None`")  # noqa: E501
 
         self._subscribed_applications = subscribed_applications
-
-    @property
-    def timezone(self):
-        """Gets the timezone of this AchievementV2.  # noqa: E501
-
-        A string containing an IANA timezone descriptor.  # noqa: E501
-
-        :return: The timezone of this AchievementV2.  # noqa: E501
-        :rtype: str
-        """
-        return self._timezone
-
-    @timezone.setter
-    def timezone(self, timezone):
-        """Sets the timezone of this AchievementV2.
-
-        A string containing an IANA timezone descriptor.  # noqa: E501
-
-        :param timezone: The timezone of this AchievementV2.  # noqa: E501
-        :type: str
-        """
-        if self.local_vars_configuration.client_side_validation and timezone is None:  # noqa: E501
-            raise ValueError("Invalid value for `timezone`, must not be `None`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                timezone is not None and len(timezone) < 1):
-            raise ValueError("Invalid value for `timezone`, length must be greater than or equal to `1`")  # noqa: E501
-
-        self._timezone = timezone
 
     @property
     def user_id(self):
@@ -570,6 +531,27 @@ class AchievementV2(object):
         self._created_by = created_by
 
     @property
+    def period_end_override(self):
+        """Gets the period_end_override of this AchievementV2.  # noqa: E501
+
+
+        :return: The period_end_override of this AchievementV2.  # noqa: E501
+        :rtype: TimePoint
+        """
+        return self._period_end_override
+
+    @period_end_override.setter
+    def period_end_override(self, period_end_override):
+        """Sets the period_end_override of this AchievementV2.
+
+
+        :param period_end_override: The period_end_override of this AchievementV2.  # noqa: E501
+        :type: TimePoint
+        """
+
+        self._period_end_override = period_end_override
+
+    @property
     def has_progress(self):
         """Gets the has_progress of this AchievementV2.  # noqa: E501
 
@@ -596,7 +578,7 @@ class AchievementV2(object):
     def status(self):
         """Gets the status of this AchievementV2.  # noqa: E501
 
-        The status of the achievement.  # noqa: E501
+        The status of the achievement.                                                                                               - `active`: The achievement is available to customers. - `scheduled`: The achievement has a `fixedStartDate` set in the future. - `expired`: The achievement's `endDate` is in the past.   # noqa: E501
 
         :return: The status of this AchievementV2.  # noqa: E501
         :rtype: str
@@ -607,12 +589,12 @@ class AchievementV2(object):
     def status(self, status):
         """Sets the status of this AchievementV2.
 
-        The status of the achievement.  # noqa: E501
+        The status of the achievement.                                                                                               - `active`: The achievement is available to customers. - `scheduled`: The achievement has a `fixedStartDate` set in the future. - `expired`: The achievement's `endDate` is in the past.   # noqa: E501
 
         :param status: The status of this AchievementV2.  # noqa: E501
         :type: str
         """
-        allowed_values = ["inprogress", "expired", "not_started", "completed"]  # noqa: E501
+        allowed_values = ["active", "scheduled", "expired"]  # noqa: E501
         if self.local_vars_configuration.client_side_validation and status not in allowed_values:  # noqa: E501
             raise ValueError(
                 "Invalid value for `status` ({0}), must be one of {1}"  # noqa: E501
@@ -620,6 +602,107 @@ class AchievementV2(object):
             )
 
         self._status = status
+
+    @property
+    def sandbox(self):
+        """Gets the sandbox of this AchievementV2.  # noqa: E501
+
+        Indicates if this achievement is a live or sandbox achievement. Achievements of a given type can only be connected to Applications of the same type.  # noqa: E501
+
+        :return: The sandbox of this AchievementV2.  # noqa: E501
+        :rtype: bool
+        """
+        return self._sandbox
+
+    @sandbox.setter
+    def sandbox(self, sandbox):
+        """Sets the sandbox of this AchievementV2.
+
+        Indicates if this achievement is a live or sandbox achievement. Achievements of a given type can only be connected to Applications of the same type.  # noqa: E501
+
+        :param sandbox: The sandbox of this AchievementV2.  # noqa: E501
+        :type: bool
+        """
+        if self.local_vars_configuration.client_side_validation and sandbox is None:  # noqa: E501
+            raise ValueError("Invalid value for `sandbox`, must not be `None`")  # noqa: E501
+
+        self._sandbox = sandbox
+
+    @property
+    def timezone(self):
+        """Gets the timezone of this AchievementV2.  # noqa: E501
+
+        A string containing an IANA timezone descriptor.  # noqa: E501
+
+        :return: The timezone of this AchievementV2.  # noqa: E501
+        :rtype: str
+        """
+        return self._timezone
+
+    @timezone.setter
+    def timezone(self, timezone):
+        """Sets the timezone of this AchievementV2.
+
+        A string containing an IANA timezone descriptor.  # noqa: E501
+
+        :param timezone: The timezone of this AchievementV2.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and timezone is None:  # noqa: E501
+            raise ValueError("Invalid value for `timezone`, must not be `None`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                timezone is not None and len(timezone) < 1):
+            raise ValueError("Invalid value for `timezone`, length must be greater than or equal to `1`")  # noqa: E501
+
+        self._timezone = timezone
+
+    @property
+    def campaign_id(self):
+        """Gets the campaign_id of this AchievementV2.  # noqa: E501
+
+        This property is **deprecated**. Use `referencedByCampaigns` instead. This field contains the first campaign ID from the related `referencedByCampaigns`, and is omitted when `referencedByCampaigns` is empty.  # noqa: E501
+
+        :return: The campaign_id of this AchievementV2.  # noqa: E501
+        :rtype: int
+        """
+        return self._campaign_id
+
+    @campaign_id.setter
+    def campaign_id(self, campaign_id):
+        """Sets the campaign_id of this AchievementV2.
+
+        This property is **deprecated**. Use `referencedByCampaigns` instead. This field contains the first campaign ID from the related `referencedByCampaigns`, and is omitted when `referencedByCampaigns` is empty.  # noqa: E501
+
+        :param campaign_id: The campaign_id of this AchievementV2.  # noqa: E501
+        :type: int
+        """
+
+        self._campaign_id = campaign_id
+
+    @property
+    def referenced_by_campaigns(self):
+        """Gets the referenced_by_campaigns of this AchievementV2.  # noqa: E501
+
+        The campaigns that reference this achievement. They are sorted in ascending order by their id.  # noqa: E501
+
+        :return: The referenced_by_campaigns of this AchievementV2.  # noqa: E501
+        :rtype: list[CampaignReference]
+        """
+        return self._referenced_by_campaigns
+
+    @referenced_by_campaigns.setter
+    def referenced_by_campaigns(self, referenced_by_campaigns):
+        """Sets the referenced_by_campaigns of this AchievementV2.
+
+        The campaigns that reference this achievement. They are sorted in ascending order by their id.  # noqa: E501
+
+        :param referenced_by_campaigns: The referenced_by_campaigns of this AchievementV2.  # noqa: E501
+        :type: list[CampaignReference]
+        """
+        if self.local_vars_configuration.client_side_validation and referenced_by_campaigns is None:  # noqa: E501
+            raise ValueError("Invalid value for `referenced_by_campaigns`, must not be `None`")  # noqa: E501
+
+        self._referenced_by_campaigns = referenced_by_campaigns
 
     def to_dict(self):
         """Returns the model properties as a dict"""

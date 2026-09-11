@@ -52,6 +52,7 @@ class TestEffect(unittest.TestCase):
                 selected_price_type = 'member', 
                 selected_price = 100.0, 
                 adjustment_reference_id = '68851723-e6fa-488f-ace9-112581e6c19b', 
+                reward_id = 7, 
                 props = None
             )
         else :

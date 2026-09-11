@@ -43,6 +43,8 @@ class AchievementProgressWithDefinition(object):
         'title': 'str',
         'description': 'str',
         'campaign_id': 'int',
+        'campaign_ids': 'list[int]',
+        'referenced_by_campaigns': 'list[CampaignReference]',
         'target': 'float',
         'achievement_recurrence_policy': 'str',
         'achievement_activation_policy': 'str',
@@ -62,6 +64,8 @@ class AchievementProgressWithDefinition(object):
         'title': 'title',
         'description': 'description',
         'campaign_id': 'campaignId',
+        'campaign_ids': 'campaignIds',
+        'referenced_by_campaigns': 'referencedByCampaigns',
         'target': 'target',
         'achievement_recurrence_policy': 'achievementRecurrencePolicy',
         'achievement_activation_policy': 'achievementActivationPolicy',
@@ -70,7 +74,7 @@ class AchievementProgressWithDefinition(object):
         'achievement_allow_rollback_after_completion': 'achievementAllowRollbackAfterCompletion'
     }
 
-    def __init__(self, status=None, progress=None, start_date=None, completion_date=None, end_date=None, achievement_id=None, name=None, title=None, description=None, campaign_id=None, target=None, achievement_recurrence_policy=None, achievement_activation_policy=None, achievement_fixed_start_date=None, achievement_end_date=None, achievement_allow_rollback_after_completion=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, status=None, progress=None, start_date=None, completion_date=None, end_date=None, achievement_id=None, name=None, title=None, description=None, campaign_id=None, campaign_ids=None, referenced_by_campaigns=None, target=None, achievement_recurrence_policy=None, achievement_activation_policy=None, achievement_fixed_start_date=None, achievement_end_date=None, achievement_allow_rollback_after_completion=None, local_vars_configuration=None):  # noqa: E501
         """AchievementProgressWithDefinition - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -86,6 +90,8 @@ class AchievementProgressWithDefinition(object):
         self._title = None
         self._description = None
         self._campaign_id = None
+        self._campaign_ids = None
+        self._referenced_by_campaigns = None
         self._target = None
         self._achievement_recurrence_policy = None
         self._achievement_activation_policy = None
@@ -106,7 +112,10 @@ class AchievementProgressWithDefinition(object):
         self.name = name
         self.title = title
         self.description = description
-        self.campaign_id = campaign_id
+        if campaign_id is not None:
+            self.campaign_id = campaign_id
+        self.campaign_ids = campaign_ids
+        self.referenced_by_campaigns = referenced_by_campaigns
         if target is not None:
             self.target = target
         self.achievement_recurrence_policy = achievement_recurrence_policy
@@ -356,7 +365,7 @@ class AchievementProgressWithDefinition(object):
     def campaign_id(self):
         """Gets the campaign_id of this AchievementProgressWithDefinition.  # noqa: E501
 
-        The ID of the campaign the achievement belongs to.  # noqa: E501
+        This property is **deprecated**. Use `campaignIds` (Integration API) or `referencedByCampaigns` (Management API) instead. This field contains the first campaign ID from the related `campaignIds`, and is omitted when `campaignIds` is empty.  # noqa: E501
 
         :return: The campaign_id of this AchievementProgressWithDefinition.  # noqa: E501
         :rtype: int
@@ -367,15 +376,63 @@ class AchievementProgressWithDefinition(object):
     def campaign_id(self, campaign_id):
         """Sets the campaign_id of this AchievementProgressWithDefinition.
 
-        The ID of the campaign the achievement belongs to.  # noqa: E501
+        This property is **deprecated**. Use `campaignIds` (Integration API) or `referencedByCampaigns` (Management API) instead. This field contains the first campaign ID from the related `campaignIds`, and is omitted when `campaignIds` is empty.  # noqa: E501
 
         :param campaign_id: The campaign_id of this AchievementProgressWithDefinition.  # noqa: E501
         :type: int
         """
-        if self.local_vars_configuration.client_side_validation and campaign_id is None:  # noqa: E501
-            raise ValueError("Invalid value for `campaign_id`, must not be `None`")  # noqa: E501
 
         self._campaign_id = campaign_id
+
+    @property
+    def campaign_ids(self):
+        """Gets the campaign_ids of this AchievementProgressWithDefinition.  # noqa: E501
+
+        The IDs of the campaigns that reference this achievement, in ascending order.  # noqa: E501
+
+        :return: The campaign_ids of this AchievementProgressWithDefinition.  # noqa: E501
+        :rtype: list[int]
+        """
+        return self._campaign_ids
+
+    @campaign_ids.setter
+    def campaign_ids(self, campaign_ids):
+        """Sets the campaign_ids of this AchievementProgressWithDefinition.
+
+        The IDs of the campaigns that reference this achievement, in ascending order.  # noqa: E501
+
+        :param campaign_ids: The campaign_ids of this AchievementProgressWithDefinition.  # noqa: E501
+        :type: list[int]
+        """
+        if self.local_vars_configuration.client_side_validation and campaign_ids is None:  # noqa: E501
+            raise ValueError("Invalid value for `campaign_ids`, must not be `None`")  # noqa: E501
+
+        self._campaign_ids = campaign_ids
+
+    @property
+    def referenced_by_campaigns(self):
+        """Gets the referenced_by_campaigns of this AchievementProgressWithDefinition.  # noqa: E501
+
+        The campaigns that reference this achievement, in ascending order of their `id`.  # noqa: E501
+
+        :return: The referenced_by_campaigns of this AchievementProgressWithDefinition.  # noqa: E501
+        :rtype: list[CampaignReference]
+        """
+        return self._referenced_by_campaigns
+
+    @referenced_by_campaigns.setter
+    def referenced_by_campaigns(self, referenced_by_campaigns):
+        """Sets the referenced_by_campaigns of this AchievementProgressWithDefinition.
+
+        The campaigns that reference this achievement, in ascending order of their `id`.  # noqa: E501
+
+        :param referenced_by_campaigns: The referenced_by_campaigns of this AchievementProgressWithDefinition.  # noqa: E501
+        :type: list[CampaignReference]
+        """
+        if self.local_vars_configuration.client_side_validation and referenced_by_campaigns is None:  # noqa: E501
+            raise ValueError("Invalid value for `referenced_by_campaigns`, must not be `None`")  # noqa: E501
+
+        self._referenced_by_campaigns = referenced_by_campaigns
 
     @property
     def target(self):

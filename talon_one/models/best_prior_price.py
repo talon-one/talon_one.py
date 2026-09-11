@@ -36,7 +36,7 @@ class BestPriorPrice(object):
         'id': 'int',
         'sku': 'str',
         'observed_at': 'datetime',
-        'context_id': 'str',
+        'context_ids': 'list[str]',
         'price': 'float',
         'metadata': 'BestPriorPriceMetadata',
         'target': 'object'
@@ -46,13 +46,13 @@ class BestPriorPrice(object):
         'id': 'id',
         'sku': 'sku',
         'observed_at': 'observedAt',
-        'context_id': 'contextId',
+        'context_ids': 'contextIds',
         'price': 'price',
         'metadata': 'metadata',
         'target': 'target'
     }
 
-    def __init__(self, id=None, sku=None, observed_at=None, context_id=None, price=None, metadata=None, target=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, sku=None, observed_at=None, context_ids=None, price=None, metadata=None, target=None, local_vars_configuration=None):  # noqa: E501
         """BestPriorPrice - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -61,7 +61,7 @@ class BestPriorPrice(object):
         self._id = None
         self._sku = None
         self._observed_at = None
-        self._context_id = None
+        self._context_ids = None
         self._price = None
         self._metadata = None
         self._target = None
@@ -70,7 +70,7 @@ class BestPriorPrice(object):
         self.id = id
         self.sku = sku
         self.observed_at = observed_at
-        self.context_id = context_id
+        self.context_ids = context_ids
         self.price = price
         self.metadata = metadata
         self.target = target
@@ -151,29 +151,29 @@ class BestPriorPrice(object):
         self._observed_at = observed_at
 
     @property
-    def context_id(self):
-        """Gets the context_id of this BestPriorPrice.  # noqa: E501
+    def context_ids(self):
+        """Gets the context_ids of this BestPriorPrice.  # noqa: E501
 
-        The context ID of the context active at the time of observation.   # noqa: E501
+        The identifiers of the relevant context at the time the price was observed. Includes the context IDs of any price adjustments and of the campaigns that influenced the final price.   # noqa: E501
 
-        :return: The context_id of this BestPriorPrice.  # noqa: E501
-        :rtype: str
+        :return: The context_ids of this BestPriorPrice.  # noqa: E501
+        :rtype: list[str]
         """
-        return self._context_id
+        return self._context_ids
 
-    @context_id.setter
-    def context_id(self, context_id):
-        """Sets the context_id of this BestPriorPrice.
+    @context_ids.setter
+    def context_ids(self, context_ids):
+        """Sets the context_ids of this BestPriorPrice.
 
-        The context ID of the context active at the time of observation.   # noqa: E501
+        The identifiers of the relevant context at the time the price was observed. Includes the context IDs of any price adjustments and of the campaigns that influenced the final price.   # noqa: E501
 
-        :param context_id: The context_id of this BestPriorPrice.  # noqa: E501
-        :type: str
+        :param context_ids: The context_ids of this BestPriorPrice.  # noqa: E501
+        :type: list[str]
         """
-        if self.local_vars_configuration.client_side_validation and context_id is None:  # noqa: E501
-            raise ValueError("Invalid value for `context_id`, must not be `None`")  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and context_ids is None:  # noqa: E501
+            raise ValueError("Invalid value for `context_ids`, must not be `None`")  # noqa: E501
 
-        self._context_id = context_id
+        self._context_ids = context_ids
 
     @property
     def price(self):

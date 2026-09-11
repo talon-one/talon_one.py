@@ -36,19 +36,34 @@ class TestInlineResponse20049(unittest.TestCase):
         # model = talon_one.models.inline_response20049.InlineResponse20049()  # noqa: E501
         if include_optional :
             return InlineResponse20049(
+                has_more = True, 
                 data = [
-                    talon_one.models.list_campaign_store_budgets.ListCampaignStoreBudgets(
-                        store = talon_one.models.list_campaign_store_budgets_store.ListCampaignStoreBudgetsStore(
-                            id = 56, 
-                            integration_id = '0', 
-                            name = '0', ), 
-                        limit = 56, 
-                        action = '0', 
-                        period = '0', )
+                    talon_one.models.application_cif.ApplicationCIF(
+                        id = 6, 
+                        created = '2020-06-10T09:05:27.993483Z', 
+                        name = 'Filter items by product', 
+                        description = 'This filter allows filtering by shoes', 
+                        active_expression_id = 1, 
+                        modified_by = 334, 
+                        created_by = 216, 
+                        modified = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        application_id = 322, )
                     ]
             )
         else :
             return InlineResponse20049(
+                data = [
+                    talon_one.models.application_cif.ApplicationCIF(
+                        id = 6, 
+                        created = '2020-06-10T09:05:27.993483Z', 
+                        name = 'Filter items by product', 
+                        description = 'This filter allows filtering by shoes', 
+                        active_expression_id = 1, 
+                        modified_by = 334, 
+                        created_by = 216, 
+                        modified = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        application_id = 322, )
+                    ],
         )
 
     def testInlineResponse20049(self):

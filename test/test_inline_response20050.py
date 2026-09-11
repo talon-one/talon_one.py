@@ -37,11 +37,14 @@ class TestInlineResponse20050(unittest.TestCase):
         if include_optional :
             return InlineResponse20050(
                 data = [
-                    talon_one.models.summary_campaign_store_budget.SummaryCampaignStoreBudget(
-                        action = 'redeemCoupon', 
-                        period = 'overall', 
-                        store_count = 56, 
-                        imported = True, )
+                    talon_one.models.list_campaign_store_budgets.ListCampaignStoreBudgets(
+                        store = talon_one.models.list_campaign_store_budgets_store.ListCampaignStoreBudgetsStore(
+                            id = 56, 
+                            integration_id = '0', 
+                            name = '0', ), 
+                        limit = 56, 
+                        action = '0', 
+                        period = '0', )
                     ]
             )
         else :

@@ -43,9 +43,7 @@ class UpdateAchievementV2(object):
         'fixed_start_date': 'datetime',
         'end_date': 'datetime',
         'allow_rollback_after_completion': 'bool',
-        'sandbox': 'bool',
-        'subscribed_applications': 'list[int]',
-        'timezone': 'str'
+        'subscribed_applications': 'list[int]'
     }
 
     attribute_map = {
@@ -59,12 +57,10 @@ class UpdateAchievementV2(object):
         'fixed_start_date': 'fixedStartDate',
         'end_date': 'endDate',
         'allow_rollback_after_completion': 'allowRollbackAfterCompletion',
-        'sandbox': 'sandbox',
-        'subscribed_applications': 'subscribedApplications',
-        'timezone': 'timezone'
+        'subscribed_applications': 'subscribedApplications'
     }
 
-    def __init__(self, name=None, title=None, description=None, target=None, period=None, recurrence_policy=None, activation_policy=None, fixed_start_date=None, end_date=None, allow_rollback_after_completion=None, sandbox=None, subscribed_applications=None, timezone=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, name=None, title=None, description=None, target=None, period=None, recurrence_policy=None, activation_policy=None, fixed_start_date=None, end_date=None, allow_rollback_after_completion=None, subscribed_applications=None, local_vars_configuration=None):  # noqa: E501
         """UpdateAchievementV2 - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -80,19 +76,13 @@ class UpdateAchievementV2(object):
         self._fixed_start_date = None
         self._end_date = None
         self._allow_rollback_after_completion = None
-        self._sandbox = None
         self._subscribed_applications = None
-        self._timezone = None
         self.discriminator = None
 
-        if name is not None:
-            self.name = name
-        if title is not None:
-            self.title = title
-        if description is not None:
-            self.description = description
-        if target is not None:
-            self.target = target
+        self.name = name
+        self.title = title
+        self.description = description
+        self.target = target
         if period is not None:
             self.period = period
         if recurrence_policy is not None:
@@ -105,12 +95,7 @@ class UpdateAchievementV2(object):
             self.end_date = end_date
         if allow_rollback_after_completion is not None:
             self.allow_rollback_after_completion = allow_rollback_after_completion
-        if sandbox is not None:
-            self.sandbox = sandbox
-        if subscribed_applications is not None:
-            self.subscribed_applications = subscribed_applications
-        if timezone is not None:
-            self.timezone = timezone
+        self.subscribed_applications = subscribed_applications
 
     @property
     def name(self):
@@ -132,6 +117,8 @@ class UpdateAchievementV2(object):
         :param name: The name of this UpdateAchievementV2.  # noqa: E501
         :type: str
         """
+        if self.local_vars_configuration.client_side_validation and name is None:  # noqa: E501
+            raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
         if (self.local_vars_configuration.client_side_validation and
                 name is not None and len(name) > 1000):
             raise ValueError("Invalid value for `name`, length must be less than or equal to `1000`")  # noqa: E501
@@ -164,6 +151,8 @@ class UpdateAchievementV2(object):
         :param title: The title of this UpdateAchievementV2.  # noqa: E501
         :type: str
         """
+        if self.local_vars_configuration.client_side_validation and title is None:  # noqa: E501
+            raise ValueError("Invalid value for `title`, must not be `None`")  # noqa: E501
 
         self._title = title
 
@@ -187,6 +176,8 @@ class UpdateAchievementV2(object):
         :param description: The description of this UpdateAchievementV2.  # noqa: E501
         :type: str
         """
+        if self.local_vars_configuration.client_side_validation and description is None:  # noqa: E501
+            raise ValueError("Invalid value for `description`, must not be `None`")  # noqa: E501
 
         self._description = description
 
@@ -210,6 +201,8 @@ class UpdateAchievementV2(object):
         :param target: The target of this UpdateAchievementV2.  # noqa: E501
         :type: float
         """
+        if self.local_vars_configuration.client_side_validation and target is None:  # noqa: E501
+            raise ValueError("Invalid value for `target`, must not be `None`")  # noqa: E501
 
         self._target = target
 
@@ -364,29 +357,6 @@ class UpdateAchievementV2(object):
         self._allow_rollback_after_completion = allow_rollback_after_completion
 
     @property
-    def sandbox(self):
-        """Gets the sandbox of this UpdateAchievementV2.  # noqa: E501
-
-        Indicates if this achievement is a live or sandbox achievement. Achievements of a given type can only be connected to Applications of the same type.  # noqa: E501
-
-        :return: The sandbox of this UpdateAchievementV2.  # noqa: E501
-        :rtype: bool
-        """
-        return self._sandbox
-
-    @sandbox.setter
-    def sandbox(self, sandbox):
-        """Sets the sandbox of this UpdateAchievementV2.
-
-        Indicates if this achievement is a live or sandbox achievement. Achievements of a given type can only be connected to Applications of the same type.  # noqa: E501
-
-        :param sandbox: The sandbox of this UpdateAchievementV2.  # noqa: E501
-        :type: bool
-        """
-
-        self._sandbox = sandbox
-
-    @property
     def subscribed_applications(self):
         """Gets the subscribed_applications of this UpdateAchievementV2.  # noqa: E501
 
@@ -406,34 +376,10 @@ class UpdateAchievementV2(object):
         :param subscribed_applications: The subscribed_applications of this UpdateAchievementV2.  # noqa: E501
         :type: list[int]
         """
+        if self.local_vars_configuration.client_side_validation and subscribed_applications is None:  # noqa: E501
+            raise ValueError("Invalid value for `subscribed_applications`, must not be `None`")  # noqa: E501
 
         self._subscribed_applications = subscribed_applications
-
-    @property
-    def timezone(self):
-        """Gets the timezone of this UpdateAchievementV2.  # noqa: E501
-
-        A string containing an IANA timezone descriptor.  # noqa: E501
-
-        :return: The timezone of this UpdateAchievementV2.  # noqa: E501
-        :rtype: str
-        """
-        return self._timezone
-
-    @timezone.setter
-    def timezone(self, timezone):
-        """Sets the timezone of this UpdateAchievementV2.
-
-        A string containing an IANA timezone descriptor.  # noqa: E501
-
-        :param timezone: The timezone of this UpdateAchievementV2.  # noqa: E501
-        :type: str
-        """
-        if (self.local_vars_configuration.client_side_validation and
-                timezone is not None and len(timezone) < 1):
-            raise ValueError("Invalid value for `timezone`, length must be greater than or equal to `1`")  # noqa: E501
-
-        self._timezone = timezone
 
     def to_dict(self):
         """Returns the model properties as a dict"""

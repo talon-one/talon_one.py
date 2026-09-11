@@ -39,19 +39,19 @@ class TestIntegrationEventV3Request(unittest.TestCase):
                 profile_id = 'URNGV8294NV', 
                 store_integration_id = 'STORE-001', 
                 evaluable_campaign_ids = [10, 12], 
-                integration_id = '175KJPS947296', 
                 type = 'pageViewed', 
                 attributes = {"myAttribute":"myValue"}, 
+                integration_id = '175KJPS947296', 
                 connected_session_id = '175KJPS947296', 
-                previous_event_id = '175KJPS947296', 
+                referral_code = 'NT2K54D9', 
                 loyalty_cards = [loyalty-card-1], 
                 response_content = [triggeredCampaigns, customerProfile]
             )
         else :
             return IntegrationEventV3Request(
                 profile_id = 'URNGV8294NV',
-                integration_id = '175KJPS947296',
                 type = 'pageViewed',
+                integration_id = '175KJPS947296',
         )
 
     def testIntegrationEventV3Request(self):

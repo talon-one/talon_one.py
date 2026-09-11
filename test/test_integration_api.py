@@ -140,6 +140,13 @@ class TestIntegrationApi(unittest.TestCase):
         """
         pass
 
+    def test_get_event_v3(self):
+        """Test case for get_event_v3
+
+        Get advanced event  # noqa: E501
+        """
+        pass
+
     def test_get_loyalty_balances(self):
         """Test case for get_loyalty_balances
 
@@ -196,6 +203,20 @@ class TestIntegrationApi(unittest.TestCase):
         """
         pass
 
+    def test_integration_rewards_catalog(self):
+        """Test case for integration_rewards_catalog
+
+        List rewards in the catalog  # noqa: E501
+        """
+        pass
+
+    def test_join_loyalty_program(self):
+        """Test case for join_loyalty_program
+
+        Join customer profile to loyalty program  # noqa: E501
+        """
+        pass
+
     def test_link_loyalty_card_to_profile(self):
         """Test case for link_loyalty_card_to_profile
 
@@ -231,10 +252,24 @@ class TestIntegrationApi(unittest.TestCase):
         """
         pass
 
+    def test_track_event_v3(self):
+        """Test case for track_event_v3
+
+        Track advanced event  # noqa: E501
+        """
+        pass
+
     def test_unlink_loyalty_card_from_profile(self):
         """Test case for unlink_loyalty_card_from_profile
 
         Unlink customer profile from a loyalty card  # noqa: E501
+        """
+        pass
+
+    def test_unlock_reward(self):
+        """Test case for unlock_reward
+
+        Unlock a reward  # noqa: E501
         """
         pass
 

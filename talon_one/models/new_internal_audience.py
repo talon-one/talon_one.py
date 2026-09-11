@@ -35,16 +35,18 @@ class NewInternalAudience(object):
     openapi_types = {
         'name': 'str',
         'sandbox': 'bool',
-        'description': 'str'
+        'description': 'str',
+        'subscribed_applications_ids': 'list[int]'
     }
 
     attribute_map = {
         'name': 'name',
         'sandbox': 'sandbox',
-        'description': 'description'
+        'description': 'description',
+        'subscribed_applications_ids': 'subscribedApplicationsIds'
     }
 
-    def __init__(self, name=None, sandbox=None, description=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, name=None, sandbox=None, description=None, subscribed_applications_ids=None, local_vars_configuration=None):  # noqa: E501
         """NewInternalAudience - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -53,6 +55,7 @@ class NewInternalAudience(object):
         self._name = None
         self._sandbox = None
         self._description = None
+        self._subscribed_applications_ids = None
         self.discriminator = None
 
         self.name = name
@@ -60,6 +63,8 @@ class NewInternalAudience(object):
             self.sandbox = sandbox
         if description is not None:
             self.description = description
+        if subscribed_applications_ids is not None:
+            self.subscribed_applications_ids = subscribed_applications_ids
 
     @property
     def name(self):
@@ -134,6 +139,29 @@ class NewInternalAudience(object):
         """
 
         self._description = description
+
+    @property
+    def subscribed_applications_ids(self):
+        """Gets the subscribed_applications_ids of this NewInternalAudience.  # noqa: E501
+
+        A list of the IDs of the Applications that are connected to this audience.  # noqa: E501
+
+        :return: The subscribed_applications_ids of this NewInternalAudience.  # noqa: E501
+        :rtype: list[int]
+        """
+        return self._subscribed_applications_ids
+
+    @subscribed_applications_ids.setter
+    def subscribed_applications_ids(self, subscribed_applications_ids):
+        """Sets the subscribed_applications_ids of this NewInternalAudience.
+
+        A list of the IDs of the Applications that are connected to this audience.  # noqa: E501
+
+        :param subscribed_applications_ids: The subscribed_applications_ids of this NewInternalAudience.  # noqa: E501
+        :type: list[int]
+        """
+
+        self._subscribed_applications_ids = subscribed_applications_ids
 
     def to_dict(self):
         """Returns the model properties as a dict"""

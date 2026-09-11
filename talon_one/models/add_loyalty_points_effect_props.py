@@ -125,7 +125,7 @@ class AddLoyaltyPointsEffectProps(object):
     def name(self):
         """Gets the name of this AddLoyaltyPointsEffectProps.  # noqa: E501
 
-        The name / description of this loyalty point addition.  # noqa: E501
+        The reason of this loyalty point addition.  # noqa: E501
 
         :return: The name of this AddLoyaltyPointsEffectProps.  # noqa: E501
         :rtype: str
@@ -136,7 +136,7 @@ class AddLoyaltyPointsEffectProps(object):
     def name(self, name):
         """Sets the name of this AddLoyaltyPointsEffectProps.
 
-        The name / description of this loyalty point addition.  # noqa: E501
+        The reason of this loyalty point addition.  # noqa: E501
 
         :param name: The name of this AddLoyaltyPointsEffectProps.  # noqa: E501
         :type: str
@@ -225,7 +225,7 @@ class AddLoyaltyPointsEffectProps(object):
     def desired_value(self):
         """Gets the desired_value of this AddLoyaltyPointsEffectProps.  # noqa: E501
 
-        The original amount of loyalty points to be awarded.  # noqa: E501
+        (Partial rewards enabled only) The amount of loyalty points to be awarded without considering budget limitations.  # noqa: E501
 
         :return: The desired_value of this AddLoyaltyPointsEffectProps.  # noqa: E501
         :rtype: float
@@ -236,7 +236,7 @@ class AddLoyaltyPointsEffectProps(object):
     def desired_value(self, desired_value):
         """Sets the desired_value of this AddLoyaltyPointsEffectProps.
 
-        The original amount of loyalty points to be awarded.  # noqa: E501
+        (Partial rewards enabled only) The amount of loyalty points to be awarded without considering budget limitations.  # noqa: E501
 
         :param desired_value: The desired_value of this AddLoyaltyPointsEffectProps.  # noqa: E501
         :type: float
@@ -276,7 +276,7 @@ class AddLoyaltyPointsEffectProps(object):
     def start_date(self):
         """Gets the start_date of this AddLoyaltyPointsEffectProps.  # noqa: E501
 
-        Date after which points will be valid.  # noqa: E501
+        The date after which the added points will be valid.  # noqa: E501
 
         :return: The start_date of this AddLoyaltyPointsEffectProps.  # noqa: E501
         :rtype: datetime
@@ -287,7 +287,7 @@ class AddLoyaltyPointsEffectProps(object):
     def start_date(self, start_date):
         """Sets the start_date of this AddLoyaltyPointsEffectProps.
 
-        Date after which points will be valid.  # noqa: E501
+        The date after which the added points will be valid.  # noqa: E501
 
         :param start_date: The start_date of this AddLoyaltyPointsEffectProps.  # noqa: E501
         :type: datetime
@@ -299,7 +299,7 @@ class AddLoyaltyPointsEffectProps(object):
     def expiry_date(self):
         """Gets the expiry_date of this AddLoyaltyPointsEffectProps.  # noqa: E501
 
-        Date after which points will expire.  # noqa: E501
+        The date after which the added points will expire.  # noqa: E501
 
         :return: The expiry_date of this AddLoyaltyPointsEffectProps.  # noqa: E501
         :rtype: datetime
@@ -310,7 +310,7 @@ class AddLoyaltyPointsEffectProps(object):
     def expiry_date(self, expiry_date):
         """Sets the expiry_date of this AddLoyaltyPointsEffectProps.
 
-        Date after which points will expire.  # noqa: E501
+        The date after which the added points will expire.  # noqa: E501
 
         :param expiry_date: The expiry_date of this AddLoyaltyPointsEffectProps.  # noqa: E501
         :type: datetime
@@ -322,7 +322,7 @@ class AddLoyaltyPointsEffectProps(object):
     def transaction_uuid(self):
         """Gets the transaction_uuid of this AddLoyaltyPointsEffectProps.  # noqa: E501
 
-        The identifier of this addition in the loyalty ledger.  # noqa: E501
+        The identifier of this loyalty point transaction.  # noqa: E501
 
         :return: The transaction_uuid of this AddLoyaltyPointsEffectProps.  # noqa: E501
         :rtype: str
@@ -333,7 +333,7 @@ class AddLoyaltyPointsEffectProps(object):
     def transaction_uuid(self, transaction_uuid):
         """Sets the transaction_uuid of this AddLoyaltyPointsEffectProps.
 
-        The identifier of this addition in the loyalty ledger.  # noqa: E501
+        The identifier of this loyalty point transaction.  # noqa: E501
 
         :param transaction_uuid: The transaction_uuid of this AddLoyaltyPointsEffectProps.  # noqa: E501
         :type: str
@@ -347,7 +347,7 @@ class AddLoyaltyPointsEffectProps(object):
     def cart_item_position(self):
         """Gets the cart_item_position of this AddLoyaltyPointsEffectProps.  # noqa: E501
 
-        The index of the item in the cart items list on which the loyal points addition should be applied.  # noqa: E501
+        (_Add points per cart item_ only.) The index of the item in the `cartItem` object for which these points were added.  # noqa: E501
 
         :return: The cart_item_position of this AddLoyaltyPointsEffectProps.  # noqa: E501
         :rtype: float
@@ -358,7 +358,7 @@ class AddLoyaltyPointsEffectProps(object):
     def cart_item_position(self, cart_item_position):
         """Sets the cart_item_position of this AddLoyaltyPointsEffectProps.
 
-        The index of the item in the cart items list on which the loyal points addition should be applied.  # noqa: E501
+        (_Add points per cart item_ only.) The index of the item in the `cartItem` object for which these points were added.  # noqa: E501
 
         :param cart_item_position: The cart_item_position of this AddLoyaltyPointsEffectProps.  # noqa: E501
         :type: float
@@ -370,7 +370,7 @@ class AddLoyaltyPointsEffectProps(object):
     def cart_item_sub_position(self):
         """Gets the cart_item_sub_position of this AddLoyaltyPointsEffectProps.  # noqa: E501
 
-        For cart items with `quantity` > 1, the sub position indicates to which item the loyalty points addition is applied.   # noqa: E501
+        (_Add points per cart item_ ) The index of the item unit in its line item.  # noqa: E501
 
         :return: The cart_item_sub_position of this AddLoyaltyPointsEffectProps.  # noqa: E501
         :rtype: float
@@ -381,7 +381,7 @@ class AddLoyaltyPointsEffectProps(object):
     def cart_item_sub_position(self, cart_item_sub_position):
         """Sets the cart_item_sub_position of this AddLoyaltyPointsEffectProps.
 
-        For cart items with `quantity` > 1, the sub position indicates to which item the loyalty points addition is applied.   # noqa: E501
+        (_Add points per cart item_ ) The index of the item unit in its line item.  # noqa: E501
 
         :param cart_item_sub_position: The cart_item_sub_position of this AddLoyaltyPointsEffectProps.  # noqa: E501
         :type: float
@@ -425,7 +425,7 @@ class AddLoyaltyPointsEffectProps(object):
     def bundle_index(self):
         """Gets the bundle_index of this AddLoyaltyPointsEffectProps.  # noqa: E501
 
-        The position of the bundle in a list of item bundles created from the same bundle definition.  # noqa: E501
+        _(With bundles only)_ The position of the specific bundle in the list of bundles created from the same bundle definition.  # noqa: E501
 
         :return: The bundle_index of this AddLoyaltyPointsEffectProps.  # noqa: E501
         :rtype: int
@@ -436,7 +436,7 @@ class AddLoyaltyPointsEffectProps(object):
     def bundle_index(self, bundle_index):
         """Sets the bundle_index of this AddLoyaltyPointsEffectProps.
 
-        The position of the bundle in a list of item bundles created from the same bundle definition.  # noqa: E501
+        _(With bundles only)_ The position of the specific bundle in the list of bundles created from the same bundle definition.  # noqa: E501
 
         :param bundle_index: The bundle_index of this AddLoyaltyPointsEffectProps.  # noqa: E501
         :type: int
@@ -448,7 +448,7 @@ class AddLoyaltyPointsEffectProps(object):
     def bundle_name(self):
         """Gets the bundle_name of this AddLoyaltyPointsEffectProps.  # noqa: E501
 
-        The name of the bundle definition.  # noqa: E501
+        _(With bundles only)_ The name of the bundle definition.  # noqa: E501
 
         :return: The bundle_name of this AddLoyaltyPointsEffectProps.  # noqa: E501
         :rtype: str
@@ -459,7 +459,7 @@ class AddLoyaltyPointsEffectProps(object):
     def bundle_name(self, bundle_name):
         """Sets the bundle_name of this AddLoyaltyPointsEffectProps.
 
-        The name of the bundle definition.  # noqa: E501
+        _(With bundles only)_ The name of the bundle definition.  # noqa: E501
 
         :param bundle_name: The bundle_name of this AddLoyaltyPointsEffectProps.  # noqa: E501
         :type: str
@@ -471,7 +471,7 @@ class AddLoyaltyPointsEffectProps(object):
     def awaits_activation(self):
         """Gets the awaits_activation of this AddLoyaltyPointsEffectProps.  # noqa: E501
 
-        If `true`, the loyalty points remain pending until a specific action is complete. The `startDate` parameter automatically sets to `on_action`.   # noqa: E501
+        Indicates whether the points have an action-based start date. This property is returned only for point transactions with an action-based start date.  # noqa: E501
 
         :return: The awaits_activation of this AddLoyaltyPointsEffectProps.  # noqa: E501
         :rtype: bool
@@ -482,7 +482,7 @@ class AddLoyaltyPointsEffectProps(object):
     def awaits_activation(self, awaits_activation):
         """Sets the awaits_activation of this AddLoyaltyPointsEffectProps.
 
-        If `true`, the loyalty points remain pending until a specific action is complete. The `startDate` parameter automatically sets to `on_action`.   # noqa: E501
+        Indicates whether the points have an action-based start date. This property is returned only for point transactions with an action-based start date.  # noqa: E501
 
         :param awaits_activation: The awaits_activation of this AddLoyaltyPointsEffectProps.  # noqa: E501
         :type: bool
@@ -494,7 +494,7 @@ class AddLoyaltyPointsEffectProps(object):
     def validity_duration(self):
         """Gets the validity_duration of this AddLoyaltyPointsEffectProps.  # noqa: E501
 
-        The duration for which the points remain active, calculated relative to the  activation date.    **Note**: This value is returned only if `awaitsActivation` is `true`  and `expiryDate` is not set.   # noqa: E501
+        The duration for which the points remain active, calculated relative to their start date.  # noqa: E501
 
         :return: The validity_duration of this AddLoyaltyPointsEffectProps.  # noqa: E501
         :rtype: str
@@ -505,7 +505,7 @@ class AddLoyaltyPointsEffectProps(object):
     def validity_duration(self, validity_duration):
         """Sets the validity_duration of this AddLoyaltyPointsEffectProps.
 
-        The duration for which the points remain active, calculated relative to the  activation date.    **Note**: This value is returned only if `awaitsActivation` is `true`  and `expiryDate` is not set.   # noqa: E501
+        The duration for which the points remain active, calculated relative to their start date.  # noqa: E501
 
         :param validity_duration: The validity_duration of this AddLoyaltyPointsEffectProps.  # noqa: E501
         :type: str

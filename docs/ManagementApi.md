@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**copy_campaign_to_applications**](ManagementApi.md#copy_campaign_to_applications) | **POST** /v1/applications/{applicationId}/campaigns/{campaignId}/copy | Copy the campaign into the specified Application
 [**create_account_collection**](ManagementApi.md#create_account_collection) | **POST** /v1/collections | Create account-level collection
 [**create_achievement**](ManagementApi.md#create_achievement) | **POST** /v1/applications/{applicationId}/campaigns/{campaignId}/achievements | Create achievement
+[**create_achievement_v2**](ManagementApi.md#create_achievement_v2) | **POST** /v2/achievements | Create achievement
 [**create_additional_cost**](ManagementApi.md#create_additional_cost) | **POST** /v1/additional_costs | Create additional cost
 [**create_attribute**](ManagementApi.md#create_attribute) | **POST** /v1/attributes | Create custom attribute
 [**create_batch_loyalty_cards**](ManagementApi.md#create_batch_loyalty_cards) | **POST** /v1/loyalty_programs/{loyaltyProgramId}/cards/batch | Create loyalty cards
@@ -23,12 +24,14 @@ Method | HTTP request | Description
 [**create_invite_email**](ManagementApi.md#create_invite_email) | **POST** /v1/invite_emails | Resend invitation email
 [**create_invite_v2**](ManagementApi.md#create_invite_v2) | **POST** /v2/invites | Invite user
 [**create_password_recovery_email**](ManagementApi.md#create_password_recovery_email) | **POST** /v1/password_recovery_emails | Request a password reset
+[**create_ruleset_v2**](ManagementApi.md#create_ruleset_v2) | **POST** /v2/applications/{applicationId}/campaigns/{campaignId}/rulesets | Create ruleset (V2)
 [**create_session**](ManagementApi.md#create_session) | **POST** /v1/sessions | Create session
 [**create_store**](ManagementApi.md#create_store) | **POST** /v1/applications/{applicationId}/stores | Create store
 [**deactivate_user_by_email**](ManagementApi.md#deactivate_user_by_email) | **POST** /v1/users/deactivate | Disable user by email address
 [**deduct_loyalty_card_points**](ManagementApi.md#deduct_loyalty_card_points) | **PUT** /v1/loyalty_programs/{loyaltyProgramId}/cards/{loyaltyCardId}/deduct_points | Deduct points from card
 [**delete_account_collection**](ManagementApi.md#delete_account_collection) | **DELETE** /v1/collections/{collectionId} | Delete account-level collection
 [**delete_achievement**](ManagementApi.md#delete_achievement) | **DELETE** /v1/applications/{applicationId}/campaigns/{campaignId}/achievements/{achievementId} | Delete achievement
+[**delete_achievement_v2**](ManagementApi.md#delete_achievement_v2) | **DELETE** /v2/achievements/{achievementId} | Delete achievement
 [**delete_campaign**](ManagementApi.md#delete_campaign) | **DELETE** /v1/applications/{applicationId}/campaigns/{campaignId} | Delete campaign
 [**delete_campaign_store_budgets**](ManagementApi.md#delete_campaign_store_budgets) | **DELETE** /v1/applications/{applicationId}/campaigns/{campaignId}/stores/budgets | Delete campaign store budgets
 [**delete_collection**](ManagementApi.md#delete_collection) | **DELETE** /v1/applications/{applicationId}/campaigns/{campaignId}/collections/{collectionId} | Delete campaign-level collection
@@ -41,7 +44,9 @@ Method | HTTP request | Description
 [**delete_user_by_email**](ManagementApi.md#delete_user_by_email) | **POST** /v1/users/delete | Delete user by email address
 [**destroy_session**](ManagementApi.md#destroy_session) | **DELETE** /v1/sessions | Destroy session
 [**disconnect_campaign_stores**](ManagementApi.md#disconnect_campaign_stores) | **DELETE** /v1/applications/{applicationId}/campaigns/{campaignId}/stores | Disconnect stores
+[**exclude_price_history**](ManagementApi.md#exclude_price_history) | **POST** /v1/applications/{applicationId}/price_history/exclusions | Exclude price records from price history
 [**export_account_collection_items**](ManagementApi.md#export_account_collection_items) | **GET** /v1/collections/{collectionId}/export | Export account-level collection&#39;s items
+[**export_achievement_v2**](ManagementApi.md#export_achievement_v2) | **GET** /v2/achievements/{achievementId}/export | Export achievement customer data
 [**export_achievements**](ManagementApi.md#export_achievements) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/achievements/{achievementId}/export | Export achievement customer data
 [**export_application_campaign_analytics**](ManagementApi.md#export_application_campaign_analytics) | **GET** /v1/applications/{applicationId}/campaign_analytics/export | Export Application analytics aggregated by campaign
 [**export_audiences_memberships**](ManagementApi.md#export_audiences_memberships) | **GET** /v1/audiences/{audienceId}/memberships/export | Export audience members
@@ -68,6 +73,7 @@ Method | HTTP request | Description
 [**get_account_analytics**](ManagementApi.md#get_account_analytics) | **GET** /v1/accounts/{accountId}/analytics | Get account analytics
 [**get_account_collection**](ManagementApi.md#get_account_collection) | **GET** /v1/collections/{collectionId} | Get account-level collection
 [**get_achievement**](ManagementApi.md#get_achievement) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/achievements/{achievementId} | Get achievement
+[**get_achievement_v2**](ManagementApi.md#get_achievement_v2) | **GET** /v2/achievements/{achievementId} | Get achievement
 [**get_additional_cost**](ManagementApi.md#get_additional_cost) | **GET** /v1/additional_costs/{additionalCostId} | Get additional cost
 [**get_additional_costs**](ManagementApi.md#get_additional_costs) | **GET** /v1/additional_costs | List additional costs
 [**get_application**](ManagementApi.md#get_application) | **GET** /v1/applications/{applicationId} | Get Application
@@ -81,6 +87,7 @@ Method | HTTP request | Description
 [**get_application_events_without_total_count**](ManagementApi.md#get_application_events_without_total_count) | **GET** /v1/applications/{applicationId}/events/no_total | List Applications events
 [**get_application_session**](ManagementApi.md#get_application_session) | **GET** /v1/applications/{applicationId}/sessions/{sessionId} | Get Application session
 [**get_application_sessions**](ManagementApi.md#get_application_sessions) | **GET** /v1/applications/{applicationId}/sessions | List Application sessions
+[**get_application_sessions_by_customer_attributes**](ManagementApi.md#get_application_sessions_by_customer_attributes) | **POST** /v1/applications/{applicationId}/sessions_search | List Application sessions matching the given customer attributes
 [**get_applications**](ManagementApi.md#get_applications) | **GET** /v1/applications | List Applications
 [**get_attribute**](ManagementApi.md#get_attribute) | **GET** /v1/attributes/{attributeId} | Get custom attribute
 [**get_attributes**](ManagementApi.md#get_attributes) | **GET** /v1/attributes | List custom attributes
@@ -110,12 +117,12 @@ Method | HTTP request | Description
 [**get_experiment**](ManagementApi.md#get_experiment) | **GET** /v1/applications/{applicationId}/experiments/{experimentId} | Get experiment in Application
 [**get_exports**](ManagementApi.md#get_exports) | **GET** /v1/exports | Get exports
 [**get_loyalty_card**](ManagementApi.md#get_loyalty_card) | **GET** /v1/loyalty_programs/{loyaltyProgramId}/cards/{loyaltyCardId} | Get loyalty card
-[**get_loyalty_card_transaction_logs**](ManagementApi.md#get_loyalty_card_transaction_logs) | **GET** /v1/loyalty_programs/{loyaltyProgramId}/cards/{loyaltyCardId}/logs | List card&#39;s transactions
+[**get_loyalty_card_transaction_logs**](ManagementApi.md#get_loyalty_card_transaction_logs) | **GET** /v1/loyalty_programs/{loyaltyProgramId}/cards/{loyaltyCardId}/logs | List card&#39;s transactions (Management API)
 [**get_loyalty_cards**](ManagementApi.md#get_loyalty_cards) | **GET** /v1/loyalty_programs/{loyaltyProgramId}/cards | List loyalty cards
-[**get_loyalty_ledger_balances**](ManagementApi.md#get_loyalty_ledger_balances) | **GET** /v1/loyalty_programs/{loyaltyProgramId}/profile/{integrationId}/ledger_balances | Get customer&#39;s loyalty balances
+[**get_loyalty_ledger_balances**](ManagementApi.md#get_loyalty_ledger_balances) | **GET** /v1/loyalty_programs/{loyaltyProgramId}/profile/{integrationId}/ledger_balances | Get customer&#39;s loyalty balances (Management API)
 [**get_loyalty_points**](ManagementApi.md#get_loyalty_points) | **GET** /v1/loyalty_programs/{loyaltyProgramId}/profile/{integrationId} | Get customer&#39;s full loyalty ledger
 [**get_loyalty_program**](ManagementApi.md#get_loyalty_program) | **GET** /v1/loyalty_programs/{loyaltyProgramId} | Get loyalty program
-[**get_loyalty_program_profile_ledger_transactions**](ManagementApi.md#get_loyalty_program_profile_ledger_transactions) | **GET** /v1/loyalty_programs/{loyaltyProgramId}/profile/{integrationId}/ledger_transactions | List customer&#39;s loyalty transactions
+[**get_loyalty_program_profile_ledger_transactions**](ManagementApi.md#get_loyalty_program_profile_ledger_transactions) | **GET** /v1/loyalty_programs/{loyaltyProgramId}/profile/{integrationId}/ledger_transactions | List customer&#39;s loyalty transactions (Management API)
 [**get_loyalty_program_transactions**](ManagementApi.md#get_loyalty_program_transactions) | **GET** /v1/loyalty_programs/{loyaltyProgramId}/transactions | List loyalty program transactions
 [**get_loyalty_programs**](ManagementApi.md#get_loyalty_programs) | **GET** /v1/loyalty_programs | List loyalty programs
 [**get_loyalty_statistics**](ManagementApi.md#get_loyalty_statistics) | **GET** /v1/loyalty_programs/{loyaltyProgramId}/statistics | Get loyalty program statistics
@@ -123,6 +130,7 @@ Method | HTTP request | Description
 [**get_referrals_without_total_count**](ManagementApi.md#get_referrals_without_total_count) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/referrals/no_total | List referrals
 [**get_role_v2**](ManagementApi.md#get_role_v2) | **GET** /v2/roles/{roleId} | Get role
 [**get_ruleset**](ManagementApi.md#get_ruleset) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/rulesets/{rulesetId} | Get ruleset
+[**get_ruleset_v2**](ManagementApi.md#get_ruleset_v2) | **GET** /v2/applications/{applicationId}/campaigns/{campaignId}/rulesets/{rulesetId} | Get ruleset (V2)
 [**get_rulesets**](ManagementApi.md#get_rulesets) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/rulesets | List campaign rulesets
 [**get_store**](ManagementApi.md#get_store) | **GET** /v1/applications/{applicationId}/stores/{storeId} | Get store
 [**get_user**](ManagementApi.md#get_user) | **GET** /v1/users/{userId} | Get user
@@ -138,12 +146,14 @@ Method | HTTP request | Description
 [**import_coupons**](ManagementApi.md#import_coupons) | **POST** /v1/applications/{applicationId}/campaigns/{campaignId}/import_coupons | Import coupons
 [**import_loyalty_cards**](ManagementApi.md#import_loyalty_cards) | **POST** /v1/loyalty_programs/{loyaltyProgramId}/import_cards | Import loyalty cards
 [**import_loyalty_customers_tiers**](ManagementApi.md#import_loyalty_customers_tiers) | **POST** /v1/loyalty_programs/{loyaltyProgramId}/import_customers_tiers | Import customers into loyalty tiers
+[**import_loyalty_join_dates**](ManagementApi.md#import_loyalty_join_dates) | **POST** /v1/loyalty_programs/{loyaltyProgramId}/import_join_dates | Import join dates for a loyalty program
 [**import_loyalty_points**](ManagementApi.md#import_loyalty_points) | **POST** /v1/loyalty_programs/{loyaltyProgramId}/import_points | Import loyalty points
 [**import_pool_giveaways**](ManagementApi.md#import_pool_giveaways) | **POST** /v1/giveaways/pools/{poolId}/import | Import giveaway codes into a giveaway pool
 [**import_referrals**](ManagementApi.md#import_referrals) | **POST** /v1/applications/{applicationId}/campaigns/{campaignId}/import_referrals | Import referrals
 [**invite_user_external**](ManagementApi.md#invite_user_external) | **POST** /v1/users/invite | Invite user from identity provider
 [**list_account_collections**](ManagementApi.md#list_account_collections) | **GET** /v1/collections | List collections in account
 [**list_achievements**](ManagementApi.md#list_achievements) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/achievements | List achievements
+[**list_achievements_v2**](ManagementApi.md#list_achievements_v2) | **GET** /v2/achievements | List achievements
 [**list_all_roles_v2**](ManagementApi.md#list_all_roles_v2) | **GET** /v2/roles | List roles
 [**list_application_cart_item_filters**](ManagementApi.md#list_application_cart_item_filters) | **GET** /v1/applications/{applicationId}/cart_item_filters | List Application cart item filters
 [**list_campaign_store_budget_limits**](ManagementApi.md#list_campaign_store_budget_limits) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/stores/budgets | List campaign store budget limits
@@ -177,6 +187,7 @@ Method | HTTP request | Description
 [**transfer_loyalty_card**](ManagementApi.md#transfer_loyalty_card) | **PUT** /v1/loyalty_programs/{loyaltyProgramId}/cards/{loyaltyCardId}/transfer | Transfer card data
 [**update_account_collection**](ManagementApi.md#update_account_collection) | **PUT** /v1/collections/{collectionId} | Update account-level collection
 [**update_achievement**](ManagementApi.md#update_achievement) | **PUT** /v1/applications/{applicationId}/campaigns/{campaignId}/achievements/{achievementId} | Update achievement
+[**update_achievement_v2**](ManagementApi.md#update_achievement_v2) | **PUT** /v2/achievements/{achievementId} | Update achievement
 [**update_additional_cost**](ManagementApi.md#update_additional_cost) | **PUT** /v1/additional_costs/{additionalCostId} | Update additional cost
 [**update_attribute**](ManagementApi.md#update_attribute) | **PUT** /v1/attributes/{attributeId} | Update custom attribute
 [**update_campaign**](ManagementApi.md#update_campaign) | **PUT** /v1/applications/{applicationId}/campaigns/{campaignId} | Update campaign
@@ -1548,6 +1559,230 @@ Name | Type | Description  | Notes
 **400** | Bad request |  -  |
 **401** | Unauthorized |  -  |
 **409** | Conflict. An achievement with this name or title already exists. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **create_achievement_v2**
+> AchievementV2 create_achievement_v2(body)
+
+Create achievement
+
+Create a new account-level achievement.
+
+### Example
+
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    body = talon_one.CreateAchievementV2() # CreateAchievementV2 | body
+
+    try:
+        # Create achievement
+        api_response = api_instance.create_achievement_v2(body)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->create_achievement_v2: %s\n" % e)
+```
+
+* Api Key Authentication (management_key):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    body = talon_one.CreateAchievementV2() # CreateAchievementV2 | body
+
+    try:
+        # Create achievement
+        api_response = api_instance.create_achievement_v2(body)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->create_achievement_v2: %s\n" % e)
+```
+
+* Api Key Authentication (manager_auth):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    body = talon_one.CreateAchievementV2() # CreateAchievementV2 | body
+
+    try:
+        # Create achievement
+        api_response = api_instance.create_achievement_v2(body)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->create_achievement_v2: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**CreateAchievementV2**](CreateAchievementV2.md)| body | 
+
+### Return type
+
+[**AchievementV2**](AchievementV2.md)
+
+### Authorization
+
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | Created |  -  |
+**400** | Bad request |  -  |
+**401** | Unauthorized |  -  |
+**409** | Conflict. An achievement with this name already exists. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -4492,6 +4727,236 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **create_ruleset_v2**
+> RulesetV2 create_ruleset_v2(application_id, campaign_id, body)
+
+Create ruleset (V2)
+
+Create a ruleset from promotion and strikethrough rules in the V2 JSON block format. A ruleset is a revision of all the rules of a campaign.  Only `group` and `passthrough` blocks are currently writable, with optional `onFailure` blocks. A payload containing any other block type is rejected. Each rule's `blocks` array may contain at most one block.
+
+### Example
+
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
+campaign_id = 56 # int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
+body = talon_one.RulesetV2() # RulesetV2 | body
+
+    try:
+        # Create ruleset (V2)
+        api_response = api_instance.create_ruleset_v2(application_id, campaign_id, body)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->create_ruleset_v2: %s\n" % e)
+```
+
+* Api Key Authentication (management_key):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
+campaign_id = 56 # int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
+body = talon_one.RulesetV2() # RulesetV2 | body
+
+    try:
+        # Create ruleset (V2)
+        api_response = api_instance.create_ruleset_v2(application_id, campaign_id, body)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->create_ruleset_v2: %s\n" % e)
+```
+
+* Api Key Authentication (manager_auth):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
+campaign_id = 56 # int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
+body = talon_one.RulesetV2() # RulesetV2 | body
+
+    try:
+        # Create ruleset (V2)
+        api_response = api_instance.create_ruleset_v2(application_id, campaign_id, body)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->create_ruleset_v2: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **application_id** | **int**| The ID of the Application. It is displayed in your Talon.One deployment URL. | 
+ **campaign_id** | **int**| The ID of the campaign. It is displayed in your Talon.One deployment URL. | 
+ **body** | [**RulesetV2**](RulesetV2.md)| body | 
+
+### Return type
+
+[**RulesetV2**](RulesetV2.md)
+
+### Authorization
+
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | Created |  -  |
+**400** | Bad request |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **create_session**
 > Session create_session(body)
 
@@ -5811,6 +6276,226 @@ Name | Type | Description  | Notes
  **application_id** | **int**| The ID of the Application. It is displayed in your Talon.One deployment URL. | 
  **campaign_id** | **int**| The ID of the campaign. It is displayed in your Talon.One deployment URL. | 
  **achievement_id** | **int**| The ID of the achievement. You can get this ID with the [List achievement](https://docs.talon.one/management-api#tag/Achievements/operation/listAchievements) endpoint. | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | No Content |  -  |
+**401** | Unauthorized |  -  |
+**404** | Not found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **delete_achievement_v2**
+> delete_achievement_v2(achievement_id)
+
+Delete achievement
+
+Delete a specific achievement.
+
+### Example
+
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    achievement_id = 56 # int | The ID of the achievement. You can get this ID with the [List achievement](https://docs.talon.one/management-api#tag/Achievements/operation/listAchievementsV2) endpoint.
+
+    try:
+        # Delete achievement
+        api_instance.delete_achievement_v2(achievement_id)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->delete_achievement_v2: %s\n" % e)
+```
+
+* Api Key Authentication (management_key):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    achievement_id = 56 # int | The ID of the achievement. You can get this ID with the [List achievement](https://docs.talon.one/management-api#tag/Achievements/operation/listAchievementsV2) endpoint.
+
+    try:
+        # Delete achievement
+        api_instance.delete_achievement_v2(achievement_id)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->delete_achievement_v2: %s\n" % e)
+```
+
+* Api Key Authentication (manager_auth):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    achievement_id = 56 # int | The ID of the achievement. You can get this ID with the [List achievement](https://docs.talon.one/management-api#tag/Achievements/operation/listAchievementsV2) endpoint.
+
+    try:
+        # Delete achievement
+        api_instance.delete_achievement_v2(achievement_id)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->delete_achievement_v2: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **achievement_id** | **int**| The ID of the achievement. You can get this ID with the [List achievement](https://docs.talon.one/management-api#tag/Achievements/operation/listAchievementsV2) endpoint. | 
 
 ### Return type
 
@@ -8560,6 +9245,228 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **exclude_price_history**
+> exclude_price_history(application_id, body)
+
+Exclude price records from price history
+
+Select a batch of historical price IDs to exclude from [best prior price calculation](https://docs.talon.one/integration-api#tag/Catalogs/operation/bestPriorPrice). All IDs in the batch must be valid `id` values obtained from the [Get summary of price history](https://docs.talon.one/management-api#tag/Catalogs/operation/priceHistory.responses.200.history) endpoint, must belong to the specified Application, must not already be excluded from best prior price calculation, and must not be associated with a scheduled strikethrough pricing notification. 
+
+### Example
+
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
+body = talon_one.ExcludePriceObservationsRequest() # ExcludePriceObservationsRequest | body
+
+    try:
+        # Exclude price records from price history
+        api_instance.exclude_price_history(application_id, body)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->exclude_price_history: %s\n" % e)
+```
+
+* Api Key Authentication (management_key):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
+body = talon_one.ExcludePriceObservationsRequest() # ExcludePriceObservationsRequest | body
+
+    try:
+        # Exclude price records from price history
+        api_instance.exclude_price_history(application_id, body)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->exclude_price_history: %s\n" % e)
+```
+
+* Api Key Authentication (manager_auth):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
+body = talon_one.ExcludePriceObservationsRequest() # ExcludePriceObservationsRequest | body
+
+    try:
+        # Exclude price records from price history
+        api_instance.exclude_price_history(application_id, body)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->exclude_price_history: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **application_id** | **int**| The ID of the Application. It is displayed in your Talon.One deployment URL. | 
+ **body** | [**ExcludePriceObservationsRequest**](ExcludePriceObservationsRequest.md)| body | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Ok |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **export_account_collection_items**
 > str export_account_collection_items(collection_id)
 
@@ -8779,6 +9686,230 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **200** | OK |  -  |
 **401** | Unauthorized - Invalid API key |  -  |
+**404** | Not found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **export_achievement_v2**
+> str export_achievement_v2(achievement_id)
+
+Export achievement customer data
+
+Download a CSV file containing a list of all the customers who have participated in and are currently participating in the given achievement.  The CSV file contains the following columns: - `profileIntegrationID`: The integration ID of the customer profile participating in the achievement. - `title`: The display name of the achievement in the Campaign Manager. - `target`: The required number of actions or the transactional milestone to complete the achievement. - `progress`: The current progress of the customer in the achievement. - `status`: The status of the achievement. Can be one of: ['inprogress', 'completed', 'expired']. - `startDate`: The date on which the customer profile started the achievement in RFC3339. - `endDate`: The date on which the achievement ends and resets for the customer profile in RFC3339. - `completionDate`: The date on which the customer profile completed the achievement in RFC3339. 
+
+### Example
+
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    achievement_id = 56 # int | The ID of the achievement. You can get this ID with the [List achievements](https://docs.talon.one/management-api#tag/Achievements/operation/listAchievementsV2) endpoint.
+
+    try:
+        # Export achievement customer data
+        api_response = api_instance.export_achievement_v2(achievement_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->export_achievement_v2: %s\n" % e)
+```
+
+* Api Key Authentication (management_key):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    achievement_id = 56 # int | The ID of the achievement. You can get this ID with the [List achievements](https://docs.talon.one/management-api#tag/Achievements/operation/listAchievementsV2) endpoint.
+
+    try:
+        # Export achievement customer data
+        api_response = api_instance.export_achievement_v2(achievement_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->export_achievement_v2: %s\n" % e)
+```
+
+* Api Key Authentication (manager_auth):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    achievement_id = 56 # int | The ID of the achievement. You can get this ID with the [List achievements](https://docs.talon.one/management-api#tag/Achievements/operation/listAchievementsV2) endpoint.
+
+    try:
+        # Export achievement customer data
+        api_response = api_instance.export_achievement_v2(achievement_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->export_achievement_v2: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **achievement_id** | **int**| The ID of the achievement. You can get this ID with the [List achievements](https://docs.talon.one/management-api#tag/Achievements/operation/listAchievementsV2) endpoint. | 
+
+### Return type
+
+**str**
+
+### Authorization
+
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/csv
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Bad request |  -  |
+**401** | Unauthorized |  -  |
 **404** | Not found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -10400,7 +11531,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **export_coupons**
-> str export_coupons(application_id, campaign_id=campaign_id, sort=sort, value=value, created_before=created_before, created_after=created_after, valid=valid, usable=usable, referral_id=referral_id, recipient_integration_id=recipient_integration_id, batch_id=batch_id, exact_match=exact_match, date_format=date_format, campaign_state=campaign_state, values_only=values_only)
+> str export_coupons(application_id, campaign_id=campaign_id, sort=sort, value=value, created_before=created_before, created_after=created_after, valid=valid, usable=usable, referral_id=referral_id, recipient_integration_id=recipient_integration_id, batch_id=batch_id, exact_match=exact_match, date_format=date_format, campaign_state=campaign_state, values_only=values_only, deleted_before=deleted_before, deleted_after=deleted_after)
 
 Export coupons
 
@@ -10475,10 +11606,12 @@ exact_match = False # bool | Filter results to an exact case-insensitive matchin
 date_format = 'date_format_example' # str | Determines the format of dates in the export document. (optional)
 campaign_state = 'campaign_state_example' # str | Filter results by the state of the campaign.  - `enabled`: Campaigns that are scheduled, running (activated), or expired. - `running`: Campaigns that are running (activated). - `disabled`: Campaigns that are disabled. - `expired`: Campaigns that are expired. - `archived`: Campaigns that are archived.  (optional)
 values_only = False # bool | Filter results to only return the coupon codes (`value` column) without the associated coupon data. (optional) (default to False)
+deleted_before = '2013-10-20T19:20:30+01:00' # datetime | Timestamp that filters the results to only contain coupons deleted before this date. Must be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally.  **Note:** Only coupons deleted in the last 7 days will appear in the results. (optional)
+deleted_after = '2013-10-20T19:20:30+01:00' # datetime | Timestamp that filters the results to only contain coupons deleted after this date. Must be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally.  **Note:** Only coupons deleted in the last 7 days will appear in the results. (optional)
 
     try:
         # Export coupons
-        api_response = api_instance.export_coupons(application_id, campaign_id=campaign_id, sort=sort, value=value, created_before=created_before, created_after=created_after, valid=valid, usable=usable, referral_id=referral_id, recipient_integration_id=recipient_integration_id, batch_id=batch_id, exact_match=exact_match, date_format=date_format, campaign_state=campaign_state, values_only=values_only)
+        api_response = api_instance.export_coupons(application_id, campaign_id=campaign_id, sort=sort, value=value, created_before=created_before, created_after=created_after, valid=valid, usable=usable, referral_id=referral_id, recipient_integration_id=recipient_integration_id, batch_id=batch_id, exact_match=exact_match, date_format=date_format, campaign_state=campaign_state, values_only=values_only, deleted_before=deleted_before, deleted_after=deleted_after)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling ManagementApi->export_coupons: %s\n" % e)
@@ -10551,10 +11684,12 @@ exact_match = False # bool | Filter results to an exact case-insensitive matchin
 date_format = 'date_format_example' # str | Determines the format of dates in the export document. (optional)
 campaign_state = 'campaign_state_example' # str | Filter results by the state of the campaign.  - `enabled`: Campaigns that are scheduled, running (activated), or expired. - `running`: Campaigns that are running (activated). - `disabled`: Campaigns that are disabled. - `expired`: Campaigns that are expired. - `archived`: Campaigns that are archived.  (optional)
 values_only = False # bool | Filter results to only return the coupon codes (`value` column) without the associated coupon data. (optional) (default to False)
+deleted_before = '2013-10-20T19:20:30+01:00' # datetime | Timestamp that filters the results to only contain coupons deleted before this date. Must be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally.  **Note:** Only coupons deleted in the last 7 days will appear in the results. (optional)
+deleted_after = '2013-10-20T19:20:30+01:00' # datetime | Timestamp that filters the results to only contain coupons deleted after this date. Must be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally.  **Note:** Only coupons deleted in the last 7 days will appear in the results. (optional)
 
     try:
         # Export coupons
-        api_response = api_instance.export_coupons(application_id, campaign_id=campaign_id, sort=sort, value=value, created_before=created_before, created_after=created_after, valid=valid, usable=usable, referral_id=referral_id, recipient_integration_id=recipient_integration_id, batch_id=batch_id, exact_match=exact_match, date_format=date_format, campaign_state=campaign_state, values_only=values_only)
+        api_response = api_instance.export_coupons(application_id, campaign_id=campaign_id, sort=sort, value=value, created_before=created_before, created_after=created_after, valid=valid, usable=usable, referral_id=referral_id, recipient_integration_id=recipient_integration_id, batch_id=batch_id, exact_match=exact_match, date_format=date_format, campaign_state=campaign_state, values_only=values_only, deleted_before=deleted_before, deleted_after=deleted_after)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling ManagementApi->export_coupons: %s\n" % e)
@@ -10627,10 +11762,12 @@ exact_match = False # bool | Filter results to an exact case-insensitive matchin
 date_format = 'date_format_example' # str | Determines the format of dates in the export document. (optional)
 campaign_state = 'campaign_state_example' # str | Filter results by the state of the campaign.  - `enabled`: Campaigns that are scheduled, running (activated), or expired. - `running`: Campaigns that are running (activated). - `disabled`: Campaigns that are disabled. - `expired`: Campaigns that are expired. - `archived`: Campaigns that are archived.  (optional)
 values_only = False # bool | Filter results to only return the coupon codes (`value` column) without the associated coupon data. (optional) (default to False)
+deleted_before = '2013-10-20T19:20:30+01:00' # datetime | Timestamp that filters the results to only contain coupons deleted before this date. Must be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally.  **Note:** Only coupons deleted in the last 7 days will appear in the results. (optional)
+deleted_after = '2013-10-20T19:20:30+01:00' # datetime | Timestamp that filters the results to only contain coupons deleted after this date. Must be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally.  **Note:** Only coupons deleted in the last 7 days will appear in the results. (optional)
 
     try:
         # Export coupons
-        api_response = api_instance.export_coupons(application_id, campaign_id=campaign_id, sort=sort, value=value, created_before=created_before, created_after=created_after, valid=valid, usable=usable, referral_id=referral_id, recipient_integration_id=recipient_integration_id, batch_id=batch_id, exact_match=exact_match, date_format=date_format, campaign_state=campaign_state, values_only=values_only)
+        api_response = api_instance.export_coupons(application_id, campaign_id=campaign_id, sort=sort, value=value, created_before=created_before, created_after=created_after, valid=valid, usable=usable, referral_id=referral_id, recipient_integration_id=recipient_integration_id, batch_id=batch_id, exact_match=exact_match, date_format=date_format, campaign_state=campaign_state, values_only=values_only, deleted_before=deleted_before, deleted_after=deleted_after)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling ManagementApi->export_coupons: %s\n" % e)
@@ -10655,6 +11792,8 @@ Name | Type | Description  | Notes
  **date_format** | **str**| Determines the format of dates in the export document. | [optional] 
  **campaign_state** | **str**| Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Campaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived.  | [optional] 
  **values_only** | **bool**| Filter results to only return the coupon codes (&#x60;value&#x60; column) without the associated coupon data. | [optional] [default to False]
+ **deleted_before** | **datetime**| Timestamp that filters the results to only contain coupons deleted before this date. Must be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally.  **Note:** Only coupons deleted in the last 7 days will appear in the results. | [optional] 
+ **deleted_after** | **datetime**| Timestamp that filters the results to only contain coupons deleted after this date. Must be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally.  **Note:** Only coupons deleted in the last 7 days will appear in the results. | [optional] 
 
 ### Return type
 
@@ -10677,7 +11816,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **export_customer_sessions**
-> str export_customer_sessions(application_id, created_before=created_before, created_after=created_after, profile_integration_id=profile_integration_id, date_format=date_format, customer_session_state=customer_session_state)
+> str export_customer_sessions(application_id, created_before=created_before, created_after=created_after, updated_before=updated_before, updated_after=updated_after, profile_integration_id=profile_integration_id, date_format=date_format, customer_session_state=customer_session_state)
 
 Export customer sessions
 
@@ -10740,13 +11879,15 @@ with talon_one.ApiClient(configuration) as api_client:
     application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
 created_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string. (optional)
 created_after = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string. (optional)
+updated_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string. (optional)
+updated_after = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string. (optional)
 profile_integration_id = 'profile_integration_id_example' # str | Only return sessions for the customer that matches this customer integration ID. (optional)
 date_format = 'date_format_example' # str | Determines the format of dates in the export document. (optional)
 customer_session_state = 'customer_session_state_example' # str | Filter results by state. (optional)
 
     try:
         # Export customer sessions
-        api_response = api_instance.export_customer_sessions(application_id, created_before=created_before, created_after=created_after, profile_integration_id=profile_integration_id, date_format=date_format, customer_session_state=customer_session_state)
+        api_response = api_instance.export_customer_sessions(application_id, created_before=created_before, created_after=created_after, updated_before=updated_before, updated_after=updated_after, profile_integration_id=profile_integration_id, date_format=date_format, customer_session_state=customer_session_state)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling ManagementApi->export_customer_sessions: %s\n" % e)
@@ -10807,13 +11948,15 @@ with talon_one.ApiClient(configuration) as api_client:
     application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
 created_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string. (optional)
 created_after = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string. (optional)
+updated_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string. (optional)
+updated_after = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string. (optional)
 profile_integration_id = 'profile_integration_id_example' # str | Only return sessions for the customer that matches this customer integration ID. (optional)
 date_format = 'date_format_example' # str | Determines the format of dates in the export document. (optional)
 customer_session_state = 'customer_session_state_example' # str | Filter results by state. (optional)
 
     try:
         # Export customer sessions
-        api_response = api_instance.export_customer_sessions(application_id, created_before=created_before, created_after=created_after, profile_integration_id=profile_integration_id, date_format=date_format, customer_session_state=customer_session_state)
+        api_response = api_instance.export_customer_sessions(application_id, created_before=created_before, created_after=created_after, updated_before=updated_before, updated_after=updated_after, profile_integration_id=profile_integration_id, date_format=date_format, customer_session_state=customer_session_state)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling ManagementApi->export_customer_sessions: %s\n" % e)
@@ -10874,13 +12017,15 @@ with talon_one.ApiClient(configuration) as api_client:
     application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
 created_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string. (optional)
 created_after = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string. (optional)
+updated_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string. (optional)
+updated_after = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string. (optional)
 profile_integration_id = 'profile_integration_id_example' # str | Only return sessions for the customer that matches this customer integration ID. (optional)
 date_format = 'date_format_example' # str | Determines the format of dates in the export document. (optional)
 customer_session_state = 'customer_session_state_example' # str | Filter results by state. (optional)
 
     try:
         # Export customer sessions
-        api_response = api_instance.export_customer_sessions(application_id, created_before=created_before, created_after=created_after, profile_integration_id=profile_integration_id, date_format=date_format, customer_session_state=customer_session_state)
+        api_response = api_instance.export_customer_sessions(application_id, created_before=created_before, created_after=created_after, updated_before=updated_before, updated_after=updated_after, profile_integration_id=profile_integration_id, date_format=date_format, customer_session_state=customer_session_state)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling ManagementApi->export_customer_sessions: %s\n" % e)
@@ -10893,6 +12038,8 @@ Name | Type | Description  | Notes
  **application_id** | **int**| The ID of the Application. It is displayed in your Talon.One deployment URL. | 
  **created_before** | **datetime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string. | [optional] 
  **created_after** | **datetime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string. | [optional] 
+ **updated_before** | **datetime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string. | [optional] 
+ **updated_after** | **datetime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string. | [optional] 
  **profile_integration_id** | **str**| Only return sessions for the customer that matches this customer integration ID. | [optional] 
  **date_format** | **str**| Determines the format of dates in the export document. | [optional] 
  **customer_session_state** | **str**| Filter results by state. | [optional] 
@@ -11384,7 +12531,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **export_loyalty_balance**
-> str export_loyalty_balance(loyalty_program_id, end_date=end_date)
+> str export_loyalty_balance(loyalty_program_id, end_date=end_date, balances=balances)
 
 Export customer loyalty balance to CSV
 
@@ -11446,10 +12593,11 @@ with talon_one.ApiClient(configuration) as api_client:
     api_instance = talon_one.ManagementApi(api_client)
     loyalty_program_id = 'loyalty_program_id_example' # str | The identifier for the loyalty program.
 end_date = '2013-10-20T19:20:30+01:00' # datetime | Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  > [!note] **Note** > - This must be an RFC3339 timestamp string. > - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting >   considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.  (optional)
+balances = 'balances_example' # str | Filters which balance fields are included in the CSV export. `currentBalance` is always returned.  By default, all balance fields are included. When this parameter is provided, only the listed fields contain values and the rest are returned empty.  Accepted values: - `currentBalance` - `pendingBalance` - `expiredBalance` - `spentBalance` - `negativeBalance`  Multiple values must be provided as a comma-separated list.  (optional)
 
     try:
         # Export customer loyalty balance to CSV
-        api_response = api_instance.export_loyalty_balance(loyalty_program_id, end_date=end_date)
+        api_response = api_instance.export_loyalty_balance(loyalty_program_id, end_date=end_date, balances=balances)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling ManagementApi->export_loyalty_balance: %s\n" % e)
@@ -11509,10 +12657,11 @@ with talon_one.ApiClient(configuration) as api_client:
     api_instance = talon_one.ManagementApi(api_client)
     loyalty_program_id = 'loyalty_program_id_example' # str | The identifier for the loyalty program.
 end_date = '2013-10-20T19:20:30+01:00' # datetime | Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  > [!note] **Note** > - This must be an RFC3339 timestamp string. > - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting >   considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.  (optional)
+balances = 'balances_example' # str | Filters which balance fields are included in the CSV export. `currentBalance` is always returned.  By default, all balance fields are included. When this parameter is provided, only the listed fields contain values and the rest are returned empty.  Accepted values: - `currentBalance` - `pendingBalance` - `expiredBalance` - `spentBalance` - `negativeBalance`  Multiple values must be provided as a comma-separated list.  (optional)
 
     try:
         # Export customer loyalty balance to CSV
-        api_response = api_instance.export_loyalty_balance(loyalty_program_id, end_date=end_date)
+        api_response = api_instance.export_loyalty_balance(loyalty_program_id, end_date=end_date, balances=balances)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling ManagementApi->export_loyalty_balance: %s\n" % e)
@@ -11572,10 +12721,11 @@ with talon_one.ApiClient(configuration) as api_client:
     api_instance = talon_one.ManagementApi(api_client)
     loyalty_program_id = 'loyalty_program_id_example' # str | The identifier for the loyalty program.
 end_date = '2013-10-20T19:20:30+01:00' # datetime | Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  > [!note] **Note** > - This must be an RFC3339 timestamp string. > - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting >   considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.  (optional)
+balances = 'balances_example' # str | Filters which balance fields are included in the CSV export. `currentBalance` is always returned.  By default, all balance fields are included. When this parameter is provided, only the listed fields contain values and the rest are returned empty.  Accepted values: - `currentBalance` - `pendingBalance` - `expiredBalance` - `spentBalance` - `negativeBalance`  Multiple values must be provided as a comma-separated list.  (optional)
 
     try:
         # Export customer loyalty balance to CSV
-        api_response = api_instance.export_loyalty_balance(loyalty_program_id, end_date=end_date)
+        api_response = api_instance.export_loyalty_balance(loyalty_program_id, end_date=end_date, balances=balances)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling ManagementApi->export_loyalty_balance: %s\n" % e)
@@ -11587,6 +12737,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **loyalty_program_id** | **str**| The identifier for the loyalty program. | 
  **end_date** | **datetime**| Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  &gt; [!note] **Note** &gt; - This must be an RFC3339 timestamp string. &gt; - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting &gt;   considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  | [optional] 
+ **balances** | **str**| Filters which balance fields are included in the CSV export. &#x60;currentBalance&#x60; is always returned.  By default, all balance fields are included. When this parameter is provided, only the listed fields contain values and the rest are returned empty.  Accepted values: - &#x60;currentBalance&#x60; - &#x60;pendingBalance&#x60; - &#x60;expiredBalance&#x60; - &#x60;spentBalance&#x60; - &#x60;negativeBalance&#x60;  Multiple values must be provided as a comma-separated list.  | [optional] 
 
 ### Return type
 
@@ -11611,7 +12762,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **export_loyalty_balances**
-> str export_loyalty_balances(loyalty_program_id, end_date=end_date)
+> str export_loyalty_balances(loyalty_program_id, end_date=end_date, balances=balances)
 
 Export customer loyalty balances
 
@@ -11673,10 +12824,11 @@ with talon_one.ApiClient(configuration) as api_client:
     api_instance = talon_one.ManagementApi(api_client)
     loyalty_program_id = 'loyalty_program_id_example' # str | The identifier for the loyalty program.
 end_date = '2013-10-20T19:20:30+01:00' # datetime | Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  > [!note] **Note** > - This must be an RFC3339 timestamp string. > - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting >   considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. > - This parameter does not affect the `currentTier` field in the CSV file, which shows the customer's tier at the time of export.  (optional)
+balances = 'balances_example' # str | Filters which balance fields are included in the CSV export. `currentBalance` is always returned.  By default, all balance fields are included. When this parameter is provided, only the listed fields contain values and the rest are returned empty.  Accepted values: - `currentBalance` - `pendingBalance` - `expiredBalance` - `spentBalance` - `negativeBalance`  Multiple values must be provided as a comma-separated list.  (optional)
 
     try:
         # Export customer loyalty balances
-        api_response = api_instance.export_loyalty_balances(loyalty_program_id, end_date=end_date)
+        api_response = api_instance.export_loyalty_balances(loyalty_program_id, end_date=end_date, balances=balances)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling ManagementApi->export_loyalty_balances: %s\n" % e)
@@ -11736,10 +12888,11 @@ with talon_one.ApiClient(configuration) as api_client:
     api_instance = talon_one.ManagementApi(api_client)
     loyalty_program_id = 'loyalty_program_id_example' # str | The identifier for the loyalty program.
 end_date = '2013-10-20T19:20:30+01:00' # datetime | Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  > [!note] **Note** > - This must be an RFC3339 timestamp string. > - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting >   considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. > - This parameter does not affect the `currentTier` field in the CSV file, which shows the customer's tier at the time of export.  (optional)
+balances = 'balances_example' # str | Filters which balance fields are included in the CSV export. `currentBalance` is always returned.  By default, all balance fields are included. When this parameter is provided, only the listed fields contain values and the rest are returned empty.  Accepted values: - `currentBalance` - `pendingBalance` - `expiredBalance` - `spentBalance` - `negativeBalance`  Multiple values must be provided as a comma-separated list.  (optional)
 
     try:
         # Export customer loyalty balances
-        api_response = api_instance.export_loyalty_balances(loyalty_program_id, end_date=end_date)
+        api_response = api_instance.export_loyalty_balances(loyalty_program_id, end_date=end_date, balances=balances)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling ManagementApi->export_loyalty_balances: %s\n" % e)
@@ -11799,10 +12952,11 @@ with talon_one.ApiClient(configuration) as api_client:
     api_instance = talon_one.ManagementApi(api_client)
     loyalty_program_id = 'loyalty_program_id_example' # str | The identifier for the loyalty program.
 end_date = '2013-10-20T19:20:30+01:00' # datetime | Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  > [!note] **Note** > - This must be an RFC3339 timestamp string. > - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting >   considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. > - This parameter does not affect the `currentTier` field in the CSV file, which shows the customer's tier at the time of export.  (optional)
+balances = 'balances_example' # str | Filters which balance fields are included in the CSV export. `currentBalance` is always returned.  By default, all balance fields are included. When this parameter is provided, only the listed fields contain values and the rest are returned empty.  Accepted values: - `currentBalance` - `pendingBalance` - `expiredBalance` - `spentBalance` - `negativeBalance`  Multiple values must be provided as a comma-separated list.  (optional)
 
     try:
         # Export customer loyalty balances
-        api_response = api_instance.export_loyalty_balances(loyalty_program_id, end_date=end_date)
+        api_response = api_instance.export_loyalty_balances(loyalty_program_id, end_date=end_date, balances=balances)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling ManagementApi->export_loyalty_balances: %s\n" % e)
@@ -11814,6 +12968,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **loyalty_program_id** | **str**| The identifier for the loyalty program. | 
  **end_date** | **datetime**| Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  &gt; [!note] **Note** &gt; - This must be an RFC3339 timestamp string. &gt; - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting &gt;   considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. &gt; - This parameter does not affect the &#x60;currentTier&#x60; field in the CSV file, which shows the customer&#39;s tier at the time of export.  | [optional] 
+ **balances** | **str**| Filters which balance fields are included in the CSV export. &#x60;currentBalance&#x60; is always returned.  By default, all balance fields are included. When this parameter is provided, only the listed fields contain values and the rest are returned empty.  Accepted values: - &#x60;currentBalance&#x60; - &#x60;pendingBalance&#x60; - &#x60;expiredBalance&#x60; - &#x60;spentBalance&#x60; - &#x60;negativeBalance&#x60;  Multiple values must be provided as a comma-separated list.  | [optional] 
 
 ### Return type
 
@@ -11838,7 +12993,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **export_loyalty_card_balances**
-> str export_loyalty_card_balances(loyalty_program_id, end_date=end_date)
+> str export_loyalty_card_balances(loyalty_program_id, end_date=end_date, balances=balances)
 
 Export all card transaction logs
 
@@ -11900,10 +13055,11 @@ with talon_one.ApiClient(configuration) as api_client:
     api_instance = talon_one.ManagementApi(api_client)
     loyalty_program_id = 56 # int | Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. 
 end_date = '2013-10-20T19:20:30+01:00' # datetime | Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  > [!note] **Note** > - This must be an RFC3339 timestamp string. > - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting >   considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.  (optional)
+balances = 'balances_example' # str | Filters which balance fields are included in the CSV export. By default, all balance fields are included. When this parameter is provided, only the listed fields contain values and the rest are returned empty.  Accepted values: - `currentBalance` - `pendingBalance` - `expiredBalance` - `spentBalance` - `negativeBalance`  Multiple values must be provided as a comma-separated list.  **Note:** - The `negativeBalance` value is not supported for card balance exports. - Providing an unsupported or invalid value returns a `400 Bad Request` error.  (optional)
 
     try:
         # Export all card transaction logs
-        api_response = api_instance.export_loyalty_card_balances(loyalty_program_id, end_date=end_date)
+        api_response = api_instance.export_loyalty_card_balances(loyalty_program_id, end_date=end_date, balances=balances)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling ManagementApi->export_loyalty_card_balances: %s\n" % e)
@@ -11963,10 +13119,11 @@ with talon_one.ApiClient(configuration) as api_client:
     api_instance = talon_one.ManagementApi(api_client)
     loyalty_program_id = 56 # int | Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. 
 end_date = '2013-10-20T19:20:30+01:00' # datetime | Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  > [!note] **Note** > - This must be an RFC3339 timestamp string. > - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting >   considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.  (optional)
+balances = 'balances_example' # str | Filters which balance fields are included in the CSV export. By default, all balance fields are included. When this parameter is provided, only the listed fields contain values and the rest are returned empty.  Accepted values: - `currentBalance` - `pendingBalance` - `expiredBalance` - `spentBalance` - `negativeBalance`  Multiple values must be provided as a comma-separated list.  **Note:** - The `negativeBalance` value is not supported for card balance exports. - Providing an unsupported or invalid value returns a `400 Bad Request` error.  (optional)
 
     try:
         # Export all card transaction logs
-        api_response = api_instance.export_loyalty_card_balances(loyalty_program_id, end_date=end_date)
+        api_response = api_instance.export_loyalty_card_balances(loyalty_program_id, end_date=end_date, balances=balances)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling ManagementApi->export_loyalty_card_balances: %s\n" % e)
@@ -12026,10 +13183,11 @@ with talon_one.ApiClient(configuration) as api_client:
     api_instance = talon_one.ManagementApi(api_client)
     loyalty_program_id = 56 # int | Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. 
 end_date = '2013-10-20T19:20:30+01:00' # datetime | Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  > [!note] **Note** > - This must be an RFC3339 timestamp string. > - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting >   considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.  (optional)
+balances = 'balances_example' # str | Filters which balance fields are included in the CSV export. By default, all balance fields are included. When this parameter is provided, only the listed fields contain values and the rest are returned empty.  Accepted values: - `currentBalance` - `pendingBalance` - `expiredBalance` - `spentBalance` - `negativeBalance`  Multiple values must be provided as a comma-separated list.  **Note:** - The `negativeBalance` value is not supported for card balance exports. - Providing an unsupported or invalid value returns a `400 Bad Request` error.  (optional)
 
     try:
         # Export all card transaction logs
-        api_response = api_instance.export_loyalty_card_balances(loyalty_program_id, end_date=end_date)
+        api_response = api_instance.export_loyalty_card_balances(loyalty_program_id, end_date=end_date, balances=balances)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling ManagementApi->export_loyalty_card_balances: %s\n" % e)
@@ -12041,6 +13199,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **loyalty_program_id** | **int**| Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  | 
  **end_date** | **datetime**| Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  &gt; [!note] **Note** &gt; - This must be an RFC3339 timestamp string. &gt; - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting &gt;   considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  | [optional] 
+ **balances** | **str**| Filters which balance fields are included in the CSV export. By default, all balance fields are included. When this parameter is provided, only the listed fields contain values and the rest are returned empty.  Accepted values: - &#x60;currentBalance&#x60; - &#x60;pendingBalance&#x60; - &#x60;expiredBalance&#x60; - &#x60;spentBalance&#x60; - &#x60;negativeBalance&#x60;  Multiple values must be provided as a comma-separated list.  **Note:** - The &#x60;negativeBalance&#x60; value is not supported for card balance exports. - Providing an unsupported or invalid value returns a &#x60;400 Bad Request&#x60; error.  | [optional] 
 
 ### Return type
 
@@ -12308,7 +13467,7 @@ Name | Type | Description  | Notes
 
 Export loyalty cards
 
-Download a CSV file containing the loyalty cards from a specified loyalty program.  > [!tip] If the exported CSV file is too large to view, you can > [split it into multiple files](https://www.google.com/search?q=split+CSV+into+multiple+files).  The CSV file contains the following columns:  - `identifier`: The unique identifier of the loyalty card. - `created`: The date and time the loyalty card was created. - `status`: The status of the loyalty card. - `userpercardlimit`: The maximum number of customer profiles that can be linked to the card. - `customerprofileids`: Integration IDs of the customer profiles linked to the card. - `blockreason`: The reason for transferring and blocking the loyalty card. - `generated`: An indicator of whether the loyalty card was generated. - `batchid`: The ID of the batch the loyalty card is in. - `attributes`: The custom attributes of this loyalty card. Currently, this feature is only available upon request. 
+Download a CSV file containing the loyalty cards from a specified loyalty program.  > [!tip] If the exported CSV file is too large to view, you can > [split it into multiple files](https://www.google.com/search?q=split+CSV+into+multiple+files).  The CSV file contains the following columns:  - `identifier`: The unique identifier of the loyalty card. - `created`: The date and time the loyalty card was created. - `status`: The status of the loyalty card. - `userpercardlimit`: The maximum number of customer profiles that can be linked to the card. - `customerprofileids`: Integration IDs of the customer profiles linked to the card. - `blockreason`: The reason for transferring and blocking the loyalty card. - `generated`: An indicator of whether the loyalty card was generated. - `batchid`: The ID of the batch the loyalty card is in. - `attributes`: The custom attributes of this loyalty card. 
 
 ### Example
 
@@ -13482,7 +14641,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **generate_coupon_rejections**
-> InlineResponse20053 generate_coupon_rejections(session_integration_id, application_id=application_id, language=language, coupon_code=coupon_code)
+> InlineResponse20055 generate_coupon_rejections(session_integration_id, application_id=application_id, language=language, coupon_code=coupon_code)
 
 Summarize coupon redemption failures in session
 
@@ -13696,7 +14855,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20053**](InlineResponse20053.md)
+[**InlineResponse20055**](InlineResponse20055.md)
 
 ### Authorization
 
@@ -14862,6 +16021,229 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **get_achievement_v2**
+> AchievementV2 get_achievement_v2(achievement_id)
+
+Get achievement
+
+Retrieve the details of a specific achievement.
+
+### Example
+
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    achievement_id = 56 # int | The ID of the achievement.  You can get this ID with the [List achievement](https://docs.talon.one/management-api#tag/Achievements/operation/listAchievementsV2) endpoint. 
+
+    try:
+        # Get achievement
+        api_response = api_instance.get_achievement_v2(achievement_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_achievement_v2: %s\n" % e)
+```
+
+* Api Key Authentication (management_key):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    achievement_id = 56 # int | The ID of the achievement.  You can get this ID with the [List achievement](https://docs.talon.one/management-api#tag/Achievements/operation/listAchievementsV2) endpoint. 
+
+    try:
+        # Get achievement
+        api_response = api_instance.get_achievement_v2(achievement_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_achievement_v2: %s\n" % e)
+```
+
+* Api Key Authentication (manager_auth):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    achievement_id = 56 # int | The ID of the achievement.  You can get this ID with the [List achievement](https://docs.talon.one/management-api#tag/Achievements/operation/listAchievementsV2) endpoint. 
+
+    try:
+        # Get achievement
+        api_response = api_instance.get_achievement_v2(achievement_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_achievement_v2: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **achievement_id** | **int**| The ID of the achievement.  You can get this ID with the [List achievement](https://docs.talon.one/management-api#tag/Achievements/operation/listAchievementsV2) endpoint.  | 
+
+### Return type
+
+[**AchievementV2**](AchievementV2.md)
+
+### Authorization
+
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**401** | Unauthorized |  -  |
+**404** | Not found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **get_additional_cost**
 > AccountAdditionalCost get_additional_cost(additional_cost_id)
 
@@ -15084,7 +16466,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_additional_costs**
-> InlineResponse20040 get_additional_costs(page_size=page_size, skip=skip, sort=sort)
+> InlineResponse20041 get_additional_costs(page_size=page_size, skip=skip, sort=sort)
 
 List additional costs
 
@@ -15294,7 +16676,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20040**](InlineResponse20040.md)
+[**InlineResponse20041**](InlineResponse20041.md)
 
 ### Authorization
 
@@ -16209,7 +17591,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_application_customer_friends**
-> InlineResponse20037 get_application_customer_friends(application_id, integration_id, page_size=page_size, skip=skip, sort=sort, with_total_result_size=with_total_result_size)
+> InlineResponse20038 get_application_customer_friends(application_id, integration_id, page_size=page_size, skip=skip, sort=sort, with_total_result_size=with_total_result_size)
 
 List friends referred by customer profile
 
@@ -16431,7 +17813,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20037**](InlineResponse20037.md)
+[**InlineResponse20038**](InlineResponse20038.md)
 
 ### Authorization
 
@@ -16924,7 +18306,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_application_event_types**
-> InlineResponse20033 get_application_event_types(application_id, page_size=page_size, skip=skip, sort=sort)
+> InlineResponse20034 get_application_event_types(application_id, page_size=page_size, skip=skip, sort=sort)
 
 List Applications event types
 
@@ -17138,7 +18520,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20033**](InlineResponse20033.md)
+[**InlineResponse20034**](InlineResponse20034.md)
 
 ### Authorization
 
@@ -17157,7 +18539,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_application_events_without_total_count**
-> InlineResponse20032 get_application_events_without_total_count(application_id, page_size=page_size, skip=skip, sort=sort, type=type, created_before=created_before, created_after=created_after, session=session, profile=profile, customer_name=customer_name, customer_email=customer_email, coupon_code=coupon_code, referral_code=referral_code, rule_query=rule_query, campaign_query=campaign_query, effect_type=effect_type)
+> InlineResponse20033 get_application_events_without_total_count(application_id, page_size=page_size, skip=skip, sort=sort, type=type, created_before=created_before, created_after=created_after, session=session, profile=profile, customer_name=customer_name, customer_email=customer_email, coupon_code=coupon_code, referral_code=referral_code, rule_query=rule_query, campaign_query=campaign_query, effect_type=effect_type)
 
 List Applications events
 
@@ -17419,7 +18801,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20032**](InlineResponse20032.md)
+[**InlineResponse20033**](InlineResponse20033.md)
 
 ### Authorization
 
@@ -17931,6 +19313,243 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **get_application_sessions_by_customer_attributes**
+> InlineResponse20032 get_application_sessions_by_customer_attributes(application_id, body, page_size=page_size, skip=skip, with_total_result_size=with_total_result_size)
+
+List Application sessions matching the given customer attributes
+
+Get a list of the Application sessions matching the provided customer profile attributes.  The match is successful if all the attributes of the request are found in a profile, even if the profile has more attributes that are not present on the request. 
+
+### Example
+
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
+body = talon_one.CustomerProfileSearchQuery() # CustomerProfileSearchQuery | body
+page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
+with_total_result_size = True # bool | When this flag is set, the result includes the total number of results for this query. This might decrease performance on large data sets. - When `true`: `totalResultSize` contains the total number of results for this query. - When `false`: Only `hasMore` is returned, and it is set to `true` when there are more results than shown on the page.  (optional)
+
+    try:
+        # List Application sessions matching the given customer attributes
+        api_response = api_instance.get_application_sessions_by_customer_attributes(application_id, body, page_size=page_size, skip=skip, with_total_result_size=with_total_result_size)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_application_sessions_by_customer_attributes: %s\n" % e)
+```
+
+* Api Key Authentication (management_key):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
+body = talon_one.CustomerProfileSearchQuery() # CustomerProfileSearchQuery | body
+page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
+with_total_result_size = True # bool | When this flag is set, the result includes the total number of results for this query. This might decrease performance on large data sets. - When `true`: `totalResultSize` contains the total number of results for this query. - When `false`: Only `hasMore` is returned, and it is set to `true` when there are more results than shown on the page.  (optional)
+
+    try:
+        # List Application sessions matching the given customer attributes
+        api_response = api_instance.get_application_sessions_by_customer_attributes(application_id, body, page_size=page_size, skip=skip, with_total_result_size=with_total_result_size)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_application_sessions_by_customer_attributes: %s\n" % e)
+```
+
+* Api Key Authentication (manager_auth):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
+body = talon_one.CustomerProfileSearchQuery() # CustomerProfileSearchQuery | body
+page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
+with_total_result_size = True # bool | When this flag is set, the result includes the total number of results for this query. This might decrease performance on large data sets. - When `true`: `totalResultSize` contains the total number of results for this query. - When `false`: Only `hasMore` is returned, and it is set to `true` when there are more results than shown on the page.  (optional)
+
+    try:
+        # List Application sessions matching the given customer attributes
+        api_response = api_instance.get_application_sessions_by_customer_attributes(application_id, body, page_size=page_size, skip=skip, with_total_result_size=with_total_result_size)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_application_sessions_by_customer_attributes: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **application_id** | **int**| The ID of the Application. It is displayed in your Talon.One deployment URL. | 
+ **body** | [**CustomerProfileSearchQuery**](CustomerProfileSearchQuery.md)| body | 
+ **page_size** | **int**| The number of items in the response. | [optional] [default to 1000]
+ **skip** | **int**| The number of items to skip when paging through large result sets. | [optional] 
+ **with_total_result_size** | **bool**| When this flag is set, the result includes the total number of results for this query. This might decrease performance on large data sets. - When &#x60;true&#x60;: &#x60;totalResultSize&#x60; contains the total number of results for this query. - When &#x60;false&#x60;: Only &#x60;hasMore&#x60; is returned, and it is set to &#x60;true&#x60; when there are more results than shown on the page.  | [optional] 
+
+### Return type
+
+[**InlineResponse20032**](InlineResponse20032.md)
+
+### Authorization
+
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **get_applications**
 > InlineResponse2008 get_applications(page_size=page_size, skip=skip, sort=sort)
 
@@ -18382,7 +20001,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_attributes**
-> InlineResponse20038 get_attributes(page_size=page_size, skip=skip, sort=sort, entity=entity, application_ids=application_ids, type=type, kind=kind, search=search)
+> InlineResponse20039 get_attributes(page_size=page_size, skip=skip, sort=sort, entity=entity, application_ids=application_ids, loyalty_program_ids=loyalty_program_ids, type=type, kind=kind, search=search)
 
 List custom attributes
 
@@ -18447,13 +20066,14 @@ skip = 56 # int | The number of items to skip when paging through large result s
 sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
 entity = 'entity_example' # str | Returned attributes will be filtered by supplied entity. (optional)
 application_ids = 'application_ids_example' # str | Returned attributes will be filtered by supplied application ids (optional)
+loyalty_program_ids = 'loyalty_program_ids_example' # str | Returned attributes will be filtered by the specified loyalty program ids, separated by commas. You can only use this parameter when `entity` is `LoyaltyCard`. (optional)
 type = 'type_example' # str | Returned attributes will be filtered by supplied type (optional)
 kind = 'kind_example' # str | Returned attributes will be filtered by supplied kind (builtin or custom) (optional)
 search = 'search_example' # str | Returned attributes will be filtered by searching case insensitive through Attribute name, description and type (optional)
 
     try:
         # List custom attributes
-        api_response = api_instance.get_attributes(page_size=page_size, skip=skip, sort=sort, entity=entity, application_ids=application_ids, type=type, kind=kind, search=search)
+        api_response = api_instance.get_attributes(page_size=page_size, skip=skip, sort=sort, entity=entity, application_ids=application_ids, loyalty_program_ids=loyalty_program_ids, type=type, kind=kind, search=search)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling ManagementApi->get_attributes: %s\n" % e)
@@ -18516,13 +20136,14 @@ skip = 56 # int | The number of items to skip when paging through large result s
 sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
 entity = 'entity_example' # str | Returned attributes will be filtered by supplied entity. (optional)
 application_ids = 'application_ids_example' # str | Returned attributes will be filtered by supplied application ids (optional)
+loyalty_program_ids = 'loyalty_program_ids_example' # str | Returned attributes will be filtered by the specified loyalty program ids, separated by commas. You can only use this parameter when `entity` is `LoyaltyCard`. (optional)
 type = 'type_example' # str | Returned attributes will be filtered by supplied type (optional)
 kind = 'kind_example' # str | Returned attributes will be filtered by supplied kind (builtin or custom) (optional)
 search = 'search_example' # str | Returned attributes will be filtered by searching case insensitive through Attribute name, description and type (optional)
 
     try:
         # List custom attributes
-        api_response = api_instance.get_attributes(page_size=page_size, skip=skip, sort=sort, entity=entity, application_ids=application_ids, type=type, kind=kind, search=search)
+        api_response = api_instance.get_attributes(page_size=page_size, skip=skip, sort=sort, entity=entity, application_ids=application_ids, loyalty_program_ids=loyalty_program_ids, type=type, kind=kind, search=search)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling ManagementApi->get_attributes: %s\n" % e)
@@ -18585,13 +20206,14 @@ skip = 56 # int | The number of items to skip when paging through large result s
 sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
 entity = 'entity_example' # str | Returned attributes will be filtered by supplied entity. (optional)
 application_ids = 'application_ids_example' # str | Returned attributes will be filtered by supplied application ids (optional)
+loyalty_program_ids = 'loyalty_program_ids_example' # str | Returned attributes will be filtered by the specified loyalty program ids, separated by commas. You can only use this parameter when `entity` is `LoyaltyCard`. (optional)
 type = 'type_example' # str | Returned attributes will be filtered by supplied type (optional)
 kind = 'kind_example' # str | Returned attributes will be filtered by supplied kind (builtin or custom) (optional)
 search = 'search_example' # str | Returned attributes will be filtered by searching case insensitive through Attribute name, description and type (optional)
 
     try:
         # List custom attributes
-        api_response = api_instance.get_attributes(page_size=page_size, skip=skip, sort=sort, entity=entity, application_ids=application_ids, type=type, kind=kind, search=search)
+        api_response = api_instance.get_attributes(page_size=page_size, skip=skip, sort=sort, entity=entity, application_ids=application_ids, loyalty_program_ids=loyalty_program_ids, type=type, kind=kind, search=search)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling ManagementApi->get_attributes: %s\n" % e)
@@ -18606,13 +20228,14 @@ Name | Type | Description  | Notes
  **sort** | **str**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  | [optional] 
  **entity** | **str**| Returned attributes will be filtered by supplied entity. | [optional] 
  **application_ids** | **str**| Returned attributes will be filtered by supplied application ids | [optional] 
+ **loyalty_program_ids** | **str**| Returned attributes will be filtered by the specified loyalty program ids, separated by commas. You can only use this parameter when &#x60;entity&#x60; is &#x60;LoyaltyCard&#x60;. | [optional] 
  **type** | **str**| Returned attributes will be filtered by supplied type | [optional] 
  **kind** | **str**| Returned attributes will be filtered by supplied kind (builtin or custom) | [optional] 
  **search** | **str**| Returned attributes will be filtered by searching case insensitive through Attribute name, description and type | [optional] 
 
 ### Return type
 
-[**InlineResponse20038**](InlineResponse20038.md)
+[**InlineResponse20039**](InlineResponse20039.md)
 
 ### Authorization
 
@@ -18631,7 +20254,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_audience_memberships**
-> InlineResponse20036 get_audience_memberships(audience_id, page_size=page_size, skip=skip, sort=sort, profile_query=profile_query)
+> InlineResponse20037 get_audience_memberships(audience_id, page_size=page_size, skip=skip, sort=sort, profile_query=profile_query)
 
 List audience members
 
@@ -18849,7 +20472,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20036**](InlineResponse20036.md)
+[**InlineResponse20037**](InlineResponse20037.md)
 
 ### Authorization
 
@@ -18869,7 +20492,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_audiences**
-> InlineResponse20034 get_audiences(page_size=page_size, skip=skip, sort=sort, with_total_result_size=with_total_result_size)
+> InlineResponse20035 get_audiences(page_size=page_size, skip=skip, sort=sort, with_total_result_size=with_total_result_size)
 
 List audiences
 
@@ -19083,7 +20706,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20034**](InlineResponse20034.md)
+[**InlineResponse20035**](InlineResponse20035.md)
 
 ### Authorization
 
@@ -19102,7 +20725,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_audiences_analytics**
-> InlineResponse20035 get_audiences_analytics(audience_ids, sort=sort)
+> InlineResponse20036 get_audiences_analytics(audience_ids, sort=sort)
 
 List audience analytics
 
@@ -19162,7 +20785,7 @@ configuration = talon_one.Configuration(
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
-    audience_ids = 'audience_ids_example' # str | The IDs of one or more audiences, separated by commas, by which to filter results.
+    audience_ids = 'audience_ids_example' # str | The IDs of one or more audiences, separated by commas, by which to filter results. Do not provide more than 1000 audience IDs.
 sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
 
     try:
@@ -19225,7 +20848,7 @@ configuration = talon_one.Configuration(
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
-    audience_ids = 'audience_ids_example' # str | The IDs of one or more audiences, separated by commas, by which to filter results.
+    audience_ids = 'audience_ids_example' # str | The IDs of one or more audiences, separated by commas, by which to filter results. Do not provide more than 1000 audience IDs.
 sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
 
     try:
@@ -19288,7 +20911,7 @@ configuration = talon_one.Configuration(
 with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
-    audience_ids = 'audience_ids_example' # str | The IDs of one or more audiences, separated by commas, by which to filter results.
+    audience_ids = 'audience_ids_example' # str | The IDs of one or more audiences, separated by commas, by which to filter results. Do not provide more than 1000 audience IDs.
 sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
 
     try:
@@ -19303,12 +20926,12 @@ sort = 'sort_example' # str | The field by which results should be sorted. By de
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **audience_ids** | **str**| The IDs of one or more audiences, separated by commas, by which to filter results. | 
+ **audience_ids** | **str**| The IDs of one or more audiences, separated by commas, by which to filter results. Do not provide more than 1000 audience IDs. | 
  **sort** | **str**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  | [optional] 
 
 ### Return type
 
-[**InlineResponse20035**](InlineResponse20035.md)
+[**InlineResponse20036**](InlineResponse20036.md)
 
 ### Authorization
 
@@ -20791,7 +22414,7 @@ skip = 56 # int | The number of items to skip when paging through large result s
 sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
 campaign_state = 'campaign_state_example' # str | Filter results by the state of the campaign.  - `enabled`: Campaigns that are scheduled, running (activated), or expired. - `running`: Campaigns that are running (activated). - `disabled`: Campaigns that are disabled. - `expired`: Campaigns that are expired. - `archived`: Campaigns that are archived.  (optional)
 name = 'name_example' # str | Filter results performing case-insensitive matching against the name of the campaign. (optional)
-tags = 'tags_example' # str | Filter results performing case-insensitive matching against the tags of the campaign. When used in conjunction with the \"name\" query parameter, a logical OR will be performed to search both tags and name for the provided values  (optional)
+tags = ['tags_example'] # list[str] | Filter results performing case-insensitive matching against the tags of the campaign.  (optional)
 created_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
 created_after = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
 start_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign start time timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
@@ -20868,7 +22491,7 @@ skip = 56 # int | The number of items to skip when paging through large result s
 sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
 campaign_state = 'campaign_state_example' # str | Filter results by the state of the campaign.  - `enabled`: Campaigns that are scheduled, running (activated), or expired. - `running`: Campaigns that are running (activated). - `disabled`: Campaigns that are disabled. - `expired`: Campaigns that are expired. - `archived`: Campaigns that are archived.  (optional)
 name = 'name_example' # str | Filter results performing case-insensitive matching against the name of the campaign. (optional)
-tags = 'tags_example' # str | Filter results performing case-insensitive matching against the tags of the campaign. When used in conjunction with the \"name\" query parameter, a logical OR will be performed to search both tags and name for the provided values  (optional)
+tags = ['tags_example'] # list[str] | Filter results performing case-insensitive matching against the tags of the campaign.  (optional)
 created_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
 created_after = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
 start_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign start time timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
@@ -20945,7 +22568,7 @@ skip = 56 # int | The number of items to skip when paging through large result s
 sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
 campaign_state = 'campaign_state_example' # str | Filter results by the state of the campaign.  - `enabled`: Campaigns that are scheduled, running (activated), or expired. - `running`: Campaigns that are running (activated). - `disabled`: Campaigns that are disabled. - `expired`: Campaigns that are expired. - `archived`: Campaigns that are archived.  (optional)
 name = 'name_example' # str | Filter results performing case-insensitive matching against the name of the campaign. (optional)
-tags = 'tags_example' # str | Filter results performing case-insensitive matching against the tags of the campaign. When used in conjunction with the \"name\" query parameter, a logical OR will be performed to search both tags and name for the provided values  (optional)
+tags = ['tags_example'] # list[str] | Filter results performing case-insensitive matching against the tags of the campaign.  (optional)
 created_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
 created_after = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
 start_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign start time timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)
@@ -20974,7 +22597,7 @@ Name | Type | Description  | Notes
  **sort** | **str**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  | [optional] 
  **campaign_state** | **str**| Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Campaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived.  | [optional] 
  **name** | **str**| Filter results performing case-insensitive matching against the name of the campaign. | [optional] 
- **tags** | **str**| Filter results performing case-insensitive matching against the tags of the campaign. When used in conjunction with the \&quot;name\&quot; query parameter, a logical OR will be performed to search both tags and name for the provided values  | [optional] 
+ **tags** | [**list[str]**](str.md)| Filter results performing case-insensitive matching against the tags of the campaign.  | [optional] 
  **created_before** | **datetime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. | [optional] 
  **created_after** | **datetime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. | [optional] 
  **start_before** | **datetime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign start time timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. | [optional] 
@@ -21007,7 +22630,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_changes**
-> InlineResponse20044 get_changes(page_size=page_size, skip=skip, sort=sort, application_id=application_id, entity_path=entity_path, user_id=user_id, created_before=created_before, created_after=created_after, with_total_result_size=with_total_result_size, management_key_id=management_key_id, include_old=include_old)
+> InlineResponse20045 get_changes(page_size=page_size, skip=skip, sort=sort, application_id=application_id, entity_path=entity_path, user_id=user_id, created_before=created_before, created_after=created_after, with_total_result_size=with_total_result_size, management_key_id=management_key_id, include_old=include_old)
 
 Get audit logs for an account
 
@@ -21249,7 +22872,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20044**](InlineResponse20044.md)
+[**InlineResponse20045**](InlineResponse20045.md)
 
 ### Authorization
 
@@ -22981,7 +24604,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_customer_profile_achievement_progress**
-> InlineResponse20052 get_customer_profile_achievement_progress(application_id, integration_id, page_size=page_size, skip=skip, achievement_id=achievement_id, title=title)
+> InlineResponse20054 get_customer_profile_achievement_progress(application_id, integration_id, page_size=page_size, skip=skip, achievement_id=achievement_id, title=title)
 
 List customer achievements
 
@@ -23203,7 +24826,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20052**](InlineResponse20052.md)
+[**InlineResponse20054**](InlineResponse20054.md)
 
 ### Authorization
 
@@ -23919,7 +25542,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_event_types**
-> InlineResponse20042 get_event_types(name=name, include_old_versions=include_old_versions, page_size=page_size, skip=skip, sort=sort)
+> InlineResponse20043 get_event_types(name=name, include_old_versions=include_old_versions, page_size=page_size, skip=skip, sort=sort)
 
 List event types
 
@@ -24137,7 +25760,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20042**](InlineResponse20042.md)
+[**InlineResponse20043**](InlineResponse20043.md)
 
 ### Authorization
 
@@ -24381,7 +26004,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_exports**
-> InlineResponse20045 get_exports(page_size=page_size, skip=skip, application_id=application_id, campaign_id=campaign_id, entity=entity)
+> InlineResponse20046 get_exports(page_size=page_size, skip=skip, application_id=application_id, campaign_id=campaign_id, entity=entity)
 
 Get exports
 
@@ -24599,7 +26222,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20045**](InlineResponse20045.md)
+[**InlineResponse20046**](InlineResponse20046.md)
 
 ### Authorization
 
@@ -24848,9 +26471,9 @@ Name | Type | Description  | Notes
 # **get_loyalty_card_transaction_logs**
 > InlineResponse20021 get_loyalty_card_transaction_logs(loyalty_program_id, loyalty_card_id, start_date=start_date, end_date=end_date, page_size=page_size, skip=skip, subledger_id=subledger_id, customer_session_i_ds=customer_session_i_ds, transaction_uui_ds=transaction_uui_ds)
 
-List card's transactions
+List card's transactions (Management API)
 
-Retrieve the transaction logs for the given [loyalty card](https://docs.talon.one/docs/product/loyalty-programs/card-based/card-based-overview) within the specified [card-based loyalty program](https://docs.talon.one/docs/product/loyalty-programs/overview#loyalty-program-types) with filtering options applied. If no filtering options are applied, the last 50 loyalty transactions for the given loyalty card are returned. 
+Retrieve the transaction logs for the given [loyalty card](https://docs.talon.one/docs/product/loyalty-programs/card-based/card-based-overview) within the specified [card-based loyalty program](https://docs.talon.one/docs/product/loyalty-programs/overview#loyalty-program-types) with filtering options applied.  > [!note] For most use cases, especially real-time integrations, use the Integration API endpoint: > [List card's transactions](https://docs.talon.one/integration-api#tag/Loyalty-cards/operation/getLoyaltyCardTransactions).  If no filtering options are applied, the last 50 loyalty transactions for the given loyalty card are returned. 
 
 ### Example
 
@@ -24917,7 +26540,7 @@ customer_session_i_ds = ['customer_session_i_ds_example'] # list[str] | Filter t
 transaction_uui_ds = ['transaction_uui_ds_example'] # list[str] | Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example, `?transactionUUIDs=uuid1&transactionUUIDs=uuid2`.  The response contains only data associated with the specified transactions.  (optional)
 
     try:
-        # List card's transactions
+        # List card's transactions (Management API)
         api_response = api_instance.get_loyalty_card_transaction_logs(loyalty_program_id, loyalty_card_id, start_date=start_date, end_date=end_date, page_size=page_size, skip=skip, subledger_id=subledger_id, customer_session_i_ds=customer_session_i_ds, transaction_uui_ds=transaction_uui_ds)
         pprint(api_response)
     except ApiException as e:
@@ -24987,7 +26610,7 @@ customer_session_i_ds = ['customer_session_i_ds_example'] # list[str] | Filter t
 transaction_uui_ds = ['transaction_uui_ds_example'] # list[str] | Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example, `?transactionUUIDs=uuid1&transactionUUIDs=uuid2`.  The response contains only data associated with the specified transactions.  (optional)
 
     try:
-        # List card's transactions
+        # List card's transactions (Management API)
         api_response = api_instance.get_loyalty_card_transaction_logs(loyalty_program_id, loyalty_card_id, start_date=start_date, end_date=end_date, page_size=page_size, skip=skip, subledger_id=subledger_id, customer_session_i_ds=customer_session_i_ds, transaction_uui_ds=transaction_uui_ds)
         pprint(api_response)
     except ApiException as e:
@@ -25057,7 +26680,7 @@ customer_session_i_ds = ['customer_session_i_ds_example'] # list[str] | Filter t
 transaction_uui_ds = ['transaction_uui_ds_example'] # list[str] | Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example, `?transactionUUIDs=uuid1&transactionUUIDs=uuid2`.  The response contains only data associated with the specified transactions.  (optional)
 
     try:
-        # List card's transactions
+        # List card's transactions (Management API)
         api_response = api_instance.get_loyalty_card_transaction_logs(loyalty_program_id, loyalty_card_id, start_date=start_date, end_date=end_date, page_size=page_size, skip=skip, subledger_id=subledger_id, customer_session_i_ds=customer_session_i_ds, transaction_uui_ds=transaction_uui_ds)
         pprint(api_response)
     except ApiException as e:
@@ -25350,9 +26973,9 @@ Name | Type | Description  | Notes
 # **get_loyalty_ledger_balances**
 > LoyaltyBalancesWithTiers get_loyalty_ledger_balances(loyalty_program_id, integration_id, end_date=end_date, subledger_id=subledger_id, include_tiers=include_tiers, include_projected_tier=include_projected_tier)
 
-Get customer's loyalty balances
+Get customer's loyalty balances (Management API)
 
-Retrieve loyalty ledger balances for the given Integration ID in the specified loyalty program.  You can filter balances by date and subledger ID, and include tier-related information in the response.  > [!note] If no filtering options are applied, you retrieve all loyalty > balances on the current date for the given integration ID.  Loyalty balances are calculated when Talon.One receives your request using the points stored in our database, so retrieving a large number of balances at once can impact performance.  For more information, see:  - [Managing card-based loyalty program data](https://docs.talon.one/docs/product/loyalty-programs/card-based/managing-loyalty-cards)  - [Managing profile-based loyalty program data](https://docs.talon.one/docs/product/loyalty-programs/profile-based/managing-pb-lp-data) 
+Retrieve loyalty ledger balances for the given Integration ID in the specified loyalty program.  You can filter balances by date and subledger ID, and include tier-related information in the response.  > [!note] **Note** > - For most use cases, especially real-time integrations, use the Integration API endpoint:     [Get customer's loyalty balances](https://docs.talon.one/integration-api#tag/Loyalty/operation/getLoyaltyBalances). > - If no filtering options are applied, you retrieve all loyalty balances on the current date for the given integration ID.  Loyalty balances are calculated when Talon.One receives your request using the points stored in our database, so retrieving a large number of balances at once can impact performance.  For more information, see:  - [Managing card-based loyalty program data](https://docs.talon.one/docs/product/loyalty-programs/card-based/managing-loyalty-cards)  - [Managing profile-based loyalty program data](https://docs.talon.one/docs/product/loyalty-programs/profile-based/managing-pb-lp-data) 
 
 ### Example
 
@@ -25416,7 +27039,7 @@ include_tiers = False # bool | Indicates whether tier information is included in
 include_projected_tier = False # bool | Indicates whether the customer's projected tier information is included in the response.  When set to `true`, the response includes information about the customer's active points and the name of the projected tier.  **Note** We recommend filtering by `subledgerId` for better performance.  (optional) (default to False)
 
     try:
-        # Get customer's loyalty balances
+        # Get customer's loyalty balances (Management API)
         api_response = api_instance.get_loyalty_ledger_balances(loyalty_program_id, integration_id, end_date=end_date, subledger_id=subledger_id, include_tiers=include_tiers, include_projected_tier=include_projected_tier)
         pprint(api_response)
     except ApiException as e:
@@ -25483,7 +27106,7 @@ include_tiers = False # bool | Indicates whether tier information is included in
 include_projected_tier = False # bool | Indicates whether the customer's projected tier information is included in the response.  When set to `true`, the response includes information about the customer's active points and the name of the projected tier.  **Note** We recommend filtering by `subledgerId` for better performance.  (optional) (default to False)
 
     try:
-        # Get customer's loyalty balances
+        # Get customer's loyalty balances (Management API)
         api_response = api_instance.get_loyalty_ledger_balances(loyalty_program_id, integration_id, end_date=end_date, subledger_id=subledger_id, include_tiers=include_tiers, include_projected_tier=include_projected_tier)
         pprint(api_response)
     except ApiException as e:
@@ -25550,7 +27173,7 @@ include_tiers = False # bool | Indicates whether tier information is included in
 include_projected_tier = False # bool | Indicates whether the customer's projected tier information is included in the response.  When set to `true`, the response includes information about the customer's active points and the name of the projected tier.  **Note** We recommend filtering by `subledgerId` for better performance.  (optional) (default to False)
 
     try:
-        # Get customer's loyalty balances
+        # Get customer's loyalty balances (Management API)
         api_response = api_instance.get_loyalty_ledger_balances(loyalty_program_id, integration_id, end_date=end_date, subledger_id=subledger_id, include_tiers=include_tiers, include_projected_tier=include_projected_tier)
         pprint(api_response)
     except ApiException as e:
@@ -26040,9 +27663,9 @@ Name | Type | Description  | Notes
 # **get_loyalty_program_profile_ledger_transactions**
 > InlineResponse2005 get_loyalty_program_profile_ledger_transactions(loyalty_program_id, integration_id, customer_session_i_ds=customer_session_i_ds, transaction_uui_ds=transaction_uui_ds, subledger_id=subledger_id, loyalty_transaction_type=loyalty_transaction_type, start_date=start_date, end_date=end_date, page_size=page_size, skip=skip, awaits_activation=awaits_activation)
 
-List customer's loyalty transactions
+List customer's loyalty transactions (Management API)
 
-Retrieve paginated results of loyalty transaction logs for the given Integration ID in the specified loyalty program.  You can filter transactions by date or by ledger (subledger or main ledger). If no filters are applied, the last 50 loyalty transactions for the given integration ID are returned.  > [!note] To retrieve all loyalty program transaction logs in a given > loyalty program, use the [List loyalty program transactions](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyProgramTransactions) > endpoint. 
+Retrieve paginated results of loyalty transaction logs for the given Integration ID in the specified loyalty program.  You can filter transactions by date or by ledger (subledger or main ledger). If no filters are applied, the last 50 loyalty transactions for the given integration ID are returned.  > [!note] **Note** > - For most use cases, especially real-time integrations, use the Integration API endpoint: >   [List customer's loyalty transactions](https://docs.talon.one/integration-api#tag/Loyalty/operation/getLoyaltyProgramProfileTransactions). > - To retrieve all loyalty program transaction logs in a given loyalty program, use the >   [List loyalty program transactions](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyProgramTransactions) endpoint. 
 
 ### Example
 
@@ -26111,7 +27734,7 @@ skip = 56 # int | The number of items to skip when paging through large result s
 awaits_activation = True # bool | If `true`: Filters results to include only point transactions that have action-based activation and have not expired.  If `false`: Returns a `400` response.  (optional)
 
     try:
-        # List customer's loyalty transactions
+        # List customer's loyalty transactions (Management API)
         api_response = api_instance.get_loyalty_program_profile_ledger_transactions(loyalty_program_id, integration_id, customer_session_i_ds=customer_session_i_ds, transaction_uui_ds=transaction_uui_ds, subledger_id=subledger_id, loyalty_transaction_type=loyalty_transaction_type, start_date=start_date, end_date=end_date, page_size=page_size, skip=skip, awaits_activation=awaits_activation)
         pprint(api_response)
     except ApiException as e:
@@ -26183,7 +27806,7 @@ skip = 56 # int | The number of items to skip when paging through large result s
 awaits_activation = True # bool | If `true`: Filters results to include only point transactions that have action-based activation and have not expired.  If `false`: Returns a `400` response.  (optional)
 
     try:
-        # List customer's loyalty transactions
+        # List customer's loyalty transactions (Management API)
         api_response = api_instance.get_loyalty_program_profile_ledger_transactions(loyalty_program_id, integration_id, customer_session_i_ds=customer_session_i_ds, transaction_uui_ds=transaction_uui_ds, subledger_id=subledger_id, loyalty_transaction_type=loyalty_transaction_type, start_date=start_date, end_date=end_date, page_size=page_size, skip=skip, awaits_activation=awaits_activation)
         pprint(api_response)
     except ApiException as e:
@@ -26255,7 +27878,7 @@ skip = 56 # int | The number of items to skip when paging through large result s
 awaits_activation = True # bool | If `true`: Filters results to include only point transactions that have action-based activation and have not expired.  If `false`: Returns a `400` response.  (optional)
 
     try:
-        # List customer's loyalty transactions
+        # List customer's loyalty transactions (Management API)
         api_response = api_instance.get_loyalty_program_profile_ledger_transactions(loyalty_program_id, integration_id, customer_session_i_ds=customer_session_i_ds, transaction_uui_ds=transaction_uui_ds, subledger_id=subledger_id, loyalty_transaction_type=loyalty_transaction_type, start_date=start_date, end_date=end_date, page_size=page_size, skip=skip, awaits_activation=awaits_activation)
         pprint(api_response)
     except ApiException as e:
@@ -26781,7 +28404,7 @@ This endpoint does not need any parameter.
 
 Get loyalty program statistics
 
-> [warning] This endpoint is deprecated.  To retrieve statistics for a loyalty program, use the [Get statistics for loyalty dashboard](/management-api#tag/Loyalty/operation/getDashboardStatistics) endpoint.  Retrieve the statistics of the specified loyalty program, such as the total active points, pending points, spent points, and expired points. 
+> [!warning] This endpoint is deprecated.  To retrieve statistics for a loyalty program, use the [Get statistics for loyalty dashboard](/management-api#tag/Loyalty/operation/getDashboardStatistics) endpoint.  Retrieve the statistics of the specified loyalty program, such as the total active points, pending points, spent points, and expired points. 
 
 ### Example
 
@@ -26998,7 +28621,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_message_logs**
-> MessageLogEntries get_message_logs(entity_type, message_id=message_id, change_type=change_type, notification_i_ds=notification_i_ds, created_before=created_before, created_after=created_after, cursor=cursor, period=period, is_successful=is_successful, application_id=application_id, campaign_id=campaign_id, loyalty_program_id=loyalty_program_id, response_code=response_code, webhook_i_ds=webhook_i_ds)
+> MessageLogEntries get_message_logs(entity_type, message_id=message_id, change_type=change_type, notification_i_ds=notification_i_ds, created_before=created_before, created_after=created_after, cursor=cursor, page_size=page_size, period=period, is_successful=is_successful, application_id=application_id, campaign_id=campaign_id, loyalty_program_id=loyalty_program_id, response_code=response_code, webhook_i_ds=webhook_i_ds)
 
 List message log entries
 
@@ -27065,6 +28688,7 @@ notification_i_ds = 'notification_i_ds_example' # str | Filter results by notifi
 created_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. Use UTC time. (optional)
 created_after = '2013-10-20T19:20:30+01:00' # datetime | Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. Use UTC time. (optional)
 cursor = 'cursor_example' # str | A specific unique value in the database. If this value is not given, the server fetches results starting with the first record.  (optional)
+page_size = 50 # int | The maximum number of message log entries to return. (optional) (default to 50)
 period = 'period_example' # str | Filter results by time period. Choose between the available relative time frames.  (optional)
 is_successful = True # bool | Indicates whether to return log entries with either successful or unsuccessful HTTP response codes. When set to`true`, only log entries with `2xx` response codes are returned. When set to `false`, only log entries with `4xx` and `5xx` response codes are returned.  (optional)
 application_id = 3.4 # float | Filter results by Application ID. (optional)
@@ -27075,7 +28699,7 @@ webhook_i_ds = 'webhook_i_ds_example' # str | Filter results by webhook ID (incl
 
     try:
         # List message log entries
-        api_response = api_instance.get_message_logs(entity_type, message_id=message_id, change_type=change_type, notification_i_ds=notification_i_ds, created_before=created_before, created_after=created_after, cursor=cursor, period=period, is_successful=is_successful, application_id=application_id, campaign_id=campaign_id, loyalty_program_id=loyalty_program_id, response_code=response_code, webhook_i_ds=webhook_i_ds)
+        api_response = api_instance.get_message_logs(entity_type, message_id=message_id, change_type=change_type, notification_i_ds=notification_i_ds, created_before=created_before, created_after=created_after, cursor=cursor, page_size=page_size, period=period, is_successful=is_successful, application_id=application_id, campaign_id=campaign_id, loyalty_program_id=loyalty_program_id, response_code=response_code, webhook_i_ds=webhook_i_ds)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling ManagementApi->get_message_logs: %s\n" % e)
@@ -27140,6 +28764,7 @@ notification_i_ds = 'notification_i_ds_example' # str | Filter results by notifi
 created_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. Use UTC time. (optional)
 created_after = '2013-10-20T19:20:30+01:00' # datetime | Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. Use UTC time. (optional)
 cursor = 'cursor_example' # str | A specific unique value in the database. If this value is not given, the server fetches results starting with the first record.  (optional)
+page_size = 50 # int | The maximum number of message log entries to return. (optional) (default to 50)
 period = 'period_example' # str | Filter results by time period. Choose between the available relative time frames.  (optional)
 is_successful = True # bool | Indicates whether to return log entries with either successful or unsuccessful HTTP response codes. When set to`true`, only log entries with `2xx` response codes are returned. When set to `false`, only log entries with `4xx` and `5xx` response codes are returned.  (optional)
 application_id = 3.4 # float | Filter results by Application ID. (optional)
@@ -27150,7 +28775,7 @@ webhook_i_ds = 'webhook_i_ds_example' # str | Filter results by webhook ID (incl
 
     try:
         # List message log entries
-        api_response = api_instance.get_message_logs(entity_type, message_id=message_id, change_type=change_type, notification_i_ds=notification_i_ds, created_before=created_before, created_after=created_after, cursor=cursor, period=period, is_successful=is_successful, application_id=application_id, campaign_id=campaign_id, loyalty_program_id=loyalty_program_id, response_code=response_code, webhook_i_ds=webhook_i_ds)
+        api_response = api_instance.get_message_logs(entity_type, message_id=message_id, change_type=change_type, notification_i_ds=notification_i_ds, created_before=created_before, created_after=created_after, cursor=cursor, page_size=page_size, period=period, is_successful=is_successful, application_id=application_id, campaign_id=campaign_id, loyalty_program_id=loyalty_program_id, response_code=response_code, webhook_i_ds=webhook_i_ds)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling ManagementApi->get_message_logs: %s\n" % e)
@@ -27215,6 +28840,7 @@ notification_i_ds = 'notification_i_ds_example' # str | Filter results by notifi
 created_before = '2013-10-20T19:20:30+01:00' # datetime | Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. Use UTC time. (optional)
 created_after = '2013-10-20T19:20:30+01:00' # datetime | Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. Use UTC time. (optional)
 cursor = 'cursor_example' # str | A specific unique value in the database. If this value is not given, the server fetches results starting with the first record.  (optional)
+page_size = 50 # int | The maximum number of message log entries to return. (optional) (default to 50)
 period = 'period_example' # str | Filter results by time period. Choose between the available relative time frames.  (optional)
 is_successful = True # bool | Indicates whether to return log entries with either successful or unsuccessful HTTP response codes. When set to`true`, only log entries with `2xx` response codes are returned. When set to `false`, only log entries with `4xx` and `5xx` response codes are returned.  (optional)
 application_id = 3.4 # float | Filter results by Application ID. (optional)
@@ -27225,7 +28851,7 @@ webhook_i_ds = 'webhook_i_ds_example' # str | Filter results by webhook ID (incl
 
     try:
         # List message log entries
-        api_response = api_instance.get_message_logs(entity_type, message_id=message_id, change_type=change_type, notification_i_ds=notification_i_ds, created_before=created_before, created_after=created_after, cursor=cursor, period=period, is_successful=is_successful, application_id=application_id, campaign_id=campaign_id, loyalty_program_id=loyalty_program_id, response_code=response_code, webhook_i_ds=webhook_i_ds)
+        api_response = api_instance.get_message_logs(entity_type, message_id=message_id, change_type=change_type, notification_i_ds=notification_i_ds, created_before=created_before, created_after=created_after, cursor=cursor, page_size=page_size, period=period, is_successful=is_successful, application_id=application_id, campaign_id=campaign_id, loyalty_program_id=loyalty_program_id, response_code=response_code, webhook_i_ds=webhook_i_ds)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling ManagementApi->get_message_logs: %s\n" % e)
@@ -27242,6 +28868,7 @@ Name | Type | Description  | Notes
  **created_before** | **datetime**| Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. Use UTC time. | [optional] 
  **created_after** | **datetime**| Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. Use UTC time. | [optional] 
  **cursor** | **str**| A specific unique value in the database. If this value is not given, the server fetches results starting with the first record.  | [optional] 
+ **page_size** | **int**| The maximum number of message log entries to return. | [optional] [default to 50]
  **period** | **str**| Filter results by time period. Choose between the available relative time frames.  | [optional] 
  **is_successful** | **bool**| Indicates whether to return log entries with either successful or unsuccessful HTTP response codes. When set to&#x60;true&#x60;, only log entries with &#x60;2xx&#x60; response codes are returned. When set to &#x60;false&#x60;, only log entries with &#x60;4xx&#x60; and &#x60;5xx&#x60; response codes are returned.  | [optional] 
  **application_id** | **float**| Filter results by Application ID. | [optional] 
@@ -27981,6 +29608,235 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **get_ruleset_v2**
+> RulesetV2 get_ruleset_v2(application_id, campaign_id, ruleset_id)
+
+Get ruleset (V2)
+
+Retrieve the specified ruleset as a JSON object.
+
+### Example
+
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
+campaign_id = 56 # int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
+ruleset_id = 56 # int | The ID of the ruleset.
+
+    try:
+        # Get ruleset (V2)
+        api_response = api_instance.get_ruleset_v2(application_id, campaign_id, ruleset_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_ruleset_v2: %s\n" % e)
+```
+
+* Api Key Authentication (management_key):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
+campaign_id = 56 # int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
+ruleset_id = 56 # int | The ID of the ruleset.
+
+    try:
+        # Get ruleset (V2)
+        api_response = api_instance.get_ruleset_v2(application_id, campaign_id, ruleset_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_ruleset_v2: %s\n" % e)
+```
+
+* Api Key Authentication (manager_auth):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
+campaign_id = 56 # int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
+ruleset_id = 56 # int | The ID of the ruleset.
+
+    try:
+        # Get ruleset (V2)
+        api_response = api_instance.get_ruleset_v2(application_id, campaign_id, ruleset_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->get_ruleset_v2: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **application_id** | **int**| The ID of the Application. It is displayed in your Talon.One deployment URL. | 
+ **campaign_id** | **int**| The ID of the campaign. It is displayed in your Talon.One deployment URL. | 
+ **ruleset_id** | **int**| The ID of the ruleset. | 
+
+### Return type
+
+[**RulesetV2**](RulesetV2.md)
+
+### Authorization
+
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **get_rulesets**
 > InlineResponse20010 get_rulesets(application_id, campaign_id, page_size=page_size, skip=skip, sort=sort)
 
@@ -28666,7 +30522,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_users**
-> InlineResponse20043 get_users(page_size=page_size, skip=skip, sort=sort)
+> InlineResponse20044 get_users(page_size=page_size, skip=skip, sort=sort)
 
 List users in account
 
@@ -28876,7 +30732,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20043**](InlineResponse20043.md)
+[**InlineResponse20044**](InlineResponse20044.md)
 
 ### Authorization
 
@@ -29116,7 +30972,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_webhooks**
-> InlineResponse20041 get_webhooks(application_ids=application_ids, sort=sort, page_size=page_size, skip=skip, creation_type=creation_type, visibility=visibility, outgoing_integrations_type_id=outgoing_integrations_type_id, title=title)
+> InlineResponse20042 get_webhooks(application_ids=application_ids, sort=sort, page_size=page_size, skip=skip, creation_type=creation_type, visibility=visibility, outgoing_integrations_type_id=outgoing_integrations_type_id, title=title)
 
 List webhooks
 
@@ -29346,7 +31202,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20041**](InlineResponse20041.md)
+[**InlineResponse20042**](InlineResponse20042.md)
 
 ### Authorization
 
@@ -29426,7 +31282,7 @@ with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
     collection_id = 56 # int | The ID of the collection. You can get it with the [List collections in account](#tag/Collections/operation/listAccountCollections) endpoint.
-up_file = 'up_file_example' # str | The file containing the data that is being imported. (optional)
+up_file = '/path/to/file' # file | The CSV file containing the data that is being imported. (optional)
 
     try:
         # Import data into existing account-level collection
@@ -29489,7 +31345,7 @@ with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
     collection_id = 56 # int | The ID of the collection. You can get it with the [List collections in account](#tag/Collections/operation/listAccountCollections) endpoint.
-up_file = 'up_file_example' # str | The file containing the data that is being imported. (optional)
+up_file = '/path/to/file' # file | The CSV file containing the data that is being imported. (optional)
 
     try:
         # Import data into existing account-level collection
@@ -29552,7 +31408,7 @@ with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
     collection_id = 56 # int | The ID of the collection. You can get it with the [List collections in account](#tag/Collections/operation/listAccountCollections) endpoint.
-up_file = 'up_file_example' # str | The file containing the data that is being imported. (optional)
+up_file = '/path/to/file' # file | The CSV file containing the data that is being imported. (optional)
 
     try:
         # Import data into existing account-level collection
@@ -29567,7 +31423,7 @@ up_file = 'up_file_example' # str | The file containing the data that is being i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **collection_id** | **int**| The ID of the collection. You can get it with the [List collections in account](#tag/Collections/operation/listAccountCollections) endpoint. | 
- **up_file** | **str**| The file containing the data that is being imported. | [optional] 
+ **up_file** | **file**| The CSV file containing the data that is being imported. | [optional] 
 
 ### Return type
 
@@ -29653,7 +31509,7 @@ with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
     attribute_id = 56 # int | The ID of the attribute. You can find the ID in the Campaign Manager's URL when you display the details of an attribute in **Account** > **Tools** > **Attributes**.
-up_file = 'up_file_example' # str | The file containing the data that is being imported. (optional)
+up_file = '/path/to/file' # file | The CSV file containing the data that is being imported. (optional)
 
     try:
         # Import allowed values for attribute
@@ -29716,7 +31572,7 @@ with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
     attribute_id = 56 # int | The ID of the attribute. You can find the ID in the Campaign Manager's URL when you display the details of an attribute in **Account** > **Tools** > **Attributes**.
-up_file = 'up_file_example' # str | The file containing the data that is being imported. (optional)
+up_file = '/path/to/file' # file | The CSV file containing the data that is being imported. (optional)
 
     try:
         # Import allowed values for attribute
@@ -29779,7 +31635,7 @@ with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
     attribute_id = 56 # int | The ID of the attribute. You can find the ID in the Campaign Manager's URL when you display the details of an attribute in **Account** > **Tools** > **Attributes**.
-up_file = 'up_file_example' # str | The file containing the data that is being imported. (optional)
+up_file = '/path/to/file' # file | The CSV file containing the data that is being imported. (optional)
 
     try:
         # Import allowed values for attribute
@@ -29794,7 +31650,7 @@ up_file = 'up_file_example' # str | The file containing the data that is being i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **attribute_id** | **int**| The ID of the attribute. You can find the ID in the Campaign Manager&#39;s URL when you display the details of an attribute in **Account** &gt; **Tools** &gt; **Attributes**. | 
- **up_file** | **str**| The file containing the data that is being imported. | [optional] 
+ **up_file** | **file**| The CSV file containing the data that is being imported. | [optional] 
 
 ### Return type
 
@@ -29881,7 +31737,7 @@ with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
     audience_id = 56 # int | The ID of the audience.
-up_file = 'up_file_example' # str | The file containing the data that is being imported. (optional)
+up_file = '/path/to/file' # file | The CSV file containing the data that is being imported. (optional)
 
     try:
         # Import audience members
@@ -29944,7 +31800,7 @@ with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
     audience_id = 56 # int | The ID of the audience.
-up_file = 'up_file_example' # str | The file containing the data that is being imported. (optional)
+up_file = '/path/to/file' # file | The CSV file containing the data that is being imported. (optional)
 
     try:
         # Import audience members
@@ -30007,7 +31863,7 @@ with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
     audience_id = 56 # int | The ID of the audience.
-up_file = 'up_file_example' # str | The file containing the data that is being imported. (optional)
+up_file = '/path/to/file' # file | The CSV file containing the data that is being imported. (optional)
 
     try:
         # Import audience members
@@ -30022,7 +31878,7 @@ up_file = 'up_file_example' # str | The file containing the data that is being i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **audience_id** | **int**| The ID of the audience. | 
- **up_file** | **str**| The file containing the data that is being imported. | [optional] 
+ **up_file** | **file**| The CSV file containing the data that is being imported. | [optional] 
 
 ### Return type
 
@@ -30112,7 +31968,7 @@ with talon_one.ApiClient(configuration) as api_client:
 campaign_id = 56 # int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
 action = 'action_example' # str | The action that this budget is limiting. (optional)
 period = 'period_example' # str | The period to which the limit applies.  **Note**: For budgets with no period, set this to `overall`.  (optional)
-up_file = 'up_file_example' # str | The file containing the data that is being imported. (optional)
+up_file = '/path/to/file' # file | The CSV file containing the data that is being imported. (optional)
 
     try:
         # Import campaign store budgets
@@ -30178,7 +32034,7 @@ with talon_one.ApiClient(configuration) as api_client:
 campaign_id = 56 # int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
 action = 'action_example' # str | The action that this budget is limiting. (optional)
 period = 'period_example' # str | The period to which the limit applies.  **Note**: For budgets with no period, set this to `overall`.  (optional)
-up_file = 'up_file_example' # str | The file containing the data that is being imported. (optional)
+up_file = '/path/to/file' # file | The CSV file containing the data that is being imported. (optional)
 
     try:
         # Import campaign store budgets
@@ -30244,7 +32100,7 @@ with talon_one.ApiClient(configuration) as api_client:
 campaign_id = 56 # int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
 action = 'action_example' # str | The action that this budget is limiting. (optional)
 period = 'period_example' # str | The period to which the limit applies.  **Note**: For budgets with no period, set this to `overall`.  (optional)
-up_file = 'up_file_example' # str | The file containing the data that is being imported. (optional)
+up_file = '/path/to/file' # file | The CSV file containing the data that is being imported. (optional)
 
     try:
         # Import campaign store budgets
@@ -30262,7 +32118,7 @@ Name | Type | Description  | Notes
  **campaign_id** | **int**| The ID of the campaign. It is displayed in your Talon.One deployment URL. | 
  **action** | **str**| The action that this budget is limiting. | [optional] 
  **period** | **str**| The period to which the limit applies.  **Note**: For budgets with no period, set this to &#x60;overall&#x60;.  | [optional] 
- **up_file** | **str**| The file containing the data that is being imported. | [optional] 
+ **up_file** | **file**| The CSV file containing the data that is being imported. | [optional] 
 
 ### Return type
 
@@ -30348,7 +32204,7 @@ with talon_one.ApiClient(configuration) as api_client:
     api_instance = talon_one.ManagementApi(api_client)
     application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
 campaign_id = 56 # int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
-up_file = 'up_file_example' # str | The file containing the data that is being imported. (optional)
+up_file = '/path/to/file' # file | The CSV file containing the data that is being imported. (optional)
 
     try:
         # Import stores
@@ -30412,7 +32268,7 @@ with talon_one.ApiClient(configuration) as api_client:
     api_instance = talon_one.ManagementApi(api_client)
     application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
 campaign_id = 56 # int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
-up_file = 'up_file_example' # str | The file containing the data that is being imported. (optional)
+up_file = '/path/to/file' # file | The CSV file containing the data that is being imported. (optional)
 
     try:
         # Import stores
@@ -30476,7 +32332,7 @@ with talon_one.ApiClient(configuration) as api_client:
     api_instance = talon_one.ManagementApi(api_client)
     application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
 campaign_id = 56 # int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
-up_file = 'up_file_example' # str | The file containing the data that is being imported. (optional)
+up_file = '/path/to/file' # file | The CSV file containing the data that is being imported. (optional)
 
     try:
         # Import stores
@@ -30492,7 +32348,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **application_id** | **int**| The ID of the Application. It is displayed in your Talon.One deployment URL. | 
  **campaign_id** | **int**| The ID of the campaign. It is displayed in your Talon.One deployment URL. | 
- **up_file** | **str**| The file containing the data that is being imported. | [optional] 
+ **up_file** | **file**| The CSV file containing the data that is being imported. | [optional] 
 
 ### Return type
 
@@ -30581,7 +32437,7 @@ with talon_one.ApiClient(configuration) as api_client:
     application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
 campaign_id = 56 # int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
 collection_id = 56 # int | The ID of the collection. You can get it with the [List collections in Application](#tag/Collections/operation/listCollectionsInApplication) endpoint.
-up_file = 'up_file_example' # str | The file containing the data that is being imported. (optional)
+up_file = '/path/to/file' # file | The CSV file containing the data that is being imported. (optional)
 
     try:
         # Import data into existing campaign-level collection
@@ -30646,7 +32502,7 @@ with talon_one.ApiClient(configuration) as api_client:
     application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
 campaign_id = 56 # int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
 collection_id = 56 # int | The ID of the collection. You can get it with the [List collections in Application](#tag/Collections/operation/listCollectionsInApplication) endpoint.
-up_file = 'up_file_example' # str | The file containing the data that is being imported. (optional)
+up_file = '/path/to/file' # file | The CSV file containing the data that is being imported. (optional)
 
     try:
         # Import data into existing campaign-level collection
@@ -30711,7 +32567,7 @@ with talon_one.ApiClient(configuration) as api_client:
     application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
 campaign_id = 56 # int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
 collection_id = 56 # int | The ID of the collection. You can get it with the [List collections in Application](#tag/Collections/operation/listCollectionsInApplication) endpoint.
-up_file = 'up_file_example' # str | The file containing the data that is being imported. (optional)
+up_file = '/path/to/file' # file | The CSV file containing the data that is being imported. (optional)
 
     try:
         # Import data into existing campaign-level collection
@@ -30728,7 +32584,7 @@ Name | Type | Description  | Notes
  **application_id** | **int**| The ID of the Application. It is displayed in your Talon.One deployment URL. | 
  **campaign_id** | **int**| The ID of the campaign. It is displayed in your Talon.One deployment URL. | 
  **collection_id** | **int**| The ID of the collection. You can get it with the [List collections in Application](#tag/Collections/operation/listCollectionsInApplication) endpoint. | 
- **up_file** | **str**| The file containing the data that is being imported. | [optional] 
+ **up_file** | **file**| The CSV file containing the data that is being imported. | [optional] 
 
 ### Return type
 
@@ -30815,7 +32671,7 @@ with talon_one.ApiClient(configuration) as api_client:
     application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
 campaign_id = 56 # int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
 skip_duplicates = True # bool | An indicator of whether to skip duplicate coupon values instead of causing an error. Duplicate values are ignored when `skipDuplicates=true`.  (optional)
-up_file = 'up_file_example' # str | The file containing the data that is being imported. (optional)
+up_file = '/path/to/file' # file | The CSV file containing the data that is being imported. (optional)
 
     try:
         # Import coupons
@@ -30880,7 +32736,7 @@ with talon_one.ApiClient(configuration) as api_client:
     application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
 campaign_id = 56 # int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
 skip_duplicates = True # bool | An indicator of whether to skip duplicate coupon values instead of causing an error. Duplicate values are ignored when `skipDuplicates=true`.  (optional)
-up_file = 'up_file_example' # str | The file containing the data that is being imported. (optional)
+up_file = '/path/to/file' # file | The CSV file containing the data that is being imported. (optional)
 
     try:
         # Import coupons
@@ -30945,7 +32801,7 @@ with talon_one.ApiClient(configuration) as api_client:
     application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
 campaign_id = 56 # int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
 skip_duplicates = True # bool | An indicator of whether to skip duplicate coupon values instead of causing an error. Duplicate values are ignored when `skipDuplicates=true`.  (optional)
-up_file = 'up_file_example' # str | The file containing the data that is being imported. (optional)
+up_file = '/path/to/file' # file | The CSV file containing the data that is being imported. (optional)
 
     try:
         # Import coupons
@@ -30962,7 +32818,7 @@ Name | Type | Description  | Notes
  **application_id** | **int**| The ID of the Application. It is displayed in your Talon.One deployment URL. | 
  **campaign_id** | **int**| The ID of the campaign. It is displayed in your Talon.One deployment URL. | 
  **skip_duplicates** | **bool**| An indicator of whether to skip duplicate coupon values instead of causing an error. Duplicate values are ignored when &#x60;skipDuplicates&#x3D;true&#x60;.  | [optional] 
- **up_file** | **str**| The file containing the data that is being imported. | [optional] 
+ **up_file** | **file**| The CSV file containing the data that is being imported. | [optional] 
 
 ### Return type
 
@@ -30989,7 +32845,7 @@ Name | Type | Description  | Notes
 
 Import loyalty cards
 
-Upload a CSV file containing the loyalty cards that you want to use in your card-based loyalty program.  Send the file as multipart data.  It contains the following columns for each card:  - `identifier` (required): The identifier of the loyalty card, which must match the regular expression `^[A-Za-z0-9._%+@-]+$`. - `state` (required): The state of the loyalty card. It can be `active` or `inactive`. - `customerprofileids` (optional): An array of strings representing the identifiers of the customer profiles linked to the loyalty card. The identifiers should be separated with a semicolon (;).  > [!note] We recommend limiting your file size to 500MB.  ## Example  ```csv identifier,state,customerprofileids 123-456-789AT,active,Alexa001;UserA ``` 
+Upload a CSV file containing the loyalty cards that you want to use in your card-based loyalty program.  Send the file as multipart data.  It contains the following columns for each card:  - `identifier` (required): The identifier of the loyalty card, which must match the regular expression `^[A-Za-z0-9._%+@-]+$`. - `state` (required): The state of the loyalty card. It can be `active` or `inactive`. - `customerprofileids` (optional): An array of strings representing the identifiers of the customer profiles linked to the loyalty card. The identifiers should be separated with a semicolon (;). - `attributes` (optional): A JSON object that contains the loyalty card's custom attributes and their values. These attributes must be created and connected to this loyalty program before they can be assigned to the cards through this endpoint.  > [!note] Your CSV file must contain less than 500,000 rows. Requests time out after 30 seconds.  ## Example  ```csv identifier,state,customerprofileids,attributes 123-456-789AT,active,Alexa001;UserA,'{\"\"my_attributes\"\": \"\"10_off\"\"}\" ``` 
 
 ### Example
 
@@ -31046,7 +32902,7 @@ with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
     loyalty_program_id = 56 # int | Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. 
-up_file = 'up_file_example' # str | The file containing the data that is being imported. (optional)
+up_file = '/path/to/file' # file | The CSV file containing the data that is being imported. (optional)
 
     try:
         # Import loyalty cards
@@ -31109,7 +32965,7 @@ with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
     loyalty_program_id = 56 # int | Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. 
-up_file = 'up_file_example' # str | The file containing the data that is being imported. (optional)
+up_file = '/path/to/file' # file | The CSV file containing the data that is being imported. (optional)
 
     try:
         # Import loyalty cards
@@ -31172,7 +33028,7 @@ with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
     loyalty_program_id = 56 # int | Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. 
-up_file = 'up_file_example' # str | The file containing the data that is being imported. (optional)
+up_file = '/path/to/file' # file | The CSV file containing the data that is being imported. (optional)
 
     try:
         # Import loyalty cards
@@ -31187,7 +33043,7 @@ up_file = 'up_file_example' # str | The file containing the data that is being i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **loyalty_program_id** | **int**| Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  | 
- **up_file** | **str**| The file containing the data that is being imported. | [optional] 
+ **up_file** | **file**| The CSV file containing the data that is being imported. | [optional] 
 
 ### Return type
 
@@ -31216,7 +33072,7 @@ Name | Type | Description  | Notes
 
 Import customers into loyalty tiers
 
-Upload a CSV file containing existing customers to be assigned to existing tiers.  Send the file as multipart data.  > [!important] This endpoint only works with loyalty programs with advanced > tiers (with expiration and downgrade policy) feature enabled.  The CSV file should contain the following columns:  - `subledgerid` (optional): The ID of the subledger. If this field is empty, the main ledger will be used. - `customerprofileid`: The integration ID of the customer profile to whom the tier should be assigned. - `tiername`: The name of an existing tier to assign to the customer. - `expirydate`: The expiration date of the tier when the tier is reevaluated. It should be a future date.  About customer assignment to a tier:  - If the customer isn't already in a tier, the customer is assigned to the specified tier during the tier import. - If the customer is already in the tier that's specified in the CSV file, only the expiration date is updated.  > [!note] We recommend not using this endpoint to update the tier of a customer.  To update a customer's tier, you can [add](/management-api#tag/Loyalty/operation/addLoyaltyPoints) or [deduct](/management-api#tag/Loyalty/operation/removeLoyaltyPoints) their loyalty points.  You can use the time zone of your choice. It is converted to UTC internally by Talon.One.  > [!note] We recommend limiting your file size to 500 MB.  ## Example  ```csv subledgerid,customerprofileid,tiername,expirydate SUB1,alexa,Gold,2024-03-21T07:32:14Z ,george,Silver,2025-04-16T21:12:37Z SUB2,avocado,Bronze,2026-05-03T11:47:01Z ``` 
+Upload a CSV file containing existing customers to be assigned to existing tiers.  Send the file as multipart data.  > [!important] This endpoint only works with loyalty programs with advanced > tiers (with expiration and downgrade policy) feature enabled.  The CSV file should contain the following columns:  - `subledgerid` (optional): The ID of the subledger. If this field is empty, the main ledger will be used. - `customerprofileid`: The integration ID of the customer profile to whom the tier should be assigned. - `tiername`: The name of an existing tier to assign to the customer. - `expirydate`: The expiry date of the tier when the tier is reevaluated. It should be a future date.  About customer assignment to a tier:  - If the customer isn't already in a tier, the customer is assigned to the specified tier during the tier import. - If the customer is already in the tier that's specified in the CSV file, only the expiry date is updated.  > [!note] We recommend importing customers into the tier that matches their > current balance. If a customer is imported into a lower tier, any session > or points update automatically upgrades them to the tier they qualify for.  To update a customer's tier, you can [add](/management-api#tag/Loyalty/operation/addLoyaltyPoints) or [deduct](/management-api#tag/Loyalty/operation/removeLoyaltyPoints) their loyalty points.  You can use the time zone of your choice. It is converted to UTC internally by Talon.One.  > [!note] We recommend limiting your file size to 500 MB.  ## Example  ```csv subledgerid,customerprofileid,tiername,expirydate SUB1,alexa,Gold,2024-03-21T07:32:14Z ,george,Silver,2025-04-16T21:12:37Z SUB2,avocado,Bronze,2026-05-03T11:47:01Z ``` 
 
 ### Example
 
@@ -31273,7 +33129,7 @@ with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
     loyalty_program_id = 56 # int | Identifier of the loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. 
-up_file = 'up_file_example' # str | The file containing the data that is being imported. (optional)
+up_file = '/path/to/file' # file | The CSV file containing the data that is being imported. (optional)
 
     try:
         # Import customers into loyalty tiers
@@ -31336,7 +33192,7 @@ with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
     loyalty_program_id = 56 # int | Identifier of the loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. 
-up_file = 'up_file_example' # str | The file containing the data that is being imported. (optional)
+up_file = '/path/to/file' # file | The CSV file containing the data that is being imported. (optional)
 
     try:
         # Import customers into loyalty tiers
@@ -31399,7 +33255,7 @@ with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
     loyalty_program_id = 56 # int | Identifier of the loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. 
-up_file = 'up_file_example' # str | The file containing the data that is being imported. (optional)
+up_file = '/path/to/file' # file | The CSV file containing the data that is being imported. (optional)
 
     try:
         # Import customers into loyalty tiers
@@ -31414,7 +33270,235 @@ up_file = 'up_file_example' # str | The file containing the data that is being i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **loyalty_program_id** | **int**| Identifier of the loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  | 
- **up_file** | **str**| The file containing the data that is being imported. | [optional] 
+ **up_file** | **file**| The CSV file containing the data that is being imported. | [optional] 
+
+### Return type
+
+[**ModelImport**](ModelImport.md)
+
+### Authorization
+
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Bad request |  -  |
+**401** | Unauthorized |  -  |
+**404** | Not found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **import_loyalty_join_dates**
+> ModelImport import_loyalty_join_dates(loyalty_program_id, up_file=up_file)
+
+Import join dates for a loyalty program
+
+Upload a CSV file containing customer profile IDs and their join dates for the specified loyalty program. Send the file as multipart data.  > [!important] This endpoint only works with profile-based loyalty programs.  The CSV file **must** contain the following columns:  - `customerprofileid`: The integration ID of the customer profile whose join   date you want to update. - `newjoindate`: The new join date for the customer in RFC3339 format. You   can use the time zone of your choice. It is converted to UTC internally   by Talon.One.  **Note**: - Customer profiles must already exist. If a referenced profile does not exist, the import fails with a `400` error. - If a join date already exists for a profile, the uploaded date replaces it.  > [!note] We recommend limiting your file size to 500 MB.  ## Example  ```csv customerprofileid,newjoindate customer1,2024-03-21T07:32:14Z customer2,2025-04-16T21:12:37Z customer3,2026-05-03T11:47:01Z ``` 
+
+### Example
+
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    loyalty_program_id = 56 # int | Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. 
+up_file = '/path/to/file' # file | The CSV file containing the data that is being imported. (optional)
+
+    try:
+        # Import join dates for a loyalty program
+        api_response = api_instance.import_loyalty_join_dates(loyalty_program_id, up_file=up_file)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->import_loyalty_join_dates: %s\n" % e)
+```
+
+* Api Key Authentication (management_key):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    loyalty_program_id = 56 # int | Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. 
+up_file = '/path/to/file' # file | The CSV file containing the data that is being imported. (optional)
+
+    try:
+        # Import join dates for a loyalty program
+        api_response = api_instance.import_loyalty_join_dates(loyalty_program_id, up_file=up_file)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->import_loyalty_join_dates: %s\n" % e)
+```
+
+* Api Key Authentication (manager_auth):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    loyalty_program_id = 56 # int | Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. 
+up_file = '/path/to/file' # file | The CSV file containing the data that is being imported. (optional)
+
+    try:
+        # Import join dates for a loyalty program
+        api_response = api_instance.import_loyalty_join_dates(loyalty_program_id, up_file=up_file)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->import_loyalty_join_dates: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **loyalty_program_id** | **int**| Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  | 
+ **up_file** | **file**| The CSV file containing the data that is being imported. | [optional] 
 
 ### Return type
 
@@ -31502,7 +33586,7 @@ with talon_one.ApiClient(configuration) as api_client:
     api_instance = talon_one.ManagementApi(api_client)
     loyalty_program_id = 56 # int | Identifier of the loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. 
 notifications_enabled = True # bool | Indicates whether the points import triggers notifications about its effects. For example, a notification is sent if the import upgrades a customer's tier or offsets their negative points balance.  This parameter is optional and defaults to `true`.  (optional)
-up_file = 'up_file_example' # str | The file containing the data that is being imported. (optional)
+up_file = '/path/to/file' # file | The CSV file containing the data that is being imported. (optional)
 
     try:
         # Import loyalty points
@@ -31566,7 +33650,7 @@ with talon_one.ApiClient(configuration) as api_client:
     api_instance = talon_one.ManagementApi(api_client)
     loyalty_program_id = 56 # int | Identifier of the loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. 
 notifications_enabled = True # bool | Indicates whether the points import triggers notifications about its effects. For example, a notification is sent if the import upgrades a customer's tier or offsets their negative points balance.  This parameter is optional and defaults to `true`.  (optional)
-up_file = 'up_file_example' # str | The file containing the data that is being imported. (optional)
+up_file = '/path/to/file' # file | The CSV file containing the data that is being imported. (optional)
 
     try:
         # Import loyalty points
@@ -31630,7 +33714,7 @@ with talon_one.ApiClient(configuration) as api_client:
     api_instance = talon_one.ManagementApi(api_client)
     loyalty_program_id = 56 # int | Identifier of the loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. 
 notifications_enabled = True # bool | Indicates whether the points import triggers notifications about its effects. For example, a notification is sent if the import upgrades a customer's tier or offsets their negative points balance.  This parameter is optional and defaults to `true`.  (optional)
-up_file = 'up_file_example' # str | The file containing the data that is being imported. (optional)
+up_file = '/path/to/file' # file | The CSV file containing the data that is being imported. (optional)
 
     try:
         # Import loyalty points
@@ -31646,7 +33730,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **loyalty_program_id** | **int**| Identifier of the loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  | 
  **notifications_enabled** | **bool**| Indicates whether the points import triggers notifications about its effects. For example, a notification is sent if the import upgrades a customer&#39;s tier or offsets their negative points balance.  This parameter is optional and defaults to &#x60;true&#x60;.  | [optional] 
- **up_file** | **str**| The file containing the data that is being imported. | [optional] 
+ **up_file** | **file**| The CSV file containing the data that is being imported. | [optional] 
 
 ### Return type
 
@@ -31730,7 +33814,7 @@ with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
     pool_id = 56 # int | The ID of the pool. You can find it in the Campaign Manager, in the **Giveaways** section.
-up_file = 'up_file_example' # str | The file containing the data that is being imported. (optional)
+up_file = '/path/to/file' # file | The CSV file containing the data that is being imported. (optional)
 
     try:
         # Import giveaway codes into a giveaway pool
@@ -31793,7 +33877,7 @@ with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
     pool_id = 56 # int | The ID of the pool. You can find it in the Campaign Manager, in the **Giveaways** section.
-up_file = 'up_file_example' # str | The file containing the data that is being imported. (optional)
+up_file = '/path/to/file' # file | The CSV file containing the data that is being imported. (optional)
 
     try:
         # Import giveaway codes into a giveaway pool
@@ -31856,7 +33940,7 @@ with talon_one.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = talon_one.ManagementApi(api_client)
     pool_id = 56 # int | The ID of the pool. You can find it in the Campaign Manager, in the **Giveaways** section.
-up_file = 'up_file_example' # str | The file containing the data that is being imported. (optional)
+up_file = '/path/to/file' # file | The CSV file containing the data that is being imported. (optional)
 
     try:
         # Import giveaway codes into a giveaway pool
@@ -31871,7 +33955,7 @@ up_file = 'up_file_example' # str | The file containing the data that is being i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **pool_id** | **int**| The ID of the pool. You can find it in the Campaign Manager, in the **Giveaways** section. | 
- **up_file** | **str**| The file containing the data that is being imported. | [optional] 
+ **up_file** | **file**| The CSV file containing the data that is being imported. | [optional] 
 
 ### Return type
 
@@ -31956,7 +34040,7 @@ with talon_one.ApiClient(configuration) as api_client:
     api_instance = talon_one.ManagementApi(api_client)
     application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
 campaign_id = 56 # int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
-up_file = 'up_file_example' # str | The file containing the data that is being imported. (optional)
+up_file = '/path/to/file' # file | The CSV file containing the data that is being imported. (optional)
 
     try:
         # Import referrals
@@ -32020,7 +34104,7 @@ with talon_one.ApiClient(configuration) as api_client:
     api_instance = talon_one.ManagementApi(api_client)
     application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
 campaign_id = 56 # int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
-up_file = 'up_file_example' # str | The file containing the data that is being imported. (optional)
+up_file = '/path/to/file' # file | The CSV file containing the data that is being imported. (optional)
 
     try:
         # Import referrals
@@ -32084,7 +34168,7 @@ with talon_one.ApiClient(configuration) as api_client:
     api_instance = talon_one.ManagementApi(api_client)
     application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
 campaign_id = 56 # int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
-up_file = 'up_file_example' # str | The file containing the data that is being imported. (optional)
+up_file = '/path/to/file' # file | The CSV file containing the data that is being imported. (optional)
 
     try:
         # Import referrals
@@ -32100,7 +34184,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **application_id** | **int**| The ID of the Application. It is displayed in your Talon.One deployment URL. | 
  **campaign_id** | **int**| The ID of the campaign. It is displayed in your Talon.One deployment URL. | 
- **up_file** | **str**| The file containing the data that is being imported. | [optional] 
+ **up_file** | **file**| The CSV file containing the data that is being imported. | [optional] 
 
 ### Return type
 
@@ -32581,7 +34665,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_achievements**
-> InlineResponse20051 list_achievements(application_id, campaign_id, page_size=page_size, skip=skip, title=title)
+> InlineResponse20052 list_achievements(application_id, campaign_id, page_size=page_size, skip=skip, title=title)
 
 List achievements
 
@@ -32799,7 +34883,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20051**](InlineResponse20051.md)
+[**InlineResponse20052**](InlineResponse20052.md)
 
 ### Authorization
 
@@ -32817,8 +34901,247 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **list_achievements_v2**
+> InlineResponse20053 list_achievements_v2(page_size=page_size, skip=skip, sort=sort, title=title, application_id=application_id)
+
+List achievements
+
+List all achievements. 
+
+### Example
+
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    page_size = 50 # int | The number of items in the response. (optional) (default to 50)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
+sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
+title = 'title_example' # str | Filter by the display name of the achievement. (optional)
+application_id = 56 # int | Filter by the ID of an Application connected to the achievement. (optional)
+
+    try:
+        # List achievements
+        api_response = api_instance.list_achievements_v2(page_size=page_size, skip=skip, sort=sort, title=title, application_id=application_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->list_achievements_v2: %s\n" % e)
+```
+
+* Api Key Authentication (management_key):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    page_size = 50 # int | The number of items in the response. (optional) (default to 50)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
+sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
+title = 'title_example' # str | Filter by the display name of the achievement. (optional)
+application_id = 56 # int | Filter by the ID of an Application connected to the achievement. (optional)
+
+    try:
+        # List achievements
+        api_response = api_instance.list_achievements_v2(page_size=page_size, skip=skip, sort=sort, title=title, application_id=application_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->list_achievements_v2: %s\n" % e)
+```
+
+* Api Key Authentication (manager_auth):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    page_size = 50 # int | The number of items in the response. (optional) (default to 50)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
+sort = 'sort_example' # str | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)
+title = 'title_example' # str | Filter by the display name of the achievement. (optional)
+application_id = 56 # int | Filter by the ID of an Application connected to the achievement. (optional)
+
+    try:
+        # List achievements
+        api_response = api_instance.list_achievements_v2(page_size=page_size, skip=skip, sort=sort, title=title, application_id=application_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->list_achievements_v2: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **page_size** | **int**| The number of items in the response. | [optional] [default to 50]
+ **skip** | **int**| The number of items to skip when paging through large result sets. | [optional] 
+ **sort** | **str**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  | [optional] 
+ **title** | **str**| Filter by the display name of the achievement. | [optional] 
+ **application_id** | **int**| Filter by the ID of an Application connected to the achievement. | [optional] 
+
+### Return type
+
+[**InlineResponse20053**](InlineResponse20053.md)
+
+### Authorization
+
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Bad request |  -  |
+**401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **list_all_roles_v2**
-> InlineResponse20046 list_all_roles_v2()
+> InlineResponse20047 list_all_roles_v2()
 
 List roles
 
@@ -33014,7 +35337,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**InlineResponse20046**](InlineResponse20046.md)
+[**InlineResponse20047**](InlineResponse20047.md)
 
 ### Authorization
 
@@ -33033,7 +35356,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_application_cart_item_filters**
-> InlineResponse20048 list_application_cart_item_filters(application_id, page_size=page_size, skip=skip, title=title)
+> InlineResponse20049 list_application_cart_item_filters(application_id, page_size=page_size, skip=skip, name=name)
 
 List Application cart item filters
 
@@ -33096,11 +35419,11 @@ with talon_one.ApiClient(configuration) as api_client:
     application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
 page_size = 50 # int | The number of items in the response. (optional) (default to 50)
 skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
-title = 'title_example' # str | Filter by the display name of the Application cart item filter in the Application.  **Note**: If no `title` is provided, all the Application cart item filters in the Application are returned.  (optional)
+name = 'name_example' # str | Filter by the display name of the Application cart item filter in the Application.  **Note**: If no `name` is provided, all the Application cart item filters in the Application are returned.  (optional)
 
     try:
         # List Application cart item filters
-        api_response = api_instance.list_application_cart_item_filters(application_id, page_size=page_size, skip=skip, title=title)
+        api_response = api_instance.list_application_cart_item_filters(application_id, page_size=page_size, skip=skip, name=name)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling ManagementApi->list_application_cart_item_filters: %s\n" % e)
@@ -33161,11 +35484,11 @@ with talon_one.ApiClient(configuration) as api_client:
     application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
 page_size = 50 # int | The number of items in the response. (optional) (default to 50)
 skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
-title = 'title_example' # str | Filter by the display name of the Application cart item filter in the Application.  **Note**: If no `title` is provided, all the Application cart item filters in the Application are returned.  (optional)
+name = 'name_example' # str | Filter by the display name of the Application cart item filter in the Application.  **Note**: If no `name` is provided, all the Application cart item filters in the Application are returned.  (optional)
 
     try:
         # List Application cart item filters
-        api_response = api_instance.list_application_cart_item_filters(application_id, page_size=page_size, skip=skip, title=title)
+        api_response = api_instance.list_application_cart_item_filters(application_id, page_size=page_size, skip=skip, name=name)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling ManagementApi->list_application_cart_item_filters: %s\n" % e)
@@ -33226,11 +35549,11 @@ with talon_one.ApiClient(configuration) as api_client:
     application_id = 56 # int | The ID of the Application. It is displayed in your Talon.One deployment URL.
 page_size = 50 # int | The number of items in the response. (optional) (default to 50)
 skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
-title = 'title_example' # str | Filter by the display name of the Application cart item filter in the Application.  **Note**: If no `title` is provided, all the Application cart item filters in the Application are returned.  (optional)
+name = 'name_example' # str | Filter by the display name of the Application cart item filter in the Application.  **Note**: If no `name` is provided, all the Application cart item filters in the Application are returned.  (optional)
 
     try:
         # List Application cart item filters
-        api_response = api_instance.list_application_cart_item_filters(application_id, page_size=page_size, skip=skip, title=title)
+        api_response = api_instance.list_application_cart_item_filters(application_id, page_size=page_size, skip=skip, name=name)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling ManagementApi->list_application_cart_item_filters: %s\n" % e)
@@ -33243,11 +35566,11 @@ Name | Type | Description  | Notes
  **application_id** | **int**| The ID of the Application. It is displayed in your Talon.One deployment URL. | 
  **page_size** | **int**| The number of items in the response. | [optional] [default to 50]
  **skip** | **int**| The number of items to skip when paging through large result sets. | [optional] 
- **title** | **str**| Filter by the display name of the Application cart item filter in the Application.  **Note**: If no &#x60;title&#x60; is provided, all the Application cart item filters in the Application are returned.  | [optional] 
+ **name** | **str**| Filter by the display name of the Application cart item filter in the Application.  **Note**: If no &#x60;name&#x60; is provided, all the Application cart item filters in the Application are returned.  | [optional] 
 
 ### Return type
 
-[**InlineResponse20048**](InlineResponse20048.md)
+[**InlineResponse20049**](InlineResponse20049.md)
 
 ### Authorization
 
@@ -33266,7 +35589,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_campaign_store_budget_limits**
-> InlineResponse20049 list_campaign_store_budget_limits(application_id, campaign_id, action=action, period=period)
+> InlineResponse20050 list_campaign_store_budget_limits(application_id, campaign_id, action=action, period=period)
 
 List campaign store budget limits
 
@@ -33480,7 +35803,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20049**](InlineResponse20049.md)
+[**InlineResponse20050**](InlineResponse20050.md)
 
 ### Authorization
 
@@ -33502,7 +35825,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_catalog_items**
-> InlineResponse20039 list_catalog_items(catalog_id, page_size=page_size, skip=skip, with_total_result_size=with_total_result_size, sku=sku, product_names=product_names)
+> InlineResponse20040 list_catalog_items(catalog_id, page_size=page_size, skip=skip, with_total_result_size=with_total_result_size, sku=sku, product_names=product_names)
 
 List items in a catalog
 
@@ -33724,7 +36047,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20039**](InlineResponse20039.md)
+[**InlineResponse20040**](InlineResponse20040.md)
 
 ### Authorization
 
@@ -34464,7 +36787,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_stores**
-> InlineResponse20047 list_stores(application_id, page_size=page_size, skip=skip, sort=sort, with_total_result_size=with_total_result_size, campaign_id=campaign_id, name=name, integration_id=integration_id, query=query)
+> InlineResponse20048 list_stores(application_id, page_size=page_size, skip=skip, sort=sort, with_total_result_size=with_total_result_size, campaign_id=campaign_id, name=name, integration_id=integration_id, query=query)
 
 List stores
 
@@ -34698,7 +37021,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20047**](InlineResponse20047.md)
+[**InlineResponse20048**](InlineResponse20048.md)
 
 ### Authorization
 
@@ -39453,7 +41776,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **summarize_campaign_store_budget**
-> InlineResponse20050 summarize_campaign_store_budget(application_id, campaign_id)
+> InlineResponse20051 summarize_campaign_store_budget(application_id, campaign_id)
 
 Get summary of campaign store budgets
 
@@ -39659,7 +41982,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20050**](InlineResponse20050.md)
+[**InlineResponse20051**](InlineResponse20051.md)
 
 ### Authorization
 
@@ -40353,6 +42676,234 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**Achievement**](Achievement.md)
+
+### Authorization
+
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Bad request |  -  |
+**401** | Unauthorized |  -  |
+**404** | Not found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **update_achievement_v2**
+> AchievementV2 update_achievement_v2(achievement_id, body)
+
+Update achievement
+
+Update the details of a specific achievement.
+
+### Example
+
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    achievement_id = 56 # int | The ID of the achievement. You can get this ID with the [List achievement](https://docs.talon.one/management-api#tag/Achievements/operation/listAchievementsV2) endpoint.
+body = talon_one.UpdateAchievementV2() # UpdateAchievementV2 | body
+
+    try:
+        # Update achievement
+        api_response = api_instance.update_achievement_v2(achievement_id, body)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->update_achievement_v2: %s\n" % e)
+```
+
+* Api Key Authentication (management_key):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    achievement_id = 56 # int | The ID of the achievement. You can get this ID with the [List achievement](https://docs.talon.one/management-api#tag/Achievements/operation/listAchievementsV2) endpoint.
+body = talon_one.UpdateAchievementV2() # UpdateAchievementV2 | body
+
+    try:
+        # Update achievement
+        api_response = api_instance.update_achievement_v2(achievement_id, body)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->update_achievement_v2: %s\n" % e)
+```
+
+* Api Key Authentication (manager_auth):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: management_key
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Configure API key authorization: manager_auth
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.ManagementApi(api_client)
+    achievement_id = 56 # int | The ID of the achievement. You can get this ID with the [List achievement](https://docs.talon.one/management-api#tag/Achievements/operation/listAchievementsV2) endpoint.
+body = talon_one.UpdateAchievementV2() # UpdateAchievementV2 | body
+
+    try:
+        # Update achievement
+        api_response = api_instance.update_achievement_v2(achievement_id, body)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ManagementApi->update_achievement_v2: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **achievement_id** | **int**| The ID of the achievement. You can get this ID with the [List achievement](https://docs.talon.one/management-api#tag/Achievements/operation/listAchievementsV2) endpoint. | 
+ **body** | [**UpdateAchievementV2**](UpdateAchievementV2.md)| body | 
+
+### Return type
+
+[**AchievementV2**](AchievementV2.md)
 
 ### Authorization
 

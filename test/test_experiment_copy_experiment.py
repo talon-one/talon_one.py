@@ -43,7 +43,9 @@ class TestExperimentCopyExperiment(unittest.TestCase):
                     start_time = '2021-06-01T09:00:27.993483Z', 
                     end_time = '2021-09-10T01:00:00.993483Z', 
                     tags = [Summer, Shoes], 
-                    evaluation_group_id = 2, )
+                    evaluation_group_id = 2, ), 
+                goal_type = 'other', 
+                goal_description = '0'
             )
         else :
             return ExperimentCopyExperiment(

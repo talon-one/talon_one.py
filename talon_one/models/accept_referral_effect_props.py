@@ -55,7 +55,7 @@ class AcceptReferralEffectProps(object):
     def value(self):
         """Gets the value of this AcceptReferralEffectProps.  # noqa: E501
 
-        The referral code that was accepted.  # noqa: E501
+        The referral code provided in the session.  # noqa: E501
 
         :return: The value of this AcceptReferralEffectProps.  # noqa: E501
         :rtype: str
@@ -66,7 +66,7 @@ class AcceptReferralEffectProps(object):
     def value(self, value):
         """Sets the value of this AcceptReferralEffectProps.
 
-        The referral code that was accepted.  # noqa: E501
+        The referral code provided in the session.  # noqa: E501
 
         :param value: The value of this AcceptReferralEffectProps.  # noqa: E501
         :type: str

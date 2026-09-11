@@ -34,29 +34,34 @@ class IntegrationHubFlow(object):
     """
     openapi_types = {
         'application_id': 'int',
-        'event_type': 'str',
+        'loyalty_program_id': 'int',
+        'event_type': 'IntegrationHubEventType',
         'integration_hub_flow_url': 'str'
     }
 
     attribute_map = {
         'application_id': 'ApplicationID',
+        'loyalty_program_id': 'LoyaltyProgramID',
         'event_type': 'EventType',
         'integration_hub_flow_url': 'IntegrationHubFlowUrl'
     }
 
-    def __init__(self, application_id=None, event_type=None, integration_hub_flow_url=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, application_id=None, loyalty_program_id=None, event_type=None, integration_hub_flow_url=None, local_vars_configuration=None):  # noqa: E501
         """IntegrationHubFlow - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._application_id = None
+        self._loyalty_program_id = None
         self._event_type = None
         self._integration_hub_flow_url = None
         self.discriminator = None
 
         if application_id is not None:
             self.application_id = application_id
+        if loyalty_program_id is not None:
+            self.loyalty_program_id = loyalty_program_id
         self.event_type = event_type
         self.integration_hub_flow_url = integration_hub_flow_url
 
@@ -64,7 +69,7 @@ class IntegrationHubFlow(object):
     def application_id(self):
         """Gets the application_id of this IntegrationHubFlow.  # noqa: E501
 
-        ID of application the flow is registered for.  # noqa: E501
+        ID of the application the flow is registered for.  # noqa: E501
 
         :return: The application_id of this IntegrationHubFlow.  # noqa: E501
         :rtype: int
@@ -75,7 +80,7 @@ class IntegrationHubFlow(object):
     def application_id(self, application_id):
         """Sets the application_id of this IntegrationHubFlow.
 
-        ID of application the flow is registered for.  # noqa: E501
+        ID of the application the flow is registered for.  # noqa: E501
 
         :param application_id: The application_id of this IntegrationHubFlow.  # noqa: E501
         :type: int
@@ -84,13 +89,35 @@ class IntegrationHubFlow(object):
         self._application_id = application_id
 
     @property
+    def loyalty_program_id(self):
+        """Gets the loyalty_program_id of this IntegrationHubFlow.  # noqa: E501
+
+        ID of the loyalty program the flow is registered for.  # noqa: E501
+
+        :return: The loyalty_program_id of this IntegrationHubFlow.  # noqa: E501
+        :rtype: int
+        """
+        return self._loyalty_program_id
+
+    @loyalty_program_id.setter
+    def loyalty_program_id(self, loyalty_program_id):
+        """Sets the loyalty_program_id of this IntegrationHubFlow.
+
+        ID of the loyalty program the flow is registered for.  # noqa: E501
+
+        :param loyalty_program_id: The loyalty_program_id of this IntegrationHubFlow.  # noqa: E501
+        :type: int
+        """
+
+        self._loyalty_program_id = loyalty_program_id
+
+    @property
     def event_type(self):
         """Gets the event_type of this IntegrationHubFlow.  # noqa: E501
 
-        The event type we want to register a flow for.  # noqa: E501
 
         :return: The event_type of this IntegrationHubFlow.  # noqa: E501
-        :rtype: str
+        :rtype: IntegrationHubEventType
         """
         return self._event_type
 
@@ -98,10 +125,9 @@ class IntegrationHubFlow(object):
     def event_type(self, event_type):
         """Sets the event_type of this IntegrationHubFlow.
 
-        The event type we want to register a flow for.  # noqa: E501
 
         :param event_type: The event_type of this IntegrationHubFlow.  # noqa: E501
-        :type: str
+        :type: IntegrationHubEventType
         """
         if self.local_vars_configuration.client_side_validation and event_type is None:  # noqa: E501
             raise ValueError("Invalid value for `event_type`, must not be `None`")  # noqa: E501

@@ -192,6 +192,7 @@ class TestEnvironment(unittest.TestCase):
                         name = 'Travel audience', 
                         sandbox = True, 
                         description = 'Travel audience 18-27', 
+                        subscribed_applications_ids = [3, 13], 
                         integration = 'mparticle', 
                         integration_id = '382370BKDB946', 
                         created_in3rd_party = False, 

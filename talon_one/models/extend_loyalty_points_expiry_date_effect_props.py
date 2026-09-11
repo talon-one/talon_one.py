@@ -93,7 +93,7 @@ class ExtendLoyaltyPointsExpiryDateEffectProps(object):
     def sub_ledger_id(self):
         """Gets the sub_ledger_id of this ExtendLoyaltyPointsExpiryDateEffectProps.  # noqa: E501
 
-        API name of the loyalty program subledger that contains these points. added.  # noqa: E501
+        API name of the loyalty program subledger that contains these points.  # noqa: E501
 
         :return: The sub_ledger_id of this ExtendLoyaltyPointsExpiryDateEffectProps.  # noqa: E501
         :rtype: str
@@ -104,7 +104,7 @@ class ExtendLoyaltyPointsExpiryDateEffectProps(object):
     def sub_ledger_id(self, sub_ledger_id):
         """Sets the sub_ledger_id of this ExtendLoyaltyPointsExpiryDateEffectProps.
 
-        API name of the loyalty program subledger that contains these points. added.  # noqa: E501
+        API name of the loyalty program subledger that contains these points.  # noqa: E501
 
         :param sub_ledger_id: The sub_ledger_id of this ExtendLoyaltyPointsExpiryDateEffectProps.  # noqa: E501
         :type: str

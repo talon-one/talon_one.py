@@ -34,38 +34,57 @@ class IntegrationHubFlowResponse(object):
     """
     openapi_types = {
         'id': 'int',
+        'integration_name': 'str',
+        'instance_name': 'str',
+        'created_at': 'datetime',
+        'disabled_until': 'datetime',
         'application_id': 'int',
+        'loyalty_program_id': 'int',
         'event_type': 'str',
-        'integration_hub_flow_url': 'str',
         'config': 'IntegrationHubFlowConfigResponse'
     }
 
     attribute_map = {
-        'id': 'Id',
-        'application_id': 'ApplicationID',
-        'event_type': 'EventType',
-        'integration_hub_flow_url': 'IntegrationHubFlowUrl',
-        'config': 'Config'
+        'id': 'id',
+        'integration_name': 'integrationName',
+        'instance_name': 'instanceName',
+        'created_at': 'createdAt',
+        'disabled_until': 'disabledUntil',
+        'application_id': 'applicationId',
+        'loyalty_program_id': 'loyaltyProgramId',
+        'event_type': 'eventType',
+        'config': 'config'
     }
 
-    def __init__(self, id=None, application_id=None, event_type=None, integration_hub_flow_url=None, config=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, integration_name=None, instance_name=None, created_at=None, disabled_until=None, application_id=None, loyalty_program_id=None, event_type=None, config=None, local_vars_configuration=None):  # noqa: E501
         """IntegrationHubFlowResponse - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._id = None
+        self._integration_name = None
+        self._instance_name = None
+        self._created_at = None
+        self._disabled_until = None
         self._application_id = None
+        self._loyalty_program_id = None
         self._event_type = None
-        self._integration_hub_flow_url = None
         self._config = None
         self.discriminator = None
 
         self.id = id
+        if integration_name is not None:
+            self.integration_name = integration_name
+        if instance_name is not None:
+            self.instance_name = instance_name
+        self.created_at = created_at
+        self.disabled_until = disabled_until
         if application_id is not None:
             self.application_id = application_id
+        if loyalty_program_id is not None:
+            self.loyalty_program_id = loyalty_program_id
         self.event_type = event_type
-        self.integration_hub_flow_url = integration_hub_flow_url
         self.config = config
 
     @property
@@ -94,10 +113,104 @@ class IntegrationHubFlowResponse(object):
         self._id = id
 
     @property
+    def integration_name(self):
+        """Gets the integration_name of this IntegrationHubFlowResponse.  # noqa: E501
+
+        Name of the integration.  # noqa: E501
+
+        :return: The integration_name of this IntegrationHubFlowResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._integration_name
+
+    @integration_name.setter
+    def integration_name(self, integration_name):
+        """Sets the integration_name of this IntegrationHubFlowResponse.
+
+        Name of the integration.  # noqa: E501
+
+        :param integration_name: The integration_name of this IntegrationHubFlowResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._integration_name = integration_name
+
+    @property
+    def instance_name(self):
+        """Gets the instance_name of this IntegrationHubFlowResponse.  # noqa: E501
+
+        Name of the integration instance.  # noqa: E501
+
+        :return: The instance_name of this IntegrationHubFlowResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._instance_name
+
+    @instance_name.setter
+    def instance_name(self, instance_name):
+        """Sets the instance_name of this IntegrationHubFlowResponse.
+
+        Name of the integration instance.  # noqa: E501
+
+        :param instance_name: The instance_name of this IntegrationHubFlowResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._instance_name = instance_name
+
+    @property
+    def created_at(self):
+        """Gets the created_at of this IntegrationHubFlowResponse.  # noqa: E501
+
+        Timestamp when the flow was created.  # noqa: E501
+
+        :return: The created_at of this IntegrationHubFlowResponse.  # noqa: E501
+        :rtype: datetime
+        """
+        return self._created_at
+
+    @created_at.setter
+    def created_at(self, created_at):
+        """Sets the created_at of this IntegrationHubFlowResponse.
+
+        Timestamp when the flow was created.  # noqa: E501
+
+        :param created_at: The created_at of this IntegrationHubFlowResponse.  # noqa: E501
+        :type: datetime
+        """
+        if self.local_vars_configuration.client_side_validation and created_at is None:  # noqa: E501
+            raise ValueError("Invalid value for `created_at`, must not be `None`")  # noqa: E501
+
+        self._created_at = created_at
+
+    @property
+    def disabled_until(self):
+        """Gets the disabled_until of this IntegrationHubFlowResponse.  # noqa: E501
+
+        Timestamp until which the flow is disabled. Null when the flow is active.  # noqa: E501
+
+        :return: The disabled_until of this IntegrationHubFlowResponse.  # noqa: E501
+        :rtype: datetime
+        """
+        return self._disabled_until
+
+    @disabled_until.setter
+    def disabled_until(self, disabled_until):
+        """Sets the disabled_until of this IntegrationHubFlowResponse.
+
+        Timestamp until which the flow is disabled. Null when the flow is active.  # noqa: E501
+
+        :param disabled_until: The disabled_until of this IntegrationHubFlowResponse.  # noqa: E501
+        :type: datetime
+        """
+
+        self._disabled_until = disabled_until
+
+    @property
     def application_id(self):
         """Gets the application_id of this IntegrationHubFlowResponse.  # noqa: E501
 
-        ID of application the flow is registered for.  # noqa: E501
+        ID of the application the flow is registered for.  # noqa: E501
 
         :return: The application_id of this IntegrationHubFlowResponse.  # noqa: E501
         :rtype: int
@@ -108,13 +221,36 @@ class IntegrationHubFlowResponse(object):
     def application_id(self, application_id):
         """Sets the application_id of this IntegrationHubFlowResponse.
 
-        ID of application the flow is registered for.  # noqa: E501
+        ID of the application the flow is registered for.  # noqa: E501
 
         :param application_id: The application_id of this IntegrationHubFlowResponse.  # noqa: E501
         :type: int
         """
 
         self._application_id = application_id
+
+    @property
+    def loyalty_program_id(self):
+        """Gets the loyalty_program_id of this IntegrationHubFlowResponse.  # noqa: E501
+
+        ID of the loyalty program the flow is registered for.  # noqa: E501
+
+        :return: The loyalty_program_id of this IntegrationHubFlowResponse.  # noqa: E501
+        :rtype: int
+        """
+        return self._loyalty_program_id
+
+    @loyalty_program_id.setter
+    def loyalty_program_id(self, loyalty_program_id):
+        """Sets the loyalty_program_id of this IntegrationHubFlowResponse.
+
+        ID of the loyalty program the flow is registered for.  # noqa: E501
+
+        :param loyalty_program_id: The loyalty_program_id of this IntegrationHubFlowResponse.  # noqa: E501
+        :type: int
+        """
+
+        self._loyalty_program_id = loyalty_program_id
 
     @property
     def event_type(self):
@@ -140,31 +276,6 @@ class IntegrationHubFlowResponse(object):
             raise ValueError("Invalid value for `event_type`, must not be `None`")  # noqa: E501
 
         self._event_type = event_type
-
-    @property
-    def integration_hub_flow_url(self):
-        """Gets the integration_hub_flow_url of this IntegrationHubFlowResponse.  # noqa: E501
-
-        The URL of the integration hub flow that we want to trigger for the event.  # noqa: E501
-
-        :return: The integration_hub_flow_url of this IntegrationHubFlowResponse.  # noqa: E501
-        :rtype: str
-        """
-        return self._integration_hub_flow_url
-
-    @integration_hub_flow_url.setter
-    def integration_hub_flow_url(self, integration_hub_flow_url):
-        """Sets the integration_hub_flow_url of this IntegrationHubFlowResponse.
-
-        The URL of the integration hub flow that we want to trigger for the event.  # noqa: E501
-
-        :param integration_hub_flow_url: The integration_hub_flow_url of this IntegrationHubFlowResponse.  # noqa: E501
-        :type: str
-        """
-        if self.local_vars_configuration.client_side_validation and integration_hub_flow_url is None:  # noqa: E501
-            raise ValueError("Invalid value for `integration_hub_flow_url`, must not be `None`")  # noqa: E501
-
-        self._integration_hub_flow_url = integration_hub_flow_url
 
     @property
     def config(self):

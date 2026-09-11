@@ -136,7 +136,7 @@ class RollbackDeductedLoyaltyPointsEffectProps(object):
     def value(self):
         """Gets the value of this RollbackDeductedLoyaltyPointsEffectProps.  # noqa: E501
 
-        The amount of reimbursed points that were added.  # noqa: E501
+        The amount of points that were reimbursed.  # noqa: E501
 
         :return: The value of this RollbackDeductedLoyaltyPointsEffectProps.  # noqa: E501
         :rtype: float
@@ -147,7 +147,7 @@ class RollbackDeductedLoyaltyPointsEffectProps(object):
     def value(self, value):
         """Sets the value of this RollbackDeductedLoyaltyPointsEffectProps.
 
-        The amount of reimbursed points that were added.  # noqa: E501
+        The amount of points that were reimbursed.  # noqa: E501
 
         :param value: The value of this RollbackDeductedLoyaltyPointsEffectProps.  # noqa: E501
         :type: float
@@ -189,7 +189,7 @@ class RollbackDeductedLoyaltyPointsEffectProps(object):
     def start_date(self):
         """Gets the start_date of this RollbackDeductedLoyaltyPointsEffectProps.  # noqa: E501
 
-        Date after which the reimbursed points will be valid.  # noqa: E501
+        The date after which the reimbursed points will be valid.  # noqa: E501
 
         :return: The start_date of this RollbackDeductedLoyaltyPointsEffectProps.  # noqa: E501
         :rtype: datetime
@@ -200,7 +200,7 @@ class RollbackDeductedLoyaltyPointsEffectProps(object):
     def start_date(self, start_date):
         """Sets the start_date of this RollbackDeductedLoyaltyPointsEffectProps.
 
-        Date after which the reimbursed points will be valid.  # noqa: E501
+        The date after which the reimbursed points will be valid.  # noqa: E501
 
         :param start_date: The start_date of this RollbackDeductedLoyaltyPointsEffectProps.  # noqa: E501
         :type: datetime
@@ -212,7 +212,7 @@ class RollbackDeductedLoyaltyPointsEffectProps(object):
     def expiry_date(self):
         """Gets the expiry_date of this RollbackDeductedLoyaltyPointsEffectProps.  # noqa: E501
 
-        Date after which the reimbursed points will expire.  # noqa: E501
+        The date after which the reimbursed points will expire.  # noqa: E501
 
         :return: The expiry_date of this RollbackDeductedLoyaltyPointsEffectProps.  # noqa: E501
         :rtype: datetime
@@ -223,7 +223,7 @@ class RollbackDeductedLoyaltyPointsEffectProps(object):
     def expiry_date(self, expiry_date):
         """Sets the expiry_date of this RollbackDeductedLoyaltyPointsEffectProps.
 
-        Date after which the reimbursed points will expire.  # noqa: E501
+        The date after which the reimbursed points will expire.  # noqa: E501
 
         :param expiry_date: The expiry_date of this RollbackDeductedLoyaltyPointsEffectProps.  # noqa: E501
         :type: datetime
@@ -235,7 +235,7 @@ class RollbackDeductedLoyaltyPointsEffectProps(object):
     def transaction_uuid(self):
         """Gets the transaction_uuid of this RollbackDeductedLoyaltyPointsEffectProps.  # noqa: E501
 
-        The identifier of 'addition' entries added to the ledger as the `deductLoyaltyPoints` effect is rolled back.  # noqa: E501
+        The identifier of this loyalty point transaction.  # noqa: E501
 
         :return: The transaction_uuid of this RollbackDeductedLoyaltyPointsEffectProps.  # noqa: E501
         :rtype: str
@@ -246,7 +246,7 @@ class RollbackDeductedLoyaltyPointsEffectProps(object):
     def transaction_uuid(self, transaction_uuid):
         """Sets the transaction_uuid of this RollbackDeductedLoyaltyPointsEffectProps.
 
-        The identifier of 'addition' entries added to the ledger as the `deductLoyaltyPoints` effect is rolled back.  # noqa: E501
+        The identifier of this loyalty point transaction.  # noqa: E501
 
         :param transaction_uuid: The transaction_uuid of this RollbackDeductedLoyaltyPointsEffectProps.  # noqa: E501
         :type: str
