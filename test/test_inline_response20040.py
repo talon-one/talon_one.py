@@ -36,32 +36,44 @@ class TestInlineResponse20040(unittest.TestCase):
         # model = talon_one.models.inline_response20040.InlineResponse20040()  # noqa: E501
         if include_optional :
             return InlineResponse20040(
+                has_more = True, 
                 total_result_size = 1, 
                 data = [
-                    talon_one.models.account_additional_cost.AccountAdditionalCost(
+                    talon_one.models.catalog_item.CatalogItem(
                         id = 6, 
                         created = '2020-06-10T09:05:27.993483Z', 
-                        account_id = 3886, 
-                        name = 'shippingFee', 
-                        title = 'Shipping fee', 
-                        description = 'A shipping fee', 
-                        subscribed_applications_ids = [3, 13], 
-                        type = 'session', )
+                        sku = 'SKU1241028', 
+                        price = 99.99, 
+                        catalogid = 6, 
+                        version = 5, 
+                        attributes = [
+                            talon_one.models.item_attribute.ItemAttribute(
+                                attributeid = 6, 
+                                name = '0', 
+                                value = talon_one.models.value.value(), )
+                            ], 
+                        product = talon_one.models.product.Product(
+                            name = 'sample_product', ), )
                     ]
             )
         else :
             return InlineResponse20040(
-                total_result_size = 1,
                 data = [
-                    talon_one.models.account_additional_cost.AccountAdditionalCost(
+                    talon_one.models.catalog_item.CatalogItem(
                         id = 6, 
                         created = '2020-06-10T09:05:27.993483Z', 
-                        account_id = 3886, 
-                        name = 'shippingFee', 
-                        title = 'Shipping fee', 
-                        description = 'A shipping fee', 
-                        subscribed_applications_ids = [3, 13], 
-                        type = 'session', )
+                        sku = 'SKU1241028', 
+                        price = 99.99, 
+                        catalogid = 6, 
+                        version = 5, 
+                        attributes = [
+                            talon_one.models.item_attribute.ItemAttribute(
+                                attributeid = 6, 
+                                name = '0', 
+                                value = talon_one.models.value.value(), )
+                            ], 
+                        product = talon_one.models.product.Product(
+                            name = 'sample_product', ), )
                     ],
         )
 

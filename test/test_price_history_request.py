@@ -36,13 +36,13 @@ class TestPriceHistoryRequest(unittest.TestCase):
         # model = talon_one.models.price_history_request.PriceHistoryRequest()  # noqa: E501
         if include_optional :
             return PriceHistoryRequest(
-                sku = '0', 
+                sku = 'SKU1241028', 
                 start_date = '2020-11-10T23:00Z', 
                 end_date = '2020-12-10T23:00Z'
             )
         else :
             return PriceHistoryRequest(
-                sku = '0',
+                sku = 'SKU1241028',
                 start_date = '2020-11-10T23:00Z',
                 end_date = '2020-12-10T23:00Z',
         )

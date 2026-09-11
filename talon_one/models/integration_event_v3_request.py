@@ -36,11 +36,11 @@ class IntegrationEventV3Request(object):
         'profile_id': 'str',
         'store_integration_id': 'str',
         'evaluable_campaign_ids': 'list[int]',
-        'integration_id': 'str',
         'type': 'str',
         'attributes': 'object',
+        'integration_id': 'str',
         'connected_session_id': 'str',
-        'previous_event_id': 'str',
+        'referral_code': 'str',
         'loyalty_cards': 'list[str]',
         'response_content': 'list[str]'
     }
@@ -49,16 +49,16 @@ class IntegrationEventV3Request(object):
         'profile_id': 'profileId',
         'store_integration_id': 'storeIntegrationId',
         'evaluable_campaign_ids': 'evaluableCampaignIds',
-        'integration_id': 'integrationId',
         'type': 'type',
         'attributes': 'attributes',
-        'connected_session_id': 'connectedSessionID',
-        'previous_event_id': 'previousEventID',
+        'integration_id': 'integrationId',
+        'connected_session_id': 'connectedSessionId',
+        'referral_code': 'referralCode',
         'loyalty_cards': 'loyaltyCards',
         'response_content': 'responseContent'
     }
 
-    def __init__(self, profile_id=None, store_integration_id=None, evaluable_campaign_ids=None, integration_id=None, type=None, attributes=None, connected_session_id=None, previous_event_id=None, loyalty_cards=None, response_content=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, profile_id=None, store_integration_id=None, evaluable_campaign_ids=None, type=None, attributes=None, integration_id=None, connected_session_id=None, referral_code=None, loyalty_cards=None, response_content=None, local_vars_configuration=None):  # noqa: E501
         """IntegrationEventV3Request - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -67,11 +67,11 @@ class IntegrationEventV3Request(object):
         self._profile_id = None
         self._store_integration_id = None
         self._evaluable_campaign_ids = None
-        self._integration_id = None
         self._type = None
         self._attributes = None
+        self._integration_id = None
         self._connected_session_id = None
-        self._previous_event_id = None
+        self._referral_code = None
         self._loyalty_cards = None
         self._response_content = None
         self.discriminator = None
@@ -81,14 +81,14 @@ class IntegrationEventV3Request(object):
             self.store_integration_id = store_integration_id
         if evaluable_campaign_ids is not None:
             self.evaluable_campaign_ids = evaluable_campaign_ids
-        self.integration_id = integration_id
         self.type = type
         if attributes is not None:
             self.attributes = attributes
+        self.integration_id = integration_id
         if connected_session_id is not None:
             self.connected_session_id = connected_session_id
-        if previous_event_id is not None:
-            self.previous_event_id = previous_event_id
+        if referral_code is not None:
+            self.referral_code = referral_code
         if loyalty_cards is not None:
             self.loyalty_cards = loyalty_cards
         if response_content is not None:
@@ -172,38 +172,10 @@ class IntegrationEventV3Request(object):
         self._evaluable_campaign_ids = evaluable_campaign_ids
 
     @property
-    def integration_id(self):
-        """Gets the integration_id of this IntegrationEventV3Request.  # noqa: E501
-
-        The unique ID of the current event. Only one event with this ID could be activated, duplicated events are forbidden.   # noqa: E501
-
-        :return: The integration_id of this IntegrationEventV3Request.  # noqa: E501
-        :rtype: str
-        """
-        return self._integration_id
-
-    @integration_id.setter
-    def integration_id(self, integration_id):
-        """Sets the integration_id of this IntegrationEventV3Request.
-
-        The unique ID of the current event. Only one event with this ID could be activated, duplicated events are forbidden.   # noqa: E501
-
-        :param integration_id: The integration_id of this IntegrationEventV3Request.  # noqa: E501
-        :type: str
-        """
-        if self.local_vars_configuration.client_side_validation and integration_id is None:  # noqa: E501
-            raise ValueError("Invalid value for `integration_id`, must not be `None`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                integration_id is not None and len(integration_id) < 1):
-            raise ValueError("Invalid value for `integration_id`, length must be greater than or equal to `1`")  # noqa: E501
-
-        self._integration_id = integration_id
-
-    @property
     def type(self):
         """Gets the type of this IntegrationEventV3Request.  # noqa: E501
 
-        A string representing the event name. Must not be a reserved event name. You create this value when you [create an attribute](https://docs.talon.one/docs/dev/concepts/entities/events#creating-a-custom-event) of type `event` in the Campaign Manager.   # noqa: E501
+        The name of the event. Must be a [custom event](https://docs.talon.one/docs/dev/concepts/entities/events#custom-events), not a built-in event.  # noqa: E501
 
         :return: The type of this IntegrationEventV3Request.  # noqa: E501
         :rtype: str
@@ -214,7 +186,7 @@ class IntegrationEventV3Request(object):
     def type(self, type):
         """Sets the type of this IntegrationEventV3Request.
 
-        A string representing the event name. Must not be a reserved event name. You create this value when you [create an attribute](https://docs.talon.one/docs/dev/concepts/entities/events#creating-a-custom-event) of type `event` in the Campaign Manager.   # noqa: E501
+        The name of the event. Must be a [custom event](https://docs.talon.one/docs/dev/concepts/entities/events#custom-events), not a built-in event.  # noqa: E501
 
         :param type: The type of this IntegrationEventV3Request.  # noqa: E501
         :type: str
@@ -251,10 +223,38 @@ class IntegrationEventV3Request(object):
         self._attributes = attributes
 
     @property
+    def integration_id(self):
+        """Gets the integration_id of this IntegrationEventV3Request.  # noqa: E501
+
+        The unique ID of the event. Only one event with this ID can be registered.   # noqa: E501
+
+        :return: The integration_id of this IntegrationEventV3Request.  # noqa: E501
+        :rtype: str
+        """
+        return self._integration_id
+
+    @integration_id.setter
+    def integration_id(self, integration_id):
+        """Sets the integration_id of this IntegrationEventV3Request.
+
+        The unique ID of the event. Only one event with this ID can be registered.   # noqa: E501
+
+        :param integration_id: The integration_id of this IntegrationEventV3Request.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and integration_id is None:  # noqa: E501
+            raise ValueError("Invalid value for `integration_id`, must not be `None`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                integration_id is not None and len(integration_id) < 1):
+            raise ValueError("Invalid value for `integration_id`, length must be greater than or equal to `1`")  # noqa: E501
+
+        self._integration_id = integration_id
+
+    @property
     def connected_session_id(self):
         """Gets the connected_session_id of this IntegrationEventV3Request.  # noqa: E501
 
-        The ID of the session that happened in the past.  # noqa: E501
+        The ID of the session to reference. The session must be in `closed` state. Otherwise, the API call will fail.  # noqa: E501
 
         :return: The connected_session_id of this IntegrationEventV3Request.  # noqa: E501
         :rtype: str
@@ -265,7 +265,7 @@ class IntegrationEventV3Request(object):
     def connected_session_id(self, connected_session_id):
         """Sets the connected_session_id of this IntegrationEventV3Request.
 
-        The ID of the session that happened in the past.  # noqa: E501
+        The ID of the session to reference. The session must be in `closed` state. Otherwise, the API call will fail.  # noqa: E501
 
         :param connected_session_id: The connected_session_id of this IntegrationEventV3Request.  # noqa: E501
         :type: str
@@ -277,30 +277,30 @@ class IntegrationEventV3Request(object):
         self._connected_session_id = connected_session_id
 
     @property
-    def previous_event_id(self):
-        """Gets the previous_event_id of this IntegrationEventV3Request.  # noqa: E501
+    def referral_code(self):
+        """Gets the referral_code of this IntegrationEventV3Request.  # noqa: E501
 
-        The unique identifier of the event that happened in the past.  # noqa: E501
+        The referral code submitted with the event. The endpoint does not validate the code, and submitting a code does not redeem it. Use the \"Referral code is valid\" condition in the Rule Builder to validate and redeem the code, or \"Referral code is valid (without redemption)\" to validate without redeeming.   # noqa: E501
 
-        :return: The previous_event_id of this IntegrationEventV3Request.  # noqa: E501
+        :return: The referral_code of this IntegrationEventV3Request.  # noqa: E501
         :rtype: str
         """
-        return self._previous_event_id
+        return self._referral_code
 
-    @previous_event_id.setter
-    def previous_event_id(self, previous_event_id):
-        """Sets the previous_event_id of this IntegrationEventV3Request.
+    @referral_code.setter
+    def referral_code(self, referral_code):
+        """Sets the referral_code of this IntegrationEventV3Request.
 
-        The unique identifier of the event that happened in the past.  # noqa: E501
+        The referral code submitted with the event. The endpoint does not validate the code, and submitting a code does not redeem it. Use the \"Referral code is valid\" condition in the Rule Builder to validate and redeem the code, or \"Referral code is valid (without redemption)\" to validate without redeeming.   # noqa: E501
 
-        :param previous_event_id: The previous_event_id of this IntegrationEventV3Request.  # noqa: E501
+        :param referral_code: The referral_code of this IntegrationEventV3Request.  # noqa: E501
         :type: str
         """
         if (self.local_vars_configuration.client_side_validation and
-                previous_event_id is not None and len(previous_event_id) < 1):
-            raise ValueError("Invalid value for `previous_event_id`, length must be greater than or equal to `1`")  # noqa: E501
+                referral_code is not None and len(referral_code) > 100):
+            raise ValueError("Invalid value for `referral_code`, length must be less than or equal to `100`")  # noqa: E501
 
-        self._previous_event_id = previous_event_id
+        self._referral_code = referral_code
 
     @property
     def loyalty_cards(self):
@@ -345,7 +345,7 @@ class IntegrationEventV3Request(object):
         :param response_content: The response_content of this IntegrationEventV3Request.  # noqa: E501
         :type: list[str]
         """
-        allowed_values = ["customerProfile", "triggeredCampaigns", "loyalty", "advancedEvent", "awardedGiveaways", "ruleFailureReasons"]  # noqa: E501
+        allowed_values = ["advancedEvent", "awardedGiveaways", "customerProfile", "loyalty", "referral", "ruleFailureReasons", "triggeredCampaigns"]  # noqa: E501
         if (self.local_vars_configuration.client_side_validation and
                 not set(response_content).issubset(set(allowed_values))):  # noqa: E501
             raise ValueError(

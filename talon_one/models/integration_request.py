@@ -99,7 +99,7 @@ class IntegrationRequest(object):
         :param response_content: The response_content of this IntegrationRequest.  # noqa: E501
         :type: list[str]
         """
-        allowed_values = ["customerSession", "customerProfile", "coupons", "triggeredCampaigns", "referral", "loyalty", "event", "awardedGiveaways", "ruleFailureReasons", "previousReturns"]  # noqa: E501
+        allowed_values = ["customerSession", "customerProfile", "coupons", "triggeredCampaigns", "referral", "loyalty", "event", "awardedGiveaways", "ruleFailureReasons", "previousReturns", "campaignEligibility", "achievements", "unlockedRewards"]  # noqa: E501
         if (self.local_vars_configuration.client_side_validation and
                 not set(response_content).issubset(set(allowed_values))):  # noqa: E501
             raise ValueError(

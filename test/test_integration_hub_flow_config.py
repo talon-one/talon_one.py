@@ -39,7 +39,9 @@ class TestIntegrationHubFlowConfig(unittest.TestCase):
                 api_key = '0', 
                 worker_count = 1, 
                 max_events_per_message = 1, 
-                max_retries = 0
+                max_retries = 0, 
+                instance_name = '0', 
+                integration_name = '0'
             )
         else :
             return IntegrationHubFlowConfig(

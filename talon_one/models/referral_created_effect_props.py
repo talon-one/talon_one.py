@@ -55,7 +55,7 @@ class ReferralCreatedEffectProps(object):
     def value(self):
         """Gets the value of this ReferralCreatedEffectProps.  # noqa: E501
 
-        The referral code that was created.  # noqa: E501
+        The referral code provided in the session.  # noqa: E501
 
         :return: The value of this ReferralCreatedEffectProps.  # noqa: E501
         :rtype: str
@@ -66,7 +66,7 @@ class ReferralCreatedEffectProps(object):
     def value(self, value):
         """Sets the value of this ReferralCreatedEffectProps.
 
-        The referral code that was created.  # noqa: E501
+        The referral code provided in the session.  # noqa: E501
 
         :param value: The value of this ReferralCreatedEffectProps.  # noqa: E501
         :type: str

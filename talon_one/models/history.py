@@ -35,22 +35,26 @@ class History(object):
     openapi_types = {
         'id': 'int',
         'observed_at': 'datetime',
-        'context_id': 'str',
+        'context_ids': 'list[str]',
         'price': 'float',
         'metadata': 'BestPriorPriceMetadata',
-        'target': 'object'
+        'target': 'object',
+        'excluded_at': 'datetime',
+        'exclusion_reason': 'str'
     }
 
     attribute_map = {
         'id': 'id',
         'observed_at': 'observedAt',
-        'context_id': 'contextId',
+        'context_ids': 'contextIds',
         'price': 'price',
         'metadata': 'metadata',
-        'target': 'target'
+        'target': 'target',
+        'excluded_at': 'excludedAt',
+        'exclusion_reason': 'exclusionReason'
     }
 
-    def __init__(self, id=None, observed_at=None, context_id=None, price=None, metadata=None, target=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, observed_at=None, context_ids=None, price=None, metadata=None, target=None, excluded_at=None, exclusion_reason=None, local_vars_configuration=None):  # noqa: E501
         """History - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -58,18 +62,24 @@ class History(object):
 
         self._id = None
         self._observed_at = None
-        self._context_id = None
+        self._context_ids = None
         self._price = None
         self._metadata = None
         self._target = None
+        self._excluded_at = None
+        self._exclusion_reason = None
         self.discriminator = None
 
         self.id = id
         self.observed_at = observed_at
-        self.context_id = context_id
+        self.context_ids = context_ids
         self.price = price
         self.metadata = metadata
         self.target = target
+        if excluded_at is not None:
+            self.excluded_at = excluded_at
+        if exclusion_reason is not None:
+            self.exclusion_reason = exclusion_reason
 
     @property
     def id(self):
@@ -122,29 +132,29 @@ class History(object):
         self._observed_at = observed_at
 
     @property
-    def context_id(self):
-        """Gets the context_id of this History.  # noqa: E501
+    def context_ids(self):
+        """Gets the context_ids of this History.  # noqa: E501
 
-        Identifier of the relevant context at the time the price was observed (e.g. summer sale).   # noqa: E501
+        The identifiers of the relevant context at the time the price was observed. Includes the context IDs of any price adjustments and of the campaigns that influenced the final price.   # noqa: E501
 
-        :return: The context_id of this History.  # noqa: E501
-        :rtype: str
+        :return: The context_ids of this History.  # noqa: E501
+        :rtype: list[str]
         """
-        return self._context_id
+        return self._context_ids
 
-    @context_id.setter
-    def context_id(self, context_id):
-        """Sets the context_id of this History.
+    @context_ids.setter
+    def context_ids(self, context_ids):
+        """Sets the context_ids of this History.
 
-        Identifier of the relevant context at the time the price was observed (e.g. summer sale).   # noqa: E501
+        The identifiers of the relevant context at the time the price was observed. Includes the context IDs of any price adjustments and of the campaigns that influenced the final price.   # noqa: E501
 
-        :param context_id: The context_id of this History.  # noqa: E501
-        :type: str
+        :param context_ids: The context_ids of this History.  # noqa: E501
+        :type: list[str]
         """
-        if self.local_vars_configuration.client_side_validation and context_id is None:  # noqa: E501
-            raise ValueError("Invalid value for `context_id`, must not be `None`")  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and context_ids is None:  # noqa: E501
+            raise ValueError("Invalid value for `context_ids`, must not be `None`")  # noqa: E501
 
-        self._context_id = context_id
+        self._context_ids = context_ids
 
     @property
     def price(self):
@@ -216,6 +226,52 @@ class History(object):
             raise ValueError("Invalid value for `target`, must not be `None`")  # noqa: E501
 
         self._target = target
+
+    @property
+    def excluded_at(self):
+        """Gets the excluded_at of this History.  # noqa: E501
+
+        The date and time when the historical price ID was excluded.  # noqa: E501
+
+        :return: The excluded_at of this History.  # noqa: E501
+        :rtype: datetime
+        """
+        return self._excluded_at
+
+    @excluded_at.setter
+    def excluded_at(self, excluded_at):
+        """Sets the excluded_at of this History.
+
+        The date and time when the historical price ID was excluded.  # noqa: E501
+
+        :param excluded_at: The excluded_at of this History.  # noqa: E501
+        :type: datetime
+        """
+
+        self._excluded_at = excluded_at
+
+    @property
+    def exclusion_reason(self):
+        """Gets the exclusion_reason of this History.  # noqa: E501
+
+        The reason for excluding this historical price ID.  # noqa: E501
+
+        :return: The exclusion_reason of this History.  # noqa: E501
+        :rtype: str
+        """
+        return self._exclusion_reason
+
+    @exclusion_reason.setter
+    def exclusion_reason(self, exclusion_reason):
+        """Sets the exclusion_reason of this History.
+
+        The reason for excluding this historical price ID.  # noqa: E501
+
+        :param exclusion_reason: The exclusion_reason of this History.  # noqa: E501
+        :type: str
+        """
+
+        self._exclusion_reason = exclusion_reason
 
     def to_dict(self):
         """Returns the model properties as a dict"""

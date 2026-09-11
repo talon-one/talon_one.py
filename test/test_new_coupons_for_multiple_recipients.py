@@ -41,6 +41,7 @@ class TestNewCouponsForMultipleRecipients(unittest.TestCase):
                 reservation_limit = 45, 
                 start_date = '2020-01-24T14:15:22Z', 
                 expiry_date = '2023-08-24T14:15:22Z', 
+                batch_id = '3rdparty_fjsieoaa', 
                 attributes = {"venueId":12}, 
                 recipients_integration_ids = [URNGV8294NV, BZGGC2454PA], 
                 valid_characters = [A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z], 

@@ -102,7 +102,7 @@ class ChangeLoyaltyTierLevelEffectProps(object):
     def program_id(self):
         """Gets the program_id of this ChangeLoyaltyTierLevelEffectProps.  # noqa: E501
 
-        The ID of the loyalty program where these points were added.  # noqa: E501
+        The ID of the loyalty program where the points were added.  # noqa: E501
 
         :return: The program_id of this ChangeLoyaltyTierLevelEffectProps.  # noqa: E501
         :rtype: int
@@ -113,7 +113,7 @@ class ChangeLoyaltyTierLevelEffectProps(object):
     def program_id(self, program_id):
         """Sets the program_id of this ChangeLoyaltyTierLevelEffectProps.
 
-        The ID of the loyalty program where these points were added.  # noqa: E501
+        The ID of the loyalty program where the points were added.  # noqa: E501
 
         :param program_id: The program_id of this ChangeLoyaltyTierLevelEffectProps.  # noqa: E501
         :type: int
@@ -127,7 +127,7 @@ class ChangeLoyaltyTierLevelEffectProps(object):
     def sub_ledger_id(self):
         """Gets the sub_ledger_id of this ChangeLoyaltyTierLevelEffectProps.  # noqa: E501
 
-        The ID of the subledger within the loyalty program where these points were added.  # noqa: E501
+        The ID of the subledger within the loyalty program where the points were added.  # noqa: E501
 
         :return: The sub_ledger_id of this ChangeLoyaltyTierLevelEffectProps.  # noqa: E501
         :rtype: str
@@ -138,7 +138,7 @@ class ChangeLoyaltyTierLevelEffectProps(object):
     def sub_ledger_id(self, sub_ledger_id):
         """Sets the sub_ledger_id of this ChangeLoyaltyTierLevelEffectProps.
 
-        The ID of the subledger within the loyalty program where these points were added.  # noqa: E501
+        The ID of the subledger within the loyalty program where the points were added.  # noqa: E501
 
         :param sub_ledger_id: The sub_ledger_id of this ChangeLoyaltyTierLevelEffectProps.  # noqa: E501
         :type: str

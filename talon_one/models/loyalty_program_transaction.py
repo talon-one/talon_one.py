@@ -654,7 +654,7 @@ class LoyaltyProgramTransaction(object):
     def validity_duration(self):
         """Gets the validity_duration of this LoyaltyProgramTransaction.  # noqa: E501
 
-        The duration for which the points remain active, relative to the  activation date.  **Note**: This only applies to points for which `awaitsActivation` is `true` and `expiryDate` is not set.   # noqa: E501
+        The duration for which the points remain active, relative to the activation date.  **Note**: This only applies to points for which `awaitsActivation` is `true` and `expiryDate` is not set.   # noqa: E501
 
         :return: The validity_duration of this LoyaltyProgramTransaction.  # noqa: E501
         :rtype: str
@@ -665,7 +665,7 @@ class LoyaltyProgramTransaction(object):
     def validity_duration(self, validity_duration):
         """Sets the validity_duration of this LoyaltyProgramTransaction.
 
-        The duration for which the points remain active, relative to the  activation date.  **Note**: This only applies to points for which `awaitsActivation` is `true` and `expiryDate` is not set.   # noqa: E501
+        The duration for which the points remain active, relative to the activation date.  **Note**: This only applies to points for which `awaitsActivation` is `true` and `expiryDate` is not set.   # noqa: E501
 
         :param validity_duration: The validity_duration of this LoyaltyProgramTransaction.  # noqa: E501
         :type: str

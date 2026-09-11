@@ -36,17 +36,21 @@ class IntegrationHubFlowConfig(object):
         'api_key': 'str',
         'worker_count': 'int',
         'max_events_per_message': 'int',
-        'max_retries': 'int'
+        'max_retries': 'int',
+        'instance_name': 'str',
+        'integration_name': 'str'
     }
 
     attribute_map = {
         'api_key': 'ApiKey',
         'worker_count': 'WorkerCount',
         'max_events_per_message': 'MaxEventsPerMessage',
-        'max_retries': 'MaxRetries'
+        'max_retries': 'MaxRetries',
+        'instance_name': 'InstanceName',
+        'integration_name': 'IntegrationName'
     }
 
-    def __init__(self, api_key=None, worker_count=10, max_events_per_message=1000, max_retries=10, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, api_key=None, worker_count=10, max_events_per_message=1000, max_retries=10, instance_name=None, integration_name=None, local_vars_configuration=None):  # noqa: E501
         """IntegrationHubFlowConfig - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -56,6 +60,8 @@ class IntegrationHubFlowConfig(object):
         self._worker_count = None
         self._max_events_per_message = None
         self._max_retries = None
+        self._instance_name = None
+        self._integration_name = None
         self.discriminator = None
 
         self.api_key = api_key
@@ -65,6 +71,10 @@ class IntegrationHubFlowConfig(object):
             self.max_events_per_message = max_events_per_message
         if max_retries is not None:
             self.max_retries = max_retries
+        if instance_name is not None:
+            self.instance_name = instance_name
+        if integration_name is not None:
+            self.integration_name = integration_name
 
     @property
     def api_key(self):
@@ -169,6 +179,52 @@ class IntegrationHubFlowConfig(object):
             raise ValueError("Invalid value for `max_retries`, must be a value greater than or equal to `0`")  # noqa: E501
 
         self._max_retries = max_retries
+
+    @property
+    def instance_name(self):
+        """Gets the instance_name of this IntegrationHubFlowConfig.  # noqa: E501
+
+        Name of the Prismatic instance that registered this flow.  # noqa: E501
+
+        :return: The instance_name of this IntegrationHubFlowConfig.  # noqa: E501
+        :rtype: str
+        """
+        return self._instance_name
+
+    @instance_name.setter
+    def instance_name(self, instance_name):
+        """Sets the instance_name of this IntegrationHubFlowConfig.
+
+        Name of the Prismatic instance that registered this flow.  # noqa: E501
+
+        :param instance_name: The instance_name of this IntegrationHubFlowConfig.  # noqa: E501
+        :type: str
+        """
+
+        self._instance_name = instance_name
+
+    @property
+    def integration_name(self):
+        """Gets the integration_name of this IntegrationHubFlowConfig.  # noqa: E501
+
+        Name of the Prismatic integration that registered this flow.  # noqa: E501
+
+        :return: The integration_name of this IntegrationHubFlowConfig.  # noqa: E501
+        :rtype: str
+        """
+        return self._integration_name
+
+    @integration_name.setter
+    def integration_name(self, integration_name):
+        """Sets the integration_name of this IntegrationHubFlowConfig.
+
+        Name of the Prismatic integration that registered this flow.  # noqa: E501
+
+        :param integration_name: The integration_name of this IntegrationHubFlowConfig.  # noqa: E501
+        :type: str
+        """
+
+        self._integration_name = integration_name
 
     def to_dict(self):
         """Returns the model properties as a dict"""

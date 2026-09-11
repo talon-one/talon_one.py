@@ -9,8 +9,9 @@ Name | Type | Description | Notes
 **profile_id** | **int** | The globally unique Talon.One ID of the customer that created this entity. | [optional] 
 **store_id** | **int** | The ID of the store. | [optional] 
 **store_integration_id** | **str** | The integration ID of the store. You choose this ID when you create a store. | [optional] 
+**integration_id** | **str** | The unique ID of the event. Only one event with this ID can be registered.  | [optional] 
 **session_id** | **int** | The globally unique Talon.One ID of the session that contains this event. | [optional] 
-**type** | **str** | A string representing the event. Must not be a reserved event name. | 
+**type** | **str** | The name of the event. Must be a [custom event](https://docs.talon.one/docs/dev/concepts/entities/events#custom-events), not a built-in event. | 
 **attributes** | [**object**](.md) | Additional JSON serialized data associated with the event. | 
 **effects** | [**list[Effect]**](Effect.md) | An array containing the effects that were applied as a result of this event. | 
 **rule_failure_reasons** | [**list[RuleFailureReason]**](RuleFailureReason.md) | An array containing the rule failure reasons which happened during this event. | [optional] 

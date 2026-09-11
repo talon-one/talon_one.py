@@ -84,7 +84,7 @@ class RollbackDiscountEffectProps(object):
     def name(self):
         """Gets the name of this RollbackDiscountEffectProps.  # noqa: E501
 
-        The name of the \"setDiscount\" effect that was rolled back.  # noqa: E501
+        The name of the discount effect that was rolled back.  # noqa: E501
 
         :return: The name of this RollbackDiscountEffectProps.  # noqa: E501
         :rtype: str
@@ -95,7 +95,7 @@ class RollbackDiscountEffectProps(object):
     def name(self, name):
         """Sets the name of this RollbackDiscountEffectProps.
 
-        The name of the \"setDiscount\" effect that was rolled back.  # noqa: E501
+        The name of the discount effect that was rolled back.  # noqa: E501
 
         :param name: The name of this RollbackDiscountEffectProps.  # noqa: E501
         :type: str
@@ -109,7 +109,7 @@ class RollbackDiscountEffectProps(object):
     def value(self):
         """Gets the value of this RollbackDiscountEffectProps.  # noqa: E501
 
-        The value of the discount that was rolled back.  # noqa: E501
+        The monetary value of the discount that was rolled back.  # noqa: E501
 
         :return: The value of this RollbackDiscountEffectProps.  # noqa: E501
         :rtype: float
@@ -120,7 +120,7 @@ class RollbackDiscountEffectProps(object):
     def value(self, value):
         """Sets the value of this RollbackDiscountEffectProps.
 
-        The value of the discount that was rolled back.  # noqa: E501
+        The monetary value of the discount that was rolled back.  # noqa: E501
 
         :param value: The value of this RollbackDiscountEffectProps.  # noqa: E501
         :type: float
@@ -134,7 +134,7 @@ class RollbackDiscountEffectProps(object):
     def cart_item_position(self):
         """Gets the cart_item_position of this RollbackDiscountEffectProps.  # noqa: E501
 
-        The index of the item in the cart items for which the discount was rolled back.  # noqa: E501
+        The index of the item in the `cartItem` object whose discount was rolled back, or the unit containing the additional cost whose discount was rolled back.  # noqa: E501
 
         :return: The cart_item_position of this RollbackDiscountEffectProps.  # noqa: E501
         :rtype: float
@@ -145,7 +145,7 @@ class RollbackDiscountEffectProps(object):
     def cart_item_position(self, cart_item_position):
         """Sets the cart_item_position of this RollbackDiscountEffectProps.
 
-        The index of the item in the cart items for which the discount was rolled back.  # noqa: E501
+        The index of the item in the `cartItem` object whose discount was rolled back, or the unit containing the additional cost whose discount was rolled back.  # noqa: E501
 
         :param cart_item_position: The cart_item_position of this RollbackDiscountEffectProps.  # noqa: E501
         :type: float
@@ -157,7 +157,7 @@ class RollbackDiscountEffectProps(object):
     def cart_item_sub_position(self):
         """Gets the cart_item_sub_position of this RollbackDiscountEffectProps.  # noqa: E501
 
-        For cart items with `quantity` > 1, the subposition returns the index of the item unit in its line item.   # noqa: E501
+        The index of the item unit in its line item for which the discount was rolled back.  # noqa: E501
 
         :return: The cart_item_sub_position of this RollbackDiscountEffectProps.  # noqa: E501
         :rtype: float
@@ -168,7 +168,7 @@ class RollbackDiscountEffectProps(object):
     def cart_item_sub_position(self, cart_item_sub_position):
         """Sets the cart_item_sub_position of this RollbackDiscountEffectProps.
 
-        For cart items with `quantity` > 1, the subposition returns the index of the item unit in its line item.   # noqa: E501
+        The index of the item unit in its line item for which the discount was rolled back.  # noqa: E501
 
         :param cart_item_sub_position: The cart_item_sub_position of this RollbackDiscountEffectProps.  # noqa: E501
         :type: float
@@ -180,7 +180,7 @@ class RollbackDiscountEffectProps(object):
     def additional_cost_id(self):
         """Gets the additional_cost_id of this RollbackDiscountEffectProps.  # noqa: E501
 
-        The ID of the additional cost that was rolled back.  # noqa: E501
+        _Only when rolling back [setDiscountPerAdditionalCost](https://docs.talon.one/docs/dev/integration-api/api-effects#setdiscountperadditionalcost) and [setDiscountPerAdditionalCostPerItem](https://docs.talon.one/docs/dev/integration-api/api-effects#setdiscountperadditionalcostperitem)_ The ID of the additional cost to be discounted.  # noqa: E501
 
         :return: The additional_cost_id of this RollbackDiscountEffectProps.  # noqa: E501
         :rtype: int
@@ -191,7 +191,7 @@ class RollbackDiscountEffectProps(object):
     def additional_cost_id(self, additional_cost_id):
         """Sets the additional_cost_id of this RollbackDiscountEffectProps.
 
-        The ID of the additional cost that was rolled back.  # noqa: E501
+        _Only when rolling back [setDiscountPerAdditionalCost](https://docs.talon.one/docs/dev/integration-api/api-effects#setdiscountperadditionalcost) and [setDiscountPerAdditionalCostPerItem](https://docs.talon.one/docs/dev/integration-api/api-effects#setdiscountperadditionalcostperitem)_ The ID of the additional cost to be discounted.  # noqa: E501
 
         :param additional_cost_id: The additional_cost_id of this RollbackDiscountEffectProps.  # noqa: E501
         :type: int
@@ -203,7 +203,7 @@ class RollbackDiscountEffectProps(object):
     def additional_cost(self):
         """Gets the additional_cost of this RollbackDiscountEffectProps.  # noqa: E501
 
-        The name of the additional cost that was rolled back.  # noqa: E501
+        The API name of the additional cost whose discount was rolled back.  # noqa: E501
 
         :return: The additional_cost of this RollbackDiscountEffectProps.  # noqa: E501
         :rtype: str
@@ -214,7 +214,7 @@ class RollbackDiscountEffectProps(object):
     def additional_cost(self, additional_cost):
         """Sets the additional_cost of this RollbackDiscountEffectProps.
 
-        The name of the additional cost that was rolled back.  # noqa: E501
+        The API name of the additional cost whose discount was rolled back.  # noqa: E501
 
         :param additional_cost: The additional_cost of this RollbackDiscountEffectProps.  # noqa: E501
         :type: str
@@ -226,7 +226,7 @@ class RollbackDiscountEffectProps(object):
     def scope(self):
         """Gets the scope of this RollbackDiscountEffectProps.  # noqa: E501
 
-        The scope of the rolled back discount - For a discount per session, it can be one of `cartItems`, `additionalCosts` or `sessionTotal` - For a discount per item, it can be one of `price`, `additionalCosts` or `itemTotal`   # noqa: E501
+        The scope of the rolled back discount.  - For a discount per session, it can be one of `cartItems`, `additionalCosts` or `sessionTotal` - For a discount per item, it can be one of `price`, `additionalCosts` or `itemTotal`  # noqa: E501
 
         :return: The scope of this RollbackDiscountEffectProps.  # noqa: E501
         :rtype: str
@@ -237,7 +237,7 @@ class RollbackDiscountEffectProps(object):
     def scope(self, scope):
         """Sets the scope of this RollbackDiscountEffectProps.
 
-        The scope of the rolled back discount - For a discount per session, it can be one of `cartItems`, `additionalCosts` or `sessionTotal` - For a discount per item, it can be one of `price`, `additionalCosts` or `itemTotal`   # noqa: E501
+        The scope of the rolled back discount.  - For a discount per session, it can be one of `cartItems`, `additionalCosts` or `sessionTotal` - For a discount per item, it can be one of `price`, `additionalCosts` or `itemTotal`  # noqa: E501
 
         :param scope: The scope of this RollbackDiscountEffectProps.  # noqa: E501
         :type: str

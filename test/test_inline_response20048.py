@@ -37,32 +37,33 @@ class TestInlineResponse20048(unittest.TestCase):
         if include_optional :
             return InlineResponse20048(
                 has_more = True, 
+                total_result_size = 1, 
                 data = [
-                    talon_one.models.application_cif.ApplicationCIF(
+                    talon_one.models.store.Store(
                         id = 6, 
-                        created = '2020-06-10T09:05:27.993483Z', 
-                        name = 'Filter items by product', 
-                        description = 'This filter allows filtering by shoes', 
-                        active_expression_id = 1, 
-                        modified_by = 334, 
-                        created_by = 216, 
-                        modified = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        application_id = 322, )
+                        created = '2020-02-07T08:15:22Z', 
+                        name = 'South US store', 
+                        description = 'This is the description of the store in south US.', 
+                        attributes = {"country":"USA","code":1234}, 
+                        integration_id = 'STORE-001', 
+                        application_id = 322, 
+                        updated = '2021-09-23T10:12:42Z', 
+                        linked_campaign_ids = [4, 6, 8], )
                     ]
             )
         else :
             return InlineResponse20048(
                 data = [
-                    talon_one.models.application_cif.ApplicationCIF(
+                    talon_one.models.store.Store(
                         id = 6, 
-                        created = '2020-06-10T09:05:27.993483Z', 
-                        name = 'Filter items by product', 
-                        description = 'This filter allows filtering by shoes', 
-                        active_expression_id = 1, 
-                        modified_by = 334, 
-                        created_by = 216, 
-                        modified = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        application_id = 322, )
+                        created = '2020-02-07T08:15:22Z', 
+                        name = 'South US store', 
+                        description = 'This is the description of the store in south US.', 
+                        attributes = {"country":"USA","code":1234}, 
+                        integration_id = 'STORE-001', 
+                        application_id = 322, 
+                        updated = '2021-09-23T10:12:42Z', 
+                        linked_campaign_ids = [4, 6, 8], )
                     ],
         )
 

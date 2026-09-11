@@ -47,6 +47,7 @@ class AchievementStatusEntry(object):
         'end_date': 'datetime',
         'allow_rollback_after_completion': 'bool',
         'campaign_id': 'int',
+        'campaign_ids': 'list[int]',
         'status': 'str',
         'current_progress': 'AchievementProgress'
     }
@@ -66,11 +67,12 @@ class AchievementStatusEntry(object):
         'end_date': 'endDate',
         'allow_rollback_after_completion': 'allowRollbackAfterCompletion',
         'campaign_id': 'campaignId',
+        'campaign_ids': 'campaignIds',
         'status': 'status',
         'current_progress': 'currentProgress'
     }
 
-    def __init__(self, id=None, created=None, name=None, title=None, description=None, target=None, period=None, period_end_override=None, recurrence_policy=None, activation_policy=None, fixed_start_date=None, end_date=None, allow_rollback_after_completion=None, campaign_id=None, status=None, current_progress=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, created=None, name=None, title=None, description=None, target=None, period=None, period_end_override=None, recurrence_policy=None, activation_policy=None, fixed_start_date=None, end_date=None, allow_rollback_after_completion=None, campaign_id=None, campaign_ids=None, status=None, current_progress=None, local_vars_configuration=None):  # noqa: E501
         """AchievementStatusEntry - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -90,6 +92,7 @@ class AchievementStatusEntry(object):
         self._end_date = None
         self._allow_rollback_after_completion = None
         self._campaign_id = None
+        self._campaign_ids = None
         self._status = None
         self._current_progress = None
         self.discriminator = None
@@ -116,6 +119,8 @@ class AchievementStatusEntry(object):
             self.allow_rollback_after_completion = allow_rollback_after_completion
         if campaign_id is not None:
             self.campaign_id = campaign_id
+        if campaign_ids is not None:
+            self.campaign_ids = campaign_ids
         if status is not None:
             self.status = status
         if current_progress is not None:
@@ -455,7 +460,7 @@ class AchievementStatusEntry(object):
     def campaign_id(self):
         """Gets the campaign_id of this AchievementStatusEntry.  # noqa: E501
 
-        The ID of the campaign the achievement belongs to.  # noqa: E501
+        This property is **deprecated**. Use `referencedByCampaigns` instead. This field contains the first campaign ID from the related `referencedByCampaigns`, and is omitted when `referencedByCampaigns` is empty.  # noqa: E501
 
         :return: The campaign_id of this AchievementStatusEntry.  # noqa: E501
         :rtype: int
@@ -466,13 +471,36 @@ class AchievementStatusEntry(object):
     def campaign_id(self, campaign_id):
         """Sets the campaign_id of this AchievementStatusEntry.
 
-        The ID of the campaign the achievement belongs to.  # noqa: E501
+        This property is **deprecated**. Use `referencedByCampaigns` instead. This field contains the first campaign ID from the related `referencedByCampaigns`, and is omitted when `referencedByCampaigns` is empty.  # noqa: E501
 
         :param campaign_id: The campaign_id of this AchievementStatusEntry.  # noqa: E501
         :type: int
         """
 
         self._campaign_id = campaign_id
+
+    @property
+    def campaign_ids(self):
+        """Gets the campaign_ids of this AchievementStatusEntry.  # noqa: E501
+
+        The IDs of the campaigns that reference this achievement, in ascending order.  # noqa: E501
+
+        :return: The campaign_ids of this AchievementStatusEntry.  # noqa: E501
+        :rtype: list[int]
+        """
+        return self._campaign_ids
+
+    @campaign_ids.setter
+    def campaign_ids(self, campaign_ids):
+        """Sets the campaign_ids of this AchievementStatusEntry.
+
+        The IDs of the campaigns that reference this achievement, in ascending order.  # noqa: E501
+
+        :param campaign_ids: The campaign_ids of this AchievementStatusEntry.  # noqa: E501
+        :type: list[int]
+        """
+
+        self._campaign_ids = campaign_ids
 
     @property
     def status(self):

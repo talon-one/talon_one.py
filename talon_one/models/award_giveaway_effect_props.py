@@ -71,7 +71,7 @@ class AwardGiveawayEffectProps(object):
     def pool_id(self):
         """Gets the pool_id of this AwardGiveawayEffectProps.  # noqa: E501
 
-        The ID of the giveaways pool the code was taken from.  # noqa: E501
+        The internal ID of the giveaway pool.  # noqa: E501
 
         :return: The pool_id of this AwardGiveawayEffectProps.  # noqa: E501
         :rtype: int
@@ -82,7 +82,7 @@ class AwardGiveawayEffectProps(object):
     def pool_id(self, pool_id):
         """Sets the pool_id of this AwardGiveawayEffectProps.
 
-        The ID of the giveaways pool the code was taken from.  # noqa: E501
+        The internal ID of the giveaway pool.  # noqa: E501
 
         :param pool_id: The pool_id of this AwardGiveawayEffectProps.  # noqa: E501
         :type: int
@@ -96,7 +96,7 @@ class AwardGiveawayEffectProps(object):
     def pool_name(self):
         """Gets the pool_name of this AwardGiveawayEffectProps.  # noqa: E501
 
-        The name of the giveaways pool the code was taken from.  # noqa: E501
+        The name of the giveaway pool.  # noqa: E501
 
         :return: The pool_name of this AwardGiveawayEffectProps.  # noqa: E501
         :rtype: str
@@ -107,7 +107,7 @@ class AwardGiveawayEffectProps(object):
     def pool_name(self, pool_name):
         """Sets the pool_name of this AwardGiveawayEffectProps.
 
-        The name of the giveaways pool the code was taken from.  # noqa: E501
+        The name of the giveaway pool.  # noqa: E501
 
         :param pool_name: The pool_name of this AwardGiveawayEffectProps.  # noqa: E501
         :type: str
@@ -121,7 +121,7 @@ class AwardGiveawayEffectProps(object):
     def recipient_integration_id(self):
         """Gets the recipient_integration_id of this AwardGiveawayEffectProps.  # noqa: E501
 
-        The integration ID of the profile that was awarded the giveaway.  # noqa: E501
+        The integration ID of the customer that receives the giveaway.  # noqa: E501
 
         :return: The recipient_integration_id of this AwardGiveawayEffectProps.  # noqa: E501
         :rtype: str
@@ -132,7 +132,7 @@ class AwardGiveawayEffectProps(object):
     def recipient_integration_id(self, recipient_integration_id):
         """Sets the recipient_integration_id of this AwardGiveawayEffectProps.
 
-        The integration ID of the profile that was awarded the giveaway.  # noqa: E501
+        The integration ID of the customer that receives the giveaway.  # noqa: E501
 
         :param recipient_integration_id: The recipient_integration_id of this AwardGiveawayEffectProps.  # noqa: E501
         :type: str
@@ -149,7 +149,7 @@ class AwardGiveawayEffectProps(object):
     def giveaway_id(self):
         """Gets the giveaway_id of this AwardGiveawayEffectProps.  # noqa: E501
 
-        The internal ID for the giveaway that was awarded.  # noqa: E501
+        The internal ID of the giveaway.  # noqa: E501
 
         :return: The giveaway_id of this AwardGiveawayEffectProps.  # noqa: E501
         :rtype: int
@@ -160,7 +160,7 @@ class AwardGiveawayEffectProps(object):
     def giveaway_id(self, giveaway_id):
         """Sets the giveaway_id of this AwardGiveawayEffectProps.
 
-        The internal ID for the giveaway that was awarded.  # noqa: E501
+        The internal ID of the giveaway.  # noqa: E501
 
         :param giveaway_id: The giveaway_id of this AwardGiveawayEffectProps.  # noqa: E501
         :type: int
@@ -174,7 +174,7 @@ class AwardGiveawayEffectProps(object):
     def code(self):
         """Gets the code of this AwardGiveawayEffectProps.  # noqa: E501
 
-        The giveaway code that was awarded.  # noqa: E501
+        The giveaway code to be rewarded.  # noqa: E501
 
         :return: The code of this AwardGiveawayEffectProps.  # noqa: E501
         :rtype: str
@@ -185,7 +185,7 @@ class AwardGiveawayEffectProps(object):
     def code(self, code):
         """Sets the code of this AwardGiveawayEffectProps.
 
-        The giveaway code that was awarded.  # noqa: E501
+        The giveaway code to be rewarded.  # noqa: E501
 
         :param code: The code of this AwardGiveawayEffectProps.  # noqa: E501
         :type: str

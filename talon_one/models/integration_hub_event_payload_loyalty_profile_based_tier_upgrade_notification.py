@@ -33,8 +33,10 @@ class IntegrationHubEventPayloadLoyaltyProfileBasedTierUpgradeNotification(objec
                             and the value is json key in definition.
     """
     openapi_types = {
+        'event_id': 'int',
         'profile_integration_id': 'str',
         'loyalty_program_id': 'int',
+        'loyalty_program_name': 'str',
         'subledger_id': 'str',
         'source_of_event': 'str',
         'current_tier': 'str',
@@ -48,8 +50,10 @@ class IntegrationHubEventPayloadLoyaltyProfileBasedTierUpgradeNotification(objec
     }
 
     attribute_map = {
+        'event_id': 'EventId',
         'profile_integration_id': 'ProfileIntegrationID',
         'loyalty_program_id': 'LoyaltyProgramID',
+        'loyalty_program_name': 'LoyaltyProgramName',
         'subledger_id': 'SubledgerID',
         'source_of_event': 'SourceOfEvent',
         'current_tier': 'CurrentTier',
@@ -62,14 +66,16 @@ class IntegrationHubEventPayloadLoyaltyProfileBasedTierUpgradeNotification(objec
         'published_at': 'PublishedAt'
     }
 
-    def __init__(self, profile_integration_id=None, loyalty_program_id=None, subledger_id=None, source_of_event=None, current_tier=None, current_points=None, old_tier=None, points_required_to_the_next_tier=None, next_tier=None, tier_expiration_date=None, timestamp_of_tier_change=None, published_at=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, event_id=None, profile_integration_id=None, loyalty_program_id=None, loyalty_program_name=None, subledger_id=None, source_of_event=None, current_tier=None, current_points=None, old_tier=None, points_required_to_the_next_tier=None, next_tier=None, tier_expiration_date=None, timestamp_of_tier_change=None, published_at=None, local_vars_configuration=None):  # noqa: E501
         """IntegrationHubEventPayloadLoyaltyProfileBasedTierUpgradeNotification - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
+        self._event_id = None
         self._profile_integration_id = None
         self._loyalty_program_id = None
+        self._loyalty_program_name = None
         self._subledger_id = None
         self._source_of_event = None
         self._current_tier = None
@@ -82,12 +88,13 @@ class IntegrationHubEventPayloadLoyaltyProfileBasedTierUpgradeNotification(objec
         self._published_at = None
         self.discriminator = None
 
+        self.event_id = event_id
         self.profile_integration_id = profile_integration_id
         self.loyalty_program_id = loyalty_program_id
+        self.loyalty_program_name = loyalty_program_name
         self.subledger_id = subledger_id
         self.source_of_event = source_of_event
-        if current_tier is not None:
-            self.current_tier = current_tier
+        self.current_tier = current_tier
         self.current_points = current_points
         if old_tier is not None:
             self.old_tier = old_tier
@@ -100,6 +107,31 @@ class IntegrationHubEventPayloadLoyaltyProfileBasedTierUpgradeNotification(objec
         if timestamp_of_tier_change is not None:
             self.timestamp_of_tier_change = timestamp_of_tier_change
         self.published_at = published_at
+
+    @property
+    def event_id(self):
+        """Gets the event_id of this IntegrationHubEventPayloadLoyaltyProfileBasedTierUpgradeNotification.  # noqa: E501
+
+        The ID of the integration hub event. Return this value in the delivery-status callback to mark the event delivered or failed.  # noqa: E501
+
+        :return: The event_id of this IntegrationHubEventPayloadLoyaltyProfileBasedTierUpgradeNotification.  # noqa: E501
+        :rtype: int
+        """
+        return self._event_id
+
+    @event_id.setter
+    def event_id(self, event_id):
+        """Sets the event_id of this IntegrationHubEventPayloadLoyaltyProfileBasedTierUpgradeNotification.
+
+        The ID of the integration hub event. Return this value in the delivery-status callback to mark the event delivered or failed.  # noqa: E501
+
+        :param event_id: The event_id of this IntegrationHubEventPayloadLoyaltyProfileBasedTierUpgradeNotification.  # noqa: E501
+        :type: int
+        """
+        if self.local_vars_configuration.client_side_validation and event_id is None:  # noqa: E501
+            raise ValueError("Invalid value for `event_id`, must not be `None`")  # noqa: E501
+
+        self._event_id = event_id
 
     @property
     def profile_integration_id(self):
@@ -146,6 +178,31 @@ class IntegrationHubEventPayloadLoyaltyProfileBasedTierUpgradeNotification(objec
             raise ValueError("Invalid value for `loyalty_program_id`, must not be `None`")  # noqa: E501
 
         self._loyalty_program_id = loyalty_program_id
+
+    @property
+    def loyalty_program_name(self):
+        """Gets the loyalty_program_name of this IntegrationHubEventPayloadLoyaltyProfileBasedTierUpgradeNotification.  # noqa: E501
+
+        The name of the loyalty program.  # noqa: E501
+
+        :return: The loyalty_program_name of this IntegrationHubEventPayloadLoyaltyProfileBasedTierUpgradeNotification.  # noqa: E501
+        :rtype: str
+        """
+        return self._loyalty_program_name
+
+    @loyalty_program_name.setter
+    def loyalty_program_name(self, loyalty_program_name):
+        """Sets the loyalty_program_name of this IntegrationHubEventPayloadLoyaltyProfileBasedTierUpgradeNotification.
+
+        The name of the loyalty program.  # noqa: E501
+
+        :param loyalty_program_name: The loyalty_program_name of this IntegrationHubEventPayloadLoyaltyProfileBasedTierUpgradeNotification.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and loyalty_program_name is None:  # noqa: E501
+            raise ValueError("Invalid value for `loyalty_program_name`, must not be `None`")  # noqa: E501
+
+        self._loyalty_program_name = loyalty_program_name
 
     @property
     def subledger_id(self):
@@ -197,6 +254,7 @@ class IntegrationHubEventPayloadLoyaltyProfileBasedTierUpgradeNotification(objec
     def current_tier(self):
         """Gets the current_tier of this IntegrationHubEventPayloadLoyaltyProfileBasedTierUpgradeNotification.  # noqa: E501
 
+        The name of the customer's current tier.  # noqa: E501
 
         :return: The current_tier of this IntegrationHubEventPayloadLoyaltyProfileBasedTierUpgradeNotification.  # noqa: E501
         :rtype: str
@@ -207,10 +265,13 @@ class IntegrationHubEventPayloadLoyaltyProfileBasedTierUpgradeNotification(objec
     def current_tier(self, current_tier):
         """Sets the current_tier of this IntegrationHubEventPayloadLoyaltyProfileBasedTierUpgradeNotification.
 
+        The name of the customer's current tier.  # noqa: E501
 
         :param current_tier: The current_tier of this IntegrationHubEventPayloadLoyaltyProfileBasedTierUpgradeNotification.  # noqa: E501
         :type: str
         """
+        if self.local_vars_configuration.client_side_validation and current_tier is None:  # noqa: E501
+            raise ValueError("Invalid value for `current_tier`, must not be `None`")  # noqa: E501
 
         self._current_tier = current_tier
 

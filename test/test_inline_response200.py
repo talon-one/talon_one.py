@@ -39,8 +39,8 @@ class TestInlineResponse200(unittest.TestCase):
                 has_more = True, 
                 data = [
                     talon_one.models.integration_campaign.IntegrationCampaign(
-                        id = 4, 
                         application_id = 322, 
+                        id = 4, 
                         name = 'Summer promotions', 
                         description = 'Campaign for all summer 2021 promotions', 
                         start_time = '2021-07-20T22:00Z', 
@@ -48,7 +48,16 @@ class TestInlineResponse200(unittest.TestCase):
                         attributes = talon_one.models.attributes.attributes(), 
                         state = 'enabled', 
                         tags = [summer], 
-                        features = [coupons, referrals], )
+                        features = [coupons, referrals], 
+                        rules = [
+                            talon_one.models.rule_metadata.RuleMetadata(
+                                title = 'Give discount via coupon', 
+                                display_name = '20% off all shoes!', 
+                                display_description = 'Get a 20% discount on all shoes during Thanksgiving! Offer valid till Dec 5 only.', 
+                                related_data = 'https://example.com/discounts/20-off-shoes.png', )
+                            ], 
+                        linked_store_ids = [1, 2], 
+                        linked_audience_ids = [3, 4], )
                     ]
             )
         else :
@@ -56,8 +65,8 @@ class TestInlineResponse200(unittest.TestCase):
                 has_more = True,
                 data = [
                     talon_one.models.integration_campaign.IntegrationCampaign(
-                        id = 4, 
                         application_id = 322, 
+                        id = 4, 
                         name = 'Summer promotions', 
                         description = 'Campaign for all summer 2021 promotions', 
                         start_time = '2021-07-20T22:00Z', 
@@ -65,7 +74,16 @@ class TestInlineResponse200(unittest.TestCase):
                         attributes = talon_one.models.attributes.attributes(), 
                         state = 'enabled', 
                         tags = [summer], 
-                        features = [coupons, referrals], )
+                        features = [coupons, referrals], 
+                        rules = [
+                            talon_one.models.rule_metadata.RuleMetadata(
+                                title = 'Give discount via coupon', 
+                                display_name = '20% off all shoes!', 
+                                display_description = 'Get a 20% discount on all shoes during Thanksgiving! Offer valid till Dec 5 only.', 
+                                related_data = 'https://example.com/discounts/20-off-shoes.png', )
+                            ], 
+                        linked_store_ids = [1, 2], 
+                        linked_audience_ids = [3, 4], )
                     ],
         )
 

@@ -150,7 +150,7 @@ class RollbackIncreasedAchievementProgressEffectProps(object):
     def decrease_progress_by(self):
         """Gets the decrease_progress_by of this RollbackIncreasedAchievementProgressEffectProps.  # noqa: E501
 
-        The value by which the customer's current progress in the achievement is decreased.  # noqa: E501
+        The value by which the customer's current progress in the achievement has decreased.  # noqa: E501
 
         :return: The decrease_progress_by of this RollbackIncreasedAchievementProgressEffectProps.  # noqa: E501
         :rtype: float
@@ -161,7 +161,7 @@ class RollbackIncreasedAchievementProgressEffectProps(object):
     def decrease_progress_by(self, decrease_progress_by):
         """Sets the decrease_progress_by of this RollbackIncreasedAchievementProgressEffectProps.
 
-        The value by which the customer's current progress in the achievement is decreased.  # noqa: E501
+        The value by which the customer's current progress in the achievement has decreased.  # noqa: E501
 
         :param decrease_progress_by: The decrease_progress_by of this RollbackIncreasedAchievementProgressEffectProps.  # noqa: E501
         :type: float

@@ -48,13 +48,20 @@ class TestAchievementV2(unittest.TestCase):
                 fixed_start_date = '2024-01-15T15:04:05+07:00', 
                 end_date = '2024-01-15T15:04:05+07:00', 
                 allow_rollback_after_completion = False, 
-                sandbox = True, 
                 subscribed_applications = [132, 97], 
-                timezone = 'Europe/Berlin', 
                 user_id = 1234, 
                 created_by = 'John Doe', 
+                period_end_override = {month=11, dayOfMonth=23, hour=23, minute=59, second=59}, 
                 has_progress = True, 
-                status = 'inprogress'
+                status = 'active', 
+                sandbox = True, 
+                timezone = 'Europe/Berlin', 
+                campaign_id = 3, 
+                referenced_by_campaigns = [
+                    talon_one.models.campaign_reference.CampaignReference(
+                        id = 1, 
+                        application_id = 2, )
+                    ]
             )
         else :
             return AchievementV2(
@@ -66,10 +73,15 @@ class TestAchievementV2(unittest.TestCase):
                 target = 50.0,
                 recurrence_policy = 'no_recurrence',
                 activation_policy = 'fixed_schedule',
-                sandbox = True,
                 subscribed_applications = [132, 97],
-                timezone = 'Europe/Berlin',
                 user_id = 1234,
+                sandbox = True,
+                timezone = 'Europe/Berlin',
+                referenced_by_campaigns = [
+                    talon_one.models.campaign_reference.CampaignReference(
+                        id = 1, 
+                        application_id = 2, )
+                    ],
         )
 
     def testAchievementV2(self):

@@ -63,7 +63,7 @@ class ShowNotificationEffectProps(object):
     def notification_type(self):
         """Gets the notification_type of this ShowNotificationEffectProps.  # noqa: E501
 
-        The type of notification that should be shown (e.g. error/warning/info).  # noqa: E501
+        The type of notification.  # noqa: E501
 
         :return: The notification_type of this ShowNotificationEffectProps.  # noqa: E501
         :rtype: str
@@ -74,7 +74,7 @@ class ShowNotificationEffectProps(object):
     def notification_type(self, notification_type):
         """Sets the notification_type of this ShowNotificationEffectProps.
 
-        The type of notification that should be shown (e.g. error/warning/info).  # noqa: E501
+        The type of notification.  # noqa: E501
 
         :param notification_type: The notification_type of this ShowNotificationEffectProps.  # noqa: E501
         :type: str
@@ -88,7 +88,7 @@ class ShowNotificationEffectProps(object):
     def title(self):
         """Gets the title of this ShowNotificationEffectProps.  # noqa: E501
 
-        Title of the notification.  # noqa: E501
+        The title of the notification.  # noqa: E501
 
         :return: The title of this ShowNotificationEffectProps.  # noqa: E501
         :rtype: str
@@ -99,7 +99,7 @@ class ShowNotificationEffectProps(object):
     def title(self, title):
         """Sets the title of this ShowNotificationEffectProps.
 
-        Title of the notification.  # noqa: E501
+        The title of the notification.  # noqa: E501
 
         :param title: The title of this ShowNotificationEffectProps.  # noqa: E501
         :type: str
@@ -113,7 +113,7 @@ class ShowNotificationEffectProps(object):
     def body(self):
         """Gets the body of this ShowNotificationEffectProps.  # noqa: E501
 
-        Body of the notification.  # noqa: E501
+        The body of the notification.  # noqa: E501
 
         :return: The body of this ShowNotificationEffectProps.  # noqa: E501
         :rtype: str
@@ -124,7 +124,7 @@ class ShowNotificationEffectProps(object):
     def body(self, body):
         """Sets the body of this ShowNotificationEffectProps.
 
-        Body of the notification.  # noqa: E501
+        The body of the notification.  # noqa: E501
 
         :param body: The body of this ShowNotificationEffectProps.  # noqa: E501
         :type: str

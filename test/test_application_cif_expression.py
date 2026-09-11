@@ -40,7 +40,7 @@ class TestApplicationCIFExpression(unittest.TestCase):
                 created = '2020-06-10T09:05:27.993483Z', 
                 cart_item_filter_id = 216, 
                 created_by = 216, 
-                expression = {expr=[filter, [., Session, CartItems], [[Item], [catch, false, [=, [., Item, Category], Kitchen]]]]}, 
+                expression = {expr=[filter, [., Session, CartItems], [[Item], [catch, false, [contains, [., Item, Category], Kitchen]]]]}, 
                 application_id = 322
             )
         else :

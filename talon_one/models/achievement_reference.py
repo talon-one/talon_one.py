@@ -36,17 +36,21 @@ class AchievementReference(object):
         'achievement_id': 'int',
         'application_id': 'int',
         'application_name': 'str',
-        'campaign_id': 'int'
+        'campaign_id': 'int',
+        'campaign_name': 'str',
+        'campaign_state': 'str'
     }
 
     attribute_map = {
         'achievement_id': 'achievementId',
         'application_id': 'applicationId',
         'application_name': 'applicationName',
-        'campaign_id': 'campaignId'
+        'campaign_id': 'campaignId',
+        'campaign_name': 'campaignName',
+        'campaign_state': 'campaignState'
     }
 
-    def __init__(self, achievement_id=None, application_id=None, application_name=None, campaign_id=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, achievement_id=None, application_id=None, application_name=None, campaign_id=None, campaign_name=None, campaign_state=None, local_vars_configuration=None):  # noqa: E501
         """AchievementReference - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -56,12 +60,16 @@ class AchievementReference(object):
         self._application_id = None
         self._application_name = None
         self._campaign_id = None
+        self._campaign_name = None
+        self._campaign_state = None
         self.discriminator = None
 
         self.achievement_id = achievement_id
         self.application_id = application_id
         self.application_name = application_name
         self.campaign_id = campaign_id
+        self.campaign_name = campaign_name
+        self.campaign_state = campaign_state
 
     @property
     def achievement_id(self):
@@ -162,6 +170,62 @@ class AchievementReference(object):
             raise ValueError("Invalid value for `campaign_id`, must not be `None`")  # noqa: E501
 
         self._campaign_id = campaign_id
+
+    @property
+    def campaign_name(self):
+        """Gets the campaign_name of this AchievementReference.  # noqa: E501
+
+        The name of the campaign that references this achievement.  # noqa: E501
+
+        :return: The campaign_name of this AchievementReference.  # noqa: E501
+        :rtype: str
+        """
+        return self._campaign_name
+
+    @campaign_name.setter
+    def campaign_name(self, campaign_name):
+        """Sets the campaign_name of this AchievementReference.
+
+        The name of the campaign that references this achievement.  # noqa: E501
+
+        :param campaign_name: The campaign_name of this AchievementReference.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and campaign_name is None:  # noqa: E501
+            raise ValueError("Invalid value for `campaign_name`, must not be `None`")  # noqa: E501
+
+        self._campaign_name = campaign_name
+
+    @property
+    def campaign_state(self):
+        """Gets the campaign_state of this AchievementReference.  # noqa: E501
+
+        The state of the campaign that references this achievement.  # noqa: E501
+
+        :return: The campaign_state of this AchievementReference.  # noqa: E501
+        :rtype: str
+        """
+        return self._campaign_state
+
+    @campaign_state.setter
+    def campaign_state(self, campaign_state):
+        """Sets the campaign_state of this AchievementReference.
+
+        The state of the campaign that references this achievement.  # noqa: E501
+
+        :param campaign_state: The campaign_state of this AchievementReference.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and campaign_state is None:  # noqa: E501
+            raise ValueError("Invalid value for `campaign_state`, must not be `None`")  # noqa: E501
+        allowed_values = ["enabled", "disabled", "archived"]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and campaign_state not in allowed_values:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `campaign_state` ({0}), must be one of {1}"  # noqa: E501
+                .format(campaign_state, allowed_values)
+            )
+
+        self._campaign_state = campaign_state
 
     def to_dict(self):
         """Returns the model properties as a dict"""

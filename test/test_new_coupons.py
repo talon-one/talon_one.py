@@ -49,13 +49,16 @@ class TestNewCoupons(unittest.TestCase):
                         entities = [Coupon], )
                     ], 
                 number_of_coupons = 1, 
+                batch_id = '3rdparty_fjsieoaa', 
                 unique_prefix = '0', 
                 attributes = {"venueId":12}, 
                 recipient_integration_id = 'URNGV8294NV', 
                 valid_characters = [A, B, G, Y], 
                 coupon_pattern = 'SUMMER-#####', 
                 is_reservation_mandatory = False, 
-                implicitly_reserved = False
+                implicitly_reserved = False, 
+                support_request_id = 42, 
+                support_request_note = 'Approved as compensation for the delayed order.'
             )
         else :
             return NewCoupons(

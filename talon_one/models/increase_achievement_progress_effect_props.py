@@ -130,7 +130,7 @@ class IncreaseAchievementProgressEffectProps(object):
     def progress_tracker_id(self):
         """Gets the progress_tracker_id of this IncreaseAchievementProgressEffectProps.  # noqa: E501
 
-        The internal ID of the achievement progress tracker.  # noqa: E501
+        The internal ID of the customer progress tracker. For [on-completion achievements](https://docs.talon.one/docs/product/achievements/overview#recurring-on-completion-achievements), this effect generates a unique ID for each iteration.  # noqa: E501
 
         :return: The progress_tracker_id of this IncreaseAchievementProgressEffectProps.  # noqa: E501
         :rtype: int
@@ -141,7 +141,7 @@ class IncreaseAchievementProgressEffectProps(object):
     def progress_tracker_id(self, progress_tracker_id):
         """Sets the progress_tracker_id of this IncreaseAchievementProgressEffectProps.
 
-        The internal ID of the achievement progress tracker.  # noqa: E501
+        The internal ID of the customer progress tracker. For [on-completion achievements](https://docs.talon.one/docs/product/achievements/overview#recurring-on-completion-achievements), this effect generates a unique ID for each iteration.  # noqa: E501
 
         :param progress_tracker_id: The progress_tracker_id of this IncreaseAchievementProgressEffectProps.  # noqa: E501
         :type: int
@@ -153,7 +153,7 @@ class IncreaseAchievementProgressEffectProps(object):
     def delta(self):
         """Gets the delta of this IncreaseAchievementProgressEffectProps.  # noqa: E501
 
-        The value by which the customer's current progress in the achievement is increased.  # noqa: E501
+        The value by which the customer's current progress in the achievement has increased.  # noqa: E501
 
         :return: The delta of this IncreaseAchievementProgressEffectProps.  # noqa: E501
         :rtype: float
@@ -164,7 +164,7 @@ class IncreaseAchievementProgressEffectProps(object):
     def delta(self, delta):
         """Sets the delta of this IncreaseAchievementProgressEffectProps.
 
-        The value by which the customer's current progress in the achievement is increased.  # noqa: E501
+        The value by which the customer's current progress in the achievement has increased.  # noqa: E501
 
         :param delta: The delta of this IncreaseAchievementProgressEffectProps.  # noqa: E501
         :type: float

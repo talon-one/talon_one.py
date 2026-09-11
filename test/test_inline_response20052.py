@@ -38,46 +38,49 @@ class TestInlineResponse20052(unittest.TestCase):
             return InlineResponse20052(
                 has_more = True, 
                 data = [
-                    talon_one.models.achievement_progress_with_definition.AchievementProgressWithDefinition(
-                        status = 'completed', 
-                        progress = 10.0, 
-                        start_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        completion_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        end_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        achievement_id = 3, 
-                        name = 'FreeCoffee10Orders', 
+                    talon_one.models.achievement.Achievement(
+                        id = 6, 
+                        created = '2020-06-10T09:05:27.993483Z', 
+                        name = 'Order50Discount', 
                         title = '50% off on 50th purchase.', 
                         description = '50% off for every 50th purchase in a year.', 
-                        campaign_id = 3, 
-                        target = 10.0, 
-                        achievement_recurrence_policy = 'no_recurrence', 
-                        achievement_activation_policy = 'fixed_schedule', 
-                        achievement_fixed_start_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        achievement_end_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        achievement_allow_rollback_after_completion = False, )
+                        target = 50.0, 
+                        period = '1Y', 
+                        period_end_override = {month=11, dayOfMonth=23, hour=23, minute=59, second=59}, 
+                        recurrence_policy = 'no_recurrence', 
+                        activation_policy = 'fixed_schedule', 
+                        fixed_start_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        end_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        allow_rollback_after_completion = False, 
+                        campaign_id = 1, 
+                        user_id = 1234, 
+                        created_by = 'John Doe', 
+                        has_progress = True, 
+                        status = 'inprogress', )
                     ]
             )
         else :
             return InlineResponse20052(
-                has_more = True,
                 data = [
-                    talon_one.models.achievement_progress_with_definition.AchievementProgressWithDefinition(
-                        status = 'completed', 
-                        progress = 10.0, 
-                        start_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        completion_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        end_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        achievement_id = 3, 
-                        name = 'FreeCoffee10Orders', 
+                    talon_one.models.achievement.Achievement(
+                        id = 6, 
+                        created = '2020-06-10T09:05:27.993483Z', 
+                        name = 'Order50Discount', 
                         title = '50% off on 50th purchase.', 
                         description = '50% off for every 50th purchase in a year.', 
-                        campaign_id = 3, 
-                        target = 10.0, 
-                        achievement_recurrence_policy = 'no_recurrence', 
-                        achievement_activation_policy = 'fixed_schedule', 
-                        achievement_fixed_start_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        achievement_end_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        achievement_allow_rollback_after_completion = False, )
+                        target = 50.0, 
+                        period = '1Y', 
+                        period_end_override = {month=11, dayOfMonth=23, hour=23, minute=59, second=59}, 
+                        recurrence_policy = 'no_recurrence', 
+                        activation_policy = 'fixed_schedule', 
+                        fixed_start_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        end_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        allow_rollback_after_completion = False, 
+                        campaign_id = 1, 
+                        user_id = 1234, 
+                        created_by = 'John Doe', 
+                        has_progress = True, 
+                        status = 'inprogress', )
                     ],
         )
 

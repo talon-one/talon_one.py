@@ -33,8 +33,8 @@ class IntegrationCampaign(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'id': 'int',
         'application_id': 'int',
+        'id': 'int',
         'name': 'str',
         'description': 'str',
         'start_time': 'datetime',
@@ -42,12 +42,15 @@ class IntegrationCampaign(object):
         'attributes': 'object',
         'state': 'str',
         'tags': 'list[str]',
-        'features': 'list[str]'
+        'features': 'list[str]',
+        'rules': 'list[RuleMetadata]',
+        'linked_store_ids': 'list[int]',
+        'linked_audience_ids': 'list[int]'
     }
 
     attribute_map = {
-        'id': 'id',
         'application_id': 'applicationId',
+        'id': 'id',
         'name': 'name',
         'description': 'description',
         'start_time': 'startTime',
@@ -55,17 +58,20 @@ class IntegrationCampaign(object):
         'attributes': 'attributes',
         'state': 'state',
         'tags': 'tags',
-        'features': 'features'
+        'features': 'features',
+        'rules': 'rules',
+        'linked_store_ids': 'linkedStoreIds',
+        'linked_audience_ids': 'linkedAudienceIds'
     }
 
-    def __init__(self, id=None, application_id=None, name=None, description=None, start_time=None, end_time=None, attributes=None, state='enabled', tags=None, features=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, application_id=None, id=None, name=None, description=None, start_time=None, end_time=None, attributes=None, state='enabled', tags=None, features=None, rules=None, linked_store_ids=None, linked_audience_ids=None, local_vars_configuration=None):  # noqa: E501
         """IntegrationCampaign - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
-        self._id = None
         self._application_id = None
+        self._id = None
         self._name = None
         self._description = None
         self._start_time = None
@@ -74,10 +80,13 @@ class IntegrationCampaign(object):
         self._state = None
         self._tags = None
         self._features = None
+        self._rules = None
+        self._linked_store_ids = None
+        self._linked_audience_ids = None
         self.discriminator = None
 
-        self.id = id
         self.application_id = application_id
+        self.id = id
         self.name = name
         if description is not None:
             self.description = description
@@ -90,31 +99,11 @@ class IntegrationCampaign(object):
         self.state = state
         self.tags = tags
         self.features = features
-
-    @property
-    def id(self):
-        """Gets the id of this IntegrationCampaign.  # noqa: E501
-
-        Unique ID of Campaign.  # noqa: E501
-
-        :return: The id of this IntegrationCampaign.  # noqa: E501
-        :rtype: int
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """Sets the id of this IntegrationCampaign.
-
-        Unique ID of Campaign.  # noqa: E501
-
-        :param id: The id of this IntegrationCampaign.  # noqa: E501
-        :type: int
-        """
-        if self.local_vars_configuration.client_side_validation and id is None:  # noqa: E501
-            raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
-
-        self._id = id
+        self.rules = rules
+        if linked_store_ids is not None:
+            self.linked_store_ids = linked_store_ids
+        if linked_audience_ids is not None:
+            self.linked_audience_ids = linked_audience_ids
 
     @property
     def application_id(self):
@@ -142,10 +131,35 @@ class IntegrationCampaign(object):
         self._application_id = application_id
 
     @property
+    def id(self):
+        """Gets the id of this IntegrationCampaign.  # noqa: E501
+
+        Unique ID of Campaign.  # noqa: E501
+
+        :return: The id of this IntegrationCampaign.  # noqa: E501
+        :rtype: int
+        """
+        return self._id
+
+    @id.setter
+    def id(self, id):
+        """Sets the id of this IntegrationCampaign.
+
+        Unique ID of Campaign.  # noqa: E501
+
+        :param id: The id of this IntegrationCampaign.  # noqa: E501
+        :type: int
+        """
+        if self.local_vars_configuration.client_side_validation and id is None:  # noqa: E501
+            raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
+
+        self._id = id
+
+    @property
     def name(self):
         """Gets the name of this IntegrationCampaign.  # noqa: E501
 
-        A user-facing name for this campaign.  # noqa: E501
+        The name of the campaign.  # noqa: E501
 
         :return: The name of this IntegrationCampaign.  # noqa: E501
         :rtype: str
@@ -156,7 +170,7 @@ class IntegrationCampaign(object):
     def name(self, name):
         """Sets the name of this IntegrationCampaign.
 
-        A user-facing name for this campaign.  # noqa: E501
+        The name of the campaign.  # noqa: E501
 
         :param name: The name of this IntegrationCampaign.  # noqa: E501
         :type: str
@@ -339,7 +353,7 @@ class IntegrationCampaign(object):
         """
         if self.local_vars_configuration.client_side_validation and features is None:  # noqa: E501
             raise ValueError("Invalid value for `features`, must not be `None`")  # noqa: E501
-        allowed_values = ["coupons", "referrals", "loyalty", "giveaways", "strikethrough", "achievements"]  # noqa: E501
+        allowed_values = ["coupons", "referrals", "loyalty", "giveaways", "strikethrough", "achievements", "advancedEvents"]  # noqa: E501
         if (self.local_vars_configuration.client_side_validation and
                 not set(features).issubset(set(allowed_values))):  # noqa: E501
             raise ValueError(
@@ -349,6 +363,77 @@ class IntegrationCampaign(object):
             )
 
         self._features = features
+
+    @property
+    def rules(self):
+        """Gets the rules of this IntegrationCampaign.  # noqa: E501
+
+        A list of rules containing customer-facing details of the rewards defined in the campaign.  # noqa: E501
+
+        :return: The rules of this IntegrationCampaign.  # noqa: E501
+        :rtype: list[RuleMetadata]
+        """
+        return self._rules
+
+    @rules.setter
+    def rules(self, rules):
+        """Sets the rules of this IntegrationCampaign.
+
+        A list of rules containing customer-facing details of the rewards defined in the campaign.  # noqa: E501
+
+        :param rules: The rules of this IntegrationCampaign.  # noqa: E501
+        :type: list[RuleMetadata]
+        """
+        if self.local_vars_configuration.client_side_validation and rules is None:  # noqa: E501
+            raise ValueError("Invalid value for `rules`, must not be `None`")  # noqa: E501
+
+        self._rules = rules
+
+    @property
+    def linked_store_ids(self):
+        """Gets the linked_store_ids of this IntegrationCampaign.  # noqa: E501
+
+        A list of store IDs linked to this campaign.  # noqa: E501
+
+        :return: The linked_store_ids of this IntegrationCampaign.  # noqa: E501
+        :rtype: list[int]
+        """
+        return self._linked_store_ids
+
+    @linked_store_ids.setter
+    def linked_store_ids(self, linked_store_ids):
+        """Sets the linked_store_ids of this IntegrationCampaign.
+
+        A list of store IDs linked to this campaign.  # noqa: E501
+
+        :param linked_store_ids: The linked_store_ids of this IntegrationCampaign.  # noqa: E501
+        :type: list[int]
+        """
+
+        self._linked_store_ids = linked_store_ids
+
+    @property
+    def linked_audience_ids(self):
+        """Gets the linked_audience_ids of this IntegrationCampaign.  # noqa: E501
+
+        A list of audience IDs linked to this campaign.  # noqa: E501
+
+        :return: The linked_audience_ids of this IntegrationCampaign.  # noqa: E501
+        :rtype: list[int]
+        """
+        return self._linked_audience_ids
+
+    @linked_audience_ids.setter
+    def linked_audience_ids(self, linked_audience_ids):
+        """Sets the linked_audience_ids of this IntegrationCampaign.
+
+        A list of audience IDs linked to this campaign.  # noqa: E501
+
+        :param linked_audience_ids: The linked_audience_ids of this IntegrationCampaign.  # noqa: E501
+        :type: list[int]
+        """
+
+        self._linked_audience_ids = linked_audience_ids
 
     def to_dict(self):
         """Returns the model properties as a dict"""

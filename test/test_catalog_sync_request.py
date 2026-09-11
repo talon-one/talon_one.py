@@ -38,7 +38,6 @@ class TestCatalogSyncRequest(unittest.TestCase):
             return CatalogSyncRequest(
                 actions = [
                     talon_one.models.catalog_action.CatalogAction(
-                        type = 'ADD', 
                         payload = talon_one.models.payload.payload(), )
                     ], 
                 version = 244
@@ -47,7 +46,6 @@ class TestCatalogSyncRequest(unittest.TestCase):
             return CatalogSyncRequest(
                 actions = [
                     talon_one.models.catalog_action.CatalogAction(
-                        type = 'ADD', 
                         payload = talon_one.models.payload.payload(), )
                     ],
         )

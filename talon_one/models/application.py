@@ -54,6 +54,7 @@ class Application(object):
         'default_evaluation_group_id': 'int',
         'default_cart_item_filter_id': 'int',
         'enable_campaign_state_management': 'bool',
+        'best_prior_price_settings': 'BestPriorPriceSettings',
         'loyalty_programs': 'list[LoyaltyProgram]'
     }
 
@@ -79,10 +80,11 @@ class Application(object):
         'default_evaluation_group_id': 'defaultEvaluationGroupId',
         'default_cart_item_filter_id': 'defaultCartItemFilterId',
         'enable_campaign_state_management': 'enableCampaignStateManagement',
+        'best_prior_price_settings': 'bestPriorPriceSettings',
         'loyalty_programs': 'loyaltyPrograms'
     }
 
-    def __init__(self, id=None, created=None, modified=None, account_id=None, name=None, description=None, timezone=None, currency=None, case_sensitivity=None, attributes=None, limits=None, default_discount_scope=None, enable_cascading_discounts=None, enable_flattened_cart_items=None, attributes_settings=None, sandbox=None, enable_partial_discounts=None, default_discount_additional_cost_per_item_scope=None, default_evaluation_group_id=None, default_cart_item_filter_id=None, enable_campaign_state_management=None, loyalty_programs=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, created=None, modified=None, account_id=None, name=None, description=None, timezone=None, currency=None, case_sensitivity=None, attributes=None, limits=None, default_discount_scope=None, enable_cascading_discounts=None, enable_flattened_cart_items=None, attributes_settings=None, sandbox=None, enable_partial_discounts=None, default_discount_additional_cost_per_item_scope=None, default_evaluation_group_id=None, default_cart_item_filter_id=None, enable_campaign_state_management=None, best_prior_price_settings=None, loyalty_programs=None, local_vars_configuration=None):  # noqa: E501
         """Application - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -109,6 +111,7 @@ class Application(object):
         self._default_evaluation_group_id = None
         self._default_cart_item_filter_id = None
         self._enable_campaign_state_management = None
+        self._best_prior_price_settings = None
         self._loyalty_programs = None
         self.discriminator = None
 
@@ -147,6 +150,8 @@ class Application(object):
             self.default_cart_item_filter_id = default_cart_item_filter_id
         if enable_campaign_state_management is not None:
             self.enable_campaign_state_management = enable_campaign_state_management
+        if best_prior_price_settings is not None:
+            self.best_prior_price_settings = best_prior_price_settings
         self.loyalty_programs = loyalty_programs
 
     @property
@@ -670,6 +675,27 @@ class Application(object):
         """
 
         self._enable_campaign_state_management = enable_campaign_state_management
+
+    @property
+    def best_prior_price_settings(self):
+        """Gets the best_prior_price_settings of this Application.  # noqa: E501
+
+
+        :return: The best_prior_price_settings of this Application.  # noqa: E501
+        :rtype: BestPriorPriceSettings
+        """
+        return self._best_prior_price_settings
+
+    @best_prior_price_settings.setter
+    def best_prior_price_settings(self, best_prior_price_settings):
+        """Sets the best_prior_price_settings of this Application.
+
+
+        :param best_prior_price_settings: The best_prior_price_settings of this Application.  # noqa: E501
+        :type: BestPriorPriceSettings
+        """
+
+        self._best_prior_price_settings = best_prior_price_settings
 
     @property
     def loyalty_programs(self):

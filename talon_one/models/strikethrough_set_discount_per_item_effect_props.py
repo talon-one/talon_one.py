@@ -64,7 +64,7 @@ class StrikethroughSetDiscountPerItemEffectProps(object):
     def name(self):
         """Gets the name of this StrikethroughSetDiscountPerItemEffectProps.  # noqa: E501
 
-        effect name.  # noqa: E501
+        The effect name.  # noqa: E501
 
         :return: The name of this StrikethroughSetDiscountPerItemEffectProps.  # noqa: E501
         :rtype: str
@@ -75,7 +75,7 @@ class StrikethroughSetDiscountPerItemEffectProps(object):
     def name(self, name):
         """Sets the name of this StrikethroughSetDiscountPerItemEffectProps.
 
-        effect name.  # noqa: E501
+        The effect name.  # noqa: E501
 
         :param name: The name of this StrikethroughSetDiscountPerItemEffectProps.  # noqa: E501
         :type: str
@@ -89,7 +89,7 @@ class StrikethroughSetDiscountPerItemEffectProps(object):
     def value(self):
         """Gets the value of this StrikethroughSetDiscountPerItemEffectProps.  # noqa: E501
 
-        discount value.  # noqa: E501
+        The discount value.  # noqa: E501
 
         :return: The value of this StrikethroughSetDiscountPerItemEffectProps.  # noqa: E501
         :rtype: object
@@ -100,7 +100,7 @@ class StrikethroughSetDiscountPerItemEffectProps(object):
     def value(self, value):
         """Sets the value of this StrikethroughSetDiscountPerItemEffectProps.
 
-        discount value.  # noqa: E501
+        The discount value.  # noqa: E501
 
         :param value: The value of this StrikethroughSetDiscountPerItemEffectProps.  # noqa: E501
         :type: object
@@ -114,6 +114,7 @@ class StrikethroughSetDiscountPerItemEffectProps(object):
     def excluded_from_price_history(self):
         """Gets the excluded_from_price_history of this StrikethroughSetDiscountPerItemEffectProps.  # noqa: E501
 
+        When set to `true`, the applied discount is excluded from the item's price history.  # noqa: E501
 
         :return: The excluded_from_price_history of this StrikethroughSetDiscountPerItemEffectProps.  # noqa: E501
         :rtype: bool
@@ -124,6 +125,7 @@ class StrikethroughSetDiscountPerItemEffectProps(object):
     def excluded_from_price_history(self, excluded_from_price_history):
         """Sets the excluded_from_price_history of this StrikethroughSetDiscountPerItemEffectProps.
 
+        When set to `true`, the applied discount is excluded from the item's price history.  # noqa: E501
 
         :param excluded_from_price_history: The excluded_from_price_history of this StrikethroughSetDiscountPerItemEffectProps.  # noqa: E501
         :type: bool

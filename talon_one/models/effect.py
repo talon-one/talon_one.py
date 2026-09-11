@@ -49,6 +49,7 @@ class Effect(object):
         'selected_price_type': 'str',
         'selected_price': 'float',
         'adjustment_reference_id': 'str',
+        'reward_id': 'int',
         'props': 'object'
     }
 
@@ -69,10 +70,11 @@ class Effect(object):
         'selected_price_type': 'selectedPriceType',
         'selected_price': 'selectedPrice',
         'adjustment_reference_id': 'adjustmentReferenceId',
+        'reward_id': 'rewardId',
         'props': 'props'
     }
 
-    def __init__(self, experiment_id=None, campaign_id=None, ruleset_id=None, rule_index=None, rule_name=None, effect_type=None, triggered_by_coupon=None, triggered_for_catalog_item=None, condition_index=None, evaluation_group_id=None, evaluation_group_mode=None, campaign_revision_id=None, campaign_revision_version_id=None, selected_price_type=None, selected_price=None, adjustment_reference_id=None, props=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, experiment_id=None, campaign_id=None, ruleset_id=None, rule_index=None, rule_name=None, effect_type=None, triggered_by_coupon=None, triggered_for_catalog_item=None, condition_index=None, evaluation_group_id=None, evaluation_group_mode=None, campaign_revision_id=None, campaign_revision_version_id=None, selected_price_type=None, selected_price=None, adjustment_reference_id=None, reward_id=None, props=None, local_vars_configuration=None):  # noqa: E501
         """Effect - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -94,6 +96,7 @@ class Effect(object):
         self._selected_price_type = None
         self._selected_price = None
         self._adjustment_reference_id = None
+        self._reward_id = None
         self._props = None
         self.discriminator = None
 
@@ -124,6 +127,8 @@ class Effect(object):
             self.selected_price = selected_price
         if adjustment_reference_id is not None:
             self.adjustment_reference_id = adjustment_reference_id
+        if reward_id is not None:
+            self.reward_id = reward_id
         self.props = props
 
     @property
@@ -503,6 +508,29 @@ class Effect(object):
         """
 
         self._adjustment_reference_id = adjustment_reference_id
+
+    @property
+    def reward_id(self):
+        """Gets the reward_id of this Effect.  # noqa: E501
+
+        The ID of the reward that was being evaluated when this effect was triggered.  # noqa: E501
+
+        :return: The reward_id of this Effect.  # noqa: E501
+        :rtype: int
+        """
+        return self._reward_id
+
+    @reward_id.setter
+    def reward_id(self, reward_id):
+        """Sets the reward_id of this Effect.
+
+        The ID of the reward that was being evaluated when this effect was triggered.  # noqa: E501
+
+        :param reward_id: The reward_id of this Effect.  # noqa: E501
+        :type: int
+        """
+
+        self._reward_id = reward_id
 
     @property
     def props(self):

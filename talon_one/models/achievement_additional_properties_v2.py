@@ -35,6 +35,7 @@ class AchievementAdditionalPropertiesV2(object):
     openapi_types = {
         'user_id': 'int',
         'created_by': 'str',
+        'period_end_override': 'TimePoint',
         'has_progress': 'bool',
         'status': 'str'
     }
@@ -42,11 +43,12 @@ class AchievementAdditionalPropertiesV2(object):
     attribute_map = {
         'user_id': 'userId',
         'created_by': 'createdBy',
+        'period_end_override': 'periodEndOverride',
         'has_progress': 'hasProgress',
         'status': 'status'
     }
 
-    def __init__(self, user_id=None, created_by=None, has_progress=None, status=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, user_id=None, created_by=None, period_end_override=None, has_progress=None, status=None, local_vars_configuration=None):  # noqa: E501
         """AchievementAdditionalPropertiesV2 - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -54,6 +56,7 @@ class AchievementAdditionalPropertiesV2(object):
 
         self._user_id = None
         self._created_by = None
+        self._period_end_override = None
         self._has_progress = None
         self._status = None
         self.discriminator = None
@@ -61,6 +64,8 @@ class AchievementAdditionalPropertiesV2(object):
         self.user_id = user_id
         if created_by is not None:
             self.created_by = created_by
+        if period_end_override is not None:
+            self.period_end_override = period_end_override
         if has_progress is not None:
             self.has_progress = has_progress
         if status is not None:
@@ -115,6 +120,27 @@ class AchievementAdditionalPropertiesV2(object):
         self._created_by = created_by
 
     @property
+    def period_end_override(self):
+        """Gets the period_end_override of this AchievementAdditionalPropertiesV2.  # noqa: E501
+
+
+        :return: The period_end_override of this AchievementAdditionalPropertiesV2.  # noqa: E501
+        :rtype: TimePoint
+        """
+        return self._period_end_override
+
+    @period_end_override.setter
+    def period_end_override(self, period_end_override):
+        """Sets the period_end_override of this AchievementAdditionalPropertiesV2.
+
+
+        :param period_end_override: The period_end_override of this AchievementAdditionalPropertiesV2.  # noqa: E501
+        :type: TimePoint
+        """
+
+        self._period_end_override = period_end_override
+
+    @property
     def has_progress(self):
         """Gets the has_progress of this AchievementAdditionalPropertiesV2.  # noqa: E501
 
@@ -141,7 +167,7 @@ class AchievementAdditionalPropertiesV2(object):
     def status(self):
         """Gets the status of this AchievementAdditionalPropertiesV2.  # noqa: E501
 
-        The status of the achievement.  # noqa: E501
+        The status of the achievement.                                                                                               - `active`: The achievement is available to customers. - `scheduled`: The achievement has a `fixedStartDate` set in the future. - `expired`: The achievement's `endDate` is in the past.   # noqa: E501
 
         :return: The status of this AchievementAdditionalPropertiesV2.  # noqa: E501
         :rtype: str
@@ -152,12 +178,12 @@ class AchievementAdditionalPropertiesV2(object):
     def status(self, status):
         """Sets the status of this AchievementAdditionalPropertiesV2.
 
-        The status of the achievement.  # noqa: E501
+        The status of the achievement.                                                                                               - `active`: The achievement is available to customers. - `scheduled`: The achievement has a `fixedStartDate` set in the future. - `expired`: The achievement's `endDate` is in the past.   # noqa: E501
 
         :param status: The status of this AchievementAdditionalPropertiesV2.  # noqa: E501
         :type: str
         """
-        allowed_values = ["inprogress", "expired", "not_started", "completed"]  # noqa: E501
+        allowed_values = ["active", "scheduled", "expired"]  # noqa: E501
         if self.local_vars_configuration.client_side_validation and status not in allowed_values:  # noqa: E501
             raise ValueError(
                 "Invalid value for `status` ({0}), must be one of {1}"  # noqa: E501

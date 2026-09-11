@@ -86,7 +86,7 @@ class RollbackAddedLoyaltyPointsEffectProps(object):
     def program_id(self):
         """Gets the program_id of this RollbackAddedLoyaltyPointsEffectProps.  # noqa: E501
 
-        The ID of the loyalty program where the points were originally added.  # noqa: E501
+        The ID of the loyalty program where these points were rolled back.  # noqa: E501
 
         :return: The program_id of this RollbackAddedLoyaltyPointsEffectProps.  # noqa: E501
         :rtype: int
@@ -97,7 +97,7 @@ class RollbackAddedLoyaltyPointsEffectProps(object):
     def program_id(self, program_id):
         """Sets the program_id of this RollbackAddedLoyaltyPointsEffectProps.
 
-        The ID of the loyalty program where the points were originally added.  # noqa: E501
+        The ID of the loyalty program where these points were rolled back.  # noqa: E501
 
         :param program_id: The program_id of this RollbackAddedLoyaltyPointsEffectProps.  # noqa: E501
         :type: int
@@ -111,7 +111,7 @@ class RollbackAddedLoyaltyPointsEffectProps(object):
     def sub_ledger_id(self):
         """Gets the sub_ledger_id of this RollbackAddedLoyaltyPointsEffectProps.  # noqa: E501
 
-        The ID of the subledger within the loyalty program where these points were originally added.  # noqa: E501
+        The ID of the subledger within the loyalty program where these points were rolled back.  # noqa: E501
 
         :return: The sub_ledger_id of this RollbackAddedLoyaltyPointsEffectProps.  # noqa: E501
         :rtype: str
@@ -122,7 +122,7 @@ class RollbackAddedLoyaltyPointsEffectProps(object):
     def sub_ledger_id(self, sub_ledger_id):
         """Sets the sub_ledger_id of this RollbackAddedLoyaltyPointsEffectProps.
 
-        The ID of the subledger within the loyalty program where these points were originally added.  # noqa: E501
+        The ID of the subledger within the loyalty program where these points were rolled back.  # noqa: E501
 
         :param sub_ledger_id: The sub_ledger_id of this RollbackAddedLoyaltyPointsEffectProps.  # noqa: E501
         :type: str
@@ -161,7 +161,7 @@ class RollbackAddedLoyaltyPointsEffectProps(object):
     def recipient_integration_id(self):
         """Gets the recipient_integration_id of this RollbackAddedLoyaltyPointsEffectProps.  # noqa: E501
 
-        The user for whom these points were originally added.  # noqa: E501
+        The user for whom these points were rolled back.  # noqa: E501
 
         :return: The recipient_integration_id of this RollbackAddedLoyaltyPointsEffectProps.  # noqa: E501
         :rtype: str
@@ -172,7 +172,7 @@ class RollbackAddedLoyaltyPointsEffectProps(object):
     def recipient_integration_id(self, recipient_integration_id):
         """Sets the recipient_integration_id of this RollbackAddedLoyaltyPointsEffectProps.
 
-        The user for whom these points were originally added.  # noqa: E501
+        The user for whom these points were rolled back.  # noqa: E501
 
         :param recipient_integration_id: The recipient_integration_id of this RollbackAddedLoyaltyPointsEffectProps.  # noqa: E501
         :type: str
@@ -189,7 +189,7 @@ class RollbackAddedLoyaltyPointsEffectProps(object):
     def transaction_uuid(self):
         """Gets the transaction_uuid of this RollbackAddedLoyaltyPointsEffectProps.  # noqa: E501
 
-        The identifier of 'deduction' entry added to the ledger as the `addLoyaltyPoints` effect is rolled back.  # noqa: E501
+        The identifier of this loyalty point transaction.  # noqa: E501
 
         :return: The transaction_uuid of this RollbackAddedLoyaltyPointsEffectProps.  # noqa: E501
         :rtype: str
@@ -200,7 +200,7 @@ class RollbackAddedLoyaltyPointsEffectProps(object):
     def transaction_uuid(self, transaction_uuid):
         """Sets the transaction_uuid of this RollbackAddedLoyaltyPointsEffectProps.
 
-        The identifier of 'deduction' entry added to the ledger as the `addLoyaltyPoints` effect is rolled back.  # noqa: E501
+        The identifier of this loyalty point transaction.  # noqa: E501
 
         :param transaction_uuid: The transaction_uuid of this RollbackAddedLoyaltyPointsEffectProps.  # noqa: E501
         :type: str
@@ -214,7 +214,7 @@ class RollbackAddedLoyaltyPointsEffectProps(object):
     def cart_item_position(self):
         """Gets the cart_item_position of this RollbackAddedLoyaltyPointsEffectProps.  # noqa: E501
 
-        The index of the item in the cart items for which the loyalty points were rolled back.  # noqa: E501
+        (_Add points per cart item_ only.) The index of the item in the `cartItem` object for which these points were rolled back.  # noqa: E501
 
         :return: The cart_item_position of this RollbackAddedLoyaltyPointsEffectProps.  # noqa: E501
         :rtype: float
@@ -225,7 +225,7 @@ class RollbackAddedLoyaltyPointsEffectProps(object):
     def cart_item_position(self, cart_item_position):
         """Sets the cart_item_position of this RollbackAddedLoyaltyPointsEffectProps.
 
-        The index of the item in the cart items for which the loyalty points were rolled back.  # noqa: E501
+        (_Add points per cart item_ only.) The index of the item in the `cartItem` object for which these points were rolled back.  # noqa: E501
 
         :param cart_item_position: The cart_item_position of this RollbackAddedLoyaltyPointsEffectProps.  # noqa: E501
         :type: float
@@ -237,7 +237,7 @@ class RollbackAddedLoyaltyPointsEffectProps(object):
     def cart_item_sub_position(self):
         """Gets the cart_item_sub_position of this RollbackAddedLoyaltyPointsEffectProps.  # noqa: E501
 
-        For cart items with `quantity` > 1, the sub-position indicates to which item the loyalty points were rolled back.   # noqa: E501
+        (_Add points per cart item_ ) The index of the item unit in its line item.  # noqa: E501
 
         :return: The cart_item_sub_position of this RollbackAddedLoyaltyPointsEffectProps.  # noqa: E501
         :rtype: float
@@ -248,7 +248,7 @@ class RollbackAddedLoyaltyPointsEffectProps(object):
     def cart_item_sub_position(self, cart_item_sub_position):
         """Sets the cart_item_sub_position of this RollbackAddedLoyaltyPointsEffectProps.
 
-        For cart items with `quantity` > 1, the sub-position indicates to which item the loyalty points were rolled back.   # noqa: E501
+        (_Add points per cart item_ ) The index of the item unit in its line item.  # noqa: E501
 
         :param cart_item_sub_position: The cart_item_sub_position of this RollbackAddedLoyaltyPointsEffectProps.  # noqa: E501
         :type: float

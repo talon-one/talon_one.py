@@ -39,6 +39,7 @@ class TestMultipleNewAudiences(unittest.TestCase):
                 audiences = [
                     talon_one.models.new_multiple_audiences_item.NewMultipleAudiencesItem(
                         name = 'Travel audience', 
+                        subscribed_applications_ids = [3, 13], 
                         integration_id = '382370BKDB946', )
                     ]
             )
@@ -47,6 +48,7 @@ class TestMultipleNewAudiences(unittest.TestCase):
                 audiences = [
                     talon_one.models.new_multiple_audiences_item.NewMultipleAudiencesItem(
                         name = 'Travel audience', 
+                        subscribed_applications_ids = [3, 13], 
                         integration_id = '382370BKDB946', )
                     ],
         )

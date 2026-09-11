@@ -36,6 +36,7 @@ class TestRolesV2Thresholds(unittest.TestCase):
         # model = talon_one.models.roles_v2_thresholds.RolesV2Thresholds()  # noqa: E501
         if include_optional :
             return RolesV2Thresholds(
+                loyalty_program_id = 8, 
                 loyalty_points_limit = 100
             )
         else :

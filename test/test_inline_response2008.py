@@ -73,6 +73,8 @@ class TestInlineResponse2008(unittest.TestCase):
                         default_evaluation_group_id = 3, 
                         default_cart_item_filter_id = 3, 
                         enable_campaign_state_management = False, 
+                        best_prior_price_settings = talon_one.models.best_prior_price_settings.BestPriorPriceSettings(
+                            enable_best_prior_price = True, ), 
                         loyalty_programs = [
                             talon_one.models.loyalty_program.LoyaltyProgram(
                                 id = 139, 
@@ -145,6 +147,8 @@ class TestInlineResponse2008(unittest.TestCase):
                         default_evaluation_group_id = 3, 
                         default_cart_item_filter_id = 3, 
                         enable_campaign_state_management = False, 
+                        best_prior_price_settings = talon_one.models.best_prior_price_settings.BestPriorPriceSettings(
+                            enable_best_prior_price = True, ), 
                         loyalty_programs = [
                             talon_one.models.loyalty_program.LoyaltyProgram(
                                 id = 139, 

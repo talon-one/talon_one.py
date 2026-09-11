@@ -40,6 +40,7 @@ class TestLedgerTransactionLogEntryIntegrationAPI(unittest.TestCase):
                 created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                 program_id = 324, 
                 customer_session_id = '05c2da0d-48fa-4aa1-b629-898f58f1584d', 
+                store_integration_id = 'STORE-001', 
                 type = 'addition', 
                 name = 'Reward 10% points of a purchase's current total', 
                 start_date = '2022-01-02T15:04:05Z07:00', 

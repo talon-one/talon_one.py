@@ -79,7 +79,7 @@ class RejectReferralEffectProps(object):
     def value(self):
         """Gets the value of this RejectReferralEffectProps.  # noqa: E501
 
-        The referral code that was rejected.  # noqa: E501
+        The referral code that was rejected  # noqa: E501
 
         :return: The value of this RejectReferralEffectProps.  # noqa: E501
         :rtype: str
@@ -90,7 +90,7 @@ class RejectReferralEffectProps(object):
     def value(self, value):
         """Sets the value of this RejectReferralEffectProps.
 
-        The referral code that was rejected.  # noqa: E501
+        The referral code that was rejected  # noqa: E501
 
         :param value: The value of this RejectReferralEffectProps.  # noqa: E501
         :type: str
@@ -104,7 +104,7 @@ class RejectReferralEffectProps(object):
     def rejection_reason(self):
         """Gets the rejection_reason of this RejectReferralEffectProps.  # noqa: E501
 
-        The reason why this referral code was rejected.  # noqa: E501
+        The reason why the code was rejected.  - `AdvocateNotFound`: The advocate was not found. - `CampaignLimitReached`: The campaign-wide referral code redemption limit has been reached. - `EffectCouldNotBeApplied`: One of the effects in the campaign wasn't applied because a limit for that effect was reached (most common use case will be `setDiscount` can not be applied because a discount limit is reached). - `ProfileLimitReached`: The profile-specific referral code redemption limit has been reached. - `ReferralCustomerAlreadyReferred`: The friend is already referred. - `ReferralExpired`: The transferred referral code is expired. - `ReferralLimitReached`: The referral code redemption limit has been reached. - `ReferralNotFound`: The transferred referral code is wrong. - `ReferralPartOfNotRunningCampaign`: The campaign the referral code belongs to is currently not active. The campaign ID field shows the ID of that campaign. - `ReferralRecipientDoesNotMatch`: The given referral code value does not match the recipient. - `ReferralRecipientIdSameAsAdvocate`: The recipient (friend) has the same id as the advocate. - `ReferralRejectedByCondition`: The referral code is valid and in an active campaign, but there were other conditions in that campaign's rules that were not met. - `ReferralStartDateInFuture`: The transferred referral code isn't active yet. - `ReferralPartOfNotTriggeredCampaign`: The campaign the referral code belongs to was not triggered during evaluation (an exclusive or stackable campaign). The campaign ID field shows the ID of that campaign.  # noqa: E501
 
         :return: The rejection_reason of this RejectReferralEffectProps.  # noqa: E501
         :rtype: str
@@ -115,7 +115,7 @@ class RejectReferralEffectProps(object):
     def rejection_reason(self, rejection_reason):
         """Sets the rejection_reason of this RejectReferralEffectProps.
 
-        The reason why this referral code was rejected.  # noqa: E501
+        The reason why the code was rejected.  - `AdvocateNotFound`: The advocate was not found. - `CampaignLimitReached`: The campaign-wide referral code redemption limit has been reached. - `EffectCouldNotBeApplied`: One of the effects in the campaign wasn't applied because a limit for that effect was reached (most common use case will be `setDiscount` can not be applied because a discount limit is reached). - `ProfileLimitReached`: The profile-specific referral code redemption limit has been reached. - `ReferralCustomerAlreadyReferred`: The friend is already referred. - `ReferralExpired`: The transferred referral code is expired. - `ReferralLimitReached`: The referral code redemption limit has been reached. - `ReferralNotFound`: The transferred referral code is wrong. - `ReferralPartOfNotRunningCampaign`: The campaign the referral code belongs to is currently not active. The campaign ID field shows the ID of that campaign. - `ReferralRecipientDoesNotMatch`: The given referral code value does not match the recipient. - `ReferralRecipientIdSameAsAdvocate`: The recipient (friend) has the same id as the advocate. - `ReferralRejectedByCondition`: The referral code is valid and in an active campaign, but there were other conditions in that campaign's rules that were not met. - `ReferralStartDateInFuture`: The transferred referral code isn't active yet. - `ReferralPartOfNotTriggeredCampaign`: The campaign the referral code belongs to was not triggered during evaluation (an exclusive or stackable campaign). The campaign ID field shows the ID of that campaign.  # noqa: E501
 
         :param rejection_reason: The rejection_reason of this RejectReferralEffectProps.  # noqa: E501
         :type: str
@@ -198,7 +198,7 @@ class RejectReferralEffectProps(object):
     def campaign_exclusion_reason(self):
         """Gets the campaign_exclusion_reason of this RejectReferralEffectProps.  # noqa: E501
 
-        The reason why the campaign was not applied.  # noqa: E501
+        The reason why the campaign the referral belongs to was excluded during [campaign evaluation](https://docs.talon.one/docs/product/applications/manage-campaign-evaluation), when `rejectionReason` was `CouponPartOfNotTriggeredCampaign`. Its possible values are:  - `CampaignGaveLowerDiscount`: The required campaign and referral conditions were met, but another campaign in a [Highest discount value](https://docs.talon.one/docs/product/applications/manage-campaign-evaluation#set-campaign-evaluation-mode) group offered a higher discount value. - `CampaignIsNotFirst`: The campaign was not evaluated because another campaign in a [First campaign](https://docs.talon.one/docs/product/applications/manage-campaign-evaluation#set-campaign-evaluation-mode) group was picked and evaluated first. - `CampaignNotInEvaluationSet`: The campaign did not meet other evaluation requirements, for example, because the referral is part of an archived campaign.  # noqa: E501
 
         :return: The campaign_exclusion_reason of this RejectReferralEffectProps.  # noqa: E501
         :rtype: str
@@ -209,7 +209,7 @@ class RejectReferralEffectProps(object):
     def campaign_exclusion_reason(self, campaign_exclusion_reason):
         """Sets the campaign_exclusion_reason of this RejectReferralEffectProps.
 
-        The reason why the campaign was not applied.  # noqa: E501
+        The reason why the campaign the referral belongs to was excluded during [campaign evaluation](https://docs.talon.one/docs/product/applications/manage-campaign-evaluation), when `rejectionReason` was `CouponPartOfNotTriggeredCampaign`. Its possible values are:  - `CampaignGaveLowerDiscount`: The required campaign and referral conditions were met, but another campaign in a [Highest discount value](https://docs.talon.one/docs/product/applications/manage-campaign-evaluation#set-campaign-evaluation-mode) group offered a higher discount value. - `CampaignIsNotFirst`: The campaign was not evaluated because another campaign in a [First campaign](https://docs.talon.one/docs/product/applications/manage-campaign-evaluation#set-campaign-evaluation-mode) group was picked and evaluated first. - `CampaignNotInEvaluationSet`: The campaign did not meet other evaluation requirements, for example, because the referral is part of an archived campaign.  # noqa: E501
 
         :param campaign_exclusion_reason: The campaign_exclusion_reason of this RejectReferralEffectProps.  # noqa: E501
         :type: str

@@ -36,6 +36,7 @@ class NewAudience(object):
         'name': 'str',
         'sandbox': 'bool',
         'description': 'str',
+        'subscribed_applications_ids': 'list[int]',
         'integration': 'str',
         'integration_id': 'str',
         'created_in3rd_party': 'bool',
@@ -46,13 +47,14 @@ class NewAudience(object):
         'name': 'name',
         'sandbox': 'sandbox',
         'description': 'description',
+        'subscribed_applications_ids': 'subscribedApplicationsIds',
         'integration': 'integration',
         'integration_id': 'integrationId',
         'created_in3rd_party': 'createdIn3rdParty',
         'last_update': 'lastUpdate'
     }
 
-    def __init__(self, name=None, sandbox=None, description=None, integration=None, integration_id=None, created_in3rd_party=None, last_update=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, name=None, sandbox=None, description=None, subscribed_applications_ids=None, integration=None, integration_id=None, created_in3rd_party=None, last_update=None, local_vars_configuration=None):  # noqa: E501
         """NewAudience - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -61,6 +63,7 @@ class NewAudience(object):
         self._name = None
         self._sandbox = None
         self._description = None
+        self._subscribed_applications_ids = None
         self._integration = None
         self._integration_id = None
         self._created_in3rd_party = None
@@ -72,6 +75,8 @@ class NewAudience(object):
             self.sandbox = sandbox
         if description is not None:
             self.description = description
+        if subscribed_applications_ids is not None:
+            self.subscribed_applications_ids = subscribed_applications_ids
         if integration is not None:
             self.integration = integration
         if integration_id is not None:
@@ -154,6 +159,29 @@ class NewAudience(object):
         """
 
         self._description = description
+
+    @property
+    def subscribed_applications_ids(self):
+        """Gets the subscribed_applications_ids of this NewAudience.  # noqa: E501
+
+        A list of the IDs of the Applications that are connected to this audience.  # noqa: E501
+
+        :return: The subscribed_applications_ids of this NewAudience.  # noqa: E501
+        :rtype: list[int]
+        """
+        return self._subscribed_applications_ids
+
+    @subscribed_applications_ids.setter
+    def subscribed_applications_ids(self, subscribed_applications_ids):
+        """Sets the subscribed_applications_ids of this NewAudience.
+
+        A list of the IDs of the Applications that are connected to this audience.  # noqa: E501
+
+        :param subscribed_applications_ids: The subscribed_applications_ids of this NewAudience.  # noqa: E501
+        :type: list[int]
+        """
+
+        self._subscribed_applications_ids = subscribed_applications_ids
 
     @property
     def integration(self):

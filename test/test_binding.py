@@ -36,19 +36,19 @@ class TestBinding(unittest.TestCase):
         # model = talon_one.models.binding.Binding()  # noqa: E501
         if include_optional :
             return Binding(
-                name = 'my property', 
+                name = 'Discount percentage', 
                 type = 'templateParameter', 
-                expression = [string1, string2], 
-                value_type = 'string', 
+                expression = [identity, 10], 
+                value_type = 'number', 
                 min_value = 0.0, 
                 max_value = 19.9, 
                 attribute_id = 100, 
-                description = 'This is a template parameter of type `number`.'
+                description = 'The percentage discount applied to the cart total.'
             )
         else :
             return Binding(
-                name = 'my property',
-                expression = [string1, string2],
+                name = 'Discount percentage',
+                expression = [identity, 10],
         )
 
     def testBinding(self):

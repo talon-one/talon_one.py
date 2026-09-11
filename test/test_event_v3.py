@@ -36,20 +36,30 @@ class TestEventV3(unittest.TestCase):
         # model = talon_one.models.event_v3.EventV3()  # noqa: E501
         if include_optional :
             return EventV3(
+                connected_session_id = '175KJPS947296', 
+                id = 6, 
+                created = '2020-06-10T09:05:27.993483Z', 
+                application_id = 322, 
                 profile_id = 'URNGV8294NV', 
                 store_integration_id = 'STORE-001', 
-                evaluable_campaign_ids = [10, 12], 
-                integration_id = '175KJPS947296', 
                 type = 'pageViewed', 
                 attributes = {"myAttribute":"myValue"}, 
-                connected_session_id = '175KJPS947296', 
-                previous_event_id = '175KJPS947296'
+                integration_id = '175KJPS947296', 
+                referral_code = 'NT2K54D9', 
+                effects = [
+                    None
+                    ]
             )
         else :
             return EventV3(
-                profile_id = 'URNGV8294NV',
-                integration_id = '175KJPS947296',
+                id = 6,
+                created = '2020-06-10T09:05:27.993483Z',
+                application_id = 322,
                 type = 'pageViewed',
+                attributes = {"myAttribute":"myValue"},
+                effects = [
+                    None
+                    ],
         )
 
     def testEventV3(self):

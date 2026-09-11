@@ -160,7 +160,7 @@ class IntegrationEventV2Request(object):
     def type(self):
         """Gets the type of this IntegrationEventV2Request.  # noqa: E501
 
-        A string representing the event name. Must not be a reserved event name. You create this value when you [create an attribute](https://docs.talon.one/docs/dev/concepts/entities/events#creating-a-custom-event) of type `event` in the Campaign Manager.   # noqa: E501
+        The name of the event. Must be a [custom event](https://docs.talon.one/docs/dev/concepts/entities/events#custom-events), not a built-in event.  # noqa: E501
 
         :return: The type of this IntegrationEventV2Request.  # noqa: E501
         :rtype: str
@@ -171,7 +171,7 @@ class IntegrationEventV2Request(object):
     def type(self, type):
         """Sets the type of this IntegrationEventV2Request.
 
-        A string representing the event name. Must not be a reserved event name. You create this value when you [create an attribute](https://docs.talon.one/docs/dev/concepts/entities/events#creating-a-custom-event) of type `event` in the Campaign Manager.   # noqa: E501
+        The name of the event. Must be a [custom event](https://docs.talon.one/docs/dev/concepts/entities/events#custom-events), not a built-in event.  # noqa: E501
 
         :param type: The type of this IntegrationEventV2Request.  # noqa: E501
         :type: str
@@ -227,7 +227,7 @@ class IntegrationEventV2Request(object):
         :param response_content: The response_content of this IntegrationEventV2Request.  # noqa: E501
         :type: list[str]
         """
-        allowed_values = ["customerProfile", "triggeredCampaigns", "loyalty", "event", "awardedGiveaways", "ruleFailureReasons"]  # noqa: E501
+        allowed_values = ["customerProfile", "triggeredCampaigns", "loyalty", "event", "awardedGiveaways", "ruleFailureReasons", "campaignEligibility", "achievements", "unlockedRewards"]  # noqa: E501
         if (self.local_vars_configuration.client_side_validation and
                 not set(response_content).issubset(set(allowed_values))):  # noqa: E501
             raise ValueError(

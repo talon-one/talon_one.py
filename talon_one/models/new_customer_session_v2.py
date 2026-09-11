@@ -39,6 +39,7 @@ class NewCustomerSessionV2(object):
         'coupon_codes': 'list[str]',
         'referral_code': 'str',
         'loyalty_cards': 'list[str]',
+        'reward_integration_ids': 'list[str]',
         'state': 'str',
         'cart_items': 'list[CartItem]',
         'experiment_variant_allocations': 'list[ExperimentVariantAllocation]',
@@ -54,6 +55,7 @@ class NewCustomerSessionV2(object):
         'coupon_codes': 'couponCodes',
         'referral_code': 'referralCode',
         'loyalty_cards': 'loyaltyCards',
+        'reward_integration_ids': 'rewardIntegrationIds',
         'state': 'state',
         'cart_items': 'cartItems',
         'experiment_variant_allocations': 'experimentVariantAllocations',
@@ -62,7 +64,7 @@ class NewCustomerSessionV2(object):
         'attributes': 'attributes'
     }
 
-    def __init__(self, profile_id=None, store_integration_id=None, evaluable_campaign_ids=None, coupon_codes=None, referral_code=None, loyalty_cards=None, state='open', cart_items=None, experiment_variant_allocations=None, additional_costs=None, identifiers=None, attributes=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, profile_id=None, store_integration_id=None, evaluable_campaign_ids=None, coupon_codes=None, referral_code=None, loyalty_cards=None, reward_integration_ids=None, state='open', cart_items=None, experiment_variant_allocations=None, additional_costs=None, identifiers=None, attributes=None, local_vars_configuration=None):  # noqa: E501
         """NewCustomerSessionV2 - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -74,6 +76,7 @@ class NewCustomerSessionV2(object):
         self._coupon_codes = None
         self._referral_code = None
         self._loyalty_cards = None
+        self._reward_integration_ids = None
         self._state = None
         self._cart_items = None
         self._experiment_variant_allocations = None
@@ -94,6 +97,8 @@ class NewCustomerSessionV2(object):
             self.referral_code = referral_code
         if loyalty_cards is not None:
             self.loyalty_cards = loyalty_cards
+        if reward_integration_ids is not None:
+            self.reward_integration_ids = reward_integration_ids
         if state is not None:
             self.state = state
         if cart_items is not None:
@@ -255,10 +260,33 @@ class NewCustomerSessionV2(object):
         self._loyalty_cards = loyalty_cards
 
     @property
+    def reward_integration_ids(self):
+        """Gets the reward_integration_ids of this NewCustomerSessionV2.  # noqa: E501
+
+        The integration IDs of the unlocked rewards that can be used in this session.   # noqa: E501
+
+        :return: The reward_integration_ids of this NewCustomerSessionV2.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._reward_integration_ids
+
+    @reward_integration_ids.setter
+    def reward_integration_ids(self, reward_integration_ids):
+        """Sets the reward_integration_ids of this NewCustomerSessionV2.
+
+        The integration IDs of the unlocked rewards that can be used in this session.   # noqa: E501
+
+        :param reward_integration_ids: The reward_integration_ids of this NewCustomerSessionV2.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._reward_integration_ids = reward_integration_ids
+
+    @property
     def state(self):
         """Gets the state of this NewCustomerSessionV2.  # noqa: E501
 
-        Indicates the current state of the session. Sessions can be created as `open` or `closed`. The state transitions are:  1. `open` → `closed` 2. `open` → `cancelled` 3. Either:    - `closed` → `cancelled` (**only** via [Update customer session](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2)) or    - `closed` → `partially_returned` (**only** via [Return cart items](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/returnCartItems))    - `closed` → `open` (**only** via [Reopen customer session](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/reopenCustomerSession)) 4. `partially_returned` → `cancelled`  For more information, see [Customer session states](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions).   # noqa: E501
+        Indicates the current state of the session. Sessions can be created as `open` or `closed`. The state transitions are:  1. `open` -> `closed` 2. `open` -> `cancelled` 3. Either:    - `closed` -> `cancelled` (**only** via [Update customer session](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2)) or    - `closed` -> `partially_returned` (**only** via [Return cart items](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/returnCartItems))    - `closed` -> `open` (**only** via [Reopen customer session](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/reopenCustomerSession)) 4. `partially_returned` -> `cancelled`  For more information, see [Customer session states](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions).   # noqa: E501
 
         :return: The state of this NewCustomerSessionV2.  # noqa: E501
         :rtype: str
@@ -269,7 +297,7 @@ class NewCustomerSessionV2(object):
     def state(self, state):
         """Sets the state of this NewCustomerSessionV2.
 
-        Indicates the current state of the session. Sessions can be created as `open` or `closed`. The state transitions are:  1. `open` → `closed` 2. `open` → `cancelled` 3. Either:    - `closed` → `cancelled` (**only** via [Update customer session](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2)) or    - `closed` → `partially_returned` (**only** via [Return cart items](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/returnCartItems))    - `closed` → `open` (**only** via [Reopen customer session](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/reopenCustomerSession)) 4. `partially_returned` → `cancelled`  For more information, see [Customer session states](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions).   # noqa: E501
+        Indicates the current state of the session. Sessions can be created as `open` or `closed`. The state transitions are:  1. `open` -> `closed` 2. `open` -> `cancelled` 3. Either:    - `closed` -> `cancelled` (**only** via [Update customer session](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2)) or    - `closed` -> `partially_returned` (**only** via [Return cart items](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/returnCartItems))    - `closed` -> `open` (**only** via [Reopen customer session](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/reopenCustomerSession)) 4. `partially_returned` -> `cancelled`  For more information, see [Customer session states](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions).   # noqa: E501
 
         :param state: The state of this NewCustomerSessionV2.  # noqa: E501
         :type: str

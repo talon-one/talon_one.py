@@ -48,7 +48,8 @@ class NewApplication(object):
         'enable_partial_discounts': 'bool',
         'default_discount_additional_cost_per_item_scope': 'str',
         'key': 'str',
-        'enable_campaign_state_management': 'bool'
+        'enable_campaign_state_management': 'bool',
+        'best_prior_price_settings': 'BestPriorPriceSettings'
     }
 
     attribute_map = {
@@ -67,10 +68,11 @@ class NewApplication(object):
         'enable_partial_discounts': 'enablePartialDiscounts',
         'default_discount_additional_cost_per_item_scope': 'defaultDiscountAdditionalCostPerItemScope',
         'key': 'key',
-        'enable_campaign_state_management': 'enableCampaignStateManagement'
+        'enable_campaign_state_management': 'enableCampaignStateManagement',
+        'best_prior_price_settings': 'bestPriorPriceSettings'
     }
 
-    def __init__(self, name=None, description=None, timezone=None, currency=None, case_sensitivity=None, attributes=None, limits=None, default_discount_scope=None, enable_cascading_discounts=None, enable_flattened_cart_items=None, attributes_settings=None, sandbox=None, enable_partial_discounts=None, default_discount_additional_cost_per_item_scope=None, key=None, enable_campaign_state_management=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, name=None, description=None, timezone=None, currency=None, case_sensitivity=None, attributes=None, limits=None, default_discount_scope=None, enable_cascading_discounts=None, enable_flattened_cart_items=None, attributes_settings=None, sandbox=None, enable_partial_discounts=None, default_discount_additional_cost_per_item_scope=None, key=None, enable_campaign_state_management=None, best_prior_price_settings=None, local_vars_configuration=None):  # noqa: E501
         """NewApplication - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -92,6 +94,7 @@ class NewApplication(object):
         self._default_discount_additional_cost_per_item_scope = None
         self._key = None
         self._enable_campaign_state_management = None
+        self._best_prior_price_settings = None
         self.discriminator = None
 
         self.name = name
@@ -123,6 +126,8 @@ class NewApplication(object):
             self.key = key
         if enable_campaign_state_management is not None:
             self.enable_campaign_state_management = enable_campaign_state_management
+        if best_prior_price_settings is not None:
+            self.best_prior_price_settings = best_prior_price_settings
 
     @property
     def name(self):
@@ -525,6 +530,27 @@ class NewApplication(object):
         """
 
         self._enable_campaign_state_management = enable_campaign_state_management
+
+    @property
+    def best_prior_price_settings(self):
+        """Gets the best_prior_price_settings of this NewApplication.  # noqa: E501
+
+
+        :return: The best_prior_price_settings of this NewApplication.  # noqa: E501
+        :rtype: BestPriorPriceSettings
+        """
+        return self._best_prior_price_settings
+
+    @best_prior_price_settings.setter
+    def best_prior_price_settings(self, best_prior_price_settings):
+        """Sets the best_prior_price_settings of this NewApplication.
+
+
+        :param best_prior_price_settings: The best_prior_price_settings of this NewApplication.  # noqa: E501
+        :type: BestPriorPriceSettings
+        """
+
+        self._best_prior_price_settings = best_prior_price_settings
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -89,7 +89,7 @@ class AddFreeItemEffectProps(object):
     def name(self):
         """Gets the name of this AddFreeItemEffectProps.  # noqa: E501
 
-        The name / description of the effect  # noqa: E501
+        Description of the effect.  # noqa: E501
 
         :return: The name of this AddFreeItemEffectProps.  # noqa: E501
         :rtype: str
@@ -100,7 +100,7 @@ class AddFreeItemEffectProps(object):
     def name(self, name):
         """Sets the name of this AddFreeItemEffectProps.
 
-        The name / description of the effect  # noqa: E501
+        Description of the effect.  # noqa: E501
 
         :param name: The name of this AddFreeItemEffectProps.  # noqa: E501
         :type: str

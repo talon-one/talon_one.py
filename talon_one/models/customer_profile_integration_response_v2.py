@@ -38,7 +38,9 @@ class CustomerProfileIntegrationResponseV2(object):
         'loyalty': 'Loyalty',
         'triggered_campaigns': 'list[Campaign]',
         'rule_failure_reasons': 'list[RuleFailureReason]',
+        'campaign_eligibility': 'list[CampaignEligibility]',
         'awarded_giveaways': 'list[Giveaway]',
+        'rewards': 'list[RewardWithUnlocks]',
         'effects': 'list[Effect]',
         'created_coupons': 'list[Coupon]',
         'created_referrals': 'list[Referral]'
@@ -50,13 +52,15 @@ class CustomerProfileIntegrationResponseV2(object):
         'loyalty': 'loyalty',
         'triggered_campaigns': 'triggeredCampaigns',
         'rule_failure_reasons': 'ruleFailureReasons',
+        'campaign_eligibility': 'campaignEligibility',
         'awarded_giveaways': 'awardedGiveaways',
+        'rewards': 'rewards',
         'effects': 'effects',
         'created_coupons': 'createdCoupons',
         'created_referrals': 'createdReferrals'
     }
 
-    def __init__(self, customer_profile=None, event=None, loyalty=None, triggered_campaigns=None, rule_failure_reasons=None, awarded_giveaways=None, effects=None, created_coupons=None, created_referrals=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, customer_profile=None, event=None, loyalty=None, triggered_campaigns=None, rule_failure_reasons=None, campaign_eligibility=None, awarded_giveaways=None, rewards=None, effects=None, created_coupons=None, created_referrals=None, local_vars_configuration=None):  # noqa: E501
         """CustomerProfileIntegrationResponseV2 - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -67,7 +71,9 @@ class CustomerProfileIntegrationResponseV2(object):
         self._loyalty = None
         self._triggered_campaigns = None
         self._rule_failure_reasons = None
+        self._campaign_eligibility = None
         self._awarded_giveaways = None
+        self._rewards = None
         self._effects = None
         self._created_coupons = None
         self._created_referrals = None
@@ -83,8 +89,12 @@ class CustomerProfileIntegrationResponseV2(object):
             self.triggered_campaigns = triggered_campaigns
         if rule_failure_reasons is not None:
             self.rule_failure_reasons = rule_failure_reasons
+        if campaign_eligibility is not None:
+            self.campaign_eligibility = campaign_eligibility
         if awarded_giveaways is not None:
             self.awarded_giveaways = awarded_giveaways
+        if rewards is not None:
+            self.rewards = rewards
         self.effects = effects
         self.created_coupons = created_coupons
         self.created_referrals = created_referrals
@@ -195,6 +205,27 @@ class CustomerProfileIntegrationResponseV2(object):
         self._rule_failure_reasons = rule_failure_reasons
 
     @property
+    def campaign_eligibility(self):
+        """Gets the campaign_eligibility of this CustomerProfileIntegrationResponseV2.  # noqa: E501
+
+
+        :return: The campaign_eligibility of this CustomerProfileIntegrationResponseV2.  # noqa: E501
+        :rtype: list[CampaignEligibility]
+        """
+        return self._campaign_eligibility
+
+    @campaign_eligibility.setter
+    def campaign_eligibility(self, campaign_eligibility):
+        """Sets the campaign_eligibility of this CustomerProfileIntegrationResponseV2.
+
+
+        :param campaign_eligibility: The campaign_eligibility of this CustomerProfileIntegrationResponseV2.  # noqa: E501
+        :type: list[CampaignEligibility]
+        """
+
+        self._campaign_eligibility = campaign_eligibility
+
+    @property
     def awarded_giveaways(self):
         """Gets the awarded_giveaways of this CustomerProfileIntegrationResponseV2.  # noqa: E501
 
@@ -214,6 +245,29 @@ class CustomerProfileIntegrationResponseV2(object):
         """
 
         self._awarded_giveaways = awarded_giveaways
+
+    @property
+    def rewards(self):
+        """Gets the rewards of this CustomerProfileIntegrationResponseV2.  # noqa: E501
+
+        The rewards for the customer profile.  # noqa: E501
+
+        :return: The rewards of this CustomerProfileIntegrationResponseV2.  # noqa: E501
+        :rtype: list[RewardWithUnlocks]
+        """
+        return self._rewards
+
+    @rewards.setter
+    def rewards(self, rewards):
+        """Sets the rewards of this CustomerProfileIntegrationResponseV2.
+
+        The rewards for the customer profile.  # noqa: E501
+
+        :param rewards: The rewards of this CustomerProfileIntegrationResponseV2.  # noqa: E501
+        :type: list[RewardWithUnlocks]
+        """
+
+        self._rewards = rewards
 
     @property
     def effects(self):

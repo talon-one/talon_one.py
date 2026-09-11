@@ -33,24 +33,52 @@ class RolesV2Thresholds(object):
                             and the value is json key in definition.
     """
     openapi_types = {
+        'loyalty_program_id': 'int',
         'loyalty_points_limit': 'int'
     }
 
     attribute_map = {
+        'loyalty_program_id': 'loyaltyProgramId',
         'loyalty_points_limit': 'loyaltyPointsLimit'
     }
 
-    def __init__(self, loyalty_points_limit=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, loyalty_program_id=None, loyalty_points_limit=None, local_vars_configuration=None):  # noqa: E501
         """RolesV2Thresholds - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
+        self._loyalty_program_id = None
         self._loyalty_points_limit = None
         self.discriminator = None
 
+        if loyalty_program_id is not None:
+            self.loyalty_program_id = loyalty_program_id
         if loyalty_points_limit is not None:
             self.loyalty_points_limit = loyalty_points_limit
+
+    @property
+    def loyalty_program_id(self):
+        """Gets the loyalty_program_id of this RolesV2Thresholds.  # noqa: E501
+
+        Identifier of the loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  # noqa: E501
+
+        :return: The loyalty_program_id of this RolesV2Thresholds.  # noqa: E501
+        :rtype: int
+        """
+        return self._loyalty_program_id
+
+    @loyalty_program_id.setter
+    def loyalty_program_id(self, loyalty_program_id):
+        """Sets the loyalty_program_id of this RolesV2Thresholds.
+
+        Identifier of the loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  # noqa: E501
+
+        :param loyalty_program_id: The loyalty_program_id of this RolesV2Thresholds.  # noqa: E501
+        :type: int
+        """
+
+        self._loyalty_program_id = loyalty_program_id
 
     @property
     def loyalty_points_limit(self):

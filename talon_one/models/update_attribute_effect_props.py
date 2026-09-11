@@ -59,7 +59,7 @@ class UpdateAttributeEffectProps(object):
     def path(self):
         """Gets the path of this UpdateAttributeEffectProps.  # noqa: E501
 
-        The exact path of the attribute that was updated.  # noqa: E501
+        The entity type and the attribute name.  # noqa: E501
 
         :return: The path of this UpdateAttributeEffectProps.  # noqa: E501
         :rtype: str
@@ -70,7 +70,7 @@ class UpdateAttributeEffectProps(object):
     def path(self, path):
         """Sets the path of this UpdateAttributeEffectProps.
 
-        The exact path of the attribute that was updated.  # noqa: E501
+        The entity type and the attribute name.  # noqa: E501
 
         :param path: The path of this UpdateAttributeEffectProps.  # noqa: E501
         :type: str
@@ -84,7 +84,7 @@ class UpdateAttributeEffectProps(object):
     def value(self):
         """Gets the value of this UpdateAttributeEffectProps.  # noqa: E501
 
-        The new value of this attribute. The value can be of the following types: - boolean - location - number - string - time - list of any of those types   # noqa: E501
+        The new value of the attribute.  # noqa: E501
 
         :return: The value of this UpdateAttributeEffectProps.  # noqa: E501
         :rtype: object
@@ -95,7 +95,7 @@ class UpdateAttributeEffectProps(object):
     def value(self, value):
         """Sets the value of this UpdateAttributeEffectProps.
 
-        The new value of this attribute. The value can be of the following types: - boolean - location - number - string - time - list of any of those types   # noqa: E501
+        The new value of the attribute.  # noqa: E501
 
         :param value: The value of this UpdateAttributeEffectProps.  # noqa: E501
         :type: object

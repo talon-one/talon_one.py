@@ -81,7 +81,7 @@ class SetDiscountPerAdditionalCostPerItemEffectProps(object):
     def name(self):
         """Gets the name of this SetDiscountPerAdditionalCostPerItemEffectProps.  # noqa: E501
 
-        The name / description of this discount  # noqa: E501
+        The description of this discount. `#number` is appended to the name. It is equal to the `position` property.  # noqa: E501
 
         :return: The name of this SetDiscountPerAdditionalCostPerItemEffectProps.  # noqa: E501
         :rtype: str
@@ -92,7 +92,7 @@ class SetDiscountPerAdditionalCostPerItemEffectProps(object):
     def name(self, name):
         """Sets the name of this SetDiscountPerAdditionalCostPerItemEffectProps.
 
-        The name / description of this discount  # noqa: E501
+        The description of this discount. `#number` is appended to the name. It is equal to the `position` property.  # noqa: E501
 
         :param name: The name of this SetDiscountPerAdditionalCostPerItemEffectProps.  # noqa: E501
         :type: str
@@ -106,7 +106,7 @@ class SetDiscountPerAdditionalCostPerItemEffectProps(object):
     def additional_cost_id(self):
         """Gets the additional_cost_id of this SetDiscountPerAdditionalCostPerItemEffectProps.  # noqa: E501
 
-        The ID of the additional cost.  # noqa: E501
+        The identifier of the additional cost to be discounted.  # noqa: E501
 
         :return: The additional_cost_id of this SetDiscountPerAdditionalCostPerItemEffectProps.  # noqa: E501
         :rtype: int
@@ -117,7 +117,7 @@ class SetDiscountPerAdditionalCostPerItemEffectProps(object):
     def additional_cost_id(self, additional_cost_id):
         """Sets the additional_cost_id of this SetDiscountPerAdditionalCostPerItemEffectProps.
 
-        The ID of the additional cost.  # noqa: E501
+        The identifier of the additional cost to be discounted.  # noqa: E501
 
         :param additional_cost_id: The additional_cost_id of this SetDiscountPerAdditionalCostPerItemEffectProps.  # noqa: E501
         :type: int
@@ -131,7 +131,7 @@ class SetDiscountPerAdditionalCostPerItemEffectProps(object):
     def value(self):
         """Gets the value of this SetDiscountPerAdditionalCostPerItemEffectProps.  # noqa: E501
 
-        The total monetary value of the discount.  # noqa: E501
+        The monetary value of the effective discount applied to the item's additional cost.  # noqa: E501
 
         :return: The value of this SetDiscountPerAdditionalCostPerItemEffectProps.  # noqa: E501
         :rtype: float
@@ -142,7 +142,7 @@ class SetDiscountPerAdditionalCostPerItemEffectProps(object):
     def value(self, value):
         """Sets the value of this SetDiscountPerAdditionalCostPerItemEffectProps.
 
-        The total monetary value of the discount.  # noqa: E501
+        The monetary value of the effective discount applied to the item's additional cost.  # noqa: E501
 
         :param value: The value of this SetDiscountPerAdditionalCostPerItemEffectProps.  # noqa: E501
         :type: float
@@ -156,7 +156,7 @@ class SetDiscountPerAdditionalCostPerItemEffectProps(object):
     def position(self):
         """Gets the position of this SetDiscountPerAdditionalCostPerItemEffectProps.  # noqa: E501
 
-        The index of the item in the cart item list containing the additional cost to be discounted.  # noqa: E501
+        The index of the item in the `cartItem` object containing the additional cost that this discount applies to.  # noqa: E501
 
         :return: The position of this SetDiscountPerAdditionalCostPerItemEffectProps.  # noqa: E501
         :rtype: float
@@ -167,7 +167,7 @@ class SetDiscountPerAdditionalCostPerItemEffectProps(object):
     def position(self, position):
         """Sets the position of this SetDiscountPerAdditionalCostPerItemEffectProps.
 
-        The index of the item in the cart item list containing the additional cost to be discounted.  # noqa: E501
+        The index of the item in the `cartItem` object containing the additional cost that this discount applies to.  # noqa: E501
 
         :param position: The position of this SetDiscountPerAdditionalCostPerItemEffectProps.  # noqa: E501
         :type: float
@@ -181,7 +181,7 @@ class SetDiscountPerAdditionalCostPerItemEffectProps(object):
     def sub_position(self):
         """Gets the sub_position of this SetDiscountPerAdditionalCostPerItemEffectProps.  # noqa: E501
 
-        For cart items with `quantity` > 1, the sub position indicates which item the discount applies to.   # noqa: E501
+        The index of the item unit in its line item.  # noqa: E501
 
         :return: The sub_position of this SetDiscountPerAdditionalCostPerItemEffectProps.  # noqa: E501
         :rtype: float
@@ -192,7 +192,7 @@ class SetDiscountPerAdditionalCostPerItemEffectProps(object):
     def sub_position(self, sub_position):
         """Sets the sub_position of this SetDiscountPerAdditionalCostPerItemEffectProps.
 
-        For cart items with `quantity` > 1, the sub position indicates which item the discount applies to.   # noqa: E501
+        The index of the item unit in its line item.  # noqa: E501
 
         :param sub_position: The sub_position of this SetDiscountPerAdditionalCostPerItemEffectProps.  # noqa: E501
         :type: float
@@ -204,7 +204,7 @@ class SetDiscountPerAdditionalCostPerItemEffectProps(object):
     def additional_cost(self):
         """Gets the additional_cost of this SetDiscountPerAdditionalCostPerItemEffectProps.  # noqa: E501
 
-        The name of the additional cost.  # noqa: E501
+        The API name of the additional cost to be discounted.  # noqa: E501
 
         :return: The additional_cost of this SetDiscountPerAdditionalCostPerItemEffectProps.  # noqa: E501
         :rtype: str
@@ -215,7 +215,7 @@ class SetDiscountPerAdditionalCostPerItemEffectProps(object):
     def additional_cost(self, additional_cost):
         """Sets the additional_cost of this SetDiscountPerAdditionalCostPerItemEffectProps.
 
-        The name of the additional cost.  # noqa: E501
+        The API name of the additional cost to be discounted.  # noqa: E501
 
         :param additional_cost: The additional_cost of this SetDiscountPerAdditionalCostPerItemEffectProps.  # noqa: E501
         :type: str
@@ -229,7 +229,7 @@ class SetDiscountPerAdditionalCostPerItemEffectProps(object):
     def desired_value(self):
         """Gets the desired_value of this SetDiscountPerAdditionalCostPerItemEffectProps.  # noqa: E501
 
-        Only with [partial discounts enabled](https://docs.talon.one/docs/product/campaigns/campaign-evaluation/#partial-discounts). Represents the monetary value of the discount to be applied to additional discount without considering budget limitations.   # noqa: E501
+        _[(Partial discounts enabled only)](https://docs.talon.one/docs/product/applications/manage-general-settings#partial-discounts)_. The monetary value of the discount to be applied to the additional cost without considering budget limitations.  # noqa: E501
 
         :return: The desired_value of this SetDiscountPerAdditionalCostPerItemEffectProps.  # noqa: E501
         :rtype: float
@@ -240,7 +240,7 @@ class SetDiscountPerAdditionalCostPerItemEffectProps(object):
     def desired_value(self, desired_value):
         """Sets the desired_value of this SetDiscountPerAdditionalCostPerItemEffectProps.
 
-        Only with [partial discounts enabled](https://docs.talon.one/docs/product/campaigns/campaign-evaluation/#partial-discounts). Represents the monetary value of the discount to be applied to additional discount without considering budget limitations.   # noqa: E501
+        _[(Partial discounts enabled only)](https://docs.talon.one/docs/product/applications/manage-general-settings#partial-discounts)_. The monetary value of the discount to be applied to the additional cost without considering budget limitations.  # noqa: E501
 
         :param desired_value: The desired_value of this SetDiscountPerAdditionalCostPerItemEffectProps.  # noqa: E501
         :type: float

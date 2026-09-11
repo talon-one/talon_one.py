@@ -33,6 +33,7 @@ class IntegrationHubEventPayloadCouponBasedNotifications(object):
                             and the value is json key in definition.
     """
     openapi_types = {
+        'event_id': 'int',
         'id': 'int',
         'created': 'datetime',
         'campaign_id': 'int',
@@ -57,6 +58,7 @@ class IntegrationHubEventPayloadCouponBasedNotifications(object):
     }
 
     attribute_map = {
+        'event_id': 'EventId',
         'id': 'Id',
         'created': 'Created',
         'campaign_id': 'CampaignId',
@@ -80,12 +82,13 @@ class IntegrationHubEventPayloadCouponBasedNotifications(object):
         'employee_name': 'EmployeeName'
     }
 
-    def __init__(self, id=None, created=None, campaign_id=None, value=None, usage_limit=None, discount_limit=None, reservation_limit=None, start_date=None, expiry_date=None, usage_counter=None, discount_counter=None, discount_remainder=None, referral_id=None, recipient_integration_id=None, import_id=None, batch_id=None, attributes=None, limits=None, published_at=None, source_of_event=None, employee_name=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, event_id=None, id=None, created=None, campaign_id=None, value=None, usage_limit=None, discount_limit=None, reservation_limit=None, start_date=None, expiry_date=None, usage_counter=None, discount_counter=None, discount_remainder=None, referral_id=None, recipient_integration_id=None, import_id=None, batch_id=None, attributes=None, limits=None, published_at=None, source_of_event=None, employee_name=None, local_vars_configuration=None):  # noqa: E501
         """IntegrationHubEventPayloadCouponBasedNotifications - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
+        self._event_id = None
         self._id = None
         self._created = None
         self._campaign_id = None
@@ -109,6 +112,7 @@ class IntegrationHubEventPayloadCouponBasedNotifications(object):
         self._employee_name = None
         self.discriminator = None
 
+        self.event_id = event_id
         self.id = id
         self.created = created
         self.campaign_id = campaign_id
@@ -142,6 +146,31 @@ class IntegrationHubEventPayloadCouponBasedNotifications(object):
         self.published_at = published_at
         self.source_of_event = source_of_event
         self.employee_name = employee_name
+
+    @property
+    def event_id(self):
+        """Gets the event_id of this IntegrationHubEventPayloadCouponBasedNotifications.  # noqa: E501
+
+        The ID of the integration hub event. Return this value in the delivery-status callback to mark the event delivered or failed.  # noqa: E501
+
+        :return: The event_id of this IntegrationHubEventPayloadCouponBasedNotifications.  # noqa: E501
+        :rtype: int
+        """
+        return self._event_id
+
+    @event_id.setter
+    def event_id(self, event_id):
+        """Sets the event_id of this IntegrationHubEventPayloadCouponBasedNotifications.
+
+        The ID of the integration hub event. Return this value in the delivery-status callback to mark the event delivered or failed.  # noqa: E501
+
+        :param event_id: The event_id of this IntegrationHubEventPayloadCouponBasedNotifications.  # noqa: E501
+        :type: int
+        """
+        if self.local_vars_configuration.client_side_validation and event_id is None:  # noqa: E501
+            raise ValueError("Invalid value for `event_id`, must not be `None`")  # noqa: E501
+
+        self._event_id = event_id
 
     @property
     def id(self):

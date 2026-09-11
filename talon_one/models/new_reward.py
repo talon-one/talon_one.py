@@ -37,7 +37,11 @@ class NewReward(object):
         'api_name': 'str',
         'description': 'str',
         'application_ids': 'list[int]',
-        'sandbox': 'bool'
+        'sandbox': 'bool',
+        'eligibility_conditions': 'Rule',
+        'rule': 'Rule',
+        'bindings': 'list[Binding]',
+        'points_required': 'list[RewardPointsRequired]'
     }
 
     attribute_map = {
@@ -45,10 +49,14 @@ class NewReward(object):
         'api_name': 'apiName',
         'description': 'description',
         'application_ids': 'applicationIds',
-        'sandbox': 'sandbox'
+        'sandbox': 'sandbox',
+        'eligibility_conditions': 'eligibilityConditions',
+        'rule': 'rule',
+        'bindings': 'bindings',
+        'points_required': 'pointsRequired'
     }
 
-    def __init__(self, name=None, api_name=None, description=None, application_ids=None, sandbox=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, name=None, api_name=None, description=None, application_ids=None, sandbox=None, eligibility_conditions=None, rule=None, bindings=None, points_required=None, local_vars_configuration=None):  # noqa: E501
         """NewReward - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -59,6 +67,10 @@ class NewReward(object):
         self._description = None
         self._application_ids = None
         self._sandbox = None
+        self._eligibility_conditions = None
+        self._rule = None
+        self._bindings = None
+        self._points_required = None
         self.discriminator = None
 
         self.name = name
@@ -67,6 +79,14 @@ class NewReward(object):
             self.description = description
         self.application_ids = application_ids
         self.sandbox = sandbox
+        if eligibility_conditions is not None:
+            self.eligibility_conditions = eligibility_conditions
+        if rule is not None:
+            self.rule = rule
+        if bindings is not None:
+            self.bindings = bindings
+        if points_required is not None:
+            self.points_required = points_required
 
     @property
     def name(self):
@@ -196,6 +216,94 @@ class NewReward(object):
             raise ValueError("Invalid value for `sandbox`, must not be `None`")  # noqa: E501
 
         self._sandbox = sandbox
+
+    @property
+    def eligibility_conditions(self):
+        """Gets the eligibility_conditions of this NewReward.  # noqa: E501
+
+
+        :return: The eligibility_conditions of this NewReward.  # noqa: E501
+        :rtype: Rule
+        """
+        return self._eligibility_conditions
+
+    @eligibility_conditions.setter
+    def eligibility_conditions(self, eligibility_conditions):
+        """Sets the eligibility_conditions of this NewReward.
+
+
+        :param eligibility_conditions: The eligibility_conditions of this NewReward.  # noqa: E501
+        :type: Rule
+        """
+
+        self._eligibility_conditions = eligibility_conditions
+
+    @property
+    def rule(self):
+        """Gets the rule of this NewReward.  # noqa: E501
+
+
+        :return: The rule of this NewReward.  # noqa: E501
+        :rtype: Rule
+        """
+        return self._rule
+
+    @rule.setter
+    def rule(self, rule):
+        """Sets the rule of this NewReward.
+
+
+        :param rule: The rule of this NewReward.  # noqa: E501
+        :type: Rule
+        """
+
+        self._rule = rule
+
+    @property
+    def bindings(self):
+        """Gets the bindings of this NewReward.  # noqa: E501
+
+        A list of named variables created before the reward's rules are evaluated. Each binding pairs a name with a talang expression. The expression is evaluated once and its result is available by name in any rule condition or effect. Bindings must be defined outside of individual rules.  # noqa: E501
+
+        :return: The bindings of this NewReward.  # noqa: E501
+        :rtype: list[Binding]
+        """
+        return self._bindings
+
+    @bindings.setter
+    def bindings(self, bindings):
+        """Sets the bindings of this NewReward.
+
+        A list of named variables created before the reward's rules are evaluated. Each binding pairs a name with a talang expression. The expression is evaluated once and its result is available by name in any rule condition or effect. Bindings must be defined outside of individual rules.  # noqa: E501
+
+        :param bindings: The bindings of this NewReward.  # noqa: E501
+        :type: list[Binding]
+        """
+
+        self._bindings = bindings
+
+    @property
+    def points_required(self):
+        """Gets the points_required of this NewReward.  # noqa: E501
+
+        The loyalty points required to activate the reward. Each object defines the specific loyalty program and subledger from which points are deducted when activating the reward.  **Note:** When creating a reward, the `id` of each entry is ignored and a new entry is always created.   # noqa: E501
+
+        :return: The points_required of this NewReward.  # noqa: E501
+        :rtype: list[RewardPointsRequired]
+        """
+        return self._points_required
+
+    @points_required.setter
+    def points_required(self, points_required):
+        """Sets the points_required of this NewReward.
+
+        The loyalty points required to activate the reward. Each object defines the specific loyalty program and subledger from which points are deducted when activating the reward.  **Note:** When creating a reward, the `id` of each entry is ignored and a new entry is always created.   # noqa: E501
+
+        :param points_required: The points_required of this NewReward.  # noqa: E501
+        :type: list[RewardPointsRequired]
+        """
+
+        self._points_required = points_required
 
     def to_dict(self):
         """Returns the model properties as a dict"""

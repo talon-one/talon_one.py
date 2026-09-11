@@ -42,6 +42,7 @@ class TestApplicationEvent(unittest.TestCase):
                 profile_id = 138, 
                 store_id = 56, 
                 store_integration_id = 'STORE-001', 
+                integration_id = '175KJPS947296', 
                 session_id = 56, 
                 type = '0', 
                 attributes = None, 
@@ -63,6 +64,7 @@ class TestApplicationEvent(unittest.TestCase):
                         selected_price_type = 'member', 
                         selected_price = 100.0, 
                         adjustment_reference_id = '68851723-e6fa-488f-ace9-112581e6c19b', 
+                        reward_id = 7, 
                         props = talon_one.models.props.props(), )
                     ], 
                 rule_failure_reasons = [
@@ -74,6 +76,8 @@ class TestApplicationEvent(unittest.TestCase):
                         coupon_value = '0', 
                         referral_id = 56, 
                         referral_value = '0', 
+                        reward_id = 7, 
+                        reward_integration_id = '5c0b5e6d-3f8a-4c2b-9f1e-2a7d6b4c8e90', 
                         rule_index = 56, 
                         rule_name = '0', 
                         condition_index = 56, 
@@ -108,6 +112,7 @@ class TestApplicationEvent(unittest.TestCase):
                         selected_price_type = 'member', 
                         selected_price = 100.0, 
                         adjustment_reference_id = '68851723-e6fa-488f-ace9-112581e6c19b', 
+                        reward_id = 7, 
                         props = talon_one.models.props.props(), )
                     ],
         )

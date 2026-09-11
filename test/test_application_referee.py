@@ -38,6 +38,7 @@ class TestApplicationReferee(unittest.TestCase):
             return ApplicationReferee(
                 application_id = 322, 
                 session_id = '0', 
+                advanced_event_integration_id = 'advanced_event_1234', 
                 advocate_integration_id = '0', 
                 friend_integration_id = '0', 
                 code = '0', 

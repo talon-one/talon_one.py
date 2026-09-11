@@ -49,7 +49,8 @@ class UpdateApplication(object):
         'default_discount_additional_cost_per_item_scope': 'str',
         'default_evaluation_group_id': 'int',
         'default_cart_item_filter_id': 'int',
-        'enable_campaign_state_management': 'bool'
+        'enable_campaign_state_management': 'bool',
+        'best_prior_price_settings': 'BestPriorPriceSettings'
     }
 
     attribute_map = {
@@ -69,10 +70,11 @@ class UpdateApplication(object):
         'default_discount_additional_cost_per_item_scope': 'defaultDiscountAdditionalCostPerItemScope',
         'default_evaluation_group_id': 'defaultEvaluationGroupId',
         'default_cart_item_filter_id': 'defaultCartItemFilterId',
-        'enable_campaign_state_management': 'enableCampaignStateManagement'
+        'enable_campaign_state_management': 'enableCampaignStateManagement',
+        'best_prior_price_settings': 'bestPriorPriceSettings'
     }
 
-    def __init__(self, name=None, description=None, timezone=None, currency=None, case_sensitivity=None, attributes=None, limits=None, default_discount_scope=None, enable_cascading_discounts=None, enable_flattened_cart_items=None, attributes_settings=None, sandbox=None, enable_partial_discounts=None, default_discount_additional_cost_per_item_scope=None, default_evaluation_group_id=None, default_cart_item_filter_id=None, enable_campaign_state_management=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, name=None, description=None, timezone=None, currency=None, case_sensitivity=None, attributes=None, limits=None, default_discount_scope=None, enable_cascading_discounts=None, enable_flattened_cart_items=None, attributes_settings=None, sandbox=None, enable_partial_discounts=None, default_discount_additional_cost_per_item_scope=None, default_evaluation_group_id=None, default_cart_item_filter_id=None, enable_campaign_state_management=None, best_prior_price_settings=None, local_vars_configuration=None):  # noqa: E501
         """UpdateApplication - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -95,6 +97,7 @@ class UpdateApplication(object):
         self._default_evaluation_group_id = None
         self._default_cart_item_filter_id = None
         self._enable_campaign_state_management = None
+        self._best_prior_price_settings = None
         self.discriminator = None
 
         self.name = name
@@ -128,6 +131,8 @@ class UpdateApplication(object):
             self.default_cart_item_filter_id = default_cart_item_filter_id
         if enable_campaign_state_management is not None:
             self.enable_campaign_state_management = enable_campaign_state_management
+        if best_prior_price_settings is not None:
+            self.best_prior_price_settings = best_prior_price_settings
 
     @property
     def name(self):
@@ -550,6 +555,27 @@ class UpdateApplication(object):
         """
 
         self._enable_campaign_state_management = enable_campaign_state_management
+
+    @property
+    def best_prior_price_settings(self):
+        """Gets the best_prior_price_settings of this UpdateApplication.  # noqa: E501
+
+
+        :return: The best_prior_price_settings of this UpdateApplication.  # noqa: E501
+        :rtype: BestPriorPriceSettings
+        """
+        return self._best_prior_price_settings
+
+    @best_prior_price_settings.setter
+    def best_prior_price_settings(self, best_prior_price_settings):
+        """Sets the best_prior_price_settings of this UpdateApplication.
+
+
+        :param best_prior_price_settings: The best_prior_price_settings of this UpdateApplication.  # noqa: E501
+        :type: BestPriorPriceSettings
+        """
+
+        self._best_prior_price_settings = best_prior_price_settings
 
     def to_dict(self):
         """Returns the model properties as a dict"""

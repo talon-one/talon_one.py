@@ -64,7 +64,9 @@ class TestNewApplication(unittest.TestCase):
                 enable_partial_discounts = False, 
                 default_discount_additional_cost_per_item_scope = 'price', 
                 key = 'a', 
-                enable_campaign_state_management = False
+                enable_campaign_state_management = False, 
+                best_prior_price_settings = talon_one.models.best_prior_price_settings.BestPriorPriceSettings(
+                    enable_best_prior_price = True, )
             )
         else :
             return NewApplication(

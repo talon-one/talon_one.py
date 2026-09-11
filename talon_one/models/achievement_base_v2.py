@@ -43,9 +43,7 @@ class AchievementBaseV2(object):
         'fixed_start_date': 'datetime',
         'end_date': 'datetime',
         'allow_rollback_after_completion': 'bool',
-        'sandbox': 'bool',
-        'subscribed_applications': 'list[int]',
-        'timezone': 'str'
+        'subscribed_applications': 'list[int]'
     }
 
     attribute_map = {
@@ -59,12 +57,10 @@ class AchievementBaseV2(object):
         'fixed_start_date': 'fixedStartDate',
         'end_date': 'endDate',
         'allow_rollback_after_completion': 'allowRollbackAfterCompletion',
-        'sandbox': 'sandbox',
-        'subscribed_applications': 'subscribedApplications',
-        'timezone': 'timezone'
+        'subscribed_applications': 'subscribedApplications'
     }
 
-    def __init__(self, name=None, title=None, description=None, target=None, period=None, recurrence_policy=None, activation_policy=None, fixed_start_date=None, end_date=None, allow_rollback_after_completion=None, sandbox=None, subscribed_applications=None, timezone=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, name=None, title=None, description=None, target=None, period=None, recurrence_policy=None, activation_policy=None, fixed_start_date=None, end_date=None, allow_rollback_after_completion=None, subscribed_applications=None, local_vars_configuration=None):  # noqa: E501
         """AchievementBaseV2 - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -80,9 +76,7 @@ class AchievementBaseV2(object):
         self._fixed_start_date = None
         self._end_date = None
         self._allow_rollback_after_completion = None
-        self._sandbox = None
         self._subscribed_applications = None
-        self._timezone = None
         self.discriminator = None
 
         if name is not None:
@@ -105,12 +99,8 @@ class AchievementBaseV2(object):
             self.end_date = end_date
         if allow_rollback_after_completion is not None:
             self.allow_rollback_after_completion = allow_rollback_after_completion
-        if sandbox is not None:
-            self.sandbox = sandbox
         if subscribed_applications is not None:
             self.subscribed_applications = subscribed_applications
-        if timezone is not None:
-            self.timezone = timezone
 
     @property
     def name(self):
@@ -364,29 +354,6 @@ class AchievementBaseV2(object):
         self._allow_rollback_after_completion = allow_rollback_after_completion
 
     @property
-    def sandbox(self):
-        """Gets the sandbox of this AchievementBaseV2.  # noqa: E501
-
-        Indicates if this achievement is a live or sandbox achievement. Achievements of a given type can only be connected to Applications of the same type.  # noqa: E501
-
-        :return: The sandbox of this AchievementBaseV2.  # noqa: E501
-        :rtype: bool
-        """
-        return self._sandbox
-
-    @sandbox.setter
-    def sandbox(self, sandbox):
-        """Sets the sandbox of this AchievementBaseV2.
-
-        Indicates if this achievement is a live or sandbox achievement. Achievements of a given type can only be connected to Applications of the same type.  # noqa: E501
-
-        :param sandbox: The sandbox of this AchievementBaseV2.  # noqa: E501
-        :type: bool
-        """
-
-        self._sandbox = sandbox
-
-    @property
     def subscribed_applications(self):
         """Gets the subscribed_applications of this AchievementBaseV2.  # noqa: E501
 
@@ -408,32 +375,6 @@ class AchievementBaseV2(object):
         """
 
         self._subscribed_applications = subscribed_applications
-
-    @property
-    def timezone(self):
-        """Gets the timezone of this AchievementBaseV2.  # noqa: E501
-
-        A string containing an IANA timezone descriptor.  # noqa: E501
-
-        :return: The timezone of this AchievementBaseV2.  # noqa: E501
-        :rtype: str
-        """
-        return self._timezone
-
-    @timezone.setter
-    def timezone(self, timezone):
-        """Sets the timezone of this AchievementBaseV2.
-
-        A string containing an IANA timezone descriptor.  # noqa: E501
-
-        :param timezone: The timezone of this AchievementBaseV2.  # noqa: E501
-        :type: str
-        """
-        if (self.local_vars_configuration.client_side_validation and
-                timezone is not None and len(timezone) < 1):
-            raise ValueError("Invalid value for `timezone`, length must be greater than or equal to `1`")  # noqa: E501
-
-        self._timezone = timezone
 
     def to_dict(self):
         """Returns the model properties as a dict"""

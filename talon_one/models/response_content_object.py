@@ -72,7 +72,7 @@ class ResponseContentObject(object):
         :param response_content: The response_content of this ResponseContentObject.  # noqa: E501
         :type: list[str]
         """
-        allowed_values = ["customerProfile", "triggeredCampaigns", "loyalty", "event", "awardedGiveaways", "ruleFailureReasons"]  # noqa: E501
+        allowed_values = ["customerProfile", "triggeredCampaigns", "loyalty", "event", "awardedGiveaways", "ruleFailureReasons", "campaignEligibility", "achievements", "unlockedRewards"]  # noqa: E501
         if (self.local_vars_configuration.client_side_validation and
                 not set(response_content).issubset(set(allowed_values))):  # noqa: E501
             raise ValueError(

@@ -63,7 +63,7 @@ class ReserveCouponEffectProps(object):
     def coupon_value(self):
         """Gets the coupon_value of this ReserveCouponEffectProps.  # noqa: E501
 
-        The value of the coupon currently on scope.  # noqa: E501
+        The coupon code that was created.  # noqa: E501
 
         :return: The coupon_value of this ReserveCouponEffectProps.  # noqa: E501
         :rtype: str
@@ -74,7 +74,7 @@ class ReserveCouponEffectProps(object):
     def coupon_value(self, coupon_value):
         """Sets the coupon_value of this ReserveCouponEffectProps.
 
-        The value of the coupon currently on scope.  # noqa: E501
+        The coupon code that was created.  # noqa: E501
 
         :param coupon_value: The coupon_value of this ReserveCouponEffectProps.  # noqa: E501
         :type: str
@@ -88,7 +88,7 @@ class ReserveCouponEffectProps(object):
     def profile_integration_id(self):
         """Gets the profile_integration_id of this ReserveCouponEffectProps.  # noqa: E501
 
-        The ID of this customer profile in the third-party integration.  # noqa: E501
+        The integration identifier of the customer for whom this coupon was reserved.  # noqa: E501
 
         :return: The profile_integration_id of this ReserveCouponEffectProps.  # noqa: E501
         :rtype: str
@@ -99,7 +99,7 @@ class ReserveCouponEffectProps(object):
     def profile_integration_id(self, profile_integration_id):
         """Sets the profile_integration_id of this ReserveCouponEffectProps.
 
-        The ID of this customer profile in the third-party integration.  # noqa: E501
+        The integration identifier of the customer for whom this coupon was reserved.  # noqa: E501
 
         :param profile_integration_id: The profile_integration_id of this ReserveCouponEffectProps.  # noqa: E501
         :type: str

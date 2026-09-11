@@ -38,6 +38,7 @@ class NewCouponsForMultipleRecipients(object):
         'reservation_limit': 'int',
         'start_date': 'datetime',
         'expiry_date': 'datetime',
+        'batch_id': 'str',
         'attributes': 'object',
         'recipients_integration_ids': 'list[str]',
         'valid_characters': 'list[str]',
@@ -50,13 +51,14 @@ class NewCouponsForMultipleRecipients(object):
         'reservation_limit': 'reservationLimit',
         'start_date': 'startDate',
         'expiry_date': 'expiryDate',
+        'batch_id': 'batchId',
         'attributes': 'attributes',
         'recipients_integration_ids': 'recipientsIntegrationIds',
         'valid_characters': 'validCharacters',
         'coupon_pattern': 'couponPattern'
     }
 
-    def __init__(self, usage_limit=None, discount_limit=None, reservation_limit=None, start_date=None, expiry_date=None, attributes=None, recipients_integration_ids=None, valid_characters=None, coupon_pattern=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, usage_limit=None, discount_limit=None, reservation_limit=None, start_date=None, expiry_date=None, batch_id=None, attributes=None, recipients_integration_ids=None, valid_characters=None, coupon_pattern=None, local_vars_configuration=None):  # noqa: E501
         """NewCouponsForMultipleRecipients - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -67,6 +69,7 @@ class NewCouponsForMultipleRecipients(object):
         self._reservation_limit = None
         self._start_date = None
         self._expiry_date = None
+        self._batch_id = None
         self._attributes = None
         self._recipients_integration_ids = None
         self._valid_characters = None
@@ -82,6 +85,8 @@ class NewCouponsForMultipleRecipients(object):
             self.start_date = start_date
         if expiry_date is not None:
             self.expiry_date = expiry_date
+        if batch_id is not None:
+            self.batch_id = batch_id
         if attributes is not None:
             self.attributes = attributes
         self.recipients_integration_ids = recipients_integration_ids
@@ -224,6 +229,29 @@ class NewCouponsForMultipleRecipients(object):
         """
 
         self._expiry_date = expiry_date
+
+    @property
+    def batch_id(self):
+        """Gets the batch_id of this NewCouponsForMultipleRecipients.  # noqa: E501
+
+        The batch ID that all coupons created by the request will bear. If omitted, a batch ID is generated automatically.  # noqa: E501
+
+        :return: The batch_id of this NewCouponsForMultipleRecipients.  # noqa: E501
+        :rtype: str
+        """
+        return self._batch_id
+
+    @batch_id.setter
+    def batch_id(self, batch_id):
+        """Sets the batch_id of this NewCouponsForMultipleRecipients.
+
+        The batch ID that all coupons created by the request will bear. If omitted, a batch ID is generated automatically.  # noqa: E501
+
+        :param batch_id: The batch_id of this NewCouponsForMultipleRecipients.  # noqa: E501
+        :type: str
+        """
+
+        self._batch_id = batch_id
 
     @property
     def attributes(self):

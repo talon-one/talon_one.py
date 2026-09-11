@@ -34,6 +34,7 @@ class SamlConnection(object):
     """
     openapi_types = {
         'assertion_consumer_service_url': 'str',
+        'certificate_expiry': 'datetime',
         'account_id': 'int',
         'name': 'str',
         'enabled': 'bool',
@@ -48,6 +49,7 @@ class SamlConnection(object):
 
     attribute_map = {
         'assertion_consumer_service_url': 'assertionConsumerServiceURL',
+        'certificate_expiry': 'certificateExpiry',
         'account_id': 'accountId',
         'name': 'name',
         'enabled': 'enabled',
@@ -60,13 +62,14 @@ class SamlConnection(object):
         'created': 'created'
     }
 
-    def __init__(self, assertion_consumer_service_url=None, account_id=None, name=None, enabled=None, issuer=None, sign_on_url=None, sign_out_url=None, metadata_url=None, audience_uri=None, id=None, created=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, assertion_consumer_service_url=None, certificate_expiry=None, account_id=None, name=None, enabled=None, issuer=None, sign_on_url=None, sign_out_url=None, metadata_url=None, audience_uri=None, id=None, created=None, local_vars_configuration=None):  # noqa: E501
         """SamlConnection - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._assertion_consumer_service_url = None
+        self._certificate_expiry = None
         self._account_id = None
         self._name = None
         self._enabled = None
@@ -80,6 +83,8 @@ class SamlConnection(object):
         self.discriminator = None
 
         self.assertion_consumer_service_url = assertion_consumer_service_url
+        if certificate_expiry is not None:
+            self.certificate_expiry = certificate_expiry
         self.account_id = account_id
         self.name = name
         self.enabled = enabled
@@ -117,6 +122,29 @@ class SamlConnection(object):
             raise ValueError("Invalid value for `assertion_consumer_service_url`, must not be `None`")  # noqa: E501
 
         self._assertion_consumer_service_url = assertion_consumer_service_url
+
+    @property
+    def certificate_expiry(self):
+        """Gets the certificate_expiry of this SamlConnection.  # noqa: E501
+
+        The expiry date of the X.509 certificate.  # noqa: E501
+
+        :return: The certificate_expiry of this SamlConnection.  # noqa: E501
+        :rtype: datetime
+        """
+        return self._certificate_expiry
+
+    @certificate_expiry.setter
+    def certificate_expiry(self, certificate_expiry):
+        """Sets the certificate_expiry of this SamlConnection.
+
+        The expiry date of the X.509 certificate.  # noqa: E501
+
+        :param certificate_expiry: The certificate_expiry of this SamlConnection.  # noqa: E501
+        :type: datetime
+        """
+
+        self._certificate_expiry = certificate_expiry
 
     @property
     def account_id(self):

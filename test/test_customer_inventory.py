@@ -217,12 +217,38 @@ class TestCustomerInventory(unittest.TestCase):
                         title = '50% off on 50th purchase.', 
                         description = '50% off for every 50th purchase in a year.', 
                         campaign_id = 3, 
+                        campaign_ids = [1, 14, 27], 
+                        referenced_by_campaigns = [
+                            talon_one.models.campaign_reference.CampaignReference(
+                                id = 1, 
+                                application_id = 2, )
+                            ], 
                         target = 10.0, 
                         achievement_recurrence_policy = 'no_recurrence', 
                         achievement_activation_policy = 'fixed_schedule', 
                         achievement_fixed_start_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                         achievement_end_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                         achievement_allow_rollback_after_completion = False, )
+                    ], 
+                rewards = [
+                    talon_one.models.reward_with_unlocks.RewardWithUnlocks(
+                        id = 42, 
+                        integration_id = 'free-coffee', 
+                        name = '10% Off Coupon', 
+                        description = 'Applies to next order', 
+                        rule = talon_one.models.rule_metadata.RuleMetadata(
+                            title = 'Give discount via coupon', 
+                            display_name = '20% off all shoes!', 
+                            display_description = 'Get a 20% discount on all shoes during Thanksgiving! Offer valid till Dec 5 only.', 
+                            related_data = 'https://example.com/discounts/20-off-shoes.png', ), 
+                        unlocked = [
+                            talon_one.models.customer_reward.CustomerReward(
+                                application_id = 3, 
+                                profile_integration_id = 'customer1', 
+                                integration_id = 'reward-unlock-123', 
+                                unlocked_at = '2024-01-01T00:00Z', 
+                                used_at = '2024-01-02T00:00Z', )
+                            ], )
                     ]
             )
         else :

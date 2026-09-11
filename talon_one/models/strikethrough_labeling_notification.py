@@ -89,7 +89,7 @@ class StrikethroughLabelingNotification(object):
     def version(self):
         """Gets the version of this StrikethroughLabelingNotification.  # noqa: E501
 
-        The version of the strikethrough pricing notification.  # noqa: E501
+        The version of the strikethrough pricing notification. Set for **scheduled** strikethrough pricing updates only.   # noqa: E501
 
         :return: The version of this StrikethroughLabelingNotification.  # noqa: E501
         :rtype: str
@@ -100,7 +100,7 @@ class StrikethroughLabelingNotification(object):
     def version(self, version):
         """Sets the version of this StrikethroughLabelingNotification.
 
-        The version of the strikethrough pricing notification.  # noqa: E501
+        The version of the strikethrough pricing notification. Set for **scheduled** strikethrough pricing updates only.   # noqa: E501
 
         :param version: The version of this StrikethroughLabelingNotification.  # noqa: E501
         :type: str

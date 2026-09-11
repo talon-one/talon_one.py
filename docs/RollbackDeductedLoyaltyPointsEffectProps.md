@@ -1,16 +1,16 @@
 # RollbackDeductedLoyaltyPointsEffectProps
 
-The properties specific to the \"rollbackDeductedLoyaltyPoints\" effect. This effect is triggered whenever a previously closed session is cancelled and a deductLoyaltyPoints effect was revoked.
+This effect is triggered in the following cases:  - A session is _cancelled_ and this session deducted loyalty points. The rollback action returns the redeemed loyalty points to the customer. - A session is impacted by a _partial return_. Only added loyalty points that are still **pending** are rolled back. - A session in which loyalty points were spent is reopened.  See the [session states](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions#customer-session-states).  If you set custom activation and expiration dates for the loyalty points, use the `startDate` and `expiryDate` properties to identify when the reward will be active and when will expire.  If the loyalty program is [profile-based](https://docs.talon.one/docs/product/loyalty-programs/profile-based/profile-based-overview), use the `recipientIntegrationId` property to identify the user who receives the loyalty points. If the loyalty program is [card-based](https://docs.talon.one/docs/product/loyalty-programs/overview#loyalty-program-types), use the `cardIdentifier` property to identify the loyalty card where the points are reimbursed.
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **program_id** | **int** | The ID of the loyalty program where these points were reimbursed. | 
 **sub_ledger_id** | **str** | The ID of the subledger within the loyalty program where these points were reimbursed. | 
-**value** | **float** | The amount of reimbursed points that were added. | 
+**value** | **float** | The amount of points that were reimbursed. | 
 **recipient_integration_id** | **str** | The user for whom these points were reimbursed. | 
-**start_date** | **datetime** | Date after which the reimbursed points will be valid. | [optional] 
-**expiry_date** | **datetime** | Date after which the reimbursed points will expire. | [optional] 
-**transaction_uuid** | **str** | The identifier of &#39;addition&#39; entries added to the ledger as the &#x60;deductLoyaltyPoints&#x60; effect is rolled back. | 
+**start_date** | **datetime** | The date after which the reimbursed points will be valid. | [optional] 
+**expiry_date** | **datetime** | The date after which the reimbursed points will expire. | [optional] 
+**transaction_uuid** | **str** | The identifier of this loyalty point transaction. | 
 **card_identifier** | **str** | The identifier of the loyalty card, which must match the regular expression &#x60;^[A-Za-z0-9._%+@-]+$&#x60;.  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

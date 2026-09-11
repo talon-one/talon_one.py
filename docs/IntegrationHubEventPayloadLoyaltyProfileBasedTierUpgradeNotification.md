@@ -3,11 +3,13 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**event_id** | **int** | The ID of the integration hub event. Return this value in the delivery-status callback to mark the event delivered or failed. | 
 **profile_integration_id** | **str** |  | 
 **loyalty_program_id** | **int** |  | 
+**loyalty_program_name** | **str** | The name of the loyalty program. | 
 **subledger_id** | **str** |  | 
 **source_of_event** | **str** |  | 
-**current_tier** | **str** |  | [optional] 
+**current_tier** | **str** | The name of the customer&#39;s current tier. | 
 **current_points** | **float** |  | 
 **old_tier** | **str** |  | [optional] 
 **points_required_to_the_next_tier** | **float** |  | [optional] 

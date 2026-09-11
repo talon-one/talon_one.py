@@ -46,12 +46,15 @@ class TestUpdateAchievementV2(unittest.TestCase):
                 fixed_start_date = '2024-01-15T15:04:05+07:00', 
                 end_date = '2024-01-15T15:04:05+07:00', 
                 allow_rollback_after_completion = False, 
-                sandbox = True, 
-                subscribed_applications = [132, 97], 
-                timezone = 'Europe/Berlin'
+                subscribed_applications = [132, 97]
             )
         else :
             return UpdateAchievementV2(
+                name = 'Order50Discount',
+                title = '50% off on 50th purchase.',
+                description = '50% off for every 50th purchase in a year.',
+                target = 50.0,
+                subscribed_applications = [132, 97],
         )
 
     def testUpdateAchievementV2(self):

@@ -37,9 +37,13 @@ class TestIntegrationHubFlowResponse(unittest.TestCase):
         if include_optional :
             return IntegrationHubFlowResponse(
                 id = 56, 
+                integration_name = '0', 
+                instance_name = '0', 
+                created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                disabled_until = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                 application_id = 54, 
+                loyalty_program_id = 12, 
                 event_type = '0', 
-                integration_hub_flow_url = '0', 
                 config = talon_one.models.integration_hub_flow_config_response.IntegrationHubFlowConfigResponse(
                     worker_count = 1, 
                     max_events_per_message = 1, 
@@ -48,8 +52,8 @@ class TestIntegrationHubFlowResponse(unittest.TestCase):
         else :
             return IntegrationHubFlowResponse(
                 id = 56,
+                created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 event_type = '0',
-                integration_hub_flow_url = '0',
                 config = talon_one.models.integration_hub_flow_config_response.IntegrationHubFlowConfigResponse(
                     worker_count = 1, 
                     max_events_per_message = 1, 

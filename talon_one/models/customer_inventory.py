@@ -38,7 +38,8 @@ class CustomerInventory(object):
         'referrals': 'list[InventoryReferral]',
         'coupons': 'list[InventoryCoupon]',
         'giveaways': 'list[Giveaway]',
-        'achievements': 'list[AchievementProgressWithDefinition]'
+        'achievements': 'list[AchievementProgressWithDefinition]',
+        'rewards': 'list[RewardWithUnlocks]'
     }
 
     attribute_map = {
@@ -47,10 +48,11 @@ class CustomerInventory(object):
         'referrals': 'referrals',
         'coupons': 'coupons',
         'giveaways': 'giveaways',
-        'achievements': 'achievements'
+        'achievements': 'achievements',
+        'rewards': 'rewards'
     }
 
-    def __init__(self, profile=None, loyalty=None, referrals=None, coupons=None, giveaways=None, achievements=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, profile=None, loyalty=None, referrals=None, coupons=None, giveaways=None, achievements=None, rewards=None, local_vars_configuration=None):  # noqa: E501
         """CustomerInventory - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -62,6 +64,7 @@ class CustomerInventory(object):
         self._coupons = None
         self._giveaways = None
         self._achievements = None
+        self._rewards = None
         self.discriminator = None
 
         if profile is not None:
@@ -76,6 +79,8 @@ class CustomerInventory(object):
             self.giveaways = giveaways
         if achievements is not None:
             self.achievements = achievements
+        if rewards is not None:
+            self.rewards = rewards
 
     @property
     def profile(self):
@@ -204,6 +209,29 @@ class CustomerInventory(object):
         """
 
         self._achievements = achievements
+
+    @property
+    def rewards(self):
+        """Gets the rewards of this CustomerInventory.  # noqa: E501
+
+        The customer rewards that are `unlocked` and not yet `used`.  # noqa: E501
+
+        :return: The rewards of this CustomerInventory.  # noqa: E501
+        :rtype: list[RewardWithUnlocks]
+        """
+        return self._rewards
+
+    @rewards.setter
+    def rewards(self, rewards):
+        """Sets the rewards of this CustomerInventory.
+
+        The customer rewards that are `unlocked` and not yet `used`.  # noqa: E501
+
+        :param rewards: The rewards of this CustomerInventory.  # noqa: E501
+        :type: list[RewardWithUnlocks]
+        """
+
+        self._rewards = rewards
 
     def to_dict(self):
         """Returns the model properties as a dict"""

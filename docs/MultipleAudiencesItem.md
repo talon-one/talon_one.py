@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 **id** | **int** | The internal ID of this entity. | 
 **created** | **datetime** | The time this entity was created. | 
 **name** | **str** | The human-friendly display name for this audience. | 
+**subscribed_applications_ids** | **list[int]** | A list of the IDs of the Applications that are connected to this audience. | [optional] 
 **integration_id** | **str** | The ID of this audience in the third-party integration. | 
 **status** | **str** | Indicates whether the audience is new, updated or unmodified by the request.  | 
 
