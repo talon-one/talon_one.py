@@ -39,7 +39,10 @@ class ExpiringCardPointsData(object):
         'subledger_id': 'str',
         'card_identifier': 'str',
         'users_per_card_limit': 'int',
-        'profiles': 'list[str]'
+        'profiles': 'list[str]',
+        'created': 'datetime',
+        'awaits_activation': 'bool',
+        'validity_duration': 'str'
     }
 
     attribute_map = {
@@ -49,10 +52,13 @@ class ExpiringCardPointsData(object):
         'subledger_id': 'SubledgerID',
         'card_identifier': 'CardIdentifier',
         'users_per_card_limit': 'UsersPerCardLimit',
-        'profiles': 'Profiles'
+        'profiles': 'Profiles',
+        'created': 'Created',
+        'awaits_activation': 'AwaitsActivation',
+        'validity_duration': 'ValidityDuration'
     }
 
-    def __init__(self, expiry_date=None, loyalty_program_id=None, amount_of_expiring_points=None, subledger_id=None, card_identifier=None, users_per_card_limit=None, profiles=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, expiry_date=None, loyalty_program_id=None, amount_of_expiring_points=None, subledger_id=None, card_identifier=None, users_per_card_limit=None, profiles=None, created=None, awaits_activation=None, validity_duration=None, local_vars_configuration=None):  # noqa: E501
         """ExpiringCardPointsData - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -65,6 +71,9 @@ class ExpiringCardPointsData(object):
         self._card_identifier = None
         self._users_per_card_limit = None
         self._profiles = None
+        self._created = None
+        self._awaits_activation = None
+        self._validity_duration = None
         self.discriminator = None
 
         self.expiry_date = expiry_date
@@ -74,6 +83,12 @@ class ExpiringCardPointsData(object):
         self.card_identifier = card_identifier
         self.users_per_card_limit = users_per_card_limit
         self.profiles = profiles
+        if created is not None:
+            self.created = created
+        if awaits_activation is not None:
+            self.awaits_activation = awaits_activation
+        if validity_duration is not None:
+            self.validity_duration = validity_duration
 
     @property
     def expiry_date(self):
@@ -255,6 +270,75 @@ class ExpiringCardPointsData(object):
             raise ValueError("Invalid value for `profiles`, must not be `None`")  # noqa: E501
 
         self._profiles = profiles
+
+    @property
+    def created(self):
+        """Gets the created of this ExpiringCardPointsData.  # noqa: E501
+
+        The timestamp when the loyalty transaction occurred.  # noqa: E501
+
+        :return: The created of this ExpiringCardPointsData.  # noqa: E501
+        :rtype: datetime
+        """
+        return self._created
+
+    @created.setter
+    def created(self, created):
+        """Sets the created of this ExpiringCardPointsData.
+
+        The timestamp when the loyalty transaction occurred.  # noqa: E501
+
+        :param created: The created of this ExpiringCardPointsData.  # noqa: E501
+        :type: datetime
+        """
+
+        self._created = created
+
+    @property
+    def awaits_activation(self):
+        """Gets the awaits_activation of this ExpiringCardPointsData.  # noqa: E501
+
+        Indicates whether the points have an action-based start date. This property is returned only for point transactions with an action-based start date.  # noqa: E501
+
+        :return: The awaits_activation of this ExpiringCardPointsData.  # noqa: E501
+        :rtype: bool
+        """
+        return self._awaits_activation
+
+    @awaits_activation.setter
+    def awaits_activation(self, awaits_activation):
+        """Sets the awaits_activation of this ExpiringCardPointsData.
+
+        Indicates whether the points have an action-based start date. This property is returned only for point transactions with an action-based start date.  # noqa: E501
+
+        :param awaits_activation: The awaits_activation of this ExpiringCardPointsData.  # noqa: E501
+        :type: bool
+        """
+
+        self._awaits_activation = awaits_activation
+
+    @property
+    def validity_duration(self):
+        """Gets the validity_duration of this ExpiringCardPointsData.  # noqa: E501
+
+        The duration for which the points remain active, relative to the activation date.  **Note**: This only applies to points for which `AwaitsActivation` is `true` and `ExpiryDate` is not set.   # noqa: E501
+
+        :return: The validity_duration of this ExpiringCardPointsData.  # noqa: E501
+        :rtype: str
+        """
+        return self._validity_duration
+
+    @validity_duration.setter
+    def validity_duration(self, validity_duration):
+        """Sets the validity_duration of this ExpiringCardPointsData.
+
+        The duration for which the points remain active, relative to the activation date.  **Note**: This only applies to points for which `AwaitsActivation` is `true` and `ExpiryDate` is not set.   # noqa: E501
+
+        :param validity_duration: The validity_duration of this ExpiringCardPointsData.  # noqa: E501
+        :type: str
+        """
+
+        self._validity_duration = validity_duration
 
     def to_dict(self):
         """Returns the model properties as a dict"""

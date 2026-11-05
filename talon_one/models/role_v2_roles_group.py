@@ -94,7 +94,7 @@ class RoleV2RolesGroup(object):
     def loyalty_programs(self):
         """Gets the loyalty_programs of this RoleV2RolesGroup.  # noqa: E501
 
-        A map of the link between the loyalty program-related permission set and the Application ID the permissions apply to.  # noqa: E501
+        A map of the link between the loyalty program-related permission set and the loyalty program ID the permissions apply to.  # noqa: E501
 
         :return: The loyalty_programs of this RoleV2RolesGroup.  # noqa: E501
         :rtype: dict(str, str)
@@ -105,7 +105,7 @@ class RoleV2RolesGroup(object):
     def loyalty_programs(self, loyalty_programs):
         """Sets the loyalty_programs of this RoleV2RolesGroup.
 
-        A map of the link between the loyalty program-related permission set and the Application ID the permissions apply to.  # noqa: E501
+        A map of the link between the loyalty program-related permission set and the loyalty program ID the permissions apply to.  # noqa: E501
 
         :param loyalty_programs: The loyalty_programs of this RoleV2RolesGroup.  # noqa: E501
         :type: dict(str, str)
@@ -117,7 +117,7 @@ class RoleV2RolesGroup(object):
     def campaign_access_groups(self):
         """Gets the campaign_access_groups of this RoleV2RolesGroup.  # noqa: E501
 
-        A map of the link between the campaign access group-related permission set and the Application ID the permissions apply to.  # noqa: E501
+        A map of the link between the campaign access group-related permission set and the campaign access group ID the permissions apply to.  # noqa: E501
 
         :return: The campaign_access_groups of this RoleV2RolesGroup.  # noqa: E501
         :rtype: dict(str, str)
@@ -128,7 +128,7 @@ class RoleV2RolesGroup(object):
     def campaign_access_groups(self, campaign_access_groups):
         """Sets the campaign_access_groups of this RoleV2RolesGroup.
 
-        A map of the link between the campaign access group-related permission set and the Application ID the permissions apply to.  # noqa: E501
+        A map of the link between the campaign access group-related permission set and the campaign access group ID the permissions apply to.  # noqa: E501
 
         :param campaign_access_groups: The campaign_access_groups of this RoleV2RolesGroup.  # noqa: E501
         :type: dict(str, str)
@@ -140,7 +140,7 @@ class RoleV2RolesGroup(object):
     def account(self):
         """Gets the account of this RoleV2RolesGroup.  # noqa: E501
 
-        Name of the account-level permission set  # noqa: E501
+        Name of the account-level permission set.  # noqa: E501
 
         :return: The account of this RoleV2RolesGroup.  # noqa: E501
         :rtype: str
@@ -151,7 +151,7 @@ class RoleV2RolesGroup(object):
     def account(self, account):
         """Sets the account of this RoleV2RolesGroup.
 
-        Name of the account-level permission set  # noqa: E501
+        Name of the account-level permission set.  # noqa: E501
 
         :param account: The account of this RoleV2RolesGroup.  # noqa: E501
         :type: str

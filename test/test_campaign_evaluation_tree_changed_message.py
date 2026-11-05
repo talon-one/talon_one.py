@@ -36,7 +36,7 @@ class TestCampaignEvaluationTreeChangedMessage(unittest.TestCase):
         # model = talon_one.models.campaign_evaluation_tree_changed_message.CampaignEvaluationTreeChangedMessage()  # noqa: E501
         if include_optional :
             return CampaignEvaluationTreeChangedMessage(
-                notification_type = 'CampaignNotification', 
+                notification_type = 'CampaignEvaluationTreeChanged', 
                 total_result_size = 56, 
                 data = [
                     talon_one.models.application_notification.ApplicationNotification(
@@ -45,8 +45,12 @@ class TestCampaignEvaluationTreeChangedMessage(unittest.TestCase):
             )
         else :
             return CampaignEvaluationTreeChangedMessage(
-                notification_type = 'CampaignNotification',
+                notification_type = 'CampaignEvaluationTreeChanged',
                 total_result_size = 56,
+                data = [
+                    talon_one.models.application_notification.ApplicationNotification(
+                        event = '0', )
+                    ],
         )
 
     def testCampaignEvaluationTreeChangedMessage(self):

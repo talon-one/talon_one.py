@@ -60,7 +60,8 @@ class TestLoyaltySubLedger(unittest.TestCase):
                         archived = False, 
                         flags = talon_one.models.loyalty_ledger_entry_flags.LoyaltyLedgerEntryFlags(
                             creates_negative_balance = True, ), 
-                        validity_duration = '30D', )
+                        validity_duration = '30D', 
+                        awaits_activation = False, )
                     ], 
                 expiring_points = [
                     talon_one.models.loyalty_ledger_entry.LoyaltyLedgerEntry(
@@ -80,7 +81,8 @@ class TestLoyaltySubLedger(unittest.TestCase):
                         archived = False, 
                         flags = talon_one.models.loyalty_ledger_entry_flags.LoyaltyLedgerEntryFlags(
                             creates_negative_balance = True, ), 
-                        validity_duration = '30D', )
+                        validity_duration = '30D', 
+                        awaits_activation = False, )
                     ], 
                 active_points = [
                     talon_one.models.loyalty_ledger_entry.LoyaltyLedgerEntry(
@@ -100,7 +102,8 @@ class TestLoyaltySubLedger(unittest.TestCase):
                         archived = False, 
                         flags = talon_one.models.loyalty_ledger_entry_flags.LoyaltyLedgerEntryFlags(
                             creates_negative_balance = True, ), 
-                        validity_duration = '30D', )
+                        validity_duration = '30D', 
+                        awaits_activation = False, )
                     ], 
                 pending_points = [
                     talon_one.models.loyalty_ledger_entry.LoyaltyLedgerEntry(
@@ -120,7 +123,8 @@ class TestLoyaltySubLedger(unittest.TestCase):
                         archived = False, 
                         flags = talon_one.models.loyalty_ledger_entry_flags.LoyaltyLedgerEntryFlags(
                             creates_negative_balance = True, ), 
-                        validity_duration = '30D', )
+                        validity_duration = '30D', 
+                        awaits_activation = False, )
                     ], 
                 expired_points = [
                     talon_one.models.loyalty_ledger_entry.LoyaltyLedgerEntry(
@@ -140,14 +144,17 @@ class TestLoyaltySubLedger(unittest.TestCase):
                         archived = False, 
                         flags = talon_one.models.loyalty_ledger_entry_flags.LoyaltyLedgerEntryFlags(
                             creates_negative_balance = True, ), 
-                        validity_duration = '30D', )
+                        validity_duration = '30D', 
+                        awaits_activation = False, )
                     ], 
                 current_tier = talon_one.models.tier.Tier(
                     id = 11, 
                     name = 'bronze', 
                     start_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                    expiry_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                    downgrade_policy = 'one_down', )
+                    expiry_date = '2026-08-02T15:04:05+07:00', 
+                    downgrade_policy = 'one_down', 
+                    source = 'points', 
+                    reason = 'Subscription to newsletter', )
             )
         else :
             return LoyaltySubLedger(

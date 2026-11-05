@@ -42,8 +42,8 @@ class TestRuleMetadataEligibility(unittest.TestCase):
                 related_data = 'https://example.com/discounts/20-off-shoes.png', 
                 eligibility = [
                     talon_one.models.rule_eligibility.RuleEligibility(
-                        passed = True, 
-                        coupon_code = '0', 
+                        passed = False, 
+                        coupon_code = 'XMAS-20-2021', 
                         details = talon_one.models.rule_eligibility_failure_details.RuleEligibilityFailureDetails(
                             failure_code = 'CONDITION_NOT_MET', 
                             coupon_id = 4928, 
@@ -52,6 +52,8 @@ class TestRuleMetadataEligibility(unittest.TestCase):
                             referral_value = '0', 
                             condition_index = 56, 
                             effect_index = 56, 
+                            rule_index = 0, 
+                            ruleset_id = 123, 
                             details = '0', ), )
                     ]
             )
@@ -60,8 +62,8 @@ class TestRuleMetadataEligibility(unittest.TestCase):
                 title = 'Give discount via coupon',
                 eligibility = [
                     talon_one.models.rule_eligibility.RuleEligibility(
-                        passed = True, 
-                        coupon_code = '0', 
+                        passed = False, 
+                        coupon_code = 'XMAS-20-2021', 
                         details = talon_one.models.rule_eligibility_failure_details.RuleEligibilityFailureDetails(
                             failure_code = 'CONDITION_NOT_MET', 
                             coupon_id = 4928, 
@@ -70,6 +72,8 @@ class TestRuleMetadataEligibility(unittest.TestCase):
                             referral_value = '0', 
                             condition_index = 56, 
                             effect_index = 56, 
+                            rule_index = 0, 
+                            ruleset_id = 123, 
                             details = '0', ), )
                     ],
         )

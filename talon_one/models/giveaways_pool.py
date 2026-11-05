@@ -170,7 +170,7 @@ class GiveawaysPool(object):
     def name(self):
         """Gets the name of this GiveawaysPool.  # noqa: E501
 
-        The name of this giveaways pool.  # noqa: E501
+        The name of this giveaway pool.  # noqa: E501
 
         :return: The name of this GiveawaysPool.  # noqa: E501
         :rtype: str
@@ -181,7 +181,7 @@ class GiveawaysPool(object):
     def name(self, name):
         """Sets the name of this GiveawaysPool.
 
-        The name of this giveaways pool.  # noqa: E501
+        The name of this giveaway pool.  # noqa: E501
 
         :param name: The name of this GiveawaysPool.  # noqa: E501
         :type: str
@@ -195,7 +195,7 @@ class GiveawaysPool(object):
     def description(self):
         """Gets the description of this GiveawaysPool.  # noqa: E501
 
-        The description of this giveaways pool.  # noqa: E501
+        The description of this giveaway pool.  # noqa: E501
 
         :return: The description of this GiveawaysPool.  # noqa: E501
         :rtype: str
@@ -206,7 +206,7 @@ class GiveawaysPool(object):
     def description(self, description):
         """Sets the description of this GiveawaysPool.
 
-        The description of this giveaways pool.  # noqa: E501
+        The description of this giveaway pool.  # noqa: E501
 
         :param description: The description of this GiveawaysPool.  # noqa: E501
         :type: str
@@ -218,7 +218,7 @@ class GiveawaysPool(object):
     def subscribed_applications_ids(self):
         """Gets the subscribed_applications_ids of this GiveawaysPool.  # noqa: E501
 
-        A list of the IDs of the applications that this giveaways pool is enabled for.  # noqa: E501
+        A list of the IDs of the Applications that this giveaway pool is enabled for.  # noqa: E501
 
         :return: The subscribed_applications_ids of this GiveawaysPool.  # noqa: E501
         :rtype: list[int]
@@ -229,7 +229,7 @@ class GiveawaysPool(object):
     def subscribed_applications_ids(self, subscribed_applications_ids):
         """Sets the subscribed_applications_ids of this GiveawaysPool.
 
-        A list of the IDs of the applications that this giveaways pool is enabled for.  # noqa: E501
+        A list of the IDs of the Applications that this giveaway pool is enabled for.  # noqa: E501
 
         :param subscribed_applications_ids: The subscribed_applications_ids of this GiveawaysPool.  # noqa: E501
         :type: list[int]
@@ -266,7 +266,7 @@ class GiveawaysPool(object):
     def modified(self):
         """Gets the modified of this GiveawaysPool.  # noqa: E501
 
-        Timestamp of the most recent update to the giveaways pool.  # noqa: E501
+        Timestamp of the most recent update to the giveaway pool.  # noqa: E501
 
         :return: The modified of this GiveawaysPool.  # noqa: E501
         :rtype: datetime
@@ -277,7 +277,7 @@ class GiveawaysPool(object):
     def modified(self, modified):
         """Sets the modified of this GiveawaysPool.
 
-        Timestamp of the most recent update to the giveaways pool.  # noqa: E501
+        Timestamp of the most recent update to the giveaway pool.  # noqa: E501
 
         :param modified: The modified of this GiveawaysPool.  # noqa: E501
         :type: datetime
@@ -289,7 +289,7 @@ class GiveawaysPool(object):
     def created_by(self):
         """Gets the created_by of this GiveawaysPool.  # noqa: E501
 
-        ID of the user who created this giveaways pool.  # noqa: E501
+        ID of the user who created this giveaway pool.  # noqa: E501
 
         :return: The created_by of this GiveawaysPool.  # noqa: E501
         :rtype: int
@@ -300,7 +300,7 @@ class GiveawaysPool(object):
     def created_by(self, created_by):
         """Sets the created_by of this GiveawaysPool.
 
-        ID of the user who created this giveaways pool.  # noqa: E501
+        ID of the user who created this giveaway pool.  # noqa: E501
 
         :param created_by: The created_by of this GiveawaysPool.  # noqa: E501
         :type: int
@@ -314,7 +314,7 @@ class GiveawaysPool(object):
     def modified_by(self):
         """Gets the modified_by of this GiveawaysPool.  # noqa: E501
 
-        ID of the user who last updated this giveaways pool if available.  # noqa: E501
+        ID of the user who last updated this giveaway pool if available.  # noqa: E501
 
         :return: The modified_by of this GiveawaysPool.  # noqa: E501
         :rtype: int
@@ -325,7 +325,7 @@ class GiveawaysPool(object):
     def modified_by(self, modified_by):
         """Sets the modified_by of this GiveawaysPool.
 
-        ID of the user who last updated this giveaways pool if available.  # noqa: E501
+        ID of the user who last updated this giveaway pool if available.  # noqa: E501
 
         :param modified_by: The modified_by of this GiveawaysPool.  # noqa: E501
         :type: int

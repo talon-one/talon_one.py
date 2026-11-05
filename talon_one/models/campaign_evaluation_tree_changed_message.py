@@ -57,8 +57,7 @@ class CampaignEvaluationTreeChangedMessage(object):
 
         self.notification_type = notification_type
         self.total_result_size = total_result_size
-        if data is not None:
-            self.data = data
+        self.data = data
 
     @property
     def notification_type(self):
@@ -82,7 +81,7 @@ class CampaignEvaluationTreeChangedMessage(object):
         """
         if self.local_vars_configuration.client_side_validation and notification_type is None:  # noqa: E501
             raise ValueError("Invalid value for `notification_type`, must not be `None`")  # noqa: E501
-        allowed_values = ["CampaignNotification"]  # noqa: E501
+        allowed_values = ["CampaignEvaluationTreeChanged"]  # noqa: E501
         if self.local_vars_configuration.client_side_validation and notification_type not in allowed_values:  # noqa: E501
             raise ValueError(
                 "Invalid value for `notification_type` ({0}), must be one of {1}"  # noqa: E501
@@ -136,6 +135,8 @@ class CampaignEvaluationTreeChangedMessage(object):
         :param data: The data of this CampaignEvaluationTreeChangedMessage.  # noqa: E501
         :type: list[ApplicationNotification]
         """
+        if self.local_vars_configuration.client_side_validation and data is None:  # noqa: E501
+            raise ValueError("Invalid value for `data`, must not be `None`")  # noqa: E501
 
         self._data = data
 

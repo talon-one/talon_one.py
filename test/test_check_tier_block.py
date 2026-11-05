@@ -43,7 +43,7 @@ class TestCheckTierBlock(unittest.TestCase):
                     ], 
                 operator = 'member', 
                 subledger = '0', 
-                tier = talon_one.models.check_tier_block_tier.CheckTierBlock_tier(
+                tier = talon_one.models.tier_block_reference.TierBlockReference(
                     id = 42, 
                     name = 'Bronze', 
                     min_points = 150.0, 
@@ -57,7 +57,7 @@ class TestCheckTierBlock(unittest.TestCase):
                 type = '0',
                 operator = 'member',
                 subledger = '0',
-                tier = talon_one.models.check_tier_block_tier.CheckTierBlock_tier(
+                tier = talon_one.models.tier_block_reference.TierBlockReference(
                     id = 42, 
                     name = 'Bronze', 
                     min_points = 150.0, 

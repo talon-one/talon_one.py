@@ -38,12 +38,12 @@ class TestInlineResponse2005(unittest.TestCase):
             return InlineResponse2005(
                 has_more = True, 
                 data = [
-                    talon_one.models.ledger_transaction_log_entry_integration_api.LedgerTransactionLogEntryIntegrationAPI(
+                    talon_one.models.card_ledger_transaction_log_entry_integration_api.CardLedgerTransactionLogEntryIntegrationAPI(
                         transaction_uuid = 'ce59f12a-f53b-4014-a745-636d93f2bd3f', 
                         created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                         program_id = 324, 
+                        card_identifier = 'summer-loyalty-card-0543', 
                         customer_session_id = '05c2da0d-48fa-4aa1-b629-898f58f1584d', 
-                        store_integration_id = 'STORE-001', 
                         type = 'addition', 
                         name = 'Reward 10% points of a purchase's current total', 
                         start_date = '2022-01-02T15:04:05Z07:00', 
@@ -53,8 +53,6 @@ class TestInlineResponse2005(unittest.TestCase):
                         id = 123, 
                         ruleset_id = 11, 
                         rule_name = 'Add 2 points', 
-                        flags = talon_one.models.loyalty_ledger_entry_flags.LoyaltyLedgerEntryFlags(
-                            creates_negative_balance = True, ), 
                         validity_duration = '30D', )
                     ]
             )
@@ -62,12 +60,12 @@ class TestInlineResponse2005(unittest.TestCase):
             return InlineResponse2005(
                 has_more = True,
                 data = [
-                    talon_one.models.ledger_transaction_log_entry_integration_api.LedgerTransactionLogEntryIntegrationAPI(
+                    talon_one.models.card_ledger_transaction_log_entry_integration_api.CardLedgerTransactionLogEntryIntegrationAPI(
                         transaction_uuid = 'ce59f12a-f53b-4014-a745-636d93f2bd3f', 
                         created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                         program_id = 324, 
+                        card_identifier = 'summer-loyalty-card-0543', 
                         customer_session_id = '05c2da0d-48fa-4aa1-b629-898f58f1584d', 
-                        store_integration_id = 'STORE-001', 
                         type = 'addition', 
                         name = 'Reward 10% points of a purchase's current total', 
                         start_date = '2022-01-02T15:04:05Z07:00', 
@@ -77,8 +75,6 @@ class TestInlineResponse2005(unittest.TestCase):
                         id = 123, 
                         ruleset_id = 11, 
                         rule_name = 'Add 2 points', 
-                        flags = talon_one.models.loyalty_ledger_entry_flags.LoyaltyLedgerEntryFlags(
-                            creates_negative_balance = True, ), 
                         validity_duration = '30D', )
                     ],
         )

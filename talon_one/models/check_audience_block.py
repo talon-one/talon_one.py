@@ -38,7 +38,7 @@ class CheckAudienceBlock(object):
         'tags': 'list[str]',
         'operator': 'str',
         'profile': 'str',
-        'audience': 'CheckAudienceBlockAudience',
+        'audience': 'AudienceBlockReference',
         'on_failure': 'list[object]'
     }
 
@@ -73,7 +73,8 @@ class CheckAudienceBlock(object):
         if tags is not None:
             self.tags = tags
         self.operator = operator
-        self.profile = profile
+        if profile is not None:
+            self.profile = profile
         self.audience = audience
         if on_failure is not None:
             self.on_failure = on_failure
@@ -184,7 +185,7 @@ class CheckAudienceBlock(object):
     def profile(self):
         """Gets the profile of this CheckAudienceBlock.  # noqa: E501
 
-        The customer profile to check against the audience. `Current` targets the customer in the current session; `Advocate` targets the person who invited their friend via referral program.  # noqa: E501
+        The customer profile to check against the audience. `Current` targets the customer in the current session; `Advocate` targets the person who invited their friend via referral program. Only applies to the `member` and `not(member)` operators; ignored for `justJoined` and `justLeft`.  # noqa: E501
 
         :return: The profile of this CheckAudienceBlock.  # noqa: E501
         :rtype: str
@@ -195,13 +196,11 @@ class CheckAudienceBlock(object):
     def profile(self, profile):
         """Sets the profile of this CheckAudienceBlock.
 
-        The customer profile to check against the audience. `Current` targets the customer in the current session; `Advocate` targets the person who invited their friend via referral program.  # noqa: E501
+        The customer profile to check against the audience. `Current` targets the customer in the current session; `Advocate` targets the person who invited their friend via referral program. Only applies to the `member` and `not(member)` operators; ignored for `justJoined` and `justLeft`.  # noqa: E501
 
         :param profile: The profile of this CheckAudienceBlock.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and profile is None:  # noqa: E501
-            raise ValueError("Invalid value for `profile`, must not be `None`")  # noqa: E501
         allowed_values = ["Current", "Advocate"]  # noqa: E501
         if self.local_vars_configuration.client_side_validation and profile not in allowed_values:  # noqa: E501
             raise ValueError(
@@ -217,7 +216,7 @@ class CheckAudienceBlock(object):
 
 
         :return: The audience of this CheckAudienceBlock.  # noqa: E501
-        :rtype: CheckAudienceBlockAudience
+        :rtype: AudienceBlockReference
         """
         return self._audience
 
@@ -227,7 +226,7 @@ class CheckAudienceBlock(object):
 
 
         :param audience: The audience of this CheckAudienceBlock.  # noqa: E501
-        :type: CheckAudienceBlockAudience
+        :type: AudienceBlockReference
         """
         if self.local_vars_configuration.client_side_validation and audience is None:  # noqa: E501
             raise ValueError("Invalid value for `audience`, must not be `None`")  # noqa: E501

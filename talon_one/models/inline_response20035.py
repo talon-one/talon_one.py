@@ -35,7 +35,7 @@ class InlineResponse20035(object):
     openapi_types = {
         'has_more': 'bool',
         'total_result_size': 'int',
-        'data': 'list[Audience]'
+        'data': 'list[ApplicationSession]'
     }
 
     attribute_map = {
@@ -109,7 +109,7 @@ class InlineResponse20035(object):
 
 
         :return: The data of this InlineResponse20035.  # noqa: E501
-        :rtype: list[Audience]
+        :rtype: list[ApplicationSession]
         """
         return self._data
 
@@ -119,7 +119,7 @@ class InlineResponse20035(object):
 
 
         :param data: The data of this InlineResponse20035.  # noqa: E501
-        :type: list[Audience]
+        :type: list[ApplicationSession]
         """
         if self.local_vars_configuration.client_side_validation and data is None:  # noqa: E501
             raise ValueError("Invalid value for `data`, must not be `None`")  # noqa: E501

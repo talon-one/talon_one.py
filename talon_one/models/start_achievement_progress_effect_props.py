@@ -127,7 +127,7 @@ class StartAchievementProgressEffectProps(object):
     def progress_tracker_id(self):
         """Gets the progress_tracker_id of this StartAchievementProgressEffectProps.  # noqa: E501
 
-        The ID of the customer's progress tracker for this achievement.  For [on-completion achievements](https://docs.talon.one/docs/product/campaigns/achievements/overview#recurring-on-completion-achievements), this effect generates a unique ID for each iteration.  # noqa: E501
+        The ID of the customer's progress tracker for this achievement.  For [on-completion achievements](https://docs.talon.one/docs/product/achievements/overview#recurring-on-completion-achievements), this effect generates a unique ID for each iteration.  # noqa: E501
 
         :return: The progress_tracker_id of this StartAchievementProgressEffectProps.  # noqa: E501
         :rtype: int
@@ -138,7 +138,7 @@ class StartAchievementProgressEffectProps(object):
     def progress_tracker_id(self, progress_tracker_id):
         """Sets the progress_tracker_id of this StartAchievementProgressEffectProps.
 
-        The ID of the customer's progress tracker for this achievement.  For [on-completion achievements](https://docs.talon.one/docs/product/campaigns/achievements/overview#recurring-on-completion-achievements), this effect generates a unique ID for each iteration.  # noqa: E501
+        The ID of the customer's progress tracker for this achievement.  For [on-completion achievements](https://docs.talon.one/docs/product/achievements/overview#recurring-on-completion-achievements), this effect generates a unique ID for each iteration.  # noqa: E501
 
         :param progress_tracker_id: The progress_tracker_id of this StartAchievementProgressEffectProps.  # noqa: E501
         :type: int
@@ -200,7 +200,7 @@ class StartAchievementProgressEffectProps(object):
     def end_date(self):
         """Gets the end_date of this StartAchievementProgressEffectProps.  # noqa: E501
 
-        Timestamp at which this progress period ends.  Only returned for achievements that have a fixed end date. [On-completion achievements](https://docs.talon.one/docs/product/campaigns/achievements/overview#recurring-on-completion-achievements) have no end date.  # noqa: E501
+        Timestamp at which this progress period ends.  Only returned for achievements that have a fixed end date. [On-completion achievements](https://docs.talon.one/docs/product/achievements/overview#recurring-on-completion-achievements) have no end date.  # noqa: E501
 
         :return: The end_date of this StartAchievementProgressEffectProps.  # noqa: E501
         :rtype: datetime
@@ -211,7 +211,7 @@ class StartAchievementProgressEffectProps(object):
     def end_date(self, end_date):
         """Sets the end_date of this StartAchievementProgressEffectProps.
 
-        Timestamp at which this progress period ends.  Only returned for achievements that have a fixed end date. [On-completion achievements](https://docs.talon.one/docs/product/campaigns/achievements/overview#recurring-on-completion-achievements) have no end date.  # noqa: E501
+        Timestamp at which this progress period ends.  Only returned for achievements that have a fixed end date. [On-completion achievements](https://docs.talon.one/docs/product/achievements/overview#recurring-on-completion-achievements) have no end date.  # noqa: E501
 
         :param end_date: The end_date of this StartAchievementProgressEffectProps.  # noqa: E501
         :type: datetime

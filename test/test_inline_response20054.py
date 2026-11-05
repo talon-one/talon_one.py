@@ -36,61 +36,16 @@ class TestInlineResponse20054(unittest.TestCase):
         # model = talon_one.models.inline_response20054.InlineResponse20054()  # noqa: E501
         if include_optional :
             return InlineResponse20054(
-                has_more = True, 
                 data = [
-                    talon_one.models.achievement_progress_with_definition.AchievementProgressWithDefinition(
-                        status = 'completed', 
-                        progress = 10.0, 
-                        start_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        completion_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        end_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        achievement_id = 3, 
-                        name = 'FreeCoffee10Orders', 
-                        title = '50% off on 50th purchase.', 
-                        description = '50% off for every 50th purchase in a year.', 
-                        campaign_id = 3, 
-                        campaign_ids = [1, 14, 27], 
-                        referenced_by_campaigns = [
-                            talon_one.models.campaign_reference.CampaignReference(
-                                id = 1, 
-                                application_id = 2, )
-                            ], 
-                        target = 10.0, 
-                        achievement_recurrence_policy = 'no_recurrence', 
-                        achievement_activation_policy = 'fixed_schedule', 
-                        achievement_fixed_start_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        achievement_end_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        achievement_allow_rollback_after_completion = False, )
+                    talon_one.models.summary_campaign_store_budget.SummaryCampaignStoreBudget(
+                        action = 'redeemCoupon', 
+                        period = 'overall', 
+                        store_count = 56, 
+                        imported = True, )
                     ]
             )
         else :
             return InlineResponse20054(
-                has_more = True,
-                data = [
-                    talon_one.models.achievement_progress_with_definition.AchievementProgressWithDefinition(
-                        status = 'completed', 
-                        progress = 10.0, 
-                        start_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        completion_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        end_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        achievement_id = 3, 
-                        name = 'FreeCoffee10Orders', 
-                        title = '50% off on 50th purchase.', 
-                        description = '50% off for every 50th purchase in a year.', 
-                        campaign_id = 3, 
-                        campaign_ids = [1, 14, 27], 
-                        referenced_by_campaigns = [
-                            talon_one.models.campaign_reference.CampaignReference(
-                                id = 1, 
-                                application_id = 2, )
-                            ], 
-                        target = 10.0, 
-                        achievement_recurrence_policy = 'no_recurrence', 
-                        achievement_activation_policy = 'fixed_schedule', 
-                        achievement_fixed_start_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        achievement_end_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        achievement_allow_rollback_after_completion = False, )
-                    ],
         )
 
     def testInlineResponse20054(self):

@@ -36,6 +36,7 @@ class Experiment(object):
         'id': 'int',
         'created': 'datetime',
         'application_id': 'int',
+        'assignment_type': 'str',
         'is_variant_assignment_external': 'bool',
         'campaign': 'Campaign',
         'activated': 'datetime',
@@ -50,6 +51,7 @@ class Experiment(object):
         'id': 'id',
         'created': 'created',
         'application_id': 'applicationId',
+        'assignment_type': 'assignmentType',
         'is_variant_assignment_external': 'isVariantAssignmentExternal',
         'campaign': 'campaign',
         'activated': 'activated',
@@ -60,7 +62,7 @@ class Experiment(object):
         'deletedat': 'deletedat'
     }
 
-    def __init__(self, id=None, created=None, application_id=None, is_variant_assignment_external=None, campaign=None, activated=None, state='disabled', variants=None, goal_type=None, goal_description=None, deletedat=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, created=None, application_id=None, assignment_type=None, is_variant_assignment_external=None, campaign=None, activated=None, state='disabled', variants=None, goal_type=None, goal_description=None, deletedat=None, local_vars_configuration=None):  # noqa: E501
         """Experiment - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -69,6 +71,7 @@ class Experiment(object):
         self._id = None
         self._created = None
         self._application_id = None
+        self._assignment_type = None
         self._is_variant_assignment_external = None
         self._campaign = None
         self._activated = None
@@ -82,6 +85,8 @@ class Experiment(object):
         self.id = id
         self.created = created
         self.application_id = application_id
+        if assignment_type is not None:
+            self.assignment_type = assignment_type
         if is_variant_assignment_external is not None:
             self.is_variant_assignment_external = is_variant_assignment_external
         if campaign is not None:
@@ -173,10 +178,39 @@ class Experiment(object):
         self._application_id = application_id
 
     @property
+    def assignment_type(self):
+        """Gets the assignment_type of this Experiment.  # noqa: E501
+
+        Controls how customers are assigned to experiment variants. - `random`: Talon.One assigns customers randomly based on variant weights. - `external`: Variant assignment is handled externally. - `audience`: Each variant targets a specific audience; customers are assigned based on audience membership.   # noqa: E501
+
+        :return: The assignment_type of this Experiment.  # noqa: E501
+        :rtype: str
+        """
+        return self._assignment_type
+
+    @assignment_type.setter
+    def assignment_type(self, assignment_type):
+        """Sets the assignment_type of this Experiment.
+
+        Controls how customers are assigned to experiment variants. - `random`: Talon.One assigns customers randomly based on variant weights. - `external`: Variant assignment is handled externally. - `audience`: Each variant targets a specific audience; customers are assigned based on audience membership.   # noqa: E501
+
+        :param assignment_type: The assignment_type of this Experiment.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["random", "external", "audience"]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and assignment_type not in allowed_values:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `assignment_type` ({0}), must be one of {1}"  # noqa: E501
+                .format(assignment_type, allowed_values)
+            )
+
+        self._assignment_type = assignment_type
+
+    @property
     def is_variant_assignment_external(self):
         """Gets the is_variant_assignment_external of this Experiment.  # noqa: E501
 
-        The source of the assignment. - false - The variant assignment is handled internally by Talon.One. - true - The variant assignment is handled externally.   # noqa: E501
+        Deprecated. Use `assignmentType` instead. - false - The variant assignment is handled internally by Talon.One. - true - The variant assignment is handled externally.   # noqa: E501
 
         :return: The is_variant_assignment_external of this Experiment.  # noqa: E501
         :rtype: bool
@@ -187,7 +221,7 @@ class Experiment(object):
     def is_variant_assignment_external(self, is_variant_assignment_external):
         """Sets the is_variant_assignment_external of this Experiment.
 
-        The source of the assignment. - false - The variant assignment is handled internally by Talon.One. - true - The variant assignment is handled externally.   # noqa: E501
+        Deprecated. Use `assignmentType` instead. - false - The variant assignment is handled internally by Talon.One. - true - The variant assignment is handled externally.   # noqa: E501
 
         :param is_variant_assignment_external: The is_variant_assignment_external of this Experiment.  # noqa: E501
         :type: bool

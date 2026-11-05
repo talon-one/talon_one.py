@@ -37,8 +37,8 @@ class UpdateAchievementProgressBlock(object):
         'type': 'str',
         'tags': 'list[str]',
         'operator': 'str',
-        'value': 'str',
-        'achievement': 'UpdateAchievementProgressBlockAchievement'
+        'value': 'object',
+        'achievement': 'AchievementBlockReference'
     }
 
     attribute_map = {
@@ -177,10 +177,10 @@ class UpdateAchievementProgressBlock(object):
     def value(self):
         """Gets the value of this UpdateAchievementProgressBlock.  # noqa: E501
 
-        The value to update the progress by. Supports template placeholders (e.g. \"{{$Session.Total / 2}}\") for dynamic quantities.  # noqa: E501
+        The value to update the progress by. Either a numeric scalar or a `{{expression}}` string that resolves to a number at evaluation time.  # noqa: E501
 
         :return: The value of this UpdateAchievementProgressBlock.  # noqa: E501
-        :rtype: str
+        :rtype: object
         """
         return self._value
 
@@ -188,10 +188,10 @@ class UpdateAchievementProgressBlock(object):
     def value(self, value):
         """Sets the value of this UpdateAchievementProgressBlock.
 
-        The value to update the progress by. Supports template placeholders (e.g. \"{{$Session.Total / 2}}\") for dynamic quantities.  # noqa: E501
+        The value to update the progress by. Either a numeric scalar or a `{{expression}}` string that resolves to a number at evaluation time.  # noqa: E501
 
         :param value: The value of this UpdateAchievementProgressBlock.  # noqa: E501
-        :type: str
+        :type: object
         """
         if self.local_vars_configuration.client_side_validation and value is None:  # noqa: E501
             raise ValueError("Invalid value for `value`, must not be `None`")  # noqa: E501
@@ -204,7 +204,7 @@ class UpdateAchievementProgressBlock(object):
 
 
         :return: The achievement of this UpdateAchievementProgressBlock.  # noqa: E501
-        :rtype: UpdateAchievementProgressBlockAchievement
+        :rtype: AchievementBlockReference
         """
         return self._achievement
 
@@ -214,7 +214,7 @@ class UpdateAchievementProgressBlock(object):
 
 
         :param achievement: The achievement of this UpdateAchievementProgressBlock.  # noqa: E501
-        :type: UpdateAchievementProgressBlockAchievement
+        :type: AchievementBlockReference
         """
         if self.local_vars_configuration.client_side_validation and achievement is None:  # noqa: E501
             raise ValueError("Invalid value for `achievement`, must not be `None`")  # noqa: E501

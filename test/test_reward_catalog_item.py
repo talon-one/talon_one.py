@@ -52,7 +52,7 @@ class TestRewardCatalogItem(unittest.TestCase):
                     display_description = 'Get a 20% discount on all shoes during Thanksgiving! Offer valid till Dec 5 only.', 
                     related_data = 'https://example.com/discounts/20-off-shoes.png', ), 
                 eligibility = talon_one.models.reward_eligibility.RewardEligibility(
-                    passed = True, 
+                    passed = False, 
                     details = [
                         talon_one.models.reward_eligibility_failure_details.RewardEligibilityFailureDetails(
                             failure_code = 'CONDITION_NOT_MET', 

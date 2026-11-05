@@ -44,7 +44,8 @@ class ApplicationCustomer(object):
         'audience_memberships': 'list[AudienceMembership]',
         'last_activity': 'datetime',
         'sandbox': 'bool',
-        'advocate_integration_id': 'str'
+        'advocate_integration_id': 'str',
+        'loyalty_program_join_dates': 'list[LoyaltyMembership]'
     }
 
     attribute_map = {
@@ -59,10 +60,11 @@ class ApplicationCustomer(object):
         'audience_memberships': 'audienceMemberships',
         'last_activity': 'lastActivity',
         'sandbox': 'sandbox',
-        'advocate_integration_id': 'advocateIntegrationId'
+        'advocate_integration_id': 'advocateIntegrationId',
+        'loyalty_program_join_dates': 'loyaltyProgramJoinDates'
     }
 
-    def __init__(self, id=None, created=None, integration_id=None, attributes=None, account_id=None, closed_sessions=None, total_sales=None, loyalty_memberships=None, audience_memberships=None, last_activity=None, sandbox=None, advocate_integration_id=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, created=None, integration_id=None, attributes=None, account_id=None, closed_sessions=None, total_sales=None, loyalty_memberships=None, audience_memberships=None, last_activity=None, sandbox=None, advocate_integration_id=None, loyalty_program_join_dates=None, local_vars_configuration=None):  # noqa: E501
         """ApplicationCustomer - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -80,6 +82,7 @@ class ApplicationCustomer(object):
         self._last_activity = None
         self._sandbox = None
         self._advocate_integration_id = None
+        self._loyalty_program_join_dates = None
         self.discriminator = None
 
         self.id = id
@@ -98,6 +101,8 @@ class ApplicationCustomer(object):
             self.sandbox = sandbox
         if advocate_integration_id is not None:
             self.advocate_integration_id = advocate_integration_id
+        if loyalty_program_join_dates is not None:
+            self.loyalty_program_join_dates = loyalty_program_join_dates
 
     @property
     def id(self):
@@ -396,6 +401,29 @@ class ApplicationCustomer(object):
             raise ValueError("Invalid value for `advocate_integration_id`, length must be less than or equal to `1000`")  # noqa: E501
 
         self._advocate_integration_id = advocate_integration_id
+
+    @property
+    def loyalty_program_join_dates(self):
+        """Gets the loyalty_program_join_dates of this ApplicationCustomer.  # noqa: E501
+
+        The dates on which the customer joined the profile-based loyalty programs they are part of. Returned only when the `withLoyaltyMemberships` query parameter is `true`.  # noqa: E501
+
+        :return: The loyalty_program_join_dates of this ApplicationCustomer.  # noqa: E501
+        :rtype: list[LoyaltyMembership]
+        """
+        return self._loyalty_program_join_dates
+
+    @loyalty_program_join_dates.setter
+    def loyalty_program_join_dates(self, loyalty_program_join_dates):
+        """Sets the loyalty_program_join_dates of this ApplicationCustomer.
+
+        The dates on which the customer joined the profile-based loyalty programs they are part of. Returned only when the `withLoyaltyMemberships` query parameter is `true`.  # noqa: E501
+
+        :param loyalty_program_join_dates: The loyalty_program_join_dates of this ApplicationCustomer.  # noqa: E501
+        :type: list[LoyaltyMembership]
+        """
+
+        self._loyalty_program_join_dates = loyalty_program_join_dates
 
     def to_dict(self):
         """Returns the model properties as a dict"""

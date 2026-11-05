@@ -38,7 +38,7 @@ class TestInlineResponse2001(unittest.TestCase):
             return InlineResponse2001(
                 total_result_size = 1, 
                 data = [
-                    talon_one.models.customer_profile.CustomerProfile(
+                    talon_one.models.customer_reservation.CustomerReservation(
                         id = 6, 
                         created = '2020-02-07T08:15:22Z', 
                         integration_id = 'URNGV8294NV', 
@@ -57,14 +57,15 @@ class TestInlineResponse2001(unittest.TestCase):
                                 name = 'Travel audience', )
                             ], 
                         last_activity = '2020-02-08T14:15:20Z', 
-                        sandbox = False, )
+                        sandbox = False, 
+                        reserved_at = '2026-08-10T10:00Z', )
                     ]
             )
         else :
             return InlineResponse2001(
                 total_result_size = 1,
                 data = [
-                    talon_one.models.customer_profile.CustomerProfile(
+                    talon_one.models.customer_reservation.CustomerReservation(
                         id = 6, 
                         created = '2020-02-07T08:15:22Z', 
                         integration_id = 'URNGV8294NV', 
@@ -83,7 +84,8 @@ class TestInlineResponse2001(unittest.TestCase):
                                 name = 'Travel audience', )
                             ], 
                         last_activity = '2020-02-08T14:15:20Z', 
-                        sandbox = False, )
+                        sandbox = False, 
+                        reserved_at = '2026-08-10T10:00Z', )
                     ],
         )
 

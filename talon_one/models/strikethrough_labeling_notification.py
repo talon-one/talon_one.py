@@ -293,7 +293,7 @@ class StrikethroughLabelingNotification(object):
     def sent_at(self):
         """Gets the sent_at of this StrikethroughLabelingNotification.  # noqa: E501
 
-        Timestamp at which the notification was sent.  # noqa: E501
+        Timestamp when the notification was sent by Talon.One. There may be a delay before the notification is delivered to the user.  # noqa: E501
 
         :return: The sent_at of this StrikethroughLabelingNotification.  # noqa: E501
         :rtype: datetime
@@ -304,7 +304,7 @@ class StrikethroughLabelingNotification(object):
     def sent_at(self, sent_at):
         """Sets the sent_at of this StrikethroughLabelingNotification.
 
-        Timestamp at which the notification was sent.  # noqa: E501
+        Timestamp when the notification was sent by Talon.One. There may be a delay before the notification is delivered to the user.  # noqa: E501
 
         :param sent_at: The sent_at of this StrikethroughLabelingNotification.  # noqa: E501
         :type: datetime

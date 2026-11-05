@@ -40,7 +40,7 @@ class TestSupportRequest(unittest.TestCase):
                 application_id = 322, 
                 campaign_id = 100, 
                 loyalty_program_id = 8, 
-                subledger_id = 123, 
+                subledger_id = 'sub-123', 
                 created_by_user = 'support.agent.name@company.com', 
                 created_at = '2025-07-20T22:00Z', 
                 customer_profile_id = 'URNGV8294NV', 

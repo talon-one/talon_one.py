@@ -48,8 +48,8 @@ class TestCampaignEligibility(unittest.TestCase):
                 features = [coupons, referrals], 
                 eligibility = [
                     talon_one.models.campaign_eligibility_details.CampaignEligibilityDetails(
-                        passed = True, 
-                        coupon_code = '0', 
+                        passed = False, 
+                        coupon_code = 'XMAS-20-2021', 
                         details = talon_one.models.campaign_eligibility_failure_details.CampaignEligibilityFailureDetails(
                             failure_code = 'ALL_RULES_FAILED', ), )
                     ], 
@@ -61,8 +61,8 @@ class TestCampaignEligibility(unittest.TestCase):
                         related_data = 'https://example.com/discounts/20-off-shoes.png', 
                         eligibility = [
                             talon_one.models.rule_eligibility.RuleEligibility(
-                                passed = True, 
-                                coupon_code = '0', 
+                                passed = False, 
+                                coupon_code = 'XMAS-20-2021', 
                                 details = talon_one.models.rule_eligibility_failure_details.RuleEligibilityFailureDetails(
                                     failure_code = 'CONDITION_NOT_MET', 
                                     coupon_id = 4928, 
@@ -71,6 +71,8 @@ class TestCampaignEligibility(unittest.TestCase):
                                     referral_value = '0', 
                                     condition_index = 56, 
                                     effect_index = 56, 
+                                    rule_index = 0, 
+                                    ruleset_id = 123, 
                                     details = '0', ), )
                             ], )
                     ], 
@@ -88,8 +90,8 @@ class TestCampaignEligibility(unittest.TestCase):
                 features = [coupons, referrals],
                 eligibility = [
                     talon_one.models.campaign_eligibility_details.CampaignEligibilityDetails(
-                        passed = True, 
-                        coupon_code = '0', 
+                        passed = False, 
+                        coupon_code = 'XMAS-20-2021', 
                         details = talon_one.models.campaign_eligibility_failure_details.CampaignEligibilityFailureDetails(
                             failure_code = 'ALL_RULES_FAILED', ), )
                     ],
@@ -101,8 +103,8 @@ class TestCampaignEligibility(unittest.TestCase):
                         related_data = 'https://example.com/discounts/20-off-shoes.png', 
                         eligibility = [
                             talon_one.models.rule_eligibility.RuleEligibility(
-                                passed = True, 
-                                coupon_code = '0', 
+                                passed = False, 
+                                coupon_code = 'XMAS-20-2021', 
                                 details = talon_one.models.rule_eligibility_failure_details.RuleEligibilityFailureDetails(
                                     failure_code = 'CONDITION_NOT_MET', 
                                     coupon_id = 4928, 
@@ -111,6 +113,8 @@ class TestCampaignEligibility(unittest.TestCase):
                                     referral_value = '0', 
                                     condition_index = 56, 
                                     effect_index = 56, 
+                                    rule_index = 0, 
+                                    ruleset_id = 123, 
                                     details = '0', ), )
                             ], )
                     ],

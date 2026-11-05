@@ -38,7 +38,7 @@ class UpdateAudienceMembershipBlock(object):
         'tags': 'list[str]',
         'operator': 'str',
         'profile': 'str',
-        'audience': 'UpdateAudienceMembershipBlockAudience'
+        'audience': 'AudienceBlockReference'
     }
 
     attribute_map = {
@@ -212,7 +212,7 @@ class UpdateAudienceMembershipBlock(object):
 
 
         :return: The audience of this UpdateAudienceMembershipBlock.  # noqa: E501
-        :rtype: UpdateAudienceMembershipBlockAudience
+        :rtype: AudienceBlockReference
         """
         return self._audience
 
@@ -222,7 +222,7 @@ class UpdateAudienceMembershipBlock(object):
 
 
         :param audience: The audience of this UpdateAudienceMembershipBlock.  # noqa: E501
-        :type: UpdateAudienceMembershipBlockAudience
+        :type: AudienceBlockReference
         """
         if self.local_vars_configuration.client_side_validation and audience is None:  # noqa: E501
             raise ValueError("Invalid value for `audience`, must not be `None`")  # noqa: E501

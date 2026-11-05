@@ -56,6 +56,7 @@ class RevisionActivation(object):
     def activate_at(self):
         """Gets the activate_at of this RevisionActivation.  # noqa: E501
 
+        Timestamp when the revision will be activated.  # noqa: E501
 
         :return: The activate_at of this RevisionActivation.  # noqa: E501
         :rtype: datetime
@@ -66,6 +67,7 @@ class RevisionActivation(object):
     def activate_at(self, activate_at):
         """Sets the activate_at of this RevisionActivation.
 
+        Timestamp when the revision will be activated.  # noqa: E501
 
         :param activate_at: The activate_at of this RevisionActivation.  # noqa: E501
         :type: datetime

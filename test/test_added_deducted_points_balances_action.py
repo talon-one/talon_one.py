@@ -41,7 +41,10 @@ class TestAddedDeductedPointsBalancesAction(unittest.TestCase):
                 operation = 'addition', 
                 start_date = '2023-01-24T14:15:22Z', 
                 expiry_date = '2024-01-24T14:15:22Z', 
-                transaction_uuid = '0'
+                transaction_uuid = '0', 
+                created = '2023-01-24T14:15:22Z', 
+                awaits_activation = False, 
+                validity_duration = '30D'
             )
         else :
             return AddedDeductedPointsBalancesAction(

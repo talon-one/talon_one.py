@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **application_id** | **int** | Identifier of the Application connected to the loyalty program or the campaign. It is displayed in your Talon.One deployment URL. | 
 **campaign_id** | **int** | Identifier of the campaign where the coupon or gift card is created. | [optional] 
 **loyalty_program_id** | **int** | Identifier of the loyalty program where the points are added or deducted. | [optional] 
-**subledger_id** | **int** | Identifier of the subledger the points are added to or deducted from. If there is no existing subledger with this ID, the subledger is created automatically. | [optional] 
+**subledger_id** | **str** | ID of the subledger the points are added to or deducted from. Must be combined with &#x60;loyaltyProgramId&#x60;. The subledger must already exist in the given loyalty program. | [optional] 
 **created_by_user** | **str** | Email address of the customer support agent who created the support request. | 
 **created_at** | **datetime** | Timestamp when the request was made. | 
 **customer_profile_id** | **str** | Integration ID of the customer profile linked to the support request. | 

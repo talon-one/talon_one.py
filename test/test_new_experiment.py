@@ -36,6 +36,7 @@ class TestNewExperiment(unittest.TestCase):
         # model = talon_one.models.new_experiment.NewExperiment()  # noqa: E501
         if include_optional :
             return NewExperiment(
+                assignment_type = 'random', 
                 is_variant_assignment_external = True, 
                 campaign = talon_one.models.new_campaign.NewCampaign(
                     name = 'Summer promotions', 
@@ -71,7 +72,6 @@ class TestNewExperiment(unittest.TestCase):
             )
         else :
             return NewExperiment(
-                is_variant_assignment_external = True,
                 campaign = talon_one.models.new_campaign.NewCampaign(
                     name = 'Summer promotions', 
                     description = 'Campaign for all summer 2021 promotions', 

@@ -39,7 +39,7 @@ class TestSupportRequestInput(unittest.TestCase):
                 application_id = 322, 
                 campaign_id = 100, 
                 loyalty_program_id = 8, 
-                subledger_id = 123, 
+                subledger_id = 'sub-123', 
                 customer_profile_id = 'URNGV8294NV', 
                 request_type = 'personal_coupon', 
                 request_value = 20.5, 

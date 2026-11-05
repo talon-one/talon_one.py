@@ -1,5 +1,6 @@
 # RolesV2Thresholds
 
+Support user limits for actions that require admin approval within the given loyalty program.
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

@@ -43,7 +43,7 @@ class TestUpdateAudienceMembershipBlock(unittest.TestCase):
                     ], 
                 operator = 'add', 
                 profile = 'Current', 
-                audience = talon_one.models.update_audience_membership_block_audience.UpdateAudienceMembershipBlock_audience(
+                audience = talon_one.models.audience_block_reference.AudienceBlockReference(
                     id = 42, 
                     name = 'Travel audience', 
                     integration = 'mparticle', 
@@ -54,7 +54,7 @@ class TestUpdateAudienceMembershipBlock(unittest.TestCase):
                 type = '0',
                 operator = 'add',
                 profile = 'Current',
-                audience = talon_one.models.update_audience_membership_block_audience.UpdateAudienceMembershipBlock_audience(
+                audience = talon_one.models.audience_block_reference.AudienceBlockReference(
                     id = 42, 
                     name = 'Travel audience', 
                     integration = 'mparticle', 

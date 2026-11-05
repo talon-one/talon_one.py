@@ -43,7 +43,7 @@ class ApplicationEvent(object):
         'session_id': 'int',
         'type': 'str',
         'attributes': 'object',
-        'effects': 'list[Effect]',
+        'effects': 'list[object]',
         'rule_failure_reasons': 'list[RuleFailureReason]'
     }
 
@@ -357,7 +357,7 @@ class ApplicationEvent(object):
         An array containing the effects that were applied as a result of this event.  # noqa: E501
 
         :return: The effects of this ApplicationEvent.  # noqa: E501
-        :rtype: list[Effect]
+        :rtype: list[object]
         """
         return self._effects
 
@@ -368,7 +368,7 @@ class ApplicationEvent(object):
         An array containing the effects that were applied as a result of this event.  # noqa: E501
 
         :param effects: The effects of this ApplicationEvent.  # noqa: E501
-        :type: list[Effect]
+        :type: list[object]
         """
         if self.local_vars_configuration.client_side_validation and effects is None:  # noqa: E501
             raise ValueError("Invalid value for `effects`, must not be `None`")  # noqa: E501

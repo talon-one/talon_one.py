@@ -39,7 +39,8 @@ class ExperimentVariant(object):
         'experiment_id': 'int',
         'ruleset': 'Ruleset',
         'weight': 'int',
-        'is_primary': 'bool'
+        'is_primary': 'bool',
+        'audience_id': 'int'
     }
 
     attribute_map = {
@@ -49,10 +50,11 @@ class ExperimentVariant(object):
         'experiment_id': 'experimentId',
         'ruleset': 'ruleset',
         'weight': 'weight',
-        'is_primary': 'isPrimary'
+        'is_primary': 'isPrimary',
+        'audience_id': 'audienceId'
     }
 
-    def __init__(self, id=None, created=None, name=None, experiment_id=None, ruleset=None, weight=None, is_primary=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, created=None, name=None, experiment_id=None, ruleset=None, weight=None, is_primary=None, audience_id=None, local_vars_configuration=None):  # noqa: E501
         """ExperimentVariant - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -65,6 +67,7 @@ class ExperimentVariant(object):
         self._ruleset = None
         self._weight = None
         self._is_primary = None
+        self._audience_id = None
         self.discriminator = None
 
         self.id = id
@@ -77,6 +80,8 @@ class ExperimentVariant(object):
         if weight is not None:
             self.weight = weight
         self.is_primary = is_primary
+        if audience_id is not None:
+            self.audience_id = audience_id
 
     @property
     def id(self):
@@ -236,6 +241,29 @@ class ExperimentVariant(object):
             raise ValueError("Invalid value for `is_primary`, must not be `None`")  # noqa: E501
 
         self._is_primary = is_primary
+
+    @property
+    def audience_id(self):
+        """Gets the audience_id of this ExperimentVariant.  # noqa: E501
+
+        The ID of the audience this variant targets. Only used when the experiment `assignmentType` is `audience`.   # noqa: E501
+
+        :return: The audience_id of this ExperimentVariant.  # noqa: E501
+        :rtype: int
+        """
+        return self._audience_id
+
+    @audience_id.setter
+    def audience_id(self, audience_id):
+        """Sets the audience_id of this ExperimentVariant.
+
+        The ID of the audience this variant targets. Only used when the experiment `assignmentType` is `audience`.   # noqa: E501
+
+        :param audience_id: The audience_id of this ExperimentVariant.  # noqa: E501
+        :type: int
+        """
+
+        self._audience_id = audience_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

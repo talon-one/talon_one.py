@@ -90,25 +90,7 @@ class TestIntegrationCustomerSessionResponse(unittest.TestCase):
                     cart_item_additional_cost_total = 15.0, 
                     updated = '2020-02-08T14:15:22Z', ), 
                 effects = [
-                    talon_one.models.effect.Effect(
-                        experiment_id = 12, 
-                        campaign_id = 244, 
-                        ruleset_id = 73, 
-                        rule_index = 2, 
-                        rule_name = 'Give 20% discount', 
-                        effect_type = 'rejectCoupon', 
-                        triggered_by_coupon = 4928, 
-                        triggered_for_catalog_item = 786, 
-                        condition_index = 786, 
-                        evaluation_group_id = 3, 
-                        evaluation_group_mode = 'stackable', 
-                        campaign_revision_id = 1, 
-                        campaign_revision_version_id = 5, 
-                        selected_price_type = 'member', 
-                        selected_price = 100.0, 
-                        adjustment_reference_id = '68851723-e6fa-488f-ace9-112581e6c19b', 
-                        reward_id = 7, 
-                        props = talon_one.models.props.props(), )
+                    talon_one.models.effect.Effect()
                     ]
             )
         else :

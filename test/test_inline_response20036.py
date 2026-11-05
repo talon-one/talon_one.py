@@ -38,17 +38,78 @@ class TestInlineResponse20036(unittest.TestCase):
             return InlineResponse20036(
                 has_more = True, 
                 data = [
-                    talon_one.models.audience_analytics.AudienceAnalytics(
-                        audience_id = 1, 
-                        members_count = 1234, )
+                    talon_one.models.application_event.ApplicationEvent(
+                        id = 6, 
+                        created = '2020-06-10T09:05:27.993483Z', 
+                        application_id = 322, 
+                        profile_id = 138, 
+                        store_id = 56, 
+                        store_integration_id = 'STORE-001', 
+                        integration_id = '175KJPS947296', 
+                        session_id = 56, 
+                        type = '0', 
+                        attributes = talon_one.models.attributes.attributes(), 
+                        effects = [
+                            talon_one.models.effect.Effect()
+                            ], 
+                        rule_failure_reasons = [
+                            talon_one.models.rule_failure_reason.RuleFailureReason(
+                                campaign_id = 56, 
+                                campaign_name = '0', 
+                                ruleset_id = 56, 
+                                coupon_id = 4928, 
+                                coupon_value = '0', 
+                                referral_id = 56, 
+                                referral_value = '0', 
+                                reward_id = 7, 
+                                reward_integration_id = '5c0b5e6d-3f8a-4c2b-9f1e-2a7d6b4c8e90', 
+                                rule_index = 56, 
+                                rule_name = '0', 
+                                condition_index = 56, 
+                                effect_index = 56, 
+                                details = '0', 
+                                evaluation_group_id = 3, 
+                                evaluation_group_mode = 'stackable', )
+                            ], )
                     ]
             )
         else :
             return InlineResponse20036(
+                has_more = True,
                 data = [
-                    talon_one.models.audience_analytics.AudienceAnalytics(
-                        audience_id = 1, 
-                        members_count = 1234, )
+                    talon_one.models.application_event.ApplicationEvent(
+                        id = 6, 
+                        created = '2020-06-10T09:05:27.993483Z', 
+                        application_id = 322, 
+                        profile_id = 138, 
+                        store_id = 56, 
+                        store_integration_id = 'STORE-001', 
+                        integration_id = '175KJPS947296', 
+                        session_id = 56, 
+                        type = '0', 
+                        attributes = talon_one.models.attributes.attributes(), 
+                        effects = [
+                            talon_one.models.effect.Effect()
+                            ], 
+                        rule_failure_reasons = [
+                            talon_one.models.rule_failure_reason.RuleFailureReason(
+                                campaign_id = 56, 
+                                campaign_name = '0', 
+                                ruleset_id = 56, 
+                                coupon_id = 4928, 
+                                coupon_value = '0', 
+                                referral_id = 56, 
+                                referral_value = '0', 
+                                reward_id = 7, 
+                                reward_integration_id = '5c0b5e6d-3f8a-4c2b-9f1e-2a7d6b4c8e90', 
+                                rule_index = 56, 
+                                rule_name = '0', 
+                                condition_index = 56, 
+                                effect_index = 56, 
+                                details = '0', 
+                                evaluation_group_id = 3, 
+                                evaluation_group_mode = 'stackable', )
+                            ], )
                     ],
         )
 

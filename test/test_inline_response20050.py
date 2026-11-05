@@ -36,19 +36,57 @@ class TestInlineResponse20050(unittest.TestCase):
         # model = talon_one.models.inline_response20050.InlineResponse20050()  # noqa: E501
         if include_optional :
             return InlineResponse20050(
+                total_result_size = 1, 
                 data = [
-                    talon_one.models.list_campaign_store_budgets.ListCampaignStoreBudgets(
-                        store = talon_one.models.list_campaign_store_budgets_store.ListCampaignStoreBudgetsStore(
-                            id = 56, 
-                            integration_id = '0', 
-                            name = '0', ), 
-                        limit = 56, 
-                        action = '0', 
-                        period = '0', )
+                    talon_one.models.role_v2.RoleV2(
+                        id = 6, 
+                        created = '2020-06-10T09:05:27.993483Z', 
+                        modified = '2021-09-12T10:12:42Z', 
+                        account_id = 3886, 
+                        name = 'Campaign and campaign access group manager', 
+                        description = 'Allows you to create and edit campaigns for specific Applications, delete specific campaign access groups, and view loyalty programs.', 
+                        permissions = talon_one.models.role_v2_permissions.RoleV2Permissions(
+                            permission_sets = [{name=Application permission set, logicalOperations=[getApplicationOperations, editApplicationOperations]}, {name=Campaign manager permission set, logicalOperations=[getCampaignOperations, createCampaignOperations, updateCampaignOperations]}, {name=Campaign read-only permission set, logicalOperations=[getCampaignOperations]}, {name=Loyalty program read-only permission set, logicalOperations=[getLoyaltyProgramOperations]}, {name=Campaign access group manager permission set, logicalOperations=[getCampaignAccessGroupOperations, updateCampaignAccessGroupOperations, deleteCampaignAccessGroupOperations]}], 
+                            roles = talon_one.models.role_v2_roles_group.RoleV2RolesGroup(
+                                applications = {1={application=Application permission set}, 3={campaign=Campaign manager permission set}, 4={draftCampaign=Campaign read-only permission set}, 5={tools=Tools permission set}}, 
+                                loyalty_programs = {10=Loyalty program manager permission set}, 
+                                campaign_access_groups = {5=Campaign access group manager permission set}, 
+                                account = 'Account administration permission set', ), 
+                            thresholds = [
+                                talon_one.models.roles_v2_thresholds.RolesV2Thresholds(
+                                    loyalty_program_id = 8, 
+                                    loyalty_points_limit = 100, )
+                                ], ), 
+                        members = [10, 12], 
+                        is_readonly = False, )
                     ]
             )
         else :
             return InlineResponse20050(
+                total_result_size = 1,
+                data = [
+                    talon_one.models.role_v2.RoleV2(
+                        id = 6, 
+                        created = '2020-06-10T09:05:27.993483Z', 
+                        modified = '2021-09-12T10:12:42Z', 
+                        account_id = 3886, 
+                        name = 'Campaign and campaign access group manager', 
+                        description = 'Allows you to create and edit campaigns for specific Applications, delete specific campaign access groups, and view loyalty programs.', 
+                        permissions = talon_one.models.role_v2_permissions.RoleV2Permissions(
+                            permission_sets = [{name=Application permission set, logicalOperations=[getApplicationOperations, editApplicationOperations]}, {name=Campaign manager permission set, logicalOperations=[getCampaignOperations, createCampaignOperations, updateCampaignOperations]}, {name=Campaign read-only permission set, logicalOperations=[getCampaignOperations]}, {name=Loyalty program read-only permission set, logicalOperations=[getLoyaltyProgramOperations]}, {name=Campaign access group manager permission set, logicalOperations=[getCampaignAccessGroupOperations, updateCampaignAccessGroupOperations, deleteCampaignAccessGroupOperations]}], 
+                            roles = talon_one.models.role_v2_roles_group.RoleV2RolesGroup(
+                                applications = {1={application=Application permission set}, 3={campaign=Campaign manager permission set}, 4={draftCampaign=Campaign read-only permission set}, 5={tools=Tools permission set}}, 
+                                loyalty_programs = {10=Loyalty program manager permission set}, 
+                                campaign_access_groups = {5=Campaign access group manager permission set}, 
+                                account = 'Account administration permission set', ), 
+                            thresholds = [
+                                talon_one.models.roles_v2_thresholds.RolesV2Thresholds(
+                                    loyalty_program_id = 8, 
+                                    loyalty_points_limit = 100, )
+                                ], ), 
+                        members = [10, 12], 
+                        is_readonly = False, )
+                    ],
         )
 
     def testInlineResponse20050(self):

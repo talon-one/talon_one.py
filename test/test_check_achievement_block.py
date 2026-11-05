@@ -42,7 +42,7 @@ class TestCheckAchievementBlock(unittest.TestCase):
                     '0'
                     ], 
                 operator = 'justCompleted', 
-                achievement = talon_one.models.check_achievement_block_achievement.CheckAchievementBlock_achievement(
+                achievement = talon_one.models.achievement_block_reference.AchievementBlockReference(
                     id = 42, 
                     title = '50% off on 50th purchase.', 
                     name = 'Order50Discount', 
@@ -55,7 +55,7 @@ class TestCheckAchievementBlock(unittest.TestCase):
             return CheckAchievementBlock(
                 type = '0',
                 operator = 'justCompleted',
-                achievement = talon_one.models.check_achievement_block_achievement.CheckAchievementBlock_achievement(
+                achievement = talon_one.models.achievement_block_reference.AchievementBlockReference(
                     id = 42, 
                     title = '50% off on 50th purchase.', 
                     name = 'Order50Discount', 

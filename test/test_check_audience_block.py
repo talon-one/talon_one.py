@@ -43,7 +43,7 @@ class TestCheckAudienceBlock(unittest.TestCase):
                     ], 
                 operator = 'member', 
                 profile = 'Current', 
-                audience = talon_one.models.check_audience_block_audience.CheckAudienceBlock_audience(
+                audience = talon_one.models.audience_block_reference.AudienceBlockReference(
                     id = 42, 
                     name = 'Travel audience', 
                     integration = 'mparticle', 
@@ -56,8 +56,7 @@ class TestCheckAudienceBlock(unittest.TestCase):
             return CheckAudienceBlock(
                 type = '0',
                 operator = 'member',
-                profile = 'Current',
-                audience = talon_one.models.check_audience_block_audience.CheckAudienceBlock_audience(
+                audience = talon_one.models.audience_block_reference.AudienceBlockReference(
                     id = 42, 
                     name = 'Travel audience', 
                     integration = 'mparticle', 

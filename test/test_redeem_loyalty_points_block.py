@@ -47,10 +47,7 @@ class TestRedeemLoyaltyPointsBlock(unittest.TestCase):
                     title = 'Main Loyalty Program', ), 
                 subledger = 'main', 
                 value = None, 
-                name = 'Purchase Deduction', 
-                on_failure = [
-                    talon_one.models.block.Block()
-                    ]
+                name = 'Purchase Deduction'
             )
         else :
             return RedeemLoyaltyPointsBlock(

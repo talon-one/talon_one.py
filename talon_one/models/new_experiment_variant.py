@@ -36,17 +36,19 @@ class NewExperimentVariant(object):
         'name': 'str',
         'weight': 'int',
         'ruleset': 'NewRuleset',
-        'is_primary': 'bool'
+        'is_primary': 'bool',
+        'audience_id': 'int'
     }
 
     attribute_map = {
         'name': 'name',
         'weight': 'weight',
         'ruleset': 'ruleset',
-        'is_primary': 'isPrimary'
+        'is_primary': 'isPrimary',
+        'audience_id': 'audienceId'
     }
 
-    def __init__(self, name=None, weight=None, ruleset=None, is_primary=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, name=None, weight=None, ruleset=None, is_primary=None, audience_id=None, local_vars_configuration=None):  # noqa: E501
         """NewExperimentVariant - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -56,12 +58,15 @@ class NewExperimentVariant(object):
         self._weight = None
         self._ruleset = None
         self._is_primary = None
+        self._audience_id = None
         self.discriminator = None
 
         self.name = name
         self.weight = weight
         self.ruleset = ruleset
         self.is_primary = is_primary
+        if audience_id is not None:
+            self.audience_id = audience_id
 
     @property
     def name(self):
@@ -98,7 +103,7 @@ class NewExperimentVariant(object):
     def weight(self):
         """Gets the weight of this NewExperimentVariant.  # noqa: E501
 
-        The percentage split of this variant. The sum of all variant percentages must be 100.  # noqa: E501
+        The percentage split of this variant. For `random` assignment, the split must be between 1 and 99 and the sum across all variants must equal 100. Ignored for `audience` and `external` assignment.   # noqa: E501
 
         :return: The weight of this NewExperimentVariant.  # noqa: E501
         :rtype: int
@@ -109,7 +114,7 @@ class NewExperimentVariant(object):
     def weight(self, weight):
         """Sets the weight of this NewExperimentVariant.
 
-        The percentage split of this variant. The sum of all variant percentages must be 100.  # noqa: E501
+        The percentage split of this variant. For `random` assignment, the split must be between 1 and 99 and the sum across all variants must equal 100. Ignored for `audience` and `external` assignment.   # noqa: E501
 
         :param weight: The weight of this NewExperimentVariant.  # noqa: E501
         :type: int
@@ -120,8 +125,8 @@ class NewExperimentVariant(object):
                 weight is not None and weight > 99):  # noqa: E501
             raise ValueError("Invalid value for `weight`, must be a value less than or equal to `99`")  # noqa: E501
         if (self.local_vars_configuration.client_side_validation and
-                weight is not None and weight < 1):  # noqa: E501
-            raise ValueError("Invalid value for `weight`, must be a value greater than or equal to `1`")  # noqa: E501
+                weight is not None and weight < 0):  # noqa: E501
+            raise ValueError("Invalid value for `weight`, must be a value greater than or equal to `0`")  # noqa: E501
 
         self._weight = weight
 
@@ -170,6 +175,29 @@ class NewExperimentVariant(object):
             raise ValueError("Invalid value for `is_primary`, must not be `None`")  # noqa: E501
 
         self._is_primary = is_primary
+
+    @property
+    def audience_id(self):
+        """Gets the audience_id of this NewExperimentVariant.  # noqa: E501
+
+        The ID of the audience this variant targets. Only used when the experiment `assignmentType` is `audience`.   # noqa: E501
+
+        :return: The audience_id of this NewExperimentVariant.  # noqa: E501
+        :rtype: int
+        """
+        return self._audience_id
+
+    @audience_id.setter
+    def audience_id(self, audience_id):
+        """Sets the audience_id of this NewExperimentVariant.
+
+        The ID of the audience this variant targets. Only used when the experiment `assignmentType` is `audience`.   # noqa: E501
+
+        :param audience_id: The audience_id of this NewExperimentVariant.  # noqa: E501
+        :type: int
+        """
+
+        self._audience_id = audience_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

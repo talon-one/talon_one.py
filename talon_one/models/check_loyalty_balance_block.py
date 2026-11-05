@@ -215,7 +215,7 @@ class CheckLoyaltyBalanceBlock(object):
     def subledger(self):
         """Gets the subledger of this CheckLoyaltyBalanceBlock.  # noqa: E501
 
-        The name of the subledger to check the balance of. Can be empty if this block checks the loyalty program's main ledger balance instead of a subledger.  # noqa: E501
+        The name of the subledger to check the balance of. Can be empty if this block checks the loyalty program's main ledger balance instead of a subledger. A subledger can only be used when the loyalty program has subledgers enabled.  # noqa: E501
 
         :return: The subledger of this CheckLoyaltyBalanceBlock.  # noqa: E501
         :rtype: str
@@ -226,7 +226,7 @@ class CheckLoyaltyBalanceBlock(object):
     def subledger(self, subledger):
         """Sets the subledger of this CheckLoyaltyBalanceBlock.
 
-        The name of the subledger to check the balance of. Can be empty if this block checks the loyalty program's main ledger balance instead of a subledger.  # noqa: E501
+        The name of the subledger to check the balance of. Can be empty if this block checks the loyalty program's main ledger balance instead of a subledger. A subledger can only be used when the loyalty program has subledgers enabled.  # noqa: E501
 
         :param subledger: The subledger of this CheckLoyaltyBalanceBlock.  # noqa: E501
         :type: str
@@ -240,7 +240,7 @@ class CheckLoyaltyBalanceBlock(object):
     def balance(self):
         """Gets the balance of this CheckLoyaltyBalanceBlock.  # noqa: E501
 
-        The type of balance to check:  - `current` is the sum of currently active points  - `pending` is the sum of pending points.  - `negative` is the sum of negative points.  - `tentativeCurrent` is the tentative points balance within the current open customer session.  # noqa: E501
+        The type of balance to check:  - `current` is the sum of currently active points  - `pending` is the sum of pending points.  - `negative` is the sum of negative points. It cannot be used with a subledger.  - `tentativeCurrent` is the tentative points balance within the current open customer session.  # noqa: E501
 
         :return: The balance of this CheckLoyaltyBalanceBlock.  # noqa: E501
         :rtype: str
@@ -251,7 +251,7 @@ class CheckLoyaltyBalanceBlock(object):
     def balance(self, balance):
         """Sets the balance of this CheckLoyaltyBalanceBlock.
 
-        The type of balance to check:  - `current` is the sum of currently active points  - `pending` is the sum of pending points.  - `negative` is the sum of negative points.  - `tentativeCurrent` is the tentative points balance within the current open customer session.  # noqa: E501
+        The type of balance to check:  - `current` is the sum of currently active points  - `pending` is the sum of pending points.  - `negative` is the sum of negative points. It cannot be used with a subledger.  - `tentativeCurrent` is the tentative points balance within the current open customer session.  # noqa: E501
 
         :param balance: The balance of this CheckLoyaltyBalanceBlock.  # noqa: E501
         :type: str

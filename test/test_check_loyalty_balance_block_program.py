@@ -43,8 +43,6 @@ class TestCheckLoyaltyBalanceBlockProgram(unittest.TestCase):
         else :
             return CheckLoyaltyBalanceBlockProgram(
                 id = 10,
-                name = 'MainProgram',
-                title = 'Main Loyalty Program',
         )
 
     def testCheckLoyaltyBalanceBlockProgram(self):

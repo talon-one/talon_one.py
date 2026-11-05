@@ -48,7 +48,8 @@ class LoyaltyLedgerEntry(object):
         'user_id': 'int',
         'archived': 'bool',
         'flags': 'LoyaltyLedgerEntryFlags',
-        'validity_duration': 'str'
+        'validity_duration': 'str',
+        'awaits_activation': 'bool'
     }
 
     attribute_map = {
@@ -67,10 +68,11 @@ class LoyaltyLedgerEntry(object):
         'user_id': 'userID',
         'archived': 'archived',
         'flags': 'flags',
-        'validity_duration': 'validityDuration'
+        'validity_duration': 'validityDuration',
+        'awaits_activation': 'awaitsActivation'
     }
 
-    def __init__(self, created=None, program_id=None, customer_profile_id=None, card_id=None, customer_session_id=None, event_id=None, type=None, amount=None, start_date=None, expiry_date=None, name=None, sub_ledger_id=None, user_id=None, archived=None, flags=None, validity_duration=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, created=None, program_id=None, customer_profile_id=None, card_id=None, customer_session_id=None, event_id=None, type=None, amount=None, start_date=None, expiry_date=None, name=None, sub_ledger_id=None, user_id=None, archived=None, flags=None, validity_duration=None, awaits_activation=None, local_vars_configuration=None):  # noqa: E501
         """LoyaltyLedgerEntry - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -92,6 +94,7 @@ class LoyaltyLedgerEntry(object):
         self._archived = None
         self._flags = None
         self._validity_duration = None
+        self._awaits_activation = None
         self.discriminator = None
 
         self.created = created
@@ -120,6 +123,8 @@ class LoyaltyLedgerEntry(object):
             self.flags = flags
         if validity_duration is not None:
             self.validity_duration = validity_duration
+        if awaits_activation is not None:
+            self.awaits_activation = awaits_activation
 
     @property
     def created(self):
@@ -480,6 +485,29 @@ class LoyaltyLedgerEntry(object):
         """
 
         self._validity_duration = validity_duration
+
+    @property
+    def awaits_activation(self):
+        """Gets the awaits_activation of this LoyaltyLedgerEntry.  # noqa: E501
+
+        Indicates whether the points have an action-based start date. This property is returned only for point transactions with an action-based start date.  # noqa: E501
+
+        :return: The awaits_activation of this LoyaltyLedgerEntry.  # noqa: E501
+        :rtype: bool
+        """
+        return self._awaits_activation
+
+    @awaits_activation.setter
+    def awaits_activation(self, awaits_activation):
+        """Sets the awaits_activation of this LoyaltyLedgerEntry.
+
+        Indicates whether the points have an action-based start date. This property is returned only for point transactions with an action-based start date.  # noqa: E501
+
+        :param awaits_activation: The awaits_activation of this LoyaltyLedgerEntry.  # noqa: E501
+        :type: bool
+        """
+
+        self._awaits_activation = awaits_activation
 
     def to_dict(self):
         """Returns the model properties as a dict"""

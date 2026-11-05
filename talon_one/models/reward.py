@@ -45,6 +45,8 @@ class Reward(object):
         'rule': 'Rule',
         'bindings': 'list[Binding]',
         'points_required': 'list[RewardPointsRequired]',
+        'validity_duration': 'str',
+        'expiry_date': 'datetime',
         'modified': 'datetime',
         'status': 'str'
     }
@@ -62,11 +64,13 @@ class Reward(object):
         'rule': 'rule',
         'bindings': 'bindings',
         'points_required': 'pointsRequired',
+        'validity_duration': 'validityDuration',
+        'expiry_date': 'expiryDate',
         'modified': 'modified',
         'status': 'status'
     }
 
-    def __init__(self, id=None, created=None, account_id=None, name=None, api_name=None, description=None, application_ids=None, sandbox=None, eligibility_conditions=None, rule=None, bindings=None, points_required=None, modified=None, status=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, created=None, account_id=None, name=None, api_name=None, description=None, application_ids=None, sandbox=None, eligibility_conditions=None, rule=None, bindings=None, points_required=None, validity_duration=None, expiry_date=None, modified=None, status=None, local_vars_configuration=None):  # noqa: E501
         """Reward - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -84,6 +88,8 @@ class Reward(object):
         self._rule = None
         self._bindings = None
         self._points_required = None
+        self._validity_duration = None
+        self._expiry_date = None
         self._modified = None
         self._status = None
         self.discriminator = None
@@ -105,6 +111,10 @@ class Reward(object):
             self.bindings = bindings
         if points_required is not None:
             self.points_required = points_required
+        if validity_duration is not None:
+            self.validity_duration = validity_duration
+        if expiry_date is not None:
+            self.expiry_date = expiry_date
         if modified is not None:
             self.modified = modified
         self.status = status
@@ -400,6 +410,52 @@ class Reward(object):
         """
 
         self._points_required = points_required
+
+    @property
+    def validity_duration(self):
+        """Gets the validity_duration of this Reward.  # noqa: E501
+
+        The duration for which the customer rewards unlocked from this reward remain active, relative to when the customer reward was unlocked.  The time format is an **integer** followed by one letter indicating the time unit.  Examples: `5D`, `7W`, `10M`, `15Y`.  Available units:  - `D`: days - `W`: weeks - `M`: months - `Y`: years  You can round certain units up or down: - `_D` for rounding down days only. Signifies the start of the day. - `_U` for rounding up days, weeks, months and years. Signifies the end of the day, week, month or year.  This field cannot be used in combination with `expiryDate`. If both `validityDuration` and `expiryDate` are not set, customer rewards have unlimited validity.   # noqa: E501
+
+        :return: The validity_duration of this Reward.  # noqa: E501
+        :rtype: str
+        """
+        return self._validity_duration
+
+    @validity_duration.setter
+    def validity_duration(self, validity_duration):
+        """Sets the validity_duration of this Reward.
+
+        The duration for which the customer rewards unlocked from this reward remain active, relative to when the customer reward was unlocked.  The time format is an **integer** followed by one letter indicating the time unit.  Examples: `5D`, `7W`, `10M`, `15Y`.  Available units:  - `D`: days - `W`: weeks - `M`: months - `Y`: years  You can round certain units up or down: - `_D` for rounding down days only. Signifies the start of the day. - `_U` for rounding up days, weeks, months and years. Signifies the end of the day, week, month or year.  This field cannot be used in combination with `expiryDate`. If both `validityDuration` and `expiryDate` are not set, customer rewards have unlimited validity.   # noqa: E501
+
+        :param validity_duration: The validity_duration of this Reward.  # noqa: E501
+        :type: str
+        """
+
+        self._validity_duration = validity_duration
+
+    @property
+    def expiry_date(self):
+        """Gets the expiry_date of this Reward.  # noqa: E501
+
+        Expiry date of the customer rewards unlocked from this reward. Customer rewards never expire if this is omitted and `validityDuration` is not set.  **Note:** - The date must be in the future. - This field cannot be used in combination with `validityDuration`.   # noqa: E501
+
+        :return: The expiry_date of this Reward.  # noqa: E501
+        :rtype: datetime
+        """
+        return self._expiry_date
+
+    @expiry_date.setter
+    def expiry_date(self, expiry_date):
+        """Sets the expiry_date of this Reward.
+
+        Expiry date of the customer rewards unlocked from this reward. Customer rewards never expire if this is omitted and `validityDuration` is not set.  **Note:** - The date must be in the future. - This field cannot be used in combination with `validityDuration`.   # noqa: E501
+
+        :param expiry_date: The expiry_date of this Reward.  # noqa: E501
+        :type: datetime
+        """
+
+        self._expiry_date = expiry_date
 
     @property
     def modified(self):

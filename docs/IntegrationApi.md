@@ -19,6 +19,7 @@ Method | HTTP request | Description
 [**get_customer_achievement_history**](IntegrationApi.md#get_customer_achievement_history) | **GET** /v1/customer_profiles/{integrationId}/achievements/{achievementId} | List customer&#39;s achievement history
 [**get_customer_achievements**](IntegrationApi.md#get_customer_achievements) | **GET** /v1/customer_profiles/{integrationId}/achievements | List customer&#39;s available achievements
 [**get_customer_inventory**](IntegrationApi.md#get_customer_inventory) | **GET** /v1/customer_profiles/{integrationId}/inventory | List customer data
+[**get_customer_rewards**](IntegrationApi.md#get_customer_rewards) | **GET** /v1/customer_profiles/{integrationId}/rewards | List customer&#39;s rewards
 [**get_customer_session**](IntegrationApi.md#get_customer_session) | **GET** /v2/customer_sessions/{customerSessionId} | Get customer session
 [**get_event_v3**](IntegrationApi.md#get_event_v3) | **GET** /v3/events/{integrationId} | Get advanced event
 [**get_loyalty_balances**](IntegrationApi.md#get_loyalty_balances) | **GET** /v1/loyalty_programs/{loyaltyProgramId}/profile/{integrationId}/balances | Get customer&#39;s loyalty balances
@@ -431,7 +432,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_coupon_reservation**
-> Coupon create_coupon_reservation(coupon_value, body)
+> CouponWithReservations create_coupon_reservation(coupon_value, body)
 
 Create coupon reservation
 
@@ -491,7 +492,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Coupon**](Coupon.md)
+[**CouponWithReservations**](CouponWithReservations.md)
 
 ### Authorization
 
@@ -1431,6 +1432,94 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **get_customer_rewards**
+> InlineResponse2004 get_customer_rewards(integration_id, status=status, page_size=page_size, skip=skip, with_total_result_size=with_total_result_size)
+
+List customer's rewards
+
+List the rewards held by a given customer profile. This includes shared rewards unlocked with a loyalty card linked to the customer. 
+
+### Example
+
+* Api Key Authentication (api_key_v1):
+```python
+from __future__ import print_function
+import time
+import talon_one
+from talon_one.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to https://yourbaseurl.talon.one
+# See configuration.py for a list of all supported configuration parameters.
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_v1
+configuration = talon_one.Configuration(
+    host = "https://yourbaseurl.talon.one",
+    api_key = {
+        'Authorization': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with talon_one.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = talon_one.IntegrationApi(api_client)
+    integration_id = 'integration_id_example' # str | The integration identifier for this customer profile. Must be:  - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID. 
+status = ['status_example'] # list[str] | Filter results by one or more customer reward statuses.  **Note:** If no status is specified, rewards of all statuses are returned.  (optional)
+page_size = 1000 # int | The number of items in the response. (optional) (default to 1000)
+skip = 56 # int | The number of items to skip when paging through large result sets. (optional)
+with_total_result_size = True # bool | When this flag is set, the result includes the total number of results for this query. This might decrease performance on large data sets.   - When `true`: `totalResultSize` contains the total number of results for this query.  - When `false`: Only `hasMore` is returned, and it is set to `true` when there are more results than shown on the page.  (optional)
+
+    try:
+        # List customer's rewards
+        api_response = api_instance.get_customer_rewards(integration_id, status=status, page_size=page_size, skip=skip, with_total_result_size=with_total_result_size)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling IntegrationApi->get_customer_rewards: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **integration_id** | **str**| The integration identifier for this customer profile. Must be:  - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  | 
+ **status** | [**list[str]**](str.md)| Filter results by one or more customer reward statuses.  **Note:** If no status is specified, rewards of all statuses are returned.  | [optional] 
+ **page_size** | **int**| The number of items in the response. | [optional] [default to 1000]
+ **skip** | **int**| The number of items to skip when paging through large result sets. | [optional] 
+ **with_total_result_size** | **bool**| When this flag is set, the result includes the total number of results for this query. This might decrease performance on large data sets.   - When &#x60;true&#x60;: &#x60;totalResultSize&#x60; contains the total number of results for this query.  - When &#x60;false&#x60;: Only &#x60;hasMore&#x60; is returned, and it is set to &#x60;true&#x60; when there are more results than shown on the page.  | [optional] 
+
+### Return type
+
+[**InlineResponse2004**](InlineResponse2004.md)
+
+### Authorization
+
+[api_key_v1](../README.md#api_key_v1)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Bad request |  -  |
+**401** | Unauthorized |  -  |
+**404** | Not found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **get_customer_session**
 > IntegrationCustomerSessionResponse get_customer_session(customer_session_id)
 
@@ -1765,7 +1854,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_loyalty_card_points**
-> InlineResponse2006 get_loyalty_card_points(loyalty_program_id, loyalty_card_id, status=status, subledger_id=subledger_id, customer_session_i_ds=customer_session_i_ds, transaction_uui_ds=transaction_uui_ds, page_size=page_size, skip=skip, sort=sort)
+> InlineResponse2008 get_loyalty_card_points(loyalty_program_id, loyalty_card_id, status=status, subledger_id=subledger_id, customer_session_i_ds=customer_session_i_ds, transaction_uui_ds=transaction_uui_ds, page_size=page_size, skip=skip, sort=sort)
 
 List card's unused loyalty points
 
@@ -1839,7 +1928,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2006**](InlineResponse2006.md)
+[**InlineResponse2008**](InlineResponse2008.md)
 
 ### Authorization
 
@@ -1861,7 +1950,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_loyalty_card_transactions**
-> InlineResponse2004 get_loyalty_card_transactions(loyalty_program_id, loyalty_card_id, subledger_id=subledger_id, loyalty_transaction_type=loyalty_transaction_type, start_date=start_date, end_date=end_date, customer_session_i_ds=customer_session_i_ds, transaction_uui_ds=transaction_uui_ds, page_size=page_size, skip=skip, awaits_activation=awaits_activation)
+> InlineResponse2005 get_loyalty_card_transactions(loyalty_program_id, loyalty_card_id, subledger_id=subledger_id, loyalty_transaction_type=loyalty_transaction_type, start_date=start_date, end_date=end_date, customer_session_i_ds=customer_session_i_ds, transaction_uui_ds=transaction_uui_ds, page_size=page_size, skip=skip, awaits_activation=awaits_activation)
 
 List card's transactions
 
@@ -1939,7 +2028,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2004**](InlineResponse2004.md)
+[**InlineResponse2005**](InlineResponse2005.md)
 
 ### Authorization
 
@@ -1961,7 +2050,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_loyalty_program_profile_points**
-> InlineResponse2007 get_loyalty_program_profile_points(loyalty_program_id, integration_id, status=status, subledger_id=subledger_id, customer_session_i_ds=customer_session_i_ds, transaction_uui_ds=transaction_uui_ds, page_size=page_size, skip=skip, sort=sort)
+> InlineResponse2009 get_loyalty_program_profile_points(loyalty_program_id, integration_id, status=status, subledger_id=subledger_id, customer_session_i_ds=customer_session_i_ds, transaction_uui_ds=transaction_uui_ds, page_size=page_size, skip=skip, sort=sort)
 
 List customer's unused loyalty points
 
@@ -2035,7 +2124,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2007**](InlineResponse2007.md)
+[**InlineResponse2009**](InlineResponse2009.md)
 
 ### Authorization
 
@@ -2057,7 +2146,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_loyalty_program_profile_transactions**
-> InlineResponse2005 get_loyalty_program_profile_transactions(loyalty_program_id, integration_id, customer_session_i_ds=customer_session_i_ds, transaction_uui_ds=transaction_uui_ds, subledger_id=subledger_id, loyalty_transaction_type=loyalty_transaction_type, start_date=start_date, end_date=end_date, page_size=page_size, skip=skip, awaits_activation=awaits_activation)
+> InlineResponse2006 get_loyalty_program_profile_transactions(loyalty_program_id, integration_id, customer_session_i_ds=customer_session_i_ds, transaction_uui_ds=transaction_uui_ds, subledger_id=subledger_id, loyalty_transaction_type=loyalty_transaction_type, start_date=start_date, end_date=end_date, page_size=page_size, skip=skip, awaits_activation=awaits_activation)
 
 List customer's loyalty transactions
 
@@ -2135,7 +2224,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2005**](InlineResponse2005.md)
+[**InlineResponse2006**](InlineResponse2006.md)
 
 ### Authorization
 
@@ -2333,7 +2422,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **integration_rewards_catalog**
-> InlineResponse20056 integration_rewards_catalog(page_size=page_size, skip=skip, points_from=points_from, points_to=points_to, include_free=include_free, loyalty_program_id=loyalty_program_id, subledger_id=subledger_id, profile_integration_id=profile_integration_id, loyalty_card_id=loyalty_card_id)
+> InlineResponse20059 integration_rewards_catalog(page_size=page_size, skip=skip, points_from=points_from, points_to=points_to, include_free=include_free, loyalty_program_id=loyalty_program_id, subledger_id=subledger_id, profile_integration_id=profile_integration_id, loyalty_card_id=loyalty_card_id)
 
 List rewards in the catalog
 
@@ -2380,8 +2469,8 @@ points_to = 3.4 # float | Return only rewards whose points required is less than
 include_free = True # bool | Whether to include rewards that have no `pointsRequired`. These rewards are treated as free and available to all customers.  (optional) (default to True)
 loyalty_program_id = 56 # int | Return only rewards available in this loyalty program.  (optional)
 subledger_id = 'subledger_id_example' # str | Return only rewards available in this subledger. Must be combined with `loyaltyProgramId`. To specify the main ledger, provide an empty string (\"\").  (optional)
-profile_integration_id = 'profile_integration_id_example' # str | The integration ID of the customer profile whose loyalty balances to include in the response. Balances are returned only when `loyaltyProgramId` is also provided.  **Note:** `profileIntegrationId` and `loyaltyCardId` are mutually exclusive. Do not send both in the same request.  (optional)
-loyalty_card_id = 'loyalty_card_id_example' # str | The identifier of the loyalty card whose loyalty balances to include in the response. Balances are returned only when `loyaltyProgramId` is also provided.  **Note:** `profileIntegrationId` and `loyaltyCardId` are mutually exclusive. Do not send both in the same request.  (optional)
+profile_integration_id = 'profile_integration_id_example' # str | The integration ID of the customer profile whose loyalty balances to include in the response. Balances are returned only when `loyaltyProgramId` is also provided.  For a reward with `pointsRequired` configured for a card-based loyalty program, eligibility can be evaluated based on both `profileIntegrationId` and `loyaltyCardId`, if both are provided. The required points are then checked against the card's balance.  (optional)
+loyalty_card_id = 'loyalty_card_id_example' # str | The identifier of the loyalty card whose loyalty balances to include in the response. Balances are returned only when `loyaltyProgramId` is also provided.  For a reward with `pointsRequired` configured for a card-based loyalty program, eligibility can be evaluated based on both `profileIntegrationId` and `loyaltyCardId`, if both are provided. The card must also be linked to that customer profile. - If `loyaltyCardId` is not provided, the reward returns the `CARD_REQUIRED` failure code, because there is no card balance to compare `pointsRequired` against. - If `profileIntegrationId` is not provided, the reward returns the `PROFILE_REQUIRED` failure code, because its eligibility cannot be evaluated without a customer profile.  (optional)
 
     try:
         # List rewards in the catalog
@@ -2402,12 +2491,12 @@ Name | Type | Description  | Notes
  **include_free** | **bool**| Whether to include rewards that have no &#x60;pointsRequired&#x60;. These rewards are treated as free and available to all customers.  | [optional] [default to True]
  **loyalty_program_id** | **int**| Return only rewards available in this loyalty program.  | [optional] 
  **subledger_id** | **str**| Return only rewards available in this subledger. Must be combined with &#x60;loyaltyProgramId&#x60;. To specify the main ledger, provide an empty string (\&quot;\&quot;).  | [optional] 
- **profile_integration_id** | **str**| The integration ID of the customer profile whose loyalty balances to include in the response. Balances are returned only when &#x60;loyaltyProgramId&#x60; is also provided.  **Note:** &#x60;profileIntegrationId&#x60; and &#x60;loyaltyCardId&#x60; are mutually exclusive. Do not send both in the same request.  | [optional] 
- **loyalty_card_id** | **str**| The identifier of the loyalty card whose loyalty balances to include in the response. Balances are returned only when &#x60;loyaltyProgramId&#x60; is also provided.  **Note:** &#x60;profileIntegrationId&#x60; and &#x60;loyaltyCardId&#x60; are mutually exclusive. Do not send both in the same request.  | [optional] 
+ **profile_integration_id** | **str**| The integration ID of the customer profile whose loyalty balances to include in the response. Balances are returned only when &#x60;loyaltyProgramId&#x60; is also provided.  For a reward with &#x60;pointsRequired&#x60; configured for a card-based loyalty program, eligibility can be evaluated based on both &#x60;profileIntegrationId&#x60; and &#x60;loyaltyCardId&#x60;, if both are provided. The required points are then checked against the card&#39;s balance.  | [optional] 
+ **loyalty_card_id** | **str**| The identifier of the loyalty card whose loyalty balances to include in the response. Balances are returned only when &#x60;loyaltyProgramId&#x60; is also provided.  For a reward with &#x60;pointsRequired&#x60; configured for a card-based loyalty program, eligibility can be evaluated based on both &#x60;profileIntegrationId&#x60; and &#x60;loyaltyCardId&#x60;, if both are provided. The card must also be linked to that customer profile. - If &#x60;loyaltyCardId&#x60; is not provided, the reward returns the &#x60;CARD_REQUIRED&#x60; failure code, because there is no card balance to compare &#x60;pointsRequired&#x60; against. - If &#x60;profileIntegrationId&#x60; is not provided, the reward returns the &#x60;PROFILE_REQUIRED&#x60; failure code, because its eligibility cannot be evaluated without a customer profile.  | [optional] 
 
 ### Return type
 
-[**InlineResponse20056**](InlineResponse20056.md)
+[**InlineResponse20059**](InlineResponse20059.md)
 
 ### Authorization
 
@@ -3097,11 +3186,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **unlock_reward**
-> IntegrationStateV2 unlock_reward(reward_id, body, dry=dry)
+> IntegrationUnlockRewardResponse unlock_reward(reward_id, body, dry=dry)
 
 Unlock a reward
 
-Unlock a reward for a customer. If the reward has `pointsRequired` configured, the corresponding loyalty points are deducted from the customer's balance.  To unlock a reward with the points of a loyalty card, provide the card in `cardIdentifier`. The points are then deducted from the card, and the unlocked reward belongs to the card, which makes it available to all customer profiles linked to that card. 
+Unlock a reward for a customer. If the reward has `pointsRequired` configured, the corresponding loyalty points are deducted from the customer's balance.  To unlock a reward with the points of a loyalty card, provide the card in `loyaltyCardId`. The points are then deducted from the card, and the unlocked reward belongs to the card, which makes it available to all customer profiles linked to that card. 
 
 ### Example
 
@@ -3159,7 +3248,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**IntegrationStateV2**](IntegrationStateV2.md)
+[**IntegrationUnlockRewardResponse**](IntegrationUnlockRewardResponse.md)
 
 ### Authorization
 

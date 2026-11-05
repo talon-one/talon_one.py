@@ -37,7 +37,7 @@ class TestCheckReferralBlock(unittest.TestCase):
         if include_optional :
             return CheckReferralBlock(
                 id = 'a1b2c3d4-e5f6-7890-abcd-ef1234567890', 
-                type = '0', 
+                type = 'checkReferral', 
                 tags = [
                     '0'
                     ], 
@@ -48,7 +48,7 @@ class TestCheckReferralBlock(unittest.TestCase):
             )
         else :
             return CheckReferralBlock(
-                type = '0',
+                type = 'checkReferral',
                 redeem = True,
         )
 

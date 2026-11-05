@@ -36,73 +36,68 @@ class TestInlineResponse20056(unittest.TestCase):
         # model = talon_one.models.inline_response20056.InlineResponse20056()  # noqa: E501
         if include_optional :
             return InlineResponse20056(
-                catalog = talon_one.models.inline_response_200_56_catalog.inline_response_200_56_catalog(
-                    has_more = True, 
-                    data = [
-                        talon_one.models.reward_catalog_item.RewardCatalogItem(
-                            id = 42, 
-                            name = '10% Off Coupon', 
-                            description = 'Applies to next order', 
-                            points_required = [
-                                talon_one.models.reward_points_required.RewardPointsRequired(
-                                    id = 1, 
-                                    amount = 500.0, 
-                                    loyalty_program_id = 10, 
-                                    subledger_id = 'mysubledger', )
-                                ], 
-                            rule = talon_one.models.rule_metadata.RuleMetadata(
-                                title = 'Give discount via coupon', 
-                                display_name = '20% off all shoes!', 
-                                display_description = 'Get a 20% discount on all shoes during Thanksgiving! Offer valid till Dec 5 only.', 
-                                related_data = 'https://example.com/discounts/20-off-shoes.png', ), 
-                            eligibility = talon_one.models.reward_eligibility.RewardEligibility(
-                                passed = True, 
-                                details = [
-                                    talon_one.models.reward_eligibility_failure_details.RewardEligibilityFailureDetails(
-                                        failure_code = 'CONDITION_NOT_MET', 
-                                        condition_index = 0, )
-                                    ], ), )
-                        ], ), 
-                loyalty = {
-                    'key' : talon_one.models.loyalty_balances.LoyaltyBalances(
-                        balance = talon_one.models.loyalty_balance.LoyaltyBalance(
-                            active_points = 286.0, 
-                            pending_points = 50.0, 
-                            spent_points = 150.0, 
-                            expired_points = 286.0, 
-                            negative_points = 286.0, ), 
-                        subledger_balances = {"mysubledger":{"activePoints":286,"pendingPoints":50,"spentPoints":150,"expiredPoints":25,"negativePoints":0}}, )
-                    }
+                has_more = True, 
+                data = [
+                    talon_one.models.achievement_v2.AchievementV2(
+                        id = 6, 
+                        created = '2020-06-10T09:05:27.993483Z', 
+                        name = 'Order50Discount', 
+                        title = '50% off on 50th purchase.', 
+                        description = '50% off for every 50th purchase in a year.', 
+                        target = 50.0, 
+                        period = '1Y', 
+                        recurrence_policy = 'no_recurrence', 
+                        activation_policy = 'fixed_schedule', 
+                        fixed_start_date = '2024-01-15T15:04:05+07:00', 
+                        end_date = '2024-01-15T15:04:05+07:00', 
+                        allow_rollback_after_completion = False, 
+                        subscribed_applications = [132, 97], 
+                        user_id = 1234, 
+                        created_by = 'John Doe', 
+                        period_end_override = {month=11, dayOfMonth=23, hour=23, minute=59, second=59}, 
+                        has_progress = True, 
+                        status = 'active', 
+                        sandbox = True, 
+                        timezone = 'Europe/Berlin', 
+                        campaign_id = 3, 
+                        referenced_by_campaigns = [
+                            talon_one.models.campaign_reference.CampaignReference(
+                                id = 1, 
+                                application_id = 2, )
+                            ], )
+                    ]
             )
         else :
             return InlineResponse20056(
-                catalog = talon_one.models.inline_response_200_56_catalog.inline_response_200_56_catalog(
-                    has_more = True, 
-                    data = [
-                        talon_one.models.reward_catalog_item.RewardCatalogItem(
-                            id = 42, 
-                            name = '10% Off Coupon', 
-                            description = 'Applies to next order', 
-                            points_required = [
-                                talon_one.models.reward_points_required.RewardPointsRequired(
-                                    id = 1, 
-                                    amount = 500.0, 
-                                    loyalty_program_id = 10, 
-                                    subledger_id = 'mysubledger', )
-                                ], 
-                            rule = talon_one.models.rule_metadata.RuleMetadata(
-                                title = 'Give discount via coupon', 
-                                display_name = '20% off all shoes!', 
-                                display_description = 'Get a 20% discount on all shoes during Thanksgiving! Offer valid till Dec 5 only.', 
-                                related_data = 'https://example.com/discounts/20-off-shoes.png', ), 
-                            eligibility = talon_one.models.reward_eligibility.RewardEligibility(
-                                passed = True, 
-                                details = [
-                                    talon_one.models.reward_eligibility_failure_details.RewardEligibilityFailureDetails(
-                                        failure_code = 'CONDITION_NOT_MET', 
-                                        condition_index = 0, )
-                                    ], ), )
-                        ], ),
+                data = [
+                    talon_one.models.achievement_v2.AchievementV2(
+                        id = 6, 
+                        created = '2020-06-10T09:05:27.993483Z', 
+                        name = 'Order50Discount', 
+                        title = '50% off on 50th purchase.', 
+                        description = '50% off for every 50th purchase in a year.', 
+                        target = 50.0, 
+                        period = '1Y', 
+                        recurrence_policy = 'no_recurrence', 
+                        activation_policy = 'fixed_schedule', 
+                        fixed_start_date = '2024-01-15T15:04:05+07:00', 
+                        end_date = '2024-01-15T15:04:05+07:00', 
+                        allow_rollback_after_completion = False, 
+                        subscribed_applications = [132, 97], 
+                        user_id = 1234, 
+                        created_by = 'John Doe', 
+                        period_end_override = {month=11, dayOfMonth=23, hour=23, minute=59, second=59}, 
+                        has_progress = True, 
+                        status = 'active', 
+                        sandbox = True, 
+                        timezone = 'Europe/Berlin', 
+                        campaign_id = 3, 
+                        referenced_by_campaigns = [
+                            talon_one.models.campaign_reference.CampaignReference(
+                                id = 1, 
+                                application_id = 2, )
+                            ], )
+                    ],
         )
 
     def testInlineResponse20056(self):

@@ -34,7 +34,7 @@ class IntegrationCustomerSessionResponse(object):
     """
     openapi_types = {
         'customer_session': 'CustomerSessionV2',
-        'effects': 'list[Effect]'
+        'effects': 'list[object]'
     }
 
     attribute_map = {
@@ -85,7 +85,7 @@ class IntegrationCustomerSessionResponse(object):
         The returned effects.  **Note:** This endpoint returns only the effects that are valid after any rollback effects and their corresponding non-rollback effects are removed.   # noqa: E501
 
         :return: The effects of this IntegrationCustomerSessionResponse.  # noqa: E501
-        :rtype: list[Effect]
+        :rtype: list[object]
         """
         return self._effects
 
@@ -96,7 +96,7 @@ class IntegrationCustomerSessionResponse(object):
         The returned effects.  **Note:** This endpoint returns only the effects that are valid after any rollback effects and their corresponding non-rollback effects are removed.   # noqa: E501
 
         :param effects: The effects of this IntegrationCustomerSessionResponse.  # noqa: E501
-        :type: list[Effect]
+        :type: list[object]
         """
 
         self._effects = effects

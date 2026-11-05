@@ -42,7 +42,8 @@ class TestIntegrationEventV2Request(unittest.TestCase):
                 type = 'pageViewed', 
                 attributes = {"myAttribute":"myValue"}, 
                 response_content = [triggeredCampaigns, customerProfile], 
-                loyalty_cards = [loyalty-card-1]
+                loyalty_cards = [loyalty-card-1], 
+                reward_integration_ids = [5c0b5e6d-3f8a-4c2b-9f1e-2a7d6b4c8e90]
             )
         else :
             return IntegrationEventV2Request(

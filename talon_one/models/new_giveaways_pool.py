@@ -69,7 +69,7 @@ class NewGiveawaysPool(object):
     def name(self):
         """Gets the name of this NewGiveawaysPool.  # noqa: E501
 
-        The name of this giveaways pool.  # noqa: E501
+        The name of this giveaway pool.  # noqa: E501
 
         :return: The name of this NewGiveawaysPool.  # noqa: E501
         :rtype: str
@@ -80,7 +80,7 @@ class NewGiveawaysPool(object):
     def name(self, name):
         """Sets the name of this NewGiveawaysPool.
 
-        The name of this giveaways pool.  # noqa: E501
+        The name of this giveaway pool.  # noqa: E501
 
         :param name: The name of this NewGiveawaysPool.  # noqa: E501
         :type: str
@@ -94,7 +94,7 @@ class NewGiveawaysPool(object):
     def description(self):
         """Gets the description of this NewGiveawaysPool.  # noqa: E501
 
-        The description of this giveaways pool.  # noqa: E501
+        The description of this giveaway pool.  # noqa: E501
 
         :return: The description of this NewGiveawaysPool.  # noqa: E501
         :rtype: str
@@ -105,7 +105,7 @@ class NewGiveawaysPool(object):
     def description(self, description):
         """Sets the description of this NewGiveawaysPool.
 
-        The description of this giveaways pool.  # noqa: E501
+        The description of this giveaway pool.  # noqa: E501
 
         :param description: The description of this NewGiveawaysPool.  # noqa: E501
         :type: str
@@ -117,7 +117,7 @@ class NewGiveawaysPool(object):
     def subscribed_applications_ids(self):
         """Gets the subscribed_applications_ids of this NewGiveawaysPool.  # noqa: E501
 
-        A list of the IDs of the applications that this giveaways pool is enabled for.  # noqa: E501
+        A list of the IDs of the Applications that this giveaway pool is enabled for.  # noqa: E501
 
         :return: The subscribed_applications_ids of this NewGiveawaysPool.  # noqa: E501
         :rtype: list[int]
@@ -128,7 +128,7 @@ class NewGiveawaysPool(object):
     def subscribed_applications_ids(self, subscribed_applications_ids):
         """Sets the subscribed_applications_ids of this NewGiveawaysPool.
 
-        A list of the IDs of the applications that this giveaways pool is enabled for.  # noqa: E501
+        A list of the IDs of the Applications that this giveaway pool is enabled for.  # noqa: E501
 
         :param subscribed_applications_ids: The subscribed_applications_ids of this NewGiveawaysPool.  # noqa: E501
         :type: list[int]

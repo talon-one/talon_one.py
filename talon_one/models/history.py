@@ -135,7 +135,7 @@ class History(object):
     def context_ids(self):
         """Gets the context_ids of this History.  # noqa: E501
 
-        The identifiers of the relevant context at the time the price was observed. Includes the context IDs of any price adjustments and of the campaigns that influenced the final price.   # noqa: E501
+        The identifiers of the relevant context (the sales events, e.g. \"Spring Sale\", \"Summer Sale\") at the time the price was observed. Includes the context IDs of any price adjustments and of the campaigns that influenced the final price.   # noqa: E501
 
         :return: The context_ids of this History.  # noqa: E501
         :rtype: list[str]
@@ -146,7 +146,7 @@ class History(object):
     def context_ids(self, context_ids):
         """Sets the context_ids of this History.
 
-        The identifiers of the relevant context at the time the price was observed. Includes the context IDs of any price adjustments and of the campaigns that influenced the final price.   # noqa: E501
+        The identifiers of the relevant context (the sales events, e.g. \"Spring Sale\", \"Summer Sale\") at the time the price was observed. Includes the context IDs of any price adjustments and of the campaigns that influenced the final price.   # noqa: E501
 
         :param context_ids: The context_ids of this History.  # noqa: E501
         :type: list[str]

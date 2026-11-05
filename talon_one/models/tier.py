@@ -37,7 +37,9 @@ class Tier(object):
         'name': 'str',
         'start_date': 'datetime',
         'expiry_date': 'datetime',
-        'downgrade_policy': 'str'
+        'downgrade_policy': 'str',
+        'source': 'str',
+        'reason': 'str'
     }
 
     attribute_map = {
@@ -45,10 +47,12 @@ class Tier(object):
         'name': 'name',
         'start_date': 'startDate',
         'expiry_date': 'expiryDate',
-        'downgrade_policy': 'downgradePolicy'
+        'downgrade_policy': 'downgradePolicy',
+        'source': 'source',
+        'reason': 'reason'
     }
 
-    def __init__(self, id=None, name=None, start_date=None, expiry_date=None, downgrade_policy=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, name=None, start_date=None, expiry_date=None, downgrade_policy=None, source='points', reason=None, local_vars_configuration=None):  # noqa: E501
         """Tier - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -59,6 +63,8 @@ class Tier(object):
         self._start_date = None
         self._expiry_date = None
         self._downgrade_policy = None
+        self._source = None
+        self._reason = None
         self.discriminator = None
 
         self.id = id
@@ -69,6 +75,10 @@ class Tier(object):
             self.expiry_date = expiry_date
         if downgrade_policy is not None:
             self.downgrade_policy = downgrade_policy
+        if source is not None:
+            self.source = source
+        if reason is not None:
+            self.reason = reason
 
     @property
     def id(self):
@@ -194,6 +204,58 @@ class Tier(object):
             )
 
         self._downgrade_policy = downgrade_policy
+
+    @property
+    def source(self):
+        """Gets the source of this Tier.  # noqa: E501
+
+        Indicates whether the customer's current tier was determined based on their points balance or a temporary boost.  - `points`: The tier reflects the customer's current point balance. - `boost`: A temporary tier boost is in effect where the customer is in a higher tier than their points-based tier. The boost expires after a set duration and the customer returns to their points-based tier.   # noqa: E501
+
+        :return: The source of this Tier.  # noqa: E501
+        :rtype: str
+        """
+        return self._source
+
+    @source.setter
+    def source(self, source):
+        """Sets the source of this Tier.
+
+        Indicates whether the customer's current tier was determined based on their points balance or a temporary boost.  - `points`: The tier reflects the customer's current point balance. - `boost`: A temporary tier boost is in effect where the customer is in a higher tier than their points-based tier. The boost expires after a set duration and the customer returns to their points-based tier.   # noqa: E501
+
+        :param source: The source of this Tier.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["boost", "points"]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and source not in allowed_values:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `source` ({0}), must be one of {1}"  # noqa: E501
+                .format(source, allowed_values)
+            )
+
+        self._source = source
+
+    @property
+    def reason(self):
+        """Gets the reason of this Tier.  # noqa: E501
+
+        The reason for the tier assignment.   # noqa: E501
+
+        :return: The reason of this Tier.  # noqa: E501
+        :rtype: str
+        """
+        return self._reason
+
+    @reason.setter
+    def reason(self, reason):
+        """Sets the reason of this Tier.
+
+        The reason for the tier assignment.   # noqa: E501
+
+        :param reason: The reason of this Tier.  # noqa: E501
+        :type: str
+        """
+
+        self._reason = reason
 
     def to_dict(self):
         """Returns the model properties as a dict"""

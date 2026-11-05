@@ -184,7 +184,7 @@ class NewDigitalPass(object):
     def platform(self):
         """Gets the platform of this NewDigitalPass.  # noqa: E501
 
-        The wallet platform the pass is generated for.  # noqa: E501
+        The wallet platform the pass is generated for. Possible values:  - `apple`: The digital pass is generated for Apple Wallet. - `google`: The digital pass is generated for Google Wallet.   # noqa: E501
 
         :return: The platform of this NewDigitalPass.  # noqa: E501
         :rtype: str
@@ -195,7 +195,7 @@ class NewDigitalPass(object):
     def platform(self, platform):
         """Sets the platform of this NewDigitalPass.
 
-        The wallet platform the pass is generated for.  # noqa: E501
+        The wallet platform the pass is generated for. Possible values:  - `apple`: The digital pass is generated for Apple Wallet. - `google`: The digital pass is generated for Google Wallet.   # noqa: E501
 
         :param platform: The platform of this NewDigitalPass.  # noqa: E501
         :type: str

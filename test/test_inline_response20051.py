@@ -36,16 +36,35 @@ class TestInlineResponse20051(unittest.TestCase):
         # model = talon_one.models.inline_response20051.InlineResponse20051()  # noqa: E501
         if include_optional :
             return InlineResponse20051(
+                has_more = True, 
+                total_result_size = 1, 
                 data = [
-                    talon_one.models.summary_campaign_store_budget.SummaryCampaignStoreBudget(
-                        action = 'redeemCoupon', 
-                        period = 'overall', 
-                        store_count = 56, 
-                        imported = True, )
+                    talon_one.models.store.Store(
+                        id = 6, 
+                        created = '2020-02-07T08:15:22Z', 
+                        name = 'South US store', 
+                        description = 'This is the description of the store in south US.', 
+                        attributes = {"country":"USA","code":1234}, 
+                        integration_id = 'STORE-001', 
+                        application_id = 322, 
+                        updated = '2021-09-23T10:12:42Z', 
+                        linked_campaign_ids = [4, 6, 8], )
                     ]
             )
         else :
             return InlineResponse20051(
+                data = [
+                    talon_one.models.store.Store(
+                        id = 6, 
+                        created = '2020-02-07T08:15:22Z', 
+                        name = 'South US store', 
+                        description = 'This is the description of the store in south US.', 
+                        attributes = {"country":"USA","code":1234}, 
+                        integration_id = 'STORE-001', 
+                        application_id = 322, 
+                        updated = '2021-09-23T10:12:42Z', 
+                        linked_campaign_ids = [4, 6, 8], )
+                    ],
         )
 
     def testInlineResponse20051(self):

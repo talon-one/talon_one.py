@@ -42,22 +42,22 @@ class TestUpdateAchievementProgressBlock(unittest.TestCase):
                     '0'
                     ], 
                 operator = 'increaseBy', 
-                value = '10', 
-                achievement = talon_one.models.update_achievement_progress_block_achievement.UpdateAchievementProgressBlock_achievement(
+                value = None, 
+                achievement = talon_one.models.achievement_block_reference.AchievementBlockReference(
                     id = 42, 
-                    name = 'Order50Discount', 
                     title = '50% off on 50th purchase.', 
+                    name = 'Order50Discount', 
                     target = 50.0, )
             )
         else :
             return UpdateAchievementProgressBlock(
                 type = '0',
                 operator = 'increaseBy',
-                value = '10',
-                achievement = talon_one.models.update_achievement_progress_block_achievement.UpdateAchievementProgressBlock_achievement(
+                value = None,
+                achievement = talon_one.models.achievement_block_reference.AchievementBlockReference(
                     id = 42, 
-                    name = 'Order50Discount', 
                     title = '50% off on 50th purchase.', 
+                    name = 'Order50Discount', 
                     target = 50.0, ),
         )
 

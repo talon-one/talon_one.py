@@ -42,7 +42,10 @@ class TestPendingActivePointsData(unittest.TestCase):
                 points = 10.99, 
                 active_on = '2023-08-20T12:22+02:00', 
                 expire_on = '2023-09-01T12:23+02:00', 
-                session_integration_id = 'cc53e4fa-547f-4f5e-8333-76e05c381f67'
+                session_integration_id = 'cc53e4fa-547f-4f5e-8333-76e05c381f67', 
+                created = '2023-08-20T12:22+02:00', 
+                awaits_activation = False, 
+                validity_duration = '30D'
             )
         else :
             return PendingActivePointsData(

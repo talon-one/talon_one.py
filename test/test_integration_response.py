@@ -86,8 +86,10 @@ class TestIntegrationResponse(unittest.TestCase):
                                     id = 11, 
                                     name = 'bronze', 
                                     start_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                                    expiry_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                                    downgrade_policy = 'one_down', ), 
+                                    expiry_date = '2026-08-02T15:04:05+07:00', 
+                                    downgrade_policy = 'one_down', 
+                                    source = 'points', 
+                                    reason = 'Subscription to newsletter', ), 
                                 points_to_next_tier = 20.0, 
                                 next_tier_name = 'Silver', ), 
                             subledgers = {
@@ -224,8 +226,8 @@ class TestIntegrationResponse(unittest.TestCase):
                         features = [coupons, referrals], 
                         eligibility = [
                             talon_one.models.campaign_eligibility_details.CampaignEligibilityDetails(
-                                passed = True, 
-                                coupon_code = '0', 
+                                passed = False, 
+                                coupon_code = 'XMAS-20-2021', 
                                 details = talon_one.models.campaign_eligibility_failure_details.CampaignEligibilityFailureDetails(
                                     failure_code = 'ALL_RULES_FAILED', ), )
                             ], 
@@ -237,8 +239,8 @@ class TestIntegrationResponse(unittest.TestCase):
                                 related_data = 'https://example.com/discounts/20-off-shoes.png', 
                                 eligibility = [
                                     talon_one.models.rule_eligibility.RuleEligibility(
-                                        passed = True, 
-                                        coupon_code = '0', )
+                                        passed = False, 
+                                        coupon_code = 'XMAS-20-2021', )
                                     ], )
                             ], 
                         experiment = talon_one.models.campaign_eligibility_experiment.CampaignEligibilityExperiment(
@@ -246,25 +248,7 @@ class TestIntegrationResponse(unittest.TestCase):
                             variant_id = 56, ), )
                     ], 
                 effects = [
-                    talon_one.models.effect.Effect(
-                        experiment_id = 12, 
-                        campaign_id = 244, 
-                        ruleset_id = 73, 
-                        rule_index = 2, 
-                        rule_name = 'Give 20% discount', 
-                        effect_type = 'rejectCoupon', 
-                        triggered_by_coupon = 4928, 
-                        triggered_for_catalog_item = 786, 
-                        condition_index = 786, 
-                        evaluation_group_id = 3, 
-                        evaluation_group_mode = 'stackable', 
-                        campaign_revision_id = 1, 
-                        campaign_revision_version_id = 5, 
-                        selected_price_type = 'member', 
-                        selected_price = 100.0, 
-                        adjustment_reference_id = '68851723-e6fa-488f-ace9-112581e6c19b', 
-                        reward_id = 7, 
-                        props = talon_one.models.props.props(), )
+                    talon_one.models.effect.Effect()
                     ], 
                 rule_failure_reasons = [
                     talon_one.models.rule_failure_reason.RuleFailureReason(
@@ -396,25 +380,7 @@ class TestIntegrationResponse(unittest.TestCase):
         else :
             return IntegrationResponse(
                 effects = [
-                    talon_one.models.effect.Effect(
-                        experiment_id = 12, 
-                        campaign_id = 244, 
-                        ruleset_id = 73, 
-                        rule_index = 2, 
-                        rule_name = 'Give 20% discount', 
-                        effect_type = 'rejectCoupon', 
-                        triggered_by_coupon = 4928, 
-                        triggered_for_catalog_item = 786, 
-                        condition_index = 786, 
-                        evaluation_group_id = 3, 
-                        evaluation_group_mode = 'stackable', 
-                        campaign_revision_id = 1, 
-                        campaign_revision_version_id = 5, 
-                        selected_price_type = 'member', 
-                        selected_price = 100.0, 
-                        adjustment_reference_id = '68851723-e6fa-488f-ace9-112581e6c19b', 
-                        reward_id = 7, 
-                        props = talon_one.models.props.props(), )
+                    talon_one.models.effect.Effect()
                     ],
                 created_coupons = [
                     talon_one.models.coupon.Coupon(

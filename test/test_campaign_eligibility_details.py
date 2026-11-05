@@ -36,14 +36,14 @@ class TestCampaignEligibilityDetails(unittest.TestCase):
         # model = talon_one.models.campaign_eligibility_details.CampaignEligibilityDetails()  # noqa: E501
         if include_optional :
             return CampaignEligibilityDetails(
-                passed = True, 
-                coupon_code = '0', 
+                passed = False, 
+                coupon_code = 'XMAS-20-2021', 
                 details = talon_one.models.campaign_eligibility_failure_details.CampaignEligibilityFailureDetails(
                     failure_code = 'ALL_RULES_FAILED', )
             )
         else :
             return CampaignEligibilityDetails(
-                passed = True,
+                passed = False,
         )
 
     def testCampaignEligibilityDetails(self):

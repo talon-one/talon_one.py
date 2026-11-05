@@ -71,7 +71,8 @@ class TestUpdateExperimentVariant(unittest.TestCase):
                     bindings = [], 
                     rb_version = 'v2', 
                     activate = True, ), 
-                weight = 13
+                weight = 13, 
+                audience_id = 55
             )
         else :
             return UpdateExperimentVariant(

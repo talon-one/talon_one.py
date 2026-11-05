@@ -147,7 +147,7 @@ class BestPriorPriceRequest(object):
     def timeframe_end_date_type(self):
         """Gets the timeframe_end_date_type of this BestPriorPriceRequest.  # noqa: E501
 
-        Sets the timeframe for retrieving historical pricing data. Can be one of the following values: - `strict`: The timeframe ends at the `timeframeEndDate` value. - `price`: The timeframe ends at the start of current price value and takes the prices prior to the start of the current price value into account. - `sale`:  The timeframe ends at the start of current `contextId` and takes the prices prior to the start of the `contextId` into account.   # noqa: E501
+        Sets the timeframe for retrieving historical pricing data. Can be one of the following values: - `strict`: The timeframe ends at the `timeframeEndDate` value. - `price`: The timeframe ends at the start of current price value and takes the prices prior to the start of the current price value into account. - `sale`:  The timeframe ends at the start of the current sales event, as defined by the `contextId`. It takes the prices prior to the current sale event into account.   # noqa: E501
 
         :return: The timeframe_end_date_type of this BestPriorPriceRequest.  # noqa: E501
         :rtype: str
@@ -158,7 +158,7 @@ class BestPriorPriceRequest(object):
     def timeframe_end_date_type(self, timeframe_end_date_type):
         """Sets the timeframe_end_date_type of this BestPriorPriceRequest.
 
-        Sets the timeframe for retrieving historical pricing data. Can be one of the following values: - `strict`: The timeframe ends at the `timeframeEndDate` value. - `price`: The timeframe ends at the start of current price value and takes the prices prior to the start of the current price value into account. - `sale`:  The timeframe ends at the start of current `contextId` and takes the prices prior to the start of the `contextId` into account.   # noqa: E501
+        Sets the timeframe for retrieving historical pricing data. Can be one of the following values: - `strict`: The timeframe ends at the `timeframeEndDate` value. - `price`: The timeframe ends at the start of current price value and takes the prices prior to the start of the current price value into account. - `sale`:  The timeframe ends at the start of the current sales event, as defined by the `contextId`. It takes the prices prior to the current sale event into account.   # noqa: E501
 
         :param timeframe_end_date_type: The timeframe_end_date_type of this BestPriorPriceRequest.  # noqa: E501
         :type: str

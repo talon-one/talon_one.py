@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **tags** | **list[str]** | Semantic labels attached to this block. | [optional] [readonly] 
 **operator** | **str** | The action to perform. | 
 **profile** | **str** | The customer profile to add or remove from the audience. &#x60;Current&#x60; targets the customer in the current session; &#x60;Advocate&#x60; targets the person who invited their friend via referral program. | 
-**audience** | [**UpdateAudienceMembershipBlockAudience**](UpdateAudienceMembershipBlockAudience.md) |  | 
+**audience** | [**AudienceBlockReference**](AudienceBlockReference.md) |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

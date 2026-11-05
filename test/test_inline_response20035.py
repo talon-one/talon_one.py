@@ -37,37 +37,97 @@ class TestInlineResponse20035(unittest.TestCase):
         if include_optional :
             return InlineResponse20035(
                 has_more = True, 
-                total_result_size = 1, 
+                total_result_size = 56, 
                 data = [
-                    talon_one.models.audience.Audience(
-                        account_id = 3886, 
+                    talon_one.models.application_session.ApplicationSession(
                         id = 6, 
-                        created = '2020-06-10T09:05:27.993483Z', 
-                        name = 'Travel audience', 
-                        sandbox = True, 
-                        description = 'Travel audience 18-27', 
-                        subscribed_applications_ids = [3, 13], 
-                        integration = 'mparticle', 
-                        integration_id = '382370BKDB946', 
-                        created_in3rd_party = False, 
-                        last_update = '2022-04-26T11:02:38Z', )
+                        created = '2020-02-07T08:15:22Z', 
+                        integration_id = 'URNGV8294NV', 
+                        store_integration_id = 'STORE-001', 
+                        application_id = 322, 
+                        profile_id = 138, 
+                        profileintegrationid = '382370BKDB946', 
+                        coupon = 'BKDB946', 
+                        referral = 'BKDB946', 
+                        state = 'closed', 
+                        cart_items = [
+                            talon_one.models.cart_item.CartItem(
+                                name = 'Air Glide', 
+                                sku = 'SKU1241028', 
+                                quantity = 1, 
+                                returned_quantity = 1, 
+                                remaining_quantity = 1, 
+                                price = 99.99, 
+                                category = 'shoes', 
+                                product = talon_one.models.product.Product(
+                                    name = 'sample_product', ), 
+                                weight = 1130.0, 
+                                height = 1.337, 
+                                width = 1.337, 
+                                length = 1.337, 
+                                position = 1.337, 
+                                attributes = {"image":"11.jpeg","material":"leather"}, 
+                                additional_costs = {"shipping":{"price":9}}, 
+                                catalog_item_id = 56, 
+                                selected_price_type = 'member', 
+                                adjustment_reference_id = '68851723-e6fa-488f-ace9-112581e6c19b', 
+                                adjustment_effective_from = '2021-09-12T10:12:42Z', 
+                                adjustment_effective_until = '2021-09-12T10:12:42Z', 
+                                prices = {"member":{"price":90,"adjustmentReferenceId":"68851723-e6fa-488f-ace9-112581e6c19b","effectiveFrom":"2025-05-25T00:00:00Z","effectiveUntil":"2025-05-30T00:00:00Z"},"base":{"price":100}}, )
+                            ], 
+                        discounts = {
+                            'key' : 1.337
+                            }, 
+                        total_discounts = 100.0, 
+                        total = 200.0, 
+                        attributes = talon_one.models.attributes.attributes(), )
                     ]
             )
         else :
             return InlineResponse20035(
                 data = [
-                    talon_one.models.audience.Audience(
-                        account_id = 3886, 
+                    talon_one.models.application_session.ApplicationSession(
                         id = 6, 
-                        created = '2020-06-10T09:05:27.993483Z', 
-                        name = 'Travel audience', 
-                        sandbox = True, 
-                        description = 'Travel audience 18-27', 
-                        subscribed_applications_ids = [3, 13], 
-                        integration = 'mparticle', 
-                        integration_id = '382370BKDB946', 
-                        created_in3rd_party = False, 
-                        last_update = '2022-04-26T11:02:38Z', )
+                        created = '2020-02-07T08:15:22Z', 
+                        integration_id = 'URNGV8294NV', 
+                        store_integration_id = 'STORE-001', 
+                        application_id = 322, 
+                        profile_id = 138, 
+                        profileintegrationid = '382370BKDB946', 
+                        coupon = 'BKDB946', 
+                        referral = 'BKDB946', 
+                        state = 'closed', 
+                        cart_items = [
+                            talon_one.models.cart_item.CartItem(
+                                name = 'Air Glide', 
+                                sku = 'SKU1241028', 
+                                quantity = 1, 
+                                returned_quantity = 1, 
+                                remaining_quantity = 1, 
+                                price = 99.99, 
+                                category = 'shoes', 
+                                product = talon_one.models.product.Product(
+                                    name = 'sample_product', ), 
+                                weight = 1130.0, 
+                                height = 1.337, 
+                                width = 1.337, 
+                                length = 1.337, 
+                                position = 1.337, 
+                                attributes = {"image":"11.jpeg","material":"leather"}, 
+                                additional_costs = {"shipping":{"price":9}}, 
+                                catalog_item_id = 56, 
+                                selected_price_type = 'member', 
+                                adjustment_reference_id = '68851723-e6fa-488f-ace9-112581e6c19b', 
+                                adjustment_effective_from = '2021-09-12T10:12:42Z', 
+                                adjustment_effective_until = '2021-09-12T10:12:42Z', 
+                                prices = {"member":{"price":90,"adjustmentReferenceId":"68851723-e6fa-488f-ace9-112581e6c19b","effectiveFrom":"2025-05-25T00:00:00Z","effectiveUntil":"2025-05-30T00:00:00Z"},"base":{"price":100}}, )
+                            ], 
+                        discounts = {
+                            'key' : 1.337
+                            }, 
+                        total_discounts = 100.0, 
+                        total = 200.0, 
+                        attributes = talon_one.models.attributes.attributes(), )
                     ],
         )
 

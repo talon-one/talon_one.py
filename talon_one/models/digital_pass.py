@@ -117,7 +117,7 @@ class DigitalPass(object):
     def status(self):
         """Gets the status of this DigitalPass.  # noqa: E501
 
-        The status of the digital pass.  # noqa: E501
+        The status of the digital pass.  `created` indicates that the pass was generated and is ready to be added to a wallet.   # noqa: E501
 
         :return: The status of this DigitalPass.  # noqa: E501
         :rtype: str
@@ -128,7 +128,7 @@ class DigitalPass(object):
     def status(self, status):
         """Sets the status of this DigitalPass.
 
-        The status of the digital pass.  # noqa: E501
+        The status of the digital pass.  `created` indicates that the pass was generated and is ready to be added to a wallet.   # noqa: E501
 
         :param status: The status of this DigitalPass.  # noqa: E501
         :type: str

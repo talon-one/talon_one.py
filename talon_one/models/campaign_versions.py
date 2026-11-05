@@ -161,7 +161,7 @@ class CampaignVersions(object):
     def version(self):
         """Gets the version of this CampaignVersions.  # noqa: E501
 
-        Incrementing number representing how many revisions have been activated on this campaign, starts from 0 for a new campaign.   # noqa: E501
+        Incrementing number representing how many revisions have been activated on this campaign. Starts from `0` for a new campaign.   # noqa: E501
 
         :return: The version of this CampaignVersions.  # noqa: E501
         :rtype: int
@@ -172,7 +172,7 @@ class CampaignVersions(object):
     def version(self, version):
         """Sets the version of this CampaignVersions.
 
-        Incrementing number representing how many revisions have been activated on this campaign, starts from 0 for a new campaign.   # noqa: E501
+        Incrementing number representing how many revisions have been activated on this campaign. Starts from `0` for a new campaign.   # noqa: E501
 
         :param version: The version of this CampaignVersions.  # noqa: E501
         :type: int

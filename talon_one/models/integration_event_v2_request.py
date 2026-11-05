@@ -39,7 +39,8 @@ class IntegrationEventV2Request(object):
         'type': 'str',
         'attributes': 'object',
         'response_content': 'list[str]',
-        'loyalty_cards': 'list[str]'
+        'loyalty_cards': 'list[str]',
+        'reward_integration_ids': 'list[str]'
     }
 
     attribute_map = {
@@ -49,10 +50,11 @@ class IntegrationEventV2Request(object):
         'type': 'type',
         'attributes': 'attributes',
         'response_content': 'responseContent',
-        'loyalty_cards': 'loyaltyCards'
+        'loyalty_cards': 'loyaltyCards',
+        'reward_integration_ids': 'rewardIntegrationIds'
     }
 
-    def __init__(self, profile_id=None, store_integration_id=None, evaluable_campaign_ids=None, type=None, attributes=None, response_content=None, loyalty_cards=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, profile_id=None, store_integration_id=None, evaluable_campaign_ids=None, type=None, attributes=None, response_content=None, loyalty_cards=None, reward_integration_ids=None, local_vars_configuration=None):  # noqa: E501
         """IntegrationEventV2Request - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -65,6 +67,7 @@ class IntegrationEventV2Request(object):
         self._attributes = None
         self._response_content = None
         self._loyalty_cards = None
+        self._reward_integration_ids = None
         self.discriminator = None
 
         if profile_id is not None:
@@ -80,6 +83,8 @@ class IntegrationEventV2Request(object):
             self.response_content = response_content
         if loyalty_cards is not None:
             self.loyalty_cards = loyalty_cards
+        if reward_integration_ids is not None:
+            self.reward_integration_ids = reward_integration_ids
 
     @property
     def profile_id(self):
@@ -260,6 +265,29 @@ class IntegrationEventV2Request(object):
         """
 
         self._loyalty_cards = loyalty_cards
+
+    @property
+    def reward_integration_ids(self):
+        """Gets the reward_integration_ids of this IntegrationEventV2Request.  # noqa: E501
+
+        The integration IDs of the unlocked rewards that can be used in this event.   # noqa: E501
+
+        :return: The reward_integration_ids of this IntegrationEventV2Request.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._reward_integration_ids
+
+    @reward_integration_ids.setter
+    def reward_integration_ids(self, reward_integration_ids):
+        """Sets the reward_integration_ids of this IntegrationEventV2Request.
+
+        The integration IDs of the unlocked rewards that can be used in this event.   # noqa: E501
+
+        :param reward_integration_ids: The reward_integration_ids of this IntegrationEventV2Request.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._reward_integration_ids = reward_integration_ids
 
     def to_dict(self):
         """Returns the model properties as a dict"""
