@@ -36,68 +36,19 @@ class TestInlineResponse20053(unittest.TestCase):
         # model = talon_one.models.inline_response20053.InlineResponse20053()  # noqa: E501
         if include_optional :
             return InlineResponse20053(
-                has_more = True, 
                 data = [
-                    talon_one.models.achievement_v2.AchievementV2(
-                        id = 6, 
-                        created = '2020-06-10T09:05:27.993483Z', 
-                        name = 'Order50Discount', 
-                        title = '50% off on 50th purchase.', 
-                        description = '50% off for every 50th purchase in a year.', 
-                        target = 50.0, 
-                        period = '1Y', 
-                        recurrence_policy = 'no_recurrence', 
-                        activation_policy = 'fixed_schedule', 
-                        fixed_start_date = '2024-01-15T15:04:05+07:00', 
-                        end_date = '2024-01-15T15:04:05+07:00', 
-                        allow_rollback_after_completion = False, 
-                        subscribed_applications = [132, 97], 
-                        user_id = 1234, 
-                        created_by = 'John Doe', 
-                        period_end_override = {month=11, dayOfMonth=23, hour=23, minute=59, second=59}, 
-                        has_progress = True, 
-                        status = 'active', 
-                        sandbox = True, 
-                        timezone = 'Europe/Berlin', 
-                        campaign_id = 3, 
-                        referenced_by_campaigns = [
-                            talon_one.models.campaign_reference.CampaignReference(
-                                id = 1, 
-                                application_id = 2, )
-                            ], )
+                    talon_one.models.list_campaign_store_budgets.ListCampaignStoreBudgets(
+                        store = talon_one.models.list_campaign_store_budgets_store.ListCampaignStoreBudgetsStore(
+                            id = 56, 
+                            integration_id = '0', 
+                            name = '0', ), 
+                        limit = 56, 
+                        action = '0', 
+                        period = '0', )
                     ]
             )
         else :
             return InlineResponse20053(
-                data = [
-                    talon_one.models.achievement_v2.AchievementV2(
-                        id = 6, 
-                        created = '2020-06-10T09:05:27.993483Z', 
-                        name = 'Order50Discount', 
-                        title = '50% off on 50th purchase.', 
-                        description = '50% off for every 50th purchase in a year.', 
-                        target = 50.0, 
-                        period = '1Y', 
-                        recurrence_policy = 'no_recurrence', 
-                        activation_policy = 'fixed_schedule', 
-                        fixed_start_date = '2024-01-15T15:04:05+07:00', 
-                        end_date = '2024-01-15T15:04:05+07:00', 
-                        allow_rollback_after_completion = False, 
-                        subscribed_applications = [132, 97], 
-                        user_id = 1234, 
-                        created_by = 'John Doe', 
-                        period_end_override = {month=11, dayOfMonth=23, hour=23, minute=59, second=59}, 
-                        has_progress = True, 
-                        status = 'active', 
-                        sandbox = True, 
-                        timezone = 'Europe/Berlin', 
-                        campaign_id = 3, 
-                        referenced_by_campaigns = [
-                            talon_one.models.campaign_reference.CampaignReference(
-                                id = 1, 
-                                application_id = 2, )
-                            ], )
-                    ],
         )
 
     def testInlineResponse20053(self):

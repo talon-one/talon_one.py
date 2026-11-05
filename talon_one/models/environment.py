@@ -299,7 +299,7 @@ class Environment(object):
     def giveaways_pools(self):
         """Gets the giveaways_pools of this Environment.  # noqa: E501
 
-        The giveaways pools that the application is subscribed to.  # noqa: E501
+        The giveaway pools that the Application is subscribed to.  # noqa: E501
 
         :return: The giveaways_pools of this Environment.  # noqa: E501
         :rtype: list[GiveawaysPool]
@@ -310,7 +310,7 @@ class Environment(object):
     def giveaways_pools(self, giveaways_pools):
         """Sets the giveaways_pools of this Environment.
 
-        The giveaways pools that the application is subscribed to.  # noqa: E501
+        The giveaway pools that the Application is subscribed to.  # noqa: E501
 
         :param giveaways_pools: The giveaways_pools of this Environment.  # noqa: E501
         :type: list[GiveawaysPool]

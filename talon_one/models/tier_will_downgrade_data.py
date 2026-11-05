@@ -40,7 +40,9 @@ class TierWillDowngradeData(object):
         'current_points': 'float',
         'points_required_to_remain': 'float',
         'next_tier': 'str',
-        'tier_expiration_date': 'datetime'
+        'tier_expiration_date': 'datetime',
+        'source': 'str',
+        'reason': 'str'
     }
 
     attribute_map = {
@@ -51,10 +53,12 @@ class TierWillDowngradeData(object):
         'current_points': 'CurrentPoints',
         'points_required_to_remain': 'PointsRequiredToRemain',
         'next_tier': 'NextTier',
-        'tier_expiration_date': 'TierExpirationDate'
+        'tier_expiration_date': 'TierExpirationDate',
+        'source': 'Source',
+        'reason': 'Reason'
     }
 
-    def __init__(self, customer_profile_id=None, loyalty_program_id=None, subledger_id='', current_tier=None, current_points=None, points_required_to_remain=None, next_tier=None, tier_expiration_date=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, customer_profile_id=None, loyalty_program_id=None, subledger_id='', current_tier=None, current_points=None, points_required_to_remain=None, next_tier=None, tier_expiration_date=None, source='points', reason=None, local_vars_configuration=None):  # noqa: E501
         """TierWillDowngradeData - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -68,6 +72,8 @@ class TierWillDowngradeData(object):
         self._points_required_to_remain = None
         self._next_tier = None
         self._tier_expiration_date = None
+        self._source = None
+        self._reason = None
         self.discriminator = None
 
         self.customer_profile_id = customer_profile_id
@@ -80,6 +86,10 @@ class TierWillDowngradeData(object):
             self.next_tier = next_tier
         if tier_expiration_date is not None:
             self.tier_expiration_date = tier_expiration_date
+        if source is not None:
+            self.source = source
+        if reason is not None:
+            self.reason = reason
 
     @property
     def customer_profile_id(self):
@@ -279,6 +289,58 @@ class TierWillDowngradeData(object):
         """
 
         self._tier_expiration_date = tier_expiration_date
+
+    @property
+    def source(self):
+        """Gets the source of this TierWillDowngradeData.  # noqa: E501
+
+        The source of the tier change, whether from a points change or boost.  # noqa: E501
+
+        :return: The source of this TierWillDowngradeData.  # noqa: E501
+        :rtype: str
+        """
+        return self._source
+
+    @source.setter
+    def source(self, source):
+        """Sets the source of this TierWillDowngradeData.
+
+        The source of the tier change, whether from a points change or boost.  # noqa: E501
+
+        :param source: The source of this TierWillDowngradeData.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["boost", "points"]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and source not in allowed_values:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `source` ({0}), must be one of {1}"  # noqa: E501
+                .format(source, allowed_values)
+            )
+
+        self._source = source
+
+    @property
+    def reason(self):
+        """Gets the reason of this TierWillDowngradeData.  # noqa: E501
+
+        The reason for the tier change.  # noqa: E501
+
+        :return: The reason of this TierWillDowngradeData.  # noqa: E501
+        :rtype: str
+        """
+        return self._reason
+
+    @reason.setter
+    def reason(self, reason):
+        """Sets the reason of this TierWillDowngradeData.
+
+        The reason for the tier change.  # noqa: E501
+
+        :param reason: The reason of this TierWillDowngradeData.  # noqa: E501
+        :type: str
+        """
+
+        self._reason = reason
 
     def to_dict(self):
         """Returns the model properties as a dict"""

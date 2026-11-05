@@ -36,8 +36,8 @@ class TestRuleEligibility(unittest.TestCase):
         # model = talon_one.models.rule_eligibility.RuleEligibility()  # noqa: E501
         if include_optional :
             return RuleEligibility(
-                passed = True, 
-                coupon_code = '0', 
+                passed = False, 
+                coupon_code = 'XMAS-20-2021', 
                 details = talon_one.models.rule_eligibility_failure_details.RuleEligibilityFailureDetails(
                     failure_code = 'CONDITION_NOT_MET', 
                     coupon_id = 4928, 
@@ -46,11 +46,13 @@ class TestRuleEligibility(unittest.TestCase):
                     referral_value = '0', 
                     condition_index = 56, 
                     effect_index = 56, 
+                    rule_index = 0, 
+                    ruleset_id = 123, 
                     details = '0', )
             )
         else :
             return RuleEligibility(
-                passed = True,
+                passed = False,
         )
 
     def testRuleEligibility(self):

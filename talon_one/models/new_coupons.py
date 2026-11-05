@@ -310,6 +310,12 @@ class NewCoupons(object):
         """
         if self.local_vars_configuration.client_side_validation and number_of_coupons is None:  # noqa: E501
             raise ValueError("Invalid value for `number_of_coupons`, must not be `None`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                number_of_coupons is not None and number_of_coupons > 20000):  # noqa: E501
+            raise ValueError("Invalid value for `number_of_coupons`, must be a value less than or equal to `20000`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                number_of_coupons is not None and number_of_coupons < 1):  # noqa: E501
+            raise ValueError("Invalid value for `number_of_coupons`, must be a value greater than or equal to `1`")  # noqa: E501
 
         self._number_of_coupons = number_of_coupons
 

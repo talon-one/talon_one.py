@@ -33,74 +33,72 @@ class InlineResponse20056(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'catalog': 'InlineResponse20056Catalog',
-        'loyalty': 'dict(str, LoyaltyBalances)'
+        'has_more': 'bool',
+        'data': 'list[AchievementV2]'
     }
 
     attribute_map = {
-        'catalog': 'catalog',
-        'loyalty': 'loyalty'
+        'has_more': 'hasMore',
+        'data': 'data'
     }
 
-    def __init__(self, catalog=None, loyalty=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, has_more=None, data=None, local_vars_configuration=None):  # noqa: E501
         """InlineResponse20056 - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
-        self._catalog = None
-        self._loyalty = None
+        self._has_more = None
+        self._data = None
         self.discriminator = None
 
-        self.catalog = catalog
-        if loyalty is not None:
-            self.loyalty = loyalty
+        if has_more is not None:
+            self.has_more = has_more
+        self.data = data
 
     @property
-    def catalog(self):
-        """Gets the catalog of this InlineResponse20056.  # noqa: E501
+    def has_more(self):
+        """Gets the has_more of this InlineResponse20056.  # noqa: E501
 
 
-        :return: The catalog of this InlineResponse20056.  # noqa: E501
-        :rtype: InlineResponse20056Catalog
+        :return: The has_more of this InlineResponse20056.  # noqa: E501
+        :rtype: bool
         """
-        return self._catalog
+        return self._has_more
 
-    @catalog.setter
-    def catalog(self, catalog):
-        """Sets the catalog of this InlineResponse20056.
+    @has_more.setter
+    def has_more(self, has_more):
+        """Sets the has_more of this InlineResponse20056.
 
 
-        :param catalog: The catalog of this InlineResponse20056.  # noqa: E501
-        :type: InlineResponse20056Catalog
+        :param has_more: The has_more of this InlineResponse20056.  # noqa: E501
+        :type: bool
         """
-        if self.local_vars_configuration.client_side_validation and catalog is None:  # noqa: E501
-            raise ValueError("Invalid value for `catalog`, must not be `None`")  # noqa: E501
 
-        self._catalog = catalog
+        self._has_more = has_more
 
     @property
-    def loyalty(self):
-        """Gets the loyalty of this InlineResponse20056.  # noqa: E501
+    def data(self):
+        """Gets the data of this InlineResponse20056.  # noqa: E501
 
-        The customer's loyalty balances for the specified loyalty program. Returned only when `loyaltyProgramId` is provided together with `profileIntegrationId` or `loyaltyCardId`.   # noqa: E501
 
-        :return: The loyalty of this InlineResponse20056.  # noqa: E501
-        :rtype: dict(str, LoyaltyBalances)
+        :return: The data of this InlineResponse20056.  # noqa: E501
+        :rtype: list[AchievementV2]
         """
-        return self._loyalty
+        return self._data
 
-    @loyalty.setter
-    def loyalty(self, loyalty):
-        """Sets the loyalty of this InlineResponse20056.
+    @data.setter
+    def data(self, data):
+        """Sets the data of this InlineResponse20056.
 
-        The customer's loyalty balances for the specified loyalty program. Returned only when `loyaltyProgramId` is provided together with `profileIntegrationId` or `loyaltyCardId`.   # noqa: E501
 
-        :param loyalty: The loyalty of this InlineResponse20056.  # noqa: E501
-        :type: dict(str, LoyaltyBalances)
+        :param data: The data of this InlineResponse20056.  # noqa: E501
+        :type: list[AchievementV2]
         """
+        if self.local_vars_configuration.client_side_validation and data is None:  # noqa: E501
+            raise ValueError("Invalid value for `data`, must not be `None`")  # noqa: E501
 
-        self._loyalty = loyalty
+        self._data = data
 
     def to_dict(self):
         """Returns the model properties as a dict"""

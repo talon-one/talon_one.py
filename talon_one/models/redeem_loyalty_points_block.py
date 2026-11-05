@@ -39,8 +39,7 @@ class RedeemLoyaltyPointsBlock(object):
         'program': 'RedeemLoyaltyPointsBlockProgram',
         'subledger': 'str',
         'value': 'object',
-        'name': 'str',
-        'on_failure': 'list[object]'
+        'name': 'str'
     }
 
     attribute_map = {
@@ -50,11 +49,10 @@ class RedeemLoyaltyPointsBlock(object):
         'program': 'program',
         'subledger': 'subledger',
         'value': 'value',
-        'name': 'name',
-        'on_failure': 'onFailure'
+        'name': 'name'
     }
 
-    def __init__(self, id=None, type=None, tags=None, program=None, subledger=None, value=None, name=None, on_failure=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, type=None, tags=None, program=None, subledger=None, value=None, name=None, local_vars_configuration=None):  # noqa: E501
         """RedeemLoyaltyPointsBlock - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -67,7 +65,6 @@ class RedeemLoyaltyPointsBlock(object):
         self._subledger = None
         self._value = None
         self._name = None
-        self._on_failure = None
         self.discriminator = None
 
         if id is not None:
@@ -80,8 +77,6 @@ class RedeemLoyaltyPointsBlock(object):
         self.value = value
         if name is not None:
             self.name = name
-        if on_failure is not None:
-            self.on_failure = on_failure
 
     @property
     def id(self):
@@ -249,29 +244,6 @@ class RedeemLoyaltyPointsBlock(object):
         """
 
         self._name = name
-
-    @property
-    def on_failure(self):
-        """Gets the on_failure of this RedeemLoyaltyPointsBlock.  # noqa: E501
-
-        Promotion blocks evaluated when this block fails or returns false.  # noqa: E501
-
-        :return: The on_failure of this RedeemLoyaltyPointsBlock.  # noqa: E501
-        :rtype: list[object]
-        """
-        return self._on_failure
-
-    @on_failure.setter
-    def on_failure(self, on_failure):
-        """Sets the on_failure of this RedeemLoyaltyPointsBlock.
-
-        Promotion blocks evaluated when this block fails or returns false.  # noqa: E501
-
-        :param on_failure: The on_failure of this RedeemLoyaltyPointsBlock.  # noqa: E501
-        :type: list[object]
-        """
-
-        self._on_failure = on_failure
 
     def to_dict(self):
         """Returns the model properties as a dict"""

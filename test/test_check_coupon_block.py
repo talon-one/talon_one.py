@@ -37,7 +37,7 @@ class TestCheckCouponBlock(unittest.TestCase):
         if include_optional :
             return CheckCouponBlock(
                 id = 'a1b2c3d4-e5f6-7890-abcd-ef1234567890', 
-                type = '0', 
+                type = 'checkCoupon', 
                 tags = [
                     '0'
                     ], 
@@ -48,7 +48,7 @@ class TestCheckCouponBlock(unittest.TestCase):
             )
         else :
             return CheckCouponBlock(
-                type = '0',
+                type = 'checkCoupon',
                 redeem = True,
         )
 

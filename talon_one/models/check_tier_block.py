@@ -38,7 +38,7 @@ class CheckTierBlock(object):
         'tags': 'list[str]',
         'operator': 'str',
         'subledger': 'str',
-        'tier': 'CheckTierBlockTier',
+        'tier': 'TierBlockReference',
         'on_failure': 'list[object]'
     }
 
@@ -184,7 +184,7 @@ class CheckTierBlock(object):
     def subledger(self):
         """Gets the subledger of this CheckTierBlock.  # noqa: E501
 
-        The name of the subledger to check the balance of. Can be empty if this block checks the loyalty program's main ledger balance instead of a subledger.  # noqa: E501
+        The name of the subledger to check a customer's tier in. Can be empty if this block checks the loyalty program's main ledger instead of a subledger. A subledger can only be used when the loyalty program that the tier is in has subledgers enabled. To specify the main ledger, provide an empty string (\"\").  # noqa: E501
 
         :return: The subledger of this CheckTierBlock.  # noqa: E501
         :rtype: str
@@ -195,7 +195,7 @@ class CheckTierBlock(object):
     def subledger(self, subledger):
         """Sets the subledger of this CheckTierBlock.
 
-        The name of the subledger to check the balance of. Can be empty if this block checks the loyalty program's main ledger balance instead of a subledger.  # noqa: E501
+        The name of the subledger to check a customer's tier in. Can be empty if this block checks the loyalty program's main ledger instead of a subledger. A subledger can only be used when the loyalty program that the tier is in has subledgers enabled. To specify the main ledger, provide an empty string (\"\").  # noqa: E501
 
         :param subledger: The subledger of this CheckTierBlock.  # noqa: E501
         :type: str
@@ -211,7 +211,7 @@ class CheckTierBlock(object):
 
 
         :return: The tier of this CheckTierBlock.  # noqa: E501
-        :rtype: CheckTierBlockTier
+        :rtype: TierBlockReference
         """
         return self._tier
 
@@ -221,7 +221,7 @@ class CheckTierBlock(object):
 
 
         :param tier: The tier of this CheckTierBlock.  # noqa: E501
-        :type: CheckTierBlockTier
+        :type: TierBlockReference
         """
         if self.local_vars_configuration.client_side_validation and tier is None:  # noqa: E501
             raise ValueError("Invalid value for `tier`, must not be `None`")  # noqa: E501

@@ -38,24 +38,26 @@ class TestInlineResponse2003(unittest.TestCase):
             return InlineResponse2003(
                 total_result_size = 1, 
                 data = [
-                    talon_one.models.achievement_progress.AchievementProgress(
+                    talon_one.models.customer_achievement_history_entry.CustomerAchievementHistoryEntry(
                         status = 'completed', 
                         progress = 10.0, 
                         start_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                         completion_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        end_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), )
+                        end_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        progress_tracker_id = 42, )
                     ]
             )
         else :
             return InlineResponse2003(
                 total_result_size = 1,
                 data = [
-                    talon_one.models.achievement_progress.AchievementProgress(
+                    talon_one.models.customer_achievement_history_entry.CustomerAchievementHistoryEntry(
                         status = 'completed', 
                         progress = 10.0, 
                         start_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                         completion_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        end_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), )
+                        end_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        progress_tracker_id = 42, )
                     ],
         )
 

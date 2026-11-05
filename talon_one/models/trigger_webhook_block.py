@@ -36,7 +36,7 @@ class TriggerWebhookBlock(object):
         'id': 'str',
         'type': 'str',
         'tags': 'list[str]',
-        'webhook': 'TriggerWebhookBlockWebhook',
+        'webhook': 'WebhookBlockReference',
         'params': 'object',
         'on_error': 'dict(str, list[object])'
     }
@@ -152,7 +152,7 @@ class TriggerWebhookBlock(object):
 
 
         :return: The webhook of this TriggerWebhookBlock.  # noqa: E501
-        :rtype: TriggerWebhookBlockWebhook
+        :rtype: WebhookBlockReference
         """
         return self._webhook
 
@@ -162,7 +162,7 @@ class TriggerWebhookBlock(object):
 
 
         :param webhook: The webhook of this TriggerWebhookBlock.  # noqa: E501
-        :type: TriggerWebhookBlockWebhook
+        :type: WebhookBlockReference
         """
         if self.local_vars_configuration.client_side_validation and webhook is None:  # noqa: E501
             raise ValueError("Invalid value for `webhook`, must not be `None`")  # noqa: E501

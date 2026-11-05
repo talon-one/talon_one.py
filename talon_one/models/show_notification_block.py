@@ -39,7 +39,6 @@ class ShowNotificationBlock(object):
         'notification_type': 'str',
         'title': 'str',
         'body': 'str',
-        'on_failure': 'list[object]',
         'on_error': 'dict(str, list[object])'
     }
 
@@ -50,11 +49,10 @@ class ShowNotificationBlock(object):
         'notification_type': 'notificationType',
         'title': 'title',
         'body': 'body',
-        'on_failure': 'onFailure',
         'on_error': 'onError'
     }
 
-    def __init__(self, id=None, type=None, tags=None, notification_type=None, title=None, body=None, on_failure=None, on_error=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, type=None, tags=None, notification_type=None, title=None, body=None, on_error=None, local_vars_configuration=None):  # noqa: E501
         """ShowNotificationBlock - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -66,7 +64,6 @@ class ShowNotificationBlock(object):
         self._notification_type = None
         self._title = None
         self._body = None
-        self._on_failure = None
         self._on_error = None
         self.discriminator = None
 
@@ -77,10 +74,7 @@ class ShowNotificationBlock(object):
             self.tags = tags
         self.notification_type = notification_type
         self.title = title
-        if body is not None:
-            self.body = body
-        if on_failure is not None:
-            self.on_failure = on_failure
+        self.body = body
         if on_error is not None:
             self.on_error = on_error
 
@@ -225,31 +219,10 @@ class ShowNotificationBlock(object):
         :param body: The body of this ShowNotificationBlock.  # noqa: E501
         :type: str
         """
+        if self.local_vars_configuration.client_side_validation and body is None:  # noqa: E501
+            raise ValueError("Invalid value for `body`, must not be `None`")  # noqa: E501
 
         self._body = body
-
-    @property
-    def on_failure(self):
-        """Gets the on_failure of this ShowNotificationBlock.  # noqa: E501
-
-        Blocks evaluated when this block fails or returns false.  # noqa: E501
-
-        :return: The on_failure of this ShowNotificationBlock.  # noqa: E501
-        :rtype: list[object]
-        """
-        return self._on_failure
-
-    @on_failure.setter
-    def on_failure(self, on_failure):
-        """Sets the on_failure of this ShowNotificationBlock.
-
-        Blocks evaluated when this block fails or returns false.  # noqa: E501
-
-        :param on_failure: The on_failure of this ShowNotificationBlock.  # noqa: E501
-        :type: list[object]
-        """
-
-        self._on_failure = on_failure
 
     @property
     def on_error(self):

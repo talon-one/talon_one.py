@@ -41,7 +41,7 @@ class TestTriggerCustomEffectBlock(unittest.TestCase):
                 tags = [
                     '0'
                     ], 
-                custom_effect = talon_one.models.trigger_custom_effect_block_custom_effect.TriggerCustomEffectBlock_customEffect(
+                custom_effect = talon_one.models.custom_effect_block_reference.CustomEffectBlockReference(
                     id = 1, 
                     name = 'sendEmail', 
                     title = 'Send email', ), 
@@ -58,7 +58,7 @@ class TestTriggerCustomEffectBlock(unittest.TestCase):
         else :
             return TriggerCustomEffectBlock(
                 type = '0',
-                custom_effect = talon_one.models.trigger_custom_effect_block_custom_effect.TriggerCustomEffectBlock_customEffect(
+                custom_effect = talon_one.models.custom_effect_block_reference.CustomEffectBlockReference(
                     id = 1, 
                     name = 'sendEmail', 
                     title = 'Send email', ),

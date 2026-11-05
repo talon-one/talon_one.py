@@ -39,7 +39,10 @@ class PendingActivePointsData(object):
         'points': 'float',
         'active_on': 'datetime',
         'expire_on': 'datetime',
-        'session_integration_id': 'str'
+        'session_integration_id': 'str',
+        'created': 'datetime',
+        'awaits_activation': 'bool',
+        'validity_duration': 'str'
     }
 
     attribute_map = {
@@ -49,10 +52,13 @@ class PendingActivePointsData(object):
         'points': 'Points',
         'active_on': 'ActiveOn',
         'expire_on': 'ExpireOn',
-        'session_integration_id': 'SessionIntegrationID'
+        'session_integration_id': 'SessionIntegrationID',
+        'created': 'Created',
+        'awaits_activation': 'AwaitsActivation',
+        'validity_duration': 'ValidityDuration'
     }
 
-    def __init__(self, loyalty_program_id=None, subledger_id='', customer_profile_id=None, points=None, active_on=None, expire_on=None, session_integration_id=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, loyalty_program_id=None, subledger_id='', customer_profile_id=None, points=None, active_on=None, expire_on=None, session_integration_id=None, created=None, awaits_activation=None, validity_duration=None, local_vars_configuration=None):  # noqa: E501
         """PendingActivePointsData - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -65,6 +71,9 @@ class PendingActivePointsData(object):
         self._active_on = None
         self._expire_on = None
         self._session_integration_id = None
+        self._created = None
+        self._awaits_activation = None
+        self._validity_duration = None
         self.discriminator = None
 
         self.loyalty_program_id = loyalty_program_id
@@ -77,6 +86,12 @@ class PendingActivePointsData(object):
             self.expire_on = expire_on
         if session_integration_id is not None:
             self.session_integration_id = session_integration_id
+        if created is not None:
+            self.created = created
+        if awaits_activation is not None:
+            self.awaits_activation = awaits_activation
+        if validity_duration is not None:
+            self.validity_duration = validity_duration
 
     @property
     def loyalty_program_id(self):
@@ -249,6 +264,75 @@ class PendingActivePointsData(object):
         """
 
         self._session_integration_id = session_integration_id
+
+    @property
+    def created(self):
+        """Gets the created of this PendingActivePointsData.  # noqa: E501
+
+        The timestamp when the loyalty transaction occurred.  # noqa: E501
+
+        :return: The created of this PendingActivePointsData.  # noqa: E501
+        :rtype: datetime
+        """
+        return self._created
+
+    @created.setter
+    def created(self, created):
+        """Sets the created of this PendingActivePointsData.
+
+        The timestamp when the loyalty transaction occurred.  # noqa: E501
+
+        :param created: The created of this PendingActivePointsData.  # noqa: E501
+        :type: datetime
+        """
+
+        self._created = created
+
+    @property
+    def awaits_activation(self):
+        """Gets the awaits_activation of this PendingActivePointsData.  # noqa: E501
+
+        Indicates whether the points have an action-based start date. This property is returned only for point transactions with an action-based start date.  # noqa: E501
+
+        :return: The awaits_activation of this PendingActivePointsData.  # noqa: E501
+        :rtype: bool
+        """
+        return self._awaits_activation
+
+    @awaits_activation.setter
+    def awaits_activation(self, awaits_activation):
+        """Sets the awaits_activation of this PendingActivePointsData.
+
+        Indicates whether the points have an action-based start date. This property is returned only for point transactions with an action-based start date.  # noqa: E501
+
+        :param awaits_activation: The awaits_activation of this PendingActivePointsData.  # noqa: E501
+        :type: bool
+        """
+
+        self._awaits_activation = awaits_activation
+
+    @property
+    def validity_duration(self):
+        """Gets the validity_duration of this PendingActivePointsData.  # noqa: E501
+
+        The duration for which the points remain active, relative to the activation date.  **Note**: This only applies to points for which `AwaitsActivation` is `true` and `ExpireOn` is not set.   # noqa: E501
+
+        :return: The validity_duration of this PendingActivePointsData.  # noqa: E501
+        :rtype: str
+        """
+        return self._validity_duration
+
+    @validity_duration.setter
+    def validity_duration(self, validity_duration):
+        """Sets the validity_duration of this PendingActivePointsData.
+
+        The duration for which the points remain active, relative to the activation date.  **Note**: This only applies to points for which `AwaitsActivation` is `true` and `ExpireOn` is not set.   # noqa: E501
+
+        :param validity_duration: The validity_duration of this PendingActivePointsData.  # noqa: E501
+        :type: str
+        """
+
+        self._validity_duration = validity_duration
 
     def to_dict(self):
         """Returns the model properties as a dict"""

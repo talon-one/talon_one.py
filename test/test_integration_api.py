@@ -133,6 +133,13 @@ class TestIntegrationApi(unittest.TestCase):
         """
         pass
 
+    def test_get_customer_rewards(self):
+        """Test case for get_customer_rewards
+
+        List customer's rewards  # noqa: E501
+        """
+        pass
+
     def test_get_customer_session(self):
         """Test case for get_customer_session
 

@@ -41,7 +41,10 @@ class TestIntegrationHubEventPayloadLoyaltyProfileBasedPointsChangedNotification
                 operation = 'addition', 
                 start_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                 expiry_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                transaction_uuid = '0'
+                transaction_uuid = '0', 
+                created = '2023-01-24T14:15:22Z', 
+                awaits_activation = False, 
+                validity_duration = '30D'
             )
         else :
             return IntegrationHubEventPayloadLoyaltyProfileBasedPointsChangedNotificationAction(

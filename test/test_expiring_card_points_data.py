@@ -44,7 +44,10 @@ class TestExpiringCardPointsData(unittest.TestCase):
                 users_per_card_limit = 5, 
                 profiles = [
                     'URNGV8294NV'
-                    ]
+                    ], 
+                created = '2023-01-24T14:15:22Z', 
+                awaits_activation = False, 
+                validity_duration = '30D'
             )
         else :
             return ExpiringCardPointsData(

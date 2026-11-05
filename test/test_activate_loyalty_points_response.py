@@ -54,7 +54,8 @@ class TestActivateLoyaltyPointsResponse(unittest.TestCase):
                         archived = False, 
                         flags = talon_one.models.loyalty_ledger_entry_flags.LoyaltyLedgerEntryFlags(
                             creates_negative_balance = True, ), 
-                        validity_duration = '30D', )
+                        validity_duration = '30D', 
+                        awaits_activation = False, )
                     ]
             )
         else :

@@ -48,7 +48,10 @@ class CardAddedDeductedPointsNotification(object):
         'operation': 'str',
         'reason': 'str',
         'start_date': 'datetime',
-        'transaction_uuid': 'str'
+        'transaction_uuid': 'str',
+        'created': 'datetime',
+        'awaits_activation': 'bool',
+        'validity_duration': 'str'
     }
 
     attribute_map = {
@@ -67,10 +70,13 @@ class CardAddedDeductedPointsNotification(object):
         'operation': 'Operation',
         'reason': 'Reason',
         'start_date': 'StartDate',
-        'transaction_uuid': 'TransactionUUID'
+        'transaction_uuid': 'TransactionUUID',
+        'created': 'Created',
+        'awaits_activation': 'AwaitsActivation',
+        'validity_duration': 'ValidityDuration'
     }
 
-    def __init__(self, card_identifier=None, employee_name=None, loyalty_program_id=None, notification_type=None, profile_integration_i_ds=None, session_integration_id=None, subledger_id=None, type_of_change=None, user_id=None, users_per_card_limit=None, amount=None, expiry_date=None, operation=None, reason=None, start_date=None, transaction_uuid=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, card_identifier=None, employee_name=None, loyalty_program_id=None, notification_type=None, profile_integration_i_ds=None, session_integration_id=None, subledger_id=None, type_of_change=None, user_id=None, users_per_card_limit=None, amount=None, expiry_date=None, operation=None, reason=None, start_date=None, transaction_uuid=None, created=None, awaits_activation=None, validity_duration=None, local_vars_configuration=None):  # noqa: E501
         """CardAddedDeductedPointsNotification - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -92,6 +98,9 @@ class CardAddedDeductedPointsNotification(object):
         self._reason = None
         self._start_date = None
         self._transaction_uuid = None
+        self._created = None
+        self._awaits_activation = None
+        self._validity_duration = None
         self.discriminator = None
 
         self.card_identifier = card_identifier
@@ -112,6 +121,12 @@ class CardAddedDeductedPointsNotification(object):
         if start_date is not None:
             self.start_date = start_date
         self.transaction_uuid = transaction_uuid
+        if created is not None:
+            self.created = created
+        if awaits_activation is not None:
+            self.awaits_activation = awaits_activation
+        if validity_duration is not None:
+            self.validity_duration = validity_duration
 
     @property
     def card_identifier(self):
@@ -529,6 +544,75 @@ class CardAddedDeductedPointsNotification(object):
             raise ValueError("Invalid value for `transaction_uuid`, must not be `None`")  # noqa: E501
 
         self._transaction_uuid = transaction_uuid
+
+    @property
+    def created(self):
+        """Gets the created of this CardAddedDeductedPointsNotification.  # noqa: E501
+
+        The timestamp when the loyalty transaction occurred.  # noqa: E501
+
+        :return: The created of this CardAddedDeductedPointsNotification.  # noqa: E501
+        :rtype: datetime
+        """
+        return self._created
+
+    @created.setter
+    def created(self, created):
+        """Sets the created of this CardAddedDeductedPointsNotification.
+
+        The timestamp when the loyalty transaction occurred.  # noqa: E501
+
+        :param created: The created of this CardAddedDeductedPointsNotification.  # noqa: E501
+        :type: datetime
+        """
+
+        self._created = created
+
+    @property
+    def awaits_activation(self):
+        """Gets the awaits_activation of this CardAddedDeductedPointsNotification.  # noqa: E501
+
+        Indicates whether the points have an action-based start date. This property is returned only for point transactions with an action-based start date.  # noqa: E501
+
+        :return: The awaits_activation of this CardAddedDeductedPointsNotification.  # noqa: E501
+        :rtype: bool
+        """
+        return self._awaits_activation
+
+    @awaits_activation.setter
+    def awaits_activation(self, awaits_activation):
+        """Sets the awaits_activation of this CardAddedDeductedPointsNotification.
+
+        Indicates whether the points have an action-based start date. This property is returned only for point transactions with an action-based start date.  # noqa: E501
+
+        :param awaits_activation: The awaits_activation of this CardAddedDeductedPointsNotification.  # noqa: E501
+        :type: bool
+        """
+
+        self._awaits_activation = awaits_activation
+
+    @property
+    def validity_duration(self):
+        """Gets the validity_duration of this CardAddedDeductedPointsNotification.  # noqa: E501
+
+        The duration for which the points remain active, relative to the activation date.  **Note**: This only applies to points for which `AwaitsActivation` is `true` and `ExpiryDate` is not set.   # noqa: E501
+
+        :return: The validity_duration of this CardAddedDeductedPointsNotification.  # noqa: E501
+        :rtype: str
+        """
+        return self._validity_duration
+
+    @validity_duration.setter
+    def validity_duration(self, validity_duration):
+        """Sets the validity_duration of this CardAddedDeductedPointsNotification.
+
+        The duration for which the points remain active, relative to the activation date.  **Note**: This only applies to points for which `AwaitsActivation` is `true` and `ExpiryDate` is not set.   # noqa: E501
+
+        :param validity_duration: The validity_duration of this CardAddedDeductedPointsNotification.  # noqa: E501
+        :type: str
+        """
+
+        self._validity_duration = validity_duration
 
     def to_dict(self):
         """Returns the model properties as a dict"""

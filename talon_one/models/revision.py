@@ -120,6 +120,7 @@ class Revision(object):
     def activate_at(self):
         """Gets the activate_at of this Revision.  # noqa: E501
 
+        Timestamp when the revision will be activated.  # noqa: E501
 
         :return: The activate_at of this Revision.  # noqa: E501
         :rtype: datetime
@@ -130,6 +131,7 @@ class Revision(object):
     def activate_at(self, activate_at):
         """Sets the activate_at of this Revision.
 
+        Timestamp when the revision will be activated.  # noqa: E501
 
         :param activate_at: The activate_at of this Revision.  # noqa: E501
         :type: datetime
@@ -141,6 +143,7 @@ class Revision(object):
     def account_id(self):
         """Gets the account_id of this Revision.  # noqa: E501
 
+        The ID of the account that owns this entity.  # noqa: E501
 
         :return: The account_id of this Revision.  # noqa: E501
         :rtype: int
@@ -151,6 +154,7 @@ class Revision(object):
     def account_id(self, account_id):
         """Sets the account_id of this Revision.
 
+        The ID of the account that owns this entity.  # noqa: E501
 
         :param account_id: The account_id of this Revision.  # noqa: E501
         :type: int
@@ -164,6 +168,7 @@ class Revision(object):
     def application_id(self):
         """Gets the application_id of this Revision.  # noqa: E501
 
+        The ID of the Application that owns this entity.  # noqa: E501
 
         :return: The application_id of this Revision.  # noqa: E501
         :rtype: int
@@ -174,6 +179,7 @@ class Revision(object):
     def application_id(self, application_id):
         """Sets the application_id of this Revision.
 
+        The ID of the Application that owns this entity.  # noqa: E501
 
         :param application_id: The application_id of this Revision.  # noqa: E501
         :type: int
@@ -187,6 +193,7 @@ class Revision(object):
     def campaign_id(self):
         """Gets the campaign_id of this Revision.  # noqa: E501
 
+        The ID of the campaign that the revision was created from.  # noqa: E501
 
         :return: The campaign_id of this Revision.  # noqa: E501
         :rtype: int
@@ -197,6 +204,7 @@ class Revision(object):
     def campaign_id(self, campaign_id):
         """Sets the campaign_id of this Revision.
 
+        The ID of the campaign that the revision was created from.  # noqa: E501
 
         :param campaign_id: The campaign_id of this Revision.  # noqa: E501
         :type: int
@@ -210,6 +218,7 @@ class Revision(object):
     def created(self):
         """Gets the created of this Revision.  # noqa: E501
 
+        Timestamp when the revision was created.  # noqa: E501
 
         :return: The created of this Revision.  # noqa: E501
         :rtype: datetime
@@ -220,6 +229,7 @@ class Revision(object):
     def created(self, created):
         """Sets the created of this Revision.
 
+        Timestamp when the revision was created.  # noqa: E501
 
         :param created: The created of this Revision.  # noqa: E501
         :type: datetime
@@ -233,6 +243,7 @@ class Revision(object):
     def created_by(self):
         """Gets the created_by of this Revision.  # noqa: E501
 
+        The ID of the user who created this revision.  # noqa: E501
 
         :return: The created_by of this Revision.  # noqa: E501
         :rtype: int
@@ -243,6 +254,7 @@ class Revision(object):
     def created_by(self, created_by):
         """Sets the created_by of this Revision.
 
+        The ID of the user who created this revision.  # noqa: E501
 
         :param created_by: The created_by of this Revision.  # noqa: E501
         :type: int
@@ -256,6 +268,7 @@ class Revision(object):
     def activated_at(self):
         """Gets the activated_at of this Revision.  # noqa: E501
 
+        Timestamp when this revision was activated.  # noqa: E501
 
         :return: The activated_at of this Revision.  # noqa: E501
         :rtype: datetime
@@ -266,6 +279,7 @@ class Revision(object):
     def activated_at(self, activated_at):
         """Sets the activated_at of this Revision.
 
+        Timestamp when this revision was activated.  # noqa: E501
 
         :param activated_at: The activated_at of this Revision.  # noqa: E501
         :type: datetime
@@ -277,6 +291,7 @@ class Revision(object):
     def activated_by(self):
         """Gets the activated_by of this Revision.  # noqa: E501
 
+        The ID of the user who activated this revision.  # noqa: E501
 
         :return: The activated_by of this Revision.  # noqa: E501
         :rtype: int
@@ -287,6 +302,7 @@ class Revision(object):
     def activated_by(self, activated_by):
         """Sets the activated_by of this Revision.
 
+        The ID of the user who activated this revision.  # noqa: E501
 
         :param activated_by: The activated_by of this Revision.  # noqa: E501
         :type: int

@@ -169,6 +169,7 @@ class RevisionVersion(object):
     def account_id(self):
         """Gets the account_id of this RevisionVersion.  # noqa: E501
 
+        The ID of the account that owns this entity.  # noqa: E501
 
         :return: The account_id of this RevisionVersion.  # noqa: E501
         :rtype: int
@@ -179,6 +180,7 @@ class RevisionVersion(object):
     def account_id(self, account_id):
         """Sets the account_id of this RevisionVersion.
 
+        The ID of the account that owns this entity.  # noqa: E501
 
         :param account_id: The account_id of this RevisionVersion.  # noqa: E501
         :type: int
@@ -192,6 +194,7 @@ class RevisionVersion(object):
     def application_id(self):
         """Gets the application_id of this RevisionVersion.  # noqa: E501
 
+        The ID of the Application that owns this entity.  # noqa: E501
 
         :return: The application_id of this RevisionVersion.  # noqa: E501
         :rtype: int
@@ -202,6 +205,7 @@ class RevisionVersion(object):
     def application_id(self, application_id):
         """Sets the application_id of this RevisionVersion.
 
+        The ID of the Application that owns this entity.  # noqa: E501
 
         :param application_id: The application_id of this RevisionVersion.  # noqa: E501
         :type: int
@@ -215,6 +219,7 @@ class RevisionVersion(object):
     def campaign_id(self):
         """Gets the campaign_id of this RevisionVersion.  # noqa: E501
 
+        The ID of the campaign that the revision was created from.  # noqa: E501
 
         :return: The campaign_id of this RevisionVersion.  # noqa: E501
         :rtype: int
@@ -225,6 +230,7 @@ class RevisionVersion(object):
     def campaign_id(self, campaign_id):
         """Sets the campaign_id of this RevisionVersion.
 
+        The ID of the campaign that the revision was created from.  # noqa: E501
 
         :param campaign_id: The campaign_id of this RevisionVersion.  # noqa: E501
         :type: int
@@ -238,6 +244,7 @@ class RevisionVersion(object):
     def created(self):
         """Gets the created of this RevisionVersion.  # noqa: E501
 
+        Timestamp when the revision was created.  # noqa: E501
 
         :return: The created of this RevisionVersion.  # noqa: E501
         :rtype: datetime
@@ -248,6 +255,7 @@ class RevisionVersion(object):
     def created(self, created):
         """Sets the created of this RevisionVersion.
 
+        Timestamp when the revision was created.  # noqa: E501
 
         :param created: The created of this RevisionVersion.  # noqa: E501
         :type: datetime
@@ -261,6 +269,7 @@ class RevisionVersion(object):
     def created_by(self):
         """Gets the created_by of this RevisionVersion.  # noqa: E501
 
+        The ID of the user who created this revision.  # noqa: E501
 
         :return: The created_by of this RevisionVersion.  # noqa: E501
         :rtype: int
@@ -271,6 +280,7 @@ class RevisionVersion(object):
     def created_by(self, created_by):
         """Sets the created_by of this RevisionVersion.
 
+        The ID of the user who created this revision.  # noqa: E501
 
         :param created_by: The created_by of this RevisionVersion.  # noqa: E501
         :type: int
@@ -284,6 +294,7 @@ class RevisionVersion(object):
     def revision_id(self):
         """Gets the revision_id of this RevisionVersion.  # noqa: E501
 
+        The ID of the revision.  # noqa: E501
 
         :return: The revision_id of this RevisionVersion.  # noqa: E501
         :rtype: int
@@ -294,6 +305,7 @@ class RevisionVersion(object):
     def revision_id(self, revision_id):
         """Sets the revision_id of this RevisionVersion.
 
+        The ID of the revision.  # noqa: E501
 
         :param revision_id: The revision_id of this RevisionVersion.  # noqa: E501
         :type: int
@@ -307,6 +319,7 @@ class RevisionVersion(object):
     def version(self):
         """Gets the version of this RevisionVersion.  # noqa: E501
 
+        Incrementing number representing how many revisions have been activated on this campaign. Starts from `0` for a new campaign.   # noqa: E501
 
         :return: The version of this RevisionVersion.  # noqa: E501
         :rtype: int
@@ -317,6 +330,7 @@ class RevisionVersion(object):
     def version(self, version):
         """Sets the version of this RevisionVersion.
 
+        Incrementing number representing how many revisions have been activated on this campaign. Starts from `0` for a new campaign.   # noqa: E501
 
         :param version: The version of this RevisionVersion.  # noqa: E501
         :type: int

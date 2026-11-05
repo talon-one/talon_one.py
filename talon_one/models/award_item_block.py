@@ -238,7 +238,7 @@ class AwardItemBlock(object):
     def partial(self):
         """Gets the partial of this AwardItemBlock.  # noqa: E501
 
-        When set to `true`, applies a partial item reward if the remaining budget is insufficient to award the full reward.  # noqa: E501
+        When set to `true`, applies a partial item reward if the remaining budget is insufficient to award the full reward. When omitted, the Application's partial discounts setting applies.  # noqa: E501
 
         :return: The partial of this AwardItemBlock.  # noqa: E501
         :rtype: bool
@@ -249,7 +249,7 @@ class AwardItemBlock(object):
     def partial(self, partial):
         """Sets the partial of this AwardItemBlock.
 
-        When set to `true`, applies a partial item reward if the remaining budget is insufficient to award the full reward.  # noqa: E501
+        When set to `true`, applies a partial item reward if the remaining budget is insufficient to award the full reward. When omitted, the Application's partial discounts setting applies.  # noqa: E501
 
         :param partial: The partial of this AwardItemBlock.  # noqa: E501
         :type: bool

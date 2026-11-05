@@ -98,6 +98,13 @@ class TestManagementApi(unittest.TestCase):
         """
         pass
 
+    def test_create_campaign(self):
+        """Test case for create_campaign
+
+        Create campaign  # noqa: E501
+        """
+        pass
+
     def test_create_campaign_from_template(self):
         """Test case for create_campaign_from_template
 
@@ -735,6 +742,13 @@ class TestManagementApi(unittest.TestCase):
         """
         pass
 
+    def test_get_current_revision(self):
+        """Test case for get_current_revision
+
+        Get current revision version  # noqa: E501
+        """
+        pass
+
     def test_get_customer_activity_report(self):
         """Test case for get_customer_activity_report
 
@@ -809,6 +823,13 @@ class TestManagementApi(unittest.TestCase):
         """Test case for get_exports
 
         Get exports  # noqa: E501
+        """
+        pass
+
+    def test_get_giveaways_pool(self):
+        """Test case for get_giveaways_pool
+
+        Get giveaway pool  # noqa: E501
         """
         pass
 
@@ -1124,6 +1145,13 @@ class TestManagementApi(unittest.TestCase):
         """Test case for list_experiments
 
         List experiments  # noqa: E501
+        """
+        pass
+
+    def test_list_giveaways_pool(self):
+        """Test case for list_giveaways_pool
+
+        List giveaway pools  # noqa: E501
         """
         pass
 

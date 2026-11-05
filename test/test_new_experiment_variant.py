@@ -71,7 +71,8 @@ class TestNewExperimentVariant(unittest.TestCase):
                     bindings = [], 
                     rb_version = 'v2', 
                     activate = True, ), 
-                is_primary = True
+                is_primary = True, 
+                audience_id = 55
             )
         else :
             return NewExperimentVariant(

@@ -84,7 +84,7 @@ class RoleV2PermissionSet(object):
     def logical_operations(self):
         """Gets the logical_operations of this RoleV2PermissionSet.  # noqa: E501
 
-        List of logical operations in the permission set. Each logical operation must be shown under the `x-permission` tag on an endpoint level.   # noqa: E501
+        List of logical operations in the permission set.   # noqa: E501
 
         :return: The logical_operations of this RoleV2PermissionSet.  # noqa: E501
         :rtype: list[str]
@@ -95,7 +95,7 @@ class RoleV2PermissionSet(object):
     def logical_operations(self, logical_operations):
         """Sets the logical_operations of this RoleV2PermissionSet.
 
-        List of logical operations in the permission set. Each logical operation must be shown under the `x-permission` tag on an endpoint level.   # noqa: E501
+        List of logical operations in the permission set.   # noqa: E501
 
         :param logical_operations: The logical_operations of this RoleV2PermissionSet.  # noqa: E501
         :type: list[str]

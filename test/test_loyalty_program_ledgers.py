@@ -53,8 +53,10 @@ class TestLoyaltyProgramLedgers(unittest.TestCase):
                         id = 11, 
                         name = 'bronze', 
                         start_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        expiry_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        downgrade_policy = 'one_down', ), 
+                        expiry_date = '2026-08-02T15:04:05+07:00', 
+                        downgrade_policy = 'one_down', 
+                        source = 'points', 
+                        reason = 'Subscription to newsletter', ), 
                     points_to_next_tier = 20.0, 
                     next_tier_name = 'Silver', ), 
                 sub_ledgers = {
@@ -71,8 +73,10 @@ class TestLoyaltyProgramLedgers(unittest.TestCase):
                             id = 11, 
                             name = 'bronze', 
                             start_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                            expiry_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                            downgrade_policy = 'one_down', ), 
+                            expiry_date = '2026-08-02T15:04:05+07:00', 
+                            downgrade_policy = 'one_down', 
+                            source = 'points', 
+                            reason = 'Subscription to newsletter', ), 
                         points_to_next_tier = 20.0, 
                         next_tier_name = 'Silver', )
                     }
@@ -95,8 +99,10 @@ class TestLoyaltyProgramLedgers(unittest.TestCase):
                         id = 11, 
                         name = 'bronze', 
                         start_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        expiry_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        downgrade_policy = 'one_down', ), 
+                        expiry_date = '2026-08-02T15:04:05+07:00', 
+                        downgrade_policy = 'one_down', 
+                        source = 'points', 
+                        reason = 'Subscription to newsletter', ), 
                     points_to_next_tier = 20.0, 
                     next_tier_name = 'Silver', ),
         )

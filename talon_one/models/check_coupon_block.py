@@ -97,7 +97,7 @@ class CheckCouponBlock(object):
     def type(self):
         """Gets the type of this CheckCouponBlock.  # noqa: E501
 
-        Identifies the block variant and determines which additional properties are present in it.  # noqa: E501
+        A block discriminator of type `checkCoupon`.  # noqa: E501
 
         :return: The type of this CheckCouponBlock.  # noqa: E501
         :rtype: str
@@ -108,13 +108,19 @@ class CheckCouponBlock(object):
     def type(self, type):
         """Sets the type of this CheckCouponBlock.
 
-        Identifies the block variant and determines which additional properties are present in it.  # noqa: E501
+        A block discriminator of type `checkCoupon`.  # noqa: E501
 
         :param type: The type of this CheckCouponBlock.  # noqa: E501
         :type: str
         """
         if self.local_vars_configuration.client_side_validation and type is None:  # noqa: E501
             raise ValueError("Invalid value for `type`, must not be `None`")  # noqa: E501
+        allowed_values = ["checkCoupon"]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and type not in allowed_values:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `type` ({0}), must be one of {1}"  # noqa: E501
+                .format(type, allowed_values)
+            )
 
         self._type = type
 

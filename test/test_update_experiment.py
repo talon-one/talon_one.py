@@ -71,7 +71,6 @@ class TestUpdateExperiment(unittest.TestCase):
             )
         else :
             return UpdateExperiment(
-                is_variant_assignment_external = True,
                 campaign = talon_one.models.update_campaign.UpdateCampaign(
                     name = 'Summer promotions', 
                     description = 'Campaign for all summer 2021 promotions', 

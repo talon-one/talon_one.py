@@ -36,7 +36,7 @@ class TestRevisionActivation(unittest.TestCase):
         # model = talon_one.models.revision_activation.RevisionActivation()  # noqa: E501
         if include_optional :
             return RevisionActivation(
-                activate_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f')
+                activate_at = '2026-10-08T09:30Z'
             )
         else :
             return RevisionActivation(

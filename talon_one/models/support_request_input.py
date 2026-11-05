@@ -36,7 +36,7 @@ class SupportRequestInput(object):
         'application_id': 'int',
         'campaign_id': 'int',
         'loyalty_program_id': 'int',
-        'subledger_id': 'int',
+        'subledger_id': 'str',
         'customer_profile_id': 'str',
         'request_type': 'str',
         'request_value': 'float',
@@ -158,10 +158,10 @@ class SupportRequestInput(object):
     def subledger_id(self):
         """Gets the subledger_id of this SupportRequestInput.  # noqa: E501
 
-        Identifier of the subledger the points are added to or deducted from. If there is no existing subledger with this ID, the subledger is created automatically.  # noqa: E501
+        ID of the subledger the points are added to or deducted from. Must be combined with `loyaltyProgramId`. The subledger must already exist in the given loyalty program.  # noqa: E501
 
         :return: The subledger_id of this SupportRequestInput.  # noqa: E501
-        :rtype: int
+        :rtype: str
         """
         return self._subledger_id
 
@@ -169,10 +169,10 @@ class SupportRequestInput(object):
     def subledger_id(self, subledger_id):
         """Sets the subledger_id of this SupportRequestInput.
 
-        Identifier of the subledger the points are added to or deducted from. If there is no existing subledger with this ID, the subledger is created automatically.  # noqa: E501
+        ID of the subledger the points are added to or deducted from. Must be combined with `loyaltyProgramId`. The subledger must already exist in the given loyalty program.  # noqa: E501
 
         :param subledger_id: The subledger_id of this SupportRequestInput.  # noqa: E501
-        :type: int
+        :type: str
         """
 
         self._subledger_id = subledger_id

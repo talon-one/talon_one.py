@@ -56,7 +56,7 @@ class RoleV2Readonly(object):
     def is_readonly(self):
         """Gets the is_readonly of this RoleV2Readonly.  # noqa: E501
 
-        Identifies if the role is read-only. For read-only roles, you can only assign or unassign users. You cannot edit any other properties, such as the name, description, or permissions. The 'isReadonly' property cannot be set for new or existing roles. It is reserved for predefined roles, such as the Talon.One support role.  # noqa: E501
+        Identifies if the role is read-only. For read-only roles, you can only assign or unassign users. You cannot edit any other properties, such as the name, description, or permissions. This property cannot be set for new or existing roles. It is reserved for predefined roles, such as the Talon.One support role.  # noqa: E501
 
         :return: The is_readonly of this RoleV2Readonly.  # noqa: E501
         :rtype: bool
@@ -67,7 +67,7 @@ class RoleV2Readonly(object):
     def is_readonly(self, is_readonly):
         """Sets the is_readonly of this RoleV2Readonly.
 
-        Identifies if the role is read-only. For read-only roles, you can only assign or unassign users. You cannot edit any other properties, such as the name, description, or permissions. The 'isReadonly' property cannot be set for new or existing roles. It is reserved for predefined roles, such as the Talon.One support role.  # noqa: E501
+        Identifies if the role is read-only. For read-only roles, you can only assign or unassign users. You cannot edit any other properties, such as the name, description, or permissions. This property cannot be set for new or existing roles. It is reserved for predefined roles, such as the Talon.One support role.  # noqa: E501
 
         :param is_readonly: The is_readonly of this RoleV2Readonly.  # noqa: E501
         :type: bool

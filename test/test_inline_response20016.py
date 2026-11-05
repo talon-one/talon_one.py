@@ -38,266 +38,30 @@ class TestInlineResponse20016(unittest.TestCase):
             return InlineResponse20016(
                 total_result_size = 1, 
                 data = [
-                    talon_one.models.experiment.Experiment(
+                    talon_one.models.campaign_group.CampaignGroup(
                         id = 6, 
                         created = '2020-06-10T09:05:27.993483Z', 
-                        application_id = 322, 
-                        is_variant_assignment_external = True, 
-                        campaign = talon_one.models.campaign.Campaign(
-                            id = 4, 
-                            created = '2020-06-10T09:05:27.993483Z', 
-                            application_id = 322, 
-                            user_id = 388, 
-                            name = 'Summer promotions', 
-                            description = 'Campaign for all summer 2021 promotions', 
-                            start_time = '2021-07-20T22:00Z', 
-                            end_time = '2021-09-22T22:00Z', 
-                            attributes = talon_one.models.attributes.attributes(), 
-                            state = 'enabled', 
-                            active_ruleset_id = 6, 
-                            tags = [summer], 
-                            reevaluate_on_return = True, 
-                            features = [coupons, referrals], 
-                            coupon_settings = talon_one.models.code_generator_settings.CodeGeneratorSettings(
-                                valid_characters = [A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9], 
-                                coupon_pattern = 'SUMMER-####-####', ), 
-                            referral_settings = talon_one.models.code_generator_settings.CodeGeneratorSettings(
-                                valid_characters = [A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9], 
-                                coupon_pattern = 'SUMMER-####-####', ), 
-                            limits = [
-                                talon_one.models.limit_config.LimitConfig(
-                                    action = 'createCoupon', 
-                                    limit = 1000.0, 
-                                    period = 'yearly', 
-                                    entities = [Coupon], )
-                                ], 
-                            campaign_groups = [1, 3], 
-                            type = 'advanced', 
-                            linked_store_ids = [1, 2, 3], 
-                            coupon_attributes = talon_one.models.coupon_attributes.couponAttributes(), 
-                            budgets = [
-                                talon_one.models.campaign_budget.CampaignBudget(
-                                    action = 'createCoupon', 
-                                    limit = 1000.0, 
-                                    counter = 42.0, )
-                                ], 
-                            coupon_redemption_count = 163, 
-                            referral_redemption_count = 3, 
-                            discount_count = 288.0, 
-                            discount_effect_count = 343, 
-                            coupon_creation_count = 16, 
-                            custom_effect_count = 0, 
-                            referral_creation_count = 8, 
-                            add_free_item_effect_count = 0, 
-                            awarded_giveaways_count = 9, 
-                            created_loyalty_points_count = 9.0, 
-                            created_loyalty_points_effect_count = 2, 
-                            redeemed_loyalty_points_count = 8.0, 
-                            redeemed_loyalty_points_effect_count = 9, 
-                            call_api_effect_count = 0, 
-                            reservecoupon_effect_count = 9, 
-                            last_activity = '2022-11-10T23:00Z', 
-                            updated = '2022-10-27T15:00Z', 
-                            created_by = 'John Doe', 
-                            updated_by = 'Jane Doe', 
-                            template_id = 3, 
-                            frontend_state = 'running', 
-                            stores_imported = True, 
-                            value_maps_ids = [100, 215], 
-                            experiment_id = 1, 
-                            revision_frontend_state = 'revised', 
-                            active_revision_id = 6, 
-                            active_revision_version_id = 6, 
-                            version = 6, 
-                            current_revision_id = 6, 
-                            current_revision_version_id = 6, 
-                            stage_revision = False, ), 
-                        activated = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        state = 'disabled', 
-                        variants = [
-                            talon_one.models.experiment_variant.ExperimentVariant(
-                                id = 6, 
-                                created = '2020-06-10T09:05:27.993483Z', 
-                                name = 'Variant A', 
-                                experiment_id = 10, 
-                                ruleset = talon_one.models.ruleset.Ruleset(
-                                    id = 6, 
-                                    created = '2020-06-10T09:05:27.993483Z', 
-                                    user_id = 388, 
-                                    rules = [
-                                        talon_one.models.rule.Rule(
-                                            id = '7fa800a8-ac8d-4792-85dc-c4650dcc8f23', 
-                                            parent_id = '7fa800a8-ac8d-4792-85dc-c4650dcc8f23', 
-                                            title = 'Give discount via coupon', 
-                                            description = 'Creates a discount when a coupon is valid', 
-                                            bindings = [
-                                                talon_one.models.binding.Binding(
-                                                    name = 'Discount percentage', 
-                                                    type = 'templateParameter', 
-                                                    expression = [identity, 10], 
-                                                    value_type = 'number', 
-                                                    min_value = 0.0, 
-                                                    max_value = 19.9, 
-                                                    attribute_id = 100, 
-                                                    description = 'The percentage discount applied to the cart total.', )
-                                                ], 
-                                            condition = [and, [couponValid]], 
-                                            effects = [catch, [noop], [setDiscount, 10% off, [*, [., Session, Total], [/, 10, 100]]]], )
-                                        ], 
-                                    strikethrough_rules = [
-                                        talon_one.models.rule.Rule(
-                                            id = '7fa800a8-ac8d-4792-85dc-c4650dcc8f23', 
-                                            parent_id = '7fa800a8-ac8d-4792-85dc-c4650dcc8f23', 
-                                            title = 'Give discount via coupon', 
-                                            description = 'Creates a discount when a coupon is valid', 
-                                            condition = [and, [couponValid]], 
-                                            effects = [catch, [noop], [setDiscount, 10% off, [*, [., Session, Total], [/, 10, 100]]]], )
-                                        ], 
-                                    bindings = [], 
-                                    rb_version = 'v2', 
-                                    activate = True, 
-                                    campaign_id = 320, 
-                                    template_id = 3, 
-                                    activated_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), ), 
-                                weight = 12, 
-                                is_primary = True, )
-                            ], 
-                        goal_type = 'other', 
-                        goal_description = 'Offering free shipping will increase average order revenue more than a 10% discount', 
-                        deletedat = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), )
+                        modified = '2021-09-12T10:12:42Z', 
+                        account_id = 3886, 
+                        name = 'Europe access group', 
+                        description = 'A group that gives access to all the campaigns for the Europe market.', 
+                        subscribed_applications_ids = [1, 2, 3], 
+                        campaign_ids = [4, 6, 8], )
                     ]
             )
         else :
             return InlineResponse20016(
                 total_result_size = 1,
                 data = [
-                    talon_one.models.experiment.Experiment(
+                    talon_one.models.campaign_group.CampaignGroup(
                         id = 6, 
                         created = '2020-06-10T09:05:27.993483Z', 
-                        application_id = 322, 
-                        is_variant_assignment_external = True, 
-                        campaign = talon_one.models.campaign.Campaign(
-                            id = 4, 
-                            created = '2020-06-10T09:05:27.993483Z', 
-                            application_id = 322, 
-                            user_id = 388, 
-                            name = 'Summer promotions', 
-                            description = 'Campaign for all summer 2021 promotions', 
-                            start_time = '2021-07-20T22:00Z', 
-                            end_time = '2021-09-22T22:00Z', 
-                            attributes = talon_one.models.attributes.attributes(), 
-                            state = 'enabled', 
-                            active_ruleset_id = 6, 
-                            tags = [summer], 
-                            reevaluate_on_return = True, 
-                            features = [coupons, referrals], 
-                            coupon_settings = talon_one.models.code_generator_settings.CodeGeneratorSettings(
-                                valid_characters = [A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9], 
-                                coupon_pattern = 'SUMMER-####-####', ), 
-                            referral_settings = talon_one.models.code_generator_settings.CodeGeneratorSettings(
-                                valid_characters = [A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9], 
-                                coupon_pattern = 'SUMMER-####-####', ), 
-                            limits = [
-                                talon_one.models.limit_config.LimitConfig(
-                                    action = 'createCoupon', 
-                                    limit = 1000.0, 
-                                    period = 'yearly', 
-                                    entities = [Coupon], )
-                                ], 
-                            campaign_groups = [1, 3], 
-                            type = 'advanced', 
-                            linked_store_ids = [1, 2, 3], 
-                            coupon_attributes = talon_one.models.coupon_attributes.couponAttributes(), 
-                            budgets = [
-                                talon_one.models.campaign_budget.CampaignBudget(
-                                    action = 'createCoupon', 
-                                    limit = 1000.0, 
-                                    counter = 42.0, )
-                                ], 
-                            coupon_redemption_count = 163, 
-                            referral_redemption_count = 3, 
-                            discount_count = 288.0, 
-                            discount_effect_count = 343, 
-                            coupon_creation_count = 16, 
-                            custom_effect_count = 0, 
-                            referral_creation_count = 8, 
-                            add_free_item_effect_count = 0, 
-                            awarded_giveaways_count = 9, 
-                            created_loyalty_points_count = 9.0, 
-                            created_loyalty_points_effect_count = 2, 
-                            redeemed_loyalty_points_count = 8.0, 
-                            redeemed_loyalty_points_effect_count = 9, 
-                            call_api_effect_count = 0, 
-                            reservecoupon_effect_count = 9, 
-                            last_activity = '2022-11-10T23:00Z', 
-                            updated = '2022-10-27T15:00Z', 
-                            created_by = 'John Doe', 
-                            updated_by = 'Jane Doe', 
-                            template_id = 3, 
-                            frontend_state = 'running', 
-                            stores_imported = True, 
-                            value_maps_ids = [100, 215], 
-                            experiment_id = 1, 
-                            revision_frontend_state = 'revised', 
-                            active_revision_id = 6, 
-                            active_revision_version_id = 6, 
-                            version = 6, 
-                            current_revision_id = 6, 
-                            current_revision_version_id = 6, 
-                            stage_revision = False, ), 
-                        activated = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        state = 'disabled', 
-                        variants = [
-                            talon_one.models.experiment_variant.ExperimentVariant(
-                                id = 6, 
-                                created = '2020-06-10T09:05:27.993483Z', 
-                                name = 'Variant A', 
-                                experiment_id = 10, 
-                                ruleset = talon_one.models.ruleset.Ruleset(
-                                    id = 6, 
-                                    created = '2020-06-10T09:05:27.993483Z', 
-                                    user_id = 388, 
-                                    rules = [
-                                        talon_one.models.rule.Rule(
-                                            id = '7fa800a8-ac8d-4792-85dc-c4650dcc8f23', 
-                                            parent_id = '7fa800a8-ac8d-4792-85dc-c4650dcc8f23', 
-                                            title = 'Give discount via coupon', 
-                                            description = 'Creates a discount when a coupon is valid', 
-                                            bindings = [
-                                                talon_one.models.binding.Binding(
-                                                    name = 'Discount percentage', 
-                                                    type = 'templateParameter', 
-                                                    expression = [identity, 10], 
-                                                    value_type = 'number', 
-                                                    min_value = 0.0, 
-                                                    max_value = 19.9, 
-                                                    attribute_id = 100, 
-                                                    description = 'The percentage discount applied to the cart total.', )
-                                                ], 
-                                            condition = [and, [couponValid]], 
-                                            effects = [catch, [noop], [setDiscount, 10% off, [*, [., Session, Total], [/, 10, 100]]]], )
-                                        ], 
-                                    strikethrough_rules = [
-                                        talon_one.models.rule.Rule(
-                                            id = '7fa800a8-ac8d-4792-85dc-c4650dcc8f23', 
-                                            parent_id = '7fa800a8-ac8d-4792-85dc-c4650dcc8f23', 
-                                            title = 'Give discount via coupon', 
-                                            description = 'Creates a discount when a coupon is valid', 
-                                            condition = [and, [couponValid]], 
-                                            effects = [catch, [noop], [setDiscount, 10% off, [*, [., Session, Total], [/, 10, 100]]]], )
-                                        ], 
-                                    bindings = [], 
-                                    rb_version = 'v2', 
-                                    activate = True, 
-                                    campaign_id = 320, 
-                                    template_id = 3, 
-                                    activated_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), ), 
-                                weight = 12, 
-                                is_primary = True, )
-                            ], 
-                        goal_type = 'other', 
-                        goal_description = 'Offering free shipping will increase average order revenue more than a 10% discount', 
-                        deletedat = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), )
+                        modified = '2021-09-12T10:12:42Z', 
+                        account_id = 3886, 
+                        name = 'Europe access group', 
+                        description = 'A group that gives access to all the campaigns for the Europe market.', 
+                        subscribed_applications_ids = [1, 2, 3], 
+                        campaign_ids = [4, 6, 8], )
                     ],
         )
 

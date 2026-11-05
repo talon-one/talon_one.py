@@ -56,8 +56,10 @@ class CheckLoyaltyBalanceBlockProgram(object):
         self.discriminator = None
 
         self.id = id
-        self.name = name
-        self.title = title
+        if name is not None:
+            self.name = name
+        if title is not None:
+            self.title = title
 
     @property
     def id(self):
@@ -104,8 +106,6 @@ class CheckLoyaltyBalanceBlockProgram(object):
         :param name: The name of this CheckLoyaltyBalanceBlockProgram.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and name is None:  # noqa: E501
-            raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
 
         self._name = name
 
@@ -129,8 +129,6 @@ class CheckLoyaltyBalanceBlockProgram(object):
         :param title: The title of this CheckLoyaltyBalanceBlockProgram.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and title is None:  # noqa: E501
-            raise ValueError("Invalid value for `title`, must not be `None`")  # noqa: E501
 
         self._title = title
 

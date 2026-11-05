@@ -40,7 +40,10 @@ class TestExpiringPointsData(unittest.TestCase):
                 loyalty_program_id = 5, 
                 customer_profile_id = 'URNGV8294NV', 
                 amount_of_expiring_points = 10.99, 
-                subledger_id = 'sub-123'
+                subledger_id = 'sub-123', 
+                created = '2023-01-24T14:15:22Z', 
+                awaits_activation = False, 
+                validity_duration = '30D'
             )
         else :
             return ExpiringPointsData(

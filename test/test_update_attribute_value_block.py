@@ -42,7 +42,7 @@ class TestUpdateAttributeValueBlock(unittest.TestCase):
                     '0'
                     ], 
                 operator = 'setTo', 
-                attribute = talon_one.models.update_attribute_value_block_attribute.UpdateAttributeValueBlock_attribute(
+                attribute = talon_one.models.attribute_block_reference.AttributeBlockReference(
                     id = 100, 
                     entity = 'profile', 
                     name = 'City', 
@@ -57,7 +57,7 @@ class TestUpdateAttributeValueBlock(unittest.TestCase):
             return UpdateAttributeValueBlock(
                 type = '0',
                 operator = 'setTo',
-                attribute = talon_one.models.update_attribute_value_block_attribute.UpdateAttributeValueBlock_attribute(
+                attribute = talon_one.models.attribute_block_reference.AttributeBlockReference(
                     id = 100, 
                     entity = 'profile', 
                     name = 'City', 

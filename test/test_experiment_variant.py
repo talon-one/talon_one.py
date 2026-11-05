@@ -80,7 +80,8 @@ class TestExperimentVariant(unittest.TestCase):
                     template_id = 3, 
                     activated_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), ), 
                 weight = 12, 
-                is_primary = True
+                is_primary = True, 
+                audience_id = 55
             )
         else :
             return ExperimentVariant(

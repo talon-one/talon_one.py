@@ -49,7 +49,8 @@ class EffectEntity(object):
         'selected_price_type': 'str',
         'selected_price': 'float',
         'adjustment_reference_id': 'str',
-        'reward_id': 'int'
+        'reward_id': 'int',
+        'reward_integration_id': 'str'
     }
 
     attribute_map = {
@@ -69,10 +70,11 @@ class EffectEntity(object):
         'selected_price_type': 'selectedPriceType',
         'selected_price': 'selectedPrice',
         'adjustment_reference_id': 'adjustmentReferenceId',
-        'reward_id': 'rewardId'
+        'reward_id': 'rewardId',
+        'reward_integration_id': 'rewardIntegrationId'
     }
 
-    def __init__(self, experiment_id=None, campaign_id=None, ruleset_id=None, rule_index=None, rule_name=None, effect_type=None, triggered_by_coupon=None, triggered_for_catalog_item=None, condition_index=None, evaluation_group_id=None, evaluation_group_mode=None, campaign_revision_id=None, campaign_revision_version_id=None, selected_price_type=None, selected_price=None, adjustment_reference_id=None, reward_id=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, experiment_id=None, campaign_id=None, ruleset_id=None, rule_index=None, rule_name=None, effect_type=None, triggered_by_coupon=None, triggered_for_catalog_item=None, condition_index=None, evaluation_group_id=None, evaluation_group_mode=None, campaign_revision_id=None, campaign_revision_version_id=None, selected_price_type=None, selected_price=None, adjustment_reference_id=None, reward_id=None, reward_integration_id=None, local_vars_configuration=None):  # noqa: E501
         """EffectEntity - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -95,6 +97,7 @@ class EffectEntity(object):
         self._selected_price = None
         self._adjustment_reference_id = None
         self._reward_id = None
+        self._reward_integration_id = None
         self.discriminator = None
 
         if experiment_id is not None:
@@ -126,6 +129,8 @@ class EffectEntity(object):
             self.adjustment_reference_id = adjustment_reference_id
         if reward_id is not None:
             self.reward_id = reward_id
+        if reward_integration_id is not None:
+            self.reward_integration_id = reward_integration_id
 
     @property
     def experiment_id(self):
@@ -254,7 +259,7 @@ class EffectEntity(object):
     def effect_type(self):
         """Gets the effect_type of this EffectEntity.  # noqa: E501
 
-        The type of effect that was triggered. See [API effects](https://docs.talon.one/docs/dev/integration-api/api-effects).  # noqa: E501
+        See [API effects](https://docs.talon.one/docs/dev/integration-api/api-effects).  # noqa: E501
 
         :return: The effect_type of this EffectEntity.  # noqa: E501
         :rtype: str
@@ -265,7 +270,7 @@ class EffectEntity(object):
     def effect_type(self, effect_type):
         """Sets the effect_type of this EffectEntity.
 
-        The type of effect that was triggered. See [API effects](https://docs.talon.one/docs/dev/integration-api/api-effects).  # noqa: E501
+        See [API effects](https://docs.talon.one/docs/dev/integration-api/api-effects).  # noqa: E501
 
         :param effect_type: The effect_type of this EffectEntity.  # noqa: E501
         :type: str
@@ -527,6 +532,29 @@ class EffectEntity(object):
         """
 
         self._reward_id = reward_id
+
+    @property
+    def reward_integration_id(self):
+        """Gets the reward_integration_id of this EffectEntity.  # noqa: E501
+
+        The integration ID of the specific customer reward whose usage produced this effect.  # noqa: E501
+
+        :return: The reward_integration_id of this EffectEntity.  # noqa: E501
+        :rtype: str
+        """
+        return self._reward_integration_id
+
+    @reward_integration_id.setter
+    def reward_integration_id(self, reward_integration_id):
+        """Sets the reward_integration_id of this EffectEntity.
+
+        The integration ID of the specific customer reward whose usage produced this effect.  # noqa: E501
+
+        :param reward_integration_id: The reward_integration_id of this EffectEntity.  # noqa: E501
+        :type: str
+        """
+
+        self._reward_integration_id = reward_integration_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

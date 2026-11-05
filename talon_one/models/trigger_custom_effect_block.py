@@ -36,7 +36,7 @@ class TriggerCustomEffectBlock(object):
         'id': 'str',
         'type': 'str',
         'tags': 'list[str]',
-        'custom_effect': 'TriggerCustomEffectBlockCustomEffect',
+        'custom_effect': 'CustomEffectBlockReference',
         'params': 'object',
         'target': 'TriggerCustomEffectBlockTarget',
         'on_error': 'dict(str, list[object])'
@@ -156,7 +156,7 @@ class TriggerCustomEffectBlock(object):
 
 
         :return: The custom_effect of this TriggerCustomEffectBlock.  # noqa: E501
-        :rtype: TriggerCustomEffectBlockCustomEffect
+        :rtype: CustomEffectBlockReference
         """
         return self._custom_effect
 
@@ -166,7 +166,7 @@ class TriggerCustomEffectBlock(object):
 
 
         :param custom_effect: The custom_effect of this TriggerCustomEffectBlock.  # noqa: E501
-        :type: TriggerCustomEffectBlockCustomEffect
+        :type: CustomEffectBlockReference
         """
         if self.local_vars_configuration.client_side_validation and custom_effect is None:  # noqa: E501
             raise ValueError("Invalid value for `custom_effect`, must not be `None`")  # noqa: E501

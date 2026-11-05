@@ -36,17 +36,19 @@ class CustomerProfileIntegrationRequestV2(object):
         'attributes': 'object',
         'evaluable_campaign_ids': 'list[int]',
         'response_content': 'list[str]',
-        'audiences_changes': 'ProfileAudiencesChanges'
+        'audiences_changes': 'ProfileAudiencesChanges',
+        'reward_integration_ids': 'list[str]'
     }
 
     attribute_map = {
         'attributes': 'attributes',
         'evaluable_campaign_ids': 'evaluableCampaignIds',
         'response_content': 'responseContent',
-        'audiences_changes': 'audiencesChanges'
+        'audiences_changes': 'audiencesChanges',
+        'reward_integration_ids': 'rewardIntegrationIds'
     }
 
-    def __init__(self, attributes=None, evaluable_campaign_ids=None, response_content=None, audiences_changes=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, attributes=None, evaluable_campaign_ids=None, response_content=None, audiences_changes=None, reward_integration_ids=None, local_vars_configuration=None):  # noqa: E501
         """CustomerProfileIntegrationRequestV2 - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -56,6 +58,7 @@ class CustomerProfileIntegrationRequestV2(object):
         self._evaluable_campaign_ids = None
         self._response_content = None
         self._audiences_changes = None
+        self._reward_integration_ids = None
         self.discriminator = None
 
         if attributes is not None:
@@ -66,6 +69,8 @@ class CustomerProfileIntegrationRequestV2(object):
             self.response_content = response_content
         if audiences_changes is not None:
             self.audiences_changes = audiences_changes
+        if reward_integration_ids is not None:
+            self.reward_integration_ids = reward_integration_ids
 
     @property
     def attributes(self):
@@ -164,6 +169,29 @@ class CustomerProfileIntegrationRequestV2(object):
         """
 
         self._audiences_changes = audiences_changes
+
+    @property
+    def reward_integration_ids(self):
+        """Gets the reward_integration_ids of this CustomerProfileIntegrationRequestV2.  # noqa: E501
+
+        The integration IDs of the unlocked rewards that can be used in this request.   # noqa: E501
+
+        :return: The reward_integration_ids of this CustomerProfileIntegrationRequestV2.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._reward_integration_ids
+
+    @reward_integration_ids.setter
+    def reward_integration_ids(self, reward_integration_ids):
+        """Sets the reward_integration_ids of this CustomerProfileIntegrationRequestV2.
+
+        The integration IDs of the unlocked rewards that can be used in this request.   # noqa: E501
+
+        :param reward_integration_ids: The reward_integration_ids of this CustomerProfileIntegrationRequestV2.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._reward_integration_ids = reward_integration_ids
 
     def to_dict(self):
         """Returns the model properties as a dict"""

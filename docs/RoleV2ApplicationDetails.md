@@ -1,5 +1,6 @@
 # RoleV2ApplicationDetails
 
+Details of the permission sets configured for an Application.
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

@@ -36,9 +36,9 @@ class TestRoleV2ApplicationDetails(unittest.TestCase):
         # model = talon_one.models.role_v2_application_details.RoleV2ApplicationDetails()  # noqa: E501
         if include_optional :
             return RoleV2ApplicationDetails(
-                application = '0', 
-                campaign = '0', 
-                draft_campaign = '0', 
+                application = 'Application permission set', 
+                campaign = 'Campaign manager permission set', 
+                draft_campaign = 'Campaign read-only permission set', 
                 tools = 'Tools permission set'
             )
         else :

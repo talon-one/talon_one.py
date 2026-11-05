@@ -41,13 +41,10 @@ class TestAwardGiveawayBlock(unittest.TestCase):
                 tags = [
                     '0'
                     ], 
-                giveaway_pool = talon_one.models.giveaway_pool_reference.GiveawayPoolReference(
+                giveaway_pool = talon_one.models.giveaway_pool_block_reference.GiveawayPoolBlockReference(
                     id = 42, 
                     name = 'Summer Campaign Pool', ), 
                 profile = 'Current', 
-                on_failure = [
-                    talon_one.models.block.Block()
-                    ], 
                 on_error = {
                     'key' : [
                         talon_one.models.block.Block()
@@ -57,7 +54,7 @@ class TestAwardGiveawayBlock(unittest.TestCase):
         else :
             return AwardGiveawayBlock(
                 type = '0',
-                giveaway_pool = talon_one.models.giveaway_pool_reference.GiveawayPoolReference(
+                giveaway_pool = talon_one.models.giveaway_pool_block_reference.GiveawayPoolBlockReference(
                     id = 42, 
                     name = 'Summer Campaign Pool', ),
                 profile = 'Current',

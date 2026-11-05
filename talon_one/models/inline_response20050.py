@@ -33,32 +33,61 @@ class InlineResponse20050(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'data': 'list[ListCampaignStoreBudgets]'
+        'total_result_size': 'int',
+        'data': 'list[RoleV2]'
     }
 
     attribute_map = {
+        'total_result_size': 'totalResultSize',
         'data': 'data'
     }
 
-    def __init__(self, data=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, total_result_size=None, data=None, local_vars_configuration=None):  # noqa: E501
         """InlineResponse20050 - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
+        self._total_result_size = None
         self._data = None
         self.discriminator = None
 
-        if data is not None:
-            self.data = data
+        self.total_result_size = total_result_size
+        self.data = data
+
+    @property
+    def total_result_size(self):
+        """Gets the total_result_size of this InlineResponse20050.  # noqa: E501
+
+        The total number of roles returned.  # noqa: E501
+
+        :return: The total_result_size of this InlineResponse20050.  # noqa: E501
+        :rtype: int
+        """
+        return self._total_result_size
+
+    @total_result_size.setter
+    def total_result_size(self, total_result_size):
+        """Sets the total_result_size of this InlineResponse20050.
+
+        The total number of roles returned.  # noqa: E501
+
+        :param total_result_size: The total_result_size of this InlineResponse20050.  # noqa: E501
+        :type: int
+        """
+        if self.local_vars_configuration.client_side_validation and total_result_size is None:  # noqa: E501
+            raise ValueError("Invalid value for `total_result_size`, must not be `None`")  # noqa: E501
+
+        self._total_result_size = total_result_size
 
     @property
     def data(self):
         """Gets the data of this InlineResponse20050.  # noqa: E501
 
+        The list of roles.  # noqa: E501
 
         :return: The data of this InlineResponse20050.  # noqa: E501
-        :rtype: list[ListCampaignStoreBudgets]
+        :rtype: list[RoleV2]
         """
         return self._data
 
@@ -66,10 +95,13 @@ class InlineResponse20050(object):
     def data(self, data):
         """Sets the data of this InlineResponse20050.
 
+        The list of roles.  # noqa: E501
 
         :param data: The data of this InlineResponse20050.  # noqa: E501
-        :type: list[ListCampaignStoreBudgets]
+        :type: list[RoleV2]
         """
+        if self.local_vars_configuration.client_side_validation and data is None:  # noqa: E501
+            raise ValueError("Invalid value for `data`, must not be `None`")  # noqa: E501
 
         self._data = data
 

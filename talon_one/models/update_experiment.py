@@ -58,7 +58,8 @@ class UpdateExperiment(object):
         self._goal_description = None
         self.discriminator = None
 
-        self.is_variant_assignment_external = is_variant_assignment_external
+        if is_variant_assignment_external is not None:
+            self.is_variant_assignment_external = is_variant_assignment_external
         self.campaign = campaign
         if goal_type is not None:
             self.goal_type = goal_type
@@ -69,7 +70,7 @@ class UpdateExperiment(object):
     def is_variant_assignment_external(self):
         """Gets the is_variant_assignment_external of this UpdateExperiment.  # noqa: E501
 
-        The source of the assignment. - false - The variant assignment is handled internally by Talon.One. - true - The variant assignment is handled externally.   # noqa: E501
+        Deprecated and ignored. The assignment type is set at experiment creation and cannot be changed. Use `assignmentType` when creating an experiment instead.   # noqa: E501
 
         :return: The is_variant_assignment_external of this UpdateExperiment.  # noqa: E501
         :rtype: bool
@@ -80,13 +81,11 @@ class UpdateExperiment(object):
     def is_variant_assignment_external(self, is_variant_assignment_external):
         """Sets the is_variant_assignment_external of this UpdateExperiment.
 
-        The source of the assignment. - false - The variant assignment is handled internally by Talon.One. - true - The variant assignment is handled externally.   # noqa: E501
+        Deprecated and ignored. The assignment type is set at experiment creation and cannot be changed. Use `assignmentType` when creating an experiment instead.   # noqa: E501
 
         :param is_variant_assignment_external: The is_variant_assignment_external of this UpdateExperiment.  # noqa: E501
         :type: bool
         """
-        if self.local_vars_configuration.client_side_validation and is_variant_assignment_external is None:  # noqa: E501
-            raise ValueError("Invalid value for `is_variant_assignment_external`, must not be `None`")  # noqa: E501
 
         self._is_variant_assignment_external = is_variant_assignment_external
 

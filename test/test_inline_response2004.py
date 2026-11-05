@@ -37,45 +37,51 @@ class TestInlineResponse2004(unittest.TestCase):
         if include_optional :
             return InlineResponse2004(
                 has_more = True, 
+                total_result_size = 1, 
                 data = [
-                    talon_one.models.card_ledger_transaction_log_entry_integration_api.CardLedgerTransactionLogEntryIntegrationAPI(
-                        transaction_uuid = 'ce59f12a-f53b-4014-a745-636d93f2bd3f', 
-                        created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        program_id = 324, 
-                        card_identifier = 'summer-loyalty-card-0543', 
-                        customer_session_id = '05c2da0d-48fa-4aa1-b629-898f58f1584d', 
-                        type = 'addition', 
-                        name = 'Reward 10% points of a purchase's current total', 
-                        start_date = '2022-01-02T15:04:05Z07:00', 
-                        expiry_date = '2022-08-02T15:04:05Z07:00', 
-                        subledger_id = 'sub-123', 
-                        amount = 10.25, 
-                        id = 123, 
-                        ruleset_id = 11, 
-                        rule_name = 'Add 2 points', 
-                        validity_duration = '30D', )
+                    talon_one.models.customer_profile_reward.CustomerProfileReward(
+                        id = 6, 
+                        integration_id = 'reward-unlock-123', 
+                        reward_id = 12, 
+                        reward_integration_id = 'free-coffee', 
+                        reward_name = 'Free coffee', 
+                        description = 'One free coffee of any size', 
+                        rule = talon_one.models.rule_metadata.RuleMetadata(
+                            title = 'Give discount via coupon', 
+                            display_name = '20% off all shoes!', 
+                            display_description = 'Get a 20% discount on all shoes during Thanksgiving! Offer valid till Dec 5 only.', 
+                            related_data = 'https://example.com/discounts/20-off-shoes.png', ), 
+                        status = 'unlocked', 
+                        unlocked_at = '2026-07-01T09:00Z', 
+                        unlocked_by_profile_integration_id = 'customer2839', 
+                        used_at = '2026-07-02T10:30Z', 
+                        used_by_profile_integration_id = 'customer2840', 
+                        loyalty_program_id = 9, 
+                        loyalty_card_id = 'summer-loyalty-card-0543', )
                     ]
             )
         else :
             return InlineResponse2004(
-                has_more = True,
                 data = [
-                    talon_one.models.card_ledger_transaction_log_entry_integration_api.CardLedgerTransactionLogEntryIntegrationAPI(
-                        transaction_uuid = 'ce59f12a-f53b-4014-a745-636d93f2bd3f', 
-                        created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        program_id = 324, 
-                        card_identifier = 'summer-loyalty-card-0543', 
-                        customer_session_id = '05c2da0d-48fa-4aa1-b629-898f58f1584d', 
-                        type = 'addition', 
-                        name = 'Reward 10% points of a purchase's current total', 
-                        start_date = '2022-01-02T15:04:05Z07:00', 
-                        expiry_date = '2022-08-02T15:04:05Z07:00', 
-                        subledger_id = 'sub-123', 
-                        amount = 10.25, 
-                        id = 123, 
-                        ruleset_id = 11, 
-                        rule_name = 'Add 2 points', 
-                        validity_duration = '30D', )
+                    talon_one.models.customer_profile_reward.CustomerProfileReward(
+                        id = 6, 
+                        integration_id = 'reward-unlock-123', 
+                        reward_id = 12, 
+                        reward_integration_id = 'free-coffee', 
+                        reward_name = 'Free coffee', 
+                        description = 'One free coffee of any size', 
+                        rule = talon_one.models.rule_metadata.RuleMetadata(
+                            title = 'Give discount via coupon', 
+                            display_name = '20% off all shoes!', 
+                            display_description = 'Get a 20% discount on all shoes during Thanksgiving! Offer valid till Dec 5 only.', 
+                            related_data = 'https://example.com/discounts/20-off-shoes.png', ), 
+                        status = 'unlocked', 
+                        unlocked_at = '2026-07-01T09:00Z', 
+                        unlocked_by_profile_integration_id = 'customer2839', 
+                        used_at = '2026-07-02T10:30Z', 
+                        used_by_profile_integration_id = 'customer2840', 
+                        loyalty_program_id = 9, 
+                        loyalty_card_id = 'summer-loyalty-card-0543', )
                     ],
         )
 

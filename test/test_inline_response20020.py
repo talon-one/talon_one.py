@@ -36,112 +36,44 @@ class TestInlineResponse20020(unittest.TestCase):
         # model = talon_one.models.inline_response20020.InlineResponse20020()  # noqa: E501
         if include_optional :
             return InlineResponse20020(
-                has_more = True, 
+                total_result_size = 1, 
                 data = [
-                    talon_one.models.loyalty_card.LoyaltyCard(
-                        id = 6, 
-                        created = '2020-06-10T09:05:27.993483Z', 
-                        program_id = 125, 
-                        program_name = 'Loyalty_program', 
-                        program_title = 'Loyalty program', 
-                        status = 'active', 
-                        block_reason = 'Current card lost. Customer needs a new card.', 
-                        identifier = 'summer-loyalty-card-0543', 
-                        users_per_card_limit = 111, 
-                        profiles = [
-                            talon_one.models.loyalty_card_profile_registration.LoyaltyCardProfileRegistration(
-                                integration_id = 'R195412', 
-                                timestamp = '2021-09-12T10:12:42Z', )
-                            ], 
-                        ledger = talon_one.models.ledger_info.LedgerInfo(
-                            current_balance = 100.0, 
-                            pending_balance = 10.0, 
-                            negative_balance = 10.0, 
-                            expired_balance = 0.0, 
-                            spent_balance = 0.0, 
-                            tentative_current_balance = 100.0, 
-                            tentative_pending_balance = 20.0, 
-                            tentative_negative_balance = 100.0, 
-                            current_tier = talon_one.models.tier.Tier(
-                                id = 11, 
-                                name = 'bronze', 
-                                start_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                                expiry_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                                downgrade_policy = 'one_down', ), 
-                            points_to_next_tier = 20.0, 
-                            next_tier_name = 'Silver', ), 
-                        subledgers = {
-                            'key' : talon_one.models.ledger_info.LedgerInfo(
-                                current_balance = 100.0, 
-                                pending_balance = 10.0, 
-                                negative_balance = 10.0, 
-                                expired_balance = 0.0, 
-                                spent_balance = 0.0, 
-                                tentative_current_balance = 100.0, 
-                                tentative_pending_balance = 20.0, 
-                                tentative_negative_balance = 100.0, 
-                                points_to_next_tier = 20.0, 
-                                next_tier_name = 'Silver', )
-                            }, 
-                        modified = '2021-09-12T10:12:42Z', 
-                        old_card_identifier = 'summer-loyalty-card-0543', 
-                        new_card_identifier = 'summer-loyalty-card-0543', 
-                        batch_id = 'wdefpov', )
+                    talon_one.models.loyalty_dashboard_data.LoyaltyDashboardData(
+                        date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        total_active_points = 9756.0, 
+                        total_pending_points = 548.0, 
+                        total_spent_points = 25668.0, 
+                        total_expired_points = 1156.0, 
+                        total_negative_points = 32.0, 
+                        total_members = 2582.0, 
+                        new_members = 3.0, 
+                        spent_points = talon_one.models.loyalty_dashboard_points_breakdown.LoyaltyDashboardPointsBreakdown(
+                            created_manually = 125.0, 
+                            created_via_rule_engine = 9631.0, ), 
+                        earned_points = talon_one.models.loyalty_dashboard_points_breakdown.LoyaltyDashboardPointsBreakdown(
+                            created_manually = 125.0, 
+                            created_via_rule_engine = 9631.0, ), )
                     ]
             )
         else :
             return InlineResponse20020(
-                has_more = True,
+                total_result_size = 1,
                 data = [
-                    talon_one.models.loyalty_card.LoyaltyCard(
-                        id = 6, 
-                        created = '2020-06-10T09:05:27.993483Z', 
-                        program_id = 125, 
-                        program_name = 'Loyalty_program', 
-                        program_title = 'Loyalty program', 
-                        status = 'active', 
-                        block_reason = 'Current card lost. Customer needs a new card.', 
-                        identifier = 'summer-loyalty-card-0543', 
-                        users_per_card_limit = 111, 
-                        profiles = [
-                            talon_one.models.loyalty_card_profile_registration.LoyaltyCardProfileRegistration(
-                                integration_id = 'R195412', 
-                                timestamp = '2021-09-12T10:12:42Z', )
-                            ], 
-                        ledger = talon_one.models.ledger_info.LedgerInfo(
-                            current_balance = 100.0, 
-                            pending_balance = 10.0, 
-                            negative_balance = 10.0, 
-                            expired_balance = 0.0, 
-                            spent_balance = 0.0, 
-                            tentative_current_balance = 100.0, 
-                            tentative_pending_balance = 20.0, 
-                            tentative_negative_balance = 100.0, 
-                            current_tier = talon_one.models.tier.Tier(
-                                id = 11, 
-                                name = 'bronze', 
-                                start_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                                expiry_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                                downgrade_policy = 'one_down', ), 
-                            points_to_next_tier = 20.0, 
-                            next_tier_name = 'Silver', ), 
-                        subledgers = {
-                            'key' : talon_one.models.ledger_info.LedgerInfo(
-                                current_balance = 100.0, 
-                                pending_balance = 10.0, 
-                                negative_balance = 10.0, 
-                                expired_balance = 0.0, 
-                                spent_balance = 0.0, 
-                                tentative_current_balance = 100.0, 
-                                tentative_pending_balance = 20.0, 
-                                tentative_negative_balance = 100.0, 
-                                points_to_next_tier = 20.0, 
-                                next_tier_name = 'Silver', )
-                            }, 
-                        modified = '2021-09-12T10:12:42Z', 
-                        old_card_identifier = 'summer-loyalty-card-0543', 
-                        new_card_identifier = 'summer-loyalty-card-0543', 
-                        batch_id = 'wdefpov', )
+                    talon_one.models.loyalty_dashboard_data.LoyaltyDashboardData(
+                        date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        total_active_points = 9756.0, 
+                        total_pending_points = 548.0, 
+                        total_spent_points = 25668.0, 
+                        total_expired_points = 1156.0, 
+                        total_negative_points = 32.0, 
+                        total_members = 2582.0, 
+                        new_members = 3.0, 
+                        spent_points = talon_one.models.loyalty_dashboard_points_breakdown.LoyaltyDashboardPointsBreakdown(
+                            created_manually = 125.0, 
+                            created_via_rule_engine = 9631.0, ), 
+                        earned_points = talon_one.models.loyalty_dashboard_points_breakdown.LoyaltyDashboardPointsBreakdown(
+                            created_manually = 125.0, 
+                            created_via_rule_engine = 9631.0, ), )
                     ],
         )
 

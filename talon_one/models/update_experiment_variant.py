@@ -36,17 +36,19 @@ class UpdateExperimentVariant(object):
         'id': 'int',
         'name': 'str',
         'ruleset': 'NewRuleset',
-        'weight': 'int'
+        'weight': 'int',
+        'audience_id': 'int'
     }
 
     attribute_map = {
         'id': 'id',
         'name': 'name',
         'ruleset': 'ruleset',
-        'weight': 'weight'
+        'weight': 'weight',
+        'audience_id': 'audienceId'
     }
 
-    def __init__(self, id=None, name=None, ruleset=None, weight=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, name=None, ruleset=None, weight=None, audience_id=None, local_vars_configuration=None):  # noqa: E501
         """UpdateExperimentVariant - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -56,12 +58,15 @@ class UpdateExperimentVariant(object):
         self._name = None
         self._ruleset = None
         self._weight = None
+        self._audience_id = None
         self.discriminator = None
 
         self.id = id
         self.name = name
         self.ruleset = ruleset
         self.weight = weight
+        if audience_id is not None:
+            self.audience_id = audience_id
 
     @property
     def id(self):
@@ -144,7 +149,7 @@ class UpdateExperimentVariant(object):
     def weight(self):
         """Gets the weight of this UpdateExperimentVariant.  # noqa: E501
 
-        The percentage split of this variant. The sum of all variant percentages must be 100.  # noqa: E501
+        The percentage split of this variant. For `random` assignment, the split must be between 1 and 99 and the sum across all variants must equal 100. Ignored for `audience` and `external` assignment.   # noqa: E501
 
         :return: The weight of this UpdateExperimentVariant.  # noqa: E501
         :rtype: int
@@ -155,7 +160,7 @@ class UpdateExperimentVariant(object):
     def weight(self, weight):
         """Sets the weight of this UpdateExperimentVariant.
 
-        The percentage split of this variant. The sum of all variant percentages must be 100.  # noqa: E501
+        The percentage split of this variant. For `random` assignment, the split must be between 1 and 99 and the sum across all variants must equal 100. Ignored for `audience` and `external` assignment.   # noqa: E501
 
         :param weight: The weight of this UpdateExperimentVariant.  # noqa: E501
         :type: int
@@ -166,10 +171,33 @@ class UpdateExperimentVariant(object):
                 weight is not None and weight > 99):  # noqa: E501
             raise ValueError("Invalid value for `weight`, must be a value less than or equal to `99`")  # noqa: E501
         if (self.local_vars_configuration.client_side_validation and
-                weight is not None and weight < 1):  # noqa: E501
-            raise ValueError("Invalid value for `weight`, must be a value greater than or equal to `1`")  # noqa: E501
+                weight is not None and weight < 0):  # noqa: E501
+            raise ValueError("Invalid value for `weight`, must be a value greater than or equal to `0`")  # noqa: E501
 
         self._weight = weight
+
+    @property
+    def audience_id(self):
+        """Gets the audience_id of this UpdateExperimentVariant.  # noqa: E501
+
+        The ID of the audience this variant targets. Only used when the experiment `assignmentType` is `audience`.   # noqa: E501
+
+        :return: The audience_id of this UpdateExperimentVariant.  # noqa: E501
+        :rtype: int
+        """
+        return self._audience_id
+
+    @audience_id.setter
+    def audience_id(self, audience_id):
+        """Sets the audience_id of this UpdateExperimentVariant.
+
+        The ID of the audience this variant targets. Only used when the experiment `assignmentType` is `audience`.   # noqa: E501
+
+        :param audience_id: The audience_id of this UpdateExperimentVariant.  # noqa: E501
+        :type: int
+        """
+
+        self._audience_id = audience_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

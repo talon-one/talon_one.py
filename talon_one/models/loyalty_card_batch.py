@@ -88,6 +88,12 @@ class LoyaltyCardBatch(object):
         """
         if self.local_vars_configuration.client_side_validation and number_of_cards is None:  # noqa: E501
             raise ValueError("Invalid value for `number_of_cards`, must not be `None`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                number_of_cards is not None and number_of_cards > 20000):  # noqa: E501
+            raise ValueError("Invalid value for `number_of_cards`, must be a value less than or equal to `20000`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                number_of_cards is not None and number_of_cards < 1):  # noqa: E501
+            raise ValueError("Invalid value for `number_of_cards`, must be a value greater than or equal to `1`")  # noqa: E501
 
         self._number_of_cards = number_of_cards
 

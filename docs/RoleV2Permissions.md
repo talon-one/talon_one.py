@@ -1,5 +1,6 @@
 # RoleV2Permissions
 
+The permissions that this role gives.
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

@@ -37,7 +37,7 @@ class UpdateAttributeValueBlock(object):
         'type': 'str',
         'tags': 'list[str]',
         'operator': 'str',
-        'attribute': 'UpdateAttributeValueBlockAttribute',
+        'attribute': 'AttributeBlockReference',
         'value': 'object',
         'target': 'UpdateAttributeValueBlockTarget'
     }
@@ -186,7 +186,7 @@ class UpdateAttributeValueBlock(object):
 
 
         :return: The attribute of this UpdateAttributeValueBlock.  # noqa: E501
-        :rtype: UpdateAttributeValueBlockAttribute
+        :rtype: AttributeBlockReference
         """
         return self._attribute
 
@@ -196,7 +196,7 @@ class UpdateAttributeValueBlock(object):
 
 
         :param attribute: The attribute of this UpdateAttributeValueBlock.  # noqa: E501
-        :type: UpdateAttributeValueBlockAttribute
+        :type: AttributeBlockReference
         """
         if self.local_vars_configuration.client_side_validation and attribute is None:  # noqa: E501
             raise ValueError("Invalid value for `attribute`, must not be `None`")  # noqa: E501

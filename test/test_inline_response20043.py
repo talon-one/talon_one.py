@@ -36,26 +36,44 @@ class TestInlineResponse20043(unittest.TestCase):
         # model = talon_one.models.inline_response20043.InlineResponse20043()  # noqa: E501
         if include_optional :
             return InlineResponse20043(
+                has_more = True, 
                 total_result_size = 1, 
                 data = [
-                    talon_one.models.event_type.EventType(
+                    talon_one.models.catalog_item.CatalogItem(
                         id = 6, 
                         created = '2020-06-10T09:05:27.993483Z', 
-                        title = 'Survey Completed', 
-                        name = 'surveyCompleted', 
-                        description = 'The survey was submitted by the customer.', )
+                        sku = 'SKU1241028', 
+                        price = 99.99, 
+                        catalogid = 6, 
+                        version = 5, 
+                        attributes = [
+                            talon_one.models.item_attribute.ItemAttribute(
+                                attributeid = 6, 
+                                name = '0', 
+                                value = talon_one.models.value.value(), )
+                            ], 
+                        product = talon_one.models.product.Product(
+                            name = 'sample_product', ), )
                     ]
             )
         else :
             return InlineResponse20043(
-                total_result_size = 1,
                 data = [
-                    talon_one.models.event_type.EventType(
+                    talon_one.models.catalog_item.CatalogItem(
                         id = 6, 
                         created = '2020-06-10T09:05:27.993483Z', 
-                        title = 'Survey Completed', 
-                        name = 'surveyCompleted', 
-                        description = 'The survey was submitted by the customer.', )
+                        sku = 'SKU1241028', 
+                        price = 99.99, 
+                        catalogid = 6, 
+                        version = 5, 
+                        attributes = [
+                            talon_one.models.item_attribute.ItemAttribute(
+                                attributeid = 6, 
+                                name = '0', 
+                                value = talon_one.models.value.value(), )
+                            ], 
+                        product = talon_one.models.product.Product(
+                            name = 'sample_product', ), )
                     ],
         )
 

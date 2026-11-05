@@ -5,7 +5,7 @@ A block that validates the referral code value and date.
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** | Unique identifier for this block. | [optional] [readonly] 
-**type** | **str** | Identifies the block variant and determines which additional properties are present in it. | 
+**type** | **str** | A block discriminator of type &#x60;checkReferral&#x60;. | 
 **tags** | **list[str]** | Semantic labels attached to this block. | [optional] [readonly] 
 **redeem** | **bool** | When &#x60;true&#x60;, the referral code is redeemed. | 
 **on_failure** | **list[object]** | Promotion blocks evaluated when this block fails or returns false. | [optional] 

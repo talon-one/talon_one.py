@@ -41,7 +41,7 @@ class TestUnlockRewardEffectProps(unittest.TestCase):
                 application_id = 1, 
                 profile_integration_id = 'customer1', 
                 unlocked_at = '2024-05-29T15:04:05Z', 
-                card_identifier = 'summer-loyalty-card-0543'
+                loyalty_card_id = 'summer-loyalty-card-0543'
             )
         else :
             return UnlockRewardEffectProps(

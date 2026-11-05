@@ -42,6 +42,7 @@ class IntegrationEventV3Request(object):
         'connected_session_id': 'str',
         'referral_code': 'str',
         'loyalty_cards': 'list[str]',
+        'reward_integration_ids': 'list[str]',
         'response_content': 'list[str]'
     }
 
@@ -55,10 +56,11 @@ class IntegrationEventV3Request(object):
         'connected_session_id': 'connectedSessionId',
         'referral_code': 'referralCode',
         'loyalty_cards': 'loyaltyCards',
+        'reward_integration_ids': 'rewardIntegrationIds',
         'response_content': 'responseContent'
     }
 
-    def __init__(self, profile_id=None, store_integration_id=None, evaluable_campaign_ids=None, type=None, attributes=None, integration_id=None, connected_session_id=None, referral_code=None, loyalty_cards=None, response_content=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, profile_id=None, store_integration_id=None, evaluable_campaign_ids=None, type=None, attributes=None, integration_id=None, connected_session_id=None, referral_code=None, loyalty_cards=None, reward_integration_ids=None, response_content=None, local_vars_configuration=None):  # noqa: E501
         """IntegrationEventV3Request - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -73,6 +75,7 @@ class IntegrationEventV3Request(object):
         self._connected_session_id = None
         self._referral_code = None
         self._loyalty_cards = None
+        self._reward_integration_ids = None
         self._response_content = None
         self.discriminator = None
 
@@ -91,6 +94,8 @@ class IntegrationEventV3Request(object):
             self.referral_code = referral_code
         if loyalty_cards is not None:
             self.loyalty_cards = loyalty_cards
+        if reward_integration_ids is not None:
+            self.reward_integration_ids = reward_integration_ids
         if response_content is not None:
             self.response_content = response_content
 
@@ -326,6 +331,29 @@ class IntegrationEventV3Request(object):
         self._loyalty_cards = loyalty_cards
 
     @property
+    def reward_integration_ids(self):
+        """Gets the reward_integration_ids of this IntegrationEventV3Request.  # noqa: E501
+
+        The integration IDs of the unlocked rewards that can be used in this event.   # noqa: E501
+
+        :return: The reward_integration_ids of this IntegrationEventV3Request.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._reward_integration_ids
+
+    @reward_integration_ids.setter
+    def reward_integration_ids(self, reward_integration_ids):
+        """Sets the reward_integration_ids of this IntegrationEventV3Request.
+
+        The integration IDs of the unlocked rewards that can be used in this event.   # noqa: E501
+
+        :param reward_integration_ids: The reward_integration_ids of this IntegrationEventV3Request.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._reward_integration_ids = reward_integration_ids
+
+    @property
     def response_content(self):
         """Gets the response_content of this IntegrationEventV3Request.  # noqa: E501
 
@@ -345,7 +373,7 @@ class IntegrationEventV3Request(object):
         :param response_content: The response_content of this IntegrationEventV3Request.  # noqa: E501
         :type: list[str]
         """
-        allowed_values = ["advancedEvent", "awardedGiveaways", "customerProfile", "loyalty", "referral", "ruleFailureReasons", "triggeredCampaigns"]  # noqa: E501
+        allowed_values = ["advancedEvent", "awardedGiveaways", "customerProfile", "loyalty", "referral", "ruleFailureReasons", "triggeredCampaigns", "unlockedRewards"]  # noqa: E501
         if (self.local_vars_configuration.client_side_validation and
                 not set(response_content).issubset(set(allowed_values))):  # noqa: E501
             raise ValueError(

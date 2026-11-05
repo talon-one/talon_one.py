@@ -40,7 +40,9 @@ class TierDowngradeData(object):
         'current_points': 'float',
         'old_tier': 'str',
         'tier_expiration_date': 'datetime',
-        'timestamp_of_tier_change': 'datetime'
+        'timestamp_of_tier_change': 'datetime',
+        'source': 'str',
+        'reason': 'str'
     }
 
     attribute_map = {
@@ -51,10 +53,12 @@ class TierDowngradeData(object):
         'current_points': 'CurrentPoints',
         'old_tier': 'OldTier',
         'tier_expiration_date': 'TierExpirationDate',
-        'timestamp_of_tier_change': 'TimestampOfTierChange'
+        'timestamp_of_tier_change': 'TimestampOfTierChange',
+        'source': 'Source',
+        'reason': 'Reason'
     }
 
-    def __init__(self, customer_profile_id=None, loyalty_program_id=None, subledger_id='', current_tier=None, current_points=None, old_tier=None, tier_expiration_date=None, timestamp_of_tier_change=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, customer_profile_id=None, loyalty_program_id=None, subledger_id='', current_tier=None, current_points=None, old_tier=None, tier_expiration_date=None, timestamp_of_tier_change=None, source='points', reason=None, local_vars_configuration=None):  # noqa: E501
         """TierDowngradeData - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -68,6 +72,8 @@ class TierDowngradeData(object):
         self._old_tier = None
         self._tier_expiration_date = None
         self._timestamp_of_tier_change = None
+        self._source = None
+        self._reason = None
         self.discriminator = None
 
         self.customer_profile_id = customer_profile_id
@@ -80,6 +86,10 @@ class TierDowngradeData(object):
         if tier_expiration_date is not None:
             self.tier_expiration_date = tier_expiration_date
         self.timestamp_of_tier_change = timestamp_of_tier_change
+        if source is not None:
+            self.source = source
+        if reason is not None:
+            self.reason = reason
 
     @property
     def customer_profile_id(self):
@@ -279,6 +289,58 @@ class TierDowngradeData(object):
             raise ValueError("Invalid value for `timestamp_of_tier_change`, must not be `None`")  # noqa: E501
 
         self._timestamp_of_tier_change = timestamp_of_tier_change
+
+    @property
+    def source(self):
+        """Gets the source of this TierDowngradeData.  # noqa: E501
+
+        The source of the tier change, whether from a points change or boost.   # noqa: E501
+
+        :return: The source of this TierDowngradeData.  # noqa: E501
+        :rtype: str
+        """
+        return self._source
+
+    @source.setter
+    def source(self, source):
+        """Sets the source of this TierDowngradeData.
+
+        The source of the tier change, whether from a points change or boost.   # noqa: E501
+
+        :param source: The source of this TierDowngradeData.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["boost", "points"]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and source not in allowed_values:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `source` ({0}), must be one of {1}"  # noqa: E501
+                .format(source, allowed_values)
+            )
+
+        self._source = source
+
+    @property
+    def reason(self):
+        """Gets the reason of this TierDowngradeData.  # noqa: E501
+
+        The reason for the tier change.   # noqa: E501
+
+        :return: The reason of this TierDowngradeData.  # noqa: E501
+        :rtype: str
+        """
+        return self._reason
+
+    @reason.setter
+    def reason(self, reason):
+        """Sets the reason of this TierDowngradeData.
+
+        The reason for the tier change.   # noqa: E501
+
+        :param reason: The reason of this TierDowngradeData.  # noqa: E501
+        :type: str
+        """
+
+        self._reason = reason
 
     def to_dict(self):
         """Returns the model properties as a dict"""

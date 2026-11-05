@@ -37,7 +37,7 @@ class CheckAchievementBlock(object):
         'type': 'str',
         'tags': 'list[str]',
         'operator': 'str',
-        'achievement': 'CheckAchievementBlockAchievement',
+        'achievement': 'AchievementBlockReference',
         'on_failure': 'list[object]'
     }
 
@@ -182,7 +182,7 @@ class CheckAchievementBlock(object):
 
 
         :return: The achievement of this CheckAchievementBlock.  # noqa: E501
-        :rtype: CheckAchievementBlockAchievement
+        :rtype: AchievementBlockReference
         """
         return self._achievement
 
@@ -192,7 +192,7 @@ class CheckAchievementBlock(object):
 
 
         :param achievement: The achievement of this CheckAchievementBlock.  # noqa: E501
-        :type: CheckAchievementBlockAchievement
+        :type: AchievementBlockReference
         """
         if self.local_vars_configuration.client_side_validation and achievement is None:  # noqa: E501
             raise ValueError("Invalid value for `achievement`, must not be `None`")  # noqa: E501

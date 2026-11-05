@@ -88,6 +88,8 @@ class TestReward(unittest.TestCase):
                         loyalty_program_id = 10, 
                         subledger_id = 'mysubledger', )
                     ], 
+                validity_duration = '3M_U', 
+                expiry_date = '2026-12-31T00:00Z', 
                 modified = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                 status = 'active'
             )

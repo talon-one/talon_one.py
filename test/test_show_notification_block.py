@@ -44,9 +44,6 @@ class TestShowNotificationBlock(unittest.TestCase):
                 notification_type = 'Info', 
                 title = 'You earned a reward!', 
                 body = 'You saved $10 on your order.', 
-                on_failure = [
-                    talon_one.models.block.Block()
-                    ], 
                 on_error = {
                     'key' : [
                         talon_one.models.block.Block()
@@ -58,6 +55,7 @@ class TestShowNotificationBlock(unittest.TestCase):
                 type = '0',
                 notification_type = 'Info',
                 title = 'You earned a reward!',
+                body = 'You saved $10 on your order.',
         )
 
     def testShowNotificationBlock(self):

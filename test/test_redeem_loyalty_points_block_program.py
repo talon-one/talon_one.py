@@ -43,8 +43,6 @@ class TestRedeemLoyaltyPointsBlockProgram(unittest.TestCase):
         else :
             return RedeemLoyaltyPointsBlockProgram(
                 id = 10,
-                name = 'MainProgram',
-                title = 'Main Loyalty Program',
         )
 
     def testRedeemLoyaltyPointsBlockProgram(self):

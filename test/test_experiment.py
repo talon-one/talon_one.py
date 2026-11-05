@@ -39,6 +39,7 @@ class TestExperiment(unittest.TestCase):
                 id = 6, 
                 created = '2020-06-10T09:05:27.993483Z', 
                 application_id = 322, 
+                assignment_type = 'random', 
                 is_variant_assignment_external = True, 
                 campaign = talon_one.models.campaign.Campaign(
                     id = 4, 
@@ -157,7 +158,8 @@ class TestExperiment(unittest.TestCase):
                             template_id = 3, 
                             activated_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), ), 
                         weight = 12, 
-                        is_primary = True, )
+                        is_primary = True, 
+                        audience_id = 55, )
                     ], 
                 goal_type = 'other', 
                 goal_description = 'Offering free shipping will increase average order revenue more than a 10% discount', 

@@ -481,7 +481,7 @@ class RuleFailureReason(object):
     def evaluation_group_mode(self):
         """Gets the evaluation_group_mode of this RuleFailureReason.  # noqa: E501
 
-        The evaluation mode of the evaluation group. For more information, see [Managing campaign evaluation](https://docs.talon.one/docs/product/applications/managing-campaign-  # noqa: E501
+        The evaluation mode of the evaluation group. For more information, see [Managing campaign evaluation](https://docs.talon.one/docs/product/applications/managing-campaign-evaluation).  # noqa: E501
 
         :return: The evaluation_group_mode of this RuleFailureReason.  # noqa: E501
         :rtype: str
@@ -492,7 +492,7 @@ class RuleFailureReason(object):
     def evaluation_group_mode(self, evaluation_group_mode):
         """Sets the evaluation_group_mode of this RuleFailureReason.
 
-        The evaluation mode of the evaluation group. For more information, see [Managing campaign evaluation](https://docs.talon.one/docs/product/applications/managing-campaign-  # noqa: E501
+        The evaluation mode of the evaluation group. For more information, see [Managing campaign evaluation](https://docs.talon.one/docs/product/applications/managing-campaign-evaluation).  # noqa: E501
 
         :param evaluation_group_mode: The evaluation_group_mode of this RuleFailureReason.  # noqa: E501
         :type: str

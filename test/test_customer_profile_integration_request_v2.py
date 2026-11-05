@@ -41,7 +41,8 @@ class TestCustomerProfileIntegrationRequestV2(unittest.TestCase):
                 response_content = [triggeredCampaigns, customerProfile], 
                 audiences_changes = talon_one.models.profile_audiences_changes.ProfileAudiencesChanges(
                     adds = [2, 4], 
-                    deletes = [7], )
+                    deletes = [7], ), 
+                reward_integration_ids = [5c0b5e6d-3f8a-4c2b-9f1e-2a7d6b4c8e90]
             )
         else :
             return CustomerProfileIntegrationRequestV2(

@@ -38,7 +38,7 @@ class UnlockRewardEffectProps(object):
         'application_id': 'int',
         'profile_integration_id': 'str',
         'unlocked_at': 'datetime',
-        'card_identifier': 'str'
+        'loyalty_card_id': 'str'
     }
 
     attribute_map = {
@@ -47,10 +47,10 @@ class UnlockRewardEffectProps(object):
         'application_id': 'applicationId',
         'profile_integration_id': 'profileIntegrationId',
         'unlocked_at': 'unlockedAt',
-        'card_identifier': 'cardIdentifier'
+        'loyalty_card_id': 'loyaltyCardId'
     }
 
-    def __init__(self, integration_id=None, reward_id=None, application_id=None, profile_integration_id=None, unlocked_at=None, card_identifier=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, integration_id=None, reward_id=None, application_id=None, profile_integration_id=None, unlocked_at=None, loyalty_card_id=None, local_vars_configuration=None):  # noqa: E501
         """UnlockRewardEffectProps - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -61,7 +61,7 @@ class UnlockRewardEffectProps(object):
         self._application_id = None
         self._profile_integration_id = None
         self._unlocked_at = None
-        self._card_identifier = None
+        self._loyalty_card_id = None
         self.discriminator = None
 
         self.integration_id = integration_id
@@ -69,8 +69,8 @@ class UnlockRewardEffectProps(object):
         self.application_id = application_id
         self.profile_integration_id = profile_integration_id
         self.unlocked_at = unlocked_at
-        if card_identifier is not None:
-            self.card_identifier = card_identifier
+        if loyalty_card_id is not None:
+            self.loyalty_card_id = loyalty_card_id
 
     @property
     def integration_id(self):
@@ -198,36 +198,36 @@ class UnlockRewardEffectProps(object):
         self._unlocked_at = unlocked_at
 
     @property
-    def card_identifier(self):
-        """Gets the card_identifier of this UnlockRewardEffectProps.  # noqa: E501
+    def loyalty_card_id(self):
+        """Gets the loyalty_card_id of this UnlockRewardEffectProps.  # noqa: E501
 
         The identifier of the loyalty card, which must match the regular expression `^[A-Za-z0-9._%+@-]+$`.   # noqa: E501
 
-        :return: The card_identifier of this UnlockRewardEffectProps.  # noqa: E501
+        :return: The loyalty_card_id of this UnlockRewardEffectProps.  # noqa: E501
         :rtype: str
         """
-        return self._card_identifier
+        return self._loyalty_card_id
 
-    @card_identifier.setter
-    def card_identifier(self, card_identifier):
-        """Sets the card_identifier of this UnlockRewardEffectProps.
+    @loyalty_card_id.setter
+    def loyalty_card_id(self, loyalty_card_id):
+        """Sets the loyalty_card_id of this UnlockRewardEffectProps.
 
         The identifier of the loyalty card, which must match the regular expression `^[A-Za-z0-9._%+@-]+$`.   # noqa: E501
 
-        :param card_identifier: The card_identifier of this UnlockRewardEffectProps.  # noqa: E501
+        :param loyalty_card_id: The loyalty_card_id of this UnlockRewardEffectProps.  # noqa: E501
         :type: str
         """
         if (self.local_vars_configuration.client_side_validation and
-                card_identifier is not None and len(card_identifier) > 108):
-            raise ValueError("Invalid value for `card_identifier`, length must be less than or equal to `108`")  # noqa: E501
+                loyalty_card_id is not None and len(loyalty_card_id) > 108):
+            raise ValueError("Invalid value for `loyalty_card_id`, length must be less than or equal to `108`")  # noqa: E501
         if (self.local_vars_configuration.client_side_validation and
-                card_identifier is not None and len(card_identifier) < 4):
-            raise ValueError("Invalid value for `card_identifier`, length must be greater than or equal to `4`")  # noqa: E501
+                loyalty_card_id is not None and len(loyalty_card_id) < 4):
+            raise ValueError("Invalid value for `loyalty_card_id`, length must be greater than or equal to `4`")  # noqa: E501
         if (self.local_vars_configuration.client_side_validation and
-                card_identifier is not None and not re.search(r'^[A-Za-z0-9._%+@-]+$', card_identifier)):  # noqa: E501
-            raise ValueError(r"Invalid value for `card_identifier`, must be a follow pattern or equal to `/^[A-Za-z0-9._%+@-]+$/`")  # noqa: E501
+                loyalty_card_id is not None and not re.search(r'^[A-Za-z0-9._%+@-]+$', loyalty_card_id)):  # noqa: E501
+            raise ValueError(r"Invalid value for `loyalty_card_id`, must be a follow pattern or equal to `/^[A-Za-z0-9._%+@-]+$/`")  # noqa: E501
 
-        self._card_identifier = card_identifier
+        self._loyalty_card_id = loyalty_card_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

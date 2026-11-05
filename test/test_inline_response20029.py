@@ -36,9 +36,10 @@ class TestInlineResponse20029(unittest.TestCase):
         # model = talon_one.models.inline_response20029.InlineResponse20029()  # noqa: E501
         if include_optional :
             return InlineResponse20029(
+                total_result_size = 1, 
                 has_more = True, 
                 data = [
-                    talon_one.models.customer_profile.CustomerProfile(
+                    talon_one.models.application_customer.ApplicationCustomer(
                         id = 6, 
                         created = '2020-02-07T08:15:22Z', 
                         integration_id = 'URNGV8294NV', 
@@ -57,14 +58,19 @@ class TestInlineResponse20029(unittest.TestCase):
                                 name = 'Travel audience', )
                             ], 
                         last_activity = '2020-02-08T14:15:20Z', 
-                        sandbox = False, )
+                        sandbox = False, 
+                        advocate_integration_id = '0', 
+                        loyalty_program_join_dates = [
+                            talon_one.models.loyalty_membership.LoyaltyMembership(
+                                joined = '2012-03-20T14:15:22Z', 
+                                loyalty_program_id = 323414846, )
+                            ], )
                     ]
             )
         else :
             return InlineResponse20029(
-                has_more = True,
                 data = [
-                    talon_one.models.customer_profile.CustomerProfile(
+                    talon_one.models.application_customer.ApplicationCustomer(
                         id = 6, 
                         created = '2020-02-07T08:15:22Z', 
                         integration_id = 'URNGV8294NV', 
@@ -83,7 +89,13 @@ class TestInlineResponse20029(unittest.TestCase):
                                 name = 'Travel audience', )
                             ], 
                         last_activity = '2020-02-08T14:15:20Z', 
-                        sandbox = False, )
+                        sandbox = False, 
+                        advocate_integration_id = '0', 
+                        loyalty_program_join_dates = [
+                            talon_one.models.loyalty_membership.LoyaltyMembership(
+                                joined = '2012-03-20T14:15:22Z', 
+                                loyalty_program_id = 323414846, )
+                            ], )
                     ],
         )
 

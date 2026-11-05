@@ -37,12 +37,12 @@ class TestRevisionVersion(unittest.TestCase):
         if include_optional :
             return RevisionVersion(
                 id = 6, 
-                account_id = 56, 
-                application_id = 56, 
-                campaign_id = 56, 
-                created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                created_by = 56, 
-                revision_id = 56, 
+                account_id = 3886, 
+                application_id = 42, 
+                campaign_id = 18, 
+                created = '2026-10-01T08:00Z', 
+                created_by = 134, 
+                revision_id = 6, 
                 version = 56, 
                 name = 'Summer promotions', 
                 start_time = '2021-07-20T22:00Z', 
@@ -75,12 +75,12 @@ class TestRevisionVersion(unittest.TestCase):
         else :
             return RevisionVersion(
                 id = 6,
-                account_id = 56,
-                application_id = 56,
-                campaign_id = 56,
-                created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
-                created_by = 56,
-                revision_id = 56,
+                account_id = 3886,
+                application_id = 42,
+                campaign_id = 18,
+                created = '2026-10-01T08:00Z',
+                created_by = 134,
+                revision_id = 6,
                 version = 56,
         )
 

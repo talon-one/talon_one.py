@@ -43,6 +43,8 @@ class TestRuleEligibilityFailureDetails(unittest.TestCase):
                 referral_value = '0', 
                 condition_index = 56, 
                 effect_index = 56, 
+                rule_index = 0, 
+                ruleset_id = 123, 
                 details = '0'
             )
         else :

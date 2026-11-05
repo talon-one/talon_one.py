@@ -34,7 +34,7 @@ class InlineResponse20052(object):
     """
     openapi_types = {
         'has_more': 'bool',
-        'data': 'list[Achievement]'
+        'data': 'list[ApplicationCIF]'
     }
 
     attribute_map = {
@@ -83,7 +83,7 @@ class InlineResponse20052(object):
 
 
         :return: The data of this InlineResponse20052.  # noqa: E501
-        :rtype: list[Achievement]
+        :rtype: list[ApplicationCIF]
         """
         return self._data
 
@@ -93,7 +93,7 @@ class InlineResponse20052(object):
 
 
         :param data: The data of this InlineResponse20052.  # noqa: E501
-        :type: list[Achievement]
+        :type: list[ApplicationCIF]
         """
         if self.local_vars_configuration.client_side_validation and data is None:  # noqa: E501
             raise ValueError("Invalid value for `data`, must not be `None`")  # noqa: E501

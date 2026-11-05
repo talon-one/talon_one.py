@@ -43,7 +43,9 @@ class TestTierDowngradeData(unittest.TestCase):
                 current_points = 120.55, 
                 old_tier = 'Gold', 
                 tier_expiration_date = '2023-12-01T12:23+02:00', 
-                timestamp_of_tier_change = '2023-10-26T12:23+02:00'
+                timestamp_of_tier_change = '2023-10-26T12:23+02:00', 
+                source = 'points', 
+                reason = '0'
             )
         else :
             return TierDowngradeData(

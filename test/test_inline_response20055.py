@@ -36,34 +36,51 @@ class TestInlineResponse20055(unittest.TestCase):
         # model = talon_one.models.inline_response20055.InlineResponse20055()  # noqa: E501
         if include_optional :
             return InlineResponse20055(
+                has_more = True, 
                 data = [
-                    talon_one.models.coupon_failure_summary.CouponFailureSummary(
-                        id = 1, 
-                        event_id = 1011, 
-                        session_id = '1', 
-                        profile_id = 'a48f10dddb5c9493aad194e49bb9c1dac', 
-                        status = 'rejected', 
-                        coupon_code = 'ABC123', 
-                        language = 'en', 
-                        summary = 'Session total was less than the required total.', 
-                        created_at = '2021-07-20T21:59Z', 
-                        updated_at = '2021-07-20T21:59Z', )
+                    talon_one.models.achievement.Achievement(
+                        id = 6, 
+                        created = '2020-06-10T09:05:27.993483Z', 
+                        name = 'Order50Discount', 
+                        title = '50% off on 50th purchase.', 
+                        description = '50% off for every 50th purchase in a year.', 
+                        target = 50.0, 
+                        period = '1Y', 
+                        period_end_override = {month=11, dayOfMonth=23, hour=23, minute=59, second=59}, 
+                        recurrence_policy = 'no_recurrence', 
+                        activation_policy = 'fixed_schedule', 
+                        fixed_start_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        end_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        allow_rollback_after_completion = False, 
+                        campaign_id = 1, 
+                        user_id = 1234, 
+                        created_by = 'John Doe', 
+                        has_progress = True, 
+                        status = 'inprogress', )
                     ]
             )
         else :
             return InlineResponse20055(
                 data = [
-                    talon_one.models.coupon_failure_summary.CouponFailureSummary(
-                        id = 1, 
-                        event_id = 1011, 
-                        session_id = '1', 
-                        profile_id = 'a48f10dddb5c9493aad194e49bb9c1dac', 
-                        status = 'rejected', 
-                        coupon_code = 'ABC123', 
-                        language = 'en', 
-                        summary = 'Session total was less than the required total.', 
-                        created_at = '2021-07-20T21:59Z', 
-                        updated_at = '2021-07-20T21:59Z', )
+                    talon_one.models.achievement.Achievement(
+                        id = 6, 
+                        created = '2020-06-10T09:05:27.993483Z', 
+                        name = 'Order50Discount', 
+                        title = '50% off on 50th purchase.', 
+                        description = '50% off for every 50th purchase in a year.', 
+                        target = 50.0, 
+                        period = '1Y', 
+                        period_end_override = {month=11, dayOfMonth=23, hour=23, minute=59, second=59}, 
+                        recurrence_policy = 'no_recurrence', 
+                        activation_policy = 'fixed_schedule', 
+                        fixed_start_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        end_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        allow_rollback_after_completion = False, 
+                        campaign_id = 1, 
+                        user_id = 1234, 
+                        created_by = 'John Doe', 
+                        has_progress = True, 
+                        status = 'inprogress', )
                     ],
         )
 

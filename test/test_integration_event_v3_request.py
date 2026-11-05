@@ -45,6 +45,7 @@ class TestIntegrationEventV3Request(unittest.TestCase):
                 connected_session_id = '175KJPS947296', 
                 referral_code = 'NT2K54D9', 
                 loyalty_cards = [loyalty-card-1], 
+                reward_integration_ids = [5c0b5e6d-3f8a-4c2b-9f1e-2a7d6b4c8e90], 
                 response_content = [triggeredCampaigns, customerProfile]
             )
         else :

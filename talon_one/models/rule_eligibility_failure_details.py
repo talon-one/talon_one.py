@@ -40,6 +40,8 @@ class RuleEligibilityFailureDetails(object):
         'referral_value': 'str',
         'condition_index': 'int',
         'effect_index': 'int',
+        'rule_index': 'int',
+        'ruleset_id': 'int',
         'details': 'str'
     }
 
@@ -51,10 +53,12 @@ class RuleEligibilityFailureDetails(object):
         'referral_value': 'referralValue',
         'condition_index': 'conditionIndex',
         'effect_index': 'effectIndex',
+        'rule_index': 'ruleIndex',
+        'ruleset_id': 'rulesetId',
         'details': 'details'
     }
 
-    def __init__(self, failure_code=None, coupon_id=None, coupon_value=None, referral_id=None, referral_value=None, condition_index=None, effect_index=None, details=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, failure_code=None, coupon_id=None, coupon_value=None, referral_id=None, referral_value=None, condition_index=None, effect_index=None, rule_index=None, ruleset_id=None, details=None, local_vars_configuration=None):  # noqa: E501
         """RuleEligibilityFailureDetails - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -67,6 +71,8 @@ class RuleEligibilityFailureDetails(object):
         self._referral_value = None
         self._condition_index = None
         self._effect_index = None
+        self._rule_index = None
+        self._ruleset_id = None
         self._details = None
         self.discriminator = None
 
@@ -83,6 +89,10 @@ class RuleEligibilityFailureDetails(object):
             self.condition_index = condition_index
         if effect_index is not None:
             self.effect_index = effect_index
+        if rule_index is not None:
+            self.rule_index = rule_index
+        if ruleset_id is not None:
+            self.ruleset_id = ruleset_id
         self.details = details
 
     @property
@@ -253,6 +263,52 @@ class RuleEligibilityFailureDetails(object):
         """
 
         self._effect_index = effect_index
+
+    @property
+    def rule_index(self):
+        """Gets the rule_index of this RuleEligibilityFailureDetails.  # noqa: E501
+
+        The index of the rule that failed within the ruleset.  # noqa: E501
+
+        :return: The rule_index of this RuleEligibilityFailureDetails.  # noqa: E501
+        :rtype: int
+        """
+        return self._rule_index
+
+    @rule_index.setter
+    def rule_index(self, rule_index):
+        """Sets the rule_index of this RuleEligibilityFailureDetails.
+
+        The index of the rule that failed within the ruleset.  # noqa: E501
+
+        :param rule_index: The rule_index of this RuleEligibilityFailureDetails.  # noqa: E501
+        :type: int
+        """
+
+        self._rule_index = rule_index
+
+    @property
+    def ruleset_id(self):
+        """Gets the ruleset_id of this RuleEligibilityFailureDetails.  # noqa: E501
+
+        The ID of the ruleset containing the rule that failed.  # noqa: E501
+
+        :return: The ruleset_id of this RuleEligibilityFailureDetails.  # noqa: E501
+        :rtype: int
+        """
+        return self._ruleset_id
+
+    @ruleset_id.setter
+    def ruleset_id(self, ruleset_id):
+        """Sets the ruleset_id of this RuleEligibilityFailureDetails.
+
+        The ID of the ruleset containing the rule that failed.  # noqa: E501
+
+        :param ruleset_id: The ruleset_id of this RuleEligibilityFailureDetails.  # noqa: E501
+        :type: int
+        """
+
+        self._ruleset_id = ruleset_id
 
     @property
     def details(self):

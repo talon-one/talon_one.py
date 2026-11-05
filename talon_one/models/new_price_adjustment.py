@@ -228,7 +228,7 @@ class NewPriceAdjustment(object):
     def context_id(self):
         """Gets the context_id of this NewPriceAdjustment.  # noqa: E501
 
-        Identifier of the context of this price adjustment (e.g. summer sale).  # noqa: E501
+        Identifier of the context of this price adjustment (the sales event, e.g. \"Summer Sale\").  # noqa: E501
 
         :return: The context_id of this NewPriceAdjustment.  # noqa: E501
         :rtype: str
@@ -239,7 +239,7 @@ class NewPriceAdjustment(object):
     def context_id(self, context_id):
         """Sets the context_id of this NewPriceAdjustment.
 
-        Identifier of the context of this price adjustment (e.g. summer sale).  # noqa: E501
+        Identifier of the context of this price adjustment (the sales event, e.g. \"Summer Sale\").  # noqa: E501
 
         :param context_id: The context_id of this NewPriceAdjustment.  # noqa: E501
         :type: str
