@@ -53,17 +53,17 @@ pprint(encoded_data)
 
 # Parsing the returned effects list, please consult https://developers.talon.one/Integration-API/handling-effects-v2 for the full list of effects and their corresponding properties
 for effect in api_response.effects:
-    if effect.effect_type == "setDiscount":
+    if effect["effectType"] == "setDiscount":
         # Initiating right props instance according to the effect type
-        setDiscountProps = integration_api.api_client.deserialize_model(effect.props, talon_one.SetDiscountEffectProps)
+        setDiscountProps = integration_api.api_client.deserialize_model(effect["props"], talon_one.SetDiscountEffectProps)
 
         # Access the specific effect's properties
         print("Set a discount '{name}' of {value}".format(
             name = setDiscountProps.name,
             value = setDiscountProps.value
         ))
-    elif effect.effect_type == "rejectCoupon":
-        rejectCouponEffectProps = integration_api.api_client.deserialize_model(effect.props, talon_one.RejectCouponEffectProps)
+    elif effect["effectType"] == "rejectCoupon":
+        rejectCouponEffectProps = integration_api.api_client.deserialize_model(effect["props"], talon_one.RejectCouponEffectProps)
 
-        # Work with AcceptCouponEffectProps' properties
+        # Work with RejectCouponEffectProps' properties
         # ...
